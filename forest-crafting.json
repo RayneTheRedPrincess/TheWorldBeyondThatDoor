@@ -1,0 +1,4784 @@
+{
+  "version": "I14-2026-08-08",
+  "designStatus": "Full Forest Campsite crafting authority. No equipment drops; starter gear is the only spawned equipment.",
+  "rules": {
+    "location": "Campsite",
+    "enemyEquipmentDrops": false,
+    "normalRarity": "Normal",
+    "specialRarity": "SoulFire",
+    "rarities": [
+      "Normal",
+      "SoulFire"
+    ],
+    "normalMaterialDropByRealPartySize": {
+      "1": [
+        1,
+        3
+      ],
+      "2": [
+        2,
+        3
+      ],
+      "3": [
+        3,
+        4
+      ],
+      "4": [
+        4,
+        5
+      ]
+    },
+    "soulfireCoreDropByRealPartySize": {
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4
+    },
+    "soulfireCoreDeterministic": true,
+    "craftedEquipmentCampaignOnly": true,
+    "permanentEquipmentInventory": false,
+    "lenderOnlyCrossCampaignEquipmentException": true,
+    "trainerSoulfireHookStatus": "live-17-trainer-roster",
+    "materialThreadEligibleKinds": [
+      "ordinary-enemy"
+    ],
+    "trainerSoulfireCoreCount": 17,
+    "trainerSoulfireItemsPerTrainer": 3
+  },
+  "materials": [
+    {
+      "id": "bramble-hook",
+      "name": "Bramble Hook",
+      "kind": "ordinary-enemy",
+      "sourceId": "bramblekin-scrapper",
+      "rarity": "Normal"
+    },
+    {
+      "id": "mossjaw-tusk",
+      "name": "Mossjaw Tusk",
+      "kind": "ordinary-enemy",
+      "sourceId": "mossjaw-boar",
+      "rarity": "Normal"
+    },
+    {
+      "id": "soft-spore-sack",
+      "name": "Soft Spore Sack",
+      "kind": "ordinary-enemy",
+      "sourceId": "sporecap-tender",
+      "rarity": "Normal"
+    },
+    {
+      "id": "needlefang",
+      "name": "Needlefang",
+      "kind": "ordinary-enemy",
+      "sourceId": "needlefang-lynx",
+      "rarity": "Normal"
+    },
+    {
+      "id": "chimeleaf-frond",
+      "name": "Chimeleaf Frond",
+      "kind": "ordinary-enemy",
+      "sourceId": "chimeleaf-wisp",
+      "rarity": "Normal"
+    },
+    {
+      "id": "ironbark-plate",
+      "name": "Ironbark Plate",
+      "kind": "ordinary-enemy",
+      "sourceId": "ironbark-ram",
+      "rarity": "Normal"
+    },
+    {
+      "id": "hexroot-knot",
+      "name": "Hexroot Knot",
+      "kind": "ordinary-enemy",
+      "sourceId": "rootcoil-hexer",
+      "rarity": "Normal"
+    },
+    {
+      "id": "glasswing-shard",
+      "name": "Glasswing Shard",
+      "kind": "ordinary-enemy",
+      "sourceId": "glasswing-needler",
+      "rarity": "Normal"
+    },
+    {
+      "id": "vinebound-chain",
+      "name": "Vinebound Chain",
+      "kind": "ordinary-enemy",
+      "sourceId": "vinebound-reaver",
+      "rarity": "Normal"
+    },
+    {
+      "id": "gloomcap-cluster",
+      "name": "Gloomcap Cluster",
+      "kind": "ordinary-enemy",
+      "sourceId": "gloomcap-binder",
+      "rarity": "Normal"
+    },
+    {
+      "id": "sunscar-antler",
+      "name": "Sunscar Antler",
+      "kind": "ordinary-enemy",
+      "sourceId": "sunscar-hart",
+      "rarity": "Normal"
+    },
+    {
+      "id": "volatile-resin",
+      "name": "Volatile Resin",
+      "kind": "ordinary-enemy",
+      "sourceId": "barkveil-sapper",
+      "rarity": "Normal"
+    },
+    {
+      "id": "thorn-soulfirecore",
+      "name": "Thorn SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "crown-of-thorns-warden",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "heartwood-soulfirecore",
+      "name": "Heartwood SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "heartwood-sovereign",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "torren-ashsplitter-soulfirecore",
+      "name": "Ashsplitter SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "torren-ashsplitter",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "maela-ironroot-soulfirecore",
+      "name": "Ironroot SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "maela-ironroot",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "sileth-shadeleaf-soulfirecore",
+      "name": "Shadeleaf SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "sileth-shadeleaf",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "corven-reedblade-soulfirecore",
+      "name": "Reedblade SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "corven-reedblade",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "juno-stonepulse-soulfirecore",
+      "name": "Stonepulse SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "juno-stonepulse",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "ysra-knotwise-soulfirecore",
+      "name": "Knotwise SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "ysra-knotwise",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "pellin-manysigns-soulfirecore",
+      "name": "Manysigns SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "pellin-manysigns",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "avel-mosslight-soulfirecore",
+      "name": "Mosslight SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "avel-mosslight",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "cael-farbranch-soulfirecore",
+      "name": "Farbranch SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "cael-farbranch",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "oryn-pathshield-soulfirecore",
+      "name": "Pathshield SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "oryn-pathshield",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "lysa-greenchoir-soulfirecore",
+      "name": "Greenchoir SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "lysa-greenchoir",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "nemea-wildspark-soulfirecore",
+      "name": "Wildspark SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "nemea-wildspark",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "varrik-hollowroot-soulfirecore",
+      "name": "Hollowroot SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "varrik-hollowroot",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "caldus-firstlight-soulfirecore",
+      "name": "Firstlight SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "caldus-firstlight",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "mira-oaththorn-soulfirecore",
+      "name": "Oaththorn SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "mira-oaththorn",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "odo-broadbark-soulfirecore",
+      "name": "Broadbark SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "odo-broadbark",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "ilyne-seedcrown-soulfirecore",
+      "name": "Seedcrown SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "ilyne-seedcrown",
+      "rarity": "SoulFire"
+    }
+  ],
+  "sets": [
+    {
+      "id": "set-bramblekin-scrapper",
+      "name": "Bramblehook Leathers",
+      "sourceId": "bramblekin-scrapper",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-hookleaf-hood",
+        "eq-briarhide-vest",
+        "eq-scrapper-grips",
+        "eq-bramblebound-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "DEX": 2
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "dodgeChancePct": 8,
+            "damageCritChancePct": 6
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "LCK": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-mossjaw-boar",
+      "name": "Mossjaw Hide",
+      "sourceId": "mossjaw-boar",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-mossjaw-helm",
+        "eq-rooted-hidecoat",
+        "eq-tuskguard-gloves",
+        "eq-mirehoof-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "CON": 2
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "blockChancePct": 8,
+            "blockedDamageReductionPct": 8
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "STR": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-sporecap-tender",
+      "name": "Sporecap Weave",
+      "sourceId": "sporecap-tender",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-sporeveil-cap",
+        "eq-mycelial-wrap",
+        "eq-tenderhand-gloves",
+        "eq-softstep-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "FTH": 2
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "outgoingHealingPct": 12,
+            "incomingHealingPct": 8
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {},
+          "modifiers": {
+            "energyGainPct": 7
+          }
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-needlefang-lynx",
+      "name": "Needlefang Pursuit",
+      "sourceId": "needlefang-lynx",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-needlefang-hood",
+        "eq-pursuit-jack",
+        "eq-sinewgrip-gloves",
+        "eq-stalkstep-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "DEX": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "damageCritChancePct": 10,
+            "criticalDamagePct": 18
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {},
+          "modifiers": {
+            "dodgeChancePct": 6
+          }
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-chimeleaf-wisp",
+      "name": "Chimeleaf Chorus",
+      "sourceId": "chimeleaf-wisp",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-chimeleaf-circlet",
+        "eq-resonant-vestment",
+        "eq-bellfrond-gloves",
+        "eq-hushstep-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "CHA": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "outgoingHealingPct": 15,
+            "shieldStrengthPct": 15
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {},
+          "modifiers": {
+            "energyGainPct": 8
+          }
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-ironbark-ram",
+      "name": "Ironbark Bulwark",
+      "sourceId": "ironbark-ram",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-ironbark-greathelm",
+        "eq-bulwark-cuirass",
+        "eq-ramplate-gauntlets",
+        "eq-rootlock-sabatons"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "CON": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "blockChancePct": 12,
+            "blockedDamageReductionPct": 12
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {},
+          "modifiers": {
+            "incomingDamagePct": -8
+          }
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-rootcoil-hexer",
+      "name": "Rootcoil Hexweave",
+      "sourceId": "rootcoil-hexer",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-hexroot-crown",
+        "eq-black-sap-mantle",
+        "eq-knotweaver-gloves",
+        "eq-coilstep-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "INT": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "finalDamagePct": 12,
+            "energyGainPct": 10
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "FTH": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-glasswing-needler",
+      "name": "Glasswing Volley",
+      "sourceId": "glasswing-needler",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-glasswing-visor",
+        "eq-shardweave-coat",
+        "eq-needler-gloves",
+        "eq-skitterglass-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "DEX": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "damageCritChancePct": 12,
+            "criticalDamagePct": 20
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "LCK": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-vinebound-reaver",
+      "name": "Vinebound Harness",
+      "sourceId": "vinebound-reaver",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-vinebound-helm",
+        "eq-red-sap-harness",
+        "eq-chainvine-gloves",
+        "eq-reaver-treads"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "CON": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "incomingHealingPct": 14,
+            "outgoingHealingPct": 10,
+            "finalDamagePct": 6
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "STR": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-gloomcap-binder",
+      "name": "Gloomcap Shroud",
+      "sourceId": "gloomcap-binder",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-gloomcap-hood",
+        "eq-hollowspore-shroud",
+        "eq-binder-gloves",
+        "eq-umberstep-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "INT": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "finalDamagePct": 12,
+            "damageCritChancePct": 10
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "LCK": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-sunscar-hart",
+      "name": "Sunscar Regalia",
+      "sourceId": "sunscar-hart",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-sunscar-crown",
+        "eq-white-resin-coat",
+        "eq-antlerguard-gloves",
+        "eq-brightstep-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "INT": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "finalDamagePct": 15,
+            "criticalDamagePct": 18
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {},
+          "modifiers": {
+            "damageCritChancePct": 6
+          }
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-barkveil-sapper",
+      "name": "Barkveil Saboteur",
+      "sourceId": "barkveil-sapper",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-barkveil-hood",
+        "eq-sapper-jacket",
+        "eq-resinwork-gloves",
+        "eq-fusepath-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "DEX": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "dodgeChancePct": 10,
+            "energyGainPct": 10
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "CHA": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-crown-of-thorns-warden",
+      "name": "Crown-of-Thorns Bastion",
+      "sourceId": "crown-of-thorns-warden",
+      "rarity": "SoulFire",
+      "pieceIds": [
+        "eq-thorn-crown-greathelm",
+        "eq-warden-briarplate",
+        "eq-crownwood-gauntlets",
+        "eq-thornroot-sabatons"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "CON": 4
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "blockChancePct": 15,
+            "blockedDamageReductionPct": 15,
+            "incomingDamagePct": -10
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "STR": 3
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-heartwood-sovereign",
+      "name": "Heartwood Sovereign Regalia",
+      "sourceId": "heartwood-sovereign",
+      "rarity": "SoulFire",
+      "pieceIds": [
+        "eq-heartwood-diadem",
+        "eq-sovereign-mantle",
+        "eq-doorroot-grips",
+        "eq-heartstep-greaves"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "FTH": 4
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "outgoingHealingPct": 18,
+            "shieldStrengthPct": 18,
+            "incomingHealingPct": 12
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "CON": 3
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3
+    }
+  ],
+  "recipes": [
+    {
+      "id": "recipe-eq-hookleaf-hood",
+      "name": "Hookleaf Hood",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hookleaf-hood",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bramble-hook",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "bramblekin-scrapper",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-briarhide-vest",
+      "name": "Briarhide Vest",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-briarhide-vest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bramble-hook",
+          "quantity": 3
+        }
+      ],
+      "sourceId": "bramblekin-scrapper",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-scrapper-grips",
+      "name": "Scrapper Grips",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-scrapper-grips",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bramble-hook",
+          "quantity": 3
+        }
+      ],
+      "sourceId": "bramblekin-scrapper",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bramblebound-boots",
+      "name": "Bramblebound Boots",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bramblebound-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bramble-hook",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "bramblekin-scrapper",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-briarhook-sabre",
+      "name": "Briarhook Sabre",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-briarhook-sabre",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bramble-hook",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "bramblekin-scrapper",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-thornwrap-knuckles",
+      "name": "Thornwrap Knuckles",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-thornwrap-knuckles",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bramble-hook",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "bramblekin-scrapper",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-mossjaw-helm",
+      "name": "Mossjaw Helm",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-mossjaw-helm",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mossjaw-tusk",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "mossjaw-boar",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-rooted-hidecoat",
+      "name": "Rooted Hidecoat",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-rooted-hidecoat",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mossjaw-tusk",
+          "quantity": 3
+        }
+      ],
+      "sourceId": "mossjaw-boar",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tuskguard-gloves",
+      "name": "Tuskguard Gloves",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tuskguard-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mossjaw-tusk",
+          "quantity": 3
+        }
+      ],
+      "sourceId": "mossjaw-boar",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-mirehoof-boots",
+      "name": "Mirehoof Boots",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-mirehoof-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mossjaw-tusk",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "mossjaw-boar",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tuskbreaker-cleaver",
+      "name": "Tuskbreaker Cleaver",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tuskbreaker-cleaver",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mossjaw-tusk",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "mossjaw-boar",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-mossjaw-fists",
+      "name": "Mossjaw Fists",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-mossjaw-fists",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mossjaw-tusk",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "mossjaw-boar",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-sporeveil-cap",
+      "name": "Sporeveil Cap",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-sporeveil-cap",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "sporecap-tender",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-mycelial-wrap",
+      "name": "Mycelial Wrap",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-mycelial-wrap",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 3
+        }
+      ],
+      "sourceId": "sporecap-tender",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tenderhand-gloves",
+      "name": "Tenderhand Gloves",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tenderhand-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 3
+        }
+      ],
+      "sourceId": "sporecap-tender",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-softstep-boots",
+      "name": "Softstep Boots",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-softstep-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "sporecap-tender",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-mycelial-crook",
+      "name": "Mycelial Crook",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-mycelial-crook",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "sporecap-tender",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-sporebell-chime",
+      "name": "Sporebell Chime",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-sporebell-chime",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "sporecap-tender",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-needlefang-hood",
+      "name": "Needlefang Hood",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-needlefang-hood",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "needlefang",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "needlefang-lynx",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-pursuit-jack",
+      "name": "Pursuit Jack",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-pursuit-jack",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "needlefang",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "needlefang-lynx",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-sinewgrip-gloves",
+      "name": "Sinewgrip Gloves",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-sinewgrip-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "needlefang",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "needlefang-lynx",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-stalkstep-boots",
+      "name": "Stalkstep Boots",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-stalkstep-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "needlefang",
+          "quantity": 6
+        }
+      ],
+      "sourceId": "needlefang-lynx",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-needlefang-dirk",
+      "name": "Needlefang Dirk",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-needlefang-dirk",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "needlefang",
+          "quantity": 7
+        }
+      ],
+      "sourceId": "needlefang-lynx",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-sinewbound-claws",
+      "name": "Sinewbound Claws",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-sinewbound-claws",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "needlefang",
+          "quantity": 7
+        }
+      ],
+      "sourceId": "needlefang-lynx",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-chimeleaf-circlet",
+      "name": "Chimeleaf Circlet",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-chimeleaf-circlet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "chimeleaf-frond",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "chimeleaf-wisp",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-resonant-vestment",
+      "name": "Resonant Vestment",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-resonant-vestment",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "chimeleaf-frond",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "chimeleaf-wisp",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bellfrond-gloves",
+      "name": "Bellfrond Gloves",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bellfrond-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "chimeleaf-frond",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "chimeleaf-wisp",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hushstep-boots",
+      "name": "Hushstep Boots",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hushstep-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "chimeleaf-frond",
+          "quantity": 6
+        }
+      ],
+      "sourceId": "chimeleaf-wisp",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-chimeleaf-lute",
+      "name": "Chimeleaf Lute",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-chimeleaf-lute",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "chimeleaf-frond",
+          "quantity": 7
+        }
+      ],
+      "sourceId": "chimeleaf-wisp",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-resonance-wand",
+      "name": "Resonance Wand",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-resonance-wand",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "chimeleaf-frond",
+          "quantity": 7
+        }
+      ],
+      "sourceId": "chimeleaf-wisp",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-ironbark-greathelm",
+      "name": "Ironbark Greathelm",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-ironbark-greathelm",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "ironbark-ram",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bulwark-cuirass",
+      "name": "Bulwark Cuirass",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bulwark-cuirass",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "ironbark-ram",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-ramplate-gauntlets",
+      "name": "Ramplate Gauntlets",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-ramplate-gauntlets",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "ironbark-ram",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-rootlock-sabatons",
+      "name": "Rootlock Sabatons",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-rootlock-sabatons",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 6
+        }
+      ],
+      "sourceId": "ironbark-ram",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-ironbark-maul",
+      "name": "Ironbark Maul",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-ironbark-maul",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 7
+        }
+      ],
+      "sourceId": "ironbark-ram",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-ramcore-gauntlets",
+      "name": "Ramcore Gauntlets",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-ramcore-gauntlets",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 7
+        }
+      ],
+      "sourceId": "ironbark-ram",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hexroot-crown",
+      "name": "Hexroot Crown",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hexroot-crown",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "hexroot-knot",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "rootcoil-hexer",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-black-sap-mantle",
+      "name": "Black-Sap Mantle",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-black-sap-mantle",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "hexroot-knot",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "rootcoil-hexer",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-knotweaver-gloves",
+      "name": "Knotweaver Gloves",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-knotweaver-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "hexroot-knot",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "rootcoil-hexer",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-coilstep-boots",
+      "name": "Coilstep Boots",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-coilstep-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "hexroot-knot",
+          "quantity": 6
+        }
+      ],
+      "sourceId": "rootcoil-hexer",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hexroot-staff",
+      "name": "Hexroot Staff",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hexroot-staff",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "hexroot-knot",
+          "quantity": 7
+        }
+      ],
+      "sourceId": "rootcoil-hexer",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-black-sap-bell",
+      "name": "Black-Sap Bell",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-black-sap-bell",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "hexroot-knot",
+          "quantity": 7
+        }
+      ],
+      "sourceId": "rootcoil-hexer",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-glasswing-visor",
+      "name": "Glasswing Visor",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-glasswing-visor",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "glasswing-shard",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "glasswing-needler",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-shardweave-coat",
+      "name": "Shardweave Coat",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-shardweave-coat",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "glasswing-shard",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "glasswing-needler",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-needler-gloves",
+      "name": "Needler Gloves",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-needler-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "glasswing-shard",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "glasswing-needler",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-skitterglass-boots",
+      "name": "Skitterglass Boots",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-skitterglass-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "glasswing-shard",
+          "quantity": 6
+        }
+      ],
+      "sourceId": "glasswing-needler",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-glasswing-bow",
+      "name": "Glasswing Bow",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-glasswing-bow",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "glasswing-shard",
+          "quantity": 7
+        }
+      ],
+      "sourceId": "glasswing-needler",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-shardlight-wand",
+      "name": "Shardlight Wand",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-shardlight-wand",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "glasswing-shard",
+          "quantity": 7
+        }
+      ],
+      "sourceId": "glasswing-needler",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-vinebound-helm",
+      "name": "Vinebound Helm",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-vinebound-helm",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "vinebound-reaver",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-red-sap-harness",
+      "name": "Red-Sap Harness",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-red-sap-harness",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "vinebound-reaver",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-chainvine-gloves",
+      "name": "Chainvine Gloves",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-chainvine-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "vinebound-reaver",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-reaver-treads",
+      "name": "Reaver Treads",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-reaver-treads",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 6
+        }
+      ],
+      "sourceId": "vinebound-reaver",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-vinechain-axe",
+      "name": "Vinechain Axe",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-vinechain-axe",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 7
+        }
+      ],
+      "sourceId": "vinebound-reaver",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-red-sap-knuckles",
+      "name": "Red-Sap Knuckles",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-red-sap-knuckles",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 7
+        }
+      ],
+      "sourceId": "vinebound-reaver",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-gloomcap-hood",
+      "name": "Gloomcap Hood",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-gloomcap-hood",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "gloomcap-cluster",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "gloomcap-binder",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hollowspore-shroud",
+      "name": "Hollowspore Shroud",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hollowspore-shroud",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "gloomcap-cluster",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "gloomcap-binder",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-binder-gloves",
+      "name": "Binder Gloves",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-binder-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "gloomcap-cluster",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "gloomcap-binder",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-umberstep-boots",
+      "name": "Umberstep Boots",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-umberstep-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "gloomcap-cluster",
+          "quantity": 6
+        }
+      ],
+      "sourceId": "gloomcap-binder",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-gloomspore-rod",
+      "name": "Gloomspore Rod",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-gloomspore-rod",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "gloomcap-cluster",
+          "quantity": 7
+        }
+      ],
+      "sourceId": "gloomcap-binder",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hollowcap-harp",
+      "name": "Hollowcap Harp",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hollowcap-harp",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "gloomcap-cluster",
+          "quantity": 7
+        }
+      ],
+      "sourceId": "gloomcap-binder",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-sunscar-crown",
+      "name": "Sunscar Crown",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-sunscar-crown",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sunscar-antler",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "sunscar-hart",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-white-resin-coat",
+      "name": "White-Resin Coat",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-white-resin-coat",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sunscar-antler",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "sunscar-hart",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-antlerguard-gloves",
+      "name": "Antlerguard Gloves",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-antlerguard-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sunscar-antler",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "sunscar-hart",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-brightstep-boots",
+      "name": "Brightstep Boots",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-brightstep-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sunscar-antler",
+          "quantity": 6
+        }
+      ],
+      "sourceId": "sunscar-hart",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-sunscar-scepter",
+      "name": "Sunscar Scepter",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-sunscar-scepter",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sunscar-antler",
+          "quantity": 7
+        }
+      ],
+      "sourceId": "sunscar-hart",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-antler-pike",
+      "name": "Antler Pike",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-antler-pike",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sunscar-antler",
+          "quantity": 7
+        }
+      ],
+      "sourceId": "sunscar-hart",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-barkveil-hood",
+      "name": "Barkveil Hood",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-barkveil-hood",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "volatile-resin",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "barkveil-sapper",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-sapper-jacket",
+      "name": "Sapper Jacket",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-sapper-jacket",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "volatile-resin",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "barkveil-sapper",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-resinwork-gloves",
+      "name": "Resinwork Gloves",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-resinwork-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "volatile-resin",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "barkveil-sapper",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-fusepath-boots",
+      "name": "Fusepath Boots",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-fusepath-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "volatile-resin",
+          "quantity": 6
+        }
+      ],
+      "sourceId": "barkveil-sapper",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-resin-fang",
+      "name": "Resin Fang",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-resin-fang",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "volatile-resin",
+          "quantity": 7
+        }
+      ],
+      "sourceId": "barkveil-sapper",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-fuseglass-focus",
+      "name": "Fuseglass Focus",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-fuseglass-focus",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "volatile-resin",
+          "quantity": 7
+        }
+      ],
+      "sourceId": "barkveil-sapper",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-thorn-crown-greathelm",
+      "name": "Thorn-Crown Greathelm",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-thorn-crown-greathelm",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "thorn-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "crown-of-thorns-warden",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-warden-briarplate",
+      "name": "Warden Briarplate",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-warden-briarplate",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "thorn-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "crown-of-thorns-warden",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-crownwood-gauntlets",
+      "name": "Crownwood Gauntlets",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-crownwood-gauntlets",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "thorn-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "crown-of-thorns-warden",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-thornroot-sabatons",
+      "name": "Thornroot Sabatons",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-thornroot-sabatons",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "thorn-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "crown-of-thorns-warden",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-crownwood-greatblade",
+      "name": "Crownwood Greatblade",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-crownwood-greatblade",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "thorn-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "crown-of-thorns-warden",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-thornwarden-gauntlets",
+      "name": "Thornwarden Gauntlets",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-thornwarden-gauntlets",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "thorn-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "crown-of-thorns-warden",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-heartwood-diadem",
+      "name": "Heartwood Diadem",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-heartwood-diadem",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "heartwood-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "heartwood-sovereign",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-sovereign-mantle",
+      "name": "Sovereign Mantle",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-sovereign-mantle",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "heartwood-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "heartwood-sovereign",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-doorroot-grips",
+      "name": "Doorroot Grips",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-doorroot-grips",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "heartwood-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "heartwood-sovereign",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-heartstep-greaves",
+      "name": "Heartstep Greaves",
+      "category": "Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-heartstep-greaves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "heartwood-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "heartwood-sovereign",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-heartwood-scepter",
+      "name": "Heartwood Scepter",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-heartwood-scepter",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "heartwood-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "heartwood-sovereign",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-doorroot-harp",
+      "name": "Doorroot Harp",
+      "category": "Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-doorroot-harp",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "heartwood-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "heartwood-sovereign",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-mossjaw-tusk-shield",
+      "name": "Mossjaw Tusk Shield",
+      "category": "Shields",
+      "output": {
+        "type": "equipment",
+        "id": "eq-mossjaw-tusk-shield",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mossjaw-tusk",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "mossjaw-boar",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-ironbark-wallshield",
+      "name": "Ironbark Wallshield",
+      "category": "Shields",
+      "output": {
+        "type": "equipment",
+        "id": "eq-ironbark-wallshield",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 6
+        }
+      ],
+      "sourceId": "ironbark-ram",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-vinechain-buckler",
+      "name": "Vinechain Buckler",
+      "category": "Shields",
+      "output": {
+        "type": "equipment",
+        "id": "eq-vinechain-buckler",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "vinebound-reaver",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-sunscar-mirror",
+      "name": "Sunscar Mirror Shield",
+      "category": "Shields",
+      "output": {
+        "type": "equipment",
+        "id": "eq-sunscar-mirror",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sunscar-antler",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "sunscar-hart",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-thorn-soulfire-aegis",
+      "name": "Thorn SoulFire Aegis",
+      "category": "Shields",
+      "output": {
+        "type": "equipment",
+        "id": "eq-thorn-soulfire-aegis",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "thorn-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "crown-of-thorns-warden",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-heartwood-soulfire-ward",
+      "name": "Heartwood SoulFire Ward",
+      "category": "Shields",
+      "output": {
+        "type": "equipment",
+        "id": "eq-heartwood-soulfire-ward",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "heartwood-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "heartwood-sovereign",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-briarloop-torque",
+      "name": "Briarloop Torque",
+      "category": "Accessories",
+      "output": {
+        "type": "equipment",
+        "id": "eq-briarloop-torque",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bramble-hook",
+          "quantity": 2
+        },
+        {
+          "materialId": "needlefang",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-mossbell-locket",
+      "name": "Mossbell Locket",
+      "category": "Accessories",
+      "output": {
+        "type": "equipment",
+        "id": "eq-mossbell-locket",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mossjaw-tusk",
+          "quantity": 2
+        },
+        {
+          "materialId": "chimeleaf-frond",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-sporeglass-pendant",
+      "name": "Sporeglass Pendant",
+      "category": "Accessories",
+      "output": {
+        "type": "equipment",
+        "id": "eq-sporeglass-pendant",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 2
+        },
+        {
+          "materialId": "glasswing-shard",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-ironroot-signet",
+      "name": "Ironroot Signet",
+      "category": "Accessories",
+      "output": {
+        "type": "equipment",
+        "id": "eq-ironroot-signet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 2
+        },
+        {
+          "materialId": "hexroot-knot",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-redvine-clasp",
+      "name": "Redvine Clasp",
+      "category": "Accessories",
+      "output": {
+        "type": "equipment",
+        "id": "eq-redvine-clasp",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 3
+        },
+        {
+          "materialId": "gloomcap-cluster",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-sunveil-brooch",
+      "name": "Sunveil Brooch",
+      "category": "Accessories",
+      "output": {
+        "type": "equipment",
+        "id": "eq-sunveil-brooch",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sunscar-antler",
+          "quantity": 2
+        },
+        {
+          "materialId": "volatile-resin",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-crownfire-reliquary",
+      "name": "Crownfire Reliquary",
+      "category": "Accessories",
+      "output": {
+        "type": "equipment",
+        "id": "eq-crownfire-reliquary",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "thorn-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "crown-of-thorns-warden",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-heartfire-reliquary",
+      "name": "Heartfire Reliquary",
+      "category": "Accessories",
+      "output": {
+        "type": "equipment",
+        "id": "eq-heartfire-reliquary",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "heartwood-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "heartwood-sovereign",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-briar-dew-vial",
+      "name": "Briar Dew Vial",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-briar-dew-vial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bramble-hook",
+          "quantity": 1
+        },
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-mossmilk-vial",
+      "name": "Mossmilk Vial",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-mossmilk-vial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mossjaw-tusk",
+          "quantity": 1
+        },
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-sporelight-vial",
+      "name": "Sporelight Vial",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-sporelight-vial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 1
+        },
+        {
+          "materialId": "volatile-resin",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-glass-sap-vial",
+      "name": "Glass Sap Vial",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-glass-sap-vial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "needlefang",
+          "quantity": 1
+        },
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-sunresin-vial",
+      "name": "Sunresin Vial",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-sunresin-vial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "chimeleaf-frond",
+          "quantity": 1
+        },
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-gloom-nectar-vial",
+      "name": "Gloom Nectar Vial",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-gloom-nectar-vial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 1
+        },
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-folded-briar-script",
+      "name": "Folded Briar Script",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-folded-briar-script",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "chimeleaf-frond",
+          "quantity": 1
+        },
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-mossjaw-ward-slot",
+      "name": "Mossjaw Ward-Slot",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-mossjaw-ward-slot",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 1
+        },
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-sporecall-script",
+      "name": "Sporecall Script",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-sporecall-script",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "hexroot-knot",
+          "quantity": 1
+        },
+        {
+          "materialId": "volatile-resin",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-needleline-script",
+      "name": "Needleline Script",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-needleline-script",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "glasswing-shard",
+          "quantity": 1
+        },
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-chimeleaf-canticle-slot",
+      "name": "Chimeleaf Canticle Slot",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-chimeleaf-canticle-slot",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 1
+        },
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hexroot-formula-slot",
+      "name": "Hexroot Formula Slot",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hexroot-formula-slot",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "gloomcap-cluster",
+          "quantity": 1
+        },
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-glasswing-vector-slot",
+      "name": "Glasswing Vector Slot",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-glasswing-vector-slot",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sunscar-antler",
+          "quantity": 1
+        },
+        {
+          "materialId": "volatile-resin",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-sunscar-invocation-slot",
+      "name": "Sunscar Invocation Slot",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-sunscar-invocation-slot",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "volatile-resin",
+          "quantity": 1
+        },
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hook-tooth-token",
+      "name": "Hook-Tooth Token",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hook-tooth-token",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "glasswing-shard",
+          "quantity": 1
+        },
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-mossjaw-bead",
+      "name": "Mossjaw Bead",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-mossjaw-bead",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-softspore-knot",
+      "name": "Softspore Knot",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-softspore-knot",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "gloomcap-cluster",
+          "quantity": 1
+        },
+        {
+          "materialId": "volatile-resin",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-needlefang-eye",
+      "name": "Needlefang Eye",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-needlefang-eye",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sunscar-antler",
+          "quantity": 1
+        },
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-chimeleaf-bell",
+      "name": "Chimeleaf Bell",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-chimeleaf-bell",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "volatile-resin",
+          "quantity": 1
+        },
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-ironbark-ring",
+      "name": "Ironbark Ring",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-ironbark-ring",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bramble-hook",
+          "quantity": 1
+        },
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hexroot-twist",
+      "name": "Hexroot Twist",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hexroot-twist",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mossjaw-tusk",
+          "quantity": 1
+        },
+        {
+          "materialId": "volatile-resin",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-glasswing-pin",
+      "name": "Glasswing Pin",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-glasswing-pin",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-vinechain-link",
+      "name": "Vinechain Link",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-vinechain-link",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "needlefang",
+          "quantity": 1
+        },
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-gloomcap-button",
+      "name": "Gloomcap Button",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-gloomcap-button",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "chimeleaf-frond",
+          "quantity": 1
+        },
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-sunscar-chip",
+      "name": "Sunscar Chip",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-sunscar-chip",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 1
+        },
+        {
+          "materialId": "volatile-resin",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-barkveil-fuse",
+      "name": "Barkveil Fuse",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-barkveil-fuse",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "hexroot-knot",
+          "quantity": 1
+        },
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-briar-compass",
+      "name": "Briar Compass",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-briar-compass",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "glasswing-shard",
+          "quantity": 1
+        },
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-mire-coin",
+      "name": "Mire Coin",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-mire-coin",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-resin-star",
+      "name": "Resin Star",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-resin-star",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "gloomcap-cluster",
+          "quantity": 1
+        },
+        {
+          "materialId": "volatile-resin",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-doorward-pebble",
+      "name": "Doorward Pebble",
+      "category": "Charms",
+      "output": {
+        "type": "equipment",
+        "id": "eq-doorward-pebble",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sunscar-antler",
+          "quantity": 1
+        },
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 1
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-thornbeat-prism",
+      "name": "Thornbeat Prism",
+      "category": "Ability Items",
+      "output": {
+        "type": "equipment",
+        "id": "eq-thornbeat-prism",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bramble-hook",
+          "quantity": 2
+        },
+        {
+          "materialId": "chimeleaf-frond",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-mireheart-lens",
+      "name": "Mireheart Lens",
+      "category": "Ability Items",
+      "output": {
+        "type": "equipment",
+        "id": "eq-mireheart-lens",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mossjaw-tusk",
+          "quantity": 2
+        },
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-needleclock-dial",
+      "name": "Needleclock Dial",
+      "category": "Ability Items",
+      "output": {
+        "type": "equipment",
+        "id": "eq-needleclock-dial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "needlefang",
+          "quantity": 2
+        },
+        {
+          "materialId": "glasswing-shard",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hexcoil-tablet",
+      "name": "Hexcoil Tablet",
+      "category": "Ability Items",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hexcoil-tablet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "hexroot-knot",
+          "quantity": 3
+        },
+        {
+          "materialId": "gloomcap-cluster",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-redvine-memory-knot",
+      "name": "Redvine Memory Knot",
+      "category": "Ability Items",
+      "output": {
+        "type": "equipment",
+        "id": "eq-redvine-memory-knot",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 3
+        },
+        {
+          "materialId": "volatile-resin",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-sunscar-aperture",
+      "name": "Sunscar Aperture",
+      "category": "Ability Items",
+      "output": {
+        "type": "equipment",
+        "id": "eq-sunscar-aperture",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sunscar-antler",
+          "quantity": 3
+        },
+        {
+          "materialId": "glasswing-shard",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-thorn-soulfire-seal",
+      "name": "Thorn SoulFire Seal",
+      "category": "Ability Items",
+      "output": {
+        "type": "equipment",
+        "id": "eq-thorn-soulfire-seal",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "thorn-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "crown-of-thorns-warden",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-heartwood-soulfire-seal",
+      "name": "Heartwood SoulFire Seal",
+      "category": "Ability Items",
+      "output": {
+        "type": "equipment",
+        "id": "eq-heartwood-soulfire-seal",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "heartwood-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "heartwood-sovereign",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-food-brambleberry-coilcake",
+      "name": "Brambleberry Coilcake",
+      "category": "Fantasy Foods",
+      "output": {
+        "type": "consumable",
+        "id": "food-brambleberry-coilcake",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bramble-hook",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-food-mossjaw-root-bun",
+      "name": "Mossjaw Root Bun",
+      "category": "Fantasy Foods",
+      "output": {
+        "type": "consumable",
+        "id": "food-mossjaw-root-bun",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mossjaw-tusk",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-food-sporecap-moonbroth",
+      "name": "Sporecap Moonbroth",
+      "category": "Fantasy Foods",
+      "output": {
+        "type": "consumable",
+        "id": "food-sporecap-moonbroth",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-food-needlefang-pepperstrip",
+      "name": "Needlefang Pepperstrip",
+      "category": "Fantasy Foods",
+      "output": {
+        "type": "consumable",
+        "id": "food-needlefang-pepperstrip",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "needlefang",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-food-chimeleaf-sugarbell",
+      "name": "Chimeleaf Sugarbell",
+      "category": "Fantasy Foods",
+      "output": {
+        "type": "consumable",
+        "id": "food-chimeleaf-sugarbell",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "chimeleaf-frond",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-food-ironbark-saltcake",
+      "name": "Ironbark Saltcake",
+      "category": "Fantasy Foods",
+      "output": {
+        "type": "consumable",
+        "id": "food-ironbark-saltcake",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-food-hexroot-ink-noodles",
+      "name": "Hexroot Ink Noodles",
+      "category": "Fantasy Foods",
+      "output": {
+        "type": "consumable",
+        "id": "food-hexroot-ink-noodles",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "hexroot-knot",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-food-glasswing-crystal-tart",
+      "name": "Glasswing Crystal Tart",
+      "category": "Fantasy Foods",
+      "output": {
+        "type": "consumable",
+        "id": "food-glasswing-crystal-tart",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "glasswing-shard",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-food-redvine-ember-stew",
+      "name": "Redvine Ember Stew",
+      "category": "Fantasy Foods",
+      "output": {
+        "type": "consumable",
+        "id": "food-redvine-ember-stew",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-food-gloomcap-star-pudding",
+      "name": "Gloomcap Star Pudding",
+      "category": "Fantasy Foods",
+      "output": {
+        "type": "consumable",
+        "id": "food-gloomcap-star-pudding",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "gloomcap-cluster",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-food-sunscar-honeyhorn",
+      "name": "Sunscar Honeyhorn",
+      "category": "Fantasy Foods",
+      "output": {
+        "type": "consumable",
+        "id": "food-sunscar-honeyhorn",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sunscar-antler",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-food-barkveil-popcake",
+      "name": "Barkveil Popcake",
+      "category": "Fantasy Foods",
+      "output": {
+        "type": "consumable",
+        "id": "food-barkveil-popcake",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "volatile-resin",
+          "quantity": 2
+        }
+      ],
+      "sourceId": null,
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-torren-ashsplitter-ashsplitter-training-cleaver",
+      "name": "Ashsplitter Training Cleaver",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-torren-ashsplitter-ashsplitter-training-cleaver",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "torren-ashsplitter-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "torren-ashsplitter",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-torren-ashsplitter-split-ring-token",
+      "name": "Split-Ring Token",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-torren-ashsplitter-split-ring-token",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "torren-ashsplitter-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "torren-ashsplitter",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-torren-ashsplitter-ashsplitter-shouldercoat",
+      "name": "Ashsplitter Shouldercoat",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-torren-ashsplitter-ashsplitter-shouldercoat",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "torren-ashsplitter-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "torren-ashsplitter",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-maela-ironroot-ironroot-bastion-blade",
+      "name": "Ironroot Bastion Blade",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-maela-ironroot-ironroot-bastion-blade",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "maela-ironroot-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "maela-ironroot",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-maela-ironroot-ironroot-temper-vial",
+      "name": "Ironroot Temper Vial",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-maela-ironroot-ironroot-temper-vial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "maela-ironroot-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "maela-ironroot",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-maela-ironroot-root-iron-cuirass",
+      "name": "Root-Iron Cuirass",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-maela-ironroot-root-iron-cuirass",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "maela-ironroot-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "maela-ironroot",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-sileth-shadeleaf-shadeleaf-knife",
+      "name": "Shadeleaf Knife",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-sileth-shadeleaf-shadeleaf-knife",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sileth-shadeleaf-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "sileth-shadeleaf",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-sileth-shadeleaf-second-shadow-knife",
+      "name": "Second Shadow Knife",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-sileth-shadeleaf-second-shadow-knife",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sileth-shadeleaf-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "sileth-shadeleaf",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-sileth-shadeleaf-unseen-step-token",
+      "name": "Unseen Step Token",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-sileth-shadeleaf-unseen-step-token",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sileth-shadeleaf-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "sileth-shadeleaf",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-corven-reedblade-reedblade-foil",
+      "name": "Reedblade Foil",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-corven-reedblade-reedblade-foil",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "corven-reedblade-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "corven-reedblade",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-corven-reedblade-perfect-measure-vial",
+      "name": "Perfect Measure Vial",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-corven-reedblade-perfect-measure-vial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "corven-reedblade-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "corven-reedblade",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-corven-reedblade-last-word-coin",
+      "name": "Last Word Coin",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-corven-reedblade-last-word-coin",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "corven-reedblade-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "corven-reedblade",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-juno-stonepulse-stonepulse-wraps",
+      "name": "Stonepulse Wraps",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-juno-stonepulse-stonepulse-wraps",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "juno-stonepulse-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "juno-stonepulse",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-juno-stonepulse-bruise-reader-bead",
+      "name": "Bruise-Reader Bead",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-juno-stonepulse-bruise-reader-bead",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "juno-stonepulse-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "juno-stonepulse",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-juno-stonepulse-adaptive-sparring-vest",
+      "name": "Adaptive Sparring Vest",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-juno-stonepulse-adaptive-sparring-vest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "juno-stonepulse-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "juno-stonepulse",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-ysra-knotwise-knotwise-seal-rod",
+      "name": "Knotwise Seal Rod",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-ysra-knotwise-knotwise-seal-rod",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ysra-knotwise-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "ysra-knotwise",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-ysra-knotwise-folded-ward-scripture",
+      "name": "Folded Ward Scripture",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-ysra-knotwise-folded-ward-scripture",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ysra-knotwise-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "ysra-knotwise",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-ysra-knotwise-inkbreath-vial",
+      "name": "Inkbreath Vial",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-ysra-knotwise-inkbreath-vial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ysra-knotwise-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "ysra-knotwise",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-pellin-manysigns-manysign-slate-wand",
+      "name": "Manysign Slate-Wand",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-pellin-manysigns-manysign-slate-wand",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "pellin-manysigns-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "pellin-manysigns",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-pellin-manysigns-rotating-glyph-sheet",
+      "name": "Rotating Glyph Sheet",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-pellin-manysigns-rotating-glyph-sheet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "pellin-manysigns-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "pellin-manysigns",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-pellin-manysigns-third-meaning-script",
+      "name": "Third-Meaning Script",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-pellin-manysigns-third-meaning-script",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "pellin-manysigns-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "pellin-manysigns",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-avel-mosslight-mosslight-crook",
+      "name": "Mosslight Crook",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-avel-mosslight-mosslight-crook",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "avel-mosslight-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "avel-mosslight",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-avel-mosslight-quiet-mercy-vial",
+      "name": "Quiet Mercy Vial",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-avel-mosslight-quiet-mercy-vial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "avel-mosslight-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "avel-mosslight",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-avel-mosslight-mosslight-vestment",
+      "name": "Mosslight Vestment",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-avel-mosslight-mosslight-vestment",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "avel-mosslight-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "avel-mosslight",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-cael-farbranch-farbranch-longbow",
+      "name": "Farbranch Longbow",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-cael-farbranch-farbranch-longbow",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "cael-farbranch-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "cael-farbranch",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-cael-farbranch-still-eye-lens",
+      "name": "Still-Eye Lens",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-cael-farbranch-still-eye-lens",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "cael-farbranch-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "cael-farbranch",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-cael-farbranch-long-breath-vial",
+      "name": "Long Breath Vial",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-cael-farbranch-long-breath-vial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "cael-farbranch-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "cael-farbranch",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-oryn-pathshield-pathshield-spear",
+      "name": "Pathshield Spear",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-oryn-pathshield-pathshield-spear",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "oryn-pathshield-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "oryn-pathshield",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-oryn-pathshield-trailward-coat",
+      "name": "Trailward Coat",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-oryn-pathshield-trailward-coat",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "oryn-pathshield-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "oryn-pathshield",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-oryn-pathshield-safe-route-marker",
+      "name": "Safe-Route Marker",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-oryn-pathshield-safe-route-marker",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "oryn-pathshield-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "oryn-pathshield",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-lysa-greenchoir-greenchoir-lyre",
+      "name": "Greenchoir Lyre",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-lysa-greenchoir-greenchoir-lyre",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "lysa-greenchoir-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "lysa-greenchoir",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-lysa-greenchoir-canopy-canticle",
+      "name": "Canopy Canticle",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-lysa-greenchoir-canopy-canticle",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "lysa-greenchoir-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "lysa-greenchoir",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-lysa-greenchoir-shared-note-bell",
+      "name": "Shared Note Bell",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-lysa-greenchoir-shared-note-bell",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "lysa-greenchoir-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "lysa-greenchoir",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-nemea-wildspark-wildspark-rod",
+      "name": "Wildspark Rod",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-nemea-wildspark-wildspark-rod",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "nemea-wildspark-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "nemea-wildspark",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-nemea-wildspark-unfixed-formula",
+      "name": "Unfixed Formula",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-nemea-wildspark-unfixed-formula",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "nemea-wildspark-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "nemea-wildspark",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-nemea-wildspark-fluxglass-vial",
+      "name": "Fluxglass Vial",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-nemea-wildspark-fluxglass-vial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "nemea-wildspark-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "nemea-wildspark",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-varrik-hollowroot-hollowroot-staff",
+      "name": "Hollowroot Staff",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-varrik-hollowroot-hollowroot-staff",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "varrik-hollowroot-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "varrik-hollowroot",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-varrik-hollowroot-listening-knot",
+      "name": "Listening Knot",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-varrik-hollowroot-listening-knot",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "varrik-hollowroot-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "varrik-hollowroot",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-varrik-hollowroot-underbark-litany",
+      "name": "Underbark Litany",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-varrik-hollowroot-underbark-litany",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "varrik-hollowroot-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "varrik-hollowroot",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-caldus-firstlight-firstlight-sword",
+      "name": "Firstlight Sword",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-caldus-firstlight-firstlight-sword",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "caldus-firstlight-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "caldus-firstlight",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-caldus-firstlight-lanternward-plate",
+      "name": "Lanternward Plate",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-caldus-firstlight-lanternward-plate",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "caldus-firstlight-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "caldus-firstlight",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-caldus-firstlight-daybreak-vial",
+      "name": "Daybreak Vial",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-caldus-firstlight-daybreak-vial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "caldus-firstlight-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "caldus-firstlight",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-mira-oaththorn-oaththorn-blade",
+      "name": "Oaththorn Blade",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-mira-oaththorn-oaththorn-blade",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mira-oaththorn-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "mira-oaththorn",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-mira-oaththorn-rewritten-oath-seal",
+      "name": "Rewritten Oath Seal",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-mira-oaththorn-rewritten-oath-seal",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mira-oaththorn-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "mira-oaththorn",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-mira-oaththorn-scarred-vowcoat",
+      "name": "Scarred Vowcoat",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-mira-oaththorn-scarred-vowcoat",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mira-oaththorn-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "mira-oaththorn",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-odo-broadbark-broadbark-crook",
+      "name": "Broadbark Crook",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-odo-broadbark-broadbark-crook",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "odo-broadbark-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "odo-broadbark",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-odo-broadbark-living-bark-harness",
+      "name": "Living Bark Harness",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-odo-broadbark-living-bark-harness",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "odo-broadbark-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "odo-broadbark",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-odo-broadbark-cambium-vial",
+      "name": "Cambium Vial",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-odo-broadbark-cambium-vial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "odo-broadbark-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "odo-broadbark",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-ilyne-seedcrown-seedcrown-staff",
+      "name": "Seedcrown Staff",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-ilyne-seedcrown-seedcrown-staff",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ilyne-seedcrown-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "ilyne-seedcrown",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-ilyne-seedcrown-germination-ledger",
+      "name": "Germination Ledger",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-ilyne-seedcrown-germination-ledger",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ilyne-seedcrown-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "ilyne-seedcrown",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-ilyne-seedcrown-first-sprout-locket",
+      "name": "First Sprout Locket",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-ilyne-seedcrown-first-sprout-locket",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ilyne-seedcrown-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "ilyne-seedcrown",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    }
+  ],
+  "starterGear": {
+    "shared": [
+      "eq-starter-wayfarer-vest"
+    ],
+    "byBaseClass": {
+      "Warrior": [
+        "eq-starter-rustleaf-sword"
+      ],
+      "Rogue": [
+        "eq-starter-wayknife"
+      ],
+      "Brawler": [
+        "eq-starter-canvas-knuckles"
+      ],
+      "Mage": [
+        "eq-starter-ashwood-wand"
+      ],
+      "Cleric": [
+        "eq-starter-prayer-chime"
+      ],
+      "Ranger": [
+        "eq-starter-pathbow"
+      ],
+      "Bard": [
+        "eq-starter-travel-lute"
+      ],
+      "Sorcerer": [
+        "eq-starter-spark-rod"
+      ],
+      "Warlock": [
+        "eq-starter-covenant-bell"
+      ],
+      "Paladin": [
+        "eq-starter-oathblade"
+      ],
+      "Druid": [
+        "eq-starter-grove-crook"
+      ]
+    }
+  },
+  "catalogueSummary": {
+    "normalEnemyFamilies": 12,
+    "soulfireFamilies": 2,
+    "armorSets": 14,
+    "armorPieces": 56,
+    "sourceWeapons": 28,
+    "shields": 6,
+    "accessories": 8,
+    "charms": 30,
+    "abilityItems": 8,
+    "craftableFoods": 12,
+    "trainerSoulfireFamilies": 17,
+    "trainerSoulfireItems": 51,
+    "totalRecipes": 199
+  }
+}

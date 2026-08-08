@@ -1,0 +1,4504 @@
+{
+  "version": "I14-2026-08-08",
+  "rules": {
+    "equipmentSlots": [
+      "mainHand",
+      "offHand",
+      "accessory",
+      "helmet",
+      "chest",
+      "boots",
+      "gloves",
+      "charm1",
+      "charm2",
+      "abilityItem"
+    ],
+    "charmSockets": 2,
+    "armorMitigationPct": {
+      "Light": 0,
+      "Medium": 5,
+      "Heavy": 10
+    },
+    "heavyChestInitiativePenalty": -2,
+    "weaponBaseDamage": false,
+    "dualWieldAddsAttacks": false,
+    "shieldEquipmentCreatesShieldHp": false,
+    "durability": false,
+    "weaponTypes": [
+      "Physical",
+      "Magic",
+      "Gauntlet",
+      "Instrument"
+    ],
+    "mismatchListedStatMultiplier": 0.8,
+    "mismatchPhysicalClasses": [
+      "Mage",
+      "Warlock",
+      "Sorcerer"
+    ],
+    "mismatchMagicClasses": [
+      "Warrior",
+      "Paladin",
+      "Ranger"
+    ],
+    "brawlerWeaponRestriction": "Gauntlet-only",
+    "clericPhysicalRestriction": true,
+    "baseConsumableEquipCapacity": 1,
+    "usesPerBattle": 1,
+    "consumableEquipLocation": "campsite-only",
+    "consumableInventoryStacks": true,
+    "tavernAdventurersUseConsumables": false,
+    "enemiesUseConsumables": false,
+    "foodIsConsumableSubtype": true,
+    "rarities": [
+      "Normal",
+      "SoulFire"
+    ],
+    "equipmentDropsFromEnemies": false,
+    "craftingLocation": "campsite-only",
+    "craftedEquipmentCampaignOnly": true,
+    "permanentEquipmentInventory": false,
+    "setBonusThresholds": [
+      2,
+      3,
+      4
+    ],
+    "setDefiningThreshold": 3,
+    "starterAndDepth1To5Weaker": true,
+    "postDepth5UsesSidegradePowerModel": true,
+    "trainerSoulfireItems": 51
+  },
+  "equipment": [
+    {
+      "id": "eq-wayfarer-blade",
+      "name": "Wayfarer Blade",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "listedStats": {
+        "STR": 2,
+        "damageCritChancePct": 2,
+        "criticalDamagePct": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "eq-moonhook-dagger",
+      "name": "Moonhook Dagger",
+      "slot": "offHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "listedStats": {
+        "DEX": 2,
+        "damageCritChancePct": 3,
+        "dodgeChancePct": 2
+      },
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "eq-emberglass-wand",
+      "name": "Emberglass Wand",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "listedStats": {
+        "INT": 2,
+        "energyGainPct": 5,
+        "criticalDamagePct": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "eq-thunderknuckle-wraps",
+      "name": "Thunderknuckle Wraps",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Gauntlet",
+      "listedStats": {
+        "STR": 2,
+        "CON": 1,
+        "blockChancePct": 3
+      },
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "eq-hollowchime-lute",
+      "name": "Hollowchime Lute",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Instrument",
+      "listedStats": {
+        "CHA": 2,
+        "FTH": 1,
+        "outgoingHealingPct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "eq-bark-buckler",
+      "name": "Bark Buckler",
+      "slot": "offHand",
+      "itemType": "Shield",
+      "listedStats": {
+        "CON": 1,
+        "blockChancePct": 6,
+        "blockedDamageReductionPct": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "eq-moonweave-vest",
+      "name": "Moonweave Vest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "listedStats": {
+        "DEX": 2,
+        "LCK": 1,
+        "dodgeChancePct": 3
+      },
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "eq-thornhide-coat",
+      "name": "Thornhide Coat",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "listedStats": {
+        "CON": 2,
+        "STR": 1,
+        "incomingHealingPct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "eq-ironroot-cuirass",
+      "name": "Ironroot Cuirass",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Heavy",
+      "listedStats": {
+        "CON": 3,
+        "STR": 1,
+        "blockChancePct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "eq-owlglass-helm",
+      "name": "Owlglass Helm",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "listedStats": {
+        "INT": 1,
+        "LCK": 1,
+        "damageCritChancePct": 2
+      },
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "eq-mossstride-boots",
+      "name": "Mossstride Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "listedStats": {
+        "DEX": 1,
+        "CHA": 1,
+        "dodgeChancePct": 2
+      },
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "eq-bramblegrip-gloves",
+      "name": "Bramblegrip Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "listedStats": {
+        "STR": 1,
+        "CON": 1,
+        "criticalDamagePct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "eq-echo-thread-band",
+      "name": "Echo-Thread Band",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "FTH": 1,
+        "CHA": 1,
+        "incomingHealingPct": 3,
+        "outgoingHealingPct": 3
+      },
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "eq-cinder-vial-charm",
+      "name": "Cinder Vial Charm",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Vial",
+      "listedStats": {
+        "INT": 1,
+        "energyGainPct": 3
+      },
+      "resistances": {
+        "Fire": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "eq-folded-rune-charm",
+      "name": "Folded Rune Charm",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Spell Slot",
+      "listedStats": {
+        "FTH": 1,
+        "damageCritChancePct": 1,
+        "outgoingHealingPct": 2
+      },
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "eq-quiet-bell-trinket",
+      "name": "Quiet Bell Trinket",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Trinket",
+      "listedStats": {
+        "CHA": 1,
+        "LCK": 1,
+        "dodgeChancePct": 1
+      },
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "eq-memory-prism",
+      "name": "Memory Prism",
+      "slot": "abilityItem",
+      "itemType": "Ability Item",
+      "listedStats": {
+        "INT": 1,
+        "FTH": 1,
+        "CHA": 1,
+        "energyGainPct": 2
+      },
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "eq-hookleaf-hood",
+      "name": "Hookleaf Hood",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-bramblekin-scrapper",
+      "sourceId": "bramblekin-scrapper",
+      "listedStats": {
+        "DEX": 1,
+        "LCK": 1,
+        "damageCritChancePct": 2,
+        "dodgeChancePct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-briarhide-vest",
+      "name": "Briarhide Vest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-bramblekin-scrapper",
+      "sourceId": "bramblekin-scrapper",
+      "listedStats": {
+        "DEX": 1,
+        "LCK": 1,
+        "incomingHealingPct": 3,
+        "dodgeChancePct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-scrapper-grips",
+      "name": "Scrapper Grips",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-bramblekin-scrapper",
+      "sourceId": "bramblekin-scrapper",
+      "listedStats": {
+        "DEX": 1,
+        "LCK": 1,
+        "criticalDamagePct": 4,
+        "dodgeChancePct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-bramblebound-boots",
+      "name": "Bramblebound Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-bramblekin-scrapper",
+      "sourceId": "bramblekin-scrapper",
+      "listedStats": {
+        "DEX": 1,
+        "LCK": 1,
+        "dodgeChancePct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-briarhook-sabre",
+      "name": "Briarhook Sabre",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "rarity": "Normal",
+      "sourceId": "bramblekin-scrapper",
+      "listedStats": {
+        "DEX": 2,
+        "LCK": 1,
+        "damageCritChancePct": 2
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-thornwrap-knuckles",
+      "name": "Thornwrap Knuckles",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Gauntlet",
+      "rarity": "Normal",
+      "sourceId": "bramblekin-scrapper",
+      "listedStats": {
+        "DEX": 2,
+        "LCK": 1
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-mossjaw-helm",
+      "name": "Mossjaw Helm",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "Normal",
+      "setId": "set-mossjaw-boar",
+      "sourceId": "mossjaw-boar",
+      "listedStats": {
+        "STR": 1,
+        "CON": 1,
+        "damageCritChancePct": 2,
+        "blockChancePct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-rooted-hidecoat",
+      "name": "Rooted Hidecoat",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "Normal",
+      "setId": "set-mossjaw-boar",
+      "sourceId": "mossjaw-boar",
+      "listedStats": {
+        "STR": 1,
+        "CON": 1,
+        "incomingHealingPct": 3,
+        "blockChancePct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-tuskguard-gloves",
+      "name": "Tuskguard Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "Normal",
+      "setId": "set-mossjaw-boar",
+      "sourceId": "mossjaw-boar",
+      "listedStats": {
+        "STR": 1,
+        "CON": 1,
+        "criticalDamagePct": 4,
+        "blockChancePct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-mirehoof-boots",
+      "name": "Mirehoof Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "Normal",
+      "setId": "set-mossjaw-boar",
+      "sourceId": "mossjaw-boar",
+      "listedStats": {
+        "STR": 1,
+        "CON": 1,
+        "dodgeChancePct": 2,
+        "blockChancePct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-tuskbreaker-cleaver",
+      "name": "Tuskbreaker Cleaver",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "rarity": "Normal",
+      "sourceId": "mossjaw-boar",
+      "listedStats": {
+        "STR": 2,
+        "CON": 1,
+        "damageCritChancePct": 2
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-mossjaw-fists",
+      "name": "Mossjaw Fists",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Gauntlet",
+      "rarity": "Normal",
+      "sourceId": "mossjaw-boar",
+      "listedStats": {
+        "STR": 2,
+        "CON": 1
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-sporeveil-cap",
+      "name": "Sporeveil Cap",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-sporecap-tender",
+      "sourceId": "sporecap-tender",
+      "listedStats": {
+        "FTH": 1,
+        "CHA": 1,
+        "damageCritChancePct": 2,
+        "outgoingHealingPct": 3
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-mycelial-wrap",
+      "name": "Mycelial Wrap",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-sporecap-tender",
+      "sourceId": "sporecap-tender",
+      "listedStats": {
+        "FTH": 1,
+        "CHA": 1,
+        "incomingHealingPct": 3,
+        "outgoingHealingPct": 3
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-tenderhand-gloves",
+      "name": "Tenderhand Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-sporecap-tender",
+      "sourceId": "sporecap-tender",
+      "listedStats": {
+        "FTH": 1,
+        "CHA": 1,
+        "criticalDamagePct": 4,
+        "outgoingHealingPct": 3
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-softstep-boots",
+      "name": "Softstep Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-sporecap-tender",
+      "sourceId": "sporecap-tender",
+      "listedStats": {
+        "FTH": 1,
+        "CHA": 1,
+        "dodgeChancePct": 2,
+        "outgoingHealingPct": 3
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-mycelial-crook",
+      "name": "Mycelial Crook",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "rarity": "Normal",
+      "sourceId": "sporecap-tender",
+      "listedStats": {
+        "FTH": 2,
+        "CHA": 1,
+        "damageCritChancePct": 2,
+        "energyGainPct": 3
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-sporebell-chime",
+      "name": "Sporebell Chime",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Instrument",
+      "rarity": "Normal",
+      "sourceId": "sporecap-tender",
+      "listedStats": {
+        "FTH": 2,
+        "CHA": 1,
+        "energyGainPct": 3
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-needlefang-hood",
+      "name": "Needlefang Hood",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-needlefang-lynx",
+      "sourceId": "needlefang-lynx",
+      "listedStats": {
+        "DEX": 3,
+        "LCK": 2,
+        "damageCritChancePct": 7
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-pursuit-jack",
+      "name": "Pursuit Jack",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-needlefang-lynx",
+      "sourceId": "needlefang-lynx",
+      "listedStats": {
+        "DEX": 3,
+        "LCK": 2,
+        "incomingHealingPct": 6,
+        "damageCritChancePct": 3
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-sinewgrip-gloves",
+      "name": "Sinewgrip Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-needlefang-lynx",
+      "sourceId": "needlefang-lynx",
+      "listedStats": {
+        "DEX": 3,
+        "LCK": 2,
+        "criticalDamagePct": 8,
+        "damageCritChancePct": 3
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-stalkstep-boots",
+      "name": "Stalkstep Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-needlefang-lynx",
+      "sourceId": "needlefang-lynx",
+      "listedStats": {
+        "DEX": 3,
+        "LCK": 2,
+        "dodgeChancePct": 4,
+        "damageCritChancePct": 3
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-needlefang-dirk",
+      "name": "Needlefang Dirk",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "rarity": "Normal",
+      "sourceId": "needlefang-lynx",
+      "listedStats": {
+        "DEX": 4,
+        "LCK": 2,
+        "damageCritChancePct": 5,
+        "criticalDamagePct": 10
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-sinewbound-claws",
+      "name": "Sinewbound Claws",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Gauntlet",
+      "rarity": "Normal",
+      "sourceId": "needlefang-lynx",
+      "listedStats": {
+        "DEX": 4,
+        "LCK": 2,
+        "damageCritChancePct": 3,
+        "criticalDamagePct": 6
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-chimeleaf-circlet",
+      "name": "Chimeleaf Circlet",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-chimeleaf-wisp",
+      "sourceId": "chimeleaf-wisp",
+      "listedStats": {
+        "CHA": 3,
+        "FTH": 2,
+        "damageCritChancePct": 4,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-resonant-vestment",
+      "name": "Resonant Vestment",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-chimeleaf-wisp",
+      "sourceId": "chimeleaf-wisp",
+      "listedStats": {
+        "CHA": 3,
+        "FTH": 2,
+        "incomingHealingPct": 6,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-bellfrond-gloves",
+      "name": "Bellfrond Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-chimeleaf-wisp",
+      "sourceId": "chimeleaf-wisp",
+      "listedStats": {
+        "CHA": 3,
+        "FTH": 2,
+        "criticalDamagePct": 8,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-hushstep-boots",
+      "name": "Hushstep Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-chimeleaf-wisp",
+      "sourceId": "chimeleaf-wisp",
+      "listedStats": {
+        "CHA": 3,
+        "FTH": 2,
+        "dodgeChancePct": 4,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-chimeleaf-lute",
+      "name": "Chimeleaf Lute",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Instrument",
+      "rarity": "Normal",
+      "sourceId": "chimeleaf-wisp",
+      "listedStats": {
+        "CHA": 4,
+        "FTH": 2,
+        "damageCritChancePct": 5,
+        "criticalDamagePct": 10,
+        "energyGainPct": 7
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-resonance-wand",
+      "name": "Resonance Wand",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "rarity": "Normal",
+      "sourceId": "chimeleaf-wisp",
+      "listedStats": {
+        "CHA": 4,
+        "FTH": 2,
+        "damageCritChancePct": 3,
+        "criticalDamagePct": 6,
+        "energyGainPct": 7
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-ironbark-greathelm",
+      "name": "Ironbark Greathelm",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorCategory": "Heavy",
+      "rarity": "Normal",
+      "setId": "set-ironbark-ram",
+      "sourceId": "ironbark-ram",
+      "listedStats": {
+        "CON": 3,
+        "STR": 2,
+        "damageCritChancePct": 4,
+        "blockedDamageReductionPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-bulwark-cuirass",
+      "name": "Bulwark Cuirass",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Heavy",
+      "rarity": "Normal",
+      "setId": "set-ironbark-ram",
+      "sourceId": "ironbark-ram",
+      "listedStats": {
+        "CON": 3,
+        "STR": 2,
+        "incomingHealingPct": 6,
+        "blockedDamageReductionPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-ramplate-gauntlets",
+      "name": "Ramplate Gauntlets",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorCategory": "Heavy",
+      "rarity": "Normal",
+      "setId": "set-ironbark-ram",
+      "sourceId": "ironbark-ram",
+      "listedStats": {
+        "CON": 3,
+        "STR": 2,
+        "criticalDamagePct": 8,
+        "blockedDamageReductionPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-rootlock-sabatons",
+      "name": "Rootlock Sabatons",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorCategory": "Heavy",
+      "rarity": "Normal",
+      "setId": "set-ironbark-ram",
+      "sourceId": "ironbark-ram",
+      "listedStats": {
+        "CON": 3,
+        "STR": 2,
+        "dodgeChancePct": 4,
+        "blockedDamageReductionPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-ironbark-maul",
+      "name": "Ironbark Maul",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "rarity": "Normal",
+      "sourceId": "ironbark-ram",
+      "listedStats": {
+        "CON": 4,
+        "STR": 2,
+        "damageCritChancePct": 5,
+        "criticalDamagePct": 10
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-ramcore-gauntlets",
+      "name": "Ramcore Gauntlets",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Gauntlet",
+      "rarity": "Normal",
+      "sourceId": "ironbark-ram",
+      "listedStats": {
+        "CON": 4,
+        "STR": 2,
+        "damageCritChancePct": 3,
+        "criticalDamagePct": 6
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-hexroot-crown",
+      "name": "Hexroot Crown",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "Normal",
+      "setId": "set-rootcoil-hexer",
+      "sourceId": "rootcoil-hexer",
+      "listedStats": {
+        "INT": 3,
+        "FTH": 2,
+        "damageCritChancePct": 4,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-black-sap-mantle",
+      "name": "Black-Sap Mantle",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "Normal",
+      "setId": "set-rootcoil-hexer",
+      "sourceId": "rootcoil-hexer",
+      "listedStats": {
+        "INT": 3,
+        "FTH": 2,
+        "incomingHealingPct": 6,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-knotweaver-gloves",
+      "name": "Knotweaver Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "Normal",
+      "setId": "set-rootcoil-hexer",
+      "sourceId": "rootcoil-hexer",
+      "listedStats": {
+        "INT": 3,
+        "FTH": 2,
+        "criticalDamagePct": 8,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-coilstep-boots",
+      "name": "Coilstep Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "Normal",
+      "setId": "set-rootcoil-hexer",
+      "sourceId": "rootcoil-hexer",
+      "listedStats": {
+        "INT": 3,
+        "FTH": 2,
+        "dodgeChancePct": 4,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-hexroot-staff",
+      "name": "Hexroot Staff",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "rarity": "Normal",
+      "sourceId": "rootcoil-hexer",
+      "listedStats": {
+        "INT": 4,
+        "FTH": 2,
+        "damageCritChancePct": 5,
+        "criticalDamagePct": 10,
+        "energyGainPct": 7
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-black-sap-bell",
+      "name": "Black-Sap Bell",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Instrument",
+      "rarity": "Normal",
+      "sourceId": "rootcoil-hexer",
+      "listedStats": {
+        "INT": 4,
+        "FTH": 2,
+        "damageCritChancePct": 3,
+        "criticalDamagePct": 6,
+        "energyGainPct": 7
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-glasswing-visor",
+      "name": "Glasswing Visor",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-glasswing-needler",
+      "sourceId": "glasswing-needler",
+      "listedStats": {
+        "DEX": 3,
+        "LCK": 2,
+        "damageCritChancePct": 7
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-shardweave-coat",
+      "name": "Shardweave Coat",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-glasswing-needler",
+      "sourceId": "glasswing-needler",
+      "listedStats": {
+        "DEX": 3,
+        "LCK": 2,
+        "incomingHealingPct": 6,
+        "damageCritChancePct": 3
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-needler-gloves",
+      "name": "Needler Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-glasswing-needler",
+      "sourceId": "glasswing-needler",
+      "listedStats": {
+        "DEX": 3,
+        "LCK": 2,
+        "criticalDamagePct": 8,
+        "damageCritChancePct": 3
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-skitterglass-boots",
+      "name": "Skitterglass Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-glasswing-needler",
+      "sourceId": "glasswing-needler",
+      "listedStats": {
+        "DEX": 3,
+        "LCK": 2,
+        "dodgeChancePct": 4,
+        "damageCritChancePct": 3
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-glasswing-bow",
+      "name": "Glasswing Bow",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "rarity": "Normal",
+      "sourceId": "glasswing-needler",
+      "listedStats": {
+        "DEX": 4,
+        "LCK": 2,
+        "damageCritChancePct": 5,
+        "criticalDamagePct": 10
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-shardlight-wand",
+      "name": "Shardlight Wand",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "rarity": "Normal",
+      "sourceId": "glasswing-needler",
+      "listedStats": {
+        "DEX": 4,
+        "LCK": 2,
+        "damageCritChancePct": 3,
+        "criticalDamagePct": 6,
+        "energyGainPct": 7
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-vinebound-helm",
+      "name": "Vinebound Helm",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "Normal",
+      "setId": "set-vinebound-reaver",
+      "sourceId": "vinebound-reaver",
+      "listedStats": {
+        "CON": 3,
+        "STR": 2,
+        "damageCritChancePct": 4,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-red-sap-harness",
+      "name": "Red-Sap Harness",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "Normal",
+      "setId": "set-vinebound-reaver",
+      "sourceId": "vinebound-reaver",
+      "listedStats": {
+        "CON": 3,
+        "STR": 2,
+        "incomingHealingPct": 10
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-chainvine-gloves",
+      "name": "Chainvine Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "Normal",
+      "setId": "set-vinebound-reaver",
+      "sourceId": "vinebound-reaver",
+      "listedStats": {
+        "CON": 3,
+        "STR": 2,
+        "criticalDamagePct": 8,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-reaver-treads",
+      "name": "Reaver Treads",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "Normal",
+      "setId": "set-vinebound-reaver",
+      "sourceId": "vinebound-reaver",
+      "listedStats": {
+        "CON": 3,
+        "STR": 2,
+        "dodgeChancePct": 4,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-vinechain-axe",
+      "name": "Vinechain Axe",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "rarity": "Normal",
+      "sourceId": "vinebound-reaver",
+      "listedStats": {
+        "CON": 4,
+        "STR": 2,
+        "damageCritChancePct": 5,
+        "criticalDamagePct": 10
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-red-sap-knuckles",
+      "name": "Red-Sap Knuckles",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Gauntlet",
+      "rarity": "Normal",
+      "sourceId": "vinebound-reaver",
+      "listedStats": {
+        "CON": 4,
+        "STR": 2,
+        "damageCritChancePct": 3,
+        "criticalDamagePct": 6
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-gloomcap-hood",
+      "name": "Gloomcap Hood",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-gloomcap-binder",
+      "sourceId": "gloomcap-binder",
+      "listedStats": {
+        "INT": 3,
+        "LCK": 2,
+        "damageCritChancePct": 4,
+        "criticalDamagePct": 6
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-hollowspore-shroud",
+      "name": "Hollowspore Shroud",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-gloomcap-binder",
+      "sourceId": "gloomcap-binder",
+      "listedStats": {
+        "INT": 3,
+        "LCK": 2,
+        "incomingHealingPct": 6,
+        "criticalDamagePct": 6
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-binder-gloves",
+      "name": "Binder Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-gloomcap-binder",
+      "sourceId": "gloomcap-binder",
+      "listedStats": {
+        "INT": 3,
+        "LCK": 2,
+        "criticalDamagePct": 14
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-umberstep-boots",
+      "name": "Umberstep Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-gloomcap-binder",
+      "sourceId": "gloomcap-binder",
+      "listedStats": {
+        "INT": 3,
+        "LCK": 2,
+        "dodgeChancePct": 4,
+        "criticalDamagePct": 6
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-gloomspore-rod",
+      "name": "Gloomspore Rod",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "rarity": "Normal",
+      "sourceId": "gloomcap-binder",
+      "listedStats": {
+        "INT": 4,
+        "LCK": 2,
+        "damageCritChancePct": 5,
+        "criticalDamagePct": 10,
+        "energyGainPct": 7
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-hollowcap-harp",
+      "name": "Hollowcap Harp",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Instrument",
+      "rarity": "Normal",
+      "sourceId": "gloomcap-binder",
+      "listedStats": {
+        "INT": 4,
+        "LCK": 2,
+        "damageCritChancePct": 3,
+        "criticalDamagePct": 6,
+        "energyGainPct": 7
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-sunscar-crown",
+      "name": "Sunscar Crown",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "Normal",
+      "setId": "set-sunscar-hart",
+      "sourceId": "sunscar-hart",
+      "listedStats": {
+        "INT": 3,
+        "DEX": 2,
+        "damageCritChancePct": 4,
+        "finalDamagePct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-white-resin-coat",
+      "name": "White-Resin Coat",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "Normal",
+      "setId": "set-sunscar-hart",
+      "sourceId": "sunscar-hart",
+      "listedStats": {
+        "INT": 3,
+        "DEX": 2,
+        "incomingHealingPct": 6,
+        "finalDamagePct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-antlerguard-gloves",
+      "name": "Antlerguard Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "Normal",
+      "setId": "set-sunscar-hart",
+      "sourceId": "sunscar-hart",
+      "listedStats": {
+        "INT": 3,
+        "DEX": 2,
+        "criticalDamagePct": 8,
+        "finalDamagePct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-brightstep-boots",
+      "name": "Brightstep Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "Normal",
+      "setId": "set-sunscar-hart",
+      "sourceId": "sunscar-hart",
+      "listedStats": {
+        "INT": 3,
+        "DEX": 2,
+        "dodgeChancePct": 4,
+        "finalDamagePct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-sunscar-scepter",
+      "name": "Sunscar Scepter",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "rarity": "Normal",
+      "sourceId": "sunscar-hart",
+      "listedStats": {
+        "INT": 4,
+        "DEX": 2,
+        "damageCritChancePct": 5,
+        "criticalDamagePct": 10,
+        "energyGainPct": 7
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-antler-pike",
+      "name": "Antler Pike",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "rarity": "Normal",
+      "sourceId": "sunscar-hart",
+      "listedStats": {
+        "INT": 4,
+        "DEX": 2,
+        "damageCritChancePct": 3,
+        "criticalDamagePct": 6
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-barkveil-hood",
+      "name": "Barkveil Hood",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-barkveil-sapper",
+      "sourceId": "barkveil-sapper",
+      "listedStats": {
+        "DEX": 3,
+        "INT": 2,
+        "damageCritChancePct": 4,
+        "dodgeChancePct": 3
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-sapper-jacket",
+      "name": "Sapper Jacket",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-barkveil-sapper",
+      "sourceId": "barkveil-sapper",
+      "listedStats": {
+        "DEX": 3,
+        "INT": 2,
+        "incomingHealingPct": 6,
+        "dodgeChancePct": 3
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-resinwork-gloves",
+      "name": "Resinwork Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-barkveil-sapper",
+      "sourceId": "barkveil-sapper",
+      "listedStats": {
+        "DEX": 3,
+        "INT": 2,
+        "criticalDamagePct": 8,
+        "dodgeChancePct": 3
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-fusepath-boots",
+      "name": "Fusepath Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "setId": "set-barkveil-sapper",
+      "sourceId": "barkveil-sapper",
+      "listedStats": {
+        "DEX": 3,
+        "INT": 2,
+        "dodgeChancePct": 7
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-resin-fang",
+      "name": "Resin Fang",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "rarity": "Normal",
+      "sourceId": "barkveil-sapper",
+      "listedStats": {
+        "DEX": 4,
+        "INT": 2,
+        "damageCritChancePct": 5,
+        "criticalDamagePct": 10
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-fuseglass-focus",
+      "name": "Fuseglass Focus",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "rarity": "Normal",
+      "sourceId": "barkveil-sapper",
+      "listedStats": {
+        "DEX": 4,
+        "INT": 2,
+        "damageCritChancePct": 3,
+        "criticalDamagePct": 6,
+        "energyGainPct": 7
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-thorn-crown-greathelm",
+      "name": "Thorn-Crown Greathelm",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorCategory": "Heavy",
+      "rarity": "SoulFire",
+      "setId": "set-crown-of-thorns-warden",
+      "sourceId": "crown-of-thorns-warden",
+      "listedStats": {
+        "CON": 4,
+        "STR": 3,
+        "damageCritChancePct": 5,
+        "blockChancePct": 5
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-warden-briarplate",
+      "name": "Warden Briarplate",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Heavy",
+      "rarity": "SoulFire",
+      "setId": "set-crown-of-thorns-warden",
+      "sourceId": "crown-of-thorns-warden",
+      "listedStats": {
+        "CON": 4,
+        "STR": 3,
+        "incomingHealingPct": 8,
+        "blockChancePct": 5
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-crownwood-gauntlets",
+      "name": "Crownwood Gauntlets",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorCategory": "Heavy",
+      "rarity": "SoulFire",
+      "setId": "set-crown-of-thorns-warden",
+      "sourceId": "crown-of-thorns-warden",
+      "listedStats": {
+        "CON": 4,
+        "STR": 3,
+        "criticalDamagePct": 10,
+        "blockChancePct": 5
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-thornroot-sabatons",
+      "name": "Thornroot Sabatons",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorCategory": "Heavy",
+      "rarity": "SoulFire",
+      "setId": "set-crown-of-thorns-warden",
+      "sourceId": "crown-of-thorns-warden",
+      "listedStats": {
+        "CON": 4,
+        "STR": 3,
+        "dodgeChancePct": 5,
+        "blockChancePct": 5
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-crownwood-greatblade",
+      "name": "Crownwood Greatblade",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "rarity": "SoulFire",
+      "sourceId": "crown-of-thorns-warden",
+      "listedStats": {
+        "CON": 5,
+        "STR": 3,
+        "damageCritChancePct": 6,
+        "criticalDamagePct": 12
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-thornwarden-gauntlets",
+      "name": "Thornwarden Gauntlets",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Gauntlet",
+      "rarity": "SoulFire",
+      "sourceId": "crown-of-thorns-warden",
+      "listedStats": {
+        "CON": 5,
+        "STR": 3,
+        "damageCritChancePct": 3,
+        "criticalDamagePct": 8
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-heartwood-diadem",
+      "name": "Heartwood Diadem",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "SoulFire",
+      "setId": "set-heartwood-sovereign",
+      "sourceId": "heartwood-sovereign",
+      "listedStats": {
+        "FTH": 4,
+        "CON": 3,
+        "damageCritChancePct": 5,
+        "shieldStrengthPct": 6
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-sovereign-mantle",
+      "name": "Sovereign Mantle",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "SoulFire",
+      "setId": "set-heartwood-sovereign",
+      "sourceId": "heartwood-sovereign",
+      "listedStats": {
+        "FTH": 4,
+        "CON": 3,
+        "incomingHealingPct": 8,
+        "shieldStrengthPct": 6
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-doorroot-grips",
+      "name": "Doorroot Grips",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "SoulFire",
+      "setId": "set-heartwood-sovereign",
+      "sourceId": "heartwood-sovereign",
+      "listedStats": {
+        "FTH": 4,
+        "CON": 3,
+        "criticalDamagePct": 10,
+        "shieldStrengthPct": 6
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-heartstep-greaves",
+      "name": "Heartstep Greaves",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "rarity": "SoulFire",
+      "setId": "set-heartwood-sovereign",
+      "sourceId": "heartwood-sovereign",
+      "listedStats": {
+        "FTH": 4,
+        "CON": 3,
+        "dodgeChancePct": 5,
+        "shieldStrengthPct": 6
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-heartwood-scepter",
+      "name": "Heartwood Scepter",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "rarity": "SoulFire",
+      "sourceId": "heartwood-sovereign",
+      "listedStats": {
+        "FTH": 5,
+        "CON": 3,
+        "damageCritChancePct": 6,
+        "criticalDamagePct": 12,
+        "energyGainPct": 8
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-doorroot-harp",
+      "name": "Doorroot Harp",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Instrument",
+      "rarity": "SoulFire",
+      "sourceId": "heartwood-sovereign",
+      "listedStats": {
+        "FTH": 5,
+        "CON": 3,
+        "damageCritChancePct": 3,
+        "criticalDamagePct": 8,
+        "energyGainPct": 8
+      },
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-starter-rustleaf-sword",
+      "name": "Rustleaf Sword",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "rarity": "Normal",
+      "starter": true,
+      "starterForClasses": [
+        "Warrior"
+      ],
+      "listedStats": {
+        "STR": 1
+      },
+      "acquisition": "starter-spawn",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-starter-wayknife",
+      "name": "Wayknife",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "rarity": "Normal",
+      "starter": true,
+      "starterForClasses": [
+        "Rogue"
+      ],
+      "listedStats": {
+        "DEX": 1
+      },
+      "acquisition": "starter-spawn",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-starter-canvas-knuckles",
+      "name": "Canvas Knuckles",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Gauntlet",
+      "rarity": "Normal",
+      "starter": true,
+      "starterForClasses": [
+        "Brawler"
+      ],
+      "listedStats": {
+        "STR": 1
+      },
+      "acquisition": "starter-spawn",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-starter-ashwood-wand",
+      "name": "Ashwood Wand",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "rarity": "Normal",
+      "starter": true,
+      "starterForClasses": [
+        "Mage"
+      ],
+      "listedStats": {
+        "INT": 1
+      },
+      "acquisition": "starter-spawn",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-starter-prayer-chime",
+      "name": "Prayer Chime",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Instrument",
+      "rarity": "Normal",
+      "starter": true,
+      "starterForClasses": [
+        "Cleric"
+      ],
+      "listedStats": {
+        "FTH": 1
+      },
+      "acquisition": "starter-spawn",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-starter-pathbow",
+      "name": "Pathbow",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "rarity": "Normal",
+      "starter": true,
+      "starterForClasses": [
+        "Ranger"
+      ],
+      "listedStats": {
+        "DEX": 1
+      },
+      "acquisition": "starter-spawn",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-starter-travel-lute",
+      "name": "Travel Lute",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Instrument",
+      "rarity": "Normal",
+      "starter": true,
+      "starterForClasses": [
+        "Bard"
+      ],
+      "listedStats": {
+        "CHA": 1
+      },
+      "acquisition": "starter-spawn",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-starter-spark-rod",
+      "name": "Spark Rod",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "rarity": "Normal",
+      "starter": true,
+      "starterForClasses": [
+        "Sorcerer"
+      ],
+      "listedStats": {
+        "CHA": 1
+      },
+      "acquisition": "starter-spawn",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-starter-covenant-bell",
+      "name": "Covenant Bell",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Instrument",
+      "rarity": "Normal",
+      "starter": true,
+      "starterForClasses": [
+        "Warlock"
+      ],
+      "listedStats": {
+        "CHA": 1
+      },
+      "acquisition": "starter-spawn",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-starter-oathblade",
+      "name": "Oathblade",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "rarity": "Normal",
+      "starter": true,
+      "starterForClasses": [
+        "Paladin"
+      ],
+      "listedStats": {
+        "STR": 1
+      },
+      "acquisition": "starter-spawn",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-starter-grove-crook",
+      "name": "Grove Crook",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "rarity": "Normal",
+      "starter": true,
+      "starterForClasses": [
+        "Druid"
+      ],
+      "listedStats": {
+        "CON": 1
+      },
+      "acquisition": "starter-spawn",
+      "weaponBaseDamage": false
+    },
+    {
+      "id": "eq-starter-wayfarer-vest",
+      "name": "Wayfarer Vest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "rarity": "Normal",
+      "starter": true,
+      "starterForClasses": [
+        "*"
+      ],
+      "listedStats": {
+        "CON": 1
+      },
+      "acquisition": "starter-spawn"
+    },
+    {
+      "id": "eq-mossjaw-tusk-shield",
+      "name": "Mossjaw Tusk Shield",
+      "slot": "offHand",
+      "itemType": "Shield",
+      "rarity": "Normal",
+      "sourceId": "mossjaw-boar",
+      "listedStats": {
+        "CON": 3,
+        "blockChancePct": 8,
+        "blockedDamageReductionPct": 6
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-ironbark-wallshield",
+      "name": "Ironbark Wallshield",
+      "slot": "offHand",
+      "itemType": "Shield",
+      "rarity": "Normal",
+      "sourceId": "ironbark-ram",
+      "listedStats": {
+        "CON": 4,
+        "blockChancePct": 10,
+        "blockedDamageReductionPct": 10
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-vinechain-buckler",
+      "name": "Vinechain Buckler",
+      "slot": "offHand",
+      "itemType": "Shield",
+      "rarity": "Normal",
+      "sourceId": "vinebound-reaver",
+      "listedStats": {
+        "STR": 2,
+        "CON": 3,
+        "blockChancePct": 8
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-sunscar-mirror",
+      "name": "Sunscar Mirror Shield",
+      "slot": "offHand",
+      "itemType": "Shield",
+      "rarity": "Normal",
+      "sourceId": "sunscar-hart",
+      "listedStats": {
+        "INT": 3,
+        "CON": 2,
+        "blockChancePct": 7,
+        "energyGainPct": 6
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-thorn-soulfire-aegis",
+      "name": "Thorn SoulFire Aegis",
+      "slot": "offHand",
+      "itemType": "Shield",
+      "rarity": "SoulFire",
+      "sourceId": "crown-of-thorns-warden",
+      "listedStats": {
+        "CON": 5,
+        "STR": 3,
+        "blockChancePct": 12,
+        "blockedDamageReductionPct": 12
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-heartwood-soulfire-ward",
+      "name": "Heartwood SoulFire Ward",
+      "slot": "offHand",
+      "itemType": "Shield",
+      "rarity": "SoulFire",
+      "sourceId": "heartwood-sovereign",
+      "listedStats": {
+        "FTH": 5,
+        "CON": 3,
+        "blockChancePct": 10,
+        "incomingHealingPct": 10
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-briarloop-torque",
+      "name": "Briarloop Torque",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "Normal",
+      "sourceId": null,
+      "listedStats": {
+        "DEX": 3,
+        "LCK": 3,
+        "dodgeChancePct": 5
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-mossbell-locket",
+      "name": "Mossbell Locket",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "Normal",
+      "sourceId": null,
+      "listedStats": {
+        "CON": 3,
+        "CHA": 3,
+        "incomingHealingPct": 6
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-sporeglass-pendant",
+      "name": "Sporeglass Pendant",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "Normal",
+      "sourceId": null,
+      "listedStats": {
+        "FTH": 3,
+        "INT": 3,
+        "energyGainPct": 7
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-ironroot-signet",
+      "name": "Ironroot Signet",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "Normal",
+      "sourceId": null,
+      "listedStats": {
+        "CON": 3,
+        "INT": 3,
+        "blockChancePct": 6
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-redvine-clasp",
+      "name": "Redvine Clasp",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "Normal",
+      "sourceId": null,
+      "listedStats": {
+        "STR": 3,
+        "FTH": 3,
+        "incomingHealingPct": 8
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-sunveil-brooch",
+      "name": "Sunveil Brooch",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "Normal",
+      "sourceId": null,
+      "listedStats": {
+        "DEX": 3,
+        "INT": 3,
+        "damageCritChancePct": 6
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-crownfire-reliquary",
+      "name": "Crownfire Reliquary",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "SoulFire",
+      "sourceId": "crown-of-thorns-warden",
+      "listedStats": {
+        "CON": 4,
+        "FTH": 3,
+        "blockedDamageReductionPct": 10
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-heartfire-reliquary",
+      "name": "Heartfire Reliquary",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "SoulFire",
+      "sourceId": "heartwood-sovereign",
+      "listedStats": {
+        "FTH": 4,
+        "CHA": 3,
+        "outgoingHealingPct": 12
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-briar-dew-vial",
+      "name": "Briar Dew Vial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Vial",
+      "rarity": "Normal",
+      "listedStats": {
+        "STR": 2,
+        "blockChancePct": 3,
+        "incomingHealingPct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-mossmilk-vial",
+      "name": "Mossmilk Vial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Vial",
+      "rarity": "Normal",
+      "listedStats": {
+        "DEX": 2,
+        "dodgeChancePct": 3,
+        "incomingHealingPct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-sporelight-vial",
+      "name": "Sporelight Vial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Vial",
+      "rarity": "Normal",
+      "listedStats": {
+        "CON": 2,
+        "incomingHealingPct": 6
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-glass-sap-vial",
+      "name": "Glass Sap Vial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Vial",
+      "rarity": "Normal",
+      "listedStats": {
+        "INT": 2,
+        "energyGainPct": 4,
+        "incomingHealingPct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-sunresin-vial",
+      "name": "Sunresin Vial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Vial",
+      "rarity": "Normal",
+      "listedStats": {
+        "FTH": 2,
+        "outgoingHealingPct": 4,
+        "incomingHealingPct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-gloom-nectar-vial",
+      "name": "Gloom Nectar Vial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Vial",
+      "rarity": "Normal",
+      "listedStats": {
+        "CHA": 2,
+        "energyGainPct": 3,
+        "incomingHealingPct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-folded-briar-script",
+      "name": "Folded Briar Script",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Spell Slot",
+      "rarity": "Normal",
+      "listedStats": {
+        "LCK": 2,
+        "damageCritChancePct": 3,
+        "energyGainPct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-mossjaw-ward-slot",
+      "name": "Mossjaw Ward-Slot",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Spell Slot",
+      "rarity": "Normal",
+      "listedStats": {
+        "STR": 1,
+        "DEX": 1,
+        "criticalDamagePct": 6,
+        "energyGainPct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-sporecall-script",
+      "name": "Sporecall Script",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Spell Slot",
+      "rarity": "Normal",
+      "listedStats": {
+        "INT": 1,
+        "FTH": 1,
+        "outgoingHealingPct": 5,
+        "energyGainPct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-needleline-script",
+      "name": "Needleline Script",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Spell Slot",
+      "rarity": "Normal",
+      "listedStats": {
+        "DEX": 1,
+        "LCK": 1,
+        "damageCritChancePct": 4,
+        "energyGainPct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-chimeleaf-canticle-slot",
+      "name": "Chimeleaf Canticle Slot",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Spell Slot",
+      "rarity": "Normal",
+      "listedStats": {
+        "CON": 1,
+        "CHA": 1,
+        "blockChancePct": 4,
+        "energyGainPct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-hexroot-formula-slot",
+      "name": "Hexroot Formula Slot",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Spell Slot",
+      "rarity": "Normal",
+      "listedStats": {
+        "INT": 1,
+        "CHA": 1,
+        "energyGainPct": 7
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-glasswing-vector-slot",
+      "name": "Glasswing Vector Slot",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Spell Slot",
+      "rarity": "Normal",
+      "listedStats": {
+        "STR": 2,
+        "blockChancePct": 3,
+        "energyGainPct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-sunscar-invocation-slot",
+      "name": "Sunscar Invocation Slot",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Spell Slot",
+      "rarity": "Normal",
+      "listedStats": {
+        "DEX": 2,
+        "dodgeChancePct": 3,
+        "energyGainPct": 2
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-hook-tooth-token",
+      "name": "Hook-Tooth Token",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Trinket",
+      "rarity": "Normal",
+      "listedStats": {
+        "CON": 2,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-mossjaw-bead",
+      "name": "Mossjaw Bead",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Trinket",
+      "rarity": "Normal",
+      "listedStats": {
+        "INT": 2,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-softspore-knot",
+      "name": "Softspore Knot",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Trinket",
+      "rarity": "Normal",
+      "listedStats": {
+        "FTH": 2,
+        "outgoingHealingPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-needlefang-eye",
+      "name": "Needlefang Eye",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Trinket",
+      "rarity": "Normal",
+      "listedStats": {
+        "CHA": 2,
+        "energyGainPct": 3
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-chimeleaf-bell",
+      "name": "Chimeleaf Bell",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Trinket",
+      "rarity": "Normal",
+      "listedStats": {
+        "LCK": 2,
+        "damageCritChancePct": 3
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-ironbark-ring",
+      "name": "Ironbark Ring",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Trinket",
+      "rarity": "Normal",
+      "listedStats": {
+        "STR": 1,
+        "DEX": 1,
+        "criticalDamagePct": 6
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-hexroot-twist",
+      "name": "Hexroot Twist",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Trinket",
+      "rarity": "Normal",
+      "listedStats": {
+        "INT": 1,
+        "FTH": 1,
+        "outgoingHealingPct": 5
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-glasswing-pin",
+      "name": "Glasswing Pin",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Trinket",
+      "rarity": "Normal",
+      "listedStats": {
+        "DEX": 1,
+        "LCK": 1,
+        "damageCritChancePct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-vinechain-link",
+      "name": "Vinechain Link",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Trinket",
+      "rarity": "Normal",
+      "listedStats": {
+        "CON": 1,
+        "CHA": 1,
+        "blockChancePct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-gloomcap-button",
+      "name": "Gloomcap Button",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Trinket",
+      "rarity": "Normal",
+      "listedStats": {
+        "INT": 1,
+        "CHA": 1,
+        "energyGainPct": 5
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-sunscar-chip",
+      "name": "Sunscar Chip",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Trinket",
+      "rarity": "Normal",
+      "listedStats": {
+        "STR": 2,
+        "blockChancePct": 3
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-barkveil-fuse",
+      "name": "Barkveil Fuse",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Trinket",
+      "rarity": "Normal",
+      "listedStats": {
+        "DEX": 2,
+        "dodgeChancePct": 3
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-briar-compass",
+      "name": "Briar Compass",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Trinket",
+      "rarity": "Normal",
+      "listedStats": {
+        "CON": 2,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-mire-coin",
+      "name": "Mire Coin",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Trinket",
+      "rarity": "Normal",
+      "listedStats": {
+        "INT": 2,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-resin-star",
+      "name": "Resin Star",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Trinket",
+      "rarity": "Normal",
+      "listedStats": {
+        "FTH": 2,
+        "outgoingHealingPct": 4
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-doorward-pebble",
+      "name": "Doorward Pebble",
+      "slot": "charm",
+      "itemType": "Charm",
+      "charmType": "Trinket",
+      "rarity": "Normal",
+      "listedStats": {
+        "CHA": 2,
+        "energyGainPct": 3
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-thornbeat-prism",
+      "name": "Thornbeat Prism",
+      "slot": "abilityItem",
+      "itemType": "Ability Item",
+      "rarity": "Normal",
+      "sourceId": null,
+      "listedStats": {
+        "STR": 2,
+        "CHA": 2,
+        "energyGainPct": 6
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-mireheart-lens",
+      "name": "Mireheart Lens",
+      "slot": "abilityItem",
+      "itemType": "Ability Item",
+      "rarity": "Normal",
+      "sourceId": null,
+      "listedStats": {
+        "CON": 3,
+        "FTH": 2,
+        "incomingHealingPct": 7
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-needleclock-dial",
+      "name": "Needleclock Dial",
+      "slot": "abilityItem",
+      "itemType": "Ability Item",
+      "rarity": "Normal",
+      "sourceId": null,
+      "listedStats": {
+        "DEX": 3,
+        "LCK": 2,
+        "damageCritChancePct": 6
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-hexcoil-tablet",
+      "name": "Hexcoil Tablet",
+      "slot": "abilityItem",
+      "itemType": "Ability Item",
+      "rarity": "Normal",
+      "sourceId": null,
+      "listedStats": {
+        "INT": 3,
+        "FTH": 2,
+        "criticalDamagePct": 10
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-redvine-memory-knot",
+      "name": "Redvine Memory Knot",
+      "slot": "abilityItem",
+      "itemType": "Ability Item",
+      "rarity": "Normal",
+      "sourceId": null,
+      "listedStats": {
+        "STR": 2,
+        "CON": 3,
+        "incomingHealingPct": 8
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-sunscar-aperture",
+      "name": "Sunscar Aperture",
+      "slot": "abilityItem",
+      "itemType": "Ability Item",
+      "rarity": "Normal",
+      "sourceId": null,
+      "listedStats": {
+        "INT": 3,
+        "DEX": 2,
+        "finalDamagePct": 6
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-thorn-soulfire-seal",
+      "name": "Thorn SoulFire Seal",
+      "slot": "abilityItem",
+      "itemType": "Ability Item",
+      "rarity": "SoulFire",
+      "sourceId": "crown-of-thorns-warden",
+      "listedStats": {
+        "CON": 4,
+        "STR": 3,
+        "blockChancePct": 10
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-heartwood-soulfire-seal",
+      "name": "Heartwood SoulFire Seal",
+      "slot": "abilityItem",
+      "itemType": "Ability Item",
+      "rarity": "SoulFire",
+      "sourceId": "heartwood-sovereign",
+      "listedStats": {
+        "FTH": 4,
+        "INT": 3,
+        "shieldStrengthPct": 12
+      },
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "eq-trainer-torren-ashsplitter-ashsplitter-training-cleaver",
+      "name": "Ashsplitter Training Cleaver",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "torren-ashsplitter",
+      "listedStats": {
+        "STR": 4,
+        "CON": 3,
+        "LCK": 2,
+        "blockChancePct": 7
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Ruinhewer",
+      "weaponType": "Physical"
+    },
+    {
+      "id": "eq-trainer-torren-ashsplitter-split-ring-token",
+      "name": "Split-Ring Token",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "torren-ashsplitter",
+      "listedStats": {
+        "STR": 4,
+        "CON": 3,
+        "LCK": 2,
+        "blockChancePct": 9,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Ruinhewer",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-trainer-torren-ashsplitter-ashsplitter-shouldercoat",
+      "name": "Ashsplitter Shouldercoat",
+      "slot": "chest",
+      "itemType": "Armor",
+      "rarity": "SoulFire",
+      "sourceId": "torren-ashsplitter",
+      "listedStats": {
+        "STR": 4,
+        "CON": 3,
+        "LCK": 2,
+        "blockChancePct": 7,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Ruinhewer",
+      "armorCategory": "Heavy"
+    },
+    {
+      "id": "eq-trainer-maela-ironroot-ironroot-bastion-blade",
+      "name": "Ironroot Bastion Blade",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "maela-ironroot",
+      "listedStats": {
+        "CON": 4,
+        "STR": 3,
+        "CHA": 2,
+        "blockChancePct": 7
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "SteelBearer",
+      "weaponType": "Physical"
+    },
+    {
+      "id": "eq-trainer-maela-ironroot-ironroot-temper-vial",
+      "name": "Ironroot Temper Vial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "maela-ironroot",
+      "listedStats": {
+        "CON": 4,
+        "STR": 3,
+        "CHA": 2,
+        "blockChancePct": 9,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "SteelBearer",
+      "charmType": "Vial"
+    },
+    {
+      "id": "eq-trainer-maela-ironroot-root-iron-cuirass",
+      "name": "Root-Iron Cuirass",
+      "slot": "chest",
+      "itemType": "Armor",
+      "rarity": "SoulFire",
+      "sourceId": "maela-ironroot",
+      "listedStats": {
+        "CON": 4,
+        "STR": 3,
+        "CHA": 2,
+        "blockChancePct": 7,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "SteelBearer",
+      "armorCategory": "Heavy"
+    },
+    {
+      "id": "eq-trainer-sileth-shadeleaf-shadeleaf-knife",
+      "name": "Shadeleaf Knife",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "sileth-shadeleaf",
+      "listedStats": {
+        "DEX": 4,
+        "LCK": 3,
+        "INT": 2,
+        "dodgeChancePct": 7
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Veil Blade",
+      "weaponType": "Physical"
+    },
+    {
+      "id": "eq-trainer-sileth-shadeleaf-second-shadow-knife",
+      "name": "Second Shadow Knife",
+      "slot": "offHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "sileth-shadeleaf",
+      "listedStats": {
+        "DEX": 4,
+        "LCK": 3,
+        "INT": 2,
+        "dodgeChancePct": 9,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Veil Blade",
+      "weaponType": "Physical"
+    },
+    {
+      "id": "eq-trainer-sileth-shadeleaf-unseen-step-token",
+      "name": "Unseen Step Token",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "sileth-shadeleaf",
+      "listedStats": {
+        "DEX": 4,
+        "LCK": 3,
+        "INT": 2,
+        "dodgeChancePct": 7,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Veil Blade",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-trainer-corven-reedblade-reedblade-foil",
+      "name": "Reedblade Foil",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "corven-reedblade",
+      "listedStats": {
+        "DEX": 4,
+        "STR": 3,
+        "CHA": 2,
+        "dodgeChancePct": 7
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Duelist",
+      "weaponType": "Physical"
+    },
+    {
+      "id": "eq-trainer-corven-reedblade-perfect-measure-vial",
+      "name": "Perfect Measure Vial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "corven-reedblade",
+      "listedStats": {
+        "DEX": 4,
+        "STR": 3,
+        "CHA": 2,
+        "dodgeChancePct": 9,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Duelist",
+      "charmType": "Vial"
+    },
+    {
+      "id": "eq-trainer-corven-reedblade-last-word-coin",
+      "name": "Last Word Coin",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "corven-reedblade",
+      "listedStats": {
+        "DEX": 4,
+        "STR": 3,
+        "CHA": 2,
+        "dodgeChancePct": 7,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Duelist",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-trainer-juno-stonepulse-stonepulse-wraps",
+      "name": "Stonepulse Wraps",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "juno-stonepulse",
+      "listedStats": {
+        "STR": 4,
+        "DEX": 3,
+        "CON": 2,
+        "criticalDamagePct": 12
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "AdaptedFist",
+      "weaponType": "Gauntlet"
+    },
+    {
+      "id": "eq-trainer-juno-stonepulse-bruise-reader-bead",
+      "name": "Bruise-Reader Bead",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "juno-stonepulse",
+      "listedStats": {
+        "STR": 4,
+        "DEX": 3,
+        "CON": 2,
+        "criticalDamagePct": 14,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "AdaptedFist",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-trainer-juno-stonepulse-adaptive-sparring-vest",
+      "name": "Adaptive Sparring Vest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "rarity": "SoulFire",
+      "sourceId": "juno-stonepulse",
+      "listedStats": {
+        "STR": 4,
+        "DEX": 3,
+        "CON": 2,
+        "criticalDamagePct": 12,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "AdaptedFist",
+      "armorCategory": "Medium"
+    },
+    {
+      "id": "eq-trainer-ysra-knotwise-knotwise-seal-rod",
+      "name": "Knotwise Seal Rod",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "ysra-knotwise",
+      "listedStats": {
+        "INT": 4,
+        "FTH": 3,
+        "CHA": 2,
+        "energyGainPct": 8
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Sealweaver",
+      "weaponType": "Magic"
+    },
+    {
+      "id": "eq-trainer-ysra-knotwise-folded-ward-scripture",
+      "name": "Folded Ward Scripture",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "ysra-knotwise",
+      "listedStats": {
+        "INT": 4,
+        "FTH": 3,
+        "CHA": 2,
+        "energyGainPct": 14
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Sealweaver",
+      "charmType": "Spell Slot"
+    },
+    {
+      "id": "eq-trainer-ysra-knotwise-inkbreath-vial",
+      "name": "Inkbreath Vial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "ysra-knotwise",
+      "listedStats": {
+        "INT": 4,
+        "FTH": 3,
+        "CHA": 2,
+        "energyGainPct": 8,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Sealweaver",
+      "charmType": "Vial"
+    },
+    {
+      "id": "eq-trainer-pellin-manysigns-manysign-slate-wand",
+      "name": "Manysign Slate-Wand",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "pellin-manysigns",
+      "listedStats": {
+        "INT": 4,
+        "DEX": 3,
+        "CHA": 2,
+        "energyGainPct": 8
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Glyphmorpher",
+      "weaponType": "Magic"
+    },
+    {
+      "id": "eq-trainer-pellin-manysigns-rotating-glyph-sheet",
+      "name": "Rotating Glyph Sheet",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "pellin-manysigns",
+      "listedStats": {
+        "INT": 4,
+        "DEX": 3,
+        "CHA": 2,
+        "energyGainPct": 14
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Glyphmorpher",
+      "charmType": "Spell Slot"
+    },
+    {
+      "id": "eq-trainer-pellin-manysigns-third-meaning-script",
+      "name": "Third-Meaning Script",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "pellin-manysigns",
+      "listedStats": {
+        "INT": 4,
+        "DEX": 3,
+        "CHA": 2,
+        "energyGainPct": 8,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Glyphmorpher",
+      "charmType": "Spell Slot"
+    },
+    {
+      "id": "eq-trainer-avel-mosslight-mosslight-crook",
+      "name": "Mosslight Crook",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "avel-mosslight",
+      "listedStats": {
+        "FTH": 4,
+        "CHA": 3,
+        "CON": 2,
+        "outgoingHealingPct": 9
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Solaceweaver",
+      "weaponType": "Magic"
+    },
+    {
+      "id": "eq-trainer-avel-mosslight-quiet-mercy-vial",
+      "name": "Quiet Mercy Vial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "avel-mosslight",
+      "listedStats": {
+        "FTH": 4,
+        "CHA": 3,
+        "CON": 2,
+        "outgoingHealingPct": 11,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Solaceweaver",
+      "charmType": "Vial"
+    },
+    {
+      "id": "eq-trainer-avel-mosslight-mosslight-vestment",
+      "name": "Mosslight Vestment",
+      "slot": "chest",
+      "itemType": "Armor",
+      "rarity": "SoulFire",
+      "sourceId": "avel-mosslight",
+      "listedStats": {
+        "FTH": 4,
+        "CHA": 3,
+        "CON": 2,
+        "outgoingHealingPct": 9,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Solaceweaver",
+      "armorCategory": "Light"
+    },
+    {
+      "id": "eq-trainer-cael-farbranch-farbranch-longbow",
+      "name": "Farbranch Longbow",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "cael-farbranch",
+      "listedStats": {
+        "DEX": 4,
+        "LCK": 3,
+        "STR": 2,
+        "damageCritChancePct": 6
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Longwatch",
+      "weaponType": "Physical"
+    },
+    {
+      "id": "eq-trainer-cael-farbranch-still-eye-lens",
+      "name": "Still-Eye Lens",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "cael-farbranch",
+      "listedStats": {
+        "DEX": 4,
+        "LCK": 3,
+        "STR": 2,
+        "damageCritChancePct": 8,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Longwatch",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-trainer-cael-farbranch-long-breath-vial",
+      "name": "Long Breath Vial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "cael-farbranch",
+      "listedStats": {
+        "DEX": 4,
+        "LCK": 3,
+        "STR": 2,
+        "damageCritChancePct": 6,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Longwatch",
+      "charmType": "Vial"
+    },
+    {
+      "id": "eq-trainer-oryn-pathshield-pathshield-spear",
+      "name": "Pathshield Spear",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "oryn-pathshield",
+      "listedStats": {
+        "DEX": 4,
+        "CON": 3,
+        "CHA": 2,
+        "damageCritChancePct": 6
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Trailguard",
+      "weaponType": "Physical"
+    },
+    {
+      "id": "eq-trainer-oryn-pathshield-trailward-coat",
+      "name": "Trailward Coat",
+      "slot": "chest",
+      "itemType": "Armor",
+      "rarity": "SoulFire",
+      "sourceId": "oryn-pathshield",
+      "listedStats": {
+        "DEX": 4,
+        "CON": 3,
+        "CHA": 2,
+        "damageCritChancePct": 8,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Trailguard",
+      "armorCategory": "Medium"
+    },
+    {
+      "id": "eq-trainer-oryn-pathshield-safe-route-marker",
+      "name": "Safe-Route Marker",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "oryn-pathshield",
+      "listedStats": {
+        "DEX": 4,
+        "CON": 3,
+        "CHA": 2,
+        "damageCritChancePct": 6,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Trailguard",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-trainer-lysa-greenchoir-greenchoir-lyre",
+      "name": "Greenchoir Lyre",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "lysa-greenchoir",
+      "listedStats": {
+        "CHA": 4,
+        "FTH": 3,
+        "CON": 2,
+        "outgoingHealingPct": 8
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Choruswarden",
+      "weaponType": "Instrument"
+    },
+    {
+      "id": "eq-trainer-lysa-greenchoir-canopy-canticle",
+      "name": "Canopy Canticle",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "lysa-greenchoir",
+      "listedStats": {
+        "CHA": 4,
+        "FTH": 3,
+        "CON": 2,
+        "outgoingHealingPct": 10,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Choruswarden",
+      "charmType": "Spell Slot"
+    },
+    {
+      "id": "eq-trainer-lysa-greenchoir-shared-note-bell",
+      "name": "Shared Note Bell",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "lysa-greenchoir",
+      "listedStats": {
+        "CHA": 4,
+        "FTH": 3,
+        "CON": 2,
+        "outgoingHealingPct": 8,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Choruswarden",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-trainer-nemea-wildspark-wildspark-rod",
+      "name": "Wildspark Rod",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "nemea-wildspark",
+      "listedStats": {
+        "CHA": 4,
+        "LCK": 3,
+        "INT": 2,
+        "energyGainPct": 8
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Fluxwrought",
+      "weaponType": "Magic"
+    },
+    {
+      "id": "eq-trainer-nemea-wildspark-unfixed-formula",
+      "name": "Unfixed Formula",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "nemea-wildspark",
+      "listedStats": {
+        "CHA": 4,
+        "LCK": 3,
+        "INT": 2,
+        "energyGainPct": 14
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Fluxwrought",
+      "charmType": "Spell Slot"
+    },
+    {
+      "id": "eq-trainer-nemea-wildspark-fluxglass-vial",
+      "name": "Fluxglass Vial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "nemea-wildspark",
+      "listedStats": {
+        "CHA": 4,
+        "LCK": 3,
+        "INT": 2,
+        "energyGainPct": 8,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Fluxwrought",
+      "charmType": "Vial"
+    },
+    {
+      "id": "eq-trainer-varrik-hollowroot-hollowroot-staff",
+      "name": "Hollowroot Staff",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "varrik-hollowroot",
+      "listedStats": {
+        "CHA": 4,
+        "FTH": 3,
+        "LCK": 2,
+        "criticalDamagePct": 12
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Belowcaller",
+      "weaponType": "Magic"
+    },
+    {
+      "id": "eq-trainer-varrik-hollowroot-listening-knot",
+      "name": "Listening Knot",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "varrik-hollowroot",
+      "listedStats": {
+        "CHA": 4,
+        "FTH": 3,
+        "LCK": 2,
+        "criticalDamagePct": 14,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Belowcaller",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-trainer-varrik-hollowroot-underbark-litany",
+      "name": "Underbark Litany",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "varrik-hollowroot",
+      "listedStats": {
+        "CHA": 4,
+        "FTH": 3,
+        "LCK": 2,
+        "criticalDamagePct": 12,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Belowcaller",
+      "charmType": "Spell Slot"
+    },
+    {
+      "id": "eq-trainer-caldus-firstlight-firstlight-sword",
+      "name": "Firstlight Sword",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "caldus-firstlight",
+      "listedStats": {
+        "CON": 4,
+        "FTH": 3,
+        "CHA": 2,
+        "blockedDamageReductionPct": 8
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Dawnwarden",
+      "weaponType": "Physical"
+    },
+    {
+      "id": "eq-trainer-caldus-firstlight-lanternward-plate",
+      "name": "Lanternward Plate",
+      "slot": "chest",
+      "itemType": "Armor",
+      "rarity": "SoulFire",
+      "sourceId": "caldus-firstlight",
+      "listedStats": {
+        "CON": 4,
+        "FTH": 3,
+        "CHA": 2,
+        "blockedDamageReductionPct": 10,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Dawnwarden",
+      "armorCategory": "Heavy"
+    },
+    {
+      "id": "eq-trainer-caldus-firstlight-daybreak-vial",
+      "name": "Daybreak Vial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "caldus-firstlight",
+      "listedStats": {
+        "CON": 4,
+        "FTH": 3,
+        "CHA": 2,
+        "blockedDamageReductionPct": 8,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Dawnwarden",
+      "charmType": "Vial"
+    },
+    {
+      "id": "eq-trainer-mira-oaththorn-oaththorn-blade",
+      "name": "Oaththorn Blade",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "mira-oaththorn",
+      "listedStats": {
+        "CHA": 4,
+        "STR": 3,
+        "LCK": 2,
+        "blockedDamageReductionPct": 8
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Vowscarred",
+      "weaponType": "Physical"
+    },
+    {
+      "id": "eq-trainer-mira-oaththorn-rewritten-oath-seal",
+      "name": "Rewritten Oath Seal",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "mira-oaththorn",
+      "listedStats": {
+        "CHA": 4,
+        "STR": 3,
+        "LCK": 2,
+        "blockedDamageReductionPct": 10,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Vowscarred",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-trainer-mira-oaththorn-scarred-vowcoat",
+      "name": "Scarred Vowcoat",
+      "slot": "chest",
+      "itemType": "Armor",
+      "rarity": "SoulFire",
+      "sourceId": "mira-oaththorn",
+      "listedStats": {
+        "CHA": 4,
+        "STR": 3,
+        "LCK": 2,
+        "blockedDamageReductionPct": 8,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Vowscarred",
+      "armorCategory": "Heavy"
+    },
+    {
+      "id": "eq-trainer-odo-broadbark-broadbark-crook",
+      "name": "Broadbark Crook",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "odo-broadbark",
+      "listedStats": {
+        "CON": 4,
+        "STR": 3,
+        "INT": 2,
+        "incomingHealingPct": 8
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Barkmorph",
+      "weaponType": "Magic"
+    },
+    {
+      "id": "eq-trainer-odo-broadbark-living-bark-harness",
+      "name": "Living Bark Harness",
+      "slot": "chest",
+      "itemType": "Armor",
+      "rarity": "SoulFire",
+      "sourceId": "odo-broadbark",
+      "listedStats": {
+        "CON": 4,
+        "STR": 3,
+        "INT": 2,
+        "incomingHealingPct": 10,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Barkmorph",
+      "armorCategory": "Medium"
+    },
+    {
+      "id": "eq-trainer-odo-broadbark-cambium-vial",
+      "name": "Cambium Vial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "odo-broadbark",
+      "listedStats": {
+        "CON": 4,
+        "STR": 3,
+        "INT": 2,
+        "incomingHealingPct": 12
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Barkmorph",
+      "charmType": "Vial"
+    },
+    {
+      "id": "eq-trainer-ilyne-seedcrown-seedcrown-staff",
+      "name": "Seedcrown Staff",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "ilyne-seedcrown",
+      "listedStats": {
+        "FTH": 4,
+        "CON": 3,
+        "INT": 2,
+        "incomingHealingPct": 8
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Seedmarshal",
+      "weaponType": "Magic"
+    },
+    {
+      "id": "eq-trainer-ilyne-seedcrown-germination-ledger",
+      "name": "Germination Ledger",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "ilyne-seedcrown",
+      "listedStats": {
+        "FTH": 4,
+        "CON": 3,
+        "INT": 2,
+        "incomingHealingPct": 10,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Seedmarshal",
+      "charmType": "Spell Slot"
+    },
+    {
+      "id": "eq-trainer-ilyne-seedcrown-first-sprout-locket",
+      "name": "First Sprout Locket",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "ilyne-seedcrown",
+      "listedStats": {
+        "FTH": 4,
+        "CON": 3,
+        "INT": 2,
+        "incomingHealingPct": 12
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Seedmarshal",
+      "charmType": "Trinket"
+    }
+  ],
+  "consumables": [
+    {
+      "id": "food-starberry-handpie",
+      "name": "Starberry Hand Pie",
+      "subtype": "Food",
+      "primaryEffect": "healing",
+      "effects": [
+        {
+          "type": "heal",
+          "base": 5
+        }
+      ],
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "food-moonmilk-custard",
+      "name": "Moonmilk Custard",
+      "subtype": "Food",
+      "primaryEffect": "shield",
+      "effects": [
+        {
+          "type": "shield",
+          "base": 6
+        }
+      ],
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "food-stormplum-dumpling",
+      "name": "Stormplum Dumpling",
+      "subtype": "Food",
+      "primaryEffect": "energy",
+      "effects": [
+        {
+          "type": "energy",
+          "base": 2
+        }
+      ],
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "food-bitterglass-pickles",
+      "name": "Bitterglass Pickles",
+      "subtype": "Food",
+      "primaryEffect": "healing",
+      "effects": [
+        {
+          "type": "heal",
+          "base": 2
+        },
+        {
+          "type": "cleanse",
+          "count": 1
+        }
+      ],
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "food-ashpepper-jerky",
+      "name": "Ashpepper Jerky",
+      "subtype": "Food",
+      "primaryEffect": "buff",
+      "effects": [
+        {
+          "type": "status",
+          "statusId": "Ashpepper Vigor",
+          "negative": false,
+          "durationTurns": 2,
+          "modifiers": {
+            "finalDamagePct": 10
+          }
+        }
+      ],
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "food-sunseed-loaf",
+      "name": "Sunseed Loaf",
+      "subtype": "Food",
+      "primaryEffect": "healing",
+      "effects": [
+        {
+          "type": "heal",
+          "base": 3
+        },
+        {
+          "type": "shield",
+          "base": 3
+        }
+      ],
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "food-sparkcap-fritter",
+      "name": "Sparkcap Fritter",
+      "subtype": "Food",
+      "primaryEffect": "damage",
+      "targetMode": "single-enemy",
+      "effects": [
+        {
+          "type": "damage",
+          "base": 5,
+          "damageType": "Lightning"
+        }
+      ],
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "food-cleanwater-gel\u00e9e",
+      "name": "Cleanwater Gel\u00e9e",
+      "subtype": "Food",
+      "primaryEffect": "cleanse",
+      "effects": [
+        {
+          "type": "cleanse",
+          "count": 2
+        },
+        {
+          "type": "heal",
+          "base": 1
+        }
+      ],
+      "rarity": "Normal",
+      "acquisition": "runtime-fixture-only",
+      "i12Fixture": true
+    },
+    {
+      "id": "food-brambleberry-coilcake",
+      "name": "Brambleberry Coilcake",
+      "subtype": "Food",
+      "rarity": "Normal",
+      "primaryEffect": "healing",
+      "effects": [
+        {
+          "type": "heal",
+          "base": 5
+        }
+      ],
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "food-mossjaw-root-bun",
+      "name": "Mossjaw Root Bun",
+      "subtype": "Food",
+      "rarity": "Normal",
+      "primaryEffect": "shield",
+      "effects": [
+        {
+          "type": "shield",
+          "base": 6
+        }
+      ],
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "food-sporecap-moonbroth",
+      "name": "Sporecap Moonbroth",
+      "subtype": "Food",
+      "rarity": "Normal",
+      "primaryEffect": "healing",
+      "effects": [
+        {
+          "type": "heal",
+          "base": 3
+        },
+        {
+          "type": "cleanse",
+          "count": 1
+        }
+      ],
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "food-needlefang-pepperstrip",
+      "name": "Needlefang Pepperstrip",
+      "subtype": "Food",
+      "rarity": "Normal",
+      "primaryEffect": "buff",
+      "effects": [
+        {
+          "type": "status",
+          "statusId": "Needlepepper Focus",
+          "negative": false,
+          "durationTurns": 2,
+          "modifiers": {
+            "damageCritChancePct": 8
+          }
+        }
+      ],
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "food-chimeleaf-sugarbell",
+      "name": "Chimeleaf Sugarbell",
+      "subtype": "Food",
+      "rarity": "Normal",
+      "primaryEffect": "energy",
+      "effects": [
+        {
+          "type": "energy",
+          "base": 2
+        }
+      ],
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "food-ironbark-saltcake",
+      "name": "Ironbark Saltcake",
+      "subtype": "Food",
+      "rarity": "Normal",
+      "primaryEffect": "shield",
+      "effects": [
+        {
+          "type": "shield",
+          "base": 7
+        }
+      ],
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "food-hexroot-ink-noodles",
+      "name": "Hexroot Ink Noodles",
+      "subtype": "Food",
+      "rarity": "Normal",
+      "primaryEffect": "buff",
+      "effects": [
+        {
+          "type": "status",
+          "statusId": "Hexroot Clarity",
+          "negative": false,
+          "durationTurns": 2,
+          "modifiers": {
+            "energyGainPct": 12
+          }
+        }
+      ],
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "food-glasswing-crystal-tart",
+      "name": "Glasswing Crystal Tart",
+      "subtype": "Food",
+      "rarity": "Normal",
+      "primaryEffect": "damage",
+      "targetMode": "single-enemy",
+      "effects": [
+        {
+          "type": "damage",
+          "base": 6,
+          "damageType": "Lightning"
+        }
+      ],
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "food-redvine-ember-stew",
+      "name": "Redvine Ember Stew",
+      "subtype": "Food",
+      "rarity": "Normal",
+      "primaryEffect": "healing",
+      "effects": [
+        {
+          "type": "heal",
+          "base": 4
+        },
+        {
+          "type": "status",
+          "statusId": "Redvine Warmth",
+          "negative": false,
+          "durationTurns": 2,
+          "modifiers": {
+            "incomingHealingPct": 10
+          }
+        }
+      ],
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "food-gloomcap-star-pudding",
+      "name": "Gloomcap Star Pudding",
+      "subtype": "Food",
+      "rarity": "Normal",
+      "primaryEffect": "cleanse",
+      "effects": [
+        {
+          "type": "cleanse",
+          "count": 2
+        },
+        {
+          "type": "heal",
+          "base": 2
+        }
+      ],
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "food-sunscar-honeyhorn",
+      "name": "Sunscar Honeyhorn",
+      "subtype": "Food",
+      "rarity": "Normal",
+      "primaryEffect": "buff",
+      "effects": [
+        {
+          "type": "status",
+          "statusId": "Sunscar Brightness",
+          "negative": false,
+          "durationTurns": 2,
+          "modifiers": {
+            "finalDamagePct": 10
+          }
+        }
+      ],
+      "acquisition": "craft-only"
+    },
+    {
+      "id": "food-barkveil-popcake",
+      "name": "Barkveil Popcake",
+      "subtype": "Food",
+      "rarity": "Normal",
+      "primaryEffect": "energy",
+      "effects": [
+        {
+          "type": "energy",
+          "base": 1
+        },
+        {
+          "type": "shield",
+          "base": 4
+        }
+      ],
+      "acquisition": "craft-only"
+    }
+  ],
+  "statuses": [
+    {
+      "id": "Burn",
+      "negative": true,
+      "stackable": true,
+      "periodic": true,
+      "damageType": "Fire",
+      "tickTiming": "owner-turn-start",
+      "canCrit": true,
+      "dodgeableTick": false,
+      "blockableTick": false
+    },
+    {
+      "id": "Poison",
+      "negative": true,
+      "stackable": true,
+      "periodic": true,
+      "damageType": "Poison",
+      "tickTiming": "owner-turn-start",
+      "canCrit": true,
+      "dodgeableTick": false,
+      "blockableTick": false
+    },
+    {
+      "id": "Bleed",
+      "negative": true,
+      "stackable": true,
+      "periodic": true,
+      "damageType": "Physical",
+      "tickTiming": "owner-turn-start",
+      "canCrit": true,
+      "dodgeableTick": false,
+      "blockableTick": false
+    },
+    {
+      "id": "Slow",
+      "negative": true,
+      "stackable": false,
+      "periodic": false
+    },
+    {
+      "id": "Chill",
+      "negative": true,
+      "stackable": false,
+      "periodic": false
+    },
+    {
+      "id": "Freeze",
+      "negative": true,
+      "stackable": false,
+      "periodic": false
+    },
+    {
+      "id": "Deep Freeze",
+      "negative": true,
+      "stackable": false,
+      "periodic": false
+    }
+  ],
+  "designStatus": "I14 full Forest craftable equipment/consumable catalogue plus 51 Trainer SoulFire craftables; I12 fixture entries retained but are not player acquisition content",
+  "sets": [
+    {
+      "id": "set-bramblekin-scrapper",
+      "name": "Bramblehook Leathers",
+      "sourceId": "bramblekin-scrapper",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-hookleaf-hood",
+        "eq-briarhide-vest",
+        "eq-scrapper-grips",
+        "eq-bramblebound-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "DEX": 2
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "dodgeChancePct": 8,
+            "damageCritChancePct": 6
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "LCK": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-mossjaw-boar",
+      "name": "Mossjaw Hide",
+      "sourceId": "mossjaw-boar",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-mossjaw-helm",
+        "eq-rooted-hidecoat",
+        "eq-tuskguard-gloves",
+        "eq-mirehoof-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "CON": 2
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "blockChancePct": 8,
+            "blockedDamageReductionPct": 8
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "STR": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-sporecap-tender",
+      "name": "Sporecap Weave",
+      "sourceId": "sporecap-tender",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-sporeveil-cap",
+        "eq-mycelial-wrap",
+        "eq-tenderhand-gloves",
+        "eq-softstep-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "FTH": 2
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "outgoingHealingPct": 12,
+            "incomingHealingPct": 8
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {},
+          "modifiers": {
+            "energyGainPct": 7
+          }
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-needlefang-lynx",
+      "name": "Needlefang Pursuit",
+      "sourceId": "needlefang-lynx",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-needlefang-hood",
+        "eq-pursuit-jack",
+        "eq-sinewgrip-gloves",
+        "eq-stalkstep-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "DEX": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "damageCritChancePct": 10,
+            "criticalDamagePct": 18
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {},
+          "modifiers": {
+            "dodgeChancePct": 6
+          }
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-chimeleaf-wisp",
+      "name": "Chimeleaf Chorus",
+      "sourceId": "chimeleaf-wisp",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-chimeleaf-circlet",
+        "eq-resonant-vestment",
+        "eq-bellfrond-gloves",
+        "eq-hushstep-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "CHA": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "outgoingHealingPct": 15,
+            "shieldStrengthPct": 15
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {},
+          "modifiers": {
+            "energyGainPct": 8
+          }
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-ironbark-ram",
+      "name": "Ironbark Bulwark",
+      "sourceId": "ironbark-ram",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-ironbark-greathelm",
+        "eq-bulwark-cuirass",
+        "eq-ramplate-gauntlets",
+        "eq-rootlock-sabatons"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "CON": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "blockChancePct": 12,
+            "blockedDamageReductionPct": 12
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {},
+          "modifiers": {
+            "incomingDamagePct": -8
+          }
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-rootcoil-hexer",
+      "name": "Rootcoil Hexweave",
+      "sourceId": "rootcoil-hexer",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-hexroot-crown",
+        "eq-black-sap-mantle",
+        "eq-knotweaver-gloves",
+        "eq-coilstep-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "INT": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "finalDamagePct": 12,
+            "energyGainPct": 10
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "FTH": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-glasswing-needler",
+      "name": "Glasswing Volley",
+      "sourceId": "glasswing-needler",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-glasswing-visor",
+        "eq-shardweave-coat",
+        "eq-needler-gloves",
+        "eq-skitterglass-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "DEX": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "damageCritChancePct": 12,
+            "criticalDamagePct": 20
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "LCK": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-vinebound-reaver",
+      "name": "Vinebound Harness",
+      "sourceId": "vinebound-reaver",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-vinebound-helm",
+        "eq-red-sap-harness",
+        "eq-chainvine-gloves",
+        "eq-reaver-treads"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "CON": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "incomingHealingPct": 14,
+            "outgoingHealingPct": 10,
+            "finalDamagePct": 6
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "STR": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-gloomcap-binder",
+      "name": "Gloomcap Shroud",
+      "sourceId": "gloomcap-binder",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-gloomcap-hood",
+        "eq-hollowspore-shroud",
+        "eq-binder-gloves",
+        "eq-umberstep-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "INT": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "finalDamagePct": 12,
+            "damageCritChancePct": 10
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "LCK": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-sunscar-hart",
+      "name": "Sunscar Regalia",
+      "sourceId": "sunscar-hart",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-sunscar-crown",
+        "eq-white-resin-coat",
+        "eq-antlerguard-gloves",
+        "eq-brightstep-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "INT": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "finalDamagePct": 15,
+            "criticalDamagePct": 18
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {},
+          "modifiers": {
+            "damageCritChancePct": 6
+          }
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-barkveil-sapper",
+      "name": "Barkveil Saboteur",
+      "sourceId": "barkveil-sapper",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-barkveil-hood",
+        "eq-sapper-jacket",
+        "eq-resinwork-gloves",
+        "eq-fusepath-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "DEX": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "dodgeChancePct": 10,
+            "energyGainPct": 10
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "CHA": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-crown-of-thorns-warden",
+      "name": "Crown-of-Thorns Bastion",
+      "sourceId": "crown-of-thorns-warden",
+      "rarity": "SoulFire",
+      "pieceIds": [
+        "eq-thorn-crown-greathelm",
+        "eq-warden-briarplate",
+        "eq-crownwood-gauntlets",
+        "eq-thornroot-sabatons"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "CON": 4
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "blockChancePct": 15,
+            "blockedDamageReductionPct": 15,
+            "incomingDamagePct": -10
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "STR": 3
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3
+    },
+    {
+      "id": "set-heartwood-sovereign",
+      "name": "Heartwood Sovereign Regalia",
+      "sourceId": "heartwood-sovereign",
+      "rarity": "SoulFire",
+      "pieceIds": [
+        "eq-heartwood-diadem",
+        "eq-sovereign-mantle",
+        "eq-doorroot-grips",
+        "eq-heartstep-greaves"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "FTH": 4
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "outgoingHealingPct": 18,
+            "shieldStrengthPct": 18,
+            "incomingHealingPct": 12
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "CON": 3
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3
+    }
+  ]
+}

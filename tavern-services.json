@@ -1,0 +1,265 @@
+{
+  "version": "I18-2026-08-08",
+  "mara": {
+    "offersAtATime": 3,
+    "activeQuestLimit": 1,
+    "refresh": "after-completed-campaign",
+    "rewards": [
+      "Onyx",
+      "Chronicle Progress"
+    ],
+    "failurePenalty": false,
+    "questTemplates": [
+      {
+        "id": "reach-8",
+        "label": "Eight Doors Deep",
+        "objective": {
+          "type": "reach-depth",
+          "target": 8
+        },
+        "reward": {
+          "onyx": 45,
+          "chronicleProgress": 4
+        }
+      },
+      {
+        "id": "reach-12",
+        "label": "Past the Quiet Boughs",
+        "objective": {
+          "type": "reach-depth",
+          "target": 12
+        },
+        "reward": {
+          "onyx": 60,
+          "chronicleProgress": 5
+        }
+      },
+      {
+        "id": "win-3",
+        "label": "Three Clean Victories",
+        "objective": {
+          "type": "win-combats",
+          "target": 3
+        },
+        "reward": {
+          "onyx": 50,
+          "chronicleProgress": 4
+        }
+      },
+      {
+        "id": "win-5",
+        "label": "Hold the Route",
+        "objective": {
+          "type": "win-combats",
+          "target": 5
+        },
+        "reward": {
+          "onyx": 75,
+          "chronicleProgress": 6
+        }
+      },
+      {
+        "id": "checks-2",
+        "label": "Read the Forest",
+        "objective": {
+          "type": "successful-checks",
+          "target": 2
+        },
+        "reward": {
+          "onyx": 45,
+          "chronicleProgress": 5
+        }
+      },
+      {
+        "id": "checks-4",
+        "label": "No Guesswork",
+        "objective": {
+          "type": "successful-checks",
+          "target": 4
+        },
+        "reward": {
+          "onyx": 70,
+          "chronicleProgress": 7
+        }
+      },
+      {
+        "id": "craft-2",
+        "label": "Make Use of What You Find",
+        "objective": {
+          "type": "craft-items",
+          "target": 2
+        },
+        "reward": {
+          "onyx": 55,
+          "chronicleProgress": 5
+        }
+      },
+      {
+        "id": "miniboss",
+        "label": "Break the Midway Sentinel",
+        "objective": {
+          "type": "defeat-miniboss",
+          "target": 1
+        },
+        "reward": {
+          "onyx": 90,
+          "chronicleProgress": 9
+        }
+      },
+      {
+        "id": "boss",
+        "label": "Reach the Heartwood",
+        "objective": {
+          "type": "defeat-boss",
+          "target": 1
+        },
+        "reward": {
+          "onyx": 140,
+          "chronicleProgress": 14
+        }
+      },
+      {
+        "id": "earn-onyx",
+        "label": "Bring Something Back",
+        "objective": {
+          "type": "earn-onyx",
+          "target": 120
+        },
+        "reward": {
+          "onyx": 50,
+          "chronicleProgress": 5
+        }
+      },
+      {
+        "id": "meet-trainer",
+        "label": "Find Another Teacher",
+        "objective": {
+          "type": "meet-trainer",
+          "target": 1
+        },
+        "reward": {
+          "onyx": 55,
+          "chronicleProgress": 5
+        }
+      },
+      {
+        "id": "learn-trainer",
+        "label": "Learn a New Path",
+        "objective": {
+          "type": "learn-specific-trainer",
+          "target": 1
+        },
+        "reward": {
+          "onyx": 85,
+          "chronicleProgress": 10
+        },
+        "requiresLearnableTrainer": true,
+        "forceTrainerAppearance": true
+      },
+      {
+        "id": "fight-trainer",
+        "label": "Test a Teacher's Measure",
+        "objective": {
+          "type": "fight-specific-trainer",
+          "target": 1
+        },
+        "reward": {
+          "onyx": 85,
+          "chronicleProgress": 9
+        },
+        "forceTrainerAppearance": true
+      }
+    ]
+  },
+  "lender": {
+    "costOnyx": 0,
+    "borrowLimit": 1,
+    "registerPerSuccessfulReturn": 1,
+    "collectionScope": "per-vessel",
+    "showFullEquipmentCatalogue": true,
+    "uncollectedPresentation": "greyed-out",
+    "eligibleReturnRequirement": "item-was-equipped-at-least-once-and-is-still-carried-on-successful-return"
+  },
+  "progressionUnlocks": {
+    "mantle": "first-successful-forest-campaign",
+    "chronicle": "first-successful-forest-completion"
+  },
+  "tutorials": [
+    "Character Creation",
+    "Tavern Lobby",
+    "Kept Impressions & Slot Costs",
+    "Getting a Tavern Adventurer",
+    "Building a Team",
+    "Starting a Campaign",
+    "Forest Expedition & Combat",
+    "Mandatory Post-Battle Campsite"
+  ],
+  "tavernAdventurerRecruitment": {
+    "freeStarterIds": [
+      "guest-sera",
+      "guest-kethravel",
+      "guest-unit-seven",
+      "guest-dane",
+      "guest-elowen",
+      "guest-vesper"
+    ],
+    "remaining": [
+      {
+        "id": "guest-briar",
+        "label": "Reach Forest Depth 3",
+        "condition": {
+          "type": "highest-depth",
+          "target": 3
+        }
+      },
+      {
+        "id": "guest-brakka",
+        "label": "Win 2 Forest battles in one campaign",
+        "condition": {
+          "type": "battles-won",
+          "target": 2
+        }
+      },
+      {
+        "id": "guest-sparkscale",
+        "label": "Succeed at a Forest stat check",
+        "condition": {
+          "type": "successful-checks",
+          "target": 1
+        }
+      },
+      {
+        "id": "guest-nib",
+        "label": "Craft any Forest item",
+        "condition": {
+          "type": "crafted-items",
+          "target": 1
+        }
+      },
+      {
+        "id": "guest-mercury",
+        "label": "Encounter any Forest Trainer",
+        "condition": {
+          "type": "trainer-encounters",
+          "target": 1
+        }
+      },
+      {
+        "id": "guest-tawny",
+        "label": "Reach Forest Depth 4",
+        "condition": {
+          "type": "highest-depth",
+          "target": 4
+        }
+      },
+      {
+        "id": "guest-rill",
+        "label": "Reach Forest Depth 6",
+        "condition": {
+          "type": "highest-depth",
+          "target": 6
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "baseStartingStatPoints": 10,
+  "racialStartingPointBonuses": {
+    "Human": 2
+  },
+  "rule": "A Vessel's starting-stat pool is permanently fixed to the amount available when that Vessel is created. Starting points may always be removed and redistributed between campaigns, but the total pool never changes. Run-earned stat points are separate and never enter this pool.",
+  "provenance": "Base 10-point setup and permanent fixed-pool redistribution are approved implementation canon. Human's +2 free starting stat points are preserved from v25 race canon, making a Human Vessel's fixed starting pool 12."
+}

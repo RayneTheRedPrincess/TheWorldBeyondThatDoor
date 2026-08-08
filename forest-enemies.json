@@ -1,0 +1,1425 @@
+{
+  "version": "I13-2026-08-08",
+  "designStatus": "I13 Forest combat/reward authority with party-size material drops and deterministic source-specific SoulfireCores",
+  "depthTiers": [
+    {
+      "id": "tier-1",
+      "start": 1,
+      "end": 5,
+      "level": 1,
+      "hpMultiplier": 1.0,
+      "statAdd": 0,
+      "damageMultiplier": 1.0,
+      "expAdd": 0,
+      "onyxAdd": 0
+    },
+    {
+      "id": "tier-2",
+      "start": 6,
+      "end": 10,
+      "level": 2,
+      "hpMultiplier": 1.1,
+      "statAdd": 1,
+      "damageMultiplier": 1.05,
+      "expAdd": 4,
+      "onyxAdd": 25
+    },
+    {
+      "id": "tier-3",
+      "start": 11,
+      "end": 14,
+      "level": 3,
+      "hpMultiplier": 1.2,
+      "statAdd": 2,
+      "damageMultiplier": 1.1,
+      "expAdd": 8,
+      "onyxAdd": 50
+    },
+    {
+      "id": "tier-4",
+      "start": 16,
+      "end": 20,
+      "level": 4,
+      "hpMultiplier": 1.3,
+      "statAdd": 3,
+      "damageMultiplier": 1.15,
+      "expAdd": 12,
+      "onyxAdd": 75
+    },
+    {
+      "id": "tier-5",
+      "start": 21,
+      "end": 25,
+      "level": 5,
+      "hpMultiplier": 1.45,
+      "statAdd": 4,
+      "damageMultiplier": 1.22,
+      "expAdd": 18,
+      "onyxAdd": 100
+    },
+    {
+      "id": "tier-6",
+      "start": 26,
+      "end": 29,
+      "level": 6,
+      "hpMultiplier": 1.6,
+      "statAdd": 5,
+      "damageMultiplier": 1.3,
+      "expAdd": 24,
+      "onyxAdd": 125
+    }
+  ],
+  "regularEnemies": [
+    {
+      "id": "bramblekin-scrapper",
+      "name": "Bramblekin Scrapper",
+      "role": "Skirmisher",
+      "minTier": 1,
+      "maxTier": 3,
+      "baseMaxHp": 13,
+      "stats": {
+        "STR": 5,
+        "DEX": 7,
+        "CON": 3,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 4
+      },
+      "basicAttack": {
+        "name": "Hooked Swipe",
+        "base": 3,
+        "damageType": "Physical",
+        "scaling": {
+          "DEX": 0.012
+        }
+      },
+      "abilities": [
+        {
+          "id": "scrapper-thorn-feint",
+          "name": "Thorn Feint",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 4,
+              "damageType": "Physical",
+              "scaling": {
+                "DEX": 0.014
+              }
+            }
+          ],
+          "selfEffect": {
+            "id": "thorn-feint-ready",
+            "modifiers": {
+              "dodgeChancePct": 8
+            },
+            "durationTurns": 1
+          }
+        },
+        {
+          "id": "scrapper-raking-turn",
+          "name": "Raking Turn",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 6,
+              "damageType": "Physical",
+              "scaling": {
+                "DEX": 0.012,
+                "LCK": 0.008
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "raked",
+            "negative": true,
+            "modifiers": {
+              "incomingDamagePct": 6
+            },
+            "durationTurns": 1
+          }
+        }
+      ],
+      "ai": {
+        "style": "skirmisher",
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "bramble-hook",
+          "name": "Bramble Hook",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "bramblekin-scrapper"
+        }
+      ],
+      "baseExpReward": 18,
+      "baseOnyxReward": 25
+    },
+    {
+      "id": "mossjaw-boar",
+      "name": "Mossjaw Boar",
+      "role": "Bruiser",
+      "minTier": 1,
+      "maxTier": 3,
+      "baseMaxHp": 18,
+      "stats": {
+        "STR": 8,
+        "DEX": 2,
+        "CON": 7,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 1
+      },
+      "basicAttack": {
+        "name": "Tusk Jab",
+        "base": 4,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.012
+        }
+      },
+      "abilities": [
+        {
+          "id": "boar-rooting-charge",
+          "name": "Rooting Charge",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 5,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.014
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "off-balance",
+            "negative": true,
+            "modifiers": {
+              "blockChancePct": -8
+            },
+            "durationTurns": 1
+          }
+        },
+        {
+          "id": "boar-heavy-gore",
+          "name": "Heavy Gore",
+          "energyCost": 4,
+          "cooldown": 4,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 8,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.016
+              }
+            }
+          ],
+          "critChanceBonus": 8
+        }
+      ],
+      "ai": {
+        "style": "bruiser",
+        "chargeBelowEnergy": 4
+      },
+      "materials": [
+        {
+          "id": "mossjaw-tusk",
+          "name": "Mossjaw Tusk",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "mossjaw-boar"
+        }
+      ],
+      "baseExpReward": 20,
+      "baseOnyxReward": 50
+    },
+    {
+      "id": "sporecap-tender",
+      "name": "Sporecap Tender",
+      "role": "Support",
+      "minTier": 1,
+      "maxTier": 4,
+      "baseMaxHp": 12,
+      "stats": {
+        "STR": 1,
+        "DEX": 3,
+        "CON": 3,
+        "INT": 7,
+        "FTH": 6,
+        "CHA": 5,
+        "LCK": 2
+      },
+      "basicAttack": {
+        "name": "Spore Puff",
+        "base": 3,
+        "damageType": "Poison",
+        "scaling": {
+          "INT": 0.012
+        }
+      },
+      "abilities": [
+        {
+          "id": "tender-mending-spores",
+          "name": "Mending Spores",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "lowest-hp-ally",
+          "components": [
+            {
+              "type": "heal",
+              "base": 5,
+              "scaling": {
+                "FTH": 0.014,
+                "INT": 0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "tender-dulling-cloud",
+          "name": "Dulling Cloud",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 4,
+              "damageType": "Poison",
+              "scaling": {
+                "INT": 0.012
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "dulling-cloud",
+            "negative": true,
+            "modifiers": {
+              "finalDamagePct": -10
+            },
+            "durationTurns": 1
+          }
+        }
+      ],
+      "ai": {
+        "style": "support",
+        "healThresholdPct": 70,
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "soft-spore-sack",
+          "name": "Soft Spore Sack",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "sporecap-tender"
+        }
+      ],
+      "baseExpReward": 18,
+      "baseOnyxReward": 25
+    },
+    {
+      "id": "needlefang-lynx",
+      "name": "Needlefang Lynx",
+      "role": "Assassin",
+      "minTier": 2,
+      "maxTier": 5,
+      "baseMaxHp": 14,
+      "stats": {
+        "STR": 5,
+        "DEX": 11,
+        "CON": 3,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 7
+      },
+      "basicAttack": {
+        "name": "Needle Claw",
+        "base": 4,
+        "damageType": "Physical",
+        "scaling": {
+          "DEX": 0.013
+        }
+      },
+      "abilities": [
+        {
+          "id": "lynx-pounce",
+          "name": "Needle Pounce",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 6,
+              "damageType": "Physical",
+              "scaling": {
+                "DEX": 0.015,
+                "LCK": 0.006
+              }
+            }
+          ],
+          "critChanceBonus": 10
+        },
+        {
+          "id": "lynx-open-throat",
+          "name": "Open-Throat Strike",
+          "energyCost": 4,
+          "cooldown": 4,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 8,
+              "damageType": "Physical",
+              "scaling": {
+                "DEX": 0.016,
+                "LCK": 0.008
+              }
+            }
+          ],
+          "lowHpBonusPct": 30
+        }
+      ],
+      "ai": {
+        "style": "assassin",
+        "chargeBelowEnergy": 4
+      },
+      "materials": [
+        {
+          "id": "needlefang",
+          "name": "Needlefang",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "needlefang-lynx"
+        }
+      ],
+      "baseExpReward": 22,
+      "baseOnyxReward": 50
+    },
+    {
+      "id": "chimeleaf-wisp",
+      "name": "Chimeleaf Wisp",
+      "role": "Support",
+      "minTier": 2,
+      "maxTier": 5,
+      "baseMaxHp": 12,
+      "stats": {
+        "STR": 0,
+        "DEX": 5,
+        "CON": 2,
+        "INT": 8,
+        "FTH": 5,
+        "CHA": 9,
+        "LCK": 4
+      },
+      "basicAttack": {
+        "name": "Resonant Spark",
+        "base": 3,
+        "damageType": "Force",
+        "scaling": {
+          "CHA": 0.01,
+          "INT": 0.008
+        }
+      },
+      "abilities": [
+        {
+          "id": "wisp-hushglass",
+          "name": "Hushglass Veil",
+          "energyCost": 2,
+          "cooldown": 3,
+          "targetMode": "lowest-hp-ally",
+          "components": [
+            {
+              "type": "shield",
+              "base": 5,
+              "scaling": {
+                "CHA": 0.012,
+                "FTH": 0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "wisp-chiming-fracture",
+          "name": "Chiming Fracture",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 5,
+              "damageType": "Force",
+              "scaling": {
+                "CHA": 0.01,
+                "INT": 0.01
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "chiming-fracture",
+            "negative": true,
+            "modifiers": {
+              "outgoingHealingPct": -12
+            },
+            "durationTurns": 2
+          }
+        }
+      ],
+      "ai": {
+        "style": "support",
+        "shieldThresholdPct": 80,
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "chimeleaf-frond",
+          "name": "Chimeleaf Frond",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "chimeleaf-wisp"
+        }
+      ],
+      "baseExpReward": 20,
+      "baseOnyxReward": 25
+    },
+    {
+      "id": "ironbark-ram",
+      "name": "Ironbark Ram",
+      "role": "Defender",
+      "minTier": 3,
+      "maxTier": 6,
+      "baseMaxHp": 22,
+      "stats": {
+        "STR": 10,
+        "DEX": 2,
+        "CON": 12,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 2,
+        "LCK": 1
+      },
+      "basicAttack": {
+        "name": "Barkhorn Bash",
+        "base": 4,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.012,
+          "CON": 0.004
+        }
+      },
+      "abilities": [
+        {
+          "id": "ram-barkplate",
+          "name": "Barkplate",
+          "energyCost": 2,
+          "cooldown": 3,
+          "targetMode": "self",
+          "components": [
+            {
+              "type": "shield",
+              "base": 7,
+              "scaling": {
+                "CON": 0.014
+              }
+            }
+          ]
+        },
+        {
+          "id": "ram-linebreaker",
+          "name": "Linebreaker",
+          "energyCost": 4,
+          "cooldown": 4,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 8,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.013,
+                "CON": 0.006
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "linebroken",
+            "negative": true,
+            "modifiers": {
+              "blockedDamageReductionPct": -10
+            },
+            "durationTurns": 2
+          }
+        }
+      ],
+      "ai": {
+        "style": "defender",
+        "shieldThresholdPct": 75,
+        "chargeBelowEnergy": 4
+      },
+      "materials": [
+        {
+          "id": "ironbark-plate",
+          "name": "Ironbark Plate",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "ironbark-ram"
+        }
+      ],
+      "baseExpReward": 24,
+      "baseOnyxReward": 50
+    },
+    {
+      "id": "rootcoil-hexer",
+      "name": "Rootcoil Hexer",
+      "role": "Controller",
+      "minTier": 3,
+      "maxTier": 6,
+      "baseMaxHp": 15,
+      "stats": {
+        "STR": 0,
+        "DEX": 4,
+        "CON": 4,
+        "INT": 12,
+        "FTH": 7,
+        "CHA": 7,
+        "LCK": 5
+      },
+      "basicAttack": {
+        "name": "Sour Sap Bolt",
+        "base": 4,
+        "damageType": "Dark",
+        "scaling": {
+          "INT": 0.014
+        }
+      },
+      "abilities": [
+        {
+          "id": "hexer-rootbind",
+          "name": "Rootbind Hex",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 4,
+              "damageType": "Dark",
+              "scaling": {
+                "INT": 0.012,
+                "FTH": 0.006
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "rootbound",
+            "negative": true,
+            "modifiers": {
+              "dodgeChancePct": -10
+            },
+            "durationTurns": 2
+          }
+        },
+        {
+          "id": "hexer-wither-song",
+          "name": "Wither Song",
+          "energyCost": 4,
+          "cooldown": 4,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 5,
+              "damageType": "Dark",
+              "scaling": {
+                "INT": 0.012,
+                "CHA": 0.006
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "withered",
+            "negative": true,
+            "modifiers": {
+              "finalDamagePct": -8
+            },
+            "durationTurns": 1
+          }
+        }
+      ],
+      "ai": {
+        "style": "controller",
+        "chargeBelowEnergy": 4
+      },
+      "materials": [
+        {
+          "id": "hexroot-knot",
+          "name": "Hexroot Knot",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "rootcoil-hexer"
+        }
+      ],
+      "baseExpReward": 23,
+      "baseOnyxReward": 50
+    },
+    {
+      "id": "glasswing-needler",
+      "name": "Glasswing Needler",
+      "role": "Ranged Skirmisher",
+      "minTier": 4,
+      "maxTier": 6,
+      "baseMaxHp": 13,
+      "stats": {
+        "STR": 2,
+        "DEX": 13,
+        "CON": 2,
+        "INT": 5,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 8
+      },
+      "basicAttack": {
+        "name": "Glass Needle",
+        "base": 4,
+        "damageType": "Physical",
+        "scaling": {
+          "DEX": 0.014
+        }
+      },
+      "abilities": [
+        {
+          "id": "needler-double-cast",
+          "name": "Double Cast",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 3,
+              "damageType": "Physical",
+              "scaling": {
+                "DEX": 0.012
+              }
+            }
+          ],
+          "hits": 2
+        },
+        {
+          "id": "needler-prism-shot",
+          "name": "Prism Shot",
+          "energyCost": 4,
+          "cooldown": 4,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 7,
+              "damageType": "Force",
+              "scaling": {
+                "DEX": 0.012,
+                "INT": 0.008
+              }
+            }
+          ],
+          "unblockable": true
+        }
+      ],
+      "ai": {
+        "style": "skirmisher",
+        "chargeBelowEnergy": 4
+      },
+      "materials": [
+        {
+          "id": "glasswing-shard",
+          "name": "Glasswing Shard",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "glasswing-needler"
+        }
+      ],
+      "baseExpReward": 22,
+      "baseOnyxReward": 50
+    },
+    {
+      "id": "vinebound-reaver",
+      "name": "Vinebound Reaver",
+      "role": "Sustain Bruiser",
+      "minTier": 4,
+      "maxTier": 6,
+      "baseMaxHp": 20,
+      "stats": {
+        "STR": 12,
+        "DEX": 5,
+        "CON": 9,
+        "INT": 2,
+        "FTH": 5,
+        "CHA": 0,
+        "LCK": 3
+      },
+      "basicAttack": {
+        "name": "Vine Cleaver",
+        "base": 5,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.014
+        }
+      },
+      "abilities": [
+        {
+          "id": "reaver-hook-drag",
+          "name": "Hook and Drag",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 6,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.014
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "dragged-open",
+            "negative": true,
+            "modifiers": {
+              "incomingDamagePct": 8
+            },
+            "durationTurns": 1
+          }
+        },
+        {
+          "id": "reaver-sap-drink",
+          "name": "Sap Drink",
+          "energyCost": 4,
+          "cooldown": 4,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 8,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.012,
+                "FTH": 0.005
+              }
+            }
+          ],
+          "lifestealPct": 45
+        }
+      ],
+      "ai": {
+        "style": "bruiser",
+        "chargeBelowEnergy": 4
+      },
+      "materials": [
+        {
+          "id": "vinebound-chain",
+          "name": "Vinebound Chain",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "vinebound-reaver"
+        }
+      ],
+      "baseExpReward": 26,
+      "baseOnyxReward": 75
+    },
+    {
+      "id": "gloomcap-binder",
+      "name": "Gloomcap Binder",
+      "role": "Controller",
+      "minTier": 5,
+      "maxTier": 6,
+      "baseMaxHp": 16,
+      "stats": {
+        "STR": 1,
+        "DEX": 5,
+        "CON": 5,
+        "INT": 14,
+        "FTH": 8,
+        "CHA": 8,
+        "LCK": 6
+      },
+      "basicAttack": {
+        "name": "Gloom Spore",
+        "base": 4,
+        "damageType": "Poison",
+        "scaling": {
+          "INT": 0.013
+        }
+      },
+      "abilities": [
+        {
+          "id": "binder-blindcap",
+          "name": "Blindcap Burst",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 4,
+              "damageType": "Poison",
+              "scaling": {
+                "INT": 0.012
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "blindcap",
+            "negative": true,
+            "modifiers": {
+              "damageCritChancePct": -10
+            },
+            "durationTurns": 2
+          }
+        },
+        {
+          "id": "binder-hollow-breath",
+          "name": "Hollow Breath",
+          "energyCost": 4,
+          "cooldown": 4,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 7,
+              "damageType": "Dark",
+              "scaling": {
+                "INT": 0.014,
+                "FTH": 0.004
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "hollowed",
+            "negative": true,
+            "modifiers": {
+              "incomingHealingPct": -18
+            },
+            "durationTurns": 2
+          }
+        }
+      ],
+      "ai": {
+        "style": "controller",
+        "chargeBelowEnergy": 4
+      },
+      "materials": [
+        {
+          "id": "gloomcap-cluster",
+          "name": "Gloomcap Cluster",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "gloomcap-binder"
+        }
+      ],
+      "baseExpReward": 25,
+      "baseOnyxReward": 75
+    },
+    {
+      "id": "sunscar-hart",
+      "name": "Sunscar Hart",
+      "role": "Artillery",
+      "minTier": 5,
+      "maxTier": 6,
+      "baseMaxHp": 18,
+      "stats": {
+        "STR": 6,
+        "DEX": 7,
+        "CON": 6,
+        "INT": 8,
+        "FTH": 12,
+        "CHA": 7,
+        "LCK": 4
+      },
+      "basicAttack": {
+        "name": "Radiant Antler",
+        "base": 5,
+        "damageType": "Holy",
+        "scaling": {
+          "FTH": 0.012,
+          "STR": 0.004
+        }
+      },
+      "abilities": [
+        {
+          "id": "hart-sunline",
+          "name": "Sunline",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 8,
+              "damageType": "Holy",
+              "scaling": {
+                "FTH": 0.014,
+                "INT": 0.005
+              }
+            }
+          ]
+        },
+        {
+          "id": "hart-white-canopy",
+          "name": "White Canopy",
+          "energyCost": 5,
+          "cooldown": 5,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 6,
+              "damageType": "Holy",
+              "scaling": {
+                "FTH": 0.012,
+                "INT": 0.005
+              }
+            }
+          ],
+          "critChanceBonus": 8
+        }
+      ],
+      "ai": {
+        "style": "artillery",
+        "chargeBelowEnergy": 5
+      },
+      "materials": [
+        {
+          "id": "sunscar-antler",
+          "name": "Sunscar Antler",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "sunscar-hart"
+        }
+      ],
+      "baseExpReward": 28,
+      "baseOnyxReward": 75
+    },
+    {
+      "id": "barkveil-sapper",
+      "name": "Barkveil Sapper",
+      "role": "Disruptor",
+      "minTier": 5,
+      "maxTier": 6,
+      "baseMaxHp": 15,
+      "stats": {
+        "STR": 6,
+        "DEX": 10,
+        "CON": 4,
+        "INT": 9,
+        "FTH": 0,
+        "CHA": 4,
+        "LCK": 7
+      },
+      "basicAttack": {
+        "name": "Splinter Knife",
+        "base": 4,
+        "damageType": "Physical",
+        "scaling": {
+          "DEX": 0.013
+        }
+      },
+      "abilities": [
+        {
+          "id": "sapper-splinter-charge",
+          "name": "Splinter Charge",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 5,
+              "damageType": "Physical",
+              "scaling": {
+                "DEX": 0.012,
+                "INT": 0.005
+              }
+            }
+          ],
+          "shieldBonusPct": 40
+        },
+        {
+          "id": "sapper-resin-bomb",
+          "name": "Resin Bomb",
+          "energyCost": 4,
+          "cooldown": 4,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 7,
+              "damageType": "Fire",
+              "scaling": {
+                "INT": 0.012,
+                "DEX": 0.006
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "resin-coated",
+            "negative": true,
+            "modifiers": {
+              "blockChancePct": -10,
+              "dodgeChancePct": -8
+            },
+            "durationTurns": 1
+          }
+        }
+      ],
+      "ai": {
+        "style": "disruptor",
+        "chargeBelowEnergy": 4
+      },
+      "materials": [
+        {
+          "id": "volatile-resin",
+          "name": "Volatile Resin",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "barkveil-sapper"
+        }
+      ],
+      "baseExpReward": 26,
+      "baseOnyxReward": 75
+    }
+  ],
+  "miniboss": {
+    "id": "crown-of-thorns-warden",
+    "name": "Crown-of-Thorns Warden",
+    "role": "Miniboss \u00b7 Adaptive Defender",
+    "fixedDepth": 15,
+    "baseMaxHp": 70,
+    "stats": {
+      "STR": 15,
+      "DEX": 7,
+      "CON": 16,
+      "INT": 5,
+      "FTH": 8,
+      "CHA": 8,
+      "LCK": 5
+    },
+    "level": 7,
+    "basicAttack": {
+      "name": "Crown Bash",
+      "base": 6,
+      "damageType": "Physical",
+      "scaling": {
+        "STR": 0.014,
+        "CON": 0.004
+      }
+    },
+    "abilities": [
+      {
+        "id": "warden-living-bulwark",
+        "name": "Living Bulwark",
+        "energyCost": 2,
+        "cooldown": 3,
+        "targetMode": "self",
+        "components": [
+          {
+            "type": "shield",
+            "base": 15,
+            "scaling": {
+              "CON": 0.015,
+              "FTH": 0.004
+            }
+          }
+        ]
+      },
+      {
+        "id": "warden-thorn-command",
+        "name": "Thorn Command",
+        "energyCost": 3,
+        "cooldown": 3,
+        "targetMode": "single-enemy",
+        "components": [
+          {
+            "type": "damage",
+            "base": 9,
+            "damageType": "Physical",
+            "scaling": {
+              "STR": 0.014
+            }
+          }
+        ],
+        "targetEffect": {
+          "id": "thorn-command",
+          "negative": true,
+          "modifiers": {
+            "incomingDamagePct": 10
+          },
+          "durationTurns": 1
+        }
+      },
+      {
+        "id": "warden-crownfall",
+        "name": "Crownfall",
+        "energyCost": 5,
+        "cooldown": 5,
+        "targetMode": "all-enemies",
+        "components": [
+          {
+            "type": "damage",
+            "base": 8,
+            "damageType": "Physical",
+            "scaling": {
+              "STR": 0.012,
+              "CON": 0.005
+            }
+          }
+        ],
+        "critChanceBonus": 10
+      }
+    ],
+    "ai": {
+      "style": "miniboss",
+      "shieldThresholdPct": 65,
+      "chargeBelowEnergy": 5
+    },
+    "materials": [
+      {
+        "id": "thorn-soulfirecore",
+        "name": "Thorn SoulfireCore",
+        "materialKind": "soulfire-core",
+        "sourceId": "crown-of-thorns-warden",
+        "deterministic": true
+      }
+    ],
+    "expReward": 100,
+    "onyxReward": 250
+  },
+  "boss": {
+    "id": "heartwood-sovereign",
+    "name": "Heartwood Sovereign",
+    "role": "Boss \u00b7 Forest Apex",
+    "fixedDepth": 30,
+    "baseMaxHp": 120,
+    "stats": {
+      "STR": 22,
+      "DEX": 10,
+      "CON": 24,
+      "INT": 16,
+      "FTH": 18,
+      "CHA": 14,
+      "LCK": 8
+    },
+    "level": 13,
+    "basicAttack": {
+      "name": "Sovereign Bough",
+      "base": 8,
+      "damageType": "Physical",
+      "scaling": {
+        "STR": 0.014,
+        "CON": 0.004
+      }
+    },
+    "abilities": [
+      {
+        "id": "sovereign-root-judgment",
+        "name": "Root Judgment",
+        "energyCost": 2,
+        "cooldown": 2,
+        "targetMode": "single-enemy",
+        "components": [
+          {
+            "type": "damage",
+            "base": 10,
+            "damageType": "Physical",
+            "scaling": {
+              "STR": 0.013,
+              "CON": 0.004
+            }
+          }
+        ],
+        "targetEffect": {
+          "id": "root-judged",
+          "negative": true,
+          "modifiers": {
+            "dodgeChancePct": -12
+          },
+          "durationTurns": 2
+        }
+      },
+      {
+        "id": "sovereign-green-crown",
+        "name": "Green Crown",
+        "energyCost": 3,
+        "cooldown": 4,
+        "targetMode": "self",
+        "components": [
+          {
+            "type": "shield",
+            "base": 22,
+            "scaling": {
+              "CON": 0.014,
+              "FTH": 0.005
+            }
+          }
+        ]
+      },
+      {
+        "id": "sovereign-heart-sap",
+        "name": "Heart-Sap Reaping",
+        "energyCost": 4,
+        "cooldown": 4,
+        "targetMode": "single-enemy",
+        "components": [
+          {
+            "type": "damage",
+            "base": 12,
+            "damageType": "Dark",
+            "scaling": {
+              "INT": 0.008,
+              "STR": 0.01,
+              "FTH": 0.004
+            }
+          }
+        ],
+        "lifestealPct": 50
+      },
+      {
+        "id": "sovereign-forest-falls",
+        "name": "When the Forest Falls",
+        "energyCost": 6,
+        "cooldown": 6,
+        "targetMode": "all-enemies",
+        "components": [
+          {
+            "type": "damage",
+            "base": 10,
+            "damageType": "Force",
+            "scaling": {
+              "STR": 0.008,
+              "INT": 0.008,
+              "FTH": 0.004
+            }
+          }
+        ],
+        "critChanceBonus": 12,
+        "targetEffect": {
+          "id": "forest-falls",
+          "negative": true,
+          "modifiers": {
+            "finalDamagePct": -10,
+            "outgoingHealingPct": -10
+          },
+          "durationTurns": 2
+        }
+      }
+    ],
+    "ai": {
+      "style": "boss",
+      "shieldThresholdPct": 60,
+      "chargeBelowEnergy": 6
+    },
+    "materials": [
+      {
+        "id": "heartwood-soulfirecore",
+        "name": "Heartwood SoulfireCore",
+        "materialKind": "soulfire-core",
+        "sourceId": "heartwood-sovereign",
+        "deterministic": true
+      }
+    ],
+    "expReward": 220,
+    "onyxReward": 500
+  },
+  "rules": {
+    "enemiesUseConsumables": false,
+    "enemiesCanGuard": false,
+    "enemyActionsPerTurn": 1,
+    "enemyHasBasicAttack": true,
+    "enemyCanCharge": true,
+    "meanAggroOverride": {
+      "enabledOnlyOnDifficulty": "Mean",
+      "purpose": "low-hp healer/support",
+      "thresholdHpPct": 35
+    },
+    "partySizeEnemyCount": {
+      "1": [
+        1,
+        2
+      ],
+      "2": [
+        2,
+        3
+      ],
+      "3": [
+        3,
+        4
+      ],
+      "4": [
+        4,
+        5
+      ]
+    },
+    "chronicleProgressFromRawOnyxDivisor": 25,
+    "baseHpScale": "Base HP 10 + CON*2 + (Level-1)*3 for real party; enemy HP is authored enemy base * depth-tier multiplier.",
+    "bossMinibossPartyScaling": {
+      "1": {
+        "maxHpMultiplier": 1.0,
+        "damageMultiplier": 1.0
+      },
+      "2": {
+        "maxHpMultiplier": 1.55,
+        "damageMultiplier": 1.15
+      },
+      "3": {
+        "maxHpMultiplier": 2.1,
+        "damageMultiplier": 1.3
+      },
+      "4": {
+        "maxHpMultiplier": 2.7,
+        "damageMultiplier": 1.45
+      },
+      "appliesTo": [
+        "miniboss",
+        "boss"
+      ],
+      "doesNotScale": [
+        "Dodge Chance",
+        "Block Chance",
+        "Crit Chance",
+        "Critical Damage",
+        "resistances"
+      ]
+    },
+    "normalMaterialDropByRealPartySize": {
+      "1": [
+        1,
+        3
+      ],
+      "2": [
+        2,
+        3
+      ],
+      "3": [
+        3,
+        4
+      ],
+      "4": [
+        4,
+        5
+      ]
+    },
+    "soulfireCoreDropByRealPartySize": {
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4
+    },
+    "enemiesDropEquipment": false,
+    "specialSourcesDropOnlySoulfireCore": true
+  }
+}

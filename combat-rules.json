@@ -1,0 +1,103 @@
+{
+  "version": "I12-2026-08-08",
+  "energy": {
+    "combatStart": 0,
+    "naturalStartOfTurnGain": 1,
+    "naturalGainUsesEnergyGainPercent": false,
+    "chargeActionGain": 1,
+    "maximumEnergy": 7,
+    "overflowRequiresExplicitPermission": true
+  },
+  "playerTurn": {
+    "actionsPerTurn": 1,
+    "allowedActions": [
+      "charge",
+      "ability",
+      "guard",
+      "consumable"
+    ],
+    "endTurnRequiresAction": true,
+    "afterActionOnlyEndTurn": true,
+    "abilityUseAlwaysConsumesAction": true,
+    "note": "The newer global one-action rule supersedes older ability text such as Druid Turn the Cycle saying it does not end the turn."
+  },
+  "defense": {
+    "dodgeChanceCapPct": 85,
+    "blockChanceCapPct": 85,
+    "order": [
+      "critical",
+      "dodge",
+      "block-or-guard",
+      "other-mitigation-and-resistance",
+      "shield",
+      "hp"
+    ],
+    "critBypassesDefense": false,
+    "shieldAfterMitigationBeforeHp": true
+  },
+  "guard": {
+    "blocksEveryIncomingHitUntilOwnNextTurn": true,
+    "dodgeResolvesBeforeGuardBlock": true,
+    "consumedOnBlock": false,
+    "expiresAtStartOfOwnersNextTurn": true,
+    "normalBlockChanceCapDoesNotLimitGuard": true
+  },
+  "cooldowns": {
+    "tick": "end-of-owner-turn-after-action",
+    "newCooldownTicksOnApplicationTurn": false,
+    "zeroTurnCooldown": "available again on next turn",
+    "oneTurnCooldown": "unavailable on next turn; reaches 0 at end of that turn"
+  },
+  "initiative": {
+    "baseRollMin": 1,
+    "baseRollMax": 6,
+    "levelBonus": "floor(level / 3)",
+    "dexBonus": "floor(DEX / 9)",
+    "tiesRandomized": true,
+    "summonsAfterRealCombatants": true,
+    "summonOrder": "ascending summonOrder"
+  },
+  "presentation": {
+    "camera": "fixed",
+    "partySide": "left",
+    "enemySide": "right",
+    "fixedSlots": true,
+    "constantIdleAnimation": false,
+    "explicitCombatEventAnimationOnly": true
+  },
+  "equipment": {
+    "armorMitigationPct": {
+      "Light": 0,
+      "Medium": 5,
+      "Heavy": 10
+    },
+    "heavyChestInitiativePenalty": -2,
+    "weaponsHaveBaseDamage": false,
+    "dualWieldAddsAttacks": false,
+    "shieldItemsCreateShieldHpByDefault": false,
+    "durability": false
+  },
+  "consumables": {
+    "inventoryStacks": true,
+    "baseEquippedChoicesPerBattle": 1,
+    "baseUsesPerBattle": 1,
+    "equipOnlyAtCampsite": true,
+    "tavernAdventurersCanUse": false,
+    "enemiesCanUse": false,
+    "foodIsConsumableSubtype": true,
+    "healingCanCrit": true
+  },
+  "statuses": {
+    "periodicDefaultTick": "start-of-affected-actors-turn",
+    "periodicCanCritByDefault": true,
+    "periodicTicksCanDodge": false,
+    "periodicTicksCanBlock": false,
+    "periodicTicksStillUseApplicableMitigation": true,
+    "periodicCanDefeatBeforeAction": true,
+    "universalStackCap": null,
+    "stackingTimedReapply": "add-stacks-and-refresh-duration",
+    "nonStackTimedReapply": "refresh-duration-no-duplicate",
+    "directlyAttachedStatusFailsWhenDeliveryHitDodges": true,
+    "explicitMechanicsMayOverrideUniversalTiming": true
+  }
+}

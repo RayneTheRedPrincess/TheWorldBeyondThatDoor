@@ -1,0 +1,483 @@
+{
+  "version": "I11-2026-08-08",
+  "status": "Clean compatibility profiles preserving resident identity/personality while mapping retired subclass identities to current TWBTD subclasses.",
+  "rules": {
+    "startCampaignLevel": 1,
+    "gainFullExpIfLiving": true,
+    "canUseConsumables": false,
+    "control": "ai",
+    "levelStatAssignment": "weighted-random-from-personality-class-subclass-role",
+    "maxDeployed": 3,
+    "keptImpressionCapacity": 7,
+    "keptImpressionLoadouts": "immutable-current-canon-7-of-7"
+  },
+  "entries": [
+    {
+      "id": "guest-elowen",
+      "name": "Elowen",
+      "personality": "Calculating",
+      "priority": "Exploit Weakness",
+      "baseClass": "Mage",
+      "subclass": "Spellflare",
+      "combatRole": "Artillery",
+      "startingStats": {
+        "STR": 0,
+        "DEX": 0,
+        "CON": 0,
+        "INT": 5,
+        "FTH": 0,
+        "CHA": 2,
+        "LCK": 3
+      },
+      "levelStatWeights": {
+        "INT": 5,
+        "LCK": 4,
+        "CHA": 3,
+        "DEX": 1,
+        "CON": 1,
+        "FTH": 1,
+        "STR": 1
+      },
+      "keptImpressions": [
+        "KI-219",
+        "KI-063",
+        "KI-016",
+        "KI-022"
+      ],
+      "keptImpressionChoices": {},
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+    },
+    {
+      "id": "guest-briar",
+      "name": "Briar",
+      "personality": "Cautious",
+      "priority": "Protect Allies",
+      "baseClass": "Ranger",
+      "subclass": "Trailguard",
+      "combatRole": "Protector",
+      "startingStats": {
+        "STR": 0,
+        "DEX": 4,
+        "CON": 4,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 2,
+        "LCK": 0
+      },
+      "levelStatWeights": {
+        "DEX": 4,
+        "CON": 5,
+        "CHA": 4,
+        "LCK": 2,
+        "FTH": 1,
+        "STR": 1,
+        "INT": 1
+      },
+      "keptImpressions": [
+        "KI-235",
+        "KI-043",
+        "KI-023",
+        "KI-012"
+      ],
+      "keptImpressionChoices": {
+        "KI-235": {
+          "allyId": "vessel"
+        }
+      },
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+    },
+    {
+      "id": "guest-vesper",
+      "name": "Vesper",
+      "personality": "Opportunistic",
+      "priority": "Focus Weakest",
+      "baseClass": "Rogue",
+      "subclass": "Veil Blade",
+      "combatRole": "Assassin",
+      "startingStats": {
+        "STR": 0,
+        "DEX": 5,
+        "CON": 0,
+        "INT": 2,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 3
+      },
+      "levelStatWeights": {
+        "DEX": 5,
+        "LCK": 5,
+        "INT": 3,
+        "CHA": 2,
+        "CON": 1,
+        "STR": 1,
+        "FTH": 1
+      },
+      "keptImpressions": [
+        "KI-208",
+        "KI-037",
+        "KI-016",
+        "KI-012"
+      ],
+      "keptImpressionChoices": {},
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+    },
+    {
+      "id": "guest-brakka",
+      "name": "Brakka",
+      "personality": "Bold",
+      "priority": "Burst First",
+      "baseClass": "Warrior",
+      "subclass": "Ruinhewer",
+      "combatRole": "Bruiser",
+      "startingStats": {
+        "STR": 5,
+        "DEX": 0,
+        "CON": 4,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 1
+      },
+      "levelStatWeights": {
+        "STR": 5,
+        "CON": 5,
+        "LCK": 3,
+        "DEX": 2,
+        "CHA": 1,
+        "FTH": 1,
+        "INT": 1
+      },
+      "keptImpressions": [
+        "KI-201",
+        "KI-036",
+        "KI-016",
+        "KI-026"
+      ],
+      "keptImpressionChoices": {},
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+    },
+    {
+      "id": "guest-sparkscale",
+      "name": "Sparkscale",
+      "personality": "Reckless",
+      "priority": "Burst First",
+      "baseClass": "Sorcerer",
+      "subclass": "Fontborn",
+      "combatRole": "Burst Caster",
+      "startingStats": {
+        "STR": 0,
+        "DEX": 0,
+        "CON": 3,
+        "INT": 3,
+        "FTH": 0,
+        "CHA": 4,
+        "LCK": 0
+      },
+      "levelStatWeights": {
+        "CHA": 5,
+        "INT": 4,
+        "CON": 3,
+        "LCK": 2,
+        "DEX": 1,
+        "STR": 1,
+        "FTH": 1
+      },
+      "keptImpressions": [
+        "KI-243",
+        "KI-107",
+        "KI-022"
+      ],
+      "keptImpressionChoices": {},
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+    },
+    {
+      "id": "guest-nib",
+      "name": "Nib",
+      "personality": "Curious",
+      "priority": "Exploit Weakness",
+      "baseClass": "Rogue",
+      "subclass": "Gunslinger",
+      "combatRole": "Skirmisher",
+      "startingStats": {
+        "STR": 0,
+        "DEX": 4,
+        "CON": 0,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 2,
+        "LCK": 4
+      },
+      "levelStatWeights": {
+        "DEX": 4,
+        "LCK": 5,
+        "CHA": 3,
+        "INT": 2,
+        "CON": 1,
+        "STR": 1,
+        "FTH": 1
+      },
+      "keptImpressions": [
+        "KI-210",
+        "KI-054",
+        "KI-016",
+        "KI-012"
+      ],
+      "keptImpressionChoices": {},
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+    },
+    {
+      "id": "guest-mercury",
+      "name": "Mercury",
+      "personality": "Calculating",
+      "priority": "Conserve Energy",
+      "baseClass": "Mage",
+      "subclass": "Glyphmorpher",
+      "combatRole": "Control Caster",
+      "startingStats": {
+        "STR": 0,
+        "DEX": 3,
+        "CON": 0,
+        "INT": 5,
+        "FTH": 0,
+        "CHA": 2,
+        "LCK": 0
+      },
+      "levelStatWeights": {
+        "INT": 5,
+        "DEX": 3,
+        "CHA": 3,
+        "LCK": 2,
+        "CON": 1,
+        "FTH": 1,
+        "STR": 1
+      },
+      "keptImpressions": [
+        "KI-223",
+        "KI-084",
+        "KI-016",
+        "KI-012"
+      ],
+      "keptImpressionChoices": {
+        "KI-223": {
+          "glyph": "Edge"
+        }
+      },
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+    },
+    {
+      "id": "guest-unit-seven",
+      "name": "Unit Seven",
+      "personality": "Stoic",
+      "priority": "Protect Allies",
+      "baseClass": "Paladin",
+      "subclass": "Verdictbearer",
+      "combatRole": "Protector",
+      "startingStats": {
+        "STR": 4,
+        "DEX": 0,
+        "CON": 0,
+        "INT": 0,
+        "FTH": 4,
+        "CHA": 2,
+        "LCK": 0
+      },
+      "levelStatWeights": {
+        "STR": 4,
+        "FTH": 5,
+        "CHA": 4,
+        "CON": 3,
+        "DEX": 1,
+        "INT": 1,
+        "LCK": 1
+      },
+      "keptImpressions": [
+        "KI-258",
+        "KI-043",
+        "KI-016",
+        "KI-023"
+      ],
+      "keptImpressionChoices": {},
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+    },
+    {
+      "id": "guest-tawny",
+      "name": "Tawny",
+      "personality": "Bold",
+      "priority": "Focus Strongest",
+      "baseClass": "Brawler",
+      "subclass": "AdaptedFist",
+      "combatRole": "Frontline",
+      "startingStats": {
+        "STR": 4,
+        "DEX": 3,
+        "CON": 3,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "levelStatWeights": {
+        "STR": 5,
+        "DEX": 4,
+        "CON": 4,
+        "LCK": 2,
+        "CHA": 1,
+        "INT": 1,
+        "FTH": 1
+      },
+      "keptImpressions": [
+        "KI-218",
+        "KI-115",
+        "KI-012"
+      ],
+      "keptImpressionChoices": {},
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+    },
+    {
+      "id": "guest-sera",
+      "name": "Sera",
+      "personality": "Compassionate",
+      "priority": "Heal First",
+      "baseClass": "Cleric",
+      "subclass": "Solaceweaver",
+      "combatRole": "Healer",
+      "startingStats": {
+        "STR": 0,
+        "DEX": 0,
+        "CON": 2,
+        "INT": 0,
+        "FTH": 5,
+        "CHA": 3,
+        "LCK": 0
+      },
+      "levelStatWeights": {
+        "FTH": 5,
+        "CHA": 4,
+        "CON": 3,
+        "INT": 2,
+        "LCK": 1,
+        "DEX": 1,
+        "STR": 1
+      },
+      "keptImpressions": [
+        "KI-226",
+        "KI-065",
+        "KI-067",
+        "KI-014"
+      ],
+      "keptImpressionChoices": {},
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+    },
+    {
+      "id": "guest-kethravel",
+      "name": "Kethravel",
+      "personality": "Curious",
+      "priority": "Control First",
+      "baseClass": "Bard",
+      "subclass": "Dreadcantor",
+      "combatRole": "Controller",
+      "startingStats": {
+        "STR": 0,
+        "DEX": 0,
+        "CON": 0,
+        "INT": 3,
+        "FTH": 0,
+        "CHA": 5,
+        "LCK": 2
+      },
+      "levelStatWeights": {
+        "CHA": 5,
+        "INT": 4,
+        "LCK": 4,
+        "DEX": 2,
+        "CON": 1,
+        "FTH": 1,
+        "STR": 1
+      },
+      "keptImpressions": [
+        "KI-239",
+        "KI-083",
+        "KI-016",
+        "KI-022"
+      ],
+      "keptImpressionChoices": {
+        "KI-239": {
+          "damageType": "Psychic"
+        }
+      },
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+    },
+    {
+      "id": "guest-rill",
+      "name": "Rill",
+      "personality": "Cautious",
+      "priority": "Balanced",
+      "baseClass": "Sorcerer",
+      "subclass": "Fluxwrought",
+      "combatRole": "Flexible Caster",
+      "startingStats": {
+        "STR": 0,
+        "DEX": 0,
+        "CON": 0,
+        "INT": 3,
+        "FTH": 0,
+        "CHA": 4,
+        "LCK": 3
+      },
+      "levelStatWeights": {
+        "CHA": 4,
+        "LCK": 4,
+        "INT": 4,
+        "CON": 2,
+        "DEX": 2,
+        "FTH": 1,
+        "STR": 1
+      },
+      "keptImpressions": [
+        "KI-245",
+        "KI-102",
+        "KI-016"
+      ],
+      "keptImpressionChoices": {
+        "KI-245": {
+          "flux": "Twist"
+        }
+      },
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+    },
+    {
+      "id": "guest-dane",
+      "name": "Dane",
+      "personality": "Stoic",
+      "priority": "Protect Allies",
+      "baseClass": "Warrior",
+      "subclass": "SteelBearer",
+      "combatRole": "Defender",
+      "startingStats": {
+        "STR": 3,
+        "DEX": 0,
+        "CON": 5,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 2,
+        "LCK": 0
+      },
+      "levelStatWeights": {
+        "CON": 5,
+        "STR": 4,
+        "CHA": 3,
+        "FTH": 2,
+        "DEX": 1,
+        "INT": 1,
+        "LCK": 1
+      },
+      "keptImpressions": [
+        "KI-203",
+        "KI-113",
+        "KI-023"
+      ],
+      "keptImpressionChoices": {},
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+    }
+  ]
+}

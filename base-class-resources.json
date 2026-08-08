@@ -1,0 +1,67 @@
+{
+  "version": "I7-2026-08-08",
+  "resources": {
+    "Warrior": {
+      "name": "Pressure",
+      "min": 0,
+      "max": 5
+    },
+    "Rogue": {
+      "name": "Openings",
+      "min": 0,
+      "max": 4
+    },
+    "Brawler": {
+      "name": "Impact",
+      "min": 0,
+      "max": 4
+    },
+    "Mage": {
+      "name": "Arcane Charge",
+      "min": 0,
+      "max": 5
+    },
+    "Cleric": {
+      "name": "Grace",
+      "min": 0,
+      "max": 4
+    },
+    "Ranger": {
+      "name": "Quarry Marks",
+      "min": 0,
+      "max": 4,
+      "secondary": "Quarry"
+    },
+    "Bard": {
+      "name": "Resonance",
+      "min": 0,
+      "max": 4
+    },
+    "Sorcerer": {
+      "name": "Redline",
+      "min": 0,
+      "max": 4
+    },
+    "Warlock": {
+      "name": "Covenant Marks",
+      "min": 0,
+      "max": 4
+    },
+    "Paladin": {
+      "name": "Conviction",
+      "min": 0,
+      "max": 5
+    },
+    "Druid": {
+      "name": "Cycle",
+      "min": 0,
+      "max": 3,
+      "secondary": "Form",
+      "forms": [
+        "Fang",
+        "Grove",
+        "Bloom"
+      ]
+    }
+  }
+}

@@ -1,0 +1,3100 @@
+{
+  "version": "I14-2026-08-08",
+  "rules": {
+    "cardsPerNormalDepth": 3,
+    "noDefinitionRepeatsWithinCampaign": true,
+    "shownCardsCountAsUsed": true,
+    "trainerCardsCountAsUsedWhenShown": true,
+    "nonTrainerNoncombatUsesSingleCoreStatCheck": true,
+    "checkDie": "d20",
+    "coreStatModifierFormula": "floor(relevantStat / 2)",
+    "specializationModifierFormula": "floor(8 * relevantStat / totalCoreStats)",
+    "natural20CriticalSuccess": true,
+    "natural1AutoFail": false,
+    "trueHundredPercentPossible": true,
+    "dcBands": {
+      "introEasy": [
+        6,
+        8
+      ],
+      "normal": [
+        9,
+        11
+      ],
+      "difficult": [
+        12,
+        14
+      ],
+      "exceptional": [
+        15,
+        17
+      ]
+    },
+    "firstEverForestDepth1Controlled": true
+  },
+  "introCardIds": [
+    "intro-lanterns-threshold",
+    "intro-bent-trail-marker",
+    "intro-bramble-at-door"
+  ],
+  "events": [
+    {
+      "id": "intro-lanterns-threshold",
+      "kind": "discovery",
+      "label": "Lanterns Beyond the Threshold",
+      "description": "Three pale lantern-moths hover over a patch of edible starberries. The safest harvest requires a steady read of the strange light.",
+      "minDepth": 1,
+      "maxDepth": 1,
+      "introOnly": true,
+      "check": {
+        "stat": "FTH",
+        "dc": 6
+      },
+      "checkmark": false,
+      "success": {
+        "foodId": "food-starberry-handpie",
+        "foodQuantity": 1,
+        "onyx": 4
+      },
+      "failure": {
+        "hpLossPct": 5
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "intro-bent-trail-marker",
+      "kind": "landmark",
+      "label": "The Bent Trail Marker",
+      "description": "A trail marker points in two directions at once. Its old scratches reveal which path was changed after the Forest reset.",
+      "minDepth": 1,
+      "maxDepth": 1,
+      "introOnly": true,
+      "check": {
+        "stat": "INT",
+        "dc": 6
+      },
+      "checkmark": true,
+      "success": {
+        "onyx": 5
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "materialId": "bramble-hook",
+        "materialQuantity": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "intro-bramble-at-door",
+      "kind": "combat",
+      "label": "Bramble at the Door",
+      "description": "Fresh thorn growth shudders across the path. Something behind it has already noticed the party.",
+      "minDepth": 1,
+      "maxDepth": 1,
+      "introOnly": true,
+      "combat": true,
+      "weight": 1
+    },
+    {
+      "id": "combat-route-001",
+      "kind": "combat",
+      "label": "Briar Movement",
+      "description": "Briar Movement marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-002",
+      "kind": "combat",
+      "label": "Crushed Ferns",
+      "description": "Crushed Ferns marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-003",
+      "kind": "combat",
+      "label": "Low Growl",
+      "description": "Low Growl marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-004",
+      "kind": "combat",
+      "label": "Needles in the Wind",
+      "description": "Needles in the Wind marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-005",
+      "kind": "combat",
+      "label": "Broken Mushrooms",
+      "description": "Broken Mushrooms marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-006",
+      "kind": "combat",
+      "label": "Fresh Clawmarks",
+      "description": "Fresh Clawmarks marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-007",
+      "kind": "combat",
+      "label": "Hollow Knocking",
+      "description": "Hollow Knocking marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-008",
+      "kind": "combat",
+      "label": "Sudden Silence",
+      "description": "Sudden Silence marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-009",
+      "kind": "combat",
+      "label": "Bent Saplings",
+      "description": "Bent Saplings marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-010",
+      "kind": "combat",
+      "label": "Mud-Deep Tracks",
+      "description": "Mud-Deep Tracks marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-011",
+      "kind": "combat",
+      "label": "Scattered Feathers",
+      "description": "Scattered Feathers marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-012",
+      "kind": "combat",
+      "label": "Warm Bark",
+      "description": "Warm Bark marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-013",
+      "kind": "combat",
+      "label": "Snapped Creepers",
+      "description": "Snapped Creepers marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-014",
+      "kind": "combat",
+      "label": "Glasswing Hum",
+      "description": "Glasswing Hum marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-015",
+      "kind": "combat",
+      "label": "Root-Tremor",
+      "description": "Root-Tremor marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-016",
+      "kind": "combat",
+      "label": "Spores on the Wind",
+      "description": "Spores on the Wind marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-017",
+      "kind": "combat",
+      "label": "Antler Scrape",
+      "description": "Antler Scrape marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-018",
+      "kind": "combat",
+      "label": "Resin Smoke",
+      "description": "Resin Smoke marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-019",
+      "kind": "combat",
+      "label": "Shifting Moss",
+      "description": "Shifting Moss marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-020",
+      "kind": "combat",
+      "label": "Canopy Rush",
+      "description": "Canopy Rush marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-021",
+      "kind": "combat",
+      "label": "Twisted Vines",
+      "description": "Twisted Vines marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-022",
+      "kind": "combat",
+      "label": "Cold Pawprints",
+      "description": "Cold Pawprints marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-023",
+      "kind": "combat",
+      "label": "Chime in the Leaves",
+      "description": "Chime in the Leaves marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-024",
+      "kind": "combat",
+      "label": "Heavy Hooffall",
+      "description": "Heavy Hooffall marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-025",
+      "kind": "combat",
+      "label": "Briar Movement After Rain",
+      "description": "Briar Movement marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-026",
+      "kind": "combat",
+      "label": "Crushed Ferns After Rain",
+      "description": "Crushed Ferns marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-027",
+      "kind": "combat",
+      "label": "Low Growl After Rain",
+      "description": "Low Growl marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-028",
+      "kind": "combat",
+      "label": "Needles in the Wind After Rain",
+      "description": "Needles in the Wind marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-029",
+      "kind": "combat",
+      "label": "Broken Mushrooms After Rain",
+      "description": "Broken Mushrooms marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-030",
+      "kind": "combat",
+      "label": "Fresh Clawmarks After Rain",
+      "description": "Fresh Clawmarks marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-031",
+      "kind": "combat",
+      "label": "Hollow Knocking After Rain",
+      "description": "Hollow Knocking marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-032",
+      "kind": "combat",
+      "label": "Sudden Silence After Rain",
+      "description": "Sudden Silence marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-033",
+      "kind": "combat",
+      "label": "Bent Saplings After Rain",
+      "description": "Bent Saplings marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-034",
+      "kind": "combat",
+      "label": "Mud-Deep Tracks After Rain",
+      "description": "Mud-Deep Tracks marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-035",
+      "kind": "combat",
+      "label": "Scattered Feathers After Rain",
+      "description": "Scattered Feathers marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-036",
+      "kind": "combat",
+      "label": "Warm Bark After Rain",
+      "description": "Warm Bark marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-037",
+      "kind": "combat",
+      "label": "Snapped Creepers After Rain",
+      "description": "Snapped Creepers marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-038",
+      "kind": "combat",
+      "label": "Glasswing Hum After Rain",
+      "description": "Glasswing Hum marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-039",
+      "kind": "combat",
+      "label": "Root-Tremor After Rain",
+      "description": "Root-Tremor marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-040",
+      "kind": "combat",
+      "label": "Spores on the Wind After Rain",
+      "description": "Spores on the Wind marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-041",
+      "kind": "combat",
+      "label": "Antler Scrape After Rain",
+      "description": "Antler Scrape marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-042",
+      "kind": "combat",
+      "label": "Resin Smoke After Rain",
+      "description": "Resin Smoke marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-043",
+      "kind": "combat",
+      "label": "Shifting Moss After Rain",
+      "description": "Shifting Moss marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-044",
+      "kind": "combat",
+      "label": "Canopy Rush After Rain",
+      "description": "Canopy Rush marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-045",
+      "kind": "combat",
+      "label": "Twisted Vines After Rain",
+      "description": "Twisted Vines marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-046",
+      "kind": "combat",
+      "label": "Cold Pawprints After Rain",
+      "description": "Cold Pawprints marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-047",
+      "kind": "combat",
+      "label": "Chime in the Leaves After Rain",
+      "description": "Chime in the Leaves marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "combat-route-048",
+      "kind": "combat",
+      "label": "Heavy Hooffall After Rain",
+      "description": "Heavy Hooffall marks a route where avoiding a fight is no longer realistic.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "combat": true,
+      "weight": 1.15
+    },
+    {
+      "id": "landmark-01",
+      "kind": "landmark",
+      "label": "Old Root Arch",
+      "description": "The place is older than the route around it, and understanding it offers a safer passage.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "STR",
+        "dc": 6
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 6,
+        "materialId": "bramble-hook",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "landmark-02",
+      "kind": "landmark",
+      "label": "Mirror Pond",
+      "description": "Its shape is natural only at first glance; the party can test what the Forest is trying to say.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 7
+      },
+      "checkmark": true,
+      "success": {
+        "onyx": 7,
+        "materialId": "mossjaw-tusk",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "landmark-03",
+      "kind": "landmark",
+      "label": "Split-Stone Circle",
+      "description": "The place is older than the route around it, and understanding it offers a safer passage.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CON",
+        "dc": 8
+      },
+      "checkmark": true,
+      "success": {
+        "onyx": 8,
+        "materialId": "soft-spore-sack",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "landmark-04",
+      "kind": "landmark",
+      "label": "Hanging Moss Bridge",
+      "description": "Its shape is natural only at first glance; the party can test what the Forest is trying to say.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "INT",
+        "dc": 9
+      },
+      "checkmark": true,
+      "success": {
+        "onyx": 9,
+        "materialId": "needlefang",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 10
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "landmark-05",
+      "kind": "landmark",
+      "label": "Whispering Stump",
+      "description": "The place is older than the route around it, and understanding it offers a safer passage.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "FTH",
+        "dc": 10
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 6,
+        "materialId": "chimeleaf-frond",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "landmark-06",
+      "kind": "landmark",
+      "label": "Sunken Bell Tree",
+      "description": "Its shape is natural only at first glance; the party can test what the Forest is trying to say.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CHA",
+        "dc": 11
+      },
+      "checkmark": true,
+      "success": {
+        "onyx": 7,
+        "materialId": "ironbark-plate",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "landmark-07",
+      "kind": "landmark",
+      "label": "Whitebark Stair",
+      "description": "The place is older than the route around it, and understanding it offers a safer passage.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "LCK",
+        "dc": 9
+      },
+      "checkmark": true,
+      "success": {
+        "onyx": 8,
+        "materialId": "hexroot-knot",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "landmark-08",
+      "kind": "landmark",
+      "label": "Rain-Caught Hollow",
+      "description": "Its shape is natural only at first glance; the party can test what the Forest is trying to say.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "STR",
+        "dc": 13
+      },
+      "checkmark": true,
+      "success": {
+        "onyx": 9,
+        "materialId": "glasswing-shard",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 10
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "landmark-09",
+      "kind": "landmark",
+      "label": "Crooked Standing Stone",
+      "description": "The place is older than the route around it, and understanding it offers a safer passage.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 17
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 6,
+        "materialId": "vinebound-chain",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "landmark-10",
+      "kind": "landmark",
+      "label": "The Seven Trunks",
+      "description": "Its shape is natural only at first glance; the party can test what the Forest is trying to say.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CON",
+        "dc": 15
+      },
+      "checkmark": true,
+      "success": {
+        "onyx": 7,
+        "materialId": "gloomcap-cluster",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "helpful-person-01",
+      "kind": "helpful-person",
+      "label": "Lost Forager",
+      "description": "A stranger offers help, but only after asking the party to prove they understand the problem in front of them.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "INT",
+        "dc": 6
+      },
+      "checkmark": false,
+      "success": {
+        "healPct": 12,
+        "foodId": "food-sporecap-moonbroth",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "onyxLoss": 2
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "helpful-person-02",
+      "kind": "helpful-person",
+      "label": "Mothcloak Cook",
+      "description": "They are willing to share supplies if someone can handle one precise task.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "FTH",
+        "dc": 7
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 15,
+        "foodId": "food-needlefang-pepperstrip",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "onyxLoss": 3
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "helpful-person-03",
+      "kind": "helpful-person",
+      "label": "Quiet Cartographer",
+      "description": "A stranger offers help, but only after asking the party to prove they understand the problem in front of them.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CHA",
+        "dc": 8
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 18,
+        "foodId": "food-chimeleaf-sugarbell",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "onyxLoss": 4
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "helpful-person-04",
+      "kind": "helpful-person",
+      "label": "Berry-Wine Peddler",
+      "description": "They are willing to share supplies if someone can handle one precise task.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "LCK",
+        "dc": 9
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 12,
+        "foodId": "food-ironbark-saltcake",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "onyxLoss": 2
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "helpful-person-05",
+      "kind": "helpful-person",
+      "label": "Root-Mender",
+      "description": "A stranger offers help, but only after asking the party to prove they understand the problem in front of them.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "STR",
+        "dc": 10
+      },
+      "checkmark": false,
+      "success": {
+        "healPct": 15,
+        "foodId": "food-hexroot-ink-noodles",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "onyxLoss": 3
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "helpful-person-06",
+      "kind": "helpful-person",
+      "label": "Lantern Child",
+      "description": "They are willing to share supplies if someone can handle one precise task.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 11
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 18,
+        "foodId": "food-glasswing-crystal-tart",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "onyxLoss": 4
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "helpful-person-07",
+      "kind": "helpful-person",
+      "label": "Raincoat Pilgrim",
+      "description": "A stranger offers help, but only after asking the party to prove they understand the problem in front of them.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CON",
+        "dc": 9
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 12,
+        "foodId": "food-redvine-ember-stew",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "onyxLoss": 2
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "helpful-person-08",
+      "kind": "helpful-person",
+      "label": "Mushroom Baker",
+      "description": "They are willing to share supplies if someone can handle one precise task.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "INT",
+        "dc": 13
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 15,
+        "foodId": "food-gloomcap-star-pudding",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "onyxLoss": 3
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "helpful-person-09",
+      "kind": "helpful-person",
+      "label": "Old Trail Singer",
+      "description": "A stranger offers help, but only after asking the party to prove they understand the problem in front of them.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "FTH",
+        "dc": 17
+      },
+      "checkmark": false,
+      "success": {
+        "healPct": 18,
+        "foodId": "food-sunscar-honeyhorn",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "onyxLoss": 4
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "helpful-person-10",
+      "kind": "helpful-person",
+      "label": "Packless Courier",
+      "description": "They are willing to share supplies if someone can handle one precise task.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CHA",
+        "dc": 15
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 12,
+        "foodId": "food-barkveil-popcake",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "onyxLoss": 2
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "discovery-01",
+      "kind": "discovery",
+      "label": "Starberry Patch",
+      "description": "Something useful is hidden here, but taking it safely requires one careful approach.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "LCK",
+        "dc": 6
+      },
+      "checkmark": false,
+      "success": {
+        "materialId": "vinebound-chain",
+        "materialQuantity": 1,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 5
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "discovery-02",
+      "kind": "discovery",
+      "label": "Glass-Sap Vein",
+      "description": "The find is real; the question is whether the party can extract it without paying for the mistake.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "STR",
+        "dc": 7
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "gloomcap-cluster",
+        "materialQuantity": 2,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 7
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "discovery-03",
+      "kind": "discovery",
+      "label": "Abandoned Field Notes",
+      "description": "Something useful is hidden here, but taking it safely requires one careful approach.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 8
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "sunscar-antler",
+        "materialQuantity": 1,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 9
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "discovery-04",
+      "kind": "discovery",
+      "label": "Hollow Eggshell",
+      "description": "The find is real; the question is whether the party can extract it without paying for the mistake.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CON",
+        "dc": 9
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "volatile-resin",
+        "materialQuantity": 2,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 5
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "discovery-05",
+      "kind": "discovery",
+      "label": "Fallen Survey Flag",
+      "description": "Something useful is hidden here, but taking it safely requires one careful approach.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "INT",
+        "dc": 10
+      },
+      "checkmark": false,
+      "success": {
+        "materialId": "bramble-hook",
+        "materialQuantity": 1,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 7
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "discovery-06",
+      "kind": "discovery",
+      "label": "Silver Moss Bed",
+      "description": "The find is real; the question is whether the party can extract it without paying for the mistake.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "FTH",
+        "dc": 11
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "mossjaw-tusk",
+        "materialQuantity": 2,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 9
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "discovery-07",
+      "kind": "discovery",
+      "label": "Warm Stone Nest",
+      "description": "Something useful is hidden here, but taking it safely requires one careful approach.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CHA",
+        "dc": 9
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "soft-spore-sack",
+        "materialQuantity": 1,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 5
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "discovery-08",
+      "kind": "discovery",
+      "label": "Resin-Filled Scar",
+      "description": "The find is real; the question is whether the party can extract it without paying for the mistake.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "LCK",
+        "dc": 13
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "needlefang",
+        "materialQuantity": 2,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 7
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "discovery-09",
+      "kind": "discovery",
+      "label": "Buried Tin Cup",
+      "description": "Something useful is hidden here, but taking it safely requires one careful approach.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "STR",
+        "dc": 14
+      },
+      "checkmark": false,
+      "success": {
+        "materialId": "chimeleaf-frond",
+        "materialQuantity": 1,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 9
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "discovery-10",
+      "kind": "discovery",
+      "label": "Shed Antler Crown",
+      "description": "The find is real; the question is whether the party can extract it without paying for the mistake.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 12
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "ironbark-plate",
+        "materialQuantity": 2,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 5
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "discovery-11",
+      "kind": "discovery",
+      "label": "Moonlit Fungi",
+      "description": "Something useful is hidden here, but taking it safely requires one careful approach.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CON",
+        "dc": 16
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "hexroot-knot",
+        "materialQuantity": 1,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 7
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "discovery-12",
+      "kind": "discovery",
+      "label": "Door-Shaped Knot",
+      "description": "The find is real; the question is whether the party can extract it without paying for the mistake.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "INT",
+        "dc": 17
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "glasswing-shard",
+        "materialQuantity": 2,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 9
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-001",
+      "kind": "other-noncombat",
+      "label": "Tangled Crossing \u2014 Dewbound",
+      "description": "The route presents one clear problem. A DEX approach can turn it into an advantage.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 6
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 5
+      },
+      "failure": {
+        "onyxLoss": 3
+      },
+      "criticalSuccess": {
+        "onyx": 2
+      },
+      "criticalFailure": {
+        "hpLossPct": 2
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-002",
+      "kind": "other-noncombat",
+      "label": "Fallen Canopy \u2014 Dewbound",
+      "description": "The route presents one clear problem. A FTH approach can turn it into an advantage.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "FTH",
+        "dc": 7
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "mossjaw-tusk",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 5
+      },
+      "criticalSuccess": {
+        "onyx": 2
+      },
+      "criticalFailure": {
+        "hpLossPct": 2
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-003",
+      "kind": "other-noncombat",
+      "label": "Singing Brambles \u2014 Dewbound",
+      "description": "The route presents one clear problem. A STR approach can turn it into an advantage.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "STR",
+        "dc": 8
+      },
+      "checkmark": true,
+      "success": {
+        "foodId": "food-stormplum-dumpling",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 5
+      },
+      "criticalSuccess": {
+        "onyx": 2
+      },
+      "criticalFailure": {
+        "hpLossPct": 2
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-004",
+      "kind": "other-noncombat",
+      "label": "Muddy Hollow \u2014 Dewbound",
+      "description": "The route presents one clear problem. A INT approach can turn it into an advantage.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "INT",
+        "dc": 6
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 10,
+        "onyx": 3
+      },
+      "failure": {
+        "onyxLoss": 3
+      },
+      "criticalSuccess": {
+        "onyx": 2
+      },
+      "criticalFailure": {
+        "hpLossPct": 2
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-005",
+      "kind": "other-noncombat",
+      "label": "Pollen Squall \u2014 Dewbound",
+      "description": "The route presents one clear problem. A LCK approach can turn it into an advantage.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "LCK",
+        "dc": 7
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "chimeleaf-frond",
+        "materialQuantity": 1,
+        "onyx": 4
+      },
+      "failure": {
+        "hpLossPct": 5
+      },
+      "criticalSuccess": {
+        "onyx": 2
+      },
+      "criticalFailure": {
+        "hpLossPct": 2
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-006",
+      "kind": "other-noncombat",
+      "label": "Moss-Choked Cut \u2014 Dewbound",
+      "description": "The route presents one clear problem. A CON approach can turn it into an advantage.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CON",
+        "dc": 8
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 5
+      },
+      "failure": {
+        "hpLossPct": 5
+      },
+      "criticalSuccess": {
+        "onyx": 2
+      },
+      "criticalFailure": {
+        "hpLossPct": 2
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-007",
+      "kind": "other-noncombat",
+      "label": "Cold Stream \u2014 Dewbound",
+      "description": "The route presents one clear problem. A CHA approach can turn it into an advantage.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CHA",
+        "dc": 6
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "hexroot-knot",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "onyxLoss": 3
+      },
+      "criticalSuccess": {
+        "onyx": 2
+      },
+      "criticalFailure": {
+        "hpLossPct": 2
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-008",
+      "kind": "other-noncombat",
+      "label": "Root Maze \u2014 Dewbound",
+      "description": "The route presents one clear problem. A DEX approach can turn it into an advantage.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 7
+      },
+      "checkmark": true,
+      "success": {
+        "foodId": "food-cleanwater-gel\u00e9e",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 5
+      },
+      "criticalSuccess": {
+        "onyx": 2
+      },
+      "criticalFailure": {
+        "hpLossPct": 2
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-009",
+      "kind": "other-noncombat",
+      "label": "Hanging Vines \u2014 Dewbound",
+      "description": "The route presents one clear problem. A FTH approach can turn it into an advantage.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "FTH",
+        "dc": 8
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 10,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 5
+      },
+      "criticalSuccess": {
+        "onyx": 2
+      },
+      "criticalFailure": {
+        "hpLossPct": 2
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-010",
+      "kind": "other-noncombat",
+      "label": "Fungal Shelf \u2014 Dewbound",
+      "description": "The route presents one clear problem. A STR approach can turn it into an advantage.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "STR",
+        "dc": 6
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "gloomcap-cluster",
+        "materialQuantity": 1,
+        "onyx": 4
+      },
+      "failure": {
+        "onyxLoss": 3
+      },
+      "criticalSuccess": {
+        "onyx": 2
+      },
+      "criticalFailure": {
+        "hpLossPct": 2
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-011",
+      "kind": "other-noncombat",
+      "label": "Thorn Tunnel \u2014 Dewbound",
+      "description": "The route presents one clear problem. A INT approach can turn it into an advantage.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "INT",
+        "dc": 7
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 5
+      },
+      "failure": {
+        "hpLossPct": 5
+      },
+      "criticalSuccess": {
+        "onyx": 2
+      },
+      "criticalFailure": {
+        "hpLossPct": 2
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-012",
+      "kind": "other-noncombat",
+      "label": "Soft Ground \u2014 Dewbound",
+      "description": "The route presents one clear problem. A LCK approach can turn it into an advantage.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "LCK",
+        "dc": 8
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "volatile-resin",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 5
+      },
+      "criticalSuccess": {
+        "onyx": 2
+      },
+      "criticalFailure": {
+        "hpLossPct": 2
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-013",
+      "kind": "other-noncombat",
+      "label": "Windfall \u2014 Dewbound",
+      "description": "The route presents one clear problem. A CON approach can turn it into an advantage.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CON",
+        "dc": 6
+      },
+      "checkmark": true,
+      "success": {
+        "foodId": "food-chimeleaf-sugarbell",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "onyxLoss": 3
+      },
+      "criticalSuccess": {
+        "onyx": 2
+      },
+      "criticalFailure": {
+        "hpLossPct": 2
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-014",
+      "kind": "other-noncombat",
+      "label": "Firefly Swarm \u2014 Dewbound",
+      "description": "The route presents one clear problem. A CHA approach can turn it into an advantage.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CHA",
+        "dc": 7
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 10,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 5
+      },
+      "criticalSuccess": {
+        "onyx": 2
+      },
+      "criticalFailure": {
+        "hpLossPct": 2
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-015",
+      "kind": "other-noncombat",
+      "label": "Rain Pocket \u2014 Dewbound",
+      "description": "The route presents one clear problem. A DEX approach can turn it into an advantage.",
+      "minDepth": 1,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 8
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "soft-spore-sack",
+        "materialQuantity": 1,
+        "onyx": 4
+      },
+      "failure": {
+        "hpLossPct": 5
+      },
+      "criticalSuccess": {
+        "onyx": 2
+      },
+      "criticalFailure": {
+        "hpLossPct": 2
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-016",
+      "kind": "other-noncombat",
+      "label": "Echoing Copse \u2014 Dewbound",
+      "description": "The route presents one clear problem. A FTH approach can turn it into an advantage.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "FTH",
+        "dc": 9
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 7
+      },
+      "failure": {
+        "onyxLoss": 4
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-017",
+      "kind": "other-noncombat",
+      "label": "Splintered Logjam \u2014 Dewbound",
+      "description": "The route presents one clear problem. A STR approach can turn it into an advantage.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "STR",
+        "dc": 10
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "chimeleaf-frond",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 7
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-018",
+      "kind": "other-noncombat",
+      "label": "Slick Stones \u2014 Dewbound",
+      "description": "The route presents one clear problem. A INT approach can turn it into an advantage.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "INT",
+        "dc": 11
+      },
+      "checkmark": true,
+      "success": {
+        "foodId": "food-gloomcap-star-pudding",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 7
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-019",
+      "kind": "other-noncombat",
+      "label": "Barkfall \u2014 Dewbound",
+      "description": "The route presents one clear problem. A LCK approach can turn it into an advantage.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "LCK",
+        "dc": 9
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 13,
+        "onyx": 3
+      },
+      "failure": {
+        "onyxLoss": 4
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-020",
+      "kind": "other-noncombat",
+      "label": "Needlebed \u2014 Dewbound",
+      "description": "The route presents one clear problem. A CON approach can turn it into an advantage.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CON",
+        "dc": 10
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "glasswing-shard",
+        "materialQuantity": 1,
+        "onyx": 5
+      },
+      "failure": {
+        "hpLossPct": 7
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-021",
+      "kind": "other-noncombat",
+      "label": "Tangled Crossing \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A CHA approach can turn it into an advantage.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CHA",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 7
+      },
+      "failure": {
+        "hpLossPct": 7
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-022",
+      "kind": "other-noncombat",
+      "label": "Fallen Canopy \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A DEX approach can turn it into an advantage.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 9
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "gloomcap-cluster",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "onyxLoss": 4
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-023",
+      "kind": "other-noncombat",
+      "label": "Singing Brambles \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A FTH approach can turn it into an advantage.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "FTH",
+        "dc": 10
+      },
+      "checkmark": true,
+      "success": {
+        "foodId": "food-stormplum-dumpling",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 7
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-024",
+      "kind": "other-noncombat",
+      "label": "Muddy Hollow \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A STR approach can turn it into an advantage.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "STR",
+        "dc": 11
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 13,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 7
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-025",
+      "kind": "other-noncombat",
+      "label": "Pollen Squall \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A INT approach can turn it into an advantage.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "INT",
+        "dc": 9
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "bramble-hook",
+        "materialQuantity": 1,
+        "onyx": 5
+      },
+      "failure": {
+        "onyxLoss": 4
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-026",
+      "kind": "other-noncombat",
+      "label": "Moss-Choked Cut \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A LCK approach can turn it into an advantage.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "LCK",
+        "dc": 10
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 7
+      },
+      "failure": {
+        "hpLossPct": 7
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-027",
+      "kind": "other-noncombat",
+      "label": "Cold Stream \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A CON approach can turn it into an advantage.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CON",
+        "dc": 11
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "soft-spore-sack",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 7
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-028",
+      "kind": "other-noncombat",
+      "label": "Root Maze \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A CHA approach can turn it into an advantage.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CHA",
+        "dc": 9
+      },
+      "checkmark": true,
+      "success": {
+        "foodId": "food-cleanwater-gel\u00e9e",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "onyxLoss": 4
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-029",
+      "kind": "other-noncombat",
+      "label": "Hanging Vines \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A DEX approach can turn it into an advantage.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 10
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 13,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 7
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-030",
+      "kind": "other-noncombat",
+      "label": "Fungal Shelf \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A FTH approach can turn it into an advantage.",
+      "minDepth": 6,
+      "maxDepth": 29,
+      "check": {
+        "stat": "FTH",
+        "dc": 11
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "ironbark-plate",
+        "materialQuantity": 1,
+        "onyx": 5
+      },
+      "failure": {
+        "hpLossPct": 7
+      },
+      "criticalSuccess": {
+        "onyx": 3
+      },
+      "criticalFailure": {
+        "hpLossPct": 3
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-031",
+      "kind": "other-noncombat",
+      "label": "Thorn Tunnel \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A STR approach can turn it into an advantage.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "STR",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 9
+      },
+      "failure": {
+        "onyxLoss": 5
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 4
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-032",
+      "kind": "other-noncombat",
+      "label": "Soft Ground \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A INT approach can turn it into an advantage.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "INT",
+        "dc": 13
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "glasswing-shard",
+        "materialQuantity": 2
+      },
+      "failure": {
+        "hpLossPct": 9
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 4
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-033",
+      "kind": "other-noncombat",
+      "label": "Windfall \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A LCK approach can turn it into an advantage.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "LCK",
+        "dc": 14
+      },
+      "checkmark": true,
+      "success": {
+        "foodId": "food-chimeleaf-sugarbell",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 9
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 4
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-034",
+      "kind": "other-noncombat",
+      "label": "Firefly Swarm \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A CON approach can turn it into an advantage.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CON",
+        "dc": 12
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 16,
+        "onyx": 3
+      },
+      "failure": {
+        "onyxLoss": 5
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 4
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-035",
+      "kind": "other-noncombat",
+      "label": "Rain Pocket \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A CHA approach can turn it into an advantage.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CHA",
+        "dc": 13
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "sunscar-antler",
+        "materialQuantity": 1,
+        "onyx": 6
+      },
+      "failure": {
+        "hpLossPct": 9
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 4
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-036",
+      "kind": "other-noncombat",
+      "label": "Echoing Copse \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A DEX approach can turn it into an advantage.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 14
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 9
+      },
+      "failure": {
+        "hpLossPct": 9
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 4
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-037",
+      "kind": "other-noncombat",
+      "label": "Splintered Logjam \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A FTH approach can turn it into an advantage.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "FTH",
+        "dc": 12
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "bramble-hook",
+        "materialQuantity": 2
+      },
+      "failure": {
+        "onyxLoss": 5
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 4
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-038",
+      "kind": "other-noncombat",
+      "label": "Slick Stones \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A STR approach can turn it into an advantage.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "STR",
+        "dc": 13
+      },
+      "checkmark": true,
+      "success": {
+        "foodId": "food-gloomcap-star-pudding",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 9
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 4
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-039",
+      "kind": "other-noncombat",
+      "label": "Barkfall \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A INT approach can turn it into an advantage.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "INT",
+        "dc": 14
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 16,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 9
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 4
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-040",
+      "kind": "other-noncombat",
+      "label": "Needlebed \u2014 Under Low Light",
+      "description": "The route presents one clear problem. A LCK approach can turn it into an advantage.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "LCK",
+        "dc": 12
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "needlefang",
+        "materialQuantity": 1,
+        "onyx": 6
+      },
+      "failure": {
+        "onyxLoss": 5
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 4
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-041",
+      "kind": "other-noncombat",
+      "label": "Tangled Crossing \u2014 After Rain",
+      "description": "The route presents one clear problem. A CON approach can turn it into an advantage.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CON",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 9
+      },
+      "failure": {
+        "hpLossPct": 9
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 4
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-042",
+      "kind": "other-noncombat",
+      "label": "Fallen Canopy \u2014 After Rain",
+      "description": "The route presents one clear problem. A CHA approach can turn it into an advantage.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CHA",
+        "dc": 14
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "ironbark-plate",
+        "materialQuantity": 2
+      },
+      "failure": {
+        "hpLossPct": 9
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 4
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-043",
+      "kind": "other-noncombat",
+      "label": "Singing Brambles \u2014 After Rain",
+      "description": "The route presents one clear problem. A DEX approach can turn it into an advantage.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 12
+      },
+      "checkmark": true,
+      "success": {
+        "foodId": "food-stormplum-dumpling",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "onyxLoss": 5
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 4
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-044",
+      "kind": "other-noncombat",
+      "label": "Muddy Hollow \u2014 After Rain",
+      "description": "The route presents one clear problem. A FTH approach can turn it into an advantage.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "FTH",
+        "dc": 13
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 16,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 9
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 4
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-045",
+      "kind": "other-noncombat",
+      "label": "Pollen Squall \u2014 After Rain",
+      "description": "The route presents one clear problem. A STR approach can turn it into an advantage.",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "check": {
+        "stat": "STR",
+        "dc": 14
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "vinebound-chain",
+        "materialQuantity": 1,
+        "onyx": 6
+      },
+      "failure": {
+        "hpLossPct": 9
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "criticalFailure": {
+        "hpLossPct": 4
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-046",
+      "kind": "other-noncombat",
+      "label": "Moss-Choked Cut \u2014 After Rain",
+      "description": "The route presents one clear problem. A INT approach can turn it into an advantage.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "INT",
+        "dc": 15
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 11
+      },
+      "failure": {
+        "onyxLoss": 6
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "criticalFailure": {
+        "hpLossPct": 5
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-047",
+      "kind": "other-noncombat",
+      "label": "Cold Stream \u2014 After Rain",
+      "description": "The route presents one clear problem. A LCK approach can turn it into an advantage.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "LCK",
+        "dc": 16
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "sunscar-antler",
+        "materialQuantity": 2
+      },
+      "failure": {
+        "hpLossPct": 11
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "criticalFailure": {
+        "hpLossPct": 5
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-048",
+      "kind": "other-noncombat",
+      "label": "Root Maze \u2014 After Rain",
+      "description": "The route presents one clear problem. A CON approach can turn it into an advantage.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CON",
+        "dc": 17
+      },
+      "checkmark": true,
+      "success": {
+        "foodId": "food-cleanwater-gel\u00e9e",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 11
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "criticalFailure": {
+        "hpLossPct": 5
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-049",
+      "kind": "other-noncombat",
+      "label": "Hanging Vines \u2014 After Rain",
+      "description": "The route presents one clear problem. A CHA approach can turn it into an advantage.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CHA",
+        "dc": 15
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 19,
+        "onyx": 3
+      },
+      "failure": {
+        "onyxLoss": 6
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "criticalFailure": {
+        "hpLossPct": 5
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-050",
+      "kind": "other-noncombat",
+      "label": "Fungal Shelf \u2014 After Rain",
+      "description": "The route presents one clear problem. A DEX approach can turn it into an advantage.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 16
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "mossjaw-tusk",
+        "materialQuantity": 1,
+        "onyx": 7
+      },
+      "failure": {
+        "hpLossPct": 11
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "criticalFailure": {
+        "hpLossPct": 5
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-051",
+      "kind": "other-noncombat",
+      "label": "Thorn Tunnel \u2014 After Rain",
+      "description": "The route presents one clear problem. A FTH approach can turn it into an advantage.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "FTH",
+        "dc": 17
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 11
+      },
+      "failure": {
+        "hpLossPct": 11
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "criticalFailure": {
+        "hpLossPct": 5
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-052",
+      "kind": "other-noncombat",
+      "label": "Soft Ground \u2014 After Rain",
+      "description": "The route presents one clear problem. A STR approach can turn it into an advantage.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "STR",
+        "dc": 15
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "needlefang",
+        "materialQuantity": 2
+      },
+      "failure": {
+        "onyxLoss": 6
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "criticalFailure": {
+        "hpLossPct": 5
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-053",
+      "kind": "other-noncombat",
+      "label": "Windfall \u2014 After Rain",
+      "description": "The route presents one clear problem. A INT approach can turn it into an advantage.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "INT",
+        "dc": 16
+      },
+      "checkmark": true,
+      "success": {
+        "foodId": "food-chimeleaf-sugarbell",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 11
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "criticalFailure": {
+        "hpLossPct": 5
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-054",
+      "kind": "other-noncombat",
+      "label": "Firefly Swarm \u2014 After Rain",
+      "description": "The route presents one clear problem. A LCK approach can turn it into an advantage.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "LCK",
+        "dc": 17
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 19,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 11
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "criticalFailure": {
+        "hpLossPct": 5
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-055",
+      "kind": "other-noncombat",
+      "label": "Rain Pocket \u2014 After Rain",
+      "description": "The route presents one clear problem. A CON approach can turn it into an advantage.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CON",
+        "dc": 15
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "hexroot-knot",
+        "materialQuantity": 1,
+        "onyx": 7
+      },
+      "failure": {
+        "onyxLoss": 6
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "criticalFailure": {
+        "hpLossPct": 5
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-056",
+      "kind": "other-noncombat",
+      "label": "Echoing Copse \u2014 After Rain",
+      "description": "The route presents one clear problem. A CHA approach can turn it into an advantage.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CHA",
+        "dc": 16
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 11
+      },
+      "failure": {
+        "hpLossPct": 11
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "criticalFailure": {
+        "hpLossPct": 5
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-057",
+      "kind": "other-noncombat",
+      "label": "Splintered Logjam \u2014 After Rain",
+      "description": "The route presents one clear problem. A DEX approach can turn it into an advantage.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 17
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "vinebound-chain",
+        "materialQuantity": 2
+      },
+      "failure": {
+        "hpLossPct": 11
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "criticalFailure": {
+        "hpLossPct": 5
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-058",
+      "kind": "other-noncombat",
+      "label": "Slick Stones \u2014 After Rain",
+      "description": "The route presents one clear problem. A FTH approach can turn it into an advantage.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "FTH",
+        "dc": 15
+      },
+      "checkmark": true,
+      "success": {
+        "foodId": "food-gloomcap-star-pudding",
+        "foodQuantity": 1
+      },
+      "failure": {
+        "onyxLoss": 6
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "criticalFailure": {
+        "hpLossPct": 5
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-059",
+      "kind": "other-noncombat",
+      "label": "Barkfall \u2014 After Rain",
+      "description": "The route presents one clear problem. A STR approach can turn it into an advantage.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "STR",
+        "dc": 16
+      },
+      "checkmark": true,
+      "success": {
+        "healPct": 19,
+        "onyx": 3
+      },
+      "failure": {
+        "hpLossPct": 11
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "criticalFailure": {
+        "hpLossPct": 5
+      },
+      "weight": 1
+    },
+    {
+      "id": "other-noncombat-060",
+      "kind": "other-noncombat",
+      "label": "Needlebed \u2014 After Rain",
+      "description": "The route presents one clear problem. A INT approach can turn it into an advantage.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "INT",
+        "dc": 17
+      },
+      "checkmark": true,
+      "success": {
+        "materialId": "volatile-resin",
+        "materialQuantity": 1,
+        "onyx": 7
+      },
+      "failure": {
+        "hpLossPct": 11
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "criticalFailure": {
+        "hpLossPct": 5
+      },
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,2757 @@
+{
+  "project": "That World Beyond the Door",
+  "shorthand": "TWBTD",
+  "repository": "ThatWorldBeyondThatDoor",
+  "version": "2026-08-07-v24-D2",
+  "status": "D2_GAP_RESOLUTION_APPROVED_OVERLAY",
+  "authority_rule": "Newer explicit user approval overrides older conflicting material; legacy runtime is never clean implementation authority.",
+  "save_namespace": "TWBTD_V2_*",
+  "universal_starting_combat_values": {
+    "block_chance_pct": 5,
+    "dodge_chance_pct": 5,
+    "blocked_damage_reduction_pct": 40,
+    "damage_crit_chance_pct": 5,
+    "critical_damage_pct_total": 150,
+    "initiative_roll": [
+      1,
+      6
+    ],
+    "guaranteed_energy_start_of_turn": 1
+  },
+  "core_stats": {
+    "source_file": "06_A_CORE_STATS_APPROVED_CANON.txt",
+    "abbreviations": [
+      "STR",
+      "DEX",
+      "CON",
+      "INT",
+      "FTH",
+      "CHA",
+      "LCK"
+    ],
+    "summary": {
+      "STR": {
+        "damage_crit_chance_per_point_pctpt": 0.11,
+        "critical_damage_per_point_pctpt": 0.25,
+        "special": "Block Chance curve"
+      },
+      "DEX": {
+        "damage_crit_chance_per_point_pctpt": 0.22,
+        "critical_damage_per_point_pctpt": 0.18,
+        "initiative_per_9": 1,
+        "special": "Dodge Chance curve"
+      },
+      "CON": {
+        "max_hp_per_point": 2,
+        "incoming_healing_per_point_pct": 0.5,
+        "special": "Blocked Damage Reduction curve"
+      },
+      "INT": {
+        "energy_gain_per_point_pct": 0.25,
+        "damage_crit_chance_per_point_pctpt": 0.19,
+        "critical_damage_per_point_pctpt": 0.22
+      },
+      "FTH": {
+        "energy_gain_per_point_pct": 0.15,
+        "incoming_healing_per_point_pct": 0.25,
+        "outgoing_healing_per_point_pct": 0.75,
+        "healing_crit_chance_per_point_pctpt": 0.13,
+        "healing_critical_damage_per_point_pctpt": 0.18
+      },
+      "CHA": {
+        "aggro_per_point_pct": -0.17,
+        "energy_gain_per_point_pct": 0.17,
+        "outgoing_healing_per_point_pct": 0.45,
+        "incoming_healing_per_point_pct": 0.15,
+        "final_aggro_minimum": 0.15
+      },
+      "LCK": {
+        "damage_crit_chance_per_point_pctpt": 0.37,
+        "critical_damage_per_point_pctpt": 0.5,
+        "lucky_drop_per_point_pct": 0.15,
+        "dodge_chance_per_point_pctpt": 0.05
+      }
+    }
+  },
+  "scaling_cardinality": {
+    "source_file": "07_B_SCALING_CARDINALITY_RULE_APPROVED.txt",
+    "non_druid_base": 2,
+    "non_druid_subclass": 3,
+    "druid_base": 3,
+    "druid_subclass": 4
+  },
+  "class_families": [
+    {
+      "source_file": "09_B_WARRIOR_FAMILY_APPROVED_CANON.txt",
+      "base_class": "Warrior",
+      "entities": [
+        {
+          "name": "Warrior",
+          "source_file": "09_B_WARRIOR_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "STR",
+            "CON"
+          ],
+          "resource": null,
+          "role": "frontline bruiser that builds momentum by attacking and blocking.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Driving Blow",
+              "level": 1,
+              "canonical_text": "1. Driving Blow\n- Level 1\n- Cost: 0 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 7\n- Scaling: STR 0.012 + CON 0.006\n- Formula: 7 \u00d7 (1 + STR\u00d70.012 + CON\u00d70.006)"
+            },
+            {
+              "slot_number": 2,
+              "name": "Brace",
+              "level": 2,
+              "canonical_text": "2. Brace\n- Level 2\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: self\n- +15% Block Chance until your next turn.\n- +15% Blocked Damage Reduction until your next turn."
+            },
+            {
+              "slot_number": 3,
+              "name": "Break Line",
+              "level": 4,
+              "canonical_text": "3. Break Line\n- Level 4\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 12\n- Scaling: STR 0.013 + CON 0.008\n- Formula: 12 \u00d7 (1 + STR\u00d70.013 + CON\u00d70.008)\n- Target loses 10% Block Chance and 10% Blocked Damage Reduction for 2 turns."
+            },
+            {
+              "slot_number": 4,
+              "name": "Hold Fast",
+              "level": 6,
+              "canonical_text": "4. Hold Fast\n- Level 6\n- Cost: 2 Energy\n- Cooldown: 3 turns\n- Target: self\n- Base Shield: 10\n- Scaling: CON 0.014 + STR 0.008\n- Formula: 10 \u00d7 (1 + CON\u00d70.014 + STR\u00d70.008)\n- While any of this Shield remains, gain +20% Aggro."
+            },
+            {
+              "slot_number": 5,
+              "name": "Pressure Break",
+              "level": 8,
+              "canonical_text": "5. Pressure Break\n- Level 8\n- Cost: 1 Energy + 3 Pressure\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 18\n- Scaling: STR 0.016 + CON 0.009\n- Formula: 18 \u00d7 (1 + STR\u00d70.016 + CON\u00d70.009)\n- If cast at 5 Pressure, spend all 5 Pressure instead and deal +20% final damage."
+            }
+          ],
+          "ability_count": 5
+        },
+        {
+          "name": "Ruinhewer",
+          "source_file": "09_B_WARRIOR_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "STR",
+            "CON",
+            "LCK"
+          ],
+          "resource": null,
+          "role": "reckless heavy-damage Warrior that keeps pushing after maximum Pressure.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Splintering Hew",
+              "level": 3,
+              "canonical_text": "1. Splintering Hew\n- Level 3\n- Cost: 1 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 14\n- Scaling: STR 0.011 + CON 0.005 + LCK 0.005\n- On Crit, immediately gain 1 extra Pressure; at 5 Pressure this instead generates Overpressure."
+            },
+            {
+              "slot_number": 2,
+              "name": "Reckless Advance",
+              "level": 5,
+              "canonical_text": "2. Reckless Advance\n- Level 5\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 17\n- Scaling: STR 0.012 + CON 0.004 + LCK 0.006\n- Gains +15% Crit Chance for this attack.\n- You have -10% Block Chance until your next turn."
+            },
+            {
+              "slot_number": 3,
+              "name": "Ruinwake",
+              "level": 7,
+              "canonical_text": "3. Ruinwake\n- Level 7\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: all enemies\n- Damage type: Physical\n- Base Damage: 10 to each enemy\n- Scaling: STR 0.009 + CON 0.005 + LCK 0.005\n- Enemies hit lose 15% Block Chance and 15% Blocked Damage Reduction for 2 turns."
+            },
+            {
+              "slot_number": 4,
+              "name": "Break the Limit",
+              "level": 9,
+              "canonical_text": "4. Break the Limit\n- Level 9\n- Cost: 3 Energy\n- Cooldown: 4 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 24\n- Scaling: STR 0.014 + CON 0.006 + LCK 0.008\n- Consume all Pressure and Overpressure.\n- +12% final damage per Overpressure consumed.\n- After resolving, take +10% incoming damage until your next turn."
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "SteelBearer",
+          "source_file": "09_B_WARRIOR_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "CON",
+            "STR",
+            "CHA"
+          ],
+          "resource": null,
+          "role": "dedicated protector/tank.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Shieldcheck",
+              "level": 3,
+              "canonical_text": "1. Shieldcheck\n- Level 3\n- Cost: 1 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 10\n- Scaling: CON 0.010 + STR 0.007 + CHA 0.004\n- Gain +35% Aggro for 2 turns."
+            },
+            {
+              "slot_number": 2,
+              "name": "Interpose",
+              "level": 5,
+              "canonical_text": "2. Interpose\n- Level 5\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: one ally\n- The next direct hit against that ally before your next turn is redirected to you and deals 30% less damage.\n- Triggering Interpose grants 1 Bearing."
+            },
+            {
+              "slot_number": 3,
+              "name": "Tempered Wall",
+              "level": 7,
+              "canonical_text": "3. Tempered Wall\n- Level 7\n- Cost: 2 Energy\n- Cooldown: 3 turns\n- Target: self\n- Base Shield: 12\n- Scaling: CON 0.012 + STR 0.004 + CHA 0.005\n- While this Shield remains, gain +15% Block Chance.\n- Shield lasts up to 2 turns."
+            },
+            {
+              "slot_number": 4,
+              "name": "Hold the Line",
+              "level": 9,
+              "canonical_text": "4. Hold the Line\n- Level 9\n- Cost: 3 Energy\n- Cooldown: 4 turns\n- Target: all allies\n- Consume all Bearing.\n- Base Shield: 8 to each ally\n- Scaling: CON 0.009 + CHA 0.008 + STR 0.004\n- Shield is increased by 15% per Bearing consumed.\n- SteelBearer gains +20% Block Chance and +50% Aggro for 2 turns."
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "BrandBlade",
+          "source_file": "09_B_WARRIOR_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "STR",
+            "INT",
+            "DEX"
+          ],
+          "resource": null,
+          "role": "hybrid spellblade Warrior and the intended INT-capable Warrior path.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Brandcut",
+              "level": 3,
+              "canonical_text": "1. Brandcut\n- Level 3\n- Cost: 1 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Fire\n- Base Damage: 13\n- Scaling: INT 0.009 + STR 0.007 + DEX 0.005\n- Generate 1 Heat after resolving."
+            },
+            {
+              "slot_number": 2,
+              "name": "Flash Temper",
+              "level": 5,
+              "canonical_text": "2. Flash Temper\n- Level 5\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: self\n- Gain +10% Dodge Chance for 2 turns.\n- Gain +15% Crit Chance on your next BrandBlade damaging ability within 2 turns.\n- Gain 1 Heat."
+            },
+            {
+              "slot_number": 3,
+              "name": "Runebreak",
+              "level": 7,
+              "canonical_text": "3. Runebreak\n- Level 7\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Fire\n- Base Damage: 16\n- Scaling: INT 0.010 + STR 0.007 + DEX 0.005\n- Deals +25% final damage if the target currently has a Shield.\n- Generate 1 Heat after resolving."
+            },
+            {
+              "slot_number": 4,
+              "name": "Whitebrand Arc",
+              "level": 9,
+              "canonical_text": "4. Whitebrand Arc\n- Level 9\n- Cost: 3 Energy\n- Cooldown: 4 turns\n- Target: all enemies\n- Damage type: Fire\n- Base Damage: 11 to each enemy\n- Scaling: INT 0.010 + STR 0.006 + DEX 0.005\n- Consume all Heat.\n- +8% final damage per Heat consumed.\n- If used while White-Hot, White-Hot's +15% damage also applies before Heat is cleared.\n\nEND WARRIOR FAMILY"
+            }
+          ],
+          "ability_count": 4
+        }
+      ]
+    },
+    {
+      "source_file": "10_B_ROGUE_FAMILY_APPROVED_CANON.txt",
+      "base_class": "Rogue",
+      "entities": [
+        {
+          "name": "Rogue",
+          "source_file": "10_B_ROGUE_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "DEX",
+            "LCK"
+          ],
+          "resource": null,
+          "role": "evasive opportunist that creates and spends Openings.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Quick Cut",
+              "level": 1,
+              "canonical_text": "1. Quick Cut\n- Level 1\n- Cost: 0 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 7\n- Scaling: DEX 0.011 + LCK 0.007\n- Formula: 7 \u00d7 (1 + DEX\u00d70.011 + LCK\u00d70.007)"
+            },
+            {
+              "slot_number": 2,
+              "name": "Feint",
+              "level": 2,
+              "canonical_text": "2. Feint\n- Level 2\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Applies Off-Balance for 2 turns:\n  -10% Dodge Chance\n  -10% Block Chance"
+            },
+            {
+              "slot_number": 3,
+              "name": "Slipstep",
+              "level": 4,
+              "canonical_text": "3. Slipstep\n- Level 4\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: self\n- +15% Dodge Chance until your next turn.\n- Next Rogue damaging ability within 2 turns gains +10% Crit Chance."
+            },
+            {
+              "slot_number": 4,
+              "name": "Exploit Weakness",
+              "level": 6,
+              "canonical_text": "4. Exploit Weakness\n- Level 6\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 13\n- Scaling: DEX 0.013 + LCK 0.009\n- Formula: 13 \u00d7 (1 + DEX\u00d70.013 + LCK\u00d70.009)\n- Deals +20% final damage if target currently has a debuff."
+            },
+            {
+              "slot_number": 5,
+              "name": "Perfect Strike",
+              "level": 8,
+              "canonical_text": "5. Perfect Strike\n- Level 8\n- Cost: 2 Energy + 3 Openings\n- Cooldown: 3 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 18\n- Scaling: DEX 0.014 + LCK 0.012\n- Formula: 18 \u00d7 (1 + DEX\u00d70.014 + LCK\u00d70.012)\n- Gains +20% Crit Chance for this attack."
+            }
+          ],
+          "ability_count": 5
+        },
+        {
+          "name": "Veil Blade",
+          "source_file": "10_B_ROGUE_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "DEX",
+            "LCK",
+            "INT"
+          ],
+          "resource": null,
+          "role": "evasive Dark-damage assassin.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Veilcut",
+              "level": 3,
+              "canonical_text": "1. Veilcut\n- Level 3\n- Cost: 1 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Dark\n- Base Damage: 12\n- Scaling: DEX 0.009 + LCK 0.007 + INT 0.005"
+            },
+            {
+              "slot_number": 2,
+              "name": "Fade Between",
+              "level": 5,
+              "canonical_text": "2. Fade Between\n- Level 5\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: self\n- +20% Dodge Chance until next turn.\n- Next Veil Blade attack within 2 turns gains +15% Crit Chance."
+            },
+            {
+              "slot_number": 3,
+              "name": "Shadow Through",
+              "level": 7,
+              "canonical_text": "3. Shadow Through\n- Level 7\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Dark\n- Base Damage: 15\n- Scaling: DEX 0.009 + INT 0.007 + LCK 0.006\n- Ignores 50% of target's Block Chance.\n- At 3 Veil Imprints, becomes Unblockable."
+            },
+            {
+              "slot_number": 4,
+              "name": "Erase the Mark",
+              "level": 9,
+              "canonical_text": "4. Erase the Mark\n- Level 9\n- Cost: 3 Energy\n- Cooldown: 4 turns\n- Target: single enemy\n- Damage type: Dark\n- Base Damage: 23\n- Scaling: DEX 0.010 + LCK 0.009 + INT 0.009\n- Consume all Veil Imprints.\n- +12% final damage per Veil Imprint consumed.\n- Existing Veil Imprint damage bonuses apply before consumption."
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Gunslinger",
+          "source_file": "10_B_ROGUE_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "DEX",
+            "LCK",
+            "CHA"
+          ],
+          "resource": null,
+          "role": "ranged Crit specialist.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Quickdraw",
+              "level": 3,
+              "canonical_text": "1. Quickdraw\n- Level 3\n- Cost: 1 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 12\n- Scaling: DEX 0.010 + LCK 0.007 + CHA 0.004\n- +10% Crit Chance if this is your first damaging action this turn."
+            },
+            {
+              "slot_number": 2,
+              "name": "Called Shot",
+              "level": 5,
+              "canonical_text": "2. Called Shot\n- Level 5\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 10\n- Scaling: DEX 0.008 + LCK 0.007 + CHA 0.006\n- Applies Sighted for 2 turns:\n  you gain +15% Crit Chance against this target."
+            },
+            {
+              "slot_number": 3,
+              "name": "Ricochet",
+              "level": 7,
+              "canonical_text": "3. Ricochet\n- Level 7\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Damage type: Physical\n- Primary target Base Damage: 9\n- Second target Base Damage: 7\n- Scaling: DEX 0.009 + LCK 0.006 + CHA 0.004\n- If only one enemy remains, the second shot hits the same target at 70% of its normal value."
+            },
+            {
+              "slot_number": 4,
+              "name": "Redline Execution",
+              "level": 9,
+              "canonical_text": "4. Redline Execution\n- Level 9\n- Cost: 3 Energy\n- Cooldown: 4 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 22\n- Scaling: DEX 0.011 + LCK 0.010 + CHA 0.007\n- Consume all Redline.\n- +10% final damage per Redline consumed."
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Duelist",
+          "source_file": "10_B_ROGUE_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "DEX",
+            "STR",
+            "CHA"
+          ],
+          "resource": null,
+          "role": "single-target counter-fighter.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Testing Thrust",
+              "level": 3,
+              "canonical_text": "1. Testing Thrust\n- Level 3\n- Cost: 1 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 12\n- Scaling: DEX 0.009 + STR 0.007 + CHA 0.005\n- Applies or refreshes Measured."
+            },
+            {
+              "slot_number": 2,
+              "name": "Parrying Measure",
+              "level": 5,
+              "canonical_text": "2. Parrying Measure\n- Level 5\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: self\n- +20% Block Chance until next turn.\n- +20% Blocked Damage Reduction until next turn.\n- First direct attack that reaches Block resolution triggers a Riposte.\n\nRiposte:\n- Base Damage: 8 Physical\n- Scaling: DEX 0.008 + STR 0.008 + CHA 0.005\n- Does not consume the Duelist's next turn.\n- Can Crit."
+            },
+            {
+              "slot_number": 3,
+              "name": "Turn the Blade",
+              "level": 7,
+              "canonical_text": "3. Turn the Blade\n- Level 7\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 15\n- Scaling: DEX 0.008 + STR 0.008 + CHA 0.006\n- Applies Off-Balance for 2 turns:\n  -10% Dodge Chance\n  -10% Block Chance"
+            },
+            {
+              "slot_number": 4,
+              "name": "Final Measure",
+              "level": 9,
+              "canonical_text": "4. Final Measure\n- Level 9\n- Cost: 3 Energy\n- Cooldown: 4 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 22\n- Scaling: DEX 0.010 + STR 0.010 + CHA 0.008\n- Consume all Tempo.\n- +12% final damage per Tempo consumed.\n- At 3 Tempo, becomes Unblockable.\n\nEND ROGUE FAMILY"
+            }
+          ],
+          "ability_count": 4
+        }
+      ]
+    },
+    {
+      "source_file": "11_B_BRAWLER_FAMILY_APPROVED_CANON.txt",
+      "base_class": "Brawler",
+      "entities": [
+        {
+          "name": "Brawler",
+          "source_file": "11_B_BRAWLER_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "STR",
+            "CON"
+          ],
+          "resource": null,
+          "role": "close-range combo bruiser that builds and spends Impact.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Knuckle Drive",
+              "level": 1,
+              "canonical_text": "1. Knuckle Drive\n- Level 1\n- Cost: 0 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 7\n- Scaling: STR 0.011 + CON 0.007"
+            },
+            {
+              "slot_number": 2,
+              "name": "Tight Guard",
+              "level": 2,
+              "canonical_text": "2. Tight Guard\n- Level 2\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: self\n- +12% Block Chance until next turn\n- +12% Dodge Chance until next turn\n- first successful Block or Dodge during this duration grants 1 Impact"
+            },
+            {
+              "slot_number": 3,
+              "name": "Hammerfist",
+              "level": 4,
+              "canonical_text": "3. Hammerfist\n- Level 4\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 13\n- Scaling: STR 0.013 + CON 0.009\n- if you have Impact, consumes 1 Impact for +20% final damage"
+            },
+            {
+              "slot_number": 4,
+              "name": "Catch Breath",
+              "level": 6,
+              "canonical_text": "4. Catch Breath\n- Level 6\n- Cost: 2 Energy\n- Cooldown: 3 turns\n- Target: self\n- Base Heal: 8\n- Scaling: CON 0.013 + STR 0.006\n- normal healing modifiers apply"
+            },
+            {
+              "slot_number": 5,
+              "name": "Impact Breaker",
+              "level": 8,
+              "canonical_text": "5. Impact Breaker\n- Level 8\n- Cost: 2 Energy + 4 Impact\n- Cooldown: 3 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 20\n- Scaling: STR 0.016 + CON 0.010\n- Unblockable"
+            }
+          ],
+          "ability_count": 5
+        },
+        {
+          "name": "Bloodknuckle",
+          "source_file": "11_B_BRAWLER_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "STR",
+            "CON",
+            "FTH"
+          ],
+          "resource": null,
+          "role": "converts lost health and brutal close-range damage into sustain.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Open Vein",
+              "level": 3,
+              "canonical_text": "1. Open Vein\n- Level 3\n- Cost: 1 Energy + 4% current HP\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 14\n- Scaling: STR 0.010 + CON 0.006 + FTH 0.005\n- +20% Critical Damage for this attack\n- generates 1 additional Impact"
+            },
+            {
+              "slot_number": 2,
+              "name": "Red Guard",
+              "level": 5,
+              "canonical_text": "2. Red Guard\n- Level 5\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: self\n- +15% Blocked Damage Reduction for 2 turns\n- next successful Block heals:\n  Base Heal 5\n  Scaling: FTH 0.010 + CON 0.007 + STR 0.003"
+            },
+            {
+              "slot_number": 3,
+              "name": "Heartbreaker",
+              "level": 7,
+              "canonical_text": "3. Heartbreaker\n- Level 7\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 17\n- Scaling: STR 0.011 + CON 0.006 + FTH 0.005\n- +20% final damage while below 50% HP"
+            },
+            {
+              "slot_number": 4,
+              "name": "Crimson Reprisal",
+              "level": 9,
+              "canonical_text": "4. Crimson Reprisal\n- Level 9\n- Cost: 3 Energy + 4 Impact\n- Cooldown: 4 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 23\n- Scaling: STR 0.012 + CON 0.008 + FTH 0.008\n- heals for 30% of actual HP removed\n- Unblockable while below 50% HP"
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Prismatic Palm",
+          "source_file": "11_B_BRAWLER_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "STR",
+            "INT",
+            "FTH"
+          ],
+          "resource": null,
+          "role": "elemental martial artist cycling three Prismatic facets.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Prism Jab",
+              "level": 3,
+              "canonical_text": "1. Prism Jab\n- Level 3\n- Cost: 1 Energy\n- Cooldown: none\n- Target: single enemy\n- Base Damage: 12\n- Scaling: STR 0.008 + INT 0.008 + FTH 0.005\n- uses current Facet"
+            },
+            {
+              "slot_number": 2,
+              "name": "Refract Stance",
+              "level": 5,
+              "canonical_text": "2. Refract Stance\n- Level 5\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: self\n- immediately advance to either one of the other two Facets\n- +10% Dodge Chance until next turn"
+            },
+            {
+              "slot_number": 3,
+              "name": "Split Spectrum",
+              "level": 7,
+              "canonical_text": "3. Split Spectrum\n- Level 7\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- three separate hits: Fire, Lightning, Radiant\n- Base Damage: 6 per hit\n- Scaling per hit: STR 0.006 + INT 0.007 + FTH 0.005\n- each hit rolls Crit independently"
+            },
+            {
+              "slot_number": 4,
+              "name": "White Palm",
+              "level": 9,
+              "canonical_text": "4. White Palm\n- Level 9\n- Cost: 3 Energy + 4 Impact\n- Cooldown: 4 turns\n- Target: single enemy\n- Base Damage: 21\n- Scaling: STR 0.010 + INT 0.010 + FTH 0.008\n- simultaneously gains:\n  Ember +12% final damage\n  Storm +15% Crit Chance\n  Lumen heal equal to 10% actual HP removed"
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "AdaptedFist",
+          "source_file": "11_B_BRAWLER_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "STR",
+            "DEX",
+            "CON"
+          ],
+          "resource": null,
+          "role": "reactive fighter that adapts to the latest defensive event.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Answering Strike",
+              "level": 3,
+              "canonical_text": "1. Answering Strike\n- Level 3\n- Cost: 1 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 12\n- Scaling: STR 0.009 + DEX 0.007 + CON 0.005\n- consumes current Adaptation"
+            },
+            {
+              "slot_number": 2,
+              "name": "Read the Exchange",
+              "level": 5,
+              "canonical_text": "2. Read the Exchange\n- Level 5\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: self\n- +15% Block Chance until next turn\n- +15% Dodge Chance until next turn\n- first qualifying defensive event establishes Adaptation and grants 1 Impact"
+            },
+            {
+              "slot_number": 3,
+              "name": "Counterform",
+              "level": 7,
+              "canonical_text": "3. Counterform\n- Level 7\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 16\n- Scaling: STR 0.009 + DEX 0.007 + CON 0.006\n- enhanced Adaptation bonus:\n  Flow: +25% Crit Chance\n  Guard: Shield equal to 15% of damage dealt\n  Grit: +25% final damage"
+            },
+            {
+              "slot_number": 4,
+              "name": "Perfect Adaptation",
+              "level": 9,
+              "canonical_text": "4. Perfect Adaptation\n- Level 9\n- Cost: 3 Energy + 4 Impact\n- Cooldown: 4 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 22\n- Scaling: STR 0.010 + DEX 0.009 + CON 0.009\n- applies Flow + Guard + Grit simultaneously:\n  +15% Crit Chance\n  +10% Dodge Chance until next turn\n  Shield equal to 10% damage dealt\n  +15% Blocked Damage Reduction until next turn\n  +20% final damage\n  heal for 8% of actual HP removed\n\nEND BRAWLER FAMILY"
+            }
+          ],
+          "ability_count": 4
+        }
+      ]
+    },
+    {
+      "source_file": "13_B_MAGE_FAMILY_APPROVED_CANON.txt",
+      "base_class": "Mage",
+      "entities": [
+        {
+          "name": "Mage",
+          "source_file": "13_B_MAGE_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "INT",
+            "LCK"
+          ],
+          "resource": null,
+          "role": "versatile spellcaster that builds Arcane Charge and converts it into stronger spell sequences.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Arc Bolt",
+              "level": 1,
+              "canonical_text": "1. Arc Bolt\n- Level 1\n- Cost: 0 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Force\n- Base Damage: 7\n- Scaling: INT 0.011 + LCK 0.007"
+            },
+            {
+              "slot_number": 2,
+              "name": "Arcane Ward",
+              "level": 2,
+              "canonical_text": "2. Arcane Ward\n- Level 2\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: one ally/self\n- Base Shield: 9\n- Scaling: INT 0.013 + LCK 0.005"
+            },
+            {
+              "slot_number": 3,
+              "name": "Frost Pin",
+              "level": 4,
+              "canonical_text": "3. Frost Pin\n- Level 4\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Cold\n- Base Damage: 11\n- Scaling: INT 0.012 + LCK 0.008\n- Target gets -10% Dodge Chance for 2 turns."
+            },
+            {
+              "slot_number": 4,
+              "name": "Arcane Volley",
+              "level": 6,
+              "canonical_text": "4. Arcane Volley\n- Level 6\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Force\n- Three separate hits.\n- Base Damage: 5 each\n- Scaling each: INT 0.010 + LCK 0.008\n- Each hit can Crit independently."
+            },
+            {
+              "slot_number": 5,
+              "name": "Grand Discharge",
+              "level": 8,
+              "canonical_text": "5. Grand Discharge\n- Level 8\n- Cost: 3 Energy + 5 Arcane Charge\n- Cooldown: 4 turns\n- Target: single enemy\n- Damage type: Force\n- Base Damage: 20\n- Scaling: INT 0.015 + LCK 0.011\n- Unblockable\n- +15% final damage"
+            }
+          ],
+          "ability_count": 5
+        },
+        {
+          "name": "Spellflare",
+          "source_file": "13_B_MAGE_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "INT",
+            "LCK",
+            "CHA"
+          ],
+          "resource": null,
+          "role": "volatile elemental Crit caster.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Flarebolt",
+              "level": 3,
+              "canonical_text": "1. Flarebolt\n- Level 3\n- Cost: 1 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Fire\n- Base Damage: 13\n- Scaling: INT 0.010 + LCK 0.007 + CHA 0.004\n- +10% Crit Chance while at 3+ Arcane Charge."
+            },
+            {
+              "slot_number": 2,
+              "name": "Forked Spark",
+              "level": 5,
+              "canonical_text": "2. Forked Spark\n- Level 5\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Damage type: Lightning\n- Primary target Base Damage: 11\n- Second target Base Damage: 8\n- Scaling: INT 0.009 + LCK 0.007 + CHA 0.005\n- If primary Crits, second hit gets +20% final damage.\n- If only one valid enemy, second strike hits that enemy at 60% normal value."
+            },
+            {
+              "slot_number": 3,
+              "name": "Flashfreeze",
+              "level": 7,
+              "canonical_text": "3. Flashfreeze\n- Level 7\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Cold\n- Base Damage: 16\n- Scaling: INT 0.009 + LCK 0.007 + CHA 0.006\n- Target gets -15% Dodge Chance for 2 turns."
+            },
+            {
+              "slot_number": 4,
+              "name": "Cataclysmic Formula",
+              "level": 9,
+              "canonical_text": "4. Cataclysmic Formula\n- Level 9\n- Cost: 3 Energy + 5 Arcane Charge\n- Cooldown: 4 turns\n- Target: single enemy\n- Choose Fire, Cold, or Lightning\n- Base Damage: 23\n- Scaling: INT 0.011 + LCK 0.010 + CHA 0.007\n- Consume all Flare.\n- +10% final damage per Flare consumed.\n- Existing Flare damage/Critical Damage bonuses apply before consumption."
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Sealweaver",
+          "source_file": "13_B_MAGE_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "INT",
+            "FTH",
+            "CHA"
+          ],
+          "resource": null,
+          "role": "delayed-control/support Mage.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Runic Sentence",
+              "level": 3,
+              "canonical_text": "1. Runic Sentence\n- Level 3\n- Cost: 1 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Force\n- Base Damage: 10\n- Scaling: INT 0.010 + FTH 0.004 + CHA 0.006\n- Applies Fracture Seal.\n- Fracture trigger uses Base 6 with same coefficients."
+            },
+            {
+              "slot_number": 2,
+              "name": "Aegis Seal",
+              "level": 5,
+              "canonical_text": "2. Aegis Seal\n- Level 5\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: one ally/self\n- Base Shield: 9\n- Scaling: INT 0.007 + FTH 0.009 + CHA 0.006\n- Applies Ward Seal.\n- Ward post-hit Shield uses Base 6 with same coefficients."
+            },
+            {
+              "slot_number": 3,
+              "name": "Mercy Seal",
+              "level": 7,
+              "canonical_text": "3. Mercy Seal\n- Level 7\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: one ally/self\n- Base immediate Heal: 8\n- Scaling: FTH 0.010 + CHA 0.007 + INT 0.004\n- Applies Mercy Seal.\n- Delayed Heal uses Base 6 with same coefficients."
+            },
+            {
+              "slot_number": 4,
+              "name": "Grand Unsealing",
+              "level": 9,
+              "canonical_text": "4. Grand Unsealing\n- Level 9\n- Cost: 3 Energy\n- Cooldown: 4 turns\n- Consume every active Seal and immediately trigger Base 8 versions:\n  Fracture scaling: INT 0.009 + CHA 0.007 + FTH 0.005\n  Ward scaling: FTH 0.008 + CHA 0.007 + INT 0.006\n  Mercy scaling: FTH 0.010 + CHA 0.007 + INT 0.004"
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Glyphmorpher",
+          "source_file": "13_B_MAGE_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "INT",
+            "DEX",
+            "CHA"
+          ],
+          "resource": null,
+          "role": "flexible Mage that writes temporary Glyphs and consumes them to modify spells.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Shifted Lance",
+              "level": 3,
+              "canonical_text": "1. Shifted Lance\n- Level 3\n- Cost: 1 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Force\n- Base Damage: 12\n- Scaling: INT 0.009 + DEX 0.007 + CHA 0.005\n- May consume 1 Glyph."
+            },
+            {
+              "slot_number": 2,
+              "name": "Quickscript",
+              "level": 5,
+              "canonical_text": "2. Quickscript\n- Level 5\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Create any 2 Glyphs."
+            },
+            {
+              "slot_number": 3,
+              "name": "Morphline",
+              "level": 7,
+              "canonical_text": "3. Morphline\n- Level 7\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Force\n- Base Damage: 16\n- Scaling: INT 0.009 + DEX 0.007 + CHA 0.006\n- May consume up to 2 Glyphs."
+            },
+            {
+              "slot_number": 4,
+              "name": "Grand Rewrite",
+              "level": 9,
+              "canonical_text": "4. Grand Rewrite\n- Level 9\n- Cost: 3 Energy + 3 Glyphs\n- Cooldown: 4 turns\n- Target: single enemy\n- Damage type: Force\n- Base Damage: 22\n- Scaling: INT 0.010 + DEX 0.009 + CHA 0.009\n- Consume all 3 Glyphs.\n- Enhanced effects per consumed Glyph:\n  Edge: +15% final damage\n  Echo: bonus Force damage equal to 20% of actual HP removed\n  Veil: +12% Dodge Chance until next turn\n\nEND MAGE FAMILY"
+            }
+          ],
+          "ability_count": 4
+        }
+      ]
+    },
+    {
+      "source_file": "15_B_CLERIC_FAMILY_APPROVED_CANON.txt",
+      "base_class": "Cleric",
+      "entities": [
+        {
+          "name": "Cleric",
+          "source_file": "15_B_CLERIC_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "FTH",
+            "CHA"
+          ],
+          "resource": null,
+          "role": "hybrid healer/support that builds Grace through restoration and judgment.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Radiant Rebuke",
+              "level": 1,
+              "canonical_text": "1. Radiant Rebuke\n- Level 1; Cost 0 Energy; Cooldown none\n- Single enemy; Radiant; Base Damage 7\n- Scaling: FTH 0.011 + CHA 0.007\n- Target deals -5% damage until its next turn."
+            },
+            {
+              "slot_number": 2,
+              "name": "Mend",
+              "level": 2,
+              "canonical_text": "2. Mend\n- Level 2; Cost 1 Energy; Cooldown 1 turn\n- One ally; Base Heal 9\n- Scaling: FTH 0.013 + CHA 0.007"
+            },
+            {
+              "slot_number": 3,
+              "name": "Sanctuary Mark",
+              "level": 4,
+              "canonical_text": "3. Sanctuary Mark\n- Level 4; Cost 1 Energy; Cooldown 2 turns\n- One ally; Base Shield 7\n- Scaling: FTH 0.010 + CHA 0.009\n- Target takes -10% incoming damage until Cleric's next turn."
+            },
+            {
+              "slot_number": 4,
+              "name": "Gracebound Judgment",
+              "level": 6,
+              "canonical_text": "4. Gracebound Judgment\n- Level 6; Cost 2 Energy; Cooldown 2 turns\n- Single enemy; Radiant; Base Damage 13\n- Scaling: FTH 0.013 + CHA 0.009\n- If target has a debuff, heal lowest-% HP ally:\n  Base Heal 5; Scaling FTH 0.012 + CHA 0.008"
+            },
+            {
+              "slot_number": 5,
+              "name": "Benediction",
+              "level": 8,
+              "canonical_text": "5. Benediction\n- Level 8; Cost 3 Energy + 4 Grace; Cooldown 4 turns\n- All allies; Base Heal 10\n- Scaling: FTH 0.014 + CHA 0.010\n- Remove 1 removable negative status from each ally."
+            }
+          ],
+          "ability_count": 5
+        },
+        {
+          "name": "Solaceweaver",
+          "source_file": "15_B_CLERIC_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "FTH",
+            "CHA",
+            "CON"
+          ],
+          "resource": null,
+          "role": "strongest pure healer/protector in the Cleric family.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Gentle Stitch",
+              "level": 3,
+              "canonical_text": "1. Gentle Stitch\n- Level 3; Cost 1 Energy; Cooldown none\n- Base Heal 12\n- Scaling: FTH 0.010 + CON 0.006 + CHA 0.005\n- Up to 30% of overhealing becomes Shield."
+            },
+            {
+              "slot_number": 2,
+              "name": "Share the Hurt",
+              "level": 5,
+              "canonical_text": "2. Share the Hurt\n- Level 5; Cost 1 Energy; Cooldown 2 turns\n- One ally\n- Ally takes -20% incoming damage for 2 turns.\n- When they take actual HP damage, heal them once per turn:\n  Base Heal 4; Scaling FTH 0.009 + CON 0.007 + CHA 0.005"
+            },
+            {
+              "slot_number": 3,
+              "name": "Quiet Shelter",
+              "level": 7,
+              "canonical_text": "3. Quiet Shelter\n- Level 7; Cost 2 Energy; Cooldown 3 turns\n- All allies; Base Shield 8\n- Scaling: CON 0.009 + FTH 0.008 + CHA 0.005"
+            },
+            {
+              "slot_number": 4,
+              "name": "Unbroken Solace",
+              "level": 9,
+              "canonical_text": "4. Unbroken Solace\n- Level 9; Cost 3 Energy + 3 Solace; Cooldown 4 turns\n- All allies; Base Heal 14\n- Scaling: FTH 0.011 + CON 0.009 + CHA 0.008\n- Allies below 40% HP receive +25% final healing."
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Lumenwrath",
+          "source_file": "15_B_CLERIC_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "FTH",
+            "STR",
+            "LCK"
+          ],
+          "resource": null,
+          "role": "aggressive Radiant Cleric.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Sunbrand",
+              "level": 3,
+              "canonical_text": "1. Sunbrand\n- Level 3; Cost 1 Energy; Cooldown none\n- Single enemy; Radiant; Base Damage 14\n- Scaling: STR 0.008 + FTH 0.007 + LCK 0.006\n- +10% Crit Chance against enemies with a debuff."
+            },
+            {
+              "slot_number": 2,
+              "name": "Blazing Conviction",
+              "level": 5,
+              "canonical_text": "2. Blazing Conviction\n- Level 5; Cost 1 Energy; Cooldown 2 turns\n- Self\n- +15% Radiant damage and +10% Block Chance for 2 turns."
+            },
+            {
+              "slot_number": 3,
+              "name": "Halo Breaker",
+              "level": 7,
+              "canonical_text": "3. Halo Breaker\n- Level 7; Cost 2 Energy; Cooldown 2 turns\n- All enemies; Radiant; Base Damage 11\n- Scaling: FTH 0.008 + STR 0.006 + LCK 0.005\n- Enemies hit lose 10% Block Chance for 2 turns."
+            },
+            {
+              "slot_number": 4,
+              "name": "Noon Sentence",
+              "level": 9,
+              "canonical_text": "4. Noon Sentence\n- Level 9; Cost 3 Energy + all Fervor; Cooldown 4 turns\n- Single enemy; Radiant; Base Damage 24\n- Scaling: STR 0.011 + LCK 0.009 + FTH 0.008\n- +10% final damage per Fervor consumed.\n- At 4 Fervor becomes Unblockable."
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Malisunder",
+          "source_file": "15_B_CLERIC_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "FTH",
+            "INT",
+            "CHA"
+          ],
+          "resource": null,
+          "role": "curse Cleric that weakens enemies and converts suffering into support.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Blighted Litany",
+              "level": 3,
+              "canonical_text": "1. Blighted Litany\n- Level 3; Cost 1 Energy; Cooldown none\n- Single enemy; Dark; Base Damage 12\n- Scaling: INT 0.009 + FTH 0.007 + CHA 0.005\n- Applies Fracture normally."
+            },
+            {
+              "slot_number": 2,
+              "name": "Profane Exchange",
+              "level": 5,
+              "canonical_text": "2. Profane Exchange\n- Level 5; Cost 1 Energy; Cooldown 2 turns\n- Single enemy; Dark; Base Damage 10\n- Scaling: FTH 0.008 + INT 0.007 + CHA 0.006\n- Heal lowest-% HP ally for 30% of actual HP removed."
+            },
+            {
+              "slot_number": 3,
+              "name": "Break Benediction",
+              "level": 7,
+              "canonical_text": "3. Break Benediction\n- Level 7; Cost 2 Energy; Cooldown 2 turns\n- Single enemy; Dark; Base Damage 15\n- Scaling: INT 0.009 + CHA 0.007 + FTH 0.006\n- Remove 1 removable positive status from target.\n- If none exists, +20% final damage."
+            },
+            {
+              "slot_number": 4,
+              "name": "Rupture the Faithful",
+              "level": 9,
+              "canonical_text": "4. Rupture the Faithful\n- Level 9; Cost 3 Energy; Cooldown 4 turns\n- Single enemy; Dark; Base Damage 22\n- Scaling: INT 0.010 + FTH 0.009 + CHA 0.009\n- Consume all Fractures.\n- +12% final damage per Fracture consumed.\n\nEND CLERIC FAMILY"
+            }
+          ],
+          "ability_count": 4
+        }
+      ]
+    },
+    {
+      "source_file": "17_B_RANGER_FAMILY_APPROVED_CANON.txt",
+      "base_class": "Ranger",
+      "entities": [
+        {
+          "name": "Ranger",
+          "source_file": "17_B_RANGER_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "DEX",
+            "LCK"
+          ],
+          "resource": null,
+          "role": "mobile ranged hunter that designates a priority enemy as its Quarry.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Hunter's Shot",
+              "level": 1,
+              "canonical_text": "1. Hunter's Shot\n- Level 1\n- Cost: 0 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 7\n- Scaling: DEX 0.011 + LCK 0.007"
+            },
+            {
+              "slot_number": 2,
+              "name": "Sidestep",
+              "level": 2,
+              "canonical_text": "2. Sidestep\n- Level 2\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: self\n- +15% Dodge Chance until next turn\n- next Ranger attack gains +10% Crit Chance"
+            },
+            {
+              "slot_number": 3,
+              "name": "Hamstring Shot",
+              "level": 4,
+              "canonical_text": "3. Hamstring Shot\n- Level 4\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 11\n- Scaling: DEX 0.012 + LCK 0.008\n- target gets -10% Dodge Chance for 2 turns"
+            },
+            {
+              "slot_number": 4,
+              "name": "Relentless Pursuit",
+              "level": 6,
+              "canonical_text": "4. Relentless Pursuit\n- Level 6\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 14\n- Scaling: DEX 0.013 + LCK 0.009\n- against Quarry, +5% final damage per Quarry Mark"
+            },
+            {
+              "slot_number": 5,
+              "name": "Claim the Quarry",
+              "level": 8,
+              "canonical_text": "5. Claim the Quarry\n- Level 8\n- Cost: 3 Energy + 4 Quarry Marks\n- Cooldown: 4 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 21\n- Scaling: DEX 0.015 + LCK 0.011\n- +20% Crit Chance\n- Unblockable"
+            }
+          ],
+          "ability_count": 5
+        },
+        {
+          "name": "Breachstrider",
+          "source_file": "17_B_RANGER_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "DEX",
+            "INT",
+            "STR"
+          ],
+          "resource": null,
+          "role": "anti-defense Ranger that systematically dismantles protection.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Crackshot",
+              "level": 3,
+              "canonical_text": "1. Crackshot\n- Level 3\n- Cost: 1 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 13\n- Scaling: DEX 0.009 + STR 0.007 + INT 0.005\n- ignores 25% of target's Block Chance"
+            },
+            {
+              "slot_number": 2,
+              "name": "Fracture Bolt",
+              "level": 5,
+              "canonical_text": "2. Fracture Bolt\n- Level 5\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 11\n- Scaling: DEX 0.008 + INT 0.007 + STR 0.006\n- target gets -15% Block Chance and -15% Blocked Damage Reduction for 2 turns"
+            },
+            {
+              "slot_number": 3,
+              "name": "Through the Gap",
+              "level": 7,
+              "canonical_text": "3. Through the Gap\n- Level 7\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 17\n- Scaling: STR 0.009 + DEX 0.008 + INT 0.005\n- +30% final damage if target currently has a Shield"
+            },
+            {
+              "slot_number": 4,
+              "name": "Total Breach",
+              "level": 9,
+              "canonical_text": "4. Total Breach\n- Level 9\n- Cost: 3 Energy + all Breach Charge\n- Cooldown: 4 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 23\n- Scaling: DEX 0.010 + STR 0.010 + INT 0.008\n- +10% final damage per Breach Charge consumed\n- at 4 Breach Charge:\n  * ignores Shields for this attack\n  * becomes Unblockable\n- \"Ignores Shields\" means the hit damages HP directly without consuming or damaging the Shield.\n  The Shield remains afterward."
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Longwatch",
+          "source_file": "17_B_RANGER_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "DEX",
+            "LCK",
+            "STR"
+          ],
+          "resource": null,
+          "role": "deliberate sniper that becomes stronger by maintaining focus on one Quarry.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Measured Shot",
+              "level": 3,
+              "canonical_text": "1. Measured Shot\n- Level 3\n- Cost: 1 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 14\n- Scaling: DEX 0.009 + LCK 0.008 + STR 0.004\n- +5% Crit Chance per Aim"
+            },
+            {
+              "slot_number": 2,
+              "name": "Hold Breath",
+              "level": 5,
+              "canonical_text": "2. Hold Breath\n- Level 5\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: self\n- gain 2 Aim immediately\n- -10% Dodge Chance until next turn"
+            },
+            {
+              "slot_number": 3,
+              "name": "Piercing Line",
+              "level": 7,
+              "canonical_text": "3. Piercing Line\n- Level 7\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 18\n- Scaling: DEX 0.009 + STR 0.007 + LCK 0.006\n- ignores 40% Block Chance"
+            },
+            {
+              "slot_number": 4,
+              "name": "One Perfect Shot",
+              "level": 9,
+              "canonical_text": "4. One Perfect Shot\n- Level 9\n- Cost: 3 Energy + 4 Aim\n- Cooldown: 4 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 25\n- Scaling: DEX 0.010 + LCK 0.010 + STR 0.008\n- +25% Crit Chance\n- +25% Critical Damage\n- Unblockable"
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Trailguard",
+          "source_file": "17_B_RANGER_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "DEX",
+            "CON",
+            "CHA"
+          ],
+          "resource": null,
+          "role": "defensive Ranger that establishes safe routes for the party.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Covering Shot",
+              "level": 3,
+              "canonical_text": "1. Covering Shot\n- Level 3\n- Cost: 1 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 11\n- Scaling: DEX 0.009 + CHA 0.006 + CON 0.005\n- lowest-% HP ally gains a Trailmark if they do not already have one"
+            },
+            {
+              "slot_number": 2,
+              "name": "Mark Safe Ground",
+              "level": 5,
+              "canonical_text": "2. Mark Safe Ground\n- Level 5\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Place Trailmarks on up to 2 allies.\n- Existing marks are refreshed."
+            },
+            {
+              "slot_number": 3,
+              "name": "Intercepting Volley",
+              "level": 7,
+              "canonical_text": "3. Intercepting Volley\n- Level 7\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 14\n- Scaling: DEX 0.009 + CON 0.007 + CHA 0.006\n- target deals -15% damage to Trailmarked allies for 2 turns"
+            },
+            {
+              "slot_number": 4,
+              "name": "Hold the Route",
+              "level": 9,
+              "canonical_text": "4. Hold the Route\n- Level 9\n- Cost: 3 Energy + all Trail Charge\n- Cooldown: 4 turns\n- All Trailmarked allies gain Base 10 Shield\n- Scaling: CON 0.010 + CHA 0.008 + DEX 0.005\n- +15% Shield per Trail Charge consumed\n\nEND RANGER FAMILY"
+            }
+          ],
+          "ability_count": 4
+        }
+      ]
+    },
+    {
+      "source_file": "19_B_BARD_FAMILY_APPROVED_CANON.txt",
+      "base_class": "Bard",
+      "entities": [
+        {
+          "name": "Bard",
+          "source_file": "19_B_BARD_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "CHA",
+            "FTH"
+          ],
+          "resource": "Resonance 0\u20134",
+          "role": "hybrid support/controller whose songs strengthen allies while disrupting enemies.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Resonant Note",
+              "level": 1,
+              "canonical_text": "1. Resonant Note\n- Level 1; Cost 0 Energy; Cooldown none\n- Single enemy; Force; Base Damage 6\n- Scaling: CHA 0.011 + FTH 0.007"
+            },
+            {
+              "slot_number": 2,
+              "name": "Encouraging Verse",
+              "level": 2,
+              "canonical_text": "2. Encouraging Verse\n- Level 2; Cost 1 Energy; Cooldown 1 turn\n- One ally; Base Heal 8\n- Scaling: FTH 0.011 + CHA 0.009\n- Ally deals +5% damage until their next turn."
+            },
+            {
+              "slot_number": 3,
+              "name": "Dissonant Chord",
+              "level": 4,
+              "canonical_text": "3. Dissonant Chord\n- Level 4; Cost 1 Energy; Cooldown 2 turns\n- Single enemy; Psychic; Base Damage 10\n- Scaling: CHA 0.012 + FTH 0.008\n- Target deals -10% final damage for 2 turns."
+            },
+            {
+              "slot_number": 4,
+              "name": "Echoing Chorus",
+              "level": 6,
+              "canonical_text": "4. Echoing Chorus\n- Level 6; Cost 2 Energy; Cooldown 3 turns\n- All allies; Base Shield 6\n- Scaling: CHA 0.011 + FTH 0.010"
+            },
+            {
+              "slot_number": 5,
+              "name": "Crescendo",
+              "level": 8,
+              "canonical_text": "5. Crescendo\n- Level 8; Cost 3 Energy + 4 Resonance; Cooldown 4 turns\n- All enemies: Base 12 Psychic damage\n  Scaling: CHA 0.014 + FTH 0.010\n- All allies: Base 8 healing\n  Scaling: FTH 0.014 + CHA 0.010"
+            }
+          ],
+          "ability_count": 5
+        },
+        {
+          "name": "Choruswarden",
+          "source_file": "19_B_BARD_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "CHA",
+            "FTH",
+            "CON"
+          ],
+          "resource": "Harmony 0\u20133",
+          "role": "defensive ensemble support.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Shared Refrain",
+              "level": 3,
+              "canonical_text": "1. Shared Refrain\n- Level 3; Cost 1 Energy; Cooldown none\n- Heal two lowest-% HP real allies; Base Heal 8 each\n- Scaling: FTH 0.009 + CHA 0.007 + CON 0.005"
+            },
+            {
+              "slot_number": 2,
+              "name": "Hold the Chorus",
+              "level": 5,
+              "canonical_text": "2. Hold the Chorus\n- Level 5; Cost 1 Energy; Cooldown 2 turns\n- All allies take -10% incoming damage for 2 turns."
+            },
+            {
+              "slot_number": 3,
+              "name": "Answering Harmony",
+              "level": 7,
+              "canonical_text": "3. Answering Harmony\n- Level 7; Cost 2 Energy; Cooldown 3 turns\n- All allies gain Base Shield 7\n- Scaling: CON 0.009 + FTH 0.007 + CHA 0.006\n- When each Shield first absorbs damage, its owner heals:\n  Base Heal 4\n  Scaling: FTH 0.009 + CON 0.007 + CHA 0.005"
+            },
+            {
+              "slot_number": 4,
+              "name": "Chorus Unbroken",
+              "level": 9,
+              "canonical_text": "4. Chorus Unbroken\n- Level 9; Cost 3 Energy + 3 Harmony; Cooldown 4 turns\n- All allies gain Base Shield 12\n  Scaling: CON 0.010 + FTH 0.008 + CHA 0.010\n- All allies receive Base Heal 9\n  Scaling: FTH 0.011 + CHA 0.009 + CON 0.008"
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Dreadcantor",
+          "source_file": "19_B_BARD_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "CHA",
+            "INT",
+            "LCK"
+          ],
+          "resource": "Discord 0\u20134",
+          "role": "offensive/debuff Bard.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Grave Verse",
+              "level": 3,
+              "canonical_text": "1. Grave Verse\n- Level 3; Cost 1 Energy; Cooldown none\n- Single enemy; Psychic; Base Damage 13\n- Scaling: CHA 0.009 + INT 0.007 + LCK 0.005\n- Target deals -8% damage for 2 turns."
+            },
+            {
+              "slot_number": 2,
+              "name": "Wrong Note",
+              "level": 5,
+              "canonical_text": "2. Wrong Note\n- Level 5; Cost 1 Energy; Cooldown 2 turns\n- Single enemy; Psychic; Base Damage 11\n- Scaling: INT 0.008 + CHA 0.007 + LCK 0.006\n- Target receives -20% healing for 2 turns."
+            },
+            {
+              "slot_number": 3,
+              "name": "Choir of Knives",
+              "level": 7,
+              "canonical_text": "3. Choir of Knives\n- Level 7; Cost 2 Energy; Cooldown 2 turns\n- All enemies; Psychic; Base Damage 10\n- Scaling: CHA 0.008 + INT 0.006 + LCK 0.005\n- +5% Crit Chance per Discord."
+            },
+            {
+              "slot_number": 4,
+              "name": "Final Dirge",
+              "level": 9,
+              "canonical_text": "4. Final Dirge\n- Level 9; Cost 3 Energy + all Discord; Cooldown 4 turns\n- Single enemy; Dark; Base Damage 23\n- Scaling: CHA 0.010 + INT 0.009 + LCK 0.009\n- +10% final damage per Discord consumed.\n- At 4 Discord, remove 1 removable positive status before damage."
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Cadenceblade",
+          "source_file": "19_B_BARD_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "DEX",
+            "CHA",
+            "LCK"
+          ],
+          "resource": "Cadence 0\u20134",
+          "role": "melee Bard that maintains combat rhythm by varying attacks.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Beatcut",
+              "level": 3,
+              "canonical_text": "1. Beatcut\n- Level 3; Cost 1 Energy; Cooldown none\n- Single enemy; Physical; Base Damage 12\n- Scaling: DEX 0.009 + CHA 0.007 + LCK 0.005"
+            },
+            {
+              "slot_number": 2,
+              "name": "Passing Step",
+              "level": 5,
+              "canonical_text": "2. Passing Step\n- Level 5; Cost 1 Energy; Cooldown 2 turns\n- Single enemy; Physical; Base Damage 10\n- Scaling: DEX 0.008 + CHA 0.007 + LCK 0.006\n- +15% Dodge Chance until next turn."
+            },
+            {
+              "slot_number": 3,
+              "name": "Syncopated Slash",
+              "level": 7,
+              "canonical_text": "3. Syncopated Slash\n- Level 7; Cost 2 Energy; Cooldown 2 turns\n- Two separate Physical hits; Base Damage 8 each\n- Scaling each: DEX 0.008 + CHA 0.006 + LCK 0.006\n- Each hit rolls Crit independently."
+            },
+            {
+              "slot_number": 4,
+              "name": "Final Cadence",
+              "level": 9,
+              "canonical_text": "4. Final Cadence\n- Level 9; Cost 3 Energy + 4 Cadence; Cooldown 4 turns\n- Single enemy; Physical; Base Damage 23\n- Scaling: DEX 0.010 + CHA 0.009 + LCK 0.009\n- +20% Crit Chance\n- Unblockable\n\nEND BARD FAMILY"
+            }
+          ],
+          "ability_count": 4
+        }
+      ]
+    },
+    {
+      "source_file": "21_B_SORCERER_FAMILY_APPROVED_CANON.txt",
+      "base_class": "Sorcerer",
+      "entities": [
+        {
+          "name": "Sorcerer",
+          "source_file": "21_B_SORCERER_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "CHA",
+            "INT"
+          ],
+          "resource": "Redline 0\u20134",
+          "role": "high-output caster that deliberately operates close to magical instability.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Innate Bolt",
+              "level": 1,
+              "canonical_text": "1. Innate Bolt\n- Level 1; Cost 0 Energy; Cooldown none\n- Single enemy; Force; Base Damage 7\n- Scaling: CHA 0.010 + INT 0.008"
+            },
+            {
+              "slot_number": 2,
+              "name": "Force Pulse",
+              "level": 2,
+              "canonical_text": "2. Force Pulse\n- Level 2; Cost 1 Energy; Cooldown 2 turns\n- Single enemy; Force; Base Damage 10\n- Scaling: CHA 0.011 + INT 0.009\n- Target gets -10% Block Chance for 2 turns."
+            },
+            {
+              "slot_number": 3,
+              "name": "Wild Guard",
+              "level": 4,
+              "canonical_text": "3. Wild Guard\n- Level 4; Cost 1 Energy; Cooldown 2 turns\n- Self; Base Shield 8\n- Scaling: INT 0.011 + CHA 0.009\n- While Shield remains, +10% Crit Chance."
+            },
+            {
+              "slot_number": 4,
+              "name": "Unbound Burst",
+              "level": 6,
+              "canonical_text": "4. Unbound Burst\n- Level 6; Cost 2 Energy; Cooldown 2 turns\n- Single enemy; Force; Base Damage 15\n- Scaling: CHA 0.012 + INT 0.010\n- +5% final damage per current Redline."
+            },
+            {
+              "slot_number": 5,
+              "name": "Cross the Redline",
+              "level": 8,
+              "canonical_text": "5. Cross the Redline\n- Level 8; Cost 3 Energy + 4 Redline; Cooldown 4 turns\n- Single enemy; Force; Base Damage 22\n- Scaling: CHA 0.014 + INT 0.012\n- +20% Crit Chance\n- +25% Critical Damage"
+            }
+          ],
+          "ability_count": 5
+        },
+        {
+          "name": "Fontborn",
+          "source_file": "21_B_SORCERER_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "CHA",
+            "CON",
+            "INT"
+          ],
+          "resource": "Font 0\u20133",
+          "role": "durable Sorcerer whose body acts as a reservoir for magical power.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Wellburst",
+              "level": 3,
+              "canonical_text": "1. Wellburst\n- Level 3; Cost 1 Energy; Cooldown none\n- Single enemy; Force; Base Damage 13\n- Scaling: CHA 0.008 + CON 0.007 + INT 0.006\n- If you have Font, consume 1 for +15% final damage."
+            },
+            {
+              "slot_number": 2,
+              "name": "Reservoir Skin",
+              "level": 5,
+              "canonical_text": "2. Reservoir Skin\n- Level 5; Cost 1 Energy; Cooldown 2 turns\n- Self; Base Shield 11\n- Scaling: CON 0.010 + INT 0.007 + CHA 0.005\n- Taking HP damage while it lasts generates Font normally."
+            },
+            {
+              "slot_number": 3,
+              "name": "Pressure Release",
+              "level": 7,
+              "canonical_text": "3. Pressure Release\n- Level 7; Cost 2 Energy; Cooldown 2 turns\n- Single enemy; Force; Base Damage 17\n- Scaling: CHA 0.009 + INT 0.008 + CON 0.005\n- Consume up to 2 Font.\n- +12% final damage per Font consumed."
+            },
+            {
+              "slot_number": 4,
+              "name": "Open the Font",
+              "level": 9,
+              "canonical_text": "4. Open the Font\n- Level 9; Cost 3 Energy + 3 Font; Cooldown 4 turns\n- Single enemy; Force; Base Damage 23\n- Scaling: CHA 0.010 + INT 0.009 + CON 0.009\n- Self gains Base Shield 12\n- Shield scaling: CON 0.011 + INT 0.009 + CHA 0.008"
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Fluxwrought",
+          "source_file": "21_B_SORCERER_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "CHA",
+            "LCK",
+            "INT"
+          ],
+          "resource": "Flux",
+          "role": "probability-manipulating Sorcerer whose magical state continuously changes.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Fluxbolt",
+              "level": 3,
+              "canonical_text": "1. Fluxbolt\n- Level 3; Cost 1 Energy; Cooldown none\n- Single enemy; Force; Base Damage 13\n- Scaling: CHA 0.008 + LCK 0.008 + INT 0.005\n- Uses current Flux state."
+            },
+            {
+              "slot_number": 2,
+              "name": "Probability Shear",
+              "level": 5,
+              "canonical_text": "2. Probability Shear\n- Level 5; Cost 1 Energy; Cooldown 2 turns\n- Immediately choose either next or previous Flux state.\n- +10% Crit Chance on next Fluxwrought attack."
+            },
+            {
+              "slot_number": 3,
+              "name": "Unstable Pair",
+              "level": 7,
+              "canonical_text": "3. Unstable Pair\n- Level 7; Cost 2 Energy; Cooldown 2 turns\n- Two separate Force hits, Base Damage 9 each\n- Scaling each: LCK 0.008 + CHA 0.007 + INT 0.005\n- First hit uses current Flux state; second uses next state.\n- Each hit rolls Crit independently."
+            },
+            {
+              "slot_number": 4,
+              "name": "Impossible Outcome",
+              "level": 9,
+              "canonical_text": "4. Impossible Outcome\n- Level 9; Cost 3 Energy; Cooldown 4 turns\n- Single enemy; Force; Base Damage 22\n- Scaling: CHA 0.009 + LCK 0.010 + INT 0.009\n- Gains effects of all 3 Flux states simultaneously:\n  +12% final damage\n  +18% Crit Chance\n  +25% Critical Damage\n  -1 Energy cost\n- Then advances normally."
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Spellconductor",
+          "source_file": "21_B_SORCERER_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "CHA",
+            "INT",
+            "DEX"
+          ],
+          "resource": "Conduits 0\u20133",
+          "role": "fast chaining caster that creates magical routes between enemies.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Conductor Bolt",
+              "level": 3,
+              "canonical_text": "1. Conductor Bolt\n- Level 3; Cost 1 Energy; Cooldown none\n- Single enemy; Lightning; Base Damage 12\n- Scaling: CHA 0.008 + INT 0.007 + DEX 0.006\n- Places Conduit."
+            },
+            {
+              "slot_number": 2,
+              "name": "Fast Circuit",
+              "level": 5,
+              "canonical_text": "2. Fast Circuit\n- Level 5; Cost 1 Energy; Cooldown 2 turns\n- Single enemy; Lightning; Base Damage 10\n- Scaling: DEX 0.008 + CHA 0.007 + INT 0.006\n- +20% Crit Chance.\n- If target has Conduit, gain +15% Dodge Chance until next turn."
+            },
+            {
+              "slot_number": 3,
+              "name": "Crosscurrent",
+              "level": 7,
+              "canonical_text": "3. Crosscurrent\n- Level 7; Cost 2 Energy; Cooldown 2 turns\n- Primary target; Lightning; Base Damage 15\n- Scaling: INT 0.008 + DEX 0.007 + CHA 0.007\n- Then Base 9 Lightning to another Conducted enemy with same coefficients."
+            },
+            {
+              "slot_number": 4,
+              "name": "Closed Circuit",
+              "level": 9,
+              "canonical_text": "4. Closed Circuit\n- Level 9; Cost 3 Energy + 3 Conduits; Cooldown 4 turns\n- Every Conducted enemy; Lightning; Base Damage 20 each\n- Scaling: CHA 0.010 + INT 0.009 + DEX 0.009\n- Consumes all Conduits.\n\nEND SORCERER FAMILY"
+            }
+          ],
+          "ability_count": 4
+        }
+      ]
+    },
+    {
+      "source_file": "23_B_WARLOCK_FAMILY_APPROVED_CANON.txt",
+      "base_class": "Warlock",
+      "entities": [
+        {
+          "name": "Warlock",
+          "source_file": "23_B_WARLOCK_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "CHA",
+            "FTH"
+          ],
+          "resource": "Covenant Marks 0\u20134",
+          "role": "Dark-damage support/caster that builds Covenant Marks through curses and draining life.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Pactbolt",
+              "level": 1,
+              "canonical_text": "1. Pactbolt\n- Level 1; Cost 0 Energy; Cooldown none\n- Single enemy; Dark; Base Damage 7\n- Scaling: CHA 0.011 + FTH 0.007"
+            },
+            {
+              "slot_number": 2,
+              "name": "Leeching Word",
+              "level": 2,
+              "canonical_text": "2. Leeching Word\n- Level 2; Cost 1 Energy; Cooldown 1 turn\n- Single enemy; Dark; Base Damage 9\n- Scaling: CHA 0.011 + FTH 0.009\n- Heal self for 20% of actual HP removed."
+            },
+            {
+              "slot_number": 3,
+              "name": "Binding Clause",
+              "level": 4,
+              "canonical_text": "3. Binding Clause\n- Level 4; Cost 1 Energy; Cooldown 2 turns\n- Single enemy; Dark; Base Damage 8\n- Scaling: CHA 0.012 + FTH 0.008\n- Target deals -10% final damage for 2 turns."
+            },
+            {
+              "slot_number": 4,
+              "name": "Shared Debt",
+              "level": 6,
+              "canonical_text": "4. Shared Debt\n- Level 6; Cost 2 Energy; Cooldown 3 turns\n- One ally gains Base Shield 9\n- Shield scaling: FTH 0.010 + CHA 0.009\n- One ally receives Base Heal 5\n- Heal scaling: FTH 0.012 + CHA 0.008"
+            },
+            {
+              "slot_number": 5,
+              "name": "Collect the Debt",
+              "level": 8,
+              "canonical_text": "5. Collect the Debt\n- Level 8; Cost 3 Energy + 4 Covenant Marks; Cooldown 4 turns\n- Single enemy; Dark; Base Damage 20\n- Scaling: CHA 0.014 + FTH 0.012\n- +15% final damage if target has a debuff.\n- Heal lowest-% HP real ally for 35% of actual HP removed."
+            }
+          ],
+          "ability_count": 5
+        },
+        {
+          "name": "Pyrecovenant",
+          "source_file": "23_B_WARLOCK_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "CHA",
+            "INT",
+            "STR"
+          ],
+          "resource": "Cinders 0\u20135",
+          "role": "Fire Warlock that feeds its covenant with its own vitality.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Ashbrand",
+              "level": 3,
+              "canonical_text": "1. Ashbrand\n- Level 3; Cost 1 Energy; Cooldown none\n- Single enemy; Fire; Base Damage 13\n- Scaling: CHA 0.008 + INT 0.007 + STR 0.006"
+            },
+            {
+              "slot_number": 2,
+              "name": "Furnace Oath",
+              "level": 5,
+              "canonical_text": "2. Furnace Oath\n- Level 5; Cost 1 Energy + 5% current HP; Cooldown 2 turns\n- Immediately gain 2 Cinders.\n- +15% Fire damage for 2 turns."
+            },
+            {
+              "slot_number": 3,
+              "name": "Cinderlash",
+              "level": 7,
+              "canonical_text": "3. Cinderlash\n- Level 7; Cost 2 Energy; Cooldown 2 turns\n- Single enemy; Fire; Base Damage 17\n- Scaling: STR 0.009 + INT 0.008 + CHA 0.005\n- At 3+ Cinders, strikes again for Base 7 Fire with same coefficients."
+            },
+            {
+              "slot_number": 4,
+              "name": "Pyre Due",
+              "level": 9,
+              "canonical_text": "4. Pyre Due\n- Level 9; Cost 3 Energy + all Cinders; Cooldown 4 turns\n- Single enemy; Fire; Base Damage 24\n- Scaling: STR 0.010 + INT 0.010 + CHA 0.008\n- +9% final damage per Cinder consumed.\n- At 5 Cinders gains +25% Critical Damage."
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Belowcaller",
+          "source_file": "23_B_WARLOCK_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "CHA",
+            "FTH",
+            "LCK"
+          ],
+          "resource": "Whispers 0\u20134",
+          "role": "control Warlock that lets hostile voices undermine enemy actions.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Low Murmur",
+              "level": 3,
+              "canonical_text": "1. Low Murmur\n- Level 3; Cost 1 Energy; Cooldown none\n- Single enemy; Dark; Base Damage 12\n- Scaling: CHA 0.009 + LCK 0.007 + FTH 0.005\n- Target gets -10% Crit Chance for 2 turns."
+            },
+            {
+              "slot_number": 2,
+              "name": "Whispered Doubt",
+              "level": 5,
+              "canonical_text": "2. Whispered Doubt\n- Level 5; Cost 1 Energy; Cooldown 2 turns\n- Single enemy; Dark; Base Damage 10\n- Scaling: FTH 0.008 + CHA 0.007 + LCK 0.006\n- Target gets -15% Critical Damage and -15% Incoming Healing for 2 turns."
+            },
+            {
+              "slot_number": 3,
+              "name": "Hands Beneath",
+              "level": 7,
+              "canonical_text": "3. Hands Beneath\n- Level 7; Cost 2 Energy; Cooldown 2 turns\n- Single enemy; Dark; Base Damage 16\n- Scaling: CHA 0.009 + LCK 0.007 + FTH 0.006\n- Target gets -15% Dodge Chance for 2 turns."
+            },
+            {
+              "slot_number": 4,
+              "name": "The Voice Answers",
+              "level": 9,
+              "canonical_text": "4. The Voice Answers\n- Level 9; Cost 3 Energy + all Whispers; Cooldown 4 turns\n- Single enemy; Dark; Base Damage 23\n- Scaling: CHA 0.010 + LCK 0.009 + FTH 0.009\n- +10% final damage per Whisper consumed.\n- At 4 Whispers, target's next Energy-costing ability within 2 turns costs +1 Energy.\n- This +1 Energy effect cannot stack with itself."
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Mortisworn",
+          "source_file": "23_B_WARLOCK_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "CON",
+            "FTH",
+            "LCK"
+          ],
+          "resource": "Remains 0\u20134",
+          "role": "attrition Warlock that turns approaching death and defeated enemies into survivability.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Gravetouch",
+              "level": 3,
+              "canonical_text": "1. Gravetouch\n- Level 3; Cost 1 Energy; Cooldown none\n- Single enemy; Dark; Base Damage 12\n- Scaling: CON 0.008 + FTH 0.007 + LCK 0.006\n- Innate 10% Lifesteal."
+            },
+            {
+              "slot_number": 2,
+              "name": "Ossuary Skin",
+              "level": 5,
+              "canonical_text": "2. Ossuary Skin\n- Level 5; Cost 1 Energy; Cooldown 2 turns\n- Self; Base Shield 11\n- Scaling: CON 0.011 + FTH 0.007 + LCK 0.004\n- May consume 1 Remain for +30% Shield strength."
+            },
+            {
+              "slot_number": 3,
+              "name": "Harvest Pulse",
+              "level": 7,
+              "canonical_text": "3. Harvest Pulse\n- Level 7; Cost 2 Energy; Cooldown 2 turns\n- Single enemy; Dark; Base Damage 16\n- Scaling: CON 0.008 + LCK 0.008 + FTH 0.006\n- +20% final damage against enemies below 50% HP."
+            },
+            {
+              "slot_number": 4,
+              "name": "Mortal Reckoning",
+              "level": 9,
+              "canonical_text": "4. Mortal Reckoning\n- Level 9; Cost 3 Energy + 4 Remains; Cooldown 4 turns\n- Single enemy; Dark; Base Damage 22\n- Scaling: CON 0.010 + FTH 0.009 + LCK 0.009\n- Unblockable.\n- Heal for 35% of actual HP removed.\n\nEND WARLOCK FAMILY"
+            }
+          ],
+          "ability_count": 4
+        }
+      ]
+    },
+    {
+      "source_file": "25_B_PALADIN_FAMILY_APPROVED_CANON.txt",
+      "base_class": "Paladin",
+      "entities": [
+        {
+          "name": "Paladin",
+          "source_file": "25_B_PALADIN_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "STR",
+            "FTH"
+          ],
+          "resource": "Conviction 0\u20135",
+          "role": "frontline holy hybrid that gains strength by protecting allies and striking enemies.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Consecrated Strike",
+              "level": 1,
+              "canonical_text": "1. Consecrated Strike\n- Level 1; Cost 0 Energy; Cooldown none\n- Single enemy; Radiant; Base Damage 7\n- Scaling: STR 0.011 + FTH 0.007"
+            },
+            {
+              "slot_number": 2,
+              "name": "Guarding Prayer",
+              "level": 2,
+              "canonical_text": "2. Guarding Prayer\n- Level 2; Cost 1 Energy; Cooldown 2 turns\n- One ally; Base Shield 8\n- Scaling: FTH 0.011 + STR 0.009"
+            },
+            {
+              "slot_number": 3,
+              "name": "Righteous Blow",
+              "level": 4,
+              "canonical_text": "3. Righteous Blow\n- Level 4; Cost 1 Energy; Cooldown 2 turns\n- Single enemy; Radiant; Base Damage 12\n- Scaling: STR 0.013 + FTH 0.008\n- +15% final damage if target damaged an ally since your previous turn."
+            },
+            {
+              "slot_number": 4,
+              "name": "Lay on Hands",
+              "level": 6,
+              "canonical_text": "4. Lay on Hands\n- Level 6; Cost 2 Energy; Cooldown 3 turns\n- One ally; Base Heal 10\n- Scaling: FTH 0.014 + STR 0.007\n- If target below 40% HP, +20% final healing."
+            },
+            {
+              "slot_number": 5,
+              "name": "Conviction's Answer",
+              "level": 8,
+              "canonical_text": "5. Conviction's Answer\n- Level 8; Cost 3 Energy + 5 Conviction; Cooldown 4 turns\n- Single enemy; Radiant; Base Damage 21\n- Scaling: STR 0.015 + FTH 0.011\n- Heal lowest-% HP real ally; Base Heal 8\n- Heal scaling: FTH 0.014 + STR 0.010"
+            }
+          ],
+          "ability_count": 5
+        },
+        {
+          "name": "Dawnwarden",
+          "source_file": "25_B_PALADIN_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "CON",
+            "FTH",
+            "CHA"
+          ],
+          "resource": "Dawn 0\u20133",
+          "role": "defensive Paladin that prevents party members from being overwhelmed.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Morning Guard",
+              "level": 3,
+              "canonical_text": "1. Morning Guard\n- Level 3; Cost 1 Energy; Cooldown none\n- One ally; Base Shield 10\n- Scaling: CON 0.010 + FTH 0.007 + CHA 0.005"
+            },
+            {
+              "slot_number": 2,
+              "name": "Dawn's Mercy",
+              "level": 5,
+              "canonical_text": "2. Dawn's Mercy\n- Level 5; Cost 1 Energy; Cooldown 2 turns\n- One ally; Base Heal 9\n- Scaling: FTH 0.010 + CHA 0.007 + CON 0.005\n- Target gains +10% Block Chance for 2 turns."
+            },
+            {
+              "slot_number": 3,
+              "name": "Stand Before the Sun",
+              "level": 7,
+              "canonical_text": "3. Stand Before the Sun\n- Level 7; Cost 2 Energy; Cooldown 3 turns\n- Choose ally.\n- First direct hit against them before your next turn redirects to you and deals 35% less damage."
+            },
+            {
+              "slot_number": 4,
+              "name": "First Light",
+              "level": 9,
+              "canonical_text": "4. First Light\n- Level 9; Cost 3 Energy + 3 Dawn; Cooldown 4 turns\n- All allies gain Base Shield 11\n- Shield scaling: CON 0.010 + FTH 0.009 + CHA 0.009\n- All allies receive Base Heal 8\n- Heal scaling: FTH 0.011 + CHA 0.009 + CON 0.008"
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Verdictbearer",
+          "source_file": "25_B_PALADIN_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "STR",
+            "FTH",
+            "CHA"
+          ],
+          "resource": "Verdict 0\u20134",
+          "role": "offensive Paladin that identifies one enemy as guilty and builds toward sentencing it.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Cite the Crime",
+              "level": 3,
+              "canonical_text": "1. Cite the Crime\n- Level 3; Cost 1 Energy; Cooldown none\n- Single enemy; Radiant; Base Damage 13\n- Scaling: STR 0.009 + FTH 0.007 + CHA 0.005\n- Applies or refreshes Judgment."
+            },
+            {
+              "slot_number": 2,
+              "name": "Weight of Evidence",
+              "level": 5,
+              "canonical_text": "2. Weight of Evidence\n- Level 5; Cost 1 Energy; Cooldown 2 turns\n- Single enemy; Radiant; Base Damage 11\n- Scaling: CHA 0.008 + STR 0.007 + FTH 0.006\n- Target deals -10% final damage for 2 turns.\n- Gain 1 extra Verdict if target is Judged."
+            },
+            {
+              "slot_number": 3,
+              "name": "Sentence Pending",
+              "level": 7,
+              "canonical_text": "3. Sentence Pending\n- Level 7; Cost 2 Energy; Cooldown 2 turns\n- Single enemy; Radiant; Base Damage 17\n- Scaling: STR 0.010 + CHA 0.007 + FTH 0.005\n- +8% final damage per Verdict."
+            },
+            {
+              "slot_number": 4,
+              "name": "Final Verdict",
+              "level": 9,
+              "canonical_text": "4. Final Verdict\n- Level 9; Cost 3 Energy + 4 Verdict; Cooldown 4 turns\n- Single enemy; Radiant; Base Damage 24\n- Scaling: STR 0.011 + FTH 0.009 + CHA 0.008\n- +25% Critical Damage\n- Unblockable"
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Vowscarred",
+          "source_file": "25_B_PALADIN_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "CHA",
+            "STR",
+            "LCK"
+          ],
+          "resource": null,
+          "role": "Paladin that deliberately damages its own sacred oath to gain dangerous offensive power.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Vowcut",
+              "level": 3,
+              "canonical_text": "1. Vowcut\n- Level 3; Cost 1 Energy; Cooldown none\n- Single enemy; Radiant; Base Damage 13\n- Scaling: STR 0.009 + CHA 0.007 + LCK 0.005\n- Does not alter Oath."
+            },
+            {
+              "slot_number": 2,
+              "name": "Scar the Promise",
+              "level": 5,
+              "canonical_text": "2. Scar the Promise\n- Level 5; Cost 1 Energy; Cooldown 2 turns\n- Fracture 1 Oath.\n- Next Vowscarred damaging ability gains +20% Crit Chance."
+            },
+            {
+              "slot_number": 3,
+              "name": "Perjurer's Blade",
+              "level": 7,
+              "canonical_text": "3. Perjurer's Blade\n- Level 7; Cost 2 Energy; Cooldown 2 turns\n- Single enemy; Dark; Base Damage 17\n- Scaling: STR 0.009 + LCK 0.008 + CHA 0.005\n- +10% final damage per Fracture."
+            },
+            {
+              "slot_number": 4,
+              "name": "Oath's End",
+              "level": 9,
+              "canonical_text": "4. Oath's End\n- Level 9; Cost 3 Energy; Cooldown 4 turns\n- Single enemy; Base Damage 24\n- Scaling: STR 0.010 + CHA 0.009 + LCK 0.009\n- Damage type:\n  0 Fractures: Radiant\n  1\u20132 Fractures: Force\n  3 Fractures: Dark\n- At 3 Fractures:\n  +30% final damage\n  +20% Crit Chance\n- After resolving, consume all Fractures and restore equal Oath.\n\nEND PALADIN FAMILY"
+            }
+          ],
+          "ability_count": 4
+        }
+      ]
+    },
+    {
+      "source_file": "27_B_DRUID_FAMILY_APPROVED_CANON.txt",
+      "base_class": "Druid",
+      "entities": [
+        {
+          "name": "Druid",
+          "source_file": "27_B_DRUID_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "CON",
+            "FTH",
+            "INT"
+          ],
+          "resource": "Cycle 0\u20133",
+          "role": null,
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Thornlash",
+              "level": 1,
+              "canonical_text": "1. Thornlash\n- Level 1; Cost 0 Energy; Cooldown none\n- Single enemy; Physical; Base Damage 7\n- Scaling: INT 0.009 + CON 0.007 + FTH 0.005"
+            },
+            {
+              "slot_number": 2,
+              "name": "Mending Sap",
+              "level": 2,
+              "canonical_text": "2. Mending Sap\n- Level 2; Cost 1 Energy; Cooldown 1\n- One ally; Base Heal 8\n- Scaling: FTH 0.010 + CON 0.006 + INT 0.005"
+            },
+            {
+              "slot_number": 3,
+              "name": "Groveguard",
+              "level": 4,
+              "canonical_text": "3. Groveguard\n- Level 4; Cost 1 Energy; Cooldown 2\n- One ally; Base Shield 8\n- Scaling: CON 0.009 + FTH 0.007 + INT 0.005"
+            },
+            {
+              "slot_number": 4,
+              "name": "Turn the Cycle",
+              "level": 6,
+              "canonical_text": "4. Turn the Cycle\n- Level 6; Cost 0 Energy; Cooldown 1\n- Change to either other Form; does not end turn; resets Cycle."
+            },
+            {
+              "slot_number": 5,
+              "name": "Confluence",
+              "level": 8,
+              "canonical_text": "5. Confluence\n- Level 8; Cost 3 Energy + 3 Cycle; Cooldown 4\n- Damage one enemy: Base 17 Physical\n  Scaling: INT 0.009 + CON 0.007 + FTH 0.006\n- Heal lowest-% HP ally: Base 8\n  Scaling: FTH 0.010 + CON 0.007 + INT 0.005\n- Shield self: Base 8\n  Scaling: CON 0.010 + FTH 0.007 + INT 0.005\n- Receives Fang/Grove/Bloom bonuses simultaneously.\n- Consumes Cycle."
+            }
+          ],
+          "ability_count": 5
+        },
+        {
+          "name": "Barkmorph",
+          "source_file": "27_B_DRUID_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "CON",
+            "STR",
+            "INT",
+            "FTH"
+          ],
+          "resource": "Morphs 0\u20133",
+          "role": "self-modifying frontline Druid.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Knotted Claw",
+              "level": 3,
+              "canonical_text": "1. Knotted Claw\n- Level 3; Cost 1 Energy; Cooldown none\n- Base 13 Physical\n- Scaling: STR 0.007 + CON 0.006 + INT 0.005 + FTH 0.004\n- Gain Claw Morph if absent."
+            },
+            {
+              "slot_number": 2,
+              "name": "Living Carapace",
+              "level": 5,
+              "canonical_text": "2. Living Carapace\n- Level 5; Cost 1 Energy; Cooldown 2\n- Base Shield 11\n- Scaling: CON 0.008 + FTH 0.006 + INT 0.004 + STR 0.004\n- Gain Hide Morph if absent."
+            },
+            {
+              "slot_number": 3,
+              "name": "Heartwood Pulse",
+              "level": 7,
+              "canonical_text": "3. Heartwood Pulse\n- Level 7; Cost 2 Energy; Cooldown 2\n- Self Heal Base 10\n- Scaling: FTH 0.007 + CON 0.006 + INT 0.005 + STR 0.004\n- Gain Heartwood Morph if absent."
+            },
+            {
+              "slot_number": 4,
+              "name": "Many-Limbed Form",
+              "level": 9,
+              "canonical_text": "4. Many-Limbed Form\n- Level 9; Cost 3 Energy + all 3 Morphs; Cooldown 4\n- Damage: Base 22 Physical\n  Scaling: STR 0.009 + CON 0.008 + INT 0.006 + FTH 0.005\n- Shield: Base 10\n  Scaling: CON 0.010 + FTH 0.007 + INT 0.006 + STR 0.005\n- Heal: Base 8\n  Scaling: FTH 0.009 + CON 0.008 + INT 0.006 + STR 0.005\n- Existing Morph bonuses apply before consumption."
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Seedmarshal",
+          "source_file": "27_B_DRUID_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "FTH",
+            "CON",
+            "INT",
+            "CHA"
+          ],
+          "resource": "Growth 0\u20134",
+          "role": "battlefield cultivator.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Sow Thorn",
+              "level": 3,
+              "canonical_text": "1. Sow Thorn\n- Level 3; Cost 1 Energy; Cooldown none\n- Base 12 Physical\n- Scaling: INT 0.007 + CHA 0.006 + FTH 0.005 + CON 0.004\n- Applies Thornseed.\n- Thornseed Base 4 uses same coefficients."
+            },
+            {
+              "slot_number": 2,
+              "name": "Sow Shelter",
+              "level": 5,
+              "canonical_text": "2. Sow Shelter\n- Level 5; Cost 1 Energy; Cooldown 2\n- Base Shield 9\n- Scaling: CON 0.007 + FTH 0.006 + CHA 0.005 + INT 0.004\n- Applies Shelterseed.\n- Shelterseed Base 4 uses same coefficients."
+            },
+            {
+              "slot_number": 3,
+              "name": "Sow Life",
+              "level": 7,
+              "canonical_text": "3. Sow Life\n- Level 7; Cost 2 Energy; Cooldown 2\n- Base Heal 9\n- Scaling: FTH 0.008 + CHA 0.006 + CON 0.004 + INT 0.004\n- Applies Lifeseed.\n- Lifeseed Base 4 uses same coefficients."
+            },
+            {
+              "slot_number": 4,
+              "name": "Verdant Muster",
+              "level": 9,
+              "canonical_text": "4. Verdant Muster\n- Level 9; Cost 3 Energy + 4 Growth; Cooldown 4\n- Immediately trigger every active Planting at 150% periodic value.\n- Refresh each to 3 turns."
+            }
+          ],
+          "ability_count": 4
+        },
+        {
+          "name": "Hyphaweaver",
+          "source_file": "27_B_DRUID_FAMILY_APPROVED_CANON.txt",
+          "scaling_identity": [
+            "INT",
+            "DEX",
+            "FTH",
+            "CON"
+          ],
+          "resource": "Hypha Nodes 0\u20134",
+          "role": "network Druid that connects combatants and transmits effects.",
+          "abilities": [
+            {
+              "slot_number": 1,
+              "name": "Spore Needle",
+              "level": 3,
+              "canonical_text": "1. Spore Needle\n- Level 3; Cost 1 Energy; Cooldown none\n- Base 12 Poison\n- Scaling: INT 0.007 + DEX 0.006 + FTH 0.005 + CON 0.004\n- Place Hypha Node."
+            },
+            {
+              "slot_number": 2,
+              "name": "Threaded Remedy",
+              "level": 5,
+              "canonical_text": "2. Threaded Remedy\n- Level 5; Cost 1 Energy; Cooldown 2\n- Base Heal 9\n- Scaling: FTH 0.008 + CON 0.006 + INT 0.004 + DEX 0.004\n- Place Hypha Node."
+            },
+            {
+              "slot_number": 3,
+              "name": "Mycelial Shell",
+              "level": 7,
+              "canonical_text": "3. Mycelial Shell\n- Level 7; Cost 2 Energy; Cooldown 2\n- Base Shield 10\n- Scaling: CON 0.008 + FTH 0.006 + INT 0.004 + DEX 0.004\n- Place Hypha Node."
+            },
+            {
+              "slot_number": 4,
+              "name": "Fruiting Network",
+              "level": 9,
+              "canonical_text": "4. Fruiting Network\n- Level 9; Cost 3 Energy + 4 Nodes; Cooldown 4\n- Every enemy Node: Base 14 Poison\n  Scaling: INT 0.009 + DEX 0.007 + FTH 0.006 + CON 0.006\n- Every ally Node: Base 10 Heal\n  Scaling: FTH 0.009 + CON 0.008 + INT 0.006 + DEX 0.005\n- Consume all Nodes.\n\nEND DRUID FAMILY"
+            }
+          ],
+          "ability_count": 4
+        }
+      ]
+    }
+  ],
+  "class_validation": {
+    "base_classes": 11,
+    "subclasses": 33,
+    "class_entities_total": 44,
+    "base_abilities": 55,
+    "subclass_abilities": 132,
+    "abilities_total": 187,
+    "off_identity_scaling_reference_count": 0,
+    "base_level_ladder": [
+      1,
+      2,
+      4,
+      6,
+      8
+    ],
+    "subclass_level_ladder": [
+      3,
+      5,
+      7,
+      9
+    ]
+  },
+  "chronicle": {
+    "normal": {
+      "source_files": [
+        "33_C_CHRONICLE_GLOBAL_FRAMEWORK_APPROVED.txt",
+        "34_C_NORMAL_CLASS_CHRONICLE_TREES_APPROVED_CANON.txt"
+      ],
+      "rank_cap": 30,
+      "progress_per_rank": 100,
+      "points_per_rank": 1,
+      "max_active_cp": 30,
+      "full_tree_cost_cp": 49,
+      "nodes_per_tree": 32,
+      "tree_count": 11,
+      "total_nodes": 352,
+      "tree_counts": {
+        "Warrior": {
+          "core_nodes": 10,
+          "discipline_node_counts": [
+            7,
+            7,
+            7
+          ],
+          "mastery_nodes": 1,
+          "total_nodes": 32
+        },
+        "Rogue": {
+          "core_nodes": 10,
+          "discipline_node_counts": [
+            7,
+            7,
+            7
+          ],
+          "mastery_nodes": 1,
+          "total_nodes": 32
+        },
+        "Brawler": {
+          "core_nodes": 10,
+          "discipline_node_counts": [
+            7,
+            7,
+            7
+          ],
+          "mastery_nodes": 1,
+          "total_nodes": 32
+        },
+        "Mage": {
+          "core_nodes": 10,
+          "discipline_node_counts": [
+            7,
+            7,
+            7
+          ],
+          "mastery_nodes": 1,
+          "total_nodes": 32
+        },
+        "Cleric": {
+          "core_nodes": 10,
+          "discipline_node_counts": [
+            7,
+            7,
+            7
+          ],
+          "mastery_nodes": 1,
+          "total_nodes": 32
+        },
+        "Ranger": {
+          "core_nodes": 10,
+          "discipline_node_counts": [
+            7,
+            7,
+            7
+          ],
+          "mastery_nodes": 1,
+          "total_nodes": 32
+        },
+        "Bard": {
+          "core_nodes": 10,
+          "discipline_node_counts": [
+            7,
+            7,
+            7
+          ],
+          "mastery_nodes": 1,
+          "total_nodes": 32
+        },
+        "Sorcerer": {
+          "core_nodes": 10,
+          "discipline_node_counts": [
+            7,
+            7,
+            7
+          ],
+          "mastery_nodes": 1,
+          "total_nodes": 32
+        },
+        "Warlock": {
+          "core_nodes": 10,
+          "discipline_node_counts": [
+            7,
+            7,
+            7
+          ],
+          "mastery_nodes": 1,
+          "total_nodes": 32
+        },
+        "Paladin": {
+          "core_nodes": 10,
+          "discipline_node_counts": [
+            7,
+            7,
+            7
+          ],
+          "mastery_nodes": 1,
+          "total_nodes": 32
+        },
+        "Druid": {
+          "core_nodes": 10,
+          "discipline_node_counts": [
+            7,
+            7,
+            7
+          ],
+          "mastery_nodes": 1,
+          "total_nodes": 32
+        }
+      },
+      "progress_source": "qualifying campaign accomplishments; not Onyx conversion",
+      "respec": "free at Tavern outside active campaign",
+      "subclass_branches": false,
+      "warrior_mastery_subclass_ability_exception": true
+    },
+    "classless": {
+      "source_file": "35_C_CLASSLESS_CHRONICLE_APPROVED_CANON.txt",
+      "rank_cap": 12,
+      "progress_per_rank": 50,
+      "total_progress": 600,
+      "chronicle_points_tree": false,
+      "mastery": false,
+      "generic_power_bonuses": false,
+      "rank_unlocks": {
+        "0": "2 Base Ability slots",
+        "1": "none",
+        "2": "3rd Base Ability slot",
+        "3": "none",
+        "4": "Resource Imprint",
+        "5": "none",
+        "6": "4th Base Ability slot",
+        "7": "none",
+        "8": "1st Subclass Ability slot",
+        "9": "none",
+        "10": "5th Base Ability slot",
+        "11": "none",
+        "12": "2nd Subclass Ability slot"
+      },
+      "final_capacity": {
+        "base_abilities": 5,
+        "subclass_abilities": 2,
+        "resource_imprints": 1
+      }
+    }
+  },
+  "kept_impressions": {
+    "original": {
+      "count": 200,
+      "authority": "TWBTD_Kept_Impressions_200_APPROVED_REPLACEMENTS_v2.txt",
+      "authority_location": "ChatGPT File Library",
+      "embedded_in_package": false,
+      "slot_distribution": {
+        "1": 20,
+        "2": 74,
+        "3": 48,
+        "4": 40,
+        "5": 17,
+        "6": 1
+      },
+      "classless_id": "KI-182"
+    },
+    "subclass_specific_expansion": {
+      "count": 66,
+      "expected_count": 66,
+      "entries": [
+        {
+          "global_ki_id": "KI-201",
+          "id_status": "APPROVED_D2",
+          "name": "Overpressure Engine",
+          "slots": 3,
+          "subclass": "Ruinhewer",
+          "source_file": "30_WARRIOR_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-202",
+          "id_status": "APPROVED_D2",
+          "name": "Controlled Ruin",
+          "slots": 3,
+          "subclass": "Ruinhewer",
+          "source_file": "30_WARRIOR_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-203",
+          "id_status": "APPROVED_D2",
+          "name": "Unmoving Bastion",
+          "slots": 3,
+          "subclass": "SteelBearer",
+          "source_file": "30_WARRIOR_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-204",
+          "id_status": "APPROVED_D2",
+          "name": "Take Me Instead",
+          "slots": 3,
+          "subclass": "SteelBearer",
+          "source_file": "30_WARRIOR_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-205",
+          "id_status": "APPROVED_D2",
+          "name": "Arcane Temper",
+          "slots": 3,
+          "subclass": "BrandBlade",
+          "source_file": "30_WARRIOR_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-206",
+          "id_status": "APPROVED_D2",
+          "name": "Flashforge",
+          "slots": 3,
+          "subclass": "BrandBlade",
+          "source_file": "30_WARRIOR_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-207",
+          "id_status": "APPROVED_D2",
+          "name": "Perfect Erasure",
+          "slots": 3,
+          "subclass": "Veil Blade",
+          "source_file": "31_ROGUE_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-208",
+          "id_status": "APPROVED_D2",
+          "name": "Half-Seen",
+          "slots": 3,
+          "subclass": "Veil Blade",
+          "source_file": "31_ROGUE_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-209",
+          "id_status": "APPROVED_D2",
+          "name": "One Bullet Left",
+          "slots": 3,
+          "subclass": "Gunslinger",
+          "source_file": "31_ROGUE_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-210",
+          "id_status": "APPROVED_D2",
+          "name": "Close Quarters Shooter",
+          "slots": 3,
+          "subclass": "Gunslinger",
+          "source_file": "31_ROGUE_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-211",
+          "id_status": "APPROVED_D2",
+          "name": "Single Opponent",
+          "slots": 3,
+          "subclass": "Duelist",
+          "source_file": "31_ROGUE_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-212",
+          "id_status": "APPROVED_D2",
+          "name": "Perfect Riposte",
+          "slots": 3,
+          "subclass": "Duelist",
+          "source_file": "31_ROGUE_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-213",
+          "id_status": "APPROVED_D2",
+          "name": "Redline Anatomy",
+          "slots": 3,
+          "subclass": "Bloodknuckle",
+          "source_file": "32_BRAWLER_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-214",
+          "id_status": "APPROVED_D2",
+          "name": "Blood Keeps Blood",
+          "slots": 3,
+          "subclass": "Bloodknuckle",
+          "source_file": "32_BRAWLER_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-215",
+          "id_status": "APPROVED_D2",
+          "name": "Fixed Spectrum",
+          "slots": 3,
+          "subclass": "Prismatic Palm",
+          "source_file": "32_BRAWLER_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-216",
+          "id_status": "APPROVED_D2",
+          "name": "Spectrum in Motion",
+          "slots": 3,
+          "subclass": "Prismatic Palm",
+          "source_file": "32_BRAWLER_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-217",
+          "id_status": "APPROVED_D2",
+          "name": "Long Memory",
+          "slots": 3,
+          "subclass": "AdaptedFist",
+          "source_file": "32_BRAWLER_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-218",
+          "id_status": "APPROVED_D2",
+          "name": "Instinct Before Impact",
+          "slots": 3,
+          "subclass": "AdaptedFist",
+          "source_file": "32_BRAWLER_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-219",
+          "id_status": "APPROVED_D2",
+          "name": "Overbright Vessel",
+          "slots": 3,
+          "subclass": "Spellflare",
+          "source_file": "14_MAGE_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-220",
+          "id_status": "APPROVED_D2",
+          "name": "Narrow Spectrum",
+          "slots": 3,
+          "subclass": "Spellflare",
+          "source_file": "14_MAGE_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-221",
+          "id_status": "APPROVED_D2",
+          "name": "Single Clause",
+          "slots": 3,
+          "subclass": "Sealweaver",
+          "source_file": "14_MAGE_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-222",
+          "id_status": "APPROVED_D2",
+          "name": "Living Contract",
+          "slots": 2,
+          "subclass": "Sealweaver",
+          "source_file": "14_MAGE_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-223",
+          "id_status": "APPROVED_D2",
+          "name": "Monoglyph Thesis",
+          "slots": 3,
+          "subclass": "Glyphmorpher",
+          "source_file": "14_MAGE_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-224",
+          "id_status": "APPROVED_D2",
+          "name": "Palimpsest Engine",
+          "slots": 2,
+          "subclass": "Glyphmorpher",
+          "source_file": "14_MAGE_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-225",
+          "id_status": "APPROVED_D2",
+          "name": "No Wound Wasted",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "16_CLERIC_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-226",
+          "id_status": "APPROVED_D2",
+          "name": "Shared Pulse",
+          "slots": 2,
+          "subclass": null,
+          "source_file": "16_CLERIC_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-227",
+          "id_status": "APPROVED_D2",
+          "name": "Zenith Doctrine",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "16_CLERIC_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-228",
+          "id_status": "APPROVED_D2",
+          "name": "Merciless Halo",
+          "slots": 2,
+          "subclass": null,
+          "source_file": "16_CLERIC_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-229",
+          "id_status": "APPROVED_D2",
+          "name": "Singular Heresy",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "16_CLERIC_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-230",
+          "id_status": "APPROVED_D2",
+          "name": "Sympathetic Ruin",
+          "slots": 2,
+          "subclass": null,
+          "source_file": "16_CLERIC_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-231",
+          "id_status": "APPROVED_D2",
+          "name": "Nothing Between Us",
+          "slots": 3,
+          "subclass": "Breachstrider",
+          "source_file": "18_RANGER_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-232",
+          "id_status": "APPROVED_D2",
+          "name": "Structural Collapse",
+          "slots": 3,
+          "subclass": "Breachstrider",
+          "source_file": "18_RANGER_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-233",
+          "id_status": "APPROVED_D2",
+          "name": "Patient Horizon",
+          "slots": 3,
+          "subclass": "Longwatch",
+          "source_file": "18_RANGER_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-234",
+          "id_status": "APPROVED_D2",
+          "name": "Snap Sight",
+          "slots": 2,
+          "subclass": "Longwatch",
+          "source_file": "18_RANGER_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-235",
+          "id_status": "APPROVED_D2",
+          "name": "One Road Home",
+          "slots": 3,
+          "subclass": "Trailguard",
+          "source_file": "18_RANGER_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-236",
+          "id_status": "APPROVED_D2",
+          "name": "Every Path Watched",
+          "slots": 3,
+          "subclass": "Trailguard",
+          "source_file": "18_RANGER_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-237",
+          "id_status": "APPROVED_D2",
+          "name": "Lead Voice",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "20_BARD_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-238",
+          "id_status": "APPROVED_D2",
+          "name": "Endless Refrain",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "20_BARD_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-239",
+          "id_status": "APPROVED_D2",
+          "name": "One Note of Terror",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "20_BARD_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-240",
+          "id_status": "APPROVED_D2",
+          "name": "Lingering Dissonance",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "20_BARD_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-241",
+          "id_status": "APPROVED_D2",
+          "name": "Accelerando",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "20_BARD_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-242",
+          "id_status": "APPROVED_D2",
+          "name": "Resonant Edge",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "20_BARD_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-243",
+          "id_status": "APPROVED_D2",
+          "name": "Bottomless Vessel",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "22_SORCERER_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-244",
+          "id_status": "APPROVED_D2",
+          "name": "Glass Reservoir",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "22_SORCERER_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-245",
+          "id_status": "APPROVED_D2",
+          "name": "Loaded Reality",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "22_SORCERER_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-246",
+          "id_status": "APPROVED_D2",
+          "name": "Unstable Constant",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "22_SORCERER_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-247",
+          "id_status": "APPROVED_D2",
+          "name": "Single Circuit",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "22_SORCERER_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-248",
+          "id_status": "APPROVED_D2",
+          "name": "Parallel Wiring",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "22_SORCERER_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-249",
+          "id_status": "APPROVED_D2",
+          "name": "Unextinguished Covenant",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "24_WARLOCK_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-250",
+          "id_status": "APPROVED_D2",
+          "name": "Ironbound Pyre",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "24_WARLOCK_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-251",
+          "id_status": "APPROVED_D2",
+          "name": "Whispered Fate",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "24_WARLOCK_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-252",
+          "id_status": "APPROVED_D2",
+          "name": "Devotional Descent",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "24_WARLOCK_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-253",
+          "id_status": "APPROVED_D2",
+          "name": "Mausoleum Heart",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "24_WARLOCK_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-254",
+          "id_status": "APPROVED_D2",
+          "name": "Grinning Remains",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "24_WARLOCK_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-255",
+          "id_status": "APPROVED_D2",
+          "name": "One Dawn Above You",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "26_PALADIN_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-256",
+          "id_status": "APPROVED_D2",
+          "name": "Sun That Will Not Set",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "26_PALADIN_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-257",
+          "id_status": "APPROVED_D2",
+          "name": "Presumed Guilty",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "26_PALADIN_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-258",
+          "id_status": "APPROVED_D2",
+          "name": "No Appeal",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "26_PALADIN_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-259",
+          "id_status": "APPROVED_D2",
+          "name": "Broken Before Battle",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "26_PALADIN_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-260",
+          "id_status": "APPROVED_D2",
+          "name": "Promise Unscarred",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "26_PALADIN_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-261",
+          "id_status": "APPROVED_D2",
+          "name": "Single Shape Doctrine",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "28_DRUID_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-262",
+          "id_status": "APPROVED_D2",
+          "name": "Chimeric Overgrowth",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "28_DRUID_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-263",
+          "id_status": "APPROVED_D2",
+          "name": "Monoculture",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "28_DRUID_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-264",
+          "id_status": "APPROVED_D2",
+          "name": "Wild Germination",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "28_DRUID_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-265",
+          "id_status": "APPROVED_D2",
+          "name": "Predatory Mycelium",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "28_DRUID_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        },
+        {
+          "global_ki_id": "KI-266",
+          "id_status": "APPROVED_D2",
+          "name": "Mutualist Colony",
+          "slots": 3,
+          "subclass": null,
+          "source_file": "28_DRUID_SUBCLASS_IMPRESSIONS_APPROVED_CANON.txt"
+        }
+      ],
+      "global_id_status": "APPROVED_D2_KI_201_TO_KI_266",
+      "approved_range": "KI-201..KI-266"
+    },
+    "final_mechanic_count": 266
+  },
+  "races": {
+    "authority_source": "prior_baseline/TWBTD_CUMULATIVE_APPROVED_BASELINE_2026-08-07.txt section 16, except where newer approvals supersede it",
+    "count": 16,
+    "names": [
+      "Veldrathi",
+      "Rhazekai",
+      "Veyssryn",
+      "Faervani",
+      "Duvenari",
+      "Kyravari",
+      "Rifthari",
+      "Demon",
+      "Halynari",
+      "Human",
+      "Elf",
+      "High Elf",
+      "Arbordyan",
+      "Orc",
+      "Goblin",
+      "Silxered"
+    ],
+    "unresolved_exact_data": [],
+    "d2_resolutions": {
+      "Veyssryn": "All ten Core values complete; Main 1.5x / two Auxiliary 0.5x unchanged.",
+      "Faervani": "Scavenger removed. Exactly five Instincts: Hunter, Flight, Pack, Territorial, Endurance. Pack/Endurance/Fear details finalized.",
+      "Halynari": "Ascendant Dive finalized at 5 Energy, 8-turn cooldown, 25 effective Base Holy before scaling, highest-stat racial scaling.",
+      "Rhazekai": "Six distinct Draconic Organ combat actions finalized."
+    }
+  },
+  "superseded_stale_rules": [
+    "25 Onyx -> Chronicle/meta conversion",
+    "2-or-3-only subclass scaling rule",
+    "LUCK abbreviation where current A/B uses LCK",
+    "old class-resource summaries conflicting with approved B files",
+    "old seven-node Prestige trees",
+    "rejected Classless Chronicle Proposal V1",
+    "Spellconductor 15-channel-pair Harmonic-table open item"
+  ],
+  "unresolved_for_final_self_contained_foundation": [
+    "Materialize the exact original approved KI-001..KI-200 catalogue into the self-contained final canon package."
+  ],
+  "class_resource_and_mechanic_identities": {
+    "Warrior": {
+      "base": "Pressure",
+      "subclasses": {
+        "Ruinhewer": "Overpressure",
+        "SteelBearer": "Bearing",
+        "BrandBlade": "Heat"
+      }
+    },
+    "Rogue": {
+      "base": "Openings",
+      "subclasses": {
+        "Veil Blade": "Veil Imprints",
+        "Gunslinger": "Redline",
+        "Duelist": "Measured + Tempo"
+      }
+    },
+    "Brawler": {
+      "base": "Impact",
+      "subclasses": {
+        "Bloodknuckle": "HP/Lifesteal interaction",
+        "Prismatic Palm": "Ember / Storm / Lumen Prismatic Cycle",
+        "AdaptedFist": "Flow / Guard / Grit Adaptations"
+      }
+    },
+    "Mage": {
+      "base": "Arcane Charge",
+      "subclasses": {
+        "Spellflare": "Flare",
+        "Sealweaver": "Seals",
+        "Glyphmorpher": "Glyphs"
+      }
+    },
+    "Cleric": {
+      "base": "Grace",
+      "subclasses": {
+        "Solaceweaver": "Solace",
+        "Lumenwrath": "Fervor",
+        "Malisunder": "Fractures"
+      }
+    },
+    "Ranger": {
+      "base": "Quarry + Marks",
+      "subclasses": {
+        "Breachstrider": "Breach Charge",
+        "Longwatch": "Aim",
+        "Trailguard": "Trailmarks + Trail Charge"
+      }
+    },
+    "Bard": {
+      "base": "Resonance",
+      "subclasses": {
+        "Choruswarden": "Harmony",
+        "Dreadcantor": "Discord",
+        "Cadenceblade": "Cadence"
+      }
+    },
+    "Sorcerer": {
+      "base": "Redline",
+      "subclasses": {
+        "Fontborn": "Font",
+        "Fluxwrought": "Flux states",
+        "Spellconductor": "Conduits"
+      }
+    },
+    "Warlock": {
+      "base": "Covenant Marks",
+      "subclasses": {
+        "Pyrecovenant": "Cinders",
+        "Belowcaller": "Whispers",
+        "Mortisworn": "Remains"
+      }
+    },
+    "Paladin": {
+      "base": "Conviction",
+      "subclasses": {
+        "Dawnwarden": "Dawn",
+        "Verdictbearer": "Judgment + Verdict",
+        "Vowscarred": "Oath / Fractures"
+      }
+    },
+    "Druid": {
+      "base": "Form + Cycle",
+      "subclasses": {
+        "Barkmorph": "Morphs",
+        "Seedmarshal": "Growth + Plantings",
+        "Hyphaweaver": "Hypha Nodes"
+      }
+    }
+  },
+  "implementation_approved_overlays": {
+    "I9_HP": {
+      "base_max_hp": 10,
+      "hp_per_CON": 2,
+      "hp_per_level_after_first": 3
+    }
+  }
+}

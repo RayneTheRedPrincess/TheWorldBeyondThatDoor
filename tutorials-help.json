@@ -1,0 +1,383 @@
+{
+  "version": "I18-2026-08-08",
+  "mandatoryStarter": {
+    "id": "starter-onboarding",
+    "name": "First Steps Beyond the Door",
+    "requiredResolution": true,
+    "skipAllowed": true,
+    "reward": {
+      "keptImpressionTokens": 2,
+      "maxSlotCost": 3,
+      "oneTimeAccountWide": true
+    },
+    "steps": [
+      {
+        "title": "A Vessel Awaits",
+        "body": "Choose a Vessel slot, bind a character, and use the Tavern as your refuge between expeditions."
+      },
+      {
+        "title": "Build, Then Begin Again",
+        "body": "Every campaign starts at Character Level 1. What the Tavern permanently remembers is separate from run-only levels, equipment, materials, and consumables."
+      },
+      {
+        "title": "The Door Is Always the Start",
+        "body": "The Campaign Door can be used without the Mantle or Chronicle. Those systems open later through successful Forest progression."
+      },
+      {
+        "title": "Your First Kept Impressions",
+        "body": "Resolving this starter lesson\u2014by completing it or skipping it\u2014grants exactly two free Kept Impression tokens. Each token may unlock one Impression costing 3 slots or less."
+      }
+    ]
+  },
+  "tutorials": [
+    {
+      "id": "character-creation",
+      "name": "Character Creation",
+      "trigger": "first-character-creation",
+      "steps": [
+        {
+          "title": "Choose a Vessel",
+          "body": "A Vessel slot permanently binds one character until that slot is deleted. Character Level does not persist between campaigns."
+        },
+        {
+          "title": "Race and Base Class",
+          "body": "Race and base class are permanent for this Vessel. Choose the identity you want to build around before confirming the binding."
+        },
+        {
+          "title": "Starting Stats",
+          "body": "Allocate the Vessel's fixed Level-0 starting-stat pool. These points can be redistributed between campaigns; run-earned Stat Points never join this pool."
+        },
+        {
+          "title": "Begin at Level 1",
+          "body": "Every new campaign begins at Character Level 1. Level, EXP, and run-earned Stat Points reset when that campaign ends."
+        }
+      ]
+    },
+    {
+      "id": "tavern-lobby",
+      "name": "Tavern Lobby",
+      "trigger": "first-tavern-entry",
+      "steps": [
+        {
+          "title": "The Main Hall",
+          "body": "The Main Hall is the Tavern's central hub. Entering a room replaces the current room view until you return to the Main Hall."
+        },
+        {
+          "title": "Services",
+          "body": "Mara handles quests and the lender, Krass manages Kept Impressions, the Mantle Room manages unlocked subclasses, and the other rooms cover records, training, Vessel setup, and Tavern Adventurers."
+        },
+        {
+          "title": "The Outside Door",
+          "body": "The Campaign Door never requires the Mantle or Chronicle. A bound Vessel with a legal starting-stat allocation can begin a campaign."
+        }
+      ]
+    },
+    {
+      "id": "kept-impressions",
+      "name": "Kept Impressions & Slot Costs",
+      "trigger": "first-krass-visit",
+      "steps": [
+        {
+          "title": "Seven Slots",
+          "body": "Each Vessel has exactly 7 Kept Impression slots. An Impression consumes its printed slot cost."
+        },
+        {
+          "title": "No Duplicates",
+          "body": "The same Kept Impression cannot be equipped twice on one character. Different Impressions with similar effects may coexist when legal."
+        },
+        {
+          "title": "A Legal Example",
+          "body": "A 3-slot Impression plus a 2-slot Impression plus another 2-slot Impression uses all 7 slots exactly."
+        },
+        {
+          "title": "Classless Later",
+          "body": "KI-182 Classless costs 6 slots and leaves one slot. Its deeper rules are introduced only after Classless becomes available."
+        }
+      ]
+    },
+    {
+      "id": "getting-adventurer",
+      "name": "Getting a Tavern Adventurer",
+      "trigger": "first-adventurer-interaction",
+      "steps": [
+        {
+          "title": "Tavern Adventurers",
+          "body": "Six Adventurers begin recruited. The remaining residents join after very easy Forest accomplishments."
+        },
+        {
+          "title": "Permanent Recruitment",
+          "body": "Once recruited, a Tavern Adventurer is account-wide and can accompany any Vessel. They are never permanently lost."
+        },
+        {
+          "title": "Their Own Decisions",
+          "body": "Tavern Adventurers are AI-controlled according to personality, class, subclass, and combat role. They never use consumables."
+        }
+      ]
+    },
+    {
+      "id": "building-team",
+      "name": "Building a Team",
+      "trigger": "first-party-screen",
+      "steps": [
+        {
+          "title": "Choose Up to Three",
+          "body": "One Otherworlder may deploy with up to three recruited Tavern Adventurers."
+        },
+        {
+          "title": "Roles Matter",
+          "body": "Supports, protectors, controllers, and damage dealers change how the party survives and who enemies are likely to target."
+        },
+        {
+          "title": "The Tradeoff",
+          "body": "Adventurers gain full Character EXP, but combat-earned Onyx is reduced to 0.4x, 0.2x, or 0.1x when one, two, or three Adventurers deploy."
+        }
+      ]
+    },
+    {
+      "id": "starting-campaign",
+      "name": "Starting a Campaign",
+      "trigger": "first-campaign-door",
+      "steps": [
+        {
+          "title": "Level 1 Every Time",
+          "body": "A campaign snapshots the Vessel at Character Level 1 with its current starting stats, class/subclass state, Kept Impressions, party, equipment setup, and Chronicle allocation."
+        },
+        {
+          "title": "Run-Only Growth",
+          "body": "Character EXP, levels, level-earned Stat Points, crafted equipment, materials, and consumables are campaign state."
+        },
+        {
+          "title": "Returning Matters",
+          "body": "A successful return banks carried rewards and may register exactly one eligible brought-home item into that Vessel's lender collection."
+        }
+      ]
+    },
+    {
+      "id": "forest-combat",
+      "name": "Forest Expedition & Combat",
+      "trigger": "first-forest-combat",
+      "steps": [
+        {
+          "title": "One Action",
+          "body": "On a player turn choose exactly one action: Ability, Charge, Guard, or Consumable. After it resolves, only End Turn remains."
+        },
+        {
+          "title": "Energy",
+          "body": "Every combatant starts at 0 Energy, gains exactly +1 at the start of each own turn, and normally cannot exceed 7. Charge is a separate +1 Energy action."
+        },
+        {
+          "title": "Cooldowns",
+          "body": "Cooldowns tick at the end of their owner's turn and never tick on the same turn they are newly applied."
+        },
+        {
+          "title": "Defense Order",
+          "body": "Crit is determined before defense. Dodge resolves before Block or Guard, then other mitigation, then Shields, then HP."
+        },
+        {
+          "title": "Turn Order and Resources",
+          "body": "The initiative strip shows the persistent ordering. Class, subclass, status, and Kept Impression resources appear only when relevant."
+        },
+        {
+          "title": "Statuses",
+          "body": "Directly attached effects do not apply on a Dodged hit. Periodic statuses resolve on their own timing and can Crit unless an explicit effect says otherwise."
+        }
+      ]
+    },
+    {
+      "id": "campsite",
+      "name": "Mandatory Post-Battle Campsite",
+      "trigger": "first-combat-victory",
+      "steps": [
+        {
+          "title": "Mandatory Rest Stop",
+          "body": "Every normal combat victory enters a mandatory Campsite before the Forest advances."
+        },
+        {
+          "title": "Exhaustion",
+          "body": "The Campsite automatically removes the difficulty's approved number of Exhaustion stacks."
+        },
+        {
+          "title": "Craft and Equip",
+          "body": "Crafting is Campsite-only. Crafted gear is campaign-only, and equipment can be changed here."
+        },
+        {
+          "title": "Choose Food",
+          "body": "Consumables stack in inventory, but the normal base limit is one equipped consumable choice and one use per battle. Consumable selection changes at Campsites."
+        },
+        {
+          "title": "Continue",
+          "body": "Leaving the Campsite advances exactly one Depth and deals the next three unique Forest cards, except at fixed special boundaries."
+        }
+      ]
+    }
+  ],
+  "contextualLessons": [
+    {
+      "id": "trainer-first",
+      "name": "Trainer Choice",
+      "trigger": "first-trainer",
+      "body": "Learn unlocks the Trainer's subclass; Fight gives up learning for this encounter and offers its SoulfireCore on victory. The Trainer can return in another campaign."
+    },
+    {
+      "id": "mantle-unlocked",
+      "name": "Mantle Unlocked",
+      "trigger": "mantle-unlocked",
+      "body": "The Mantle Reliquary is now open. Between campaigns, choose an already-unlocked subclass from this Vessel's base-class family."
+    },
+    {
+      "id": "chronicle-unlocked",
+      "name": "Chronicle Unlocked",
+      "trigger": "chronicle-unlocked",
+      "body": "The Chronicle of Paths is now open. Chronicle Progress earned before this moment was retained."
+    },
+    {
+      "id": "first-soulfire",
+      "name": "SoulfireCore Found",
+      "trigger": "first-soulfire",
+      "body": "SoulfireCores are deterministic source-specific crafting materials used for matching SoulFire equipment at Campsites."
+    },
+    {
+      "id": "first-lender",
+      "name": "Lender Registration",
+      "trigger": "first-lender-registration",
+      "body": "A successful return lets this Vessel register exactly one eligible brought-home item into its permanent lender catalogue."
+    },
+    {
+      "id": "first-subclass",
+      "name": "Subclass Learned",
+      "trigger": "first-subclass-learned",
+      "body": "The subclass is unlocked account-wide. It does not replace the active subclass during this campaign; select it later through the Mantle once the Mantle is open."
+    }
+  ],
+  "helpEntries": [
+    {
+      "id": "stats",
+      "title": "Core Stats",
+      "body": "STR, DEX, CON, INT, FTH, CHA, and LCK define universal derived effects and each class/subclass uses its approved two-to-four-stat scaling identity. Forest noncombat checks always end with one relevant core stat deciding the chance."
+    },
+    {
+      "id": "hp-energy",
+      "title": "HP & Energy",
+      "body": "Base Maximum HP is 10, plus 2 HP per CON and 3 Max HP for each Character Level after Level 1. Every combatant starts each battle at 0 Energy, naturally gains exactly 1 at the start of each own turn, and normally has a Maximum Energy of 7."
+    },
+    {
+      "id": "crit",
+      "title": "Criticals",
+      "body": "Base damage Crit Chance is 5% and base Critical Damage is 150% total damage. Crit is determined before defensive mitigation, so a Crit never bypasses Dodge, Block, Guard, resistance, damage reduction, or Shields unless explicit text says otherwise. Only one recursive extra critical application is allowed above 100% Crit Chance."
+    },
+    {
+      "id": "dodge",
+      "title": "Dodge",
+      "body": "Base Dodge Chance is 5% and normal Dodge Chance is capped at 85%. Dodge resolves before Block. Effects directly attached to a Dodged hit do not apply."
+    },
+    {
+      "id": "block-guard",
+      "title": "Block & Guard",
+      "body": "Base Block Chance is 5%, normal Block Chance is capped at 85%, and base Blocked Damage Reduction is 40%. Guard is a player action that guarantees Block against incoming hits until the start of that actor's next turn; it is not limited by the normal 85% Block cap."
+    },
+    {
+      "id": "shields",
+      "title": "Shields",
+      "body": "Shields absorb damage after Dodge, Block/Guard, and other mitigation but before HP. Damage exceeding the remaining Shield carries into HP. Multiple internal Shield layers may exist even though combat presentation shows a combined amount."
+    },
+    {
+      "id": "healing",
+      "title": "Healing & Lifesteal",
+      "body": "Healing can Crit. Outgoing Healing modifies healing a character sends; Incoming Healing modifies healing a character receives. Lifesteal uses only actual HP removed, never overkill, and is affected by Incoming Healing."
+    },
+    {
+      "id": "statuses",
+      "title": "Statuses",
+      "body": "Ordinary damage-over-time effects tick at the start of the affected actor's turn, cannot be Dodged or Blocked once applied, can Crit by default, and can defeat a combatant before that combatant acts. Stackable timed effects add stacks and refresh duration; non-stack effects refresh without duplicating unless explicit text says otherwise."
+    },
+    {
+      "id": "resources",
+      "title": "Class & Subclass Resources",
+      "body": "Class and subclass resources use their printed generation, spending, caps, and reset rules. Unless explicit text says otherwise, class/subclass combat resources reset to their normal starting state at the beginning of each battle."
+    },
+    {
+      "id": "kept",
+      "title": "Kept Impressions",
+      "body": "A Vessel normally has 7 Kept Impression slots. The same Impression cannot be equipped twice. Temporary KI stacks, counters, stored values, and once-per-combat state reset each battle unless explicit text says otherwise. KI-182 Classless costs 6 slots."
+    },
+    {
+      "id": "equipment",
+      "title": "Equipment",
+      "body": "Weapons have no Base Damage and never add hidden damage to abilities; they provide listed attributes/stats and satisfy weapon requirements. Light/Medium/Heavy armor has 0%/5%/10% built-in mitigation, and Heavy Chest armor imposes -2 Initiative. There is no durability."
+    },
+    {
+      "id": "crafting",
+      "title": "Crafting",
+      "body": "All non-starter equipment is crafted at Campsites. Normal enemies supply source-specific materials; minibosses, bosses, and Trainers supply their deterministic source-specific SoulfireCores. Crafted equipment is campaign-only."
+    },
+    {
+      "id": "consumables",
+      "title": "Consumables & Food",
+      "body": "Most consumables are fantasy foods. Consumables stack in inventory, can only be equipped/changed at Campsites, and the normal base rule permits one equipped consumable choice and one consumable use per battle. Tavern Adventurers and enemies never use consumables."
+    },
+    {
+      "id": "trainers",
+      "title": "Trainers",
+      "body": "A Trainer encounter offers Learn or Fight, and the choice is mutually exclusive for that encounter. Learn unlocks that Trainer's subclass account-wide. Fight gives up learning for that encounter and offers the Trainer's guaranteed source-specific SoulfireCore on victory. The Trainer may appear again in a future campaign."
+    },
+    {
+      "id": "chronicle",
+      "title": "Chronicle of Paths",
+      "body": "The Chronicle is permanent meta progression separated from Character Level. Normal families rank to 30, gain 1 Chronicle Point per rank, and may allocate at most 30 active CP in a 32-node tree. Classless has its separate Rank 0\u201312 unlock progression. The Chronicle opens after the first successful Forest return; progress earned beforehand is retained."
+    },
+    {
+      "id": "mantle",
+      "title": "Mantle Reliquary",
+      "body": "The Mantle lets a Vessel choose an already-unlocked subclass from its own base-class family between campaigns. It never gates the Campaign Door and opens after the first successful Forest return."
+    },
+    {
+      "id": "adventurers",
+      "title": "Tavern Adventurers",
+      "body": "Up to three recruited Tavern Adventurers may deploy with one Otherworlder. They start each campaign at Level 1, gain full Character EXP while alive, allocate level-up stats automatically, act through personality/class/subclass/role AI, and never use consumables."
+    },
+    {
+      "id": "lender",
+      "title": "Mara's Lender",
+      "body": "There is no permanent equipment inventory. On a successful alive return, a Vessel may register exactly one eligible item brought home from that campaign into its permanent lender catalogue. Before a future campaign, one registered item may be borrowed for free as a run-scoped copy."
+    },
+    {
+      "id": "onyx",
+      "title": "Onyx & Chronicle Progress",
+      "body": "Onyx is carried during a campaign. A successful return banks all carried Onyx; defeat banks half with normal final-result rounding. Tavern Adventurers reduce combat-earned Onyx to 0.4x/0.2x/0.1x with one/two/three deployed. Enemy Chronicle Progress is based on raw enemy Onyx at 1/25 before that currency penalty."
+    },
+    {
+      "id": "defeat-return",
+      "title": "Defeat, Return & Continue",
+      "body": "If all real party members reach 0 HP, the campaign ends even if summons survive. Defeat banks half carried Onyx and all earned Chronicle Progress and permits no lender registration. After a region boss and mandatory Campsite, Return safely settles; Continue preserves the exact run and risks its carried equipment and lender opportunity."
+    },
+    {
+      "id": "initiative",
+      "title": "Initiative",
+      "body": "Initiative uses a base 1\u20136 roll plus floor(Level/3), floor(DEX/9), and explicit Initiative bonuses. Ties randomize among tied combatants. Summons act after real combatants in summon order. Initiative does not silently reroll every round."
+    },
+    {
+      "id": "checks",
+      "title": "Forest Stat Checks",
+      "body": "A noncombat check uses d20 + floor(relevant stat/2) + floor(8 \u00d7 relevant stat / total core stats) + explicit race, Kept Impression, or contextual bonuses against the event DC. The player chooses one living real party member. Natural 20 is Critical Success; natural 1 is a Critical Failure only if the modified total actually fails, so sufficiently specialized characters can reach true 100% success."
+    },
+    {
+      "id": "forest",
+      "title": "Forest Expedition",
+      "body": "The Forest has 30 Depth. Normal steps show exactly 3 persisted unique cards; no event definition repeats within a campaign. The miniboss is fixed at Depth 15 and the boss at Depth 30. Normal combat victory always leads to a mandatory Campsite."
+    }
+  ],
+  "completionStates": [
+    "never-seen",
+    "started",
+    "completed",
+    "skipped"
+  ],
+  "rules": {
+    "tutorialReplayIsolated": true,
+    "tutorialsOptionalExceptStarterResolution": true,
+    "replaysGrantRewards": false,
+    "contextLessonsGrantRewards": false,
+    "mobileFirst": true,
+    "developerTermsPlayerFacing": false
+  }
+}

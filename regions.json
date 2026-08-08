@@ -1,0 +1,136 @@
+{
+  "version": "I16-2026-08-08",
+  "regions": [
+    {
+      "id": "forest",
+      "name": "Forest",
+      "depthCount": 30,
+      "introductoryBand": {
+        "start": 1,
+        "end": 5
+      },
+      "cardsPerStep": 3,
+      "trainerEligibility": {
+        "start": 3,
+        "end": 29
+      },
+      "eventKinds": [
+        {
+          "id": "combat",
+          "label": "Combat",
+          "combat": true
+        },
+        {
+          "id": "trainer",
+          "label": "Trainer",
+          "noncombat": true,
+          "trainer": true
+        },
+        {
+          "id": "landmark",
+          "label": "Landmark",
+          "noncombat": true
+        },
+        {
+          "id": "helpful-person",
+          "label": "Helpful Person",
+          "noncombat": true
+        },
+        {
+          "id": "discovery",
+          "label": "Discovery",
+          "noncombat": true
+        },
+        {
+          "id": "other-noncombat",
+          "label": "Unknown Path",
+          "noncombat": true
+        }
+      ],
+      "combatStructure": {
+        "depthTiers": [
+          {
+            "id": "tier-1",
+            "start": 1,
+            "end": 5
+          },
+          {
+            "id": "tier-2",
+            "start": 6,
+            "end": 10
+          },
+          {
+            "id": "tier-3",
+            "start": 11,
+            "end": 14
+          },
+          {
+            "id": "tier-4",
+            "start": 16,
+            "end": 20
+          },
+          {
+            "id": "tier-5",
+            "start": 21,
+            "end": 25
+          },
+          {
+            "id": "tier-6",
+            "start": 26,
+            "end": 29
+          }
+        ],
+        "minibossDepth": 15,
+        "bossDepth": 30,
+        "enemyCountByRealPartySize": {
+          "1": [
+            1,
+            2
+          ],
+          "2": [
+            2,
+            3
+          ],
+          "3": [
+            3,
+            4
+          ],
+          "4": [
+            4,
+            5
+          ]
+        },
+        "scalingBasis": "enemy-type-and-depth-tier-only",
+        "playerLevelScaling": false
+      },
+      "eventStructure": {
+        "authority": "data/forest-events.json",
+        "noRepeatsWithinCampaign": true,
+        "firstEverDepth1Controlled": true,
+        "trainerAuthority": "data/forest-trainers.json",
+        "activeTrainerRosterPerCampaign": [
+          6,
+          8
+        ],
+        "matchingPartyBaseClassAnchorChancePct": 95
+      },
+      "completionReward": {
+        "onyx": 100,
+        "chronicleProgress": 4
+      },
+      "nextRegion": {
+        "id": "bog-of-lost-souls",
+        "name": "Bog of Lost Souls",
+        "expectedEntryLevel": [
+          5,
+          6
+        ],
+        "targetEndLevel": 12
+      },
+      "boundaryChoices": [
+        "return-to-tavern",
+        "continue-beyond-the-door"
+      ]
+    }
+  ]
+}

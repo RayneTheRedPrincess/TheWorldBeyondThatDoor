@@ -1,0 +1,1461 @@
+{
+  "version": "I7-2026-08-08",
+  "count": 55,
+  "abilities": [
+    {
+      "id": "warrior-driving-blow",
+      "baseClass": "Warrior",
+      "name": "Driving Blow",
+      "slot": 1,
+      "level": 1,
+      "energyCost": 0,
+      "cooldown": 0,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 7,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.012,
+            "CON": 0.006
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {},
+      "canonicalText": "1. Driving Blow\n- Level 1\n- Cost: 0 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 7\n- Scaling: STR 0.012 + CON 0.006\n- Formula: 7 × (1 + STR×0.012 + CON×0.006)"
+    },
+    {
+      "id": "warrior-brace",
+      "baseClass": "Warrior",
+      "name": "Brace",
+      "slot": 2,
+      "level": 2,
+      "energyCost": 1,
+      "cooldown": 2,
+      "targetMode": "self",
+      "components": [],
+      "resourceCost": null,
+      "special": [
+        "brace"
+      ],
+      "requirements": {},
+      "canonicalText": "2. Brace\n- Level 2\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: self\n- +15% Block Chance until your next turn.\n- +15% Blocked Damage Reduction until your next turn."
+    },
+    {
+      "id": "warrior-break-line",
+      "baseClass": "Warrior",
+      "name": "Break Line",
+      "slot": 3,
+      "level": 4,
+      "energyCost": 2,
+      "cooldown": 2,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 12,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.013,
+            "CON": 0.008
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "break-line"
+      ],
+      "requirements": {},
+      "canonicalText": "3. Break Line\n- Level 4\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 12\n- Scaling: STR 0.013 + CON 0.008\n- Formula: 12 × (1 + STR×0.013 + CON×0.008)\n- Target loses 10% Block Chance and 10% Blocked Damage Reduction for 2 turns."
+    },
+    {
+      "id": "warrior-hold-fast",
+      "baseClass": "Warrior",
+      "name": "Hold Fast",
+      "slot": 4,
+      "level": 6,
+      "energyCost": 2,
+      "cooldown": 3,
+      "targetMode": "self",
+      "components": [
+        {
+          "type": "shield",
+          "base": 10,
+          "scaling": {
+            "CON": 0.014,
+            "STR": 0.008
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "hold-fast"
+      ],
+      "requirements": {},
+      "canonicalText": "4. Hold Fast\n- Level 6\n- Cost: 2 Energy\n- Cooldown: 3 turns\n- Target: self\n- Base Shield: 10\n- Scaling: CON 0.014 + STR 0.008\n- Formula: 10 × (1 + CON×0.014 + STR×0.008)\n- While any of this Shield remains, gain +20% Aggro."
+    },
+    {
+      "id": "warrior-pressure-break",
+      "baseClass": "Warrior",
+      "name": "Pressure Break",
+      "slot": 5,
+      "level": 8,
+      "energyCost": 1,
+      "cooldown": 2,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 18,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.016,
+            "CON": 0.009
+          }
+        }
+      ],
+      "resourceCost": {
+        "resource": "Pressure",
+        "amount": 3
+      },
+      "special": [
+        "pressure-break"
+      ],
+      "requirements": {},
+      "canonicalText": "5. Pressure Break\n- Level 8\n- Cost: 1 Energy + 3 Pressure\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 18\n- Scaling: STR 0.016 + CON 0.009\n- Formula: 18 × (1 + STR×0.016 + CON×0.009)\n- If cast at 5 Pressure, spend all 5 Pressure instead and deal +20% final damage."
+    },
+    {
+      "id": "rogue-quick-cut",
+      "baseClass": "Rogue",
+      "name": "Quick Cut",
+      "slot": 1,
+      "level": 1,
+      "energyCost": 0,
+      "cooldown": 0,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 7,
+          "damageType": "Physical",
+          "scaling": {
+            "DEX": 0.011,
+            "LCK": 0.007
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {},
+      "canonicalText": "1. Quick Cut\n- Level 1\n- Cost: 0 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 7\n- Scaling: DEX 0.011 + LCK 0.007\n- Formula: 7 × (1 + DEX×0.011 + LCK×0.007)"
+    },
+    {
+      "id": "rogue-feint",
+      "baseClass": "Rogue",
+      "name": "Feint",
+      "slot": 2,
+      "level": 2,
+      "energyCost": 1,
+      "cooldown": 2,
+      "targetMode": "single-enemy",
+      "components": [],
+      "resourceCost": null,
+      "special": [
+        "off-balance"
+      ],
+      "requirements": {},
+      "canonicalText": "2. Feint\n- Level 2\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Applies Off-Balance for 2 turns:\n  -10% Dodge Chance\n  -10% Block Chance"
+    },
+    {
+      "id": "rogue-slipstep",
+      "baseClass": "Rogue",
+      "name": "Slipstep",
+      "slot": 3,
+      "level": 4,
+      "energyCost": 1,
+      "cooldown": 2,
+      "targetMode": "self",
+      "components": [],
+      "resourceCost": null,
+      "special": [
+        "slipstep"
+      ],
+      "requirements": {},
+      "canonicalText": "3. Slipstep\n- Level 4\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: self\n- +15% Dodge Chance until your next turn.\n- Next Rogue damaging ability within 2 turns gains +10% Crit Chance."
+    },
+    {
+      "id": "rogue-exploit-weakness",
+      "baseClass": "Rogue",
+      "name": "Exploit Weakness",
+      "slot": 4,
+      "level": 6,
+      "energyCost": 2,
+      "cooldown": 2,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 13,
+          "damageType": "Physical",
+          "scaling": {
+            "DEX": 0.013,
+            "LCK": 0.009
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "exploit-weakness"
+      ],
+      "requirements": {},
+      "canonicalText": "4. Exploit Weakness\n- Level 6\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 13\n- Scaling: DEX 0.013 + LCK 0.009\n- Formula: 13 × (1 + DEX×0.013 + LCK×0.009)\n- Deals +20% final damage if target currently has a debuff."
+    },
+    {
+      "id": "rogue-perfect-strike",
+      "baseClass": "Rogue",
+      "name": "Perfect Strike",
+      "slot": 5,
+      "level": 8,
+      "energyCost": 2,
+      "cooldown": 3,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 18,
+          "damageType": "Physical",
+          "scaling": {
+            "DEX": 0.014,
+            "LCK": 0.012
+          },
+          "critChanceBonus": 20
+        }
+      ],
+      "resourceCost": {
+        "resource": "Openings",
+        "amount": 3
+      },
+      "special": [],
+      "requirements": {},
+      "canonicalText": "5. Perfect Strike\n- Level 8\n- Cost: 2 Energy + 3 Openings\n- Cooldown: 3 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 18\n- Scaling: DEX 0.014 + LCK 0.012\n- Formula: 18 × (1 + DEX×0.014 + LCK×0.012)\n- Gains +20% Crit Chance for this attack."
+    },
+    {
+      "id": "brawler-knuckle-drive",
+      "baseClass": "Brawler",
+      "name": "Knuckle Drive",
+      "slot": 1,
+      "level": 1,
+      "energyCost": 0,
+      "cooldown": 0,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 7,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.011,
+            "CON": 0.007
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {
+        "weaponType": "Gauntlet"
+      },
+      "canonicalText": "1. Knuckle Drive\n- Level 1\n- Cost: 0 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 7\n- Scaling: STR 0.011 + CON 0.007"
+    },
+    {
+      "id": "brawler-tight-guard",
+      "baseClass": "Brawler",
+      "name": "Tight Guard",
+      "slot": 2,
+      "level": 2,
+      "energyCost": 1,
+      "cooldown": 2,
+      "targetMode": "self",
+      "components": [],
+      "resourceCost": null,
+      "special": [
+        "tight-guard"
+      ],
+      "requirements": {
+        "weaponType": "Gauntlet"
+      },
+      "canonicalText": "2. Tight Guard\n- Level 2\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: self\n- +12% Block Chance until next turn\n- +12% Dodge Chance until next turn\n- first successful Block or Dodge during this duration grants 1 Impact"
+    },
+    {
+      "id": "brawler-hammerfist",
+      "baseClass": "Brawler",
+      "name": "Hammerfist",
+      "slot": 3,
+      "level": 4,
+      "energyCost": 2,
+      "cooldown": 2,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 13,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.013,
+            "CON": 0.009
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "hammerfist"
+      ],
+      "requirements": {
+        "weaponType": "Gauntlet"
+      },
+      "canonicalText": "3. Hammerfist\n- Level 4\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 13\n- Scaling: STR 0.013 + CON 0.009\n- if you have Impact, consumes 1 Impact for +20% final damage"
+    },
+    {
+      "id": "brawler-catch-breath",
+      "baseClass": "Brawler",
+      "name": "Catch Breath",
+      "slot": 4,
+      "level": 6,
+      "energyCost": 2,
+      "cooldown": 3,
+      "targetMode": "self",
+      "components": [
+        {
+          "type": "heal",
+          "base": 8,
+          "scaling": {
+            "CON": 0.013,
+            "STR": 0.006
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {
+        "weaponType": "Gauntlet"
+      },
+      "canonicalText": "4. Catch Breath\n- Level 6\n- Cost: 2 Energy\n- Cooldown: 3 turns\n- Target: self\n- Base Heal: 8\n- Scaling: CON 0.013 + STR 0.006\n- normal healing modifiers apply"
+    },
+    {
+      "id": "brawler-impact-breaker",
+      "baseClass": "Brawler",
+      "name": "Impact Breaker",
+      "slot": 5,
+      "level": 8,
+      "energyCost": 2,
+      "cooldown": 3,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 20,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.016,
+            "CON": 0.01
+          },
+          "unblockable": true
+        }
+      ],
+      "resourceCost": {
+        "resource": "Impact",
+        "amount": 4
+      },
+      "special": [],
+      "requirements": {
+        "weaponType": "Gauntlet"
+      },
+      "canonicalText": "5. Impact Breaker\n- Level 8\n- Cost: 2 Energy + 4 Impact\n- Cooldown: 3 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 20\n- Scaling: STR 0.016 + CON 0.010\n- Unblockable"
+    },
+    {
+      "id": "mage-arc-bolt",
+      "baseClass": "Mage",
+      "name": "Arc Bolt",
+      "slot": 1,
+      "level": 1,
+      "energyCost": 0,
+      "cooldown": 0,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 7,
+          "damageType": "Force",
+          "scaling": {
+            "INT": 0.011,
+            "LCK": 0.007
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {},
+      "canonicalText": "1. Arc Bolt\n- Level 1\n- Cost: 0 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Force\n- Base Damage: 7\n- Scaling: INT 0.011 + LCK 0.007"
+    },
+    {
+      "id": "mage-arcane-ward",
+      "baseClass": "Mage",
+      "name": "Arcane Ward",
+      "slot": 2,
+      "level": 2,
+      "energyCost": 1,
+      "cooldown": 2,
+      "targetMode": "ally-or-self",
+      "components": [
+        {
+          "type": "shield",
+          "base": 9,
+          "scaling": {
+            "INT": 0.013,
+            "LCK": 0.005
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {},
+      "canonicalText": "2. Arcane Ward\n- Level 2\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: one ally/self\n- Base Shield: 9\n- Scaling: INT 0.013 + LCK 0.005"
+    },
+    {
+      "id": "mage-frost-pin",
+      "baseClass": "Mage",
+      "name": "Frost Pin",
+      "slot": 3,
+      "level": 4,
+      "energyCost": 1,
+      "cooldown": 2,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 11,
+          "damageType": "Cold",
+          "scaling": {
+            "INT": 0.012,
+            "LCK": 0.008
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "frost-pin"
+      ],
+      "requirements": {},
+      "canonicalText": "3. Frost Pin\n- Level 4\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Cold\n- Base Damage: 11\n- Scaling: INT 0.012 + LCK 0.008\n- Target gets -10% Dodge Chance for 2 turns."
+    },
+    {
+      "id": "mage-arcane-volley",
+      "baseClass": "Mage",
+      "name": "Arcane Volley",
+      "slot": 4,
+      "level": 6,
+      "energyCost": 2,
+      "cooldown": 2,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 5,
+          "damageType": "Force",
+          "scaling": {
+            "INT": 0.01,
+            "LCK": 0.008
+          },
+          "hits": 3
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {},
+      "canonicalText": "4. Arcane Volley\n- Level 6\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Force\n- Three separate hits.\n- Base Damage: 5 each\n- Scaling each: INT 0.010 + LCK 0.008\n- Each hit can Crit independently."
+    },
+    {
+      "id": "mage-grand-discharge",
+      "baseClass": "Mage",
+      "name": "Grand Discharge",
+      "slot": 5,
+      "level": 8,
+      "energyCost": 3,
+      "cooldown": 4,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 20,
+          "damageType": "Force",
+          "scaling": {
+            "INT": 0.015,
+            "LCK": 0.011
+          },
+          "unblockable": true,
+          "finalMultiplier": 1.15
+        }
+      ],
+      "resourceCost": {
+        "resource": "Arcane Charge",
+        "amount": 5
+      },
+      "special": [],
+      "requirements": {},
+      "canonicalText": "5. Grand Discharge\n- Level 8\n- Cost: 3 Energy + 5 Arcane Charge\n- Cooldown: 4 turns\n- Target: single enemy\n- Damage type: Force\n- Base Damage: 20\n- Scaling: INT 0.015 + LCK 0.011\n- Unblockable\n- +15% final damage"
+    },
+    {
+      "id": "cleric-radiant-rebuke",
+      "baseClass": "Cleric",
+      "name": "Radiant Rebuke",
+      "slot": 1,
+      "level": 1,
+      "energyCost": 0,
+      "cooldown": 0,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 7,
+          "damageType": "Radiant",
+          "scaling": {
+            "FTH": 0.011,
+            "CHA": 0.007
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "radiant-rebuke"
+      ],
+      "requirements": {},
+      "canonicalText": "1. Radiant Rebuke\n- Level 1; Cost 0 Energy; Cooldown none\n- Single enemy; Radiant; Base Damage 7\n- Scaling: FTH 0.011 + CHA 0.007\n- Target deals -5% damage until its next turn."
+    },
+    {
+      "id": "cleric-mend",
+      "baseClass": "Cleric",
+      "name": "Mend",
+      "slot": 2,
+      "level": 2,
+      "energyCost": 1,
+      "cooldown": 1,
+      "targetMode": "single-ally",
+      "components": [
+        {
+          "type": "heal",
+          "base": 9,
+          "scaling": {
+            "FTH": 0.013,
+            "CHA": 0.007
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {},
+      "canonicalText": "2. Mend\n- Level 2; Cost 1 Energy; Cooldown 1 turn\n- One ally; Base Heal 9\n- Scaling: FTH 0.013 + CHA 0.007"
+    },
+    {
+      "id": "cleric-sanctuary-mark",
+      "baseClass": "Cleric",
+      "name": "Sanctuary Mark",
+      "slot": 3,
+      "level": 4,
+      "energyCost": 1,
+      "cooldown": 2,
+      "targetMode": "single-ally",
+      "components": [
+        {
+          "type": "shield",
+          "base": 7,
+          "scaling": {
+            "FTH": 0.01,
+            "CHA": 0.009
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "sanctuary-mark"
+      ],
+      "requirements": {},
+      "canonicalText": "3. Sanctuary Mark\n- Level 4; Cost 1 Energy; Cooldown 2 turns\n- One ally; Base Shield 7\n- Scaling: FTH 0.010 + CHA 0.009\n- Target takes -10% incoming damage until Cleric's next turn."
+    },
+    {
+      "id": "cleric-gracebound-judgment",
+      "baseClass": "Cleric",
+      "name": "Gracebound Judgment",
+      "slot": 4,
+      "level": 6,
+      "energyCost": 2,
+      "cooldown": 2,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 13,
+          "damageType": "Radiant",
+          "scaling": {
+            "FTH": 0.013,
+            "CHA": 0.009
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "gracebound-judgment"
+      ],
+      "requirements": {},
+      "canonicalText": "4. Gracebound Judgment\n- Level 6; Cost 2 Energy; Cooldown 2 turns\n- Single enemy; Radiant; Base Damage 13\n- Scaling: FTH 0.013 + CHA 0.009\n- If target has a debuff, heal lowest-% HP ally:\n  Base Heal 5; Scaling FTH 0.012 + CHA 0.008"
+    },
+    {
+      "id": "cleric-benediction",
+      "baseClass": "Cleric",
+      "name": "Benediction",
+      "slot": 5,
+      "level": 8,
+      "energyCost": 3,
+      "cooldown": 4,
+      "targetMode": "all-allies",
+      "components": [
+        {
+          "type": "heal",
+          "base": 10,
+          "scaling": {
+            "FTH": 0.014,
+            "CHA": 0.01
+          }
+        }
+      ],
+      "resourceCost": {
+        "resource": "Grace",
+        "amount": 4
+      },
+      "special": [
+        "benediction"
+      ],
+      "requirements": {},
+      "canonicalText": "5. Benediction\n- Level 8; Cost 3 Energy + 4 Grace; Cooldown 4 turns\n- All allies; Base Heal 10\n- Scaling: FTH 0.014 + CHA 0.010\n- Remove 1 removable negative status from each ally."
+    },
+    {
+      "id": "ranger-hunter-s-shot",
+      "baseClass": "Ranger",
+      "name": "Hunter's Shot",
+      "slot": 1,
+      "level": 1,
+      "energyCost": 0,
+      "cooldown": 0,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 7,
+          "damageType": "Physical",
+          "scaling": {
+            "DEX": 0.011,
+            "LCK": 0.007
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {},
+      "canonicalText": "1. Hunter's Shot\n- Level 1\n- Cost: 0 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 7\n- Scaling: DEX 0.011 + LCK 0.007"
+    },
+    {
+      "id": "ranger-sidestep",
+      "baseClass": "Ranger",
+      "name": "Sidestep",
+      "slot": 2,
+      "level": 2,
+      "energyCost": 1,
+      "cooldown": 2,
+      "targetMode": "self",
+      "components": [],
+      "resourceCost": null,
+      "special": [
+        "sidestep"
+      ],
+      "requirements": {},
+      "canonicalText": "2. Sidestep\n- Level 2\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: self\n- +15% Dodge Chance until next turn\n- next Ranger attack gains +10% Crit Chance"
+    },
+    {
+      "id": "ranger-hamstring-shot",
+      "baseClass": "Ranger",
+      "name": "Hamstring Shot",
+      "slot": 3,
+      "level": 4,
+      "energyCost": 1,
+      "cooldown": 2,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 11,
+          "damageType": "Physical",
+          "scaling": {
+            "DEX": 0.012,
+            "LCK": 0.008
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "hamstring-shot"
+      ],
+      "requirements": {},
+      "canonicalText": "3. Hamstring Shot\n- Level 4\n- Cost: 1 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 11\n- Scaling: DEX 0.012 + LCK 0.008\n- target gets -10% Dodge Chance for 2 turns"
+    },
+    {
+      "id": "ranger-relentless-pursuit",
+      "baseClass": "Ranger",
+      "name": "Relentless Pursuit",
+      "slot": 4,
+      "level": 6,
+      "energyCost": 2,
+      "cooldown": 2,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 14,
+          "damageType": "Physical",
+          "scaling": {
+            "DEX": 0.013,
+            "LCK": 0.009
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "relentless-pursuit"
+      ],
+      "requirements": {},
+      "canonicalText": "4. Relentless Pursuit\n- Level 6\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 14\n- Scaling: DEX 0.013 + LCK 0.009\n- against Quarry, +5% final damage per Quarry Mark"
+    },
+    {
+      "id": "ranger-claim-the-quarry",
+      "baseClass": "Ranger",
+      "name": "Claim the Quarry",
+      "slot": 5,
+      "level": 8,
+      "energyCost": 3,
+      "cooldown": 4,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 21,
+          "damageType": "Physical",
+          "scaling": {
+            "DEX": 0.015,
+            "LCK": 0.011
+          },
+          "critChanceBonus": 20,
+          "unblockable": true
+        }
+      ],
+      "resourceCost": {
+        "resource": "Quarry Marks",
+        "amount": 4
+      },
+      "special": [],
+      "requirements": {},
+      "canonicalText": "5. Claim the Quarry\n- Level 8\n- Cost: 3 Energy + 4 Quarry Marks\n- Cooldown: 4 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 21\n- Scaling: DEX 0.015 + LCK 0.011\n- +20% Crit Chance\n- Unblockable"
+    },
+    {
+      "id": "bard-resonant-note",
+      "baseClass": "Bard",
+      "name": "Resonant Note",
+      "slot": 1,
+      "level": 1,
+      "energyCost": 0,
+      "cooldown": 0,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 6,
+          "damageType": "Force",
+          "scaling": {
+            "CHA": 0.011,
+            "FTH": 0.007
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {},
+      "canonicalText": "1. Resonant Note\n- Level 1; Cost 0 Energy; Cooldown none\n- Single enemy; Force; Base Damage 6\n- Scaling: CHA 0.011 + FTH 0.007"
+    },
+    {
+      "id": "bard-encouraging-verse",
+      "baseClass": "Bard",
+      "name": "Encouraging Verse",
+      "slot": 2,
+      "level": 2,
+      "energyCost": 1,
+      "cooldown": 1,
+      "targetMode": "single-ally",
+      "components": [
+        {
+          "type": "heal",
+          "base": 8,
+          "scaling": {
+            "FTH": 0.011,
+            "CHA": 0.009
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "encouraging-verse"
+      ],
+      "requirements": {},
+      "canonicalText": "2. Encouraging Verse\n- Level 2; Cost 1 Energy; Cooldown 1 turn\n- One ally; Base Heal 8\n- Scaling: FTH 0.011 + CHA 0.009\n- Ally deals +5% damage until their next turn."
+    },
+    {
+      "id": "bard-dissonant-chord",
+      "baseClass": "Bard",
+      "name": "Dissonant Chord",
+      "slot": 3,
+      "level": 4,
+      "energyCost": 1,
+      "cooldown": 2,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 10,
+          "damageType": "Psychic",
+          "scaling": {
+            "CHA": 0.012,
+            "FTH": 0.008
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "dissonant-chord"
+      ],
+      "requirements": {},
+      "canonicalText": "3. Dissonant Chord\n- Level 4; Cost 1 Energy; Cooldown 2 turns\n- Single enemy; Psychic; Base Damage 10\n- Scaling: CHA 0.012 + FTH 0.008\n- Target deals -10% final damage for 2 turns."
+    },
+    {
+      "id": "bard-echoing-chorus",
+      "baseClass": "Bard",
+      "name": "Echoing Chorus",
+      "slot": 4,
+      "level": 6,
+      "energyCost": 2,
+      "cooldown": 3,
+      "targetMode": "all-allies",
+      "components": [
+        {
+          "type": "shield",
+          "base": 6,
+          "scaling": {
+            "CHA": 0.011,
+            "FTH": 0.01
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {},
+      "canonicalText": "4. Echoing Chorus\n- Level 6; Cost 2 Energy; Cooldown 3 turns\n- All allies; Base Shield 6\n- Scaling: CHA 0.011 + FTH 0.010"
+    },
+    {
+      "id": "bard-crescendo",
+      "baseClass": "Bard",
+      "name": "Crescendo",
+      "slot": 5,
+      "level": 8,
+      "energyCost": 3,
+      "cooldown": 4,
+      "targetMode": "all-enemies-and-allies",
+      "components": [
+        {
+          "type": "damage",
+          "base": 12,
+          "damageType": "Psychic",
+          "scaling": {
+            "CHA": 0.014,
+            "FTH": 0.01
+          }
+        },
+        {
+          "type": "heal",
+          "base": 8,
+          "scaling": {
+            "FTH": 0.014,
+            "CHA": 0.01
+          }
+        }
+      ],
+      "resourceCost": {
+        "resource": "Resonance",
+        "amount": 4
+      },
+      "special": [],
+      "requirements": {},
+      "canonicalText": "5. Crescendo\n- Level 8; Cost 3 Energy + 4 Resonance; Cooldown 4 turns\n- All enemies: Base 12 Psychic damage\n  Scaling: CHA 0.014 + FTH 0.010\n- All allies: Base 8 healing\n  Scaling: FTH 0.014 + CHA 0.010"
+    },
+    {
+      "id": "sorcerer-innate-bolt",
+      "baseClass": "Sorcerer",
+      "name": "Innate Bolt",
+      "slot": 1,
+      "level": 1,
+      "energyCost": 0,
+      "cooldown": 0,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 7,
+          "damageType": "Force",
+          "scaling": {
+            "CHA": 0.01,
+            "INT": 0.008
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {},
+      "canonicalText": "1. Innate Bolt\n- Level 1; Cost 0 Energy; Cooldown none\n- Single enemy; Force; Base Damage 7\n- Scaling: CHA 0.010 + INT 0.008"
+    },
+    {
+      "id": "sorcerer-force-pulse",
+      "baseClass": "Sorcerer",
+      "name": "Force Pulse",
+      "slot": 2,
+      "level": 2,
+      "energyCost": 1,
+      "cooldown": 2,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 10,
+          "damageType": "Force",
+          "scaling": {
+            "CHA": 0.011,
+            "INT": 0.009
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "force-pulse"
+      ],
+      "requirements": {},
+      "canonicalText": "2. Force Pulse\n- Level 2; Cost 1 Energy; Cooldown 2 turns\n- Single enemy; Force; Base Damage 10\n- Scaling: CHA 0.011 + INT 0.009\n- Target gets -10% Block Chance for 2 turns."
+    },
+    {
+      "id": "sorcerer-wild-guard",
+      "baseClass": "Sorcerer",
+      "name": "Wild Guard",
+      "slot": 3,
+      "level": 4,
+      "energyCost": 1,
+      "cooldown": 2,
+      "targetMode": "self",
+      "components": [
+        {
+          "type": "shield",
+          "base": 8,
+          "scaling": {
+            "INT": 0.011,
+            "CHA": 0.009
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "wild-guard"
+      ],
+      "requirements": {},
+      "canonicalText": "3. Wild Guard\n- Level 4; Cost 1 Energy; Cooldown 2 turns\n- Self; Base Shield 8\n- Scaling: INT 0.011 + CHA 0.009\n- While Shield remains, +10% Crit Chance."
+    },
+    {
+      "id": "sorcerer-unbound-burst",
+      "baseClass": "Sorcerer",
+      "name": "Unbound Burst",
+      "slot": 4,
+      "level": 6,
+      "energyCost": 2,
+      "cooldown": 2,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 15,
+          "damageType": "Force",
+          "scaling": {
+            "CHA": 0.012,
+            "INT": 0.01
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "unbound-burst"
+      ],
+      "requirements": {},
+      "canonicalText": "4. Unbound Burst\n- Level 6; Cost 2 Energy; Cooldown 2 turns\n- Single enemy; Force; Base Damage 15\n- Scaling: CHA 0.012 + INT 0.010\n- +5% final damage per current Redline."
+    },
+    {
+      "id": "sorcerer-cross-the-redline",
+      "baseClass": "Sorcerer",
+      "name": "Cross the Redline",
+      "slot": 5,
+      "level": 8,
+      "energyCost": 3,
+      "cooldown": 4,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 22,
+          "damageType": "Force",
+          "scaling": {
+            "CHA": 0.014,
+            "INT": 0.012
+          },
+          "critChanceBonus": 20,
+          "critDamageBonus": 25
+        }
+      ],
+      "resourceCost": {
+        "resource": "Redline",
+        "amount": 4
+      },
+      "special": [],
+      "requirements": {},
+      "canonicalText": "5. Cross the Redline\n- Level 8; Cost 3 Energy + 4 Redline; Cooldown 4 turns\n- Single enemy; Force; Base Damage 22\n- Scaling: CHA 0.014 + INT 0.012\n- +20% Crit Chance\n- +25% Critical Damage"
+    },
+    {
+      "id": "warlock-pactbolt",
+      "baseClass": "Warlock",
+      "name": "Pactbolt",
+      "slot": 1,
+      "level": 1,
+      "energyCost": 0,
+      "cooldown": 0,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 7,
+          "damageType": "Dark",
+          "scaling": {
+            "CHA": 0.011,
+            "FTH": 0.007
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {},
+      "canonicalText": "1. Pactbolt\n- Level 1; Cost 0 Energy; Cooldown none\n- Single enemy; Dark; Base Damage 7\n- Scaling: CHA 0.011 + FTH 0.007"
+    },
+    {
+      "id": "warlock-leeching-word",
+      "baseClass": "Warlock",
+      "name": "Leeching Word",
+      "slot": 2,
+      "level": 2,
+      "energyCost": 1,
+      "cooldown": 1,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 9,
+          "damageType": "Dark",
+          "scaling": {
+            "CHA": 0.011,
+            "FTH": 0.009
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "leeching-word"
+      ],
+      "requirements": {},
+      "canonicalText": "2. Leeching Word\n- Level 2; Cost 1 Energy; Cooldown 1 turn\n- Single enemy; Dark; Base Damage 9\n- Scaling: CHA 0.011 + FTH 0.009\n- Heal self for 20% of actual HP removed."
+    },
+    {
+      "id": "warlock-binding-clause",
+      "baseClass": "Warlock",
+      "name": "Binding Clause",
+      "slot": 3,
+      "level": 4,
+      "energyCost": 1,
+      "cooldown": 2,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 8,
+          "damageType": "Dark",
+          "scaling": {
+            "CHA": 0.012,
+            "FTH": 0.008
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "binding-clause"
+      ],
+      "requirements": {},
+      "canonicalText": "3. Binding Clause\n- Level 4; Cost 1 Energy; Cooldown 2 turns\n- Single enemy; Dark; Base Damage 8\n- Scaling: CHA 0.012 + FTH 0.008\n- Target deals -10% final damage for 2 turns."
+    },
+    {
+      "id": "warlock-shared-debt",
+      "baseClass": "Warlock",
+      "name": "Shared Debt",
+      "slot": 4,
+      "level": 6,
+      "energyCost": 2,
+      "cooldown": 3,
+      "targetMode": "two-allies",
+      "components": [
+        {
+          "type": "shield",
+          "base": 9,
+          "scaling": {
+            "FTH": 0.01,
+            "CHA": 0.009
+          },
+          "targetKey": "shield"
+        },
+        {
+          "type": "heal",
+          "base": 5,
+          "scaling": {
+            "FTH": 0.012,
+            "CHA": 0.008
+          },
+          "targetKey": "heal"
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {},
+      "canonicalText": "4. Shared Debt\n- Level 6; Cost 2 Energy; Cooldown 3 turns\n- One ally gains Base Shield 9\n- Shield scaling: FTH 0.010 + CHA 0.009\n- One ally receives Base Heal 5\n- Heal scaling: FTH 0.012 + CHA 0.008"
+    },
+    {
+      "id": "warlock-collect-the-debt",
+      "baseClass": "Warlock",
+      "name": "Collect the Debt",
+      "slot": 5,
+      "level": 8,
+      "energyCost": 3,
+      "cooldown": 4,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 20,
+          "damageType": "Dark",
+          "scaling": {
+            "CHA": 0.014,
+            "FTH": 0.012
+          }
+        }
+      ],
+      "resourceCost": {
+        "resource": "Covenant Marks",
+        "amount": 4
+      },
+      "special": [
+        "collect-the-debt"
+      ],
+      "requirements": {},
+      "canonicalText": "5. Collect the Debt\n- Level 8; Cost 3 Energy + 4 Covenant Marks; Cooldown 4 turns\n- Single enemy; Dark; Base Damage 20\n- Scaling: CHA 0.014 + FTH 0.012\n- +15% final damage if target has a debuff.\n- Heal lowest-% HP real ally for 35% of actual HP removed."
+    },
+    {
+      "id": "paladin-consecrated-strike",
+      "baseClass": "Paladin",
+      "name": "Consecrated Strike",
+      "slot": 1,
+      "level": 1,
+      "energyCost": 0,
+      "cooldown": 0,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 7,
+          "damageType": "Radiant",
+          "scaling": {
+            "STR": 0.011,
+            "FTH": 0.007
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {},
+      "canonicalText": "1. Consecrated Strike\n- Level 1; Cost 0 Energy; Cooldown none\n- Single enemy; Radiant; Base Damage 7\n- Scaling: STR 0.011 + FTH 0.007"
+    },
+    {
+      "id": "paladin-guarding-prayer",
+      "baseClass": "Paladin",
+      "name": "Guarding Prayer",
+      "slot": 2,
+      "level": 2,
+      "energyCost": 1,
+      "cooldown": 2,
+      "targetMode": "single-ally",
+      "components": [
+        {
+          "type": "shield",
+          "base": 8,
+          "scaling": {
+            "FTH": 0.011,
+            "STR": 0.009
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {},
+      "canonicalText": "2. Guarding Prayer\n- Level 2; Cost 1 Energy; Cooldown 2 turns\n- One ally; Base Shield 8\n- Scaling: FTH 0.011 + STR 0.009"
+    },
+    {
+      "id": "paladin-righteous-blow",
+      "baseClass": "Paladin",
+      "name": "Righteous Blow",
+      "slot": 3,
+      "level": 4,
+      "energyCost": 1,
+      "cooldown": 2,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 12,
+          "damageType": "Radiant",
+          "scaling": {
+            "STR": 0.013,
+            "FTH": 0.008
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "righteous-blow"
+      ],
+      "requirements": {},
+      "canonicalText": "3. Righteous Blow\n- Level 4; Cost 1 Energy; Cooldown 2 turns\n- Single enemy; Radiant; Base Damage 12\n- Scaling: STR 0.013 + FTH 0.008\n- +15% final damage if target damaged an ally since your previous turn."
+    },
+    {
+      "id": "paladin-lay-on-hands",
+      "baseClass": "Paladin",
+      "name": "Lay on Hands",
+      "slot": 4,
+      "level": 6,
+      "energyCost": 2,
+      "cooldown": 3,
+      "targetMode": "single-ally",
+      "components": [
+        {
+          "type": "heal",
+          "base": 10,
+          "scaling": {
+            "FTH": 0.014,
+            "STR": 0.007
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [
+        "lay-on-hands"
+      ],
+      "requirements": {},
+      "canonicalText": "4. Lay on Hands\n- Level 6; Cost 2 Energy; Cooldown 3 turns\n- One ally; Base Heal 10\n- Scaling: FTH 0.014 + STR 0.007\n- If target below 40% HP, +20% final healing."
+    },
+    {
+      "id": "paladin-conviction-s-answer",
+      "baseClass": "Paladin",
+      "name": "Conviction's Answer",
+      "slot": 5,
+      "level": 8,
+      "energyCost": 3,
+      "cooldown": 4,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 21,
+          "damageType": "Radiant",
+          "scaling": {
+            "STR": 0.015,
+            "FTH": 0.011
+          }
+        }
+      ],
+      "resourceCost": {
+        "resource": "Conviction",
+        "amount": 5
+      },
+      "special": [
+        "convictions-answer"
+      ],
+      "requirements": {},
+      "canonicalText": "5. Conviction's Answer\n- Level 8; Cost 3 Energy + 5 Conviction; Cooldown 4 turns\n- Single enemy; Radiant; Base Damage 21\n- Scaling: STR 0.015 + FTH 0.011\n- Heal lowest-% HP real ally; Base Heal 8\n- Heal scaling: FTH 0.014 + STR 0.010"
+    },
+    {
+      "id": "druid-thornlash",
+      "baseClass": "Druid",
+      "name": "Thornlash",
+      "slot": 1,
+      "level": 1,
+      "energyCost": 0,
+      "cooldown": 0,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 7,
+          "damageType": "Physical",
+          "scaling": {
+            "INT": 0.009,
+            "CON": 0.007,
+            "FTH": 0.005
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {},
+      "canonicalText": "1. Thornlash\n- Level 1; Cost 0 Energy; Cooldown none\n- Single enemy; Physical; Base Damage 7\n- Scaling: INT 0.009 + CON 0.007 + FTH 0.005"
+    },
+    {
+      "id": "druid-mending-sap",
+      "baseClass": "Druid",
+      "name": "Mending Sap",
+      "slot": 2,
+      "level": 2,
+      "energyCost": 1,
+      "cooldown": 1,
+      "targetMode": "single-ally",
+      "components": [
+        {
+          "type": "heal",
+          "base": 8,
+          "scaling": {
+            "FTH": 0.01,
+            "CON": 0.006,
+            "INT": 0.005
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {},
+      "canonicalText": "2. Mending Sap\n- Level 2; Cost 1 Energy; Cooldown 1\n- One ally; Base Heal 8\n- Scaling: FTH 0.010 + CON 0.006 + INT 0.005"
+    },
+    {
+      "id": "druid-groveguard",
+      "baseClass": "Druid",
+      "name": "Groveguard",
+      "slot": 3,
+      "level": 4,
+      "energyCost": 1,
+      "cooldown": 2,
+      "targetMode": "single-ally",
+      "components": [
+        {
+          "type": "shield",
+          "base": 8,
+          "scaling": {
+            "CON": 0.009,
+            "FTH": 0.007,
+            "INT": 0.005
+          }
+        }
+      ],
+      "resourceCost": null,
+      "special": [],
+      "requirements": {},
+      "canonicalText": "3. Groveguard\n- Level 4; Cost 1 Energy; Cooldown 2\n- One ally; Base Shield 8\n- Scaling: CON 0.009 + FTH 0.007 + INT 0.005"
+    },
+    {
+      "id": "druid-turn-the-cycle",
+      "baseClass": "Druid",
+      "name": "Turn the Cycle",
+      "slot": 4,
+      "level": 6,
+      "energyCost": 0,
+      "cooldown": 1,
+      "targetMode": "choose-form",
+      "components": [],
+      "resourceCost": null,
+      "special": [
+        "turn-the-cycle"
+      ],
+      "requirements": {},
+      "canonicalText": "4. Turn the Cycle\n- Level 6; Cost 0 Energy; Cooldown 1\n- Change to either other Form; does not end turn; resets Cycle."
+    },
+    {
+      "id": "druid-confluence",
+      "baseClass": "Druid",
+      "name": "Confluence",
+      "slot": 5,
+      "level": 8,
+      "energyCost": 3,
+      "cooldown": 4,
+      "targetMode": "single-enemy",
+      "components": [
+        {
+          "type": "damage",
+          "base": 17,
+          "damageType": "Physical",
+          "scaling": {
+            "INT": 0.009,
+            "CON": 0.007,
+            "FTH": 0.006
+          }
+        },
+        {
+          "type": "heal",
+          "base": 8,
+          "scaling": {
+            "FTH": 0.01,
+            "CON": 0.007,
+            "INT": 0.005
+          },
+          "targetKey": "lowest-ally"
+        },
+        {
+          "type": "shield",
+          "base": 8,
+          "scaling": {
+            "CON": 0.01,
+            "FTH": 0.007,
+            "INT": 0.005
+          },
+          "targetKey": "self"
+        }
+      ],
+      "resourceCost": {
+        "resource": "Cycle",
+        "amount": 3
+      },
+      "special": [
+        "confluence"
+      ],
+      "requirements": {},
+      "canonicalText": "5. Confluence\n- Level 8; Cost 3 Energy + 3 Cycle; Cooldown 4\n- Damage one enemy: Base 17 Physical\n  Scaling: INT 0.009 + CON 0.007 + FTH 0.006\n- Heal lowest-% HP ally: Base 8\n  Scaling: FTH 0.010 + CON 0.007 + INT 0.005\n- Shield self: Base 8\n  Scaling: CON 0.010 + FTH 0.007 + INT 0.005\n- Receives Fang/Grove/Bloom bonuses simultaneously.\n- Consumes Cycle."
+    }
+  ]
+}

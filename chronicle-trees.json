@@ -1,0 +1,5085 @@
+{
+  "version": 1,
+  "status": "APPROVED / CANONICAL",
+  "global": {
+    "rankCap": 30,
+    "progressPerRank": 100,
+    "pointsPerRank": 1,
+    "maxActiveCP": 30,
+    "fullTreeCost": 49,
+    "coreCount": 10,
+    "disciplineCount": 3,
+    "disciplineNodesEach": 7,
+    "masteryCount": 1,
+    "disciplineEntryRank": 8,
+    "disciplineEntryCoreCount": 3,
+    "lateDisciplineRank": 18,
+    "masteryRank": 24,
+    "masteryMinSpentCP": 18,
+    "masteryMinCoreCount": 5,
+    "respec": "free-at-tavern-outside-active-campaign"
+  },
+  "families": [
+    {
+      "name": "Warrior",
+      "scaling": [
+        "STR",
+        "CON"
+      ],
+      "resource": "Pressure",
+      "nodes": [
+        {
+          "id": "warrior-core-01",
+          "name": "Heavy Hands",
+          "effect": "Driving Blow deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warrior-core-02",
+          "name": "Set the Brace",
+          "effect": "Brace grants +18% Block Chance instead of +15%.",
+          "category": "core",
+          "group": "Core",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warrior-core-03",
+          "name": "Harden the Brace",
+          "effect": "Brace grants +20% Blocked Damage Reduction instead of +15%.",
+          "category": "core",
+          "group": "Core",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warrior-core-04",
+          "name": "Break Their Guard",
+          "effect": "Break Line reduces Block Chance and Blocked Damage Reduction by 12 percentage points instead of 10.",
+          "category": "core",
+          "group": "Core",
+          "position": 4,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warrior-core-05",
+          "name": "Hold Strong",
+          "effect": "Hold Fast creates a Shield 10% stronger.",
+          "category": "core",
+          "group": "Core",
+          "position": 5,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warrior-core-06",
+          "name": "Draw the Eye",
+          "effect": "While Hold Fast's Shield remains, its Aggro bonus is +25% instead of +20%.",
+          "category": "core",
+          "group": "Core",
+          "position": 6,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warrior-core-07",
+          "name": "Ready Pressure",
+          "effect": "Start combat with 1 Pressure instead of 0.",
+          "category": "core",
+          "group": "Core",
+          "position": 7,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warrior-core-08",
+          "name": "Under Pressure: Force",
+          "effect": "Under Pressure grants +12% damage dealt instead of +10%.",
+          "category": "core",
+          "group": "Core",
+          "position": 8,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warrior-core-09",
+          "name": "Under Pressure: Guard",
+          "effect": "Under Pressure grants +12% Block Chance instead of +10%.",
+          "category": "core",
+          "group": "Core",
+          "position": 9,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warrior-core-10",
+          "name": "Breaker Training",
+          "effect": "Pressure Break deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 10,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warrior-assault-01",
+          "name": "Driving Opening",
+          "effect": "Driving Blow deals +10% final damage to a target currently affected by Break Line.",
+          "category": "discipline",
+          "group": "Assault",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "warrior-assault-02",
+          "name": "Follow the Fracture",
+          "effect": "A Critical Hit with Driving Blow against a target affected by Break Line reduces Break Line's remaining cooldown by 1 turn, once per turn.",
+          "category": "discipline",
+          "group": "Assault",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warrior-assault-01"
+        },
+        {
+          "id": "warrior-assault-03",
+          "name": "Crumpling Line",
+          "effect": "Break Line also causes the target to deal -5% final damage until the start of your next turn.",
+          "category": "discipline",
+          "group": "Assault",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warrior-assault-02"
+        },
+        {
+          "id": "warrior-assault-04",
+          "name": "Breaker’s Window",
+          "effect": "After Break Line hits, your next Pressure Break against that target within 2 turns gains +10% Crit Chance.",
+          "category": "discipline",
+          "group": "Assault",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warrior-assault-03"
+        },
+        {
+          "id": "warrior-assault-05",
+          "name": "No Recovery",
+          "effect": "Pressure Break against a target affected by Break Line extends Break Line's remaining duration by 1 turn.",
+          "category": "discipline",
+          "group": "Assault",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warrior-assault-04"
+        },
+        {
+          "id": "warrior-assault-06",
+          "name": "Guard Collapse",
+          "effect": "Break Line becomes Unblockable against a target already affected by Break Line.",
+          "category": "discipline",
+          "group": "Assault",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "warrior-assault-05"
+        },
+        {
+          "id": "warrior-assault-07",
+          "name": "Rupture the Line",
+          "effect": "At 5 Pressure, Pressure Break against a target affected by Break Line gains +15% final damage and ignores that target's Block Chance.",
+          "category": "discipline",
+          "group": "Assault",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "warrior-assault-06"
+        },
+        {
+          "id": "warrior-bulwark-01",
+          "name": "Braced Hold",
+          "effect": "Casting Hold Fast while Brace is active makes Hold Fast's Shield 15% stronger.",
+          "category": "discipline",
+          "group": "Bulwark",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "warrior-bulwark-02",
+          "name": "Guarded Pressure",
+          "effect": "If Brace contributes to at least one successful Block before your next turn, gain 1 additional Pressure at the start of your next turn. This can trigger once per Brace.",
+          "category": "discipline",
+          "group": "Bulwark",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warrior-bulwark-01"
+        },
+        {
+          "id": "warrior-bulwark-03",
+          "name": "Firm Footing",
+          "effect": "While any Hold Fast Shield remains, gain +5 percentage points Blocked Damage Reduction.",
+          "category": "discipline",
+          "group": "Bulwark",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warrior-bulwark-02"
+        },
+        {
+          "id": "warrior-bulwark-04",
+          "name": "Return Force",
+          "effect": "After you successfully Block direct damage, your next Driving Blow before the end of your next turn deals +15% final damage.",
+          "category": "discipline",
+          "group": "Bulwark",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warrior-bulwark-03"
+        },
+        {
+          "id": "warrior-bulwark-05",
+          "name": "Shielded Momentum",
+          "effect": "The first time each Hold Fast Shield absorbs damage, reduce Brace's remaining cooldown by 1 turn.",
+          "category": "discipline",
+          "group": "Bulwark",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warrior-bulwark-04"
+        },
+        {
+          "id": "warrior-bulwark-06",
+          "name": "Immovable",
+          "effect": "While Brace is active and a Hold Fast Shield remains, enemy effects cannot reduce your Block Chance or Blocked Damage Reduction.",
+          "category": "discipline",
+          "group": "Bulwark",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "warrior-bulwark-05"
+        },
+        {
+          "id": "warrior-bulwark-07",
+          "name": "Hold the Line",
+          "effect": "When a Hold Fast Shield is completely broken by direct enemy damage, immediately gain 2 Pressure and your next Brace before the end of your next turn costs 0 Energy. Once per Hold Fast cast.",
+          "category": "discipline",
+          "group": "Bulwark",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "warrior-bulwark-06"
+        },
+        {
+          "id": "warrior-pressure-control-01",
+          "name": "Pressure Temper",
+          "effect": "When you first reach 5 Pressure, gain +5 percentage points Blocked Damage Reduction until your next turn.",
+          "category": "discipline",
+          "group": "Pressure Control",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "warrior-pressure-control-02",
+          "name": "Built Momentum",
+          "effect": "If you both deal direct Warrior damage and successfully Block during the same turn cycle, your next Warrior damaging ability deals +8% final damage.",
+          "category": "discipline",
+          "group": "Pressure Control",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warrior-pressure-control-01"
+        },
+        {
+          "id": "warrior-pressure-control-03",
+          "name": "Stored Force",
+          "effect": "While at 5 Pressure, the first Pressure you would have gained each turn cycle instead gives your next Warrior damaging ability +5% final damage.",
+          "category": "discipline",
+          "group": "Pressure Control",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warrior-pressure-control-02"
+        },
+        {
+          "id": "warrior-pressure-control-04",
+          "name": "No Wasted Motion",
+          "effect": "While at 5 Pressure, the second Pressure you would have gained in the same turn cycle instead reduces the remaining cooldown of one random cooling-down base Warrior ability by 1 turn.",
+          "category": "discipline",
+          "group": "Pressure Control",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warrior-pressure-control-03"
+        },
+        {
+          "id": "warrior-pressure-control-05",
+          "name": "Controlled Release",
+          "effect": "After spending 3 or more Pressure on an ability, gain +10% Block Chance until your next turn.",
+          "category": "discipline",
+          "group": "Pressure Control",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warrior-pressure-control-04"
+        },
+        {
+          "id": "warrior-pressure-control-06",
+          "name": "Pressure Reserve",
+          "effect": "When an ability spends all 5 Pressure, set your Pressure to 1 after that ability resolves.",
+          "category": "discipline",
+          "group": "Pressure Control",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "warrior-pressure-control-05"
+        },
+        {
+          "id": "warrior-pressure-control-07",
+          "name": "Tempered Momentum",
+          "effect": "While at 5 Pressure, the first Pressure you would gain each turn cycle also triggers No Wasted Motion in addition to Stored Force. Pressure Reserve sets your Pressure to 2 instead of 1 after an ability spends all 5 Pressure.",
+          "category": "discipline",
+          "group": "Pressure Control",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "warrior-pressure-control-06"
+        },
+        {
+          "id": "warrior-mastery",
+          "name": "Warrior Mastery",
+          "displayName": "Warrior Mastery",
+          "effect": "Choose exactly one ability from Ruinhewer, SteelBearer, or BrandBlade. The chosen ability is available while no Warrior subclass is active and while using a different Warrior subclass. It keeps its normal Energy cost, cooldown, targeting, damage type, scaling, statuses, and other printed mechanics. If the active Warrior subclass is the same subclass that supplied the chosen ability, the Warrior Mastery copy is removed and that subclass's normal copy follows its ordinary Character Level unlock; when that source subclass is no longer active, the Warrior Mastery copy returns. Duplicate copies are never allowed. If the chosen ability itself creates, tracks, or spends a named subclass resource, that resource may exist only as needed to resolve the chosen ability's own printed mechanics; Warrior Mastery does not grant the source subclass passive or unrelated resource-generation rules. The chosen Mastery ability is locked for the duration of an active campaign and may be changed at the Tavern while outside an active campaign.",
+          "category": "mastery",
+          "group": "Mastery",
+          "position": 1,
+          "cost": 3,
+          "requirements": {
+            "rank": 24,
+            "spentCP": 18,
+            "corePurchased": 5
+          },
+          "previous": null
+        }
+      ]
+    },
+    {
+      "name": "Rogue",
+      "scaling": [
+        "DEX",
+        "LCK"
+      ],
+      "resource": "Openings",
+      "nodes": [
+        {
+          "id": "rogue-core-01",
+          "name": "Quick Hands",
+          "effect": "Quick Cut deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "rogue-core-02",
+          "name": "Sharper Feint",
+          "effect": "Feint reduces Dodge Chance and Block Chance by 12 percentage points instead of 10.",
+          "category": "core",
+          "group": "Core",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "rogue-core-03",
+          "name": "Longer Feint",
+          "effect": "Off-Balance from Feint lasts 3 turns instead of 2.",
+          "category": "core",
+          "group": "Core",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "rogue-core-04",
+          "name": "Lighter Step",
+          "effect": "Slipstep grants +18% Dodge Chance instead of +15%.",
+          "category": "core",
+          "group": "Core",
+          "position": 4,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "rogue-core-05",
+          "name": "Sharper Step",
+          "effect": "Slipstep's next-attack bonus is +12% Crit Chance instead of +10%.",
+          "category": "core",
+          "group": "Core",
+          "position": 5,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "rogue-core-06",
+          "name": "Exploit Harder",
+          "effect": "Exploit Weakness deals +25% final damage against a debuffed target instead of +20%.",
+          "category": "core",
+          "group": "Core",
+          "position": 6,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "rogue-core-07",
+          "name": "Perfect Training",
+          "effect": "Perfect Strike deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 7,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "rogue-core-08",
+          "name": "Ready Opening",
+          "effect": "Start combat with 1 Opening.",
+          "category": "core",
+          "group": "Core",
+          "position": 8,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "rogue-core-09",
+          "name": "Perfect Opportunity+",
+          "effect": "Perfect Opportunity grants +12% Crit Chance instead of +10%.",
+          "category": "core",
+          "group": "Core",
+          "position": 9,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "rogue-core-10",
+          "name": "Perfect Aim",
+          "effect": "Perfect Strike gains +25% Crit Chance instead of +20%.",
+          "category": "core",
+          "group": "Core",
+          "position": 10,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "rogue-precision-01",
+          "name": "Cut the Tell",
+          "effect": "Quick Cut gains +5% Crit Chance against a debuffed target.",
+          "category": "discipline",
+          "group": "Precision",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "rogue-precision-02",
+          "name": "Deep Strike",
+          "effect": "Perfect Strike gains +15% Critical Damage.",
+          "category": "discipline",
+          "group": "Precision",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "rogue-precision-01"
+        },
+        {
+          "id": "rogue-precision-03",
+          "name": "Read the Weakness",
+          "effect": "When Exploit Weakness Crits against a debuffed target, gain 1 additional Opening, once per turn.",
+          "category": "discipline",
+          "group": "Precision",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "rogue-precision-02"
+        },
+        {
+          "id": "rogue-precision-04",
+          "name": "Layered Advantage",
+          "effect": "Exploit Weakness deals an additional +10% final damage if the target has Off-Balance and at least one other debuff.",
+          "category": "discipline",
+          "group": "Precision",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "rogue-precision-03"
+        },
+        {
+          "id": "rogue-precision-05",
+          "name": "Perfect Calculation",
+          "effect": "At 4 Openings, Perfect Opportunity also grants +15% Critical Damage.",
+          "category": "discipline",
+          "group": "Precision",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "rogue-precision-04"
+        },
+        {
+          "id": "rogue-precision-06",
+          "name": "Strike Before They Close",
+          "effect": "Perfect Strike used against a target with Off-Balance is Unblockable.",
+          "category": "discipline",
+          "group": "Precision",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "rogue-precision-05"
+        },
+        {
+          "id": "rogue-precision-07",
+          "name": "True Perfect Strike",
+          "effect": "When Perfect Strike spends Openings, Perfect Opportunity remains active for that attack's full resolution even though the resource is spent.",
+          "category": "discipline",
+          "group": "Precision",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "rogue-precision-06"
+        },
+        {
+          "id": "rogue-evasion-01",
+          "name": "Slip the Counter",
+          "effect": "If you successfully Dodge while Slipstep is active, your next Quick Cut before the end of your next turn deals +20% final damage.",
+          "category": "discipline",
+          "group": "Evasion",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "rogue-evasion-02",
+          "name": "Light Feet",
+          "effect": "After a successful Dodge, gain +5% Dodge Chance until your next turn.",
+          "category": "discipline",
+          "group": "Evasion",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "rogue-evasion-01"
+        },
+        {
+          "id": "rogue-evasion-03",
+          "name": "Reset the Step",
+          "effect": "A successful Dodge while Slipstep is active reduces Slipstep's remaining cooldown by 1 turn, once per Slipstep.",
+          "category": "discipline",
+          "group": "Evasion",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "rogue-evasion-02"
+        },
+        {
+          "id": "rogue-evasion-04",
+          "name": "Ghosted Edge",
+          "effect": "After a successful Dodge, your next Rogue damaging ability before your next turn ignores 50% of the target's Block Chance.",
+          "category": "discipline",
+          "group": "Evasion",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "rogue-evasion-03"
+        },
+        {
+          "id": "rogue-evasion-05",
+          "name": "Second Read",
+          "effect": "If you successfully Dodge more than once between your turns, the second Dodge gives your next Rogue damaging ability +15% Critical Damage.",
+          "category": "discipline",
+          "group": "Evasion",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "rogue-evasion-04"
+        },
+        {
+          "id": "rogue-evasion-06",
+          "name": "Untouched Opportunity",
+          "effect": "If you Dodge while at 4 Openings, Perfect Opportunity persists until the end of your next turn even if you spend Openings before then.",
+          "category": "discipline",
+          "group": "Evasion",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "rogue-evasion-05"
+        },
+        {
+          "id": "rogue-evasion-07",
+          "name": "No Answer",
+          "effect": "After a successful Dodge while Slipstep is active, your next Rogue damaging ability before your next turn is Unblockable.",
+          "category": "discipline",
+          "group": "Evasion",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "rogue-evasion-06"
+        },
+        {
+          "id": "rogue-opportunity-01",
+          "name": "Twin Trigger",
+          "effect": "If you gain at least one Opening from a Crit and at least one Opening from a Dodge during the same turn cycle, your next Rogue damaging ability deals +10% final damage.",
+          "category": "discipline",
+          "group": "Opportunity",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "rogue-opportunity-02",
+          "name": "Excess Precision",
+          "effect": "At 4 Openings, the first Opening you would gain from a Crit each turn instead gives your next Rogue damaging ability +10% Critical Damage.",
+          "category": "discipline",
+          "group": "Opportunity",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "rogue-opportunity-01"
+        },
+        {
+          "id": "rogue-opportunity-03",
+          "name": "Excess Evasion",
+          "effect": "At 4 Openings, the first Opening you would gain from a Dodge each turn cycle instead reduces the remaining cooldown of Feint or Slipstep by 1 turn.",
+          "category": "discipline",
+          "group": "Opportunity",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "rogue-opportunity-02"
+        },
+        {
+          "id": "rogue-opportunity-04",
+          "name": "Spend Carefully",
+          "effect": "If Perfect Strike does not Crit, refund 1 of the Openings it spent after the attack resolves.",
+          "category": "discipline",
+          "group": "Opportunity",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "rogue-opportunity-03"
+        },
+        {
+          "id": "rogue-opportunity-05",
+          "name": "Rolling Opportunity",
+          "effect": "After Perfect Strike resolves against a debuffed target, gain 1 Opening.",
+          "category": "discipline",
+          "group": "Opportunity",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "rogue-opportunity-04"
+        },
+        {
+          "id": "rogue-opportunity-06",
+          "name": "Openings Everywhere",
+          "effect": "The first time each turn Exploit Weakness hits a debuffed target, gain 1 Opening even if it does not Crit.",
+          "category": "discipline",
+          "group": "Opportunity",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "rogue-opportunity-05"
+        },
+        {
+          "id": "rogue-opportunity-07",
+          "name": "Perfect Recovery",
+          "effect": "When you spend 3 or more Openings, your next successful Dodge before the end of your next turn grants 2 Openings instead of 1.",
+          "category": "discipline",
+          "group": "Opportunity",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "rogue-opportunity-06"
+        },
+        {
+          "id": "rogue-mastery",
+          "name": "Perfect Opportunist",
+          "displayName": "Rogue Mastery — Perfect Opportunist",
+          "effect": "Once per turn cycle, if you both Crit with a Rogue damaging ability and successfully Dodge direct damage, gain Perfect Read. Your next Rogue damaging ability gains +10% Crit Chance and +20% Critical Damage; if it spends Openings, 1 spent Opening is restored after resolution.",
+          "category": "mastery",
+          "group": "Mastery",
+          "position": 1,
+          "cost": 3,
+          "requirements": {
+            "rank": 24,
+            "spentCP": 18,
+            "corePurchased": 5
+          },
+          "previous": null
+        }
+      ]
+    },
+    {
+      "name": "Brawler",
+      "scaling": [
+        "STR",
+        "CON"
+      ],
+      "resource": "Impact",
+      "nodes": [
+        {
+          "id": "brawler-core-01",
+          "name": "Harder Knuckles",
+          "effect": "Knuckle Drive deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "brawler-core-02",
+          "name": "Tighter Block",
+          "effect": "Tight Guard grants +15% Block Chance instead of +12%.",
+          "category": "core",
+          "group": "Core",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "brawler-core-03",
+          "name": "Tighter Step",
+          "effect": "Tight Guard grants +15% Dodge Chance instead of +12%.",
+          "category": "core",
+          "group": "Core",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "brawler-core-04",
+          "name": "Heavier Hammer",
+          "effect": "Hammerfist deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 4,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "brawler-core-05",
+          "name": "Impactful Hammer",
+          "effect": "Hammerfist's 1-Impact bonus is +25% final damage instead of +20%.",
+          "category": "core",
+          "group": "Core",
+          "position": 5,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "brawler-core-06",
+          "name": "Deeper Breath",
+          "effect": "Catch Breath heals 10% more.",
+          "category": "core",
+          "group": "Core",
+          "position": 6,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "brawler-core-07",
+          "name": "Ready Impact",
+          "effect": "Start combat with 1 Impact.",
+          "category": "core",
+          "group": "Core",
+          "position": 7,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "brawler-core-08",
+          "name": "Heavy Momentum+",
+          "effect": "Heavy Momentum grants +18% final damage instead of +15%.",
+          "category": "core",
+          "group": "Core",
+          "position": 8,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "brawler-core-09",
+          "name": "Breaker Training",
+          "effect": "Impact Breaker deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 9,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "brawler-core-10",
+          "name": "Guarded Impact",
+          "effect": "The first successful Block or Dodge during Tight Guard grants 2 Impact instead of 1.",
+          "category": "core",
+          "group": "Core",
+          "position": 10,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "brawler-combination-01",
+          "name": "Opening Combination",
+          "effect": "Knuckle Drive used at 0 Impact generates 1 additional Impact, once per turn.",
+          "category": "discipline",
+          "group": "Combination",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "brawler-combination-02",
+          "name": "Loaded Hammer",
+          "effect": "Hammerfist gains +10% Crit Chance while you have at least 2 Impact.",
+          "category": "discipline",
+          "group": "Combination",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "brawler-combination-01"
+        },
+        {
+          "id": "brawler-combination-03",
+          "name": "Impact Refund",
+          "effect": "If Hammerfist Crits after consuming Impact, restore 1 Impact after resolution, once per turn.",
+          "category": "discipline",
+          "group": "Combination",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "brawler-combination-02"
+        },
+        {
+          "id": "brawler-combination-04",
+          "name": "Change the Rhythm",
+          "effect": "Using a different Brawler damaging ability than your previous damaging ability gives it +8% final damage.",
+          "category": "discipline",
+          "group": "Combination",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "brawler-combination-03"
+        },
+        {
+          "id": "brawler-combination-05",
+          "name": "Heavy Followthrough",
+          "effect": "At 4 Impact, Hammerfist loses only the 1 Impact it deliberately consumes; Heavy Momentum does not remove an additional Impact afterward.",
+          "category": "discipline",
+          "group": "Combination",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "brawler-combination-04"
+        },
+        {
+          "id": "brawler-combination-06",
+          "name": "Breaker Setup",
+          "effect": "After Hammerfist consumes Impact, your next Impact Breaker before the end of your next turn gains +10% Crit Chance.",
+          "category": "discipline",
+          "group": "Combination",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "brawler-combination-05"
+        },
+        {
+          "id": "brawler-combination-07",
+          "name": "Chain Breaker",
+          "effect": "After Impact Breaker consumes 4 Impact, your next Knuckle Drive before the end of your next turn deals +30% final damage and generates 2 Impact.",
+          "category": "discipline",
+          "group": "Combination",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "brawler-combination-06"
+        },
+        {
+          "id": "brawler-guard-01",
+          "name": "Guard the Body",
+          "effect": "Tight Guard also grants +5 percentage points Blocked Damage Reduction until your next turn.",
+          "category": "discipline",
+          "group": "Guard",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "brawler-guard-02",
+          "name": "Guarded Breath",
+          "effect": "Catch Breath used while Tight Guard is active heals 15% more.",
+          "category": "discipline",
+          "group": "Guard",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "brawler-guard-01"
+        },
+        {
+          "id": "brawler-guard-03",
+          "name": "Emergency Breath",
+          "effect": "Catch Breath heals an additional +20% final healing while you are below 50% HP.",
+          "category": "discipline",
+          "group": "Guard",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "brawler-guard-02"
+        },
+        {
+          "id": "brawler-guard-04",
+          "name": "Breathe and Brace",
+          "effect": "After Catch Breath resolves, gain +10% Block Chance and +10% Dodge Chance until your next turn.",
+          "category": "discipline",
+          "group": "Guard",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "brawler-guard-03"
+        },
+        {
+          "id": "brawler-guard-05",
+          "name": "Reactive Hammer",
+          "effect": "After Tight Guard causes a successful Block or Dodge, your next Hammerfist before the end of your next turn costs 1 less Energy.",
+          "category": "discipline",
+          "group": "Guard",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "brawler-guard-04"
+        },
+        {
+          "id": "brawler-guard-06",
+          "name": "Second Wind",
+          "effect": "When Catch Breath restores actual HP while you are below 30% HP, also gain a Shield equal to 50% of the actual HP restored.",
+          "category": "discipline",
+          "group": "Guard",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "brawler-guard-05"
+        },
+        {
+          "id": "brawler-guard-07",
+          "name": "Iron Rhythm",
+          "effect": "If you both successfully Block and successfully Dodge while the same Tight Guard is active, start your next turn at 4 Impact. Once per Tight Guard cast.",
+          "category": "discipline",
+          "group": "Guard",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "brawler-guard-06"
+        },
+        {
+          "id": "brawler-impact-control-01",
+          "name": "Gathered Force",
+          "effect": "At 3 Impact, Brawler damaging abilities deal +5% final damage.",
+          "category": "discipline",
+          "group": "Impact Control",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "brawler-impact-control-02",
+          "name": "Overflowing Impact",
+          "effect": "At 4 Impact, the first Impact you would gain each turn instead gives your next Brawler damaging ability +5% final damage.",
+          "category": "discipline",
+          "group": "Impact Control",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "brawler-impact-control-01"
+        },
+        {
+          "id": "brawler-impact-control-03",
+          "name": "Overflowing Guard",
+          "effect": "At 4 Impact, the second Impact you would gain in the same turn instead grants +5% Block Chance and +5% Dodge Chance until your next turn.",
+          "category": "discipline",
+          "group": "Impact Control",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "brawler-impact-control-02"
+        },
+        {
+          "id": "brawler-impact-control-04",
+          "name": "Hold the Hit",
+          "effect": "Using Catch Breath or Tight Guard does not consume or trigger Heavy Momentum; it remains waiting for your next Brawler damaging ability.",
+          "category": "discipline",
+          "group": "Impact Control",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "brawler-impact-control-03"
+        },
+        {
+          "id": "brawler-impact-control-05",
+          "name": "Breaker Recovery",
+          "effect": "If Impact Breaker defeats its target, gain 2 Impact after it resolves.",
+          "category": "discipline",
+          "group": "Impact Control",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "brawler-impact-control-04"
+        },
+        {
+          "id": "brawler-impact-control-06",
+          "name": "Impact Economy",
+          "effect": "The first Brawler damaging ability each turn that consumes Impact restores 1 Impact after it resolves.",
+          "category": "discipline",
+          "group": "Impact Control",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "brawler-impact-control-05"
+        },
+        {
+          "id": "brawler-impact-control-07",
+          "name": "Unspent Force",
+          "effect": "Each full turn you remain at 4 Impact without using a damaging ability increases Heavy Momentum by +5% final damage, up to +25% additional. The bonus resets when Heavy Momentum is consumed.",
+          "category": "discipline",
+          "group": "Impact Control",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "brawler-impact-control-06"
+        },
+        {
+          "id": "brawler-mastery",
+          "name": "Unbroken Combination",
+          "displayName": "Brawler Mastery — Unbroken Combination",
+          "effect": "The first Brawler damaging ability each turn that spends Impact restores 1 Impact after resolving. Impact Breaker instead restores 2 Impact. After any 4-Impact spend, your next Knuckle Drive before the end of your next turn generates 2 Impact.",
+          "category": "mastery",
+          "group": "Mastery",
+          "position": 1,
+          "cost": 3,
+          "requirements": {
+            "rank": 24,
+            "spentCP": 18,
+            "corePurchased": 5
+          },
+          "previous": null
+        }
+      ]
+    },
+    {
+      "name": "Mage",
+      "scaling": [
+        "INT",
+        "LCK"
+      ],
+      "resource": "Arcane Charge",
+      "nodes": [
+        {
+          "id": "mage-core-01",
+          "name": "Sharper Bolt",
+          "effect": "Arc Bolt deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "mage-core-02",
+          "name": "Stronger Ward",
+          "effect": "Arcane Ward creates a Shield 10% stronger.",
+          "category": "core",
+          "group": "Core",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "mage-core-03",
+          "name": "Colder Pin",
+          "effect": "Frost Pin deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "mage-core-04",
+          "name": "Tighter Pin",
+          "effect": "Frost Pin reduces Dodge Chance by 12 percentage points instead of 10.",
+          "category": "core",
+          "group": "Core",
+          "position": 4,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "mage-core-05",
+          "name": "Denser Volley",
+          "effect": "Arcane Volley deals +6% final damage per hit.",
+          "category": "core",
+          "group": "Core",
+          "position": 5,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "mage-core-06",
+          "name": "Discharge Training",
+          "effect": "Grand Discharge deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 6,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "mage-core-07",
+          "name": "Ready Charge",
+          "effect": "Start combat with 1 Arcane Charge.",
+          "category": "core",
+          "group": "Core",
+          "position": 7,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "mage-core-08",
+          "name": "Saturation+",
+          "effect": "Arcane Saturation grants +12% Critical Damage instead of +10%.",
+          "category": "core",
+          "group": "Core",
+          "position": 8,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "mage-core-09",
+          "name": "Stable Ward",
+          "effect": "Arcane Ward's target gains +5 percentage points Blocked Damage Reduction while that Shield remains.",
+          "category": "core",
+          "group": "Core",
+          "position": 9,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "mage-core-10",
+          "name": "Focused Volley",
+          "effect": "Each Arcane Volley hit gains +3% Crit Chance.",
+          "category": "core",
+          "group": "Core",
+          "position": 10,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "mage-spellcraft-01",
+          "name": "Charged Bolt",
+          "effect": "Arc Bolt deals +10% final damage if you spent Energy on another Mage ability earlier this turn.",
+          "category": "discipline",
+          "group": "Spellcraft",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "mage-spellcraft-02",
+          "name": "Pinned Target",
+          "effect": "Mage damaging abilities gain +5% Crit Chance against a target currently affected by Frost Pin's Dodge reduction.",
+          "category": "discipline",
+          "group": "Spellcraft",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "mage-spellcraft-01"
+        },
+        {
+          "id": "mage-spellcraft-03",
+          "name": "Volley Escalation",
+          "effect": "After an Arcane Volley hit Crits, each later hit in that same Volley gains +5% Crit Chance.",
+          "category": "discipline",
+          "group": "Spellcraft",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "mage-spellcraft-02"
+        },
+        {
+          "id": "mage-spellcraft-04",
+          "name": "Critical Sequence",
+          "effect": "Each Arcane Volley hit that Crits gives the remaining hits in that Volley +5% Critical Damage, stacking for that cast.",
+          "category": "discipline",
+          "group": "Spellcraft",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "mage-spellcraft-03"
+        },
+        {
+          "id": "mage-spellcraft-05",
+          "name": "Discharge Window",
+          "effect": "Grand Discharge gains +10% Crit Chance against a target affected by Frost Pin.",
+          "category": "discipline",
+          "group": "Spellcraft",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "mage-spellcraft-04"
+        },
+        {
+          "id": "mage-spellcraft-06",
+          "name": "Saturated Discharge",
+          "effect": "Grand Discharge retains Arcane Saturation's Critical Damage bonus for its full resolution even though it spends all Arcane Charge.",
+          "category": "discipline",
+          "group": "Spellcraft",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "mage-spellcraft-05"
+        },
+        {
+          "id": "mage-spellcraft-07",
+          "name": "Arcane Collapse",
+          "effect": "Grand Discharge used at 5 Arcane Charge against a Frost-Pinned target gains +15% final damage.",
+          "category": "discipline",
+          "group": "Spellcraft",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "mage-spellcraft-06"
+        },
+        {
+          "id": "mage-wardcraft-01",
+          "name": "Ward Feedback",
+          "effect": "The first time each Arcane Ward absorbs damage, gain 1 Arcane Charge.",
+          "category": "discipline",
+          "group": "Wardcraft",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "mage-wardcraft-02",
+          "name": "Protective Casting",
+          "effect": "Casting Arcane Ward on yourself grants +5% Crit Chance until your next turn.",
+          "category": "discipline",
+          "group": "Wardcraft",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "mage-wardcraft-01"
+        },
+        {
+          "id": "mage-wardcraft-03",
+          "name": "Cold Shelter",
+          "effect": "While an Arcane Ward remains on a combatant, Frost Pin used against an enemy grants that warded combatant +5% Dodge Chance until their next turn.",
+          "category": "discipline",
+          "group": "Wardcraft",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "mage-wardcraft-02"
+        },
+        {
+          "id": "mage-wardcraft-04",
+          "name": "Reinforced Ward",
+          "effect": "If Arcane Ward survives until the start of its target's next turn, increase its remaining Shield by 15% of its original Shield amount.",
+          "category": "discipline",
+          "group": "Wardcraft",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "mage-wardcraft-03"
+        },
+        {
+          "id": "mage-wardcraft-05",
+          "name": "Reactive Ward",
+          "effect": "When an Arcane Ward is completely broken by direct damage, reduce Frost Pin's remaining cooldown by 1 turn.",
+          "category": "discipline",
+          "group": "Wardcraft",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "mage-wardcraft-04"
+        },
+        {
+          "id": "mage-wardcraft-06",
+          "name": "Arcane Rebound",
+          "effect": "When a self-cast Arcane Ward is completely broken, your next Mage damaging ability before the end of your next turn deals +20% final damage.",
+          "category": "discipline",
+          "group": "Wardcraft",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "mage-wardcraft-05"
+        },
+        {
+          "id": "mage-wardcraft-07",
+          "name": "Ward of Saturation",
+          "effect": "At 5 Arcane Charge, Arcane Ward is 20% stronger and grants its target +5% Block Chance while the Shield remains.",
+          "category": "discipline",
+          "group": "Wardcraft",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "mage-wardcraft-06"
+        },
+        {
+          "id": "mage-charge-control-01",
+          "name": "Charged State",
+          "effect": "At 3 or more Arcane Charge, Mage damaging abilities gain +5% Critical Damage.",
+          "category": "discipline",
+          "group": "Charge Control",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "mage-charge-control-02",
+          "name": "Full Circuit",
+          "effect": "When you first reach 5 Arcane Charge, your next Energy-costing Mage ability within 2 turns costs 1 less Energy, minimum 0.",
+          "category": "discipline",
+          "group": "Charge Control",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "mage-charge-control-01"
+        },
+        {
+          "id": "mage-charge-control-03",
+          "name": "Excess Charge: Force",
+          "effect": "At 5 Arcane Charge, the first Arcane Charge you would gain from spending Energy each turn instead gives your next Mage damaging ability +5% final damage.",
+          "category": "discipline",
+          "group": "Charge Control",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "mage-charge-control-02"
+        },
+        {
+          "id": "mage-charge-control-04",
+          "name": "Excess Charge: Precision",
+          "effect": "At 5 Arcane Charge, the first Arcane Charge you would gain from a Crit each turn instead gives your next Mage damaging ability +10% Critical Damage.",
+          "category": "discipline",
+          "group": "Charge Control",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "mage-charge-control-03"
+        },
+        {
+          "id": "mage-charge-control-05",
+          "name": "Arcane Reserve",
+          "effect": "After Grand Discharge spends all 5 Arcane Charge, set Arcane Charge to 1.",
+          "category": "discipline",
+          "group": "Charge Control",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "mage-charge-control-04"
+        },
+        {
+          "id": "mage-charge-control-06",
+          "name": "Recycled Charge",
+          "effect": "If Grand Discharge Crits, gain 1 additional Arcane Charge after it resolves.",
+          "category": "discipline",
+          "group": "Charge Control",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "mage-charge-control-05"
+        },
+        {
+          "id": "mage-charge-control-07",
+          "name": "Perfect Circuit",
+          "effect": "At 5 Arcane Charge, the first two Arcane Charges you would gain each turn are stored as Arcane Echoes instead, up to 2. Each Arcane Echo gives the next Mage ability +5% final damage, healing, or Shield strength as applicable; all Echoes are consumed by that ability.",
+          "category": "discipline",
+          "group": "Charge Control",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "mage-charge-control-06"
+        },
+        {
+          "id": "mage-mastery",
+          "name": "Arcane Continuity",
+          "displayName": "Mage Mastery — Arcane Continuity",
+          "effect": "At 5 Arcane Charge, excess Charge is never wasted: up to 2 excess Charge becomes Arcane Echoes. Each Echo gives your next Mage ability +5% final effect. Grand Discharge retains Arcane Saturation for its resolution and leaves you at 2 Arcane Charge afterward.",
+          "category": "mastery",
+          "group": "Mastery",
+          "position": 1,
+          "cost": 3,
+          "requirements": {
+            "rank": 24,
+            "spentCP": 18,
+            "corePurchased": 5
+          },
+          "previous": null
+        }
+      ]
+    },
+    {
+      "name": "Cleric",
+      "scaling": [
+        "FTH",
+        "CHA"
+      ],
+      "resource": "Grace",
+      "nodes": [
+        {
+          "id": "cleric-core-01",
+          "name": "Stronger Rebuke",
+          "effect": "Radiant Rebuke deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "cleric-core-02",
+          "name": "Sterner Rebuke",
+          "effect": "Radiant Rebuke makes the target deal -7% damage instead of -5% until its next turn.",
+          "category": "core",
+          "group": "Core",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "cleric-core-03",
+          "name": "Deeper Mend",
+          "effect": "Mend heals 10% more.",
+          "category": "core",
+          "group": "Core",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "cleric-core-04",
+          "name": "Stronger Sanctuary",
+          "effect": "Sanctuary Mark creates a Shield 10% stronger.",
+          "category": "core",
+          "group": "Core",
+          "position": 4,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "cleric-core-05",
+          "name": "Safer Sanctuary",
+          "effect": "Sanctuary Mark reduces incoming damage by 12% instead of 10% until your next turn.",
+          "category": "core",
+          "group": "Core",
+          "position": 5,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "cleric-core-06",
+          "name": "Stronger Judgment",
+          "effect": "Gracebound Judgment deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 6,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "cleric-core-07",
+          "name": "Kinder Judgment",
+          "effect": "Gracebound Judgment's triggered heal is 10% stronger.",
+          "category": "core",
+          "group": "Core",
+          "position": 7,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "cleric-core-08",
+          "name": "Greater Benediction",
+          "effect": "Benediction heals 10% more.",
+          "category": "core",
+          "group": "Core",
+          "position": 8,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "cleric-core-09",
+          "name": "Ready Grace",
+          "effect": "Start combat with 1 Grace.",
+          "category": "core",
+          "group": "Core",
+          "position": 9,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "cleric-core-10",
+          "name": "Graceful Presence+",
+          "effect": "Graceful Presence grants +12% Outgoing Healing and +12% Cleric final damage instead of +10% each.",
+          "category": "core",
+          "group": "Core",
+          "position": 10,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "cleric-mercy-01",
+          "name": "Urgent Mend",
+          "effect": "Mend heals +10% more when the target is below 50% HP.",
+          "category": "discipline",
+          "group": "Mercy",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "cleric-mercy-02",
+          "name": "Sanctified Recovery",
+          "effect": "A target protected by Sanctuary Mark gains +5% Incoming Healing while the Shield remains.",
+          "category": "discipline",
+          "group": "Mercy",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "cleric-mercy-01"
+        },
+        {
+          "id": "cleric-mercy-03",
+          "name": "Lowest First",
+          "effect": "Gracebound Judgment's triggered heal gains +15% final healing if its selected ally is below 40% HP.",
+          "category": "discipline",
+          "group": "Mercy",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "cleric-mercy-02"
+        },
+        {
+          "id": "cleric-mercy-04",
+          "name": "Clean Benediction",
+          "effect": "For each negative status Benediction successfully removes from an ally, that ally receives +5% final healing from that Benediction.",
+          "category": "discipline",
+          "group": "Mercy",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "cleric-mercy-03"
+        },
+        {
+          "id": "cleric-mercy-05",
+          "name": "Critical Mercy",
+          "effect": "When Mend Critically Heals, reduce Sanctuary Mark's remaining cooldown by 1 turn, once per turn.",
+          "category": "discipline",
+          "group": "Mercy",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "cleric-mercy-04"
+        },
+        {
+          "id": "cleric-mercy-06",
+          "name": "Sanctuary Afterglow",
+          "effect": "When Sanctuary Mark's Shield is completely broken, heal its target for 25% of the Shield's actual damage absorbed over its lifetime.",
+          "category": "discipline",
+          "group": "Mercy",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "cleric-mercy-05"
+        },
+        {
+          "id": "cleric-mercy-07",
+          "name": "Last Mercy",
+          "effect": "Once per combat, when a real ally falls below 25% HP, your next Mend on that ally before the end of your next turn costs 0 Energy and gains +25% final healing.",
+          "category": "discipline",
+          "group": "Mercy",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "cleric-mercy-06"
+        },
+        {
+          "id": "cleric-judgment-01",
+          "name": "Rebuke the Guilty",
+          "effect": "Radiant Rebuke deals +10% final damage to a target that already has a debuff.",
+          "category": "discipline",
+          "group": "Judgment",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "cleric-judgment-02",
+          "name": "Judged Mercy",
+          "effect": "Gracebound Judgment's triggered heal gains +10% Healing Crit Chance when the damaged enemy has a debuff.",
+          "category": "discipline",
+          "group": "Judgment",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "cleric-judgment-01"
+        },
+        {
+          "id": "cleric-judgment-03",
+          "name": "Repeat Rebuke",
+          "effect": "Hitting a target already affected by Radiant Rebuke's damage penalty refreshes that penalty to its full duration.",
+          "category": "discipline",
+          "group": "Judgment",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "cleric-judgment-02"
+        },
+        {
+          "id": "cleric-judgment-04",
+          "name": "Critical Judgment",
+          "effect": "When Gracebound Judgment Crits against a debuffed target, gain 1 additional Grace, once per turn.",
+          "category": "discipline",
+          "group": "Judgment",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "cleric-judgment-03"
+        },
+        {
+          "id": "cleric-judgment-05",
+          "name": "Weighted Judgment",
+          "effect": "Gracebound Judgment against a debuffed target also makes that target deal -5% final damage until the start of your next turn.",
+          "category": "discipline",
+          "group": "Judgment",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "cleric-judgment-04"
+        },
+        {
+          "id": "cleric-judgment-06",
+          "name": "Mercy Through Judgment",
+          "effect": "When Gracebound Judgment Crits, its triggered heal gains +20% Healing Crit Chance.",
+          "category": "discipline",
+          "group": "Judgment",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "cleric-judgment-05"
+        },
+        {
+          "id": "cleric-judgment-07",
+          "name": "Final Admonition",
+          "effect": "At 4 Grace, Gracebound Judgment against a debuffed target is Unblockable and gains +15% final damage.",
+          "category": "discipline",
+          "group": "Judgment",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "cleric-judgment-06"
+        },
+        {
+          "id": "cleric-grace-control-01",
+          "name": "Grace in Both Hands",
+          "effect": "If you gain Grace from restoration/protection and from a damaging Crit in the same turn, your next Cleric ability gains +5% final effect.",
+          "category": "discipline",
+          "group": "Grace Control",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "cleric-grace-control-02",
+          "name": "Overflowing Mercy",
+          "effect": "At 4 Grace, the first Grace you would gain from healing or shielding each turn instead gives your next Cleric damaging ability +5% final damage.",
+          "category": "discipline",
+          "group": "Grace Control",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "cleric-grace-control-01"
+        },
+        {
+          "id": "cleric-grace-control-03",
+          "name": "Overflowing Judgment",
+          "effect": "At 4 Grace, the first Grace you would gain from a damaging Crit each turn instead gives your next Cleric heal or Shield +5% final effect.",
+          "category": "discipline",
+          "group": "Grace Control",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "cleric-grace-control-02"
+        },
+        {
+          "id": "cleric-grace-control-04",
+          "name": "Grace Through Benediction",
+          "effect": "Benediction retains Graceful Presence for its full resolution even though it spends all Grace.",
+          "category": "discipline",
+          "group": "Grace Control",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "cleric-grace-control-03"
+        },
+        {
+          "id": "cleric-grace-control-05",
+          "name": "Grace Reserve",
+          "effect": "After Benediction spends 4 Grace, set Grace to 1.",
+          "category": "discipline",
+          "group": "Grace Control",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "cleric-grace-control-04"
+        },
+        {
+          "id": "cleric-grace-control-06",
+          "name": "Returned Grace",
+          "effect": "If Benediction removes at least one negative status, gain 1 Grace after it resolves.",
+          "category": "discipline",
+          "group": "Grace Control",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "cleric-grace-control-05"
+        },
+        {
+          "id": "cleric-grace-control-07",
+          "name": "Grace Without Waste",
+          "effect": "At 4 Grace, the first Grace you would otherwise waste each turn instead reduces the remaining cooldown of Mend or Sanctuary Mark by 1 turn.",
+          "category": "discipline",
+          "group": "Grace Control",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "cleric-grace-control-06"
+        },
+        {
+          "id": "cleric-mastery",
+          "name": "Balanced Grace",
+          "displayName": "Cleric Mastery — Balanced Grace",
+          "effect": "The first Cleric damaging ability each turn that hits a debuffed enemy empowers your next Cleric heal or Shield by +15%. The first Cleric heal or Shield each turn that affects an ally empowers your next Cleric damaging ability by +15%. The two empowerments are tracked and consumed separately.",
+          "category": "mastery",
+          "group": "Mastery",
+          "position": 1,
+          "cost": 3,
+          "requirements": {
+            "rank": 24,
+            "spentCP": 18,
+            "corePurchased": 5
+          },
+          "previous": null
+        }
+      ]
+    },
+    {
+      "name": "Ranger",
+      "scaling": [
+        "DEX",
+        "LCK"
+      ],
+      "resource": "Quarry + Quarry Marks",
+      "nodes": [
+        {
+          "id": "ranger-core-01",
+          "name": "Sharper Shot",
+          "effect": "Hunter's Shot deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "ranger-core-02",
+          "name": "Longer Sidestep",
+          "effect": "Sidestep grants +18% Dodge Chance instead of +15%.",
+          "category": "core",
+          "group": "Core",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "ranger-core-03",
+          "name": "Steadier Aim",
+          "effect": "Sidestep's next attack gains +12% Crit Chance instead of +10%.",
+          "category": "core",
+          "group": "Core",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "ranger-core-04",
+          "name": "Harder Hamstring",
+          "effect": "Hamstring Shot deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 4,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "ranger-core-05",
+          "name": "Tighter Hamstring",
+          "effect": "Hamstring Shot reduces Dodge Chance by 12 percentage points instead of 10.",
+          "category": "core",
+          "group": "Core",
+          "position": 5,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "ranger-core-06",
+          "name": "Harder Pursuit",
+          "effect": "Relentless Pursuit deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 6,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "ranger-core-07",
+          "name": "Relentless Scaling",
+          "effect": "Relentless Pursuit gains +6% final damage per Quarry Mark instead of +5%.",
+          "category": "core",
+          "group": "Core",
+          "position": 7,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "ranger-core-08",
+          "name": "Claim Training",
+          "effect": "Claim the Quarry deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 8,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "ranger-core-09",
+          "name": "Claim Precision",
+          "effect": "Claim the Quarry gains +25% Crit Chance instead of +20%.",
+          "category": "core",
+          "group": "Core",
+          "position": 9,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "ranger-core-10",
+          "name": "First Blood",
+          "effect": "The first enemy you establish as Quarry each combat immediately gains 1 additional Quarry Mark.",
+          "category": "core",
+          "group": "Core",
+          "position": 10,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "ranger-pursuit-01",
+          "name": "Marked Shot",
+          "effect": "Hunter's Shot deals +5% final damage per 2 Quarry Marks on the target.",
+          "category": "discipline",
+          "group": "Pursuit",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "ranger-pursuit-02",
+          "name": "Track the Turn",
+          "effect": "When Quarry moves to a different enemy, retain 1 Quarry Mark instead of losing all Marks.",
+          "category": "discipline",
+          "group": "Pursuit",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "ranger-pursuit-01"
+        },
+        {
+          "id": "ranger-pursuit-03",
+          "name": "Critical Pursuit",
+          "effect": "A Crit against your Quarry while it has at least 2 Marks gives your next Relentless Pursuit +10% final damage.",
+          "category": "discipline",
+          "group": "Pursuit",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "ranger-pursuit-02"
+        },
+        {
+          "id": "ranger-pursuit-04",
+          "name": "Hunt Continues",
+          "effect": "When your Quarry is defeated, the next enemy you make Quarry starts with 1 additional Quarry Mark.",
+          "category": "discipline",
+          "group": "Pursuit",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "ranger-pursuit-03"
+        },
+        {
+          "id": "ranger-pursuit-05",
+          "name": "Carry the Trail",
+          "effect": "When you intentionally move Quarry by hitting a different enemy, transfer up to 2 Quarry Marks to the new Quarry.",
+          "category": "discipline",
+          "group": "Pursuit",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "ranger-pursuit-04"
+        },
+        {
+          "id": "ranger-pursuit-06",
+          "name": "Cornered Guard",
+          "effect": "Against a Quarry at 4 Marks, Ranger damaging abilities ignore 50% of that target's Block Chance.",
+          "category": "discipline",
+          "group": "Pursuit",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "ranger-pursuit-05"
+        },
+        {
+          "id": "ranger-pursuit-07",
+          "name": "No Escape",
+          "effect": "Against a Quarry at 4 Marks, Relentless Pursuit is Unblockable and deals an additional +10% final damage.",
+          "category": "discipline",
+          "group": "Pursuit",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "ranger-pursuit-06"
+        },
+        {
+          "id": "ranger-precision-01",
+          "name": "Hamstrung Aim",
+          "effect": "Ranger damaging abilities gain +5% Crit Chance against a target affected by Hamstring Shot.",
+          "category": "discipline",
+          "group": "Precision",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "ranger-precision-02",
+          "name": "Cornered Precision",
+          "effect": "Cornered Prey also grants +15% Critical Damage.",
+          "category": "discipline",
+          "group": "Precision",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "ranger-precision-01"
+        },
+        {
+          "id": "ranger-precision-03",
+          "name": "Sidestep Shot",
+          "effect": "The attack empowered by Sidestep gains +10% Critical Damage.",
+          "category": "discipline",
+          "group": "Precision",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "ranger-precision-02"
+        },
+        {
+          "id": "ranger-precision-04",
+          "name": "Perfect Pursuit",
+          "effect": "Relentless Pursuit gains +10% Crit Chance against a Quarry with 3 or more Marks.",
+          "category": "discipline",
+          "group": "Precision",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "ranger-precision-03"
+        },
+        {
+          "id": "ranger-precision-05",
+          "name": "Claim the Window",
+          "effect": "Claim the Quarry retains Cornered Prey's Crit Chance and final-damage bonuses for its full resolution even though it spends all Marks.",
+          "category": "discipline",
+          "group": "Precision",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "ranger-precision-04"
+        },
+        {
+          "id": "ranger-precision-06",
+          "name": "Deep Claim",
+          "effect": "Claim the Quarry gains +25% Critical Damage against a Quarry that was at 4 Marks when cast.",
+          "category": "discipline",
+          "group": "Precision",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "ranger-precision-05"
+        },
+        {
+          "id": "ranger-precision-07",
+          "name": "Clean Kill",
+          "effect": "If Claim the Quarry defeats the Quarry, refund 1 Energy and reduce Claim the Quarry's remaining cooldown by 1 turn.",
+          "category": "discipline",
+          "group": "Precision",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "ranger-precision-06"
+        },
+        {
+          "id": "ranger-survival-01",
+          "name": "Countertrack",
+          "effect": "The first time each turn cycle you successfully Dodge a direct attack from your Quarry, gain 1 Quarry Mark.",
+          "category": "discipline",
+          "group": "Survival",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "ranger-survival-02",
+          "name": "Evasive Hunter",
+          "effect": "After a successful Dodge, your next Hunter's Shot before the end of your next turn gains +10% Crit Chance.",
+          "category": "discipline",
+          "group": "Survival",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "ranger-survival-01"
+        },
+        {
+          "id": "ranger-survival-03",
+          "name": "Hamstrung Footwork",
+          "effect": "While your Quarry is affected by Hamstring Shot, Sidestep grants an additional +5% Dodge Chance.",
+          "category": "discipline",
+          "group": "Survival",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "ranger-survival-02"
+        },
+        {
+          "id": "ranger-survival-04",
+          "name": "Slip and Pursue",
+          "effect": "After a successful Dodge while Sidestep is active, your next Relentless Pursuit costs 1 less Energy.",
+          "category": "discipline",
+          "group": "Survival",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "ranger-survival-03"
+        },
+        {
+          "id": "ranger-survival-05",
+          "name": "Punish the Miss",
+          "effect": "If your Quarry misses you or you Dodge its attack, your next Ranger damaging ability against it deals +15% final damage.",
+          "category": "discipline",
+          "group": "Survival",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "ranger-survival-04"
+        },
+        {
+          "id": "ranger-survival-06",
+          "name": "Unseen Angle",
+          "effect": "After a successful Dodge while Sidestep is active, your next Ranger damaging ability ignores 75% of the target's Block Chance.",
+          "category": "discipline",
+          "group": "Survival",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "ranger-survival-05"
+        },
+        {
+          "id": "ranger-survival-07",
+          "name": "Predator's Patience",
+          "effect": "If you take no HP damage between your turns, your next Ranger damaging ability against your Quarry deals +20% final damage.",
+          "category": "discipline",
+          "group": "Survival",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "ranger-survival-06"
+        },
+        {
+          "id": "ranger-mastery",
+          "name": "Endless Hunt",
+          "displayName": "Ranger Mastery — Endless Hunt",
+          "effect": "When your Quarry is defeated, bank up to 2 of its Quarry Marks; the next enemy you make Quarry begins with those banked Marks. At 4 Marks, the first Quarry Mark you would gain each turn instead gives your next Ranger attack +5% final damage. Claim the Quarry retains Cornered Prey for its full resolution.",
+          "category": "mastery",
+          "group": "Mastery",
+          "position": 1,
+          "cost": 3,
+          "requirements": {
+            "rank": 24,
+            "spentCP": 18,
+            "corePurchased": 5
+          },
+          "previous": null
+        }
+      ]
+    },
+    {
+      "name": "Bard",
+      "scaling": [
+        "CHA",
+        "FTH"
+      ],
+      "resource": "Resonance",
+      "nodes": [
+        {
+          "id": "bard-core-01",
+          "name": "Stronger Note",
+          "effect": "Resonant Note deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "bard-core-02",
+          "name": "Warmer Verse",
+          "effect": "Encouraging Verse heals 10% more.",
+          "category": "core",
+          "group": "Core",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "bard-core-03",
+          "name": "Bolder Verse",
+          "effect": "Encouraging Verse makes the ally deal +7% damage instead of +5% until their next turn.",
+          "category": "core",
+          "group": "Core",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "bard-core-04",
+          "name": "Harsher Chord",
+          "effect": "Dissonant Chord deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 4,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "bard-core-05",
+          "name": "Deeper Dissonance",
+          "effect": "Dissonant Chord makes the target deal -12% final damage instead of -10%.",
+          "category": "core",
+          "group": "Core",
+          "position": 5,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "bard-core-06",
+          "name": "Louder Chorus",
+          "effect": "Echoing Chorus creates Shields 10% stronger.",
+          "category": "core",
+          "group": "Core",
+          "position": 6,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "bard-core-07",
+          "name": "Stronger Crescendo",
+          "effect": "Crescendo's damage is 8% stronger.",
+          "category": "core",
+          "group": "Core",
+          "position": 7,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "bard-core-08",
+          "name": "Kinder Crescendo",
+          "effect": "Crescendo's healing is 8% stronger.",
+          "category": "core",
+          "group": "Core",
+          "position": 8,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "bard-core-09",
+          "name": "Ready Resonance",
+          "effect": "Start combat with 1 Resonance.",
+          "category": "core",
+          "group": "Core",
+          "position": 9,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "bard-core-10",
+          "name": "Full Resonance+",
+          "effect": "Full Resonance grants +12% Bard final damage, +12% Outgoing Healing, and +12% Bard Shield strength instead of +10% each.",
+          "category": "core",
+          "group": "Core",
+          "position": 10,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "bard-inspiration-01",
+          "name": "Urgent Verse",
+          "effect": "Encouraging Verse heals +10% more when its target is below 50% HP.",
+          "category": "discipline",
+          "group": "Inspiration",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "bard-inspiration-02",
+          "name": "Lingering Encouragement",
+          "effect": "Encouraging Verse's +damage effect remains until the ally completes its next damaging action, even if that occurs after its next turn begins.",
+          "category": "discipline",
+          "group": "Inspiration",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "bard-inspiration-01"
+        },
+        {
+          "id": "bard-inspiration-03",
+          "name": "Protected Chorus",
+          "effect": "Allies receiving a Shield from Echoing Chorus gain +5% damage dealt until their next turn.",
+          "category": "discipline",
+          "group": "Inspiration",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "bard-inspiration-02"
+        },
+        {
+          "id": "bard-inspiration-04",
+          "name": "Verse Behind the Shield",
+          "effect": "Encouraging Verse heals +10% more if its target currently has a Shield.",
+          "category": "discipline",
+          "group": "Inspiration",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "bard-inspiration-03"
+        },
+        {
+          "id": "bard-inspiration-05",
+          "name": "Applause for Defense",
+          "effect": "The first time an Echoing Chorus Shield completely prevents an ally from losing HP, that ally's next damaging ability gains +10% final damage.",
+          "category": "discipline",
+          "group": "Inspiration",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "bard-inspiration-04"
+        },
+        {
+          "id": "bard-inspiration-06",
+          "name": "Crescendo of Mercy",
+          "effect": "Crescendo heals allies below 50% HP for an additional +15% final healing.",
+          "category": "discipline",
+          "group": "Inspiration",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "bard-inspiration-05"
+        },
+        {
+          "id": "bard-inspiration-07",
+          "name": "Standing Ovation",
+          "effect": "After Crescendo resolves, all real allies gain +8% damage dealt and +8% Incoming Healing until their next turn.",
+          "category": "discipline",
+          "group": "Inspiration",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "bard-inspiration-06"
+        },
+        {
+          "id": "bard-dissonance-01",
+          "name": "Strike the Discord",
+          "effect": "Resonant Note deals +10% final damage to a debuffed target.",
+          "category": "discipline",
+          "group": "Dissonance",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "bard-dissonance-02",
+          "name": "Long Dissonance",
+          "effect": "Dissonant Chord's damage penalty lasts 3 turns instead of 2.",
+          "category": "discipline",
+          "group": "Dissonance",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "bard-dissonance-01"
+        },
+        {
+          "id": "bard-dissonance-03",
+          "name": "Uneasy Rhythm",
+          "effect": "A target affected by Dissonant Chord also has -5% Crit Chance.",
+          "category": "discipline",
+          "group": "Dissonance",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "bard-dissonance-02"
+        },
+        {
+          "id": "bard-dissonance-04",
+          "name": "Punishing Chord",
+          "effect": "The first time each turn cycle a target affected by your Dissonant Chord deals direct damage, gain 1 Resonance.",
+          "category": "discipline",
+          "group": "Dissonance",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "bard-dissonance-03"
+        },
+        {
+          "id": "bard-dissonance-05",
+          "name": "Crescendo Against Discord",
+          "effect": "Crescendo deals +15% final damage to enemies affected by your Dissonant Chord.",
+          "category": "discipline",
+          "group": "Dissonance",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "bard-dissonance-04"
+        },
+        {
+          "id": "bard-dissonance-06",
+          "name": "Echo the Dissonance",
+          "effect": "When Dissonant Chord hits an already-debuffed target, one other enemy receives -5% final damage until the start of your next turn.",
+          "category": "discipline",
+          "group": "Dissonance",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "bard-dissonance-05"
+        },
+        {
+          "id": "bard-dissonance-07",
+          "name": "Broken Rhythm",
+          "effect": "If a target affected by Dissonant Chord misses an attack or that attack is Dodged, refresh Dissonant Chord's remaining duration to 2 turns and your next Bard damaging ability against it gains +15% final damage.",
+          "category": "discipline",
+          "group": "Dissonance",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "bard-dissonance-06"
+        },
+        {
+          "id": "bard-resonance-control-01",
+          "name": "Two-Sided Song",
+          "effect": "If you gain Resonance from both the ally-facing trigger and enemy-facing trigger in the same turn, your next Bard ability gains +5% final effect.",
+          "category": "discipline",
+          "group": "Resonance Control",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "bard-resonance-control-02",
+          "name": "Overflowing Verse",
+          "effect": "At 4 Resonance, the first Resonance you would gain from healing or shielding each turn instead gives your next Bard damaging ability +5% final damage.",
+          "category": "discipline",
+          "group": "Resonance Control",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "bard-resonance-control-01"
+        },
+        {
+          "id": "bard-resonance-control-03",
+          "name": "Overflowing Chord",
+          "effect": "At 4 Resonance, the first Resonance you would gain from damaging or debuffing each turn instead gives your next Bard heal or Shield +5% final effect.",
+          "category": "discipline",
+          "group": "Resonance Control",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "bard-resonance-control-02"
+        },
+        {
+          "id": "bard-resonance-control-04",
+          "name": "Full Crescendo",
+          "effect": "Crescendo retains Full Resonance for its entire resolution even though it spends all Resonance.",
+          "category": "discipline",
+          "group": "Resonance Control",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "bard-resonance-control-03"
+        },
+        {
+          "id": "bard-resonance-control-05",
+          "name": "Resonant Reserve",
+          "effect": "After Crescendo spends 4 Resonance, set Resonance to 1.",
+          "category": "discipline",
+          "group": "Resonance Control",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "bard-resonance-control-04"
+        },
+        {
+          "id": "bard-resonance-control-06",
+          "name": "Perfect Timing",
+          "effect": "At 4 Resonance, the first Bard ability each turn that affects both enemies and allies costs 1 less Energy.",
+          "category": "discipline",
+          "group": "Resonance Control",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "bard-resonance-control-05"
+        },
+        {
+          "id": "bard-resonance-control-07",
+          "name": "Never Waste a Note",
+          "effect": "At 4 Resonance, the first Resonance you would otherwise waste each turn instead reduces the remaining cooldown of Encouraging Verse, Dissonant Chord, or Echoing Chorus by 1 turn.",
+          "category": "discipline",
+          "group": "Resonance Control",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "bard-resonance-control-06"
+        },
+        {
+          "id": "bard-mastery",
+          "name": "Call and Response",
+          "displayName": "Bard Mastery — Call and Response",
+          "effect": "The first enemy-affecting Bard ability each turn empowers your next ally-affecting Bard heal or Shield by +12%. The first ally-affecting Bard heal or Shield each turn empowers your next enemy-affecting Bard damaging ability by +12%. If both empowerments are consumed in the same turn, gain 1 Resonance after the second resolves.",
+          "category": "mastery",
+          "group": "Mastery",
+          "position": 1,
+          "cost": 3,
+          "requirements": {
+            "rank": 24,
+            "spentCP": 18,
+            "corePurchased": 5
+          },
+          "previous": null
+        }
+      ]
+    },
+    {
+      "name": "Sorcerer",
+      "scaling": [
+        "CHA",
+        "INT"
+      ],
+      "resource": "Redline",
+      "nodes": [
+        {
+          "id": "sorcerer-core-01",
+          "name": "Stronger Bolt",
+          "effect": "Innate Bolt deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "sorcerer-core-02",
+          "name": "Harder Pulse",
+          "effect": "Force Pulse deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "sorcerer-core-03",
+          "name": "Deeper Pulse",
+          "effect": "Force Pulse reduces Block Chance by 12 percentage points instead of 10.",
+          "category": "core",
+          "group": "Core",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "sorcerer-core-04",
+          "name": "Stronger Wild Guard",
+          "effect": "Wild Guard creates a Shield 10% stronger.",
+          "category": "core",
+          "group": "Core",
+          "position": 4,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "sorcerer-core-05",
+          "name": "Sharper Wild Guard",
+          "effect": "While Wild Guard remains, it grants +12% Crit Chance instead of +10%.",
+          "category": "core",
+          "group": "Core",
+          "position": 5,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "sorcerer-core-06",
+          "name": "Stronger Burst",
+          "effect": "Unbound Burst deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 6,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "sorcerer-core-07",
+          "name": "Hotter Burst",
+          "effect": "Unbound Burst gains +6% final damage per Redline instead of +5%.",
+          "category": "core",
+          "group": "Core",
+          "position": 7,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "sorcerer-core-08",
+          "name": "Cross Training",
+          "effect": "Cross the Redline deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 8,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "sorcerer-core-09",
+          "name": "Ready Redline",
+          "effect": "Start combat with 1 Redline.",
+          "category": "core",
+          "group": "Core",
+          "position": 9,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "sorcerer-core-10",
+          "name": "Beyond Safe Limits+",
+          "effect": "Beyond Safe Limits grants +12% Sorcerer Crit Chance instead of +10%.",
+          "category": "core",
+          "group": "Core",
+          "position": 10,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "sorcerer-force-01",
+          "name": "Charged Innate",
+          "effect": "Innate Bolt gains +5% Crit Chance while you have at least 3 Redline.",
+          "category": "discipline",
+          "group": "Force",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "sorcerer-force-02",
+          "name": "Pulse the Opening",
+          "effect": "Force Pulse deals +10% final damage to a target already affected by its Block Chance reduction.",
+          "category": "discipline",
+          "group": "Force",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "sorcerer-force-01"
+        },
+        {
+          "id": "sorcerer-force-03",
+          "name": "Burst at the Edge",
+          "effect": "At 4 Redline, Unbound Burst gains +10% Crit Chance.",
+          "category": "discipline",
+          "group": "Force",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "sorcerer-force-02"
+        },
+        {
+          "id": "sorcerer-force-04",
+          "name": "Deeper Crossing",
+          "effect": "Cross the Redline gains +35% Critical Damage instead of +25%.",
+          "category": "discipline",
+          "group": "Force",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "sorcerer-force-03"
+        },
+        {
+          "id": "sorcerer-force-05",
+          "name": "Critical Burst",
+          "effect": "When Unbound Burst Crits at 3 or more Redline, your next Innate Bolt before the end of your next turn deals +20% final damage.",
+          "category": "discipline",
+          "group": "Force",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "sorcerer-force-04"
+        },
+        {
+          "id": "sorcerer-force-06",
+          "name": "Unsafe Precision",
+          "effect": "At 4 Redline, Sorcerer damaging abilities ignore 50% of the target's Block Chance.",
+          "category": "discipline",
+          "group": "Force",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "sorcerer-force-05"
+        },
+        {
+          "id": "sorcerer-force-07",
+          "name": "Wild Detonation",
+          "effect": "Cross the Redline against a target affected by Force Pulse's Block reduction gains +15% final damage and is Unblockable.",
+          "category": "discipline",
+          "group": "Force",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "sorcerer-force-06"
+        },
+        {
+          "id": "sorcerer-wild-guard-01",
+          "name": "Guard the Spark",
+          "effect": "While Wild Guard remains, gain +5 percentage points Blocked Damage Reduction.",
+          "category": "discipline",
+          "group": "Wild Guard",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "sorcerer-wild-guard-02",
+          "name": "Guarded Pulse",
+          "effect": "Casting Force Pulse while Wild Guard remains increases Wild Guard's remaining Shield by 10% of its original amount, once per Wild Guard.",
+          "category": "discipline",
+          "group": "Wild Guard",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "sorcerer-wild-guard-01"
+        },
+        {
+          "id": "sorcerer-wild-guard-03",
+          "name": "Shielded Redline",
+          "effect": "The first time each Wild Guard absorbs damage, gain 1 Redline.",
+          "category": "discipline",
+          "group": "Wild Guard",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "sorcerer-wild-guard-02"
+        },
+        {
+          "id": "sorcerer-wild-guard-04",
+          "name": "Unstable Shield",
+          "effect": "Casting Wild Guard at 4 Redline makes its Shield 20% stronger.",
+          "category": "discipline",
+          "group": "Wild Guard",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "sorcerer-wild-guard-03"
+        },
+        {
+          "id": "sorcerer-wild-guard-05",
+          "name": "Guard Breakout",
+          "effect": "When Wild Guard is completely broken, your next Sorcerer damaging ability before the end of your next turn deals +15% final damage.",
+          "category": "discipline",
+          "group": "Wild Guard",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "sorcerer-wild-guard-04"
+        },
+        {
+          "id": "sorcerer-wild-guard-06",
+          "name": "Containment Release",
+          "effect": "When Wild Guard is completely broken, your next Energy-costing Sorcerer ability before the end of your next turn costs 1 less Energy.",
+          "category": "discipline",
+          "group": "Wild Guard",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "sorcerer-wild-guard-05"
+        },
+        {
+          "id": "sorcerer-wild-guard-07",
+          "name": "Violent Containment",
+          "effect": "If Wild Guard is broken while you are at 4 Redline, your next Sorcerer damaging ability gains +20% final damage and +15% Critical Damage.",
+          "category": "discipline",
+          "group": "Wild Guard",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "sorcerer-wild-guard-06"
+        },
+        {
+          "id": "sorcerer-redline-control-01",
+          "name": "Edge Power",
+          "effect": "At 3 or more Redline, Sorcerer damaging abilities gain +5% Critical Damage.",
+          "category": "discipline",
+          "group": "Redline Control",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "sorcerer-redline-control-02",
+          "name": "Reach the Edge",
+          "effect": "When you first reach 4 Redline, gain +5% final damage until the end of your next turn.",
+          "category": "discipline",
+          "group": "Redline Control",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "sorcerer-redline-control-01"
+        },
+        {
+          "id": "sorcerer-redline-control-03",
+          "name": "Excess Heat",
+          "effect": "At 4 Redline, the first Redline you would gain from spending Energy each turn instead gives your next Sorcerer ability +5% final effect.",
+          "category": "discipline",
+          "group": "Redline Control",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "sorcerer-redline-control-02"
+        },
+        {
+          "id": "sorcerer-redline-control-04",
+          "name": "Excess Spark",
+          "effect": "At 4 Redline, the first Redline you would gain from a damaging Crit each turn instead gives your next Sorcerer damaging ability +10% Critical Damage.",
+          "category": "discipline",
+          "group": "Redline Control",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "sorcerer-redline-control-03"
+        },
+        {
+          "id": "sorcerer-redline-control-05",
+          "name": "Redline Reserve",
+          "effect": "After Cross the Redline spends all 4 Redline, set Redline to 1.",
+          "category": "discipline",
+          "group": "Redline Control",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "sorcerer-redline-control-04"
+        },
+        {
+          "id": "sorcerer-redline-control-06",
+          "name": "Pay for Power",
+          "effect": "The first time each turn you pay Beyond Safe Limits' extra +1 Energy, that ability gains +15% final effect.",
+          "category": "discipline",
+          "group": "Redline Control",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "sorcerer-redline-control-05"
+        },
+        {
+          "id": "sorcerer-redline-control-07",
+          "name": "Ride the Line",
+          "effect": "Beyond Safe Limits' +1 Energy cost applies only to the first Energy-costing Sorcerer ability you use each turn while at 4 Redline.",
+          "category": "discipline",
+          "group": "Redline Control",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "sorcerer-redline-control-06"
+        },
+        {
+          "id": "sorcerer-mastery",
+          "name": "Beyond the Redline",
+          "displayName": "Sorcerer Mastery — Beyond the Redline",
+          "effect": "While at 4 Redline, every ability that actually pays Beyond Safe Limits' extra +1 Energy gains +10% final effect; damaging abilities also gain +15% Critical Damage. After Cross the Redline spends all 4 Redline, set Redline to 2.",
+          "category": "mastery",
+          "group": "Mastery",
+          "position": 1,
+          "cost": 3,
+          "requirements": {
+            "rank": 24,
+            "spentCP": 18,
+            "corePurchased": 5
+          },
+          "previous": null
+        }
+      ]
+    },
+    {
+      "name": "Warlock",
+      "scaling": [
+        "CHA",
+        "FTH"
+      ],
+      "resource": "Covenant Marks",
+      "nodes": [
+        {
+          "id": "warlock-core-01",
+          "name": "Stronger Pactbolt",
+          "effect": "Pactbolt deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warlock-core-02",
+          "name": "Sharper Leech",
+          "effect": "Leeching Word deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warlock-core-03",
+          "name": "Deeper Leech",
+          "effect": "Leeching Word heals for 25% of actual HP removed instead of 20%.",
+          "category": "core",
+          "group": "Core",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warlock-core-04",
+          "name": "Stronger Clause",
+          "effect": "Binding Clause deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 4,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warlock-core-05",
+          "name": "Harsher Clause",
+          "effect": "Binding Clause makes the target deal -12% final damage instead of -10%.",
+          "category": "core",
+          "group": "Core",
+          "position": 5,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warlock-core-06",
+          "name": "Greater Shared Debt",
+          "effect": "Shared Debt's Shield and heal are each 10% stronger.",
+          "category": "core",
+          "group": "Core",
+          "position": 6,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warlock-core-07",
+          "name": "Stronger Collection",
+          "effect": "Collect the Debt deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 7,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warlock-core-08",
+          "name": "Kinder Collection",
+          "effect": "Collect the Debt heals the lowest-% HP real ally for 40% of actual HP removed instead of 35%.",
+          "category": "core",
+          "group": "Core",
+          "position": 8,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warlock-core-09",
+          "name": "Ready Covenant",
+          "effect": "Start combat with 1 Covenant Mark.",
+          "category": "core",
+          "group": "Core",
+          "position": 9,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warlock-core-10",
+          "name": "Covenant Fulfilled+",
+          "effect": "Covenant Fulfilled grants +12% Warlock Dark damage and +12% Outgoing Healing instead of +10% each.",
+          "category": "core",
+          "group": "Core",
+          "position": 10,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "warlock-curse-01",
+          "name": "Longer Clause",
+          "effect": "Binding Clause's damage penalty lasts 3 turns instead of 2.",
+          "category": "discipline",
+          "group": "Curse",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "warlock-curse-02",
+          "name": "Pact Against the Bound",
+          "effect": "Pactbolt deals +10% final damage to a debuffed target.",
+          "category": "discipline",
+          "group": "Curse",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warlock-curse-01"
+        },
+        {
+          "id": "warlock-curse-03",
+          "name": "Layered Curse",
+          "effect": "Applying or refreshing a negative status on an already-debuffed enemy gives your next Warlock damaging ability +5% Crit Chance.",
+          "category": "discipline",
+          "group": "Curse",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warlock-curse-02"
+        },
+        {
+          "id": "warlock-curse-04",
+          "name": "Binding Weakness",
+          "effect": "Binding Clause also reduces the target's Outgoing Healing by 10% for its duration.",
+          "category": "discipline",
+          "group": "Curse",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warlock-curse-03"
+        },
+        {
+          "id": "warlock-curse-05",
+          "name": "Collect the Cursed",
+          "effect": "Collect the Debt gains an additional +10% final damage against a target with at least 2 negative statuses.",
+          "category": "discipline",
+          "group": "Curse",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warlock-curse-04"
+        },
+        {
+          "id": "warlock-curse-06",
+          "name": "Expired Terms",
+          "effect": "When your Binding Clause expires naturally, gain 1 Covenant Mark, once per target per cast.",
+          "category": "discipline",
+          "group": "Curse",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "warlock-curse-05"
+        },
+        {
+          "id": "warlock-curse-07",
+          "name": "Fine Print",
+          "effect": "Casting Binding Clause on a target already affected by your Binding Clause also reduces its Block Chance and Dodge Chance by 10 percentage points for 2 turns.",
+          "category": "discipline",
+          "group": "Curse",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "warlock-curse-06"
+        },
+        {
+          "id": "warlock-drain-01",
+          "name": "Leech the Cursed",
+          "effect": "Leeching Word's self-healing is 20% stronger against a debuffed target.",
+          "category": "discipline",
+          "group": "Drain",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "warlock-drain-02",
+          "name": "Deep Drain",
+          "effect": "Leeching Word heals for an additional 5 percentage points of actual HP removed.",
+          "category": "discipline",
+          "group": "Drain",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warlock-drain-01"
+        },
+        {
+          "id": "warlock-drain-03",
+          "name": "Shared Recovery",
+          "effect": "If Shared Debt's Shield and heal are applied to the same ally, both effects are 10% stronger.",
+          "category": "discipline",
+          "group": "Drain",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warlock-drain-02"
+        },
+        {
+          "id": "warlock-drain-04",
+          "name": "Debt Overflow",
+          "effect": "When Leeching Word would heal you beyond Maximum HP, 30% of the excess healing becomes a Shield.",
+          "category": "discipline",
+          "group": "Drain",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warlock-drain-03"
+        },
+        {
+          "id": "warlock-drain-05",
+          "name": "Desperate Collection",
+          "effect": "Collect the Debt's ally-heal is 20% stronger if the selected ally is below 30% HP.",
+          "category": "discipline",
+          "group": "Drain",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warlock-drain-04"
+        },
+        {
+          "id": "warlock-drain-06",
+          "name": "Debt Returned",
+          "effect": "If an ally protected or healed by Shared Debt takes HP damage before your next turn, your next Leeching Word before the end of your next turn deals +20% final damage.",
+          "category": "discipline",
+          "group": "Drain",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "warlock-drain-05"
+        },
+        {
+          "id": "warlock-drain-07",
+          "name": "Blood in the Contract",
+          "effect": "At 4 Covenant Marks, the first Leeching Word each turn that restores actual HP also creates a Shield on you equal to 50% of the actual HP restored.",
+          "category": "discipline",
+          "group": "Drain",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "warlock-drain-06"
+        },
+        {
+          "id": "warlock-covenant-control-01",
+          "name": "Two-Part Contract",
+          "effect": "If you gain a Covenant Mark from both a negative-status trigger and an actual-healing trigger in the same turn, gain +5% Dark damage and +5% Outgoing Healing until your next turn.",
+          "category": "discipline",
+          "group": "Covenant Control",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "warlock-covenant-control-02",
+          "name": "Overflowing Curse",
+          "effect": "At 4 Covenant Marks, the first Mark you would gain from applying or refreshing a negative status each turn instead gives your next Warlock heal +5% final healing.",
+          "category": "discipline",
+          "group": "Covenant Control",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warlock-covenant-control-01"
+        },
+        {
+          "id": "warlock-covenant-control-03",
+          "name": "Overflowing Life",
+          "effect": "At 4 Covenant Marks, the first Mark you would gain from actual healing each turn instead gives your next Warlock damaging ability +5% final damage.",
+          "category": "discipline",
+          "group": "Covenant Control",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warlock-covenant-control-02"
+        },
+        {
+          "id": "warlock-covenant-control-04",
+          "name": "Fulfilled Collection",
+          "effect": "Collect the Debt retains Covenant Fulfilled for its full resolution even though it spends all Marks.",
+          "category": "discipline",
+          "group": "Covenant Control",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warlock-covenant-control-03"
+        },
+        {
+          "id": "warlock-covenant-control-05",
+          "name": "Covenant Reserve",
+          "effect": "After Collect the Debt spends 4 Covenant Marks, set Covenant Marks to 1.",
+          "category": "discipline",
+          "group": "Covenant Control",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "warlock-covenant-control-04"
+        },
+        {
+          "id": "warlock-covenant-control-06",
+          "name": "Rewritten Terms",
+          "effect": "At 4 Covenant Marks, the first Mark you would otherwise waste each turn instead reduces the remaining cooldown of Leeching Word or Binding Clause by 1 turn.",
+          "category": "discipline",
+          "group": "Covenant Control",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "warlock-covenant-control-05"
+        },
+        {
+          "id": "warlock-covenant-control-07",
+          "name": "Cheap Fulfillment",
+          "effect": "At 4 Covenant Marks, the first Warlock ability each turn that would normally generate a Covenant Mark costs 1 less Energy, minimum 0.",
+          "category": "discipline",
+          "group": "Covenant Control",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "warlock-covenant-control-06"
+        },
+        {
+          "id": "warlock-mastery",
+          "name": "The Contract Continues",
+          "displayName": "Warlock Mastery — The Contract Continues",
+          "effect": "Covenant Fulfilled remains active until the end of the current turn after Covenant Marks are spent. Collect the Debt returns 2 Covenant Marks after resolving. Once per turn, gaining Marks from both Covenant triggers reduces Collect the Debt's remaining cooldown by 1 turn.",
+          "category": "mastery",
+          "group": "Mastery",
+          "position": 1,
+          "cost": 3,
+          "requirements": {
+            "rank": 24,
+            "spentCP": 18,
+            "corePurchased": 5
+          },
+          "previous": null
+        }
+      ]
+    },
+    {
+      "name": "Paladin",
+      "scaling": [
+        "STR",
+        "FTH"
+      ],
+      "resource": "Conviction",
+      "nodes": [
+        {
+          "id": "paladin-core-01",
+          "name": "Stronger Consecration",
+          "effect": "Consecrated Strike deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "paladin-core-02",
+          "name": "Stronger Prayer",
+          "effect": "Guarding Prayer creates a Shield 10% stronger.",
+          "category": "core",
+          "group": "Core",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "paladin-core-03",
+          "name": "Harder Righteous Blow",
+          "effect": "Righteous Blow deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "paladin-core-04",
+          "name": "Righteous Answer",
+          "effect": "Righteous Blow deals +20% final damage instead of +15% when its target damaged an ally since your previous turn.",
+          "category": "core",
+          "group": "Core",
+          "position": 4,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "paladin-core-05",
+          "name": "Deeper Lay on Hands",
+          "effect": "Lay on Hands heals 10% more.",
+          "category": "core",
+          "group": "Core",
+          "position": 5,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "paladin-core-06",
+          "name": "Urgent Hands",
+          "effect": "Lay on Hands gains +25% final healing instead of +20% when its target is below 40% HP.",
+          "category": "core",
+          "group": "Core",
+          "position": 6,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "paladin-core-07",
+          "name": "Answering Strike",
+          "effect": "Conviction's Answer deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 7,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "paladin-core-08",
+          "name": "Answering Mercy",
+          "effect": "Conviction's Answer's ally-heal is 10% stronger.",
+          "category": "core",
+          "group": "Core",
+          "position": 8,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "paladin-core-09",
+          "name": "Ready Conviction",
+          "effect": "Start combat with 1 Conviction.",
+          "category": "core",
+          "group": "Core",
+          "position": 9,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "paladin-core-10",
+          "name": "Steadfast Conviction+",
+          "effect": "Steadfast Conviction grants +12% Paladin final damage, +12% Paladin Shield strength, and +12% Outgoing Healing instead of +10% each.",
+          "category": "core",
+          "group": "Core",
+          "position": 10,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "paladin-protection-01",
+          "name": "Protected Prayer",
+          "effect": "A target with your Guarding Prayer Shield gains +5 percentage points Blocked Damage Reduction while that Shield remains.",
+          "category": "discipline",
+          "group": "Protection",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "paladin-protection-02",
+          "name": "Prayer into Mercy",
+          "effect": "After a Guarding Prayer Shield absorbs damage, your next Lay on Hands before the end of your next turn gains +10% final healing.",
+          "category": "discipline",
+          "group": "Protection",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "paladin-protection-01"
+        },
+        {
+          "id": "paladin-protection-03",
+          "name": "Hands of Defense",
+          "effect": "Lay on Hands gives its target +10% Block Chance until their next turn.",
+          "category": "discipline",
+          "group": "Protection",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "paladin-protection-02"
+        },
+        {
+          "id": "paladin-protection-04",
+          "name": "Broken Prayer",
+          "effect": "When a Guarding Prayer Shield is completely broken by direct enemy damage, gain 1 additional Conviction. Once per Guarding Prayer cast.",
+          "category": "discipline",
+          "group": "Protection",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "paladin-protection-03"
+        },
+        {
+          "id": "paladin-protection-05",
+          "name": "Merciful Barrier",
+          "effect": "When Lay on Hands restores actual HP to a target below 40% HP, also grant a Shield equal to 25% of the actual HP restored.",
+          "category": "discipline",
+          "group": "Protection",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "paladin-protection-04"
+        },
+        {
+          "id": "paladin-protection-06",
+          "name": "Stand Behind Me",
+          "effect": "The first time each turn an ally with your Guarding Prayer Shield loses HP to direct damage, gain +15% Aggro until your next turn and gain 1 Conviction.",
+          "category": "discipline",
+          "group": "Protection",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "paladin-protection-05"
+        },
+        {
+          "id": "paladin-protection-07",
+          "name": "Unbroken Prayer",
+          "effect": "The first time a Guarding Prayer Shield completely prevents an attack from removing HP, restore that Shield by 30% of its original amount. Once per cast.",
+          "category": "discipline",
+          "group": "Protection",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "paladin-protection-06"
+        },
+        {
+          "id": "paladin-retribution-01",
+          "name": "Remember the Harm",
+          "effect": "Righteous Blow gains +5% Crit Chance when its conditional bonus is active.",
+          "category": "discipline",
+          "group": "Retribution",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "paladin-retribution-02",
+          "name": "Consecrated Retort",
+          "effect": "Consecrated Strike deals +10% final damage to an enemy that damaged an ally since your previous turn.",
+          "category": "discipline",
+          "group": "Retribution",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "paladin-retribution-01"
+        },
+        {
+          "id": "paladin-retribution-03",
+          "name": "Punishing Blow",
+          "effect": "Righteous Blow with its conditional bonus also makes the target deal -5% final damage until the start of your next turn.",
+          "category": "discipline",
+          "group": "Retribution",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "paladin-retribution-02"
+        },
+        {
+          "id": "paladin-retribution-04",
+          "name": "Blocked Retort",
+          "effect": "After you successfully Block direct damage, your next Consecrated Strike or Righteous Blow before the end of your next turn deals +15% final damage.",
+          "category": "discipline",
+          "group": "Retribution",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "paladin-retribution-03"
+        },
+        {
+          "id": "paladin-retribution-05",
+          "name": "Convicted Retaliation",
+          "effect": "When Righteous Blow Crits while its conditional bonus is active, gain 1 additional Conviction, once per turn.",
+          "category": "discipline",
+          "group": "Retribution",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "paladin-retribution-04"
+        },
+        {
+          "id": "paladin-retribution-06",
+          "name": "Answered Harm",
+          "effect": "Once per turn cycle, when a real ally is reduced below 50% HP by an enemy, your next Righteous Blow against that enemy before the end of your next turn gains +25% final damage and is Unblockable.",
+          "category": "discipline",
+          "group": "Retribution",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "paladin-retribution-05"
+        },
+        {
+          "id": "paladin-retribution-07",
+          "name": "Judgment in Motion",
+          "effect": "Conviction's Answer deals +5% final damage per real ally currently below 75% HP, up to +15%.",
+          "category": "discipline",
+          "group": "Retribution",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "paladin-retribution-06"
+        },
+        {
+          "id": "paladin-conviction-control-01",
+          "name": "Two Sources, One Purpose",
+          "effect": "If you gain Conviction from both the damage trigger and protection trigger in the same turn cycle, your next Paladin ability gains +5% final effect.",
+          "category": "discipline",
+          "group": "Conviction Control",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "paladin-conviction-control-02",
+          "name": "Overflowing Strike",
+          "effect": "At 5 Conviction, the first Conviction you would gain from dealing damage each turn instead gives your next Paladin heal or Shield +5% final effect.",
+          "category": "discipline",
+          "group": "Conviction Control",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "paladin-conviction-control-01"
+        },
+        {
+          "id": "paladin-conviction-control-03",
+          "name": "Overflowing Guard",
+          "effect": "At 5 Conviction, the first Conviction you would gain from Block or Shield absorption each turn cycle instead gives your next Paladin damaging ability +5% final damage.",
+          "category": "discipline",
+          "group": "Conviction Control",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "paladin-conviction-control-02"
+        },
+        {
+          "id": "paladin-conviction-control-04",
+          "name": "Steadfast Answer",
+          "effect": "Conviction's Answer retains Steadfast Conviction for its full resolution even though it spends all Conviction.",
+          "category": "discipline",
+          "group": "Conviction Control",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "paladin-conviction-control-03"
+        },
+        {
+          "id": "paladin-conviction-control-05",
+          "name": "Conviction Reserve",
+          "effect": "After Conviction's Answer spends all 5 Conviction, set Conviction to 1.",
+          "category": "discipline",
+          "group": "Conviction Control",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "paladin-conviction-control-04"
+        },
+        {
+          "id": "paladin-conviction-control-06",
+          "name": "Answered Conviction",
+          "effect": "If Conviction's Answer both removes enemy HP and restores actual ally HP, gain 1 Conviction after it resolves.",
+          "category": "discipline",
+          "group": "Conviction Control",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "paladin-conviction-control-05"
+        },
+        {
+          "id": "paladin-conviction-control-07",
+          "name": "Conviction Without Waste",
+          "effect": "At 5 Conviction, the first Conviction you would otherwise waste each turn cycle instead reduces the remaining cooldown of Guarding Prayer, Righteous Blow, or Lay on Hands by 1 turn.",
+          "category": "discipline",
+          "group": "Conviction Control",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "paladin-conviction-control-06"
+        },
+        {
+          "id": "paladin-mastery",
+          "name": "Steadfast Answer",
+          "displayName": "Paladin Mastery — Steadfast Answer",
+          "effect": "Steadfast Conviction also grants +10 percentage points Blocked Damage Reduction. Conviction's Answer keeps all Steadfast Conviction bonuses for its full damage-and-healing resolution, then sets Conviction to 2.",
+          "category": "mastery",
+          "group": "Mastery",
+          "position": 1,
+          "cost": 3,
+          "requirements": {
+            "rank": 24,
+            "spentCP": 18,
+            "corePurchased": 5
+          },
+          "previous": null
+        }
+      ]
+    },
+    {
+      "name": "Druid",
+      "scaling": [
+        "CON",
+        "FTH",
+        "INT"
+      ],
+      "resource": "Form + Cycle",
+      "nodes": [
+        {
+          "id": "druid-core-01",
+          "name": "Sharper Thorn",
+          "effect": "Thornlash deals +8% final damage.",
+          "category": "core",
+          "group": "Core",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "druid-core-02",
+          "name": "Richer Sap",
+          "effect": "Mending Sap heals 10% more.",
+          "category": "core",
+          "group": "Core",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "druid-core-03",
+          "name": "Thicker Grove",
+          "effect": "Groveguard creates a Shield 10% stronger.",
+          "category": "core",
+          "group": "Core",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "druid-core-04",
+          "name": "Confluence: Fang",
+          "effect": "Confluence's damage portion is 8% stronger.",
+          "category": "core",
+          "group": "Core",
+          "position": 4,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "druid-core-05",
+          "name": "Confluence: Bloom",
+          "effect": "Confluence's heal portion is 8% stronger.",
+          "category": "core",
+          "group": "Core",
+          "position": 5,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "druid-core-06",
+          "name": "Confluence: Grove",
+          "effect": "Confluence's Shield portion is 8% stronger.",
+          "category": "core",
+          "group": "Core",
+          "position": 6,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "druid-core-07",
+          "name": "Stronger Fang Form",
+          "effect": "Fang Form grants +12% Druid final damage instead of +10%.",
+          "category": "core",
+          "group": "Core",
+          "position": 7,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "druid-core-08",
+          "name": "Stronger Grove Form",
+          "effect": "Grove Form grants +12% Druid Shield strength and +6% Block Chance instead of +10% and +5%.",
+          "category": "core",
+          "group": "Core",
+          "position": 8,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "druid-core-09",
+          "name": "Stronger Bloom Form",
+          "effect": "Bloom Form grants +14% Outgoing Healing instead of +12%.",
+          "category": "core",
+          "group": "Core",
+          "position": 9,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "druid-core-10",
+          "name": "Deeper Completion",
+          "effect": "Complete Fang grants +17% final damage; Complete Grove grants +17% Shield strength and +9% Block Chance; Complete Bloom grants +20% Outgoing Healing.",
+          "category": "core",
+          "group": "Core",
+          "position": 10,
+          "cost": 1,
+          "requirements": {
+            "rank": 0,
+            "corePurchased": 0
+          },
+          "previous": null
+        },
+        {
+          "id": "druid-fang-01",
+          "name": "Predatory Thorn",
+          "effect": "Thornlash gains +5% Crit Chance while in Fang Form.",
+          "category": "discipline",
+          "group": "Fang",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "druid-fang-02",
+          "name": "Fang Momentum",
+          "effect": "At 2 or more Cycle in Fang Form, Druid damaging abilities deal +5% final damage.",
+          "category": "discipline",
+          "group": "Fang",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "druid-fang-01"
+        },
+        {
+          "id": "druid-fang-03",
+          "name": "Completed Strike",
+          "effect": "While Fang Form is Complete, Thornlash gains +10% Critical Damage.",
+          "category": "discipline",
+          "group": "Fang",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "druid-fang-02"
+        },
+        {
+          "id": "druid-fang-04",
+          "name": "Carry the Fang",
+          "effect": "After leaving Complete Fang Form with Turn the Cycle, retain +5% Druid final damage until the end of your next turn.",
+          "category": "discipline",
+          "group": "Fang",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "druid-fang-03"
+        },
+        {
+          "id": "druid-fang-05",
+          "name": "Fanged Confluence",
+          "effect": "While Fang Form is Complete, Confluence's damage portion gains an additional +10% final damage.",
+          "category": "discipline",
+          "group": "Fang",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "druid-fang-04"
+        },
+        {
+          "id": "druid-fang-06",
+          "name": "Cycle Through Blood",
+          "effect": "The first damaging Crit each turn while in Fang Form grants 1 additional Cycle, provided Fang Form is not already Complete.",
+          "category": "discipline",
+          "group": "Fang",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "druid-fang-05"
+        },
+        {
+          "id": "druid-fang-07",
+          "name": "Perfect Fang",
+          "effect": "While Fang Form is Complete, the first Druid damaging ability each turn gains +10% Crit Chance and ignores 50% of the target's Block Chance.",
+          "category": "discipline",
+          "group": "Fang",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "druid-fang-06"
+        },
+        {
+          "id": "druid-grove-01",
+          "name": "Rooted Groveguard",
+          "effect": "Groveguard is 10% stronger while in Grove Form.",
+          "category": "discipline",
+          "group": "Grove",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "druid-grove-02",
+          "name": "Grove Momentum",
+          "effect": "At 2 or more Cycle in Grove Form, Druid Shields are 5% stronger.",
+          "category": "discipline",
+          "group": "Grove",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "druid-grove-01"
+        },
+        {
+          "id": "druid-grove-03",
+          "name": "Damage into Roots",
+          "effect": "The first time each turn a Shield you created absorbs damage while you are in Grove Form, gain 1 additional Cycle, provided Grove Form is not already Complete.",
+          "category": "discipline",
+          "group": "Grove",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "druid-grove-02"
+        },
+        {
+          "id": "druid-grove-04",
+          "name": "Carry the Grove",
+          "effect": "After leaving Complete Grove Form with Turn the Cycle, retain +5% Block Chance until the end of your next turn.",
+          "category": "discipline",
+          "group": "Grove",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "druid-grove-03"
+        },
+        {
+          "id": "druid-grove-05",
+          "name": "Grove Confluence",
+          "effect": "While Grove Form is Complete, Confluence's Shield portion is an additional 10% stronger.",
+          "category": "discipline",
+          "group": "Grove",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "druid-grove-04"
+        },
+        {
+          "id": "druid-grove-06",
+          "name": "Deep Roots",
+          "effect": "While Grove Form is Complete, gain +5 percentage points Blocked Damage Reduction.",
+          "category": "discipline",
+          "group": "Grove",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "druid-grove-05"
+        },
+        {
+          "id": "druid-grove-07",
+          "name": "Perfect Grove",
+          "effect": "While Grove Form is Complete, the first direct hit against you each turn deals -10% final damage after Dodge and Block are resolved.",
+          "category": "discipline",
+          "group": "Grove",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "druid-grove-06"
+        },
+        {
+          "id": "druid-bloom-01",
+          "name": "Living Sap",
+          "effect": "Mending Sap is 10% stronger while in Bloom Form.",
+          "category": "discipline",
+          "group": "Bloom",
+          "position": 1,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": null
+        },
+        {
+          "id": "druid-bloom-02",
+          "name": "Bloom Momentum",
+          "effect": "At 2 or more Cycle in Bloom Form, Druid healing gains +5% final healing.",
+          "category": "discipline",
+          "group": "Bloom",
+          "position": 2,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "druid-bloom-01"
+        },
+        {
+          "id": "druid-bloom-03",
+          "name": "Urgent Bloom",
+          "effect": "The first time each turn Mending Sap restores actual HP to an ally below 50% HP while in Bloom Form, gain 1 additional Cycle, provided Bloom Form is not already Complete.",
+          "category": "discipline",
+          "group": "Bloom",
+          "position": 3,
+          "cost": 1,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "druid-bloom-02"
+        },
+        {
+          "id": "druid-bloom-04",
+          "name": "Carry the Bloom",
+          "effect": "After leaving Complete Bloom Form with Turn the Cycle, your next Druid heal before the end of your next turn gains +10% final healing.",
+          "category": "discipline",
+          "group": "Bloom",
+          "position": 4,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "druid-bloom-03"
+        },
+        {
+          "id": "druid-bloom-05",
+          "name": "Bloom Confluence",
+          "effect": "While Bloom Form is Complete, Confluence's heal portion gains an additional +10% final healing.",
+          "category": "discipline",
+          "group": "Bloom",
+          "position": 5,
+          "cost": 2,
+          "requirements": {
+            "rank": 8,
+            "corePurchased": 3
+          },
+          "previous": "druid-bloom-04"
+        },
+        {
+          "id": "druid-bloom-06",
+          "name": "Overflowing Sap",
+          "effect": "When Mending Sap would heal beyond Maximum HP while Bloom Form is Complete, 30% of the excess healing becomes a Shield on that ally.",
+          "category": "discipline",
+          "group": "Bloom",
+          "position": 6,
+          "cost": 2,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "druid-bloom-05"
+        },
+        {
+          "id": "druid-bloom-07",
+          "name": "Perfect Bloom",
+          "effect": "While Bloom Form is Complete, the first Druid heal each turn gains +15% Healing Crit Chance; if it Critically Heals, refund 1 Energy, once per turn.",
+          "category": "discipline",
+          "group": "Bloom",
+          "position": 7,
+          "cost": 3,
+          "requirements": {
+            "rank": 18,
+            "corePurchased": 3
+          },
+          "previous": "druid-bloom-06"
+        },
+        {
+          "id": "druid-mastery",
+          "name": "Living Cycle",
+          "displayName": "Druid Mastery — Living Cycle",
+          "effect": "When you leave a Complete Form with Turn the Cycle, the new Form starts at 1 Cycle instead of 0. After Confluence consumes 3 Cycle, your next Turn the Cycle before the end of your next turn makes the new Form start at 2 Cycle.",
+          "category": "mastery",
+          "group": "Mastery",
+          "position": 1,
+          "cost": 3,
+          "requirements": {
+            "rank": 24,
+            "spentCP": 18,
+            "corePurchased": 5
+          },
+          "previous": null
+        }
+      ]
+    }
+  ]
+}

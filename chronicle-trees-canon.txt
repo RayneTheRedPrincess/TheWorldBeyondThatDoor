@@ -1,0 +1,543 @@
+THAT WORLD BEYOND THE DOOR (TWBTD)
+RECONSTRUCTION C — NORMAL CLASS CHRONICLE TREES
+Approved: 2026-08-07
+Status: APPROVED / CANONICAL
+
+APPROVED GLOBAL RULES
+- Normal class Chronicle trees are base-class-only.
+- No normal class Chronicle node may reference, enhance, copy, unlock, or require a subclass ability, subclass passive, subclass resource, or subclass-specific Kept Impression, EXCEPT the single Warrior Mastery node described below.
+- Chronicle nodes strengthen the base class passive/resource and the five approved base-class abilities.
+- In all node text below, phrases such as 'Warrior ability', 'Rogue damaging ability', 'Druid heal', and similar class references mean the five base-class abilities only; they never include subclass abilities.
+- If a base resource continues to exist while a subclass is equipped, a Chronicle modification to that base resource may still naturally exist; however, no Chronicle effect may target a subclass-specific mechanic or ability.
+- Early Chronicle nodes are intentionally simple and obvious. Later nodes become increasingly mechanical, conditional, and identity-defining.
+- Each normal tree remains exactly 32 nodes: 10 Core nodes + three 7-node base-class disciplines + 1 Mastery.
+- Core nodes cost 1 CP each.
+- Within each 7-node discipline, node costs are 1 / 1 / 1 / 2 / 2 / 2 / 3 CP in order.
+- Mastery costs 3 CP.
+- Full-tree cost is 49 CP; maximum spend remains 30 CP.
+- Warrior Mastery is the sole exception to the normal base-class-only rule: it preserves the approved one-subclass-ability selection/return behavior while remaining a Chronicle feature outside the Character Level ability track.
+- Classless is not redesigned here. Its dedicated Chronicle remains separate because Classless is not one of the 11 normal base-class trees.
+
+TREE PREREQUISITES
+- Core nodes are the early foundation layer.
+- A discipline may be entered after at least 3 Core nodes are purchased and Chronicle Rank 8 is reached.
+- Discipline nodes are linear within their discipline.
+- Discipline nodes 6-7 additionally require Chronicle Rank 18.
+- Mastery requires Chronicle Rank 24, at least 18 CP spent in that class tree, and at least 5 purchased Core nodes.
+
+========================================================================
+WARRIOR
+Scaling: STR / CON
+Base resource/mechanic: Pressure
+
+CORE — 10 × 1 CP
+1. Heavy Hands — Driving Blow deals +8% final damage.
+2. Set the Brace — Brace grants +18% Block Chance instead of +15%.
+3. Harden the Brace — Brace grants +20% Blocked Damage Reduction instead of +15%.
+4. Break Their Guard — Break Line reduces Block Chance and Blocked Damage Reduction by 12 percentage points instead of 10.
+5. Hold Strong — Hold Fast creates a Shield 10% stronger.
+6. Draw the Eye — While Hold Fast's Shield remains, its Aggro bonus is +25% instead of +20%.
+7. Ready Pressure — Start combat with 1 Pressure instead of 0.
+8. Under Pressure: Force — Under Pressure grants +12% damage dealt instead of +10%.
+9. Under Pressure: Guard — Under Pressure grants +12% Block Chance instead of +10%.
+10. Breaker Training — Pressure Break deals +8% final damage.
+
+ASSAULT DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Driving Opening — Driving Blow deals +10% final damage to a target currently affected by Break Line.
+2. Follow the Fracture — A Critical Hit with Driving Blow against a target affected by Break Line reduces Break Line's remaining cooldown by 1 turn, once per turn.
+3. Crumpling Line — Break Line also causes the target to deal -5% final damage until the start of your next turn.
+4. Breaker’s Window — After Break Line hits, your next Pressure Break against that target within 2 turns gains +10% Crit Chance.
+5. No Recovery — Pressure Break against a target affected by Break Line extends Break Line's remaining duration by 1 turn.
+6. Guard Collapse — Break Line becomes Unblockable against a target already affected by Break Line.
+7. Rupture the Line — At 5 Pressure, Pressure Break against a target affected by Break Line gains +15% final damage and ignores that target's Block Chance.
+
+BULWARK DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Braced Hold — Casting Hold Fast while Brace is active makes Hold Fast's Shield 15% stronger.
+2. Guarded Pressure — If Brace contributes to at least one successful Block before your next turn, gain 1 additional Pressure at the start of your next turn. This can trigger once per Brace.
+3. Firm Footing — While any Hold Fast Shield remains, gain +5 percentage points Blocked Damage Reduction.
+4. Return Force — After you successfully Block direct damage, your next Driving Blow before the end of your next turn deals +15% final damage.
+5. Shielded Momentum — The first time each Hold Fast Shield absorbs damage, reduce Brace's remaining cooldown by 1 turn.
+6. Immovable — While Brace is active and a Hold Fast Shield remains, enemy effects cannot reduce your Block Chance or Blocked Damage Reduction.
+7. Hold the Line — When a Hold Fast Shield is completely broken by direct enemy damage, immediately gain 2 Pressure and your next Brace before the end of your next turn costs 0 Energy. Once per Hold Fast cast.
+
+PRESSURE CONTROL DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Pressure Temper — When you first reach 5 Pressure, gain +5 percentage points Blocked Damage Reduction until your next turn.
+2. Built Momentum — If you both deal direct Warrior damage and successfully Block during the same turn cycle, your next Warrior damaging ability deals +8% final damage.
+3. Stored Force — While at 5 Pressure, the first Pressure you would have gained each turn cycle instead gives your next Warrior damaging ability +5% final damage.
+4. No Wasted Motion — While at 5 Pressure, the second Pressure you would have gained in the same turn cycle instead reduces the remaining cooldown of one random cooling-down base Warrior ability by 1 turn.
+5. Controlled Release — After spending 3 or more Pressure on an ability, gain +10% Block Chance until your next turn.
+6. Pressure Reserve — When an ability spends all 5 Pressure, set your Pressure to 1 after that ability resolves.
+7. Tempered Momentum — While at 5 Pressure, the first Pressure you would gain each turn cycle also triggers No Wasted Motion in addition to Stored Force. Pressure Reserve sets your Pressure to 2 instead of 1 after an ability spends all 5 Pressure.
+
+MASTERY — 3 CP
+Warrior Mastery — Choose exactly one ability from Ruinhewer, SteelBearer, or BrandBlade. The chosen ability is available while no Warrior subclass is active and while using a different Warrior subclass. It keeps its normal Energy cost, cooldown, targeting, damage type, scaling, statuses, and other printed mechanics. If the active Warrior subclass is the same subclass that supplied the chosen ability, the Warrior Mastery copy is removed and that subclass's normal copy follows its ordinary Character Level unlock; when that source subclass is no longer active, the Warrior Mastery copy returns. Duplicate copies are never allowed. If the chosen ability itself creates, tracks, or spends a named subclass resource, that resource may exist only as needed to resolve the chosen ability's own printed mechanics; Warrior Mastery does not grant the source subclass passive or unrelated resource-generation rules. The chosen Mastery ability is locked for the duration of an active campaign and may be changed at the Tavern while outside an active campaign.
+
+========================================================================
+ROGUE
+Scaling: DEX / LCK
+Base resource/mechanic: Openings
+
+CORE — 10 × 1 CP
+1. Quick Hands — Quick Cut deals +8% final damage.
+2. Sharper Feint — Feint reduces Dodge Chance and Block Chance by 12 percentage points instead of 10.
+3. Longer Feint — Off-Balance from Feint lasts 3 turns instead of 2.
+4. Lighter Step — Slipstep grants +18% Dodge Chance instead of +15%.
+5. Sharper Step — Slipstep's next-attack bonus is +12% Crit Chance instead of +10%.
+6. Exploit Harder — Exploit Weakness deals +25% final damage against a debuffed target instead of +20%.
+7. Perfect Training — Perfect Strike deals +8% final damage.
+8. Ready Opening — Start combat with 1 Opening.
+9. Perfect Opportunity+ — Perfect Opportunity grants +12% Crit Chance instead of +10%.
+10. Perfect Aim — Perfect Strike gains +25% Crit Chance instead of +20%.
+
+PRECISION DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Cut the Tell — Quick Cut gains +5% Crit Chance against a debuffed target.
+2. Deep Strike — Perfect Strike gains +15% Critical Damage.
+3. Read the Weakness — When Exploit Weakness Crits against a debuffed target, gain 1 additional Opening, once per turn.
+4. Layered Advantage — Exploit Weakness deals an additional +10% final damage if the target has Off-Balance and at least one other debuff.
+5. Perfect Calculation — At 4 Openings, Perfect Opportunity also grants +15% Critical Damage.
+6. Strike Before They Close — Perfect Strike used against a target with Off-Balance is Unblockable.
+7. True Perfect Strike — When Perfect Strike spends Openings, Perfect Opportunity remains active for that attack's full resolution even though the resource is spent.
+
+EVASION DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Slip the Counter — If you successfully Dodge while Slipstep is active, your next Quick Cut before the end of your next turn deals +20% final damage.
+2. Light Feet — After a successful Dodge, gain +5% Dodge Chance until your next turn.
+3. Reset the Step — A successful Dodge while Slipstep is active reduces Slipstep's remaining cooldown by 1 turn, once per Slipstep.
+4. Ghosted Edge — After a successful Dodge, your next Rogue damaging ability before your next turn ignores 50% of the target's Block Chance.
+5. Second Read — If you successfully Dodge more than once between your turns, the second Dodge gives your next Rogue damaging ability +15% Critical Damage.
+6. Untouched Opportunity — If you Dodge while at 4 Openings, Perfect Opportunity persists until the end of your next turn even if you spend Openings before then.
+7. No Answer — After a successful Dodge while Slipstep is active, your next Rogue damaging ability before your next turn is Unblockable.
+
+OPPORTUNITY DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Twin Trigger — If you gain at least one Opening from a Crit and at least one Opening from a Dodge during the same turn cycle, your next Rogue damaging ability deals +10% final damage.
+2. Excess Precision — At 4 Openings, the first Opening you would gain from a Crit each turn instead gives your next Rogue damaging ability +10% Critical Damage.
+3. Excess Evasion — At 4 Openings, the first Opening you would gain from a Dodge each turn cycle instead reduces the remaining cooldown of Feint or Slipstep by 1 turn.
+4. Spend Carefully — If Perfect Strike does not Crit, refund 1 of the Openings it spent after the attack resolves.
+5. Rolling Opportunity — After Perfect Strike resolves against a debuffed target, gain 1 Opening.
+6. Openings Everywhere — The first time each turn Exploit Weakness hits a debuffed target, gain 1 Opening even if it does not Crit.
+7. Perfect Recovery — When you spend 3 or more Openings, your next successful Dodge before the end of your next turn grants 2 Openings instead of 1.
+
+MASTERY — 3 CP
+Rogue Mastery — Perfect Opportunist — Once per turn cycle, if you both Crit with a Rogue damaging ability and successfully Dodge direct damage, gain Perfect Read. Your next Rogue damaging ability gains +10% Crit Chance and +20% Critical Damage; if it spends Openings, 1 spent Opening is restored after resolution.
+
+========================================================================
+BRAWLER
+Scaling: STR / CON
+Base resource/mechanic: Impact
+
+CORE — 10 × 1 CP
+1. Harder Knuckles — Knuckle Drive deals +8% final damage.
+2. Tighter Block — Tight Guard grants +15% Block Chance instead of +12%.
+3. Tighter Step — Tight Guard grants +15% Dodge Chance instead of +12%.
+4. Heavier Hammer — Hammerfist deals +8% final damage.
+5. Impactful Hammer — Hammerfist's 1-Impact bonus is +25% final damage instead of +20%.
+6. Deeper Breath — Catch Breath heals 10% more.
+7. Ready Impact — Start combat with 1 Impact.
+8. Heavy Momentum+ — Heavy Momentum grants +18% final damage instead of +15%.
+9. Breaker Training — Impact Breaker deals +8% final damage.
+10. Guarded Impact — The first successful Block or Dodge during Tight Guard grants 2 Impact instead of 1.
+
+COMBINATION DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Opening Combination — Knuckle Drive used at 0 Impact generates 1 additional Impact, once per turn.
+2. Loaded Hammer — Hammerfist gains +10% Crit Chance while you have at least 2 Impact.
+3. Impact Refund — If Hammerfist Crits after consuming Impact, restore 1 Impact after resolution, once per turn.
+4. Change the Rhythm — Using a different Brawler damaging ability than your previous damaging ability gives it +8% final damage.
+5. Heavy Followthrough — At 4 Impact, Hammerfist loses only the 1 Impact it deliberately consumes; Heavy Momentum does not remove an additional Impact afterward.
+6. Breaker Setup — After Hammerfist consumes Impact, your next Impact Breaker before the end of your next turn gains +10% Crit Chance.
+7. Chain Breaker — After Impact Breaker consumes 4 Impact, your next Knuckle Drive before the end of your next turn deals +30% final damage and generates 2 Impact.
+
+GUARD DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Guard the Body — Tight Guard also grants +5 percentage points Blocked Damage Reduction until your next turn.
+2. Guarded Breath — Catch Breath used while Tight Guard is active heals 15% more.
+3. Emergency Breath — Catch Breath heals an additional +20% final healing while you are below 50% HP.
+4. Breathe and Brace — After Catch Breath resolves, gain +10% Block Chance and +10% Dodge Chance until your next turn.
+5. Reactive Hammer — After Tight Guard causes a successful Block or Dodge, your next Hammerfist before the end of your next turn costs 1 less Energy.
+6. Second Wind — When Catch Breath restores actual HP while you are below 30% HP, also gain a Shield equal to 50% of the actual HP restored.
+7. Iron Rhythm — If you both successfully Block and successfully Dodge while the same Tight Guard is active, start your next turn at 4 Impact. Once per Tight Guard cast.
+
+IMPACT CONTROL DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Gathered Force — At 3 Impact, Brawler damaging abilities deal +5% final damage.
+2. Overflowing Impact — At 4 Impact, the first Impact you would gain each turn instead gives your next Brawler damaging ability +5% final damage.
+3. Overflowing Guard — At 4 Impact, the second Impact you would gain in the same turn instead grants +5% Block Chance and +5% Dodge Chance until your next turn.
+4. Hold the Hit — Using Catch Breath or Tight Guard does not consume or trigger Heavy Momentum; it remains waiting for your next Brawler damaging ability.
+5. Breaker Recovery — If Impact Breaker defeats its target, gain 2 Impact after it resolves.
+6. Impact Economy — The first Brawler damaging ability each turn that consumes Impact restores 1 Impact after it resolves.
+7. Unspent Force — Each full turn you remain at 4 Impact without using a damaging ability increases Heavy Momentum by +5% final damage, up to +25% additional. The bonus resets when Heavy Momentum is consumed.
+
+MASTERY — 3 CP
+Brawler Mastery — Unbroken Combination — The first Brawler damaging ability each turn that spends Impact restores 1 Impact after resolving. Impact Breaker instead restores 2 Impact. After any 4-Impact spend, your next Knuckle Drive before the end of your next turn generates 2 Impact.
+
+========================================================================
+MAGE
+Scaling: INT / LCK
+Base resource/mechanic: Arcane Charge
+
+CORE — 10 × 1 CP
+1. Sharper Bolt — Arc Bolt deals +8% final damage.
+2. Stronger Ward — Arcane Ward creates a Shield 10% stronger.
+3. Colder Pin — Frost Pin deals +8% final damage.
+4. Tighter Pin — Frost Pin reduces Dodge Chance by 12 percentage points instead of 10.
+5. Denser Volley — Arcane Volley deals +6% final damage per hit.
+6. Discharge Training — Grand Discharge deals +8% final damage.
+7. Ready Charge — Start combat with 1 Arcane Charge.
+8. Saturation+ — Arcane Saturation grants +12% Critical Damage instead of +10%.
+9. Stable Ward — Arcane Ward's target gains +5 percentage points Blocked Damage Reduction while that Shield remains.
+10. Focused Volley — Each Arcane Volley hit gains +3% Crit Chance.
+
+SPELLCRAFT DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Charged Bolt — Arc Bolt deals +10% final damage if you spent Energy on another Mage ability earlier this turn.
+2. Pinned Target — Mage damaging abilities gain +5% Crit Chance against a target currently affected by Frost Pin's Dodge reduction.
+3. Volley Escalation — After an Arcane Volley hit Crits, each later hit in that same Volley gains +5% Crit Chance.
+4. Critical Sequence — Each Arcane Volley hit that Crits gives the remaining hits in that Volley +5% Critical Damage, stacking for that cast.
+5. Discharge Window — Grand Discharge gains +10% Crit Chance against a target affected by Frost Pin.
+6. Saturated Discharge — Grand Discharge retains Arcane Saturation's Critical Damage bonus for its full resolution even though it spends all Arcane Charge.
+7. Arcane Collapse — Grand Discharge used at 5 Arcane Charge against a Frost-Pinned target gains +15% final damage.
+
+WARDCRAFT DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Ward Feedback — The first time each Arcane Ward absorbs damage, gain 1 Arcane Charge.
+2. Protective Casting — Casting Arcane Ward on yourself grants +5% Crit Chance until your next turn.
+3. Cold Shelter — While an Arcane Ward remains on a combatant, Frost Pin used against an enemy grants that warded combatant +5% Dodge Chance until their next turn.
+4. Reinforced Ward — If Arcane Ward survives until the start of its target's next turn, increase its remaining Shield by 15% of its original Shield amount.
+5. Reactive Ward — When an Arcane Ward is completely broken by direct damage, reduce Frost Pin's remaining cooldown by 1 turn.
+6. Arcane Rebound — When a self-cast Arcane Ward is completely broken, your next Mage damaging ability before the end of your next turn deals +20% final damage.
+7. Ward of Saturation — At 5 Arcane Charge, Arcane Ward is 20% stronger and grants its target +5% Block Chance while the Shield remains.
+
+CHARGE CONTROL DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Charged State — At 3 or more Arcane Charge, Mage damaging abilities gain +5% Critical Damage.
+2. Full Circuit — When you first reach 5 Arcane Charge, your next Energy-costing Mage ability within 2 turns costs 1 less Energy, minimum 0.
+3. Excess Charge: Force — At 5 Arcane Charge, the first Arcane Charge you would gain from spending Energy each turn instead gives your next Mage damaging ability +5% final damage.
+4. Excess Charge: Precision — At 5 Arcane Charge, the first Arcane Charge you would gain from a Crit each turn instead gives your next Mage damaging ability +10% Critical Damage.
+5. Arcane Reserve — After Grand Discharge spends all 5 Arcane Charge, set Arcane Charge to 1.
+6. Recycled Charge — If Grand Discharge Crits, gain 1 additional Arcane Charge after it resolves.
+7. Perfect Circuit — At 5 Arcane Charge, the first two Arcane Charges you would gain each turn are stored as Arcane Echoes instead, up to 2. Each Arcane Echo gives the next Mage ability +5% final damage, healing, or Shield strength as applicable; all Echoes are consumed by that ability.
+
+MASTERY — 3 CP
+Mage Mastery — Arcane Continuity — At 5 Arcane Charge, excess Charge is never wasted: up to 2 excess Charge becomes Arcane Echoes. Each Echo gives your next Mage ability +5% final effect. Grand Discharge retains Arcane Saturation for its resolution and leaves you at 2 Arcane Charge afterward.
+
+========================================================================
+CLERIC
+Scaling: FTH / CHA
+Base resource/mechanic: Grace
+
+CORE — 10 × 1 CP
+1. Stronger Rebuke — Radiant Rebuke deals +8% final damage.
+2. Sterner Rebuke — Radiant Rebuke makes the target deal -7% damage instead of -5% until its next turn.
+3. Deeper Mend — Mend heals 10% more.
+4. Stronger Sanctuary — Sanctuary Mark creates a Shield 10% stronger.
+5. Safer Sanctuary — Sanctuary Mark reduces incoming damage by 12% instead of 10% until your next turn.
+6. Stronger Judgment — Gracebound Judgment deals +8% final damage.
+7. Kinder Judgment — Gracebound Judgment's triggered heal is 10% stronger.
+8. Greater Benediction — Benediction heals 10% more.
+9. Ready Grace — Start combat with 1 Grace.
+10. Graceful Presence+ — Graceful Presence grants +12% Outgoing Healing and +12% Cleric final damage instead of +10% each.
+
+MERCY DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Urgent Mend — Mend heals +10% more when the target is below 50% HP.
+2. Sanctified Recovery — A target protected by Sanctuary Mark gains +5% Incoming Healing while the Shield remains.
+3. Lowest First — Gracebound Judgment's triggered heal gains +15% final healing if its selected ally is below 40% HP.
+4. Clean Benediction — For each negative status Benediction successfully removes from an ally, that ally receives +5% final healing from that Benediction.
+5. Critical Mercy — When Mend Critically Heals, reduce Sanctuary Mark's remaining cooldown by 1 turn, once per turn.
+6. Sanctuary Afterglow — When Sanctuary Mark's Shield is completely broken, heal its target for 25% of the Shield's actual damage absorbed over its lifetime.
+7. Last Mercy — Once per combat, when a real ally falls below 25% HP, your next Mend on that ally before the end of your next turn costs 0 Energy and gains +25% final healing.
+
+JUDGMENT DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Rebuke the Guilty — Radiant Rebuke deals +10% final damage to a target that already has a debuff.
+2. Judged Mercy — Gracebound Judgment's triggered heal gains +10% Healing Crit Chance when the damaged enemy has a debuff.
+3. Repeat Rebuke — Hitting a target already affected by Radiant Rebuke's damage penalty refreshes that penalty to its full duration.
+4. Critical Judgment — When Gracebound Judgment Crits against a debuffed target, gain 1 additional Grace, once per turn.
+5. Weighted Judgment — Gracebound Judgment against a debuffed target also makes that target deal -5% final damage until the start of your next turn.
+6. Mercy Through Judgment — When Gracebound Judgment Crits, its triggered heal gains +20% Healing Crit Chance.
+7. Final Admonition — At 4 Grace, Gracebound Judgment against a debuffed target is Unblockable and gains +15% final damage.
+
+GRACE CONTROL DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Grace in Both Hands — If you gain Grace from restoration/protection and from a damaging Crit in the same turn, your next Cleric ability gains +5% final effect.
+2. Overflowing Mercy — At 4 Grace, the first Grace you would gain from healing or shielding each turn instead gives your next Cleric damaging ability +5% final damage.
+3. Overflowing Judgment — At 4 Grace, the first Grace you would gain from a damaging Crit each turn instead gives your next Cleric heal or Shield +5% final effect.
+4. Grace Through Benediction — Benediction retains Graceful Presence for its full resolution even though it spends all Grace.
+5. Grace Reserve — After Benediction spends 4 Grace, set Grace to 1.
+6. Returned Grace — If Benediction removes at least one negative status, gain 1 Grace after it resolves.
+7. Grace Without Waste — At 4 Grace, the first Grace you would otherwise waste each turn instead reduces the remaining cooldown of Mend or Sanctuary Mark by 1 turn.
+
+MASTERY — 3 CP
+Cleric Mastery — Balanced Grace — The first Cleric damaging ability each turn that hits a debuffed enemy empowers your next Cleric heal or Shield by +15%. The first Cleric heal or Shield each turn that affects an ally empowers your next Cleric damaging ability by +15%. The two empowerments are tracked and consumed separately.
+
+========================================================================
+RANGER
+Scaling: DEX / LCK
+Base resource/mechanic: Quarry + Quarry Marks
+
+CORE — 10 × 1 CP
+1. Sharper Shot — Hunter's Shot deals +8% final damage.
+2. Longer Sidestep — Sidestep grants +18% Dodge Chance instead of +15%.
+3. Steadier Aim — Sidestep's next attack gains +12% Crit Chance instead of +10%.
+4. Harder Hamstring — Hamstring Shot deals +8% final damage.
+5. Tighter Hamstring — Hamstring Shot reduces Dodge Chance by 12 percentage points instead of 10.
+6. Harder Pursuit — Relentless Pursuit deals +8% final damage.
+7. Relentless Scaling — Relentless Pursuit gains +6% final damage per Quarry Mark instead of +5%.
+8. Claim Training — Claim the Quarry deals +8% final damage.
+9. Claim Precision — Claim the Quarry gains +25% Crit Chance instead of +20%.
+10. First Blood — The first enemy you establish as Quarry each combat immediately gains 1 additional Quarry Mark.
+
+PURSUIT DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Marked Shot — Hunter's Shot deals +5% final damage per 2 Quarry Marks on the target.
+2. Track the Turn — When Quarry moves to a different enemy, retain 1 Quarry Mark instead of losing all Marks.
+3. Critical Pursuit — A Crit against your Quarry while it has at least 2 Marks gives your next Relentless Pursuit +10% final damage.
+4. Hunt Continues — When your Quarry is defeated, the next enemy you make Quarry starts with 1 additional Quarry Mark.
+5. Carry the Trail — When you intentionally move Quarry by hitting a different enemy, transfer up to 2 Quarry Marks to the new Quarry.
+6. Cornered Guard — Against a Quarry at 4 Marks, Ranger damaging abilities ignore 50% of that target's Block Chance.
+7. No Escape — Against a Quarry at 4 Marks, Relentless Pursuit is Unblockable and deals an additional +10% final damage.
+
+PRECISION DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Hamstrung Aim — Ranger damaging abilities gain +5% Crit Chance against a target affected by Hamstring Shot.
+2. Cornered Precision — Cornered Prey also grants +15% Critical Damage.
+3. Sidestep Shot — The attack empowered by Sidestep gains +10% Critical Damage.
+4. Perfect Pursuit — Relentless Pursuit gains +10% Crit Chance against a Quarry with 3 or more Marks.
+5. Claim the Window — Claim the Quarry retains Cornered Prey's Crit Chance and final-damage bonuses for its full resolution even though it spends all Marks.
+6. Deep Claim — Claim the Quarry gains +25% Critical Damage against a Quarry that was at 4 Marks when cast.
+7. Clean Kill — If Claim the Quarry defeats the Quarry, refund 1 Energy and reduce Claim the Quarry's remaining cooldown by 1 turn.
+
+SURVIVAL DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Countertrack — The first time each turn cycle you successfully Dodge a direct attack from your Quarry, gain 1 Quarry Mark.
+2. Evasive Hunter — After a successful Dodge, your next Hunter's Shot before the end of your next turn gains +10% Crit Chance.
+3. Hamstrung Footwork — While your Quarry is affected by Hamstring Shot, Sidestep grants an additional +5% Dodge Chance.
+4. Slip and Pursue — After a successful Dodge while Sidestep is active, your next Relentless Pursuit costs 1 less Energy.
+5. Punish the Miss — If your Quarry misses you or you Dodge its attack, your next Ranger damaging ability against it deals +15% final damage.
+6. Unseen Angle — After a successful Dodge while Sidestep is active, your next Ranger damaging ability ignores 75% of the target's Block Chance.
+7. Predator's Patience — If you take no HP damage between your turns, your next Ranger damaging ability against your Quarry deals +20% final damage.
+
+MASTERY — 3 CP
+Ranger Mastery — Endless Hunt — When your Quarry is defeated, bank up to 2 of its Quarry Marks; the next enemy you make Quarry begins with those banked Marks. At 4 Marks, the first Quarry Mark you would gain each turn instead gives your next Ranger attack +5% final damage. Claim the Quarry retains Cornered Prey for its full resolution.
+
+========================================================================
+BARD
+Scaling: CHA / FTH
+Base resource/mechanic: Resonance
+
+CORE — 10 × 1 CP
+1. Stronger Note — Resonant Note deals +8% final damage.
+2. Warmer Verse — Encouraging Verse heals 10% more.
+3. Bolder Verse — Encouraging Verse makes the ally deal +7% damage instead of +5% until their next turn.
+4. Harsher Chord — Dissonant Chord deals +8% final damage.
+5. Deeper Dissonance — Dissonant Chord makes the target deal -12% final damage instead of -10%.
+6. Louder Chorus — Echoing Chorus creates Shields 10% stronger.
+7. Stronger Crescendo — Crescendo's damage is 8% stronger.
+8. Kinder Crescendo — Crescendo's healing is 8% stronger.
+9. Ready Resonance — Start combat with 1 Resonance.
+10. Full Resonance+ — Full Resonance grants +12% Bard final damage, +12% Outgoing Healing, and +12% Bard Shield strength instead of +10% each.
+
+INSPIRATION DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Urgent Verse — Encouraging Verse heals +10% more when its target is below 50% HP.
+2. Lingering Encouragement — Encouraging Verse's +damage effect remains until the ally completes its next damaging action, even if that occurs after its next turn begins.
+3. Protected Chorus — Allies receiving a Shield from Echoing Chorus gain +5% damage dealt until their next turn.
+4. Verse Behind the Shield — Encouraging Verse heals +10% more if its target currently has a Shield.
+5. Applause for Defense — The first time an Echoing Chorus Shield completely prevents an ally from losing HP, that ally's next damaging ability gains +10% final damage.
+6. Crescendo of Mercy — Crescendo heals allies below 50% HP for an additional +15% final healing.
+7. Standing Ovation — After Crescendo resolves, all real allies gain +8% damage dealt and +8% Incoming Healing until their next turn.
+
+DISSONANCE DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Strike the Discord — Resonant Note deals +10% final damage to a debuffed target.
+2. Long Dissonance — Dissonant Chord's damage penalty lasts 3 turns instead of 2.
+3. Uneasy Rhythm — A target affected by Dissonant Chord also has -5% Crit Chance.
+4. Punishing Chord — The first time each turn cycle a target affected by your Dissonant Chord deals direct damage, gain 1 Resonance.
+5. Crescendo Against Discord — Crescendo deals +15% final damage to enemies affected by your Dissonant Chord.
+6. Echo the Dissonance — When Dissonant Chord hits an already-debuffed target, one other enemy receives -5% final damage until the start of your next turn.
+7. Broken Rhythm — If a target affected by Dissonant Chord misses an attack or that attack is Dodged, refresh Dissonant Chord's remaining duration to 2 turns and your next Bard damaging ability against it gains +15% final damage.
+
+RESONANCE CONTROL DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Two-Sided Song — If you gain Resonance from both the ally-facing trigger and enemy-facing trigger in the same turn, your next Bard ability gains +5% final effect.
+2. Overflowing Verse — At 4 Resonance, the first Resonance you would gain from healing or shielding each turn instead gives your next Bard damaging ability +5% final damage.
+3. Overflowing Chord — At 4 Resonance, the first Resonance you would gain from damaging or debuffing each turn instead gives your next Bard heal or Shield +5% final effect.
+4. Full Crescendo — Crescendo retains Full Resonance for its entire resolution even though it spends all Resonance.
+5. Resonant Reserve — After Crescendo spends 4 Resonance, set Resonance to 1.
+6. Perfect Timing — At 4 Resonance, the first Bard ability each turn that affects both enemies and allies costs 1 less Energy.
+7. Never Waste a Note — At 4 Resonance, the first Resonance you would otherwise waste each turn instead reduces the remaining cooldown of Encouraging Verse, Dissonant Chord, or Echoing Chorus by 1 turn.
+
+MASTERY — 3 CP
+Bard Mastery — Call and Response — The first enemy-affecting Bard ability each turn empowers your next ally-affecting Bard heal or Shield by +12%. The first ally-affecting Bard heal or Shield each turn empowers your next enemy-affecting Bard damaging ability by +12%. If both empowerments are consumed in the same turn, gain 1 Resonance after the second resolves.
+
+========================================================================
+SORCERER
+Scaling: CHA / INT
+Base resource/mechanic: Redline
+
+CORE — 10 × 1 CP
+1. Stronger Bolt — Innate Bolt deals +8% final damage.
+2. Harder Pulse — Force Pulse deals +8% final damage.
+3. Deeper Pulse — Force Pulse reduces Block Chance by 12 percentage points instead of 10.
+4. Stronger Wild Guard — Wild Guard creates a Shield 10% stronger.
+5. Sharper Wild Guard — While Wild Guard remains, it grants +12% Crit Chance instead of +10%.
+6. Stronger Burst — Unbound Burst deals +8% final damage.
+7. Hotter Burst — Unbound Burst gains +6% final damage per Redline instead of +5%.
+8. Cross Training — Cross the Redline deals +8% final damage.
+9. Ready Redline — Start combat with 1 Redline.
+10. Beyond Safe Limits+ — Beyond Safe Limits grants +12% Sorcerer Crit Chance instead of +10%.
+
+FORCE DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Charged Innate — Innate Bolt gains +5% Crit Chance while you have at least 3 Redline.
+2. Pulse the Opening — Force Pulse deals +10% final damage to a target already affected by its Block Chance reduction.
+3. Burst at the Edge — At 4 Redline, Unbound Burst gains +10% Crit Chance.
+4. Deeper Crossing — Cross the Redline gains +35% Critical Damage instead of +25%.
+5. Critical Burst — When Unbound Burst Crits at 3 or more Redline, your next Innate Bolt before the end of your next turn deals +20% final damage.
+6. Unsafe Precision — At 4 Redline, Sorcerer damaging abilities ignore 50% of the target's Block Chance.
+7. Wild Detonation — Cross the Redline against a target affected by Force Pulse's Block reduction gains +15% final damage and is Unblockable.
+
+WILD GUARD DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Guard the Spark — While Wild Guard remains, gain +5 percentage points Blocked Damage Reduction.
+2. Guarded Pulse — Casting Force Pulse while Wild Guard remains increases Wild Guard's remaining Shield by 10% of its original amount, once per Wild Guard.
+3. Shielded Redline — The first time each Wild Guard absorbs damage, gain 1 Redline.
+4. Unstable Shield — Casting Wild Guard at 4 Redline makes its Shield 20% stronger.
+5. Guard Breakout — When Wild Guard is completely broken, your next Sorcerer damaging ability before the end of your next turn deals +15% final damage.
+6. Containment Release — When Wild Guard is completely broken, your next Energy-costing Sorcerer ability before the end of your next turn costs 1 less Energy.
+7. Violent Containment — If Wild Guard is broken while you are at 4 Redline, your next Sorcerer damaging ability gains +20% final damage and +15% Critical Damage.
+
+REDLINE CONTROL DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Edge Power — At 3 or more Redline, Sorcerer damaging abilities gain +5% Critical Damage.
+2. Reach the Edge — When you first reach 4 Redline, gain +5% final damage until the end of your next turn.
+3. Excess Heat — At 4 Redline, the first Redline you would gain from spending Energy each turn instead gives your next Sorcerer ability +5% final effect.
+4. Excess Spark — At 4 Redline, the first Redline you would gain from a damaging Crit each turn instead gives your next Sorcerer damaging ability +10% Critical Damage.
+5. Redline Reserve — After Cross the Redline spends all 4 Redline, set Redline to 1.
+6. Pay for Power — The first time each turn you pay Beyond Safe Limits' extra +1 Energy, that ability gains +15% final effect.
+7. Ride the Line — Beyond Safe Limits' +1 Energy cost applies only to the first Energy-costing Sorcerer ability you use each turn while at 4 Redline.
+
+MASTERY — 3 CP
+Sorcerer Mastery — Beyond the Redline — While at 4 Redline, every ability that actually pays Beyond Safe Limits' extra +1 Energy gains +10% final effect; damaging abilities also gain +15% Critical Damage. After Cross the Redline spends all 4 Redline, set Redline to 2.
+
+========================================================================
+WARLOCK
+Scaling: CHA / FTH
+Base resource/mechanic: Covenant Marks
+
+CORE — 10 × 1 CP
+1. Stronger Pactbolt — Pactbolt deals +8% final damage.
+2. Sharper Leech — Leeching Word deals +8% final damage.
+3. Deeper Leech — Leeching Word heals for 25% of actual HP removed instead of 20%.
+4. Stronger Clause — Binding Clause deals +8% final damage.
+5. Harsher Clause — Binding Clause makes the target deal -12% final damage instead of -10%.
+6. Greater Shared Debt — Shared Debt's Shield and heal are each 10% stronger.
+7. Stronger Collection — Collect the Debt deals +8% final damage.
+8. Kinder Collection — Collect the Debt heals the lowest-% HP real ally for 40% of actual HP removed instead of 35%.
+9. Ready Covenant — Start combat with 1 Covenant Mark.
+10. Covenant Fulfilled+ — Covenant Fulfilled grants +12% Warlock Dark damage and +12% Outgoing Healing instead of +10% each.
+
+CURSE DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Longer Clause — Binding Clause's damage penalty lasts 3 turns instead of 2.
+2. Pact Against the Bound — Pactbolt deals +10% final damage to a debuffed target.
+3. Layered Curse — Applying or refreshing a negative status on an already-debuffed enemy gives your next Warlock damaging ability +5% Crit Chance.
+4. Binding Weakness — Binding Clause also reduces the target's Outgoing Healing by 10% for its duration.
+5. Collect the Cursed — Collect the Debt gains an additional +10% final damage against a target with at least 2 negative statuses.
+6. Expired Terms — When your Binding Clause expires naturally, gain 1 Covenant Mark, once per target per cast.
+7. Fine Print — Casting Binding Clause on a target already affected by your Binding Clause also reduces its Block Chance and Dodge Chance by 10 percentage points for 2 turns.
+
+DRAIN DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Leech the Cursed — Leeching Word's self-healing is 20% stronger against a debuffed target.
+2. Deep Drain — Leeching Word heals for an additional 5 percentage points of actual HP removed.
+3. Shared Recovery — If Shared Debt's Shield and heal are applied to the same ally, both effects are 10% stronger.
+4. Debt Overflow — When Leeching Word would heal you beyond Maximum HP, 30% of the excess healing becomes a Shield.
+5. Desperate Collection — Collect the Debt's ally-heal is 20% stronger if the selected ally is below 30% HP.
+6. Debt Returned — If an ally protected or healed by Shared Debt takes HP damage before your next turn, your next Leeching Word before the end of your next turn deals +20% final damage.
+7. Blood in the Contract — At 4 Covenant Marks, the first Leeching Word each turn that restores actual HP also creates a Shield on you equal to 50% of the actual HP restored.
+
+COVENANT CONTROL DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Two-Part Contract — If you gain a Covenant Mark from both a negative-status trigger and an actual-healing trigger in the same turn, gain +5% Dark damage and +5% Outgoing Healing until your next turn.
+2. Overflowing Curse — At 4 Covenant Marks, the first Mark you would gain from applying or refreshing a negative status each turn instead gives your next Warlock heal +5% final healing.
+3. Overflowing Life — At 4 Covenant Marks, the first Mark you would gain from actual healing each turn instead gives your next Warlock damaging ability +5% final damage.
+4. Fulfilled Collection — Collect the Debt retains Covenant Fulfilled for its full resolution even though it spends all Marks.
+5. Covenant Reserve — After Collect the Debt spends 4 Covenant Marks, set Covenant Marks to 1.
+6. Rewritten Terms — At 4 Covenant Marks, the first Mark you would otherwise waste each turn instead reduces the remaining cooldown of Leeching Word or Binding Clause by 1 turn.
+7. Cheap Fulfillment — At 4 Covenant Marks, the first Warlock ability each turn that would normally generate a Covenant Mark costs 1 less Energy, minimum 0.
+
+MASTERY — 3 CP
+Warlock Mastery — The Contract Continues — Covenant Fulfilled remains active until the end of the current turn after Covenant Marks are spent. Collect the Debt returns 2 Covenant Marks after resolving. Once per turn, gaining Marks from both Covenant triggers reduces Collect the Debt's remaining cooldown by 1 turn.
+
+========================================================================
+PALADIN
+Scaling: STR / FTH
+Base resource/mechanic: Conviction
+
+CORE — 10 × 1 CP
+1. Stronger Consecration — Consecrated Strike deals +8% final damage.
+2. Stronger Prayer — Guarding Prayer creates a Shield 10% stronger.
+3. Harder Righteous Blow — Righteous Blow deals +8% final damage.
+4. Righteous Answer — Righteous Blow deals +20% final damage instead of +15% when its target damaged an ally since your previous turn.
+5. Deeper Lay on Hands — Lay on Hands heals 10% more.
+6. Urgent Hands — Lay on Hands gains +25% final healing instead of +20% when its target is below 40% HP.
+7. Answering Strike — Conviction's Answer deals +8% final damage.
+8. Answering Mercy — Conviction's Answer's ally-heal is 10% stronger.
+9. Ready Conviction — Start combat with 1 Conviction.
+10. Steadfast Conviction+ — Steadfast Conviction grants +12% Paladin final damage, +12% Paladin Shield strength, and +12% Outgoing Healing instead of +10% each.
+
+PROTECTION DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Protected Prayer — A target with your Guarding Prayer Shield gains +5 percentage points Blocked Damage Reduction while that Shield remains.
+2. Prayer into Mercy — After a Guarding Prayer Shield absorbs damage, your next Lay on Hands before the end of your next turn gains +10% final healing.
+3. Hands of Defense — Lay on Hands gives its target +10% Block Chance until their next turn.
+4. Broken Prayer — When a Guarding Prayer Shield is completely broken by direct enemy damage, gain 1 additional Conviction. Once per Guarding Prayer cast.
+5. Merciful Barrier — When Lay on Hands restores actual HP to a target below 40% HP, also grant a Shield equal to 25% of the actual HP restored.
+6. Stand Behind Me — The first time each turn an ally with your Guarding Prayer Shield loses HP to direct damage, gain +15% Aggro until your next turn and gain 1 Conviction.
+7. Unbroken Prayer — The first time a Guarding Prayer Shield completely prevents an attack from removing HP, restore that Shield by 30% of its original amount. Once per cast.
+
+RETRIBUTION DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Remember the Harm — Righteous Blow gains +5% Crit Chance when its conditional bonus is active.
+2. Consecrated Retort — Consecrated Strike deals +10% final damage to an enemy that damaged an ally since your previous turn.
+3. Punishing Blow — Righteous Blow with its conditional bonus also makes the target deal -5% final damage until the start of your next turn.
+4. Blocked Retort — After you successfully Block direct damage, your next Consecrated Strike or Righteous Blow before the end of your next turn deals +15% final damage.
+5. Convicted Retaliation — When Righteous Blow Crits while its conditional bonus is active, gain 1 additional Conviction, once per turn.
+6. Answered Harm — Once per turn cycle, when a real ally is reduced below 50% HP by an enemy, your next Righteous Blow against that enemy before the end of your next turn gains +25% final damage and is Unblockable.
+7. Judgment in Motion — Conviction's Answer deals +5% final damage per real ally currently below 75% HP, up to +15%.
+
+CONVICTION CONTROL DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Two Sources, One Purpose — If you gain Conviction from both the damage trigger and protection trigger in the same turn cycle, your next Paladin ability gains +5% final effect.
+2. Overflowing Strike — At 5 Conviction, the first Conviction you would gain from dealing damage each turn instead gives your next Paladin heal or Shield +5% final effect.
+3. Overflowing Guard — At 5 Conviction, the first Conviction you would gain from Block or Shield absorption each turn cycle instead gives your next Paladin damaging ability +5% final damage.
+4. Steadfast Answer — Conviction's Answer retains Steadfast Conviction for its full resolution even though it spends all Conviction.
+5. Conviction Reserve — After Conviction's Answer spends all 5 Conviction, set Conviction to 1.
+6. Answered Conviction — If Conviction's Answer both removes enemy HP and restores actual ally HP, gain 1 Conviction after it resolves.
+7. Conviction Without Waste — At 5 Conviction, the first Conviction you would otherwise waste each turn cycle instead reduces the remaining cooldown of Guarding Prayer, Righteous Blow, or Lay on Hands by 1 turn.
+
+MASTERY — 3 CP
+Paladin Mastery — Steadfast Answer — Steadfast Conviction also grants +10 percentage points Blocked Damage Reduction. Conviction's Answer keeps all Steadfast Conviction bonuses for its full damage-and-healing resolution, then sets Conviction to 2.
+
+========================================================================
+DRUID
+Scaling: CON / FTH / INT
+Base resource/mechanic: Form + Cycle
+
+CORE — 10 × 1 CP
+1. Sharper Thorn — Thornlash deals +8% final damage.
+2. Richer Sap — Mending Sap heals 10% more.
+3. Thicker Grove — Groveguard creates a Shield 10% stronger.
+4. Confluence: Fang — Confluence's damage portion is 8% stronger.
+5. Confluence: Bloom — Confluence's heal portion is 8% stronger.
+6. Confluence: Grove — Confluence's Shield portion is 8% stronger.
+7. Stronger Fang Form — Fang Form grants +12% Druid final damage instead of +10%.
+8. Stronger Grove Form — Grove Form grants +12% Druid Shield strength and +6% Block Chance instead of +10% and +5%.
+9. Stronger Bloom Form — Bloom Form grants +14% Outgoing Healing instead of +12%.
+10. Deeper Completion — Complete Fang grants +17% final damage; Complete Grove grants +17% Shield strength and +9% Block Chance; Complete Bloom grants +20% Outgoing Healing.
+
+FANG DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Predatory Thorn — Thornlash gains +5% Crit Chance while in Fang Form.
+2. Fang Momentum — At 2 or more Cycle in Fang Form, Druid damaging abilities deal +5% final damage.
+3. Completed Strike — While Fang Form is Complete, Thornlash gains +10% Critical Damage.
+4. Carry the Fang — After leaving Complete Fang Form with Turn the Cycle, retain +5% Druid final damage until the end of your next turn.
+5. Fanged Confluence — While Fang Form is Complete, Confluence's damage portion gains an additional +10% final damage.
+6. Cycle Through Blood — The first damaging Crit each turn while in Fang Form grants 1 additional Cycle, provided Fang Form is not already Complete.
+7. Perfect Fang — While Fang Form is Complete, the first Druid damaging ability each turn gains +10% Crit Chance and ignores 50% of the target's Block Chance.
+
+GROVE DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Rooted Groveguard — Groveguard is 10% stronger while in Grove Form.
+2. Grove Momentum — At 2 or more Cycle in Grove Form, Druid Shields are 5% stronger.
+3. Damage into Roots — The first time each turn a Shield you created absorbs damage while you are in Grove Form, gain 1 additional Cycle, provided Grove Form is not already Complete.
+4. Carry the Grove — After leaving Complete Grove Form with Turn the Cycle, retain +5% Block Chance until the end of your next turn.
+5. Grove Confluence — While Grove Form is Complete, Confluence's Shield portion is an additional 10% stronger.
+6. Deep Roots — While Grove Form is Complete, gain +5 percentage points Blocked Damage Reduction.
+7. Perfect Grove — While Grove Form is Complete, the first direct hit against you each turn deals -10% final damage after Dodge and Block are resolved.
+
+BLOOM DISCIPLINE — costs 1 / 1 / 1 / 2 / 2 / 2 / 3 CP
+1. Living Sap — Mending Sap is 10% stronger while in Bloom Form.
+2. Bloom Momentum — At 2 or more Cycle in Bloom Form, Druid healing gains +5% final healing.
+3. Urgent Bloom — The first time each turn Mending Sap restores actual HP to an ally below 50% HP while in Bloom Form, gain 1 additional Cycle, provided Bloom Form is not already Complete.
+4. Carry the Bloom — After leaving Complete Bloom Form with Turn the Cycle, your next Druid heal before the end of your next turn gains +10% final healing.
+5. Bloom Confluence — While Bloom Form is Complete, Confluence's heal portion gains an additional +10% final healing.
+6. Overflowing Sap — When Mending Sap would heal beyond Maximum HP while Bloom Form is Complete, 30% of the excess healing becomes a Shield on that ally.
+7. Perfect Bloom — While Bloom Form is Complete, the first Druid heal each turn gains +15% Healing Crit Chance; if it Critically Heals, refund 1 Energy, once per turn.
+
+MASTERY — 3 CP
+Druid Mastery — Living Cycle — When you leave a Complete Form with Turn the Cycle, the new Form starts at 1 Cycle instead of 0. After Confluence consumes 3 Cycle, your next Turn the Cycle before the end of your next turn makes the new Form start at 2 Cycle.

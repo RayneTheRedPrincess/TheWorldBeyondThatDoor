@@ -1,0 +1,25 @@
+{
+  "version": "I9-2026-08-08",
+  "baseMaxHp": 10,
+  "hpPerCon": 2,
+  "hpPerLevelAfterFirst": 3,
+  "statPointsPerLevel": 3,
+  "chroniclePerOnyxDivisor": 25,
+  "chronicleUsesRawEnemyOnyxBeforeAdventurerPenalty": true,
+  "tavernAdventurerOnyxMultipliers": {"0": 1, "1": 0.4, "2": 0.2, "3": 0.1},
+  "totalExpThresholds": {
+    "1": 0,
+    "2": 120,
+    "3": 300,
+    "4": 560,
+    "5": 900,
+    "6": 1320,
+    "7": 1820,
+    "8": 2400,
+    "9": 3060,
+    "10": 3800,
+    "11": 4620,
+    "12": 5520
+  },
+  "designNote": "I9 clean Forest pacing curve chosen to keep a solo successful run competitive for the Depth-30 boss while parties facing more enemies may level somewhat faster."
+}

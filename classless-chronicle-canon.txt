@@ -1,0 +1,134 @@
+THAT WORLD BEYOND THE DOOR (TWBTD)
+C — CLASSLESS CHRONICLE
+Status: APPROVED / CANONICAL
+Approved: 2026-08-07
+
+======================================================================
+IDENTITY
+======================================================================
+
+Classless comes from the 6-slot Kept Impression KI-182.
+Its Chronicle is intentionally NOT a normal class Chronicle tree.
+
+Classless Chronicle grants NO generic combat/stat power.
+It has:
+- no damage bonuses
+- no healing bonuses
+- no defense bonuses
+- no Energy bonuses
+- no Crit bonuses
+- no cooldown bonuses
+- no branching tree
+- no Chronicle Mastery
+- no hidden benefits
+
+Its permanent progression exists only to unlock the exact cross-class freedoms below.
+
+======================================================================
+PROGRESSION
+======================================================================
+
+Classless Chronicle Rank cap: 12
+Classless Chronicle Progress required per Rank: 50
+Total Progress to complete: 600
+
+Classless has no separate Chronicle Point spending tree.
+Unlocks occur automatically at the listed Chronicle Ranks.
+
+Rank 0 — KI-182 baseline
+- exactly 2 Base Ability selection slots
+
+Rank 1
+- no additional benefit
+
+Rank 2
+- unlock the 3rd Base Ability selection slot
+
+Rank 3
+- no additional benefit
+
+Rank 4
+- unlock Resource Imprint
+
+Rank 5
+- no additional benefit
+
+Rank 6
+- unlock the 4th Base Ability selection slot
+
+Rank 7
+- no additional benefit
+
+Rank 8
+- unlock the 1st Subclass Ability selection slot
+
+Rank 9
+- no additional benefit
+
+Rank 10
+- unlock the 5th Base Ability selection slot
+
+Rank 11
+- no additional benefit
+
+Rank 12
+- unlock the 2nd Subclass Ability selection slot
+
+FINAL CLASSLESS CAPACITY AT RANK 12:
+- exactly 5 Base Ability selections
+- exactly 2 Subclass Ability selections
+- exactly 1 Resource Imprint
+- nothing else from Classless Chronicle
+
+======================================================================
+SELECTED ABILITY RULES
+======================================================================
+
+Every selected ability retains its original approved:
+- Character Level unlock requirement
+- Energy cost
+- cooldown
+- targeting
+- damage type
+- weapon requirement
+- stat scaling
+- statuses
+- printed mechanics
+
+Chronicle Rank never causes a selected ability to bypass its normal Character Level unlock.
+Classless does not grant the normal class/subclass/passive behavior associated with the source of a selected ability except for the minimum resource handling already required by Classless canon to resolve that selected ability.
+
+======================================================================
+RESOURCE IMPRINT
+======================================================================
+
+At Classless Chronicle Rank 4, Resource Imprint allows exactly ONE chosen actual approved base-class or subclass resource system from an unlocked source.
+
+The Resource Imprint choice:
+- is separate from all ability selection slots
+- does not grant the source class passive
+- does not grant the source subclass passive
+- does not grant unrelated source abilities
+- does not grant Kept Impressions
+- does not grant unrelated source mechanics
+- does not grant additional Chronicle bonuses
+
+Resource Imprint grants only the chosen resource system's actual approved tracking, cap/state, generation, spending, decay/reset rules as needed for that resource to function.
+
+If a resource is canonically one linked/composite system, the linked system counts as ONE Resource Imprint. Examples include Quarry + Marks and Form + Cycle.
+
+Do not invent a new resource for a class/subclass that does not actually possess one.
+
+======================================================================
+CONFIGURATION
+======================================================================
+
+Classless ability selections and Resource Imprint are configured at the Tavern outside an active campaign.
+They are locked during an active campaign.
+
+======================================================================
+SUPERSESSION
+======================================================================
+
+This file supersedes the rejected Classless Chronicle Proposal V1 structure that contained Foundations, Borrowed Arsenal, Resource Imprint enhancement nodes, Synthesis, Improvisation, and No Single Teacher Mastery.
+None of those rejected bonus nodes/mechanics are canon.
