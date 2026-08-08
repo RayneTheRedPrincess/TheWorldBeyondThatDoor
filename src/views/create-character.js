@@ -4,9 +4,9 @@ import { CORE_STATS, BASE_STARTING_STAT_POINTS } from '../starting-stats.js';
 function statAllocator({ values = {}, prefix = 'stat_' } = {}) {
   return `<div class="stat-allocation-grid">${CORE_STATS.map(stat => `<div class="stat-allocator-row">
     <strong>${stat}</strong>
-    <button type="button" class="stat-step" data-stat-step="-1" data-stat="${stat}" aria-label="Remove one ${stat}">−</button>
+    <button type="button" class="stat-step" data-action="stat-step" data-stat-step="-1" data-stat="${stat}" aria-label="Remove one ${stat}">−</button>
     <input class="stat-input" type="number" name="${prefix}${stat}" data-stat-input="${stat}" min="0" step="1" value="${Number(values[stat] || 0)}" inputmode="numeric" />
-    <button type="button" class="stat-step" data-stat-step="1" data-stat="${stat}" aria-label="Add one ${stat}">+</button>
+    <button type="button" class="stat-step" data-action="stat-step" data-stat-step="1" data-stat="${stat}" aria-label="Add one ${stat}">+</button>
   </div>`).join('')}</div>`;
 }
 

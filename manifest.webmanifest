@@ -1,10 +1,10 @@
 {
-  "name": "That World Beyond the Door",
+  "name": "The World Beyond the Door",
   "short_name": "TWBTD",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#0b0a08",
   "theme_color": "#17130f",
-  "description": "That World Beyond the Door"
+  "description": "The World Beyond the Door"
 }

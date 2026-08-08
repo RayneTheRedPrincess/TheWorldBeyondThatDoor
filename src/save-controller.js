@@ -22,7 +22,7 @@ function normalizeStats(value) {
   return Object.fromEntries(CORE_STATS.map(stat => [stat, Math.max(0, Math.trunc(finite(source[stat], 0)))]));
 }
 
-const EXPEDITION_STATES = new Set(['choosing-event','combat-pending','noncombat-pending','campsite','awaiting-next-step','region-boundary','awaiting-next-region']);
+const EXPEDITION_STATES = new Set(['choosing-event','combat-pending','noncombat-pending','event-result','campsite','awaiting-next-step','region-boundary','awaiting-next-region']);
 const SETTLEMENT_OUTCOMES = new Set(['victory','defeat','return']);
 
 function normalizePerformanceResult(value) {
@@ -106,7 +106,8 @@ export function normalizeAccountSave(value) {
       races: stringList(unlocks.races),
       subclasses: stringList(unlocks.subclasses),
       keptImpressions: stringList(unlocks.keptImpressions),
-      tavernAdventurers: stringList(unlocks.tavernAdventurers)
+      tavernAdventurers: stringList(unlocks.tavernAdventurers),
+      mantleBaseClasses: stringList(unlocks.mantleBaseClasses)
     },
     progressionFeatures: {
       ...features,
@@ -325,7 +326,7 @@ export function createFreshAccount() {
     createdAt: now,
     updatedAt: now,
     activeSlot: null,
-    unlocks: { races: [], subclasses: [], keptImpressions: [], tavernAdventurers: [] },
+    unlocks: { races: [], subclasses: [], keptImpressions: [], tavernAdventurers: [], mantleBaseClasses: [] },
     progressionFeatures: { mantle: false, chronicle: false },
     chronicle: { families: {}, classless: { rank: 0, progress: 0 } },
     currencies: { onyx: 0 },

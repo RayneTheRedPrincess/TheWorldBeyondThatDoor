@@ -72,11 +72,11 @@ export function createEventCards({ runId, region, depth, rng = Math.random, fore
   return createLegacyEventCards({ runId, region, depth, rng });
 }
 
-export function createForestExpedition({ runId, regionsData, forestEvents = null, forestTrainers = null, partyBaseClasses = [], unlockedSubclasses = [], forcedTrainerIds = [], firstForestRun = false, rng = Math.random } = {}) {
+export function createForestExpedition({ runId, regionsData, forestEvents = null, forestTrainers = null, activeVesselBaseClass = null, partyBaseClasses = [], unlockedSubclasses = [], forcedTrainerIds = [], firstForestRun = false, rng = Math.random } = {}) {
   const region = getRegion(regionsData, FOREST_ID);
   if (!region) throw new Error('Forest region definition is missing.');
   const depth = 1;
-  const trainerPlan = forestTrainers?.entries ? planForestTrainerRoster({ forestTrainers, partyBaseClasses, unlockedSubclasses, forcedTrainerIds, rng }) : null;
+  const trainerPlan = forestTrainers?.entries ? planForestTrainerRoster({ forestTrainers, activeVesselBaseClass, partyBaseClasses, unlockedSubclasses, forcedTrainerIds, rng }) : null;
   const expedition = {
     regionId: region.id,
     regionName: region.name,
@@ -188,6 +188,11 @@ export function resolveNoncombatWithoutCheckmark(slot, { note = null, details = 
   return { ok: true, slot: next };
 }
 
+export function continueAfterForestEventResult(slot){
+  const run=activeRun(slot);if(!run)return{ok:false,error:'No active campaign.'};if(run.expedition?.state!=='event-result'||!run.expedition?.pendingPostEventCombat)return{ok:false,error:'No Forest event result is awaiting combat.'};
+  const next=clone(slot),ex=next.campaign.state.expedition;ex.encounter=clone(ex.pendingPostEventCombat);ex.pendingPostEventCombat=null;ex.state='combat-pending';return{ok:true,slot:next,encounter:clone(ex.encounter)};
+}
+
 export function attachSpecialCombat(slot, { boss = false, miniboss = false, rng = Math.random } = {}) {
   const run = activeRun(slot);
   if (!run) return { ok: false, error: 'No active campaign.' };
@@ -199,6 +204,26 @@ export function attachSpecialCombat(slot, { boss = false, miniboss = false, rng 
   nextRun.expedition.encounter = makeEncounter(nextRun, null, { source, kind: 'combat', boss, miniboss, rng });
   nextRun.expedition.state = 'combat-pending';
   return { ok: true, slot: next, encounter: clone(nextRun.expedition.encounter) };
+}
+
+export const EXHAUSTION_RULES = Object.freeze({ Relaxed:{cap:3,removeAtCampsite:3}, Normal:{cap:3,removeAtCampsite:2}, Hard:{cap:3,removeAtCampsite:2}, Mean:{cap:5,removeAtCampsite:1} });
+function exhaustionRule(difficulty){return EXHAUSTION_RULES[difficulty]||EXHAUSTION_RULES.Normal;}
+function postBattlePartyRecovery(run, combat){
+  const recovered=[]; if(!combat)return recovered; const cap=exhaustionRule(run.configuration?.difficulty||'Normal').cap;
+  for(const actor of combat.actors||[]){
+    if(actor.side!=='party'||!actor.real)continue;
+    const state=actor.id==='vessel'?run.character:run.adventurers?.[actor.id]; if(!state)continue;
+    const maxHp=Math.max(1,Number(actor.resources?.maxHp||1)); const defeated=Number(actor.resources?.hp||0)<=0;
+    state.currentHp=defeated?Math.max(1,Math.round(maxHp*.10)):Math.max(0,Number(actor.resources?.hp||0));
+    state.exhaustion=Math.min(cap,Math.max(0,Math.trunc(Number(state.exhaustion||0)))+(defeated?1:0));
+    if(defeated)recovered.push({id:actor.id,hp:state.currentHp,maxHp,exhaustionAdded:1});
+  }
+  return recovered;
+}
+function removeCampsiteExhaustion(run){
+  const remove=exhaustionRule(run.configuration?.difficulty||'Normal').removeAtCampsite; const changed=[];
+  for(const [id,state] of [['vessel',run.character],...Object.entries(run.adventurers||{})]){if(!state)continue;const before=Math.max(0,Math.trunc(Number(state.exhaustion||0)));state.exhaustion=Math.max(0,before-remove);if(before!==state.exhaustion)changed.push({id,before,after:state.exhaustion,removed:before-state.exhaustion});}
+  return {remove,changed};
 }
 
 export function resolveCombatVictory(slot, { now = new Date().toISOString() } = {}) {
@@ -214,13 +239,7 @@ export function resolveCombatVictory(slot, { now = new Date().toISOString() } = 
     if (nextRun.combat.state !== 'complete' || nextRun.combat.outcome !== 'victory') return { ok: false, error: 'The attached combat must reach victory before the expedition can resolve it.' };
   }
   keptVictoryRecovery(nextRun, nextRun.combat);
-  if (nextRun.combat) {
-    for (const actor of nextRun.combat.actors || []) {
-      if (actor.side !== 'party' || !actor.real) continue;
-      if (actor.id === 'vessel') nextRun.character.currentHp = Math.max(0, Number(actor.resources?.hp || 0));
-      else if (nextRun.adventurers?.[actor.id]) nextRun.adventurers[actor.id].currentHp = Math.max(0, Number(actor.resources?.hp || 0));
-    }
-  }
+  const defeatRecovery = postBattlePartyRecovery(nextRun, nextRun.combat);
   let forestClearedNow = false;
   let completionReward = null;
   if (resolved.boss && nextRun.expedition?.regionId === FOREST_ID) {
@@ -253,7 +272,8 @@ export function resolveCombatVictory(slot, { now = new Date().toISOString() } = 
     enteredAt: now,
     sourceEncounterId: resolved.id,
     sourceBoss: Boolean(resolved.boss),
-    sourceMiniboss: Boolean(resolved.miniboss)
+    sourceMiniboss: Boolean(resolved.miniboss),
+    defeatRecovery: clone(defeatRecovery)
   };
   nextRun.expedition.state = 'campsite';
   return { ok: true, slot: next, campsite: clone(nextRun.expedition.campsite), forestClearedNow, completionReward: completionReward ? clone(completionReward) : null };
@@ -289,7 +309,8 @@ export function leaveCampsite(slot, { regionsData, forestEvents = null, forestTr
   if (run.expedition?.state !== 'campsite' || !run.expedition.campsite?.required) return { ok: false, error: 'No mandatory campsite is active.' };
   const next = clone(slot);
   const nextRun = next.campaign.state;
-  nextRun.expedition.campsite = { ...nextRun.expedition.campsite, required: false, leftAt: now };
+  const exhaustionRecovery = removeCampsiteExhaustion(nextRun);
+  nextRun.expedition.campsite = { ...nextRun.expedition.campsite, required: false, leftAt: now, exhaustionRecovery };
   return advanceDepth(next, { regionsData, forestEvents, forestTrainers, rng });
 }
 

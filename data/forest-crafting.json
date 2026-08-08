@@ -3072,11 +3072,11 @@
       },
       "ingredients": [
         {
-          "materialId": "sunscar-antler",
+          "materialId": "needlefang",
           "quantity": 1
         },
         {
-          "materialId": "soft-spore-sack",
+          "materialId": "sunscar-antler",
           "quantity": 1
         }
       ],

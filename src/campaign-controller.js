@@ -95,7 +95,7 @@ export function startCampaign(slot, { account = null, chronicleTrees = null, reg
       chronicleAllocationSnapshot: chronicleTrees ? snapshotChronicleAllocation(account, chronicleTrees, chronicleFamily) : null
     },
     expedition: createForestExpedition({
-      runId: runId, regionsData, forestEvents, forestTrainers,
+      runId: runId, regionsData, forestEvents, forestTrainers, activeVesselBaseClass: baseClass,
       partyBaseClasses: [...(classless ? [] : [baseClass]), ...selectedAdventurers.map(entry => entry.baseClass)].filter(Boolean),
       unlockedSubclasses: account?.unlocks?.subclasses || [],
       forcedTrainerIds: forcedTrainerIdsForActiveQuest(next),
@@ -123,6 +123,13 @@ export function startCampaign(slot, { account = null, chronicleTrees = null, reg
       chronicleProgress: 0
     }
   };
+  // Shared campaign inventory owns every equipped party item instance, while each character keeps an isolated loadout.
+  for (const adventurer of Object.values(run.adventurers || {})) {
+    for (const itemId of Object.values(adventurer.equipment || {}).filter(Boolean)) {
+      const cur = run.inventory.equipment[itemId] || { quantity: 0, source: 'party-starter' };
+      cur.quantity = Number(cur.quantity || 0) + 1; cur.source = cur.source || 'party-starter'; run.inventory.equipment[itemId] = cur;
+    }
+  }
   next.campaign = { active: true, state: run, settlement: null, lastCompletedAt: next.campaign?.lastCompletedAt || null };
   return { ok: true, slot: next, run };
 }
@@ -340,7 +347,7 @@ export function applyCampaignSettlement(slot, account, { tavernServices = null }
     const perf=settlement.performance||{}; nextAccount.records.notableCombat=nextAccount.records.notableCombat||{};
     for(const [key,val] of Object.entries(perf)){const old=nextAccount.records.notableCombat[key];if(!old||Number(val?.value||0)>Number(old?.value||0))nextAccount.records.notableCombat[key]=clone(val);}
     const rec=awardRecruitments(nextAccount,accomplishments,tavernServices||{tavernAdventurerRecruitment:{remaining:[]}}); nextAccount=rec.account; nextAccount.history.lastRecruitmentUnlocks=rec.newIds;
-    if((settlement.outcome==='victory'||settlement.outcome==='return')&&accomplishments.forestCleared){nextAccount=setProgressionFeature(nextAccount,PROGRESSION_FEATURES.CHRONICLE,true);nextAccount=setProgressionFeature(nextAccount,PROGRESSION_FEATURES.MANTLE,true);}
+    if((settlement.outcome==='victory'||settlement.outcome==='return')&&accomplishments.forestCleared){nextAccount=setProgressionFeature(nextAccount,PROGRESSION_FEATURES.CHRONICLE,true);}
   }
 
   const nextSlot = clone(slot);

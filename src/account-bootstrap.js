@@ -15,7 +15,8 @@ export function applyAccountBootstrap(account, policy) {
       races: union(unlocks.races, policy.startingUnlockedRaces),
       subclasses: union(unlocks.subclasses, policy.startingUnlockedSubclasses),
       keptImpressions: union(unlocks.keptImpressions, policy.startingUnlockedKeptImpressions),
-      tavernAdventurers: union(unlocks.tavernAdventurers, policy.startingUnlockedTavernAdventurers)
+      tavernAdventurers: union(unlocks.tavernAdventurers, policy.startingUnlockedTavernAdventurers),
+      mantleBaseClasses: unique(unlocks.mantleBaseClasses)
     },
     progressionFeatures: {
       mantle: existingFeatures.mantle || starterFeatures.mantle,

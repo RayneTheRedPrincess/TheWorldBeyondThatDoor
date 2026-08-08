@@ -1,6 +1,8 @@
 const num = value => Number(value || 0);
 const pct = (value, max) => max > 0 ? Math.max(0, Math.min(100, (num(value) / num(max)) * 100)) : 0;
 
+export function combatPresentationDelayMsForSpeed(value=1){const parsed=Number(value);const speed=Math.max(.1,Math.min(2,Number.isFinite(parsed)?parsed:1));return Math.round(900/speed);}
+
 export function forestBattleScene(run = {}) {
   const depth = Number(run?.expedition?.depth || 1);
   const encounter = run?.expedition?.encounter || {};
@@ -39,19 +41,39 @@ function lastResolvedLog(combat = {}) {
   return logs.at(-1) || null;
 }
 
+function combatTravelClass(sourceSide, targetSide) {
+  if (!sourceSide || !targetSide) return '';
+  if (sourceSide === 'party' && targetSide === 'enemy') return 'party-to-enemy';
+  if (sourceSide === 'enemy' && targetSide === 'party') return 'enemy-to-party';
+  if (sourceSide === 'party' && targetSide === 'party') return 'party-to-party';
+  if (sourceSide === 'enemy' && targetSide === 'enemy') return 'enemy-to-enemy';
+  return sourceSide === targetSide ? 'self' : '';
+}
+
 export function latestCombatPresentation(combat = {}) {
   const feedback = new Map();
+  const actors = new Map((combat.actors || []).map(actor => [actor.id, actor]));
   const action = lastResolvedLog(combat);
   const actingActorId = action?.actorId || action?.sourceActorId || null;
   const actingType = action?.action || action?.type || '';
+  let primaryTargetId = null;
+  let primaryResultType = '';
   const add = (actorId, item) => {
     if (!actorId) return;
     if (!feedback.has(actorId)) feedback.set(actorId, []);
     feedback.get(actorId).push(item);
   };
+  const capturePrimaryTarget = (result, fallbackType='') => {
+    const targetId = result?.targetId || result?.resolvedTargetId || null;
+    if (!primaryTargetId && targetId) {
+      primaryTargetId = targetId;
+      primaryResultType = result?.type || fallbackType || '';
+    }
+    return targetId;
+  };
 
   const applyResult = result => {
-    const targetId = result?.targetId || result?.resolvedTargetId || null;
+    const targetId = capturePrimaryTarget(result);
     if (!targetId) return;
     if (result.type === 'damage' || result.type === 'bonus-damage' || result.type === 'conduit-arc' || result.type === 'hypha-transmission') {
       if (result.dodged) add(targetId, { kind: 'dodge', text: 'DODGE' });
@@ -73,15 +95,40 @@ export function latestCombatPresentation(combat = {}) {
   if (action?.type === 'action' && action?.payload?.result) applyResult({ type:'damage', targetId:action.payload.targetId, ...action.payload.result });
   if (action?.type === 'action' && Array.isArray(action?.payload?.outcomes)) for (const result of action.payload.outcomes) applyResult(result);
   if (action?.type === 'status-damage') {
+    capturePrimaryTarget({ targetId: action.actorId, type: 'damage' });
     if (num(action.shieldAbsorbed) > 0) add(action.actorId, { kind: 'shield-loss', text: `-${Math.round(num(action.shieldAbsorbed))} Shield` });
     if (num(action.amount) > 0) add(action.actorId, { kind: action.critical ? 'crit' : 'damage', text: `-${Math.round(num(action.amount))}${action.critical ? ' CRIT' : ''}` });
   }
-  if (action?.type === 'ki-deferred-damage') add(action.actorId, { kind: 'damage', text: `-${Math.round(num(action.amount))}` });
+  if (action?.type === 'ki-deferred-damage') {
+    capturePrimaryTarget({ targetId: action.actorId, type: 'damage' });
+    add(action.actorId, { kind: 'damage', text: `-${Math.round(num(action.amount))}` });
+  }
   const resolvedActionType = action?.type === 'action' ? action.action : actingType;
-  if (resolvedActionType === 'guard') add(actingActorId, { kind: 'guard', text: 'GUARD' });
-  if (resolvedActionType === 'charge') add(actingActorId, { kind: 'energy', text: '+1 ENERGY' });
+  if (resolvedActionType === 'guard') {
+    primaryTargetId = primaryTargetId || actingActorId;
+    primaryResultType = primaryResultType || 'guard';
+    add(actingActorId, { kind: 'guard', text: 'GUARD' });
+  }
+  if (resolvedActionType === 'charge') {
+    primaryTargetId = primaryTargetId || actingActorId;
+    primaryResultType = primaryResultType || 'charge';
+    add(actingActorId, { kind: 'energy', text: '+1 ENERGY' });
+  }
 
-  return { actingActorId, actingType, feedback };
+  const actingSide = actors.get(actingActorId)?.side || null;
+  const targetSide = actors.get(primaryTargetId)?.side || null;
+  const actionTravelClass = combatTravelClass(actingSide, targetSide);
+  const supportTypes = new Set(['heal','heal-from-damage','conditional-heal','answer-heal','lumen-heal','adaptation-heal','profane-exchange-heal','lifesteal','hypha-heal-transmission','shield','overheal-shield','hypha-shield-transmission','guard','charge']);
+
+  return {
+    actingActorId,
+    actingType,
+    feedback,
+    primaryTargetId,
+    primaryResultType,
+    actionTravelClass,
+    supportAction: supportTypes.has(primaryResultType)
+  };
 }
 
 export function initiativeView(combat = {}) {

@@ -10,12 +10,13 @@ import { selectMantle } from './mantle-controller.js';
 import { purchaseChronicleNode, respecChronicleFamily } from './chronicle-controller.js';
 import { getCampaignDoorState, getCampaignPreparationSummary } from './campaign-door.js';
 import { startCampaign, getCampaignRunView, applyCampaignSettlement, endCampaign, allocatePlayerRunStat, setTavernAdventurerParty } from './campaign-controller.js';
-import { selectExpeditionCard, leaveCampsite, advanceAfterResolvedNoncombat, resolveCombatVictory, continueBeyondForest } from './expedition-controller.js';
+import { selectExpeditionCard, leaveCampsite, advanceAfterResolvedNoncombat, resolveCombatVictory, continueBeyondForest, continueAfterForestEventResult } from './expedition-controller.js';
 import { resolveForestEventCheck, chooseTrainerFight, learnFromTrainer } from './forest-event-controller.js';
 import { takePlayerTurnAction, endCombatTurn } from './combat-controller.js';
+import { combatPresentationDelayMsForSpeed } from './combat-presentation.js';
 import { attachForestCombat, awardCurrentForestMaterialCache } from './forest-encounter-builder.js';
-import { resolveConsecutiveEnemyTurns } from './enemy-ai.js';
-import { resolveConsecutivePartyAiTurns } from './ally-ai.js';
+import { resolveEnemyTurn } from './enemy-ai.js';
+import { resolveTavernAdventurerTurn } from './ally-ai.js';
 import { awardCurrentForestCombatRewards } from './forest-reward-controller.js';
 import { executeBaseAbility, chooseDruidStartingForm } from './ability-controller.js';
 import { executeSubclassAbility, resolveSubclassTurnStartEvents } from './subclass-controller.js';
@@ -61,10 +62,23 @@ class App {
     this.craftingMessage = '';
     this.resultsMessage = '';
     this.combatActionPanel = 'abilities';
+    this.combatPlaybackTimer = null;
+    this.combatCompletionHoldEncounterId = null;
+    this.deferNextAiAction = false;
+    this.campsiteEquipmentOwnerId = 'vessel';
     this.starterTutorialStep = 0;
     this.activeTutorialId = null;
     this.activeTutorialStep = 0;
     this.helpQuery = '';
+    this.libraryQuery = '';
+    this.librarySlotCost = 'all';
+    this.libraryType = 'all';
+    this.libraryFamily = 'all';
+    this.librarySort = 'id';
+    this.lenderQuery = '';
+    this.lenderSlot = 'all';
+    this.lenderWeaponType = 'all';
+    this.lenderSort = 'name';
     this.contextLessonId = null;
     this.tutorialReturnRoute = null;
     this.tutorialReturnTavernRoom = null;
@@ -123,89 +137,42 @@ class App {
   activeSlotNumber() { const number = Number(this.account?.activeSlot || 0); return number >= 1 && number <= 9 ? number : null; }
   activeSlot() { const number = this.activeSlotNumber(); return number ? this.save.loadSlot(number) : null; }
 
+  combatPresentationDelayMs(){return combatPresentationDelayMsForSpeed(this.account?.settings?.combatSpeed||1);}
+
+  clearCombatPlaybackTimer(){if(this.combatPlaybackTimer!==null){clearTimeout(this.combatPlaybackTimer);this.combatPlaybackTimer=null;}}
+
+  scheduleCombatPlayback(run){
+    this.clearCombatPlaybackTimer(); const combat=run?.combat;if(!combat)return;
+    const current=(combat.actors||[]).find(a=>a.id===combat.currentActorId);const needsStep=combat.state==='complete'||(combat.state==='active'&&current?.control==='ai');if(!needsStep)return;
+    this.combatPlaybackTimer=setTimeout(()=>{this.combatPlaybackTimer=null;if(this.router.routeFromLocation()===ROUTES.CAMPAIGN_RUN)this.render(ROUTES.CAMPAIGN_RUN);},this.combatPresentationDelayMs());
+  }
+
   normalizeActiveCampaignCombat() {
-    const slotNumber = this.activeSlotNumber();
-    let slot = this.activeSlot();
-    if (!slotNumber || !slot?.campaign?.active || !slot.campaign.state) return { ok: true, slot };
-    let changed = false;
-    const run = () => slot?.campaign?.state;
-
-    if (run()?.expedition?.state === 'combat-pending' && run()?.expedition?.encounter?.combat && !run()?.combat) {
-      const attached = attachForestCombat(slot, { forestEnemies: this.canon.getForestEnemies(), forestTrainers: this.canon.getForestTrainers(), baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), progression: this.canon.getCharacterProgression(), equipmentCatalog: this.canon.getEquipmentConsumablesStatus() });
-      if (!attached.ok) return attached;
-      slot = attached.slot;
-      changed = true;
-    }
-
-    let combat = run()?.combat;
-    for (let guard = 0; guard < 24 && combat?.state === 'active'; guard += 1) {
-      if (!combat.turn?.subclassStartResolved) {
-        const startEvents = resolveSubclassTurnStartEvents(slot);
-        if (!startEvents.ok) return startEvents;
-        slot = startEvents.slot;
-        changed = true;
-        combat = run()?.combat;
-        if (combat?.state !== 'active') break;
-      }
-      if (combat?.turn && !combat.turn.trailstockResolved) {
-        const echoed = resolveTrailstockTurnStart(slot, { catalog: this.canon.getEquipmentConsumablesStatus() });
-        if (!echoed.ok) return echoed;
-        slot = echoed.slot;
-        changed = true;
-        combat = run()?.combat;
-        if (combat?.state !== 'active') break;
-      }
-      const current = combat.actors?.find(actor => actor.id === combat.currentActorId);
-      if (current?.control !== 'ai') break;
-      let ai;
-      if (current.side === 'enemy') {
-        const difficulty = run()?.configuration?.difficulty || 'Normal';
-        ai = resolveConsecutiveEnemyTurns(slot, { difficulty });
-      } else if (current.side === 'party' && current.kind === 'tavern-adventurer') {
-        ai = resolveConsecutivePartyAiTurns(slot, { baseCatalog: this.canon.getBaseAbilities(), subclassCatalog: this.canon.getSubclassAbilities() });
-      } else break;
-      if (!ai.ok) return ai;
-      slot = ai.slot;
-      changed = true;
-      combat = run()?.combat;
-    }
-
-    combat = run()?.combat;
-    if (combat?.state === 'complete') {
-      if (!run()?.expedition?.encounter?.rewardsAwarded) {
-        const rewards = awardCurrentForestCombatRewards(slot, { progression: this.canon.getCharacterProgression() });
-        if (!rewards.ok) return rewards;
-        slot = rewards.slot;
-        changed = true;
-      }
-      if (combat.outcome === 'victory') {
-        if (!run()?.expedition?.encounter?.materialsAwarded) {
-          const awarded = awardCurrentForestMaterialCache(slot);
-          if (!awarded.ok) return awarded;
-          slot = awarded.slot;
-          if((awarded.materials||[]).some(item=>item.materialKind==='soulfire-core'))this.contextLessonId='first-soulfire';
-        }
-        const resolved = resolveCombatVictory(slot);
-        if (!resolved.ok) return resolved;
-        slot = resolved.slot;
-        if (resolved.forestClearedNow) {
-          const account = structuredClone(this.account);
-          account.history = account.history || {};
-          account.history.forestCleared = true;
-          if (!account.history.firstForestClearAt) account.history.firstForestClearAt = new Date().toISOString();
-          this.account = this.save.saveAccount(account);
-        }
-        changed = true;
-      } else if (combat.outcome === 'defeat') {
-        const ended = endCampaign(slot, this.account, 'defeat');
-        if (!ended.ok) return ended;
-        slot = ended.slot;
-        changed = true;
+    const slotNumber=this.activeSlotNumber();let slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active||!slot.campaign.state)return{ok:true,slot};let changed=false;const run=()=>slot?.campaign?.state;
+    if(run()?.expedition?.state==='combat-pending'&&run()?.expedition?.encounter?.combat&&!run()?.combat){const attached=attachForestCombat(slot,{forestEnemies:this.canon.getForestEnemies(),forestTrainers:this.canon.getForestTrainers(),baseAbilities:this.canon.getBaseAbilities(),subclassAbilities:this.canon.getSubclassAbilities(),progression:this.canon.getCharacterProgression(),equipmentCatalog:this.canon.getEquipmentConsumablesStatus()});if(!attached.ok)return attached;slot=attached.slot;changed=true;if(changed)this.save.saveSlot(slotNumber,slot);return{ok:true,slot,changed};}
+    let combat=run()?.combat;
+    if(combat?.state==='active'){
+      if(!combat.turn?.subclassStartResolved){const ev=resolveSubclassTurnStartEvents(slot);if(!ev.ok)return ev;slot=ev.slot;changed=true;this.save.saveSlot(slotNumber,slot);return{ok:true,slot,changed};}
+      combat=run()?.combat;if(combat?.state==='active'&&combat.turn&&!combat.turn.trailstockResolved){const ev=resolveTrailstockTurnStart(slot,{catalog:this.canon.getEquipmentConsumablesStatus()});if(!ev.ok)return ev;slot=ev.slot;changed=true;this.save.saveSlot(slotNumber,slot);return{ok:true,slot,changed};}
+      combat=run()?.combat;const current=(combat?.actors||[]).find(a=>a.id===combat?.currentActorId);
+      if(combat?.state==='active'&&current?.control==='ai'){
+        if(this.deferNextAiAction){this.deferNextAiAction=false;return{ok:true,slot,changed:false};}
+        const ai=current.side==='enemy'?resolveEnemyTurn(slot,{difficulty:run()?.configuration?.difficulty||'Normal'}):(current.side==='party'&&current.kind==='tavern-adventurer'?resolveTavernAdventurerTurn(slot,{baseCatalog:this.canon.getBaseAbilities(),subclassCatalog:this.canon.getSubclassAbilities()}):null);
+        if(ai){if(!ai.ok)return ai;slot=ai.slot;changed=true;combat=run()?.combat;if(combat?.state==='complete')this.combatCompletionHoldEncounterId=combat.encounterId||null;this.save.saveSlot(slotNumber,slot);return{ok:true,slot,changed};}
       }
     }
-
-    if (changed) this.save.saveSlot(slotNumber, slot);
-    return { ok: true, slot, changed };
+    combat=run()?.combat;
+    if(combat?.state==='complete'){
+      const encounterId=combat.encounterId||run()?.expedition?.encounter?.id||null;
+      if(this.combatCompletionHoldEncounterId!==encounterId){this.combatCompletionHoldEncounterId=encounterId;return{ok:true,slot,changed:false};}
+      this.combatCompletionHoldEncounterId=null;
+      if(!run()?.expedition?.encounter?.rewardsAwarded){const rewards=awardCurrentForestCombatRewards(slot,{progression:this.canon.getCharacterProgression()});if(!rewards.ok)return rewards;slot=rewards.slot;changed=true;}
+      if(combat.outcome==='victory'){
+        if(!run()?.expedition?.encounter?.materialsAwarded){const awarded=awardCurrentForestMaterialCache(slot);if(!awarded.ok)return awarded;slot=awarded.slot;if((awarded.materials||[]).some(item=>item.materialKind==='soulfire-core'))this.contextLessonId='first-soulfire';}
+        const resolved=resolveCombatVictory(slot);if(!resolved.ok)return resolved;slot=resolved.slot;if(resolved.forestClearedNow){const account=structuredClone(this.account);account.history=account.history||{};account.history.forestCleared=true;if(!account.history.firstForestClearAt)account.history.firstForestClearAt=new Date().toISOString();this.account=this.save.saveAccount(account);}changed=true;
+      }else if(combat.outcome==='defeat'){const ended=endCampaign(slot,this.account,'defeat');if(!ended.ok)return ended;slot=ended.slot;changed=true;}
+    }
+    if(changed)this.save.saveSlot(slotNumber,slot);return{ok:true,slot,changed};
   }
 
   forcePendingSettlement(route) {
@@ -219,6 +186,7 @@ class App {
 
   render(route) {
     this.resetStage = 0;
+    if(route!==ROUTES.CAMPAIGN_RUN)this.clearCombatPlaybackTimer();
     if (starterNeedsResolution(this.account)) {
       this.root.innerHTML = renderHome({ hasContinuableSlot: this.slots().some(s => s?.character) }) + starterTutorialOverlay({ starter:this.canon.getTutorialsHelp().mandatoryStarter, stepIndex:this.starterTutorialStep });
       return;
@@ -247,7 +215,8 @@ class App {
         room: this.tavern.currentRoom(), slot, account: this.account,
         subclassesForBase: this.canon.getSubclassesForBase(slot.character.baseClass),
         keptEntries: this.canon.getKeptImpressions(), keptRuntimeEntries: this.canon.getKeptImpressionRuntime().entries, tavernAdventurers: this.canon.getTavernAdventurers(), tavernServices:this.canon.getTavernServices(), equipmentCatalog:this.canon.getEquipmentConsumablesStatus(),
-        baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), message: this.tavernMessage
+        baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), message: this.tavernMessage,
+        ux: { libraryQuery:this.libraryQuery, librarySlotCost:this.librarySlotCost, libraryType:this.libraryType, libraryFamily:this.libraryFamily, librarySort:this.librarySort, lenderQuery:this.lenderQuery, lenderSlot:this.lenderSlot, lenderWeaponType:this.lenderWeaponType, lenderSort:this.lenderSort }
       });
       this.tavernMessage = '';
       this.refreshStatAllocator(this.root.querySelector('#starting-stat-form'));
@@ -279,8 +248,9 @@ class App {
       if (!run) { this.router.replace(ROUTES.TAVERN); return; }
       this.tavern.leave();
       const activeQuest=normalized.slot?.tavernServices?.mara?.activeQuest||null; const questEval=activeQuest?evaluateMaraQuest(activeQuest,run):null;
-      this.root.innerHTML = renderCampaignRun({ run, baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), progression: this.canon.getCharacterProgression(), equipmentCatalog: this.canon.getEquipmentConsumablesStatus(), forestCrafting: this.canon.getForestCrafting(), forestTrainers: this.canon.getForestTrainers(), maraQuestStatus:activeQuest?{...activeQuest,...questEval,status:questEval?.complete?'Completed — Pending Return':'In Progress'}:null, craftingUi: { onlyCraftable:this.craftingOnlyCraftable, sortStat:this.craftingSortStat, direction:this.craftingSortDirection, message:this.craftingMessage }, presentationUi: { actionPanel:this.combatActionPanel, settings:this.account.settings || {} } });
-      this.syncCombatTargetHighlight(this.root.querySelector('[data-ability-target], [data-ability-target-shield], [data-ability-target-heal], [data-kept-active-target], [data-consumable-target]'));
+      this.root.innerHTML = renderCampaignRun({ run, baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), progression: this.canon.getCharacterProgression(), equipmentCatalog: this.canon.getEquipmentConsumablesStatus(), forestCrafting: this.canon.getForestCrafting(), forestTrainers: this.canon.getForestTrainers(), maraQuestStatus:activeQuest?{...activeQuest,...questEval,status:questEval?.complete?'Completed — Pending Return':'In Progress'}:null, craftingUi: { onlyCraftable:this.craftingOnlyCraftable, sortStat:this.craftingSortStat, direction:this.craftingSortDirection, message:this.craftingMessage }, presentationUi: { actionPanel:this.combatActionPanel, settings:this.account.settings || {}, equipmentOwnerId:this.campsiteEquipmentOwnerId } });
+      this.syncCombatTargetHighlight(this.root.querySelector('[data-primary-combat-target]'));
+      this.scheduleCombatPlayback(run);
       this.craftingMessage = '';
       if(run.expedition?.state==='campsite')this.offerTutorialForContext('campsite',ROUTES.CAMPAIGN_RUN);
       else if(run.combat?.state==='active')this.offerTutorialForContext('forest-combat',ROUTES.CAMPAIGN_RUN);
@@ -348,6 +318,7 @@ class App {
     if (action === 'pause-campaign') return this.router.go(ROUTES.HOME);
     if (action === 'expedition-select-card') return this.chooseExpeditionCard(button.dataset.card);
     if (action === 'forest-event-roll') return this.rollForestEvent(button);
+    if (action === 'forest-event-continue-combat') return this.continueForestEventCombat();
     if (action === 'trainer-fight') return this.fightForestTrainer(button.dataset.trainer);
     if (action === 'trainer-learn') return this.learnForestTrainer(button.dataset.trainer);
     if (action === 'expedition-leave-campsite') return this.finishExpeditionCampsite();
@@ -361,6 +332,7 @@ class App {
     if (action === 'combat-charge') return this.performCombatAction('charge');
     if (action === 'combat-guard') return this.performCombatAction('guard');
     if (action === 'combat-use-consumable') return this.performConsumable(button);
+    if (action === 'campsite-equipment-owner') { this.campsiteEquipmentOwnerId=button.dataset.owner||'vessel'; return this.render(ROUTES.CAMPAIGN_RUN); }
     if (action === 'campsite-equip-consumable') return this.equipCampConsumable(button);
     if (action === 'campsite-unequip-consumable') return this.unequipCampConsumable(button);
     if (action === 'campsite-equip-equipment') return this.equipCampEquipment(button);
@@ -418,10 +390,20 @@ class App {
   onInput(event) {
     if (event.target.matches('[data-stat-input]')) this.refreshStatAllocator(event.target.closest('form'));
     if (event.target.matches('[data-help-search]')) { this.helpQuery=event.target.value||''; this.render(ROUTES.HELP); const input=this.root.querySelector('[data-help-search]'); if(input){input.focus();input.setSelectionRange(input.value.length,input.value.length);} }
+    if (event.target.matches('[data-library-search]')) { this.libraryQuery=event.target.value||''; this.render(ROUTES.TAVERN); const input=this.root.querySelector('[data-library-search]'); if(input){input.focus();input.setSelectionRange(input.value.length,input.value.length);} }
+    if (event.target.matches('[data-lender-search]')) { this.lenderQuery=event.target.value||''; this.render(ROUTES.TAVERN); const input=this.root.querySelector('[data-lender-search]'); if(input){input.focus();input.setSelectionRange(input.value.length,input.value.length);} }
   }
 
   onChange(event) {
-    if (event.target.matches('[data-ability-target], [data-ability-target-shield], [data-ability-target-heal], [data-kept-active-target], [data-consumable-target]')) { this.syncCombatTargetHighlight(event.target); return; }
+    if (event.target.matches('[data-library-slot]')) { this.librarySlotCost=event.target.value||'all'; this.render(ROUTES.TAVERN); return; }
+    if (event.target.matches('[data-library-type]')) { this.libraryType=event.target.value||'all'; this.render(ROUTES.TAVERN); return; }
+    if (event.target.matches('[data-library-family]')) { this.libraryFamily=event.target.value||'all'; this.render(ROUTES.TAVERN); return; }
+    if (event.target.matches('[data-library-sort]')) { this.librarySort=event.target.value||'id'; this.render(ROUTES.TAVERN); return; }
+    if (event.target.matches('[data-lender-slot]')) { this.lenderSlot=event.target.value||'all'; this.render(ROUTES.TAVERN); return; }
+    if (event.target.matches('[data-lender-weapon-type]')) { this.lenderWeaponType=event.target.value||'all'; this.render(ROUTES.TAVERN); return; }
+    if (event.target.matches('[data-lender-sort]')) { this.lenderSort=event.target.value||'name'; this.render(ROUTES.TAVERN); return; }
+    if (event.target.matches('[data-primary-combat-target]')) { this.syncCombatTargetHighlight(event.target); return; }
+    if (event.target.matches('[data-ability-target-shield], [data-ability-target-heal]')) return;
     if (event.target.matches('[data-crafting-only]')) { this.craftingOnlyCraftable = Boolean(event.target.checked); this.render(ROUTES.CAMPAIGN_RUN); return; }
     if (event.target.matches('[data-crafting-sort]')) { this.craftingSortStat = event.target.value || ''; this.render(ROUTES.CAMPAIGN_RUN); return; }
     if (event.target.matches('[data-starting-race]')) { this.refreshStatAllocator(event.target.closest('form')); return; }
@@ -442,6 +424,7 @@ class App {
     }
     this.account = this.save.saveAccount(this.account);
     if (this.router.routeFromLocation() === ROUTES.SETTINGS) this.render(ROUTES.SETTINGS);
+    else if(select.dataset.setting==='combatSpeed'&&this.router.routeFromLocation()===ROUTES.CAMPAIGN_RUN){const node=this.root.querySelector('.combat-presentation');if(node)node.style.setProperty('--combat-speed',String(this.account.settings.combatSpeed));this.scheduleCombatPlayback(this.activeSlot()?.campaign?.state);}
   }
 
   offerTutorialForContext(id,returnRoute) {
@@ -534,23 +517,14 @@ class App {
   }
 
   syncCombatTargetHighlight(select) {
-    for (const node of this.root.querySelectorAll('[data-ability-target], [data-ability-target-shield], [data-ability-target-heal], [data-kept-active-target], [data-consumable-target]')) node.dataset.combatTargetActive = node === select ? 'true' : 'false';
-    for (const card of this.root.querySelectorAll('[data-combat-actor-id]')) card.classList.remove('selected-target');
-    const actorId = select?.value || null;
-    if (!actorId) return;
-    const card = [...this.root.querySelectorAll('[data-combat-actor-id]')].find(node => node.dataset.combatActorId === actorId);
-    if (card) card.classList.add('selected-target');
+    const primary=[...this.root.querySelectorAll('[data-primary-combat-target]')];const actorId=select?.value||null;
+    if(select?.matches('[data-primary-combat-target]')&&actorId){for(const other of primary){if([...other.options].some(o=>o.value===actorId))other.value=actorId;}}
+    for(const node of primary)node.dataset.combatTargetActive=node===select?'true':'false';for(const card of this.root.querySelectorAll('[data-combat-actor-id]'))card.classList.remove('selected-target');
+    if(!actorId)return;const card=[...this.root.querySelectorAll('[data-combat-actor-id]')].find(node=>node.dataset.combatActorId===actorId);if(card)card.classList.add('selected-target');
   }
 
   selectBattlefieldActor(card) {
-    const actorId = card?.dataset?.combatActorId;
-    if (!actorId) return;
-    const selects = [...this.root.querySelectorAll('[data-ability-target], [data-ability-target-shield], [data-ability-target-heal], [data-kept-active-target], [data-consumable-target]')];
-    const accepts = select => [...select.options].some(option => option.value === actorId);
-    const active = selects.find(select => select.dataset.combatTargetActive === 'true' && accepts(select)) || selects.find(accepts);
-    if (!active) return;
-    active.value = actorId;
-    this.syncCombatTargetHighlight(active);
+    const actorId=card?.dataset?.combatActorId;if(!actorId)return;const selects=[...this.root.querySelectorAll('[data-primary-combat-target]')];const accepts=select=>[...select.options].some(option=>option.value===actorId);const active=selects.find(select=>select.dataset.combatTargetActive==='true'&&accepts(select))||selects.find(accepts);if(!active)return;for(const select of selects)if(accepts(select))select.value=actorId;this.syncCombatTargetHighlight(active);
   }
 
   statPoolForForm(form) {
@@ -707,6 +681,8 @@ class App {
     this.render(ROUTES.CAMPAIGN_RUN);
   }
 
+  continueForestEventCombat(){const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active)return;const result=continueAfterForestEventResult(slot);if(!result.ok)return;this.save.saveSlot(slotNumber,result.slot);this.render(ROUTES.CAMPAIGN_RUN);}
+
   performCombatAction(type) {
     const slotNumber = this.activeSlotNumber();
     const slot = this.activeSlot();
@@ -738,13 +714,13 @@ class App {
 
   equipCampEquipment(button) {
     const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active)return;
-    const result=equipRunEquipmentAtCampsite(slot,{itemId:button.dataset.item,slotKey:button.dataset.slot,catalog:this.canon.getEquipmentConsumablesStatus()});if(!result.ok)return;
+    const result=equipRunEquipmentAtCampsite(slot,{itemId:button.dataset.item,slotKey:button.dataset.slot,catalog:this.canon.getEquipmentConsumablesStatus(),ownerId:button.dataset.owner||this.campsiteEquipmentOwnerId});if(!result.ok)return;
     this.save.saveSlot(slotNumber,result.slot);this.render(ROUTES.CAMPAIGN_RUN);
   }
 
   unequipCampEquipment(button) {
     const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active)return;
-    const result=unequipRunEquipmentAtCampsite(slot,{slotKey:button.dataset.slot});if(!result.ok)return;
+    const result=unequipRunEquipmentAtCampsite(slot,{slotKey:button.dataset.slot,ownerId:button.dataset.owner||this.campsiteEquipmentOwnerId});if(!result.ok)return;
     this.save.saveSlot(slotNumber,result.slot);this.render(ROUTES.CAMPAIGN_RUN);
   }
 
@@ -829,6 +805,7 @@ class App {
     if (!result.ok) return;
     this.save.saveSlot(slotNumber, result.slot);
     this.combatActionPanel = 'abilities';
+    this.deferNextAiAction = true;
     // Presentation/onboarding state is independent from the combat turn owner. Keeping
     // it intact prevents a guided combat lesson from disappearing when End Turn is used.
     this.render(ROUTES.CAMPAIGN_RUN);

@@ -5,7 +5,7 @@ export function escapeHtml(value = '') {
 export function shell(content, { back = false, backAction = 'home', backLabel = 'Return Home' } = {}) {
   return `<main class="shell">
     <div class="topbar">
-      <div class="brand-small">That World Beyond the Door</div>
+      <div class="brand-small">The World Beyond the Door</div>
       ${back ? `<button class="back" data-action="${backAction}">${backLabel}</button>` : ''}
     </div>
     ${content}

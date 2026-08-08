@@ -1043,7 +1043,7 @@
       "listedStats": {
         "DEX": 3,
         "LCK": 2,
-        "damageCritChancePct": 7
+        "dodgeChancePct": 6
       },
       "acquisition": "craft-only"
     },
@@ -1059,8 +1059,8 @@
       "listedStats": {
         "DEX": 3,
         "LCK": 2,
-        "incomingHealingPct": 6,
-        "damageCritChancePct": 3
+        "dodgeChancePct": 4,
+        "incomingHealingPct": 5
       },
       "acquisition": "craft-only"
     },
@@ -1076,8 +1076,7 @@
       "listedStats": {
         "DEX": 3,
         "LCK": 2,
-        "criticalDamagePct": 8,
-        "damageCritChancePct": 3
+        "criticalDamagePct": 13
       },
       "acquisition": "craft-only"
     },
@@ -1093,8 +1092,7 @@
       "listedStats": {
         "DEX": 3,
         "LCK": 2,
-        "dodgeChancePct": 4,
-        "damageCritChancePct": 3
+        "dodgeChancePct": 7
       },
       "acquisition": "craft-only"
     },
@@ -1109,8 +1107,8 @@
       "listedStats": {
         "DEX": 4,
         "LCK": 2,
-        "damageCritChancePct": 5,
-        "criticalDamagePct": 10
+        "damageCritChancePct": 4,
+        "criticalDamagePct": 12
       },
       "acquisition": "craft-only",
       "weaponBaseDamage": false
@@ -1209,10 +1207,10 @@
       "rarity": "Normal",
       "sourceId": "vinebound-reaver",
       "listedStats": {
-        "CON": 4,
-        "STR": 2,
-        "damageCritChancePct": 5,
-        "criticalDamagePct": 10
+        "CON": 3,
+        "STR": 3,
+        "damageCritChancePct": 4,
+        "criticalDamagePct": 11
       },
       "acquisition": "craft-only",
       "weaponBaseDamage": false
@@ -1226,10 +1224,10 @@
       "rarity": "Normal",
       "sourceId": "vinebound-reaver",
       "listedStats": {
-        "CON": 4,
-        "STR": 2,
-        "damageCritChancePct": 3,
-        "criticalDamagePct": 6
+        "CON": 3,
+        "STR": 3,
+        "damageCritChancePct": 4,
+        "criticalDamagePct": 7
       },
       "acquisition": "craft-only",
       "weaponBaseDamage": false
@@ -2397,7 +2395,7 @@
       "rarity": "Normal",
       "listedStats": {
         "CHA": 2,
-        "energyGainPct": 3
+        "damageCritChancePct": 4
       },
       "acquisition": "craft-only"
     },
@@ -2519,7 +2517,7 @@
       "rarity": "Normal",
       "listedStats": {
         "CON": 2,
-        "incomingHealingPct": 4
+        "blockChancePct": 5
       },
       "acquisition": "craft-only"
     },
@@ -2532,7 +2530,7 @@
       "rarity": "Normal",
       "listedStats": {
         "INT": 2,
-        "energyGainPct": 4
+        "criticalDamagePct": 8
       },
       "acquisition": "craft-only"
     },
@@ -2545,7 +2543,7 @@
       "rarity": "Normal",
       "listedStats": {
         "FTH": 2,
-        "outgoingHealingPct": 4
+        "shieldStrengthPct": 5
       },
       "acquisition": "craft-only"
     },
@@ -3693,8 +3691,8 @@
       "i12Fixture": true
     },
     {
-      "id": "food-cleanwater-gel\u00e9e",
-      "name": "Cleanwater Gel\u00e9e",
+      "id": "food-cleanwater-gelée",
+      "name": "Cleanwater Gelée",
       "subtype": "Food",
       "primaryEffect": "cleanse",
       "effects": [

@@ -8,6 +8,7 @@ import { CORE_STATS, getStartingStatPool } from '../starting-stats.js';
 import { classlessLimits } from '../classless-controller.js';
 import { buildRecords } from '../tavern-services-controller.js';
 import { tutorialTokenBalance, tutorialStatus } from '../tutorial-controller.js';
+import { formatListedStats, itemTypeTag, equipmentSlotLabel, weaponCompatibilityText } from '../player-facing.js';
 
 const TUTORIALS = [
   ['character-creation','Character Creation'],['tavern-lobby','Tavern Lobby'],['kept-impressions','Kept Impressions & Slot Costs'],['getting-adventurer','Getting a Tavern Adventurer'],
@@ -34,11 +35,20 @@ function mainHall(slot) {
     </section>`;
 }
 
-function maraBar(slot, account, tavernServices, equipmentCatalog, message) {
+function maraBar(slot, account, tavernServices, equipmentCatalog, message, ux={}) {
   const mara=slot.tavernServices?.mara||{offers:[],activeQuest:null}; const active=mara.activeQuest;
   const questHtml=active?`<article class="service-card active-service"><h3>Active Quest</h3><strong>${escapeHtml(active.label)}</strong><p>${escapeHtml(active.description||'')}</p><div class="reward-row"><span>Reward</span><strong>${Number(active.reward?.onyx||0)} Onyx · ${Number(active.reward?.chronicleProgress||0)} Chronicle</strong></div><button class="secondary" data-action="mara-quest-abandon">Abandon Quest</button></article>`:`<div class="quest-offers">${(mara.offers||[]).map(q=>`<article class="service-card"><h3>${escapeHtml(q.label)}</h3><p>${escapeHtml(q.description||'')}</p><div class="reward-row"><span>Reward</span><strong>${Number(q.reward?.onyx||0)} Onyx · ${Number(q.reward?.chronicleProgress||0)} Chronicle</strong></div><button class="primary" data-action="mara-quest-accept" data-quest="${escapeHtml(q.instanceId)}">Accept</button></article>`).join('')}</div>`;
-  const collected=new Set(slot.lender?.collection||[]), selected=slot.lender?.selectedItemId||null, items=(equipmentCatalog?.equipment||[]).filter(item=>!item.i12Fixture);
-  const lender=`<div class="service-card lender-card"><h3>Lender Collection</h3><p>Each successful return may register exactly one item this Vessel brought home after having equipped it. Borrowing is free and never removes the remembered item.</p><div class="reward-row"><span>Collected</span><strong>${collected.size} / ${items.length}</strong></div><button class="secondary" data-action="lender-clear" ${selected?'':'disabled'}>Bring No Lender Item</button><div class="lender-grid section">${items.map(item=>{const owned=collected.has(item.id),active=selected===item.id;return `<button class="lender-item ${owned?'collected':'locked'} ${active?'selected':''}" data-action="lender-borrow" data-item="${escapeHtml(item.id)}" ${owned?'':'disabled'}><strong>${escapeHtml(item.name)}</strong><small>${owned?(active?'Selected for next campaign':'Available to borrow'):'Not yet brought home'}</small></button>`}).join('')}</div></div>`;
+  const collected=new Set(slot.lender?.collection||[]), selected=slot.lender?.selectedItemId||null;
+  let items=(equipmentCatalog?.equipment||[]).filter(item=>!item.i12Fixture);
+  const query=String(ux.lenderQuery||'').trim().toLowerCase(), slotFilter=ux.lenderSlot||'all', weaponFilter=ux.lenderWeaponType||'all', sort=ux.lenderSort||'name';
+  if(query)items=items.filter(item=>`${item.name} ${item.itemType||''} ${item.weaponType||''} ${equipmentSlotLabel(item.slot)}`.toLowerCase().includes(query));
+  if(slotFilter!=='all')items=items.filter(item=>item.slot===slotFilter);
+  if(weaponFilter!=='all')items=items.filter(item=>(item.weaponType||'Non-weapon')===weaponFilter);
+  items=[...items].sort((a,b)=>sort==='slot'?equipmentSlotLabel(a.slot).localeCompare(equipmentSlotLabel(b.slot))||a.name.localeCompare(b.name):sort==='type'?String(a.weaponType||a.itemType||'').localeCompare(String(b.weaponType||b.itemType||''))||a.name.localeCompare(b.name):a.name.localeCompare(b.name));
+  const allItems=(equipmentCatalog?.equipment||[]).filter(item=>!item.i12Fixture), slots=[...new Set(allItems.map(x=>x.slot))].sort((a,b)=>equipmentSlotLabel(a).localeCompare(equipmentSlotLabel(b))), weaponTypes=[...new Set(allItems.map(x=>x.weaponType||'Non-weapon'))].sort();
+  const filters=`<div class="catalog-controls"><label>Name search<input type="search" data-lender-search value="${escapeHtml(ux.lenderQuery||'')}" placeholder="Search lender collection…"></label><label>Equipment slot<select data-lender-slot><option value="all">All slots</option>${slots.map(v=>`<option value="${escapeHtml(v)}" ${slotFilter===v?'selected':''}>${escapeHtml(equipmentSlotLabel(v))}</option>`).join('')}</select></label><label>Item / weapon type<select data-lender-weapon-type><option value="all">All types</option>${weaponTypes.map(v=>`<option value="${escapeHtml(v)}" ${weaponFilter===v?'selected':''}>${escapeHtml(v)}</option>`).join('')}</select></label><label>Sort<select data-lender-sort><option value="name" ${sort==='name'?'selected':''}>Name A–Z</option><option value="slot" ${sort==='slot'?'selected':''}>Equipment slot</option><option value="type" ${sort==='type'?'selected':''}>Item / weapon type</option></select></label></div>`;
+  const cards=items.length?items.map(item=>{const owned=collected.has(item.id),active=selected===item.id;const statText=formatListedStats(item);const compat=item.itemType==='Weapon'?weaponCompatibilityText(item,slot.character?.baseClass):'';return `<article class="lender-item-card ${owned?'collected':'locked'} ${active?'selected':''}"><div class="kept-card-title"><div><strong>${escapeHtml(item.name)}</strong><span class="item-type-tag">${escapeHtml(itemTypeTag(item))}</span></div><small>${escapeHtml(equipmentSlotLabel(item.slot))}</small></div>${statText?`<p>${escapeHtml(statText)}</p>`:''}${compat?`<small class="compatibility-note">${escapeHtml(compat)}</small>`:''}<button data-action="lender-borrow" data-item="${escapeHtml(item.id)}" ${owned?'':'disabled'}>${owned?(active?'Selected for next campaign':'Borrow Next Campaign'):'Not yet brought home'}</button></article>`}).join(''):'<div class="empty-state">No lender items match these filters.</div>';
+  const lender=`<div class="service-card lender-card"><h3>Lender Collection</h3><p>Each successful return may register exactly one item this Vessel brought home after having equipped it. Borrowing is free and never removes the remembered item.</p><div class="reward-row"><span>Collected</span><strong>${collected.size} / ${allItems.length}</strong></div><button class="secondary" data-action="lender-clear" ${selected?'':'disabled'}>Bring No Lender Item</button>${filters}<div class="lender-grid section">${cards}</div></div>`;
   return `<section class="panel room-panel"><div class="kicker">Mara</div><h2>Mara's Bar</h2><p class="muted">Mara keeps three expedition jobs ready and remembers the equipment this Vessel has deliberately brought back for future lending.</p>${message?`<div class="notice section">${escapeHtml(message)}</div>`:''}<section class="section"><h3>Quest Board</h3><p class="muted">One active quest at a time. Offers change only after a completed campaign, and impossible objectives are removed before the board is dealt.</p>${questHtml}</section><section class="section"><h3>Lending</h3>${lender}</section></section>`;
 }
 function keptChoiceControl(entry, runtimeEntry, slot, account, tavernAdventurers) {
@@ -62,7 +72,8 @@ function keptCard(entry, equipped, runtimeEntry, slot, account, tavernAdventurer
   </article>`;
 }
 
-function krassLibrary(slot, account, keptEntries, runtimeEntries, tavernAdventurers, message) {
+function impressionCategory(entry){return entry.family?'Subclass-Specific':'Global';}
+function krassLibrary(slot, account, keptEntries, runtimeEntries, tavernAdventurers, message, ux={}) {
   const owned = new Set(account.unlocks?.keptImpressions || []);
   const equippedIds = getEquippedKeptIds(slot);
   const equippedSet = new Set(equippedIds);
@@ -73,19 +84,29 @@ function krassLibrary(slot, account, keptEntries, runtimeEntries, tavernAdventur
   const runtimeIndex=new Map((runtimeEntries||[]).map(entry=>[entry.id,entry]));
   const tokenBalance=tutorialTokenBalance(account);
   const redeemable=keptEntries.filter(entry=>Number(entry.slots)<=3&&!owned.has(entry.id));
-  const tokenPanel=tokenBalance>0?`<section class="section starter-token-panel"><h3>Free Kept Impression Tokens</h3><p>You have <strong>${tokenBalance}</strong> starter token${tokenBalance===1?'':'s'} remaining. Each can permanently keep one Impression costing 3 slots or less.</p><div class="kept-grid compact">${redeemable.map(entry=>`<article class="kept-card"><div class="kept-card-title"><div><small>${escapeHtml(entry.id)}</small><strong>${escapeHtml(entry.name)}</strong></div><span>${entry.slots} slot${entry.slots===1?'':'s'}</span></div><p>${escapeHtml(entry.mechanic||'')}</p><button class="primary" data-action="tutorial-token-redeem" data-ki="${escapeHtml(entry.id)}">Use Free Token</button></article>`).join('')}</div></section>`:'';
+  const tokenPanel=tokenBalance>0?`<section class="section starter-token-panel"><h3>Free Kept Impression Tokens</h3><p>You have <strong>${tokenBalance}</strong> starter token${tokenBalance===1?'':'s'} remaining. Each can permanently keep one Impression costing 3 slots or less.</p><div class="kept-grid compact">${redeemable.map(entry=>`<article class="kept-card"><div class="kept-card-title"><div><small>${escapeHtml(entry.id)}</small><strong>${escapeHtml(entry.name)}</strong></div><span>${entry.slots} slot${entry.slots===1?'':'s'}</span></div><p>${escapeHtml(entry.mechanic||entry.canonical_text||'')}</p><button class="primary" data-action="tutorial-token-redeem" data-ki="${escapeHtml(entry.id)}">Use Free Token</button></article>`).join('')}</div></section>`:'';
+  const query=String(ux.libraryQuery||'').trim().toLowerCase(), slotFilter=String(ux.librarySlotCost||'all'), typeFilter=ux.libraryType||'all', familyFilter=ux.libraryFamily||'all', sort=ux.librarySort||'id';
+  let catalog=[...keptEntries];
+  if(query)catalog=catalog.filter(entry=>`${entry.id} ${entry.name} ${entry.mechanic||entry.canonical_text||''} ${entry.subclass||''} ${entry.family||''}`.toLowerCase().includes(query));
+  if(slotFilter!=='all')catalog=catalog.filter(entry=>Number(entry.slots)===Number(slotFilter));
+  if(typeFilter!=='all')catalog=catalog.filter(entry=>impressionCategory(entry)===typeFilter);
+  if(familyFilter!=='all')catalog=catalog.filter(entry=>(entry.family||'Global')===familyFilter);
+  catalog.sort((a,b)=>sort==='name'?a.name.localeCompare(b.name):sort==='slots'?Number(a.slots)-Number(b.slots)||a.id.localeCompare(b.id):Number(a.id.slice(3))-Number(b.id.slice(3)));
+  const slotCosts=[...new Set(keptEntries.map(e=>Number(e.slots)))].sort((a,b)=>a-b), families=[...new Set(keptEntries.filter(e=>e.family).map(e=>e.family))].sort();
+  const controls=`<div class="catalog-controls"><label>Name / ID search<input type="search" data-library-search value="${escapeHtml(ux.libraryQuery||'')}" placeholder="Search names, IDs, mechanics…"></label><label>Slot cost<select data-library-slot><option value="all">All costs</option>${slotCosts.map(v=>`<option value="${v}" ${slotFilter===String(v)?'selected':''}>${v} slots</option>`).join('')}</select></label><label>Impression type<select data-library-type><option value="all">All types</option>${['Global','Subclass-Specific'].map(v=>`<option value="${v}" ${typeFilter===v?'selected':''}>${v}</option>`).join('')}</select></label><label>Class family<select data-library-family><option value="all">All families</option><option value="Global" ${familyFilter==='Global'?'selected':''}>Global only</option>${families.map(v=>`<option value="${escapeHtml(v)}" ${familyFilter===v?'selected':''}>${escapeHtml(v)}</option>`).join('')}</select></label><label>Sort<select data-library-sort><option value="id" ${sort==='id'?'selected':''}>KI number</option><option value="name" ${sort==='name'?'selected':''}>Name A–Z</option><option value="slots" ${sort==='slots'?'selected':''}>Slot cost</option></select></label></div>`;
+  const catalogCards=catalog.length?catalog.map(entry=>{const status=equippedSet.has(entry.id)?'Equipped':owned.has(entry.id)?'Kept':'Not Kept';return `<article class="kept-card ${equippedSet.has(entry.id)?'equipped':''}"><div class="kept-card-title"><div><small>${escapeHtml(entry.id)} · ${escapeHtml(impressionCategory(entry))}${entry.subclass?` · ${escapeHtml(entry.subclass)}`:''}</small><strong>${escapeHtml(entry.name)}</strong></div><span>${entry.slots} slot${entry.slots===1?'':'s'}</span></div><p class="mechanic-copy">${escapeHtml(entry.mechanic||entry.canonical_text||'')}</p><small class="catalog-status">${escapeHtml(status)}</small></article>`}).join(''):'<div class="empty-state">No Kept Impressions match these filters.</div>';
   return `<section class="panel room-panel library-panel">
     <div class="kicker">The Library of Kept Impressions</div><h2>Krass's Magical Library</h2>
     <p class="muted">Kept Impressions belong to the account; each Vessel chooses its own loadout. Normal capacity is exactly ${KEPT_IMPRESSION_CAPACITY} slots.</p>
-    ${message ? `<div class="notice section">${escapeHtml(message)}</div>` : ''}
-    <div class="capacity-bar section"><div><strong>${used} / ${KEPT_IMPRESSION_CAPACITY}</strong><span>slots used</span></div><div class="progress-track"><div class="progress-fill" style="width:${Math.min(100, used / KEPT_IMPRESSION_CAPACITY * 100)}%"></div></div></div>
+    ${message?`<div class="notice section">${escapeHtml(message)}</div>`:''}
+    <div class="library-capacity"><span>Slots Used</span><strong>${used} / ${KEPT_IMPRESSION_CAPACITY}</strong></div>
     ${tokenPanel}
     <section class="section"><h3>Equipped</h3>${equipped.length ? `<div class="kept-grid">${equipped.map(entry => keptCard(entry, true, runtimeIndex.get(entry.id), slot, account, tavernAdventurers)).join('')}</div>` : '<div class="empty-state">No Kept Impressions are equipped.</div>'}</section>
-    <section class="section"><h3>Kept by this account</h3>${available.length ? `<div class="kept-grid">${available.map(entry => keptCard(entry, false, runtimeIndex.get(entry.id), slot, account, tavernAdventurers)).join('')}</div>` : `<div class="empty-state">No additional Kept Impressions are currently available. The complete catalogue contains ${keptEntries.length} Impressions.</div>`}</section>
-    <section class="section library-chronicle-link"><div><h3>Chronicle of Paths</h3><p class="muted">${chronicleOpen ? 'The Chronicle is open.' : 'The Chronicle has not opened yet. This does not prevent campaigns.'}</p></div><button class="secondary inline-button" data-action="chronicle">${chronicleOpen ? 'Open Chronicle' : 'View Chronicle'}</button></section>
+    <section class="section"><h3>Kept by this account</h3>${available.length ? `<div class="kept-grid">${available.map(entry => keptCard(entry, false, runtimeIndex.get(entry.id), slot, account, tavernAdventurers)).join('')}</div>` : `<div class="empty-state">No additional Kept Impressions are currently available.</div>`}</section>
+    <section class="section full-kept-catalog"><div class="section-title"><div><h3>Complete Catalogue</h3><p class="muted">${keptEntries.length} canonical entries · ${catalog.length} shown. Catalogue browsing does not require ownership.</p></div></div>${controls}<div class="kept-grid section">${catalogCards}</div></section>
+    <p class="muted section">${chronicleOpen ? 'The Chronicle is open. Kept Impression ownership remains account-wide.' : 'The Chronicle has not opened yet. Kept Impression ownership remains account-wide.'}</p>
   </section>`;
 }
-
 function mantleRoom(slot, account, subclassesForBase, message) {
   const c = slot.character;
   const state = getMantleAvailability({ slot, account, subclassesForBase });
@@ -126,7 +147,7 @@ function vesselRooms(slot, account, baseAbilities, subclassAbilities, message = 
     <form id="starting-stat-form" class="section stat-panel">
       <div class="stat-panel-head"><div><div class="kicker">Level 0 Setup</div><h3>Starting Stat Redistribution</h3></div><div class="stat-remaining"><strong data-stat-remaining>${pool}</strong><span>fixed total</span></div></div>
       <p class="muted">You may remove and re-add these starting points whenever you are between campaigns. The total is permanently fixed at ${pool} for this Vessel; run-earned Stat Points never enter this pool.</p>
-      <div class="stat-allocation-grid">${CORE_STATS.map(stat => `<div class="stat-allocator-row"><strong>${stat}</strong><button type="button" class="stat-step" data-stat-step="-1" data-stat="${stat}">−</button><input class="stat-input" type="number" name="stat_${stat}" data-stat-input="${stat}" min="0" step="1" value="${Number(stats[stat] || 0)}" inputmode="numeric"/><button type="button" class="stat-step" data-stat-step="1" data-stat="${stat}">+</button></div>`).join('')}</div>
+      <div class="stat-allocation-grid">${CORE_STATS.map(stat => `<div class="stat-allocator-row"><strong>${stat}</strong><button type="button" class="stat-step" data-action="stat-step" data-stat-step="-1" data-stat="${stat}">−</button><input class="stat-input" type="number" name="stat_${stat}" data-stat-input="${stat}" min="0" step="1" value="${Number(stats[stat] || 0)}" inputmode="numeric"/><button type="button" class="stat-step" data-action="stat-step" data-stat-step="1" data-stat="${stat}">+</button></div>`).join('')}</div>
       <div class="bind-actions section"><button type="submit" class="primary">Save Redistribution</button></div>
     </form>
     ${classlessConfiguration(slot, account, baseAbilities, subclassAbilities)}
@@ -138,8 +159,8 @@ function adventurerQuarters(slot, account, tavernAdventurers, tavernServices, me
 }
 
 function roomContent(roomId, ctx) {
-  if (roomId === 'mara-bar') return maraBar(ctx.slot,ctx.account,ctx.tavernServices,ctx.equipmentCatalog,ctx.message);
-  if (roomId === 'krass-library') return krassLibrary(ctx.slot, ctx.account, ctx.keptEntries, ctx.keptRuntimeEntries, ctx.tavernAdventurers, ctx.message);
+  if (roomId === 'mara-bar') return maraBar(ctx.slot,ctx.account,ctx.tavernServices,ctx.equipmentCatalog,ctx.message,ctx.ux);
+  if (roomId === 'krass-library') return krassLibrary(ctx.slot, ctx.account, ctx.keptEntries, ctx.keptRuntimeEntries, ctx.tavernAdventurers, ctx.message,ctx.ux);
   if (roomId === 'mantle-room') return mantleRoom(ctx.slot, ctx.account, ctx.subclassesForBase, ctx.message);
   if (roomId === 'training-chambers') return trainingChambers(ctx.account,ctx.message);
   if (roomId === 'records-room') return recordsRoom(ctx.slot,ctx.account,ctx.tavernAdventurers);
@@ -148,7 +169,7 @@ function roomContent(roomId, ctx) {
   return mainHall(ctx.slot);
 }
 
-export function renderTavern({ room, slot, account, subclassesForBase = [], keptEntries = [], keptRuntimeEntries = [], tavernAdventurers = null, tavernServices = null, equipmentCatalog = null, baseAbilities = null, subclassAbilities = null, message = '' }) {
+export function renderTavern({ room, slot, account, subclassesForBase = [], keptEntries = [], keptRuntimeEntries = [], tavernAdventurers = null, tavernServices = null, equipmentCatalog = null, baseAbilities = null, subclassAbilities = null, message = '', ux = {} }) {
   const inMain = room.id === 'main-hall';
-  return shell(`${roomContent(room.id, { slot, account, subclassesForBase, keptEntries, keptRuntimeEntries, tavernAdventurers, tavernServices, equipmentCatalog, baseAbilities, subclassAbilities, message })}${inMain ? '' : '<div class="section"><button class="secondary" data-action="tavern-main-hall">Return to Main Hall</button></div>'}`, { back: inMain, backAction: 'leave-tavern', backLabel: 'Return Home' });
+  return shell(`${roomContent(room.id, { slot, account, subclassesForBase, keptEntries, keptRuntimeEntries, tavernAdventurers, tavernServices, equipmentCatalog, baseAbilities, subclassAbilities, message, ux })}${inMain ? '' : '<div class="section"><button class="secondary" data-action="tavern-main-hall">Return to Main Hall</button></div>'}`, { back: inMain, backAction: 'leave-tavern', backLabel: 'Return Home' });
 }

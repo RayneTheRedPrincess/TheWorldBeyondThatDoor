@@ -67,7 +67,9 @@ export function resolveForestEventCheck(slot,{participantId,rng=Math.random,equi
   const applied=[applyOutcomeEffects(next,participantId,base,{equipmentCatalog,forestCrafting,progression}),applyOutcomeEffects(next,participantId,critical,{equipmentCatalog,forestCrafting,progression})];
   const details={eventId:eventDef,participantId,stat:calc.stat,relevantStat:calc.relevantStat,dc:calc.dc,roll,modifier:calc.modifier,total,successChancePct:calc.successChancePct,outcome:success?'success':'failure',criticalSuccess,criticalFailure,applied};
   const routed=card.checkmark?resolveNoncombatCheckmark(next,success?'success':'failure',{rng,details}):resolveNoncombatWithoutCheckmark(next,{note:success?'success':'failure',details});
-  if(!routed.ok)return routed; routed.result=details; return routed;
+  if(!routed.ok)return routed;
+  if(card.checkmark){const r=clone(routed.slot);const rex=r.campaign.state.expedition;rex.pendingPostEventCombat=clone(rex.encounter);rex.encounter=null;rex.state='event-result';rex.lastEventResult=clone(details);routed.slot=r;routed.encounter=null;}
+  routed.result=details; return routed;
 }
 
 export function chooseTrainerFight(slot,{trainerId}={}){
@@ -80,8 +82,11 @@ export function chooseTrainerFight(slot,{trainerId}={}){
 export function learnFromTrainer(slot,account,{trainerId,forestTrainers}={}){
   if(!slot?.campaign?.active||!slot.campaign.state)return{ok:false,error:'No active campaign.'}; const run=slot.campaign.state,ex=run.expedition,card=currentCard(run),trainer=getTrainer(forestTrainers,trainerId);
   if(ex?.state!=='noncombat-pending'||!card?.trainer||card.trainerId!==trainerId||!trainer)return{ok:false,error:'That Trainer is not the current encounter.'};
+  const vesselBaseClass=run.configuration?.permanentBaseClass||slot.character?.baseClass||null;
+  if(!vesselBaseClass||trainer.baseClass!==vesselBaseClass||card.baseClass!==vesselBaseClass)return{ok:false,error:`${trainer.subclass} is a ${trainer.baseClass} subclass and cannot be learned by this ${vesselBaseClass||'Vessel'}.`};
   const next=clone(slot); next.campaign.state.trainerDecisions=next.campaign.state.trainerDecisions||{}; if(next.campaign.state.trainerDecisions[trainerId])return{ok:false,error:'That Trainer encounter has already been decided.'}; next.campaign.state.trainerDecisions[trainerId]='learn';
   const nextAccount=clone(account||{}); nextAccount.unlocks=nextAccount.unlocks||{}; const prior=new Set(nextAccount.unlocks.subclasses||[]); const alreadyUnlocked=prior.has(trainer.subclass); prior.add(trainer.subclass); nextAccount.unlocks.subclasses=[...prior];
-  const details={type:'trainer-learn',trainerId,trainerName:trainer.name,subclass:trainer.subclass,alreadyUnlocked}; const routed=resolveNoncombatWithoutCheckmark(next,{note:`Learned ${trainer.subclass}`,details}); if(!routed.ok)return routed;
+  const opened=new Set(nextAccount.unlocks.mantleBaseClasses||[]); opened.add(vesselBaseClass); nextAccount.unlocks.mantleBaseClasses=[...opened]; nextAccount.progressionFeatures={...(nextAccount.progressionFeatures||{}),mantle:true};
+  const details={type:'trainer-learn',trainerId,trainerName:trainer.name,baseClass:vesselBaseClass,subclass:trainer.subclass,alreadyUnlocked,mantleOpened:true}; const routed=resolveNoncombatWithoutCheckmark(next,{note:`Learned ${trainer.subclass}`,details}); if(!routed.ok)return routed;
   return{ok:true,slot:routed.slot,account:nextAccount,trainer:clone(trainer),alreadyUnlocked};
 }

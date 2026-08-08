@@ -13,7 +13,6 @@ export function normalizeTavernServiceState(slot){
 function trainerCandidates(slot,account,forestTrainers,{learnOnly=false}={}){
   const base=slot?.character?.baseClass; const unlocked=new Set(account?.unlocks?.subclasses||[]);
   let entries=(forestTrainers?.entries||[]).filter(t=>t.baseClass===base);
-  if(!entries.length)entries=[...(forestTrainers?.entries||[])];
   if(learnOnly)entries=entries.filter(t=>!unlocked.has(t.subclass));
   return entries;
 }
