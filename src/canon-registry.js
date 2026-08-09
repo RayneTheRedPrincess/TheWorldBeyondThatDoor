@@ -207,7 +207,8 @@ export class CanonRegistry {
       assert(Number(portrait.targetSubclassCount)===subclassCount,'portrait subclass target must match canon');
       assert(Number(portrait.targetGenderCount)===(portrait.genders||[]).length,'portrait gender target must match configured genders');
       assert(Number(portrait.targetBasePortraitCount)===this.authority.races.count*subclassCount*(portrait.genders||[]).length,'portrait base target count mismatch');
-      assert((portrait.channels||[]).length>=6,'portrait recolor system must define the approved material channels');
+      assert(portrait.colorCustomization===false,'static portrait system must not use recolor customization');
+      assert(portrait.maskSystem===false,'static portrait system must not require recolor masks');
       assert(this.portraitSystem.tavernAdventurers?.limitedAlternates===true,'Tavern Adventurers must support limited canonical alternates');
     }
   }

@@ -4,8 +4,7 @@ import { Router } from './router.js';
 import { applyAccountBootstrap, migrateMantleUnlocksFromTrainerHistory } from './account-bootstrap.js';
 import { createVesselSlotState, validateVesselDraft } from './character-creator.js';
 import { rebindVessel } from './vessel-controller.js';
-import { selectVesselPortrait, configureRealisticVesselPortrait } from './portrait-controller.js';
-import { mountPortraitComposites, renderPortraitCompositeElement } from './portrait-renderer.js';
+import { selectVesselPortrait, selectStaticVesselPortrait } from './portrait-controller.js';
 import { SaveController } from './save-controller.js';
 import { TavernController } from './tavern-controller.js';
 import { equipKeptImpression, unequipKeptImpression, setKeptImpressionChoice } from './kept-impression-controller.js';
@@ -268,7 +267,6 @@ class App {
         ux: { libraryQuery:this.libraryQuery, librarySlotCost:this.librarySlotCost, libraryType:this.libraryType, libraryFamily:this.libraryFamily, libraryTags:this.libraryTags, librarySort:this.librarySort, lenderQuery:this.lenderQuery, lenderSlot:this.lenderSlot, lenderWeaponType:this.lenderWeaponType, lenderSort:this.lenderSort }
       });
       this.mountDisplayModeSwitch(ROUTES.TAVERN);
-      mountPortraitComposites(this.root);
       this.tavernMessage = '';
       this.refreshStatAllocator(this.root.querySelector('#starting-stat-form'));
       const roomId=this.tavern.currentRoom().id;
@@ -303,7 +301,6 @@ class App {
       if(combatIdentity!==this.presentationCombatId){this.presentationCombatId=combatIdentity;this.consumedCombatPresentationId=null;}
       this.root.innerHTML = renderCampaignRun({ run, baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), progression: this.canon.getCharacterProgression(), equipmentCatalog: this.canon.getEquipmentConsumablesStatus(), forestCrafting: this.canon.getForestCrafting(), forestTrainers: this.canon.getForestTrainers(), maraQuestStatus:activeQuest?{...activeQuest,...questEval,status:questEval?.complete?'Completed — Pending Return':'In Progress'}:null, craftingUi: { onlyCraftable:this.craftingOnlyCraftable, sortStat:this.craftingSortStat, direction:this.craftingSortDirection, query:this.craftingQuery, slot:this.craftingSlot, itemType:this.craftingType, subtype:this.craftingSubtype, weaponType:this.craftingWeaponType, armorWeight:this.craftingArmorWeight, message:this.craftingMessage }, presentationUi: { actionPanel:this.combatActionPanel, settings:this.account.settings || {}, equipmentOwnerId:this.campsiteEquipmentOwnerId, consumedPresentationId:this.consumedCombatPresentationId } });
       this.mountDisplayModeSwitch(ROUTES.CAMPAIGN_RUN);
-      mountPortraitComposites(this.root);
       const renderedPresentationId=this.root.querySelector('.combat-presentation')?.dataset?.presentationId||null;
       if(renderedPresentationId)this.consumedCombatPresentationId=renderedPresentationId;
       this.syncCombatTargetHighlight(this.root.querySelector('[data-primary-combat-target]'));
@@ -407,8 +404,8 @@ class App {
     if (action === 'combat-end-turn') return this.finishCombatTurn();
     if (action === 'run-stat-add') return this.addRunStat(button.dataset.stat);
     if (action === 'adventurer-toggle') return this.toggleTavernAdventurer(button.dataset.adventurer);
+    if (action === 'static-portrait-select') return this.changeStaticVesselPortrait(button.dataset.portrait);
     if (action === 'vessel-portrait-select') return this.changeVesselPortrait(button.dataset.portrait);
-    if (action === 'portrait-colors-reset') { const form=button.closest('#appearance-atelier-form');if(form){for(const input of form.querySelectorAll('[data-portrait-color]'))input.value=input.dataset.default||input.value;this.refreshAppearancePreview(form);}return; }
     if (action === 'mara-quest-accept') return this.acceptMaraQuestOffer(button.dataset.quest);
     if (action === 'mara-quest-abandon') return this.abandonMaraQuestOffer();
     if (action === 'lender-borrow') return this.chooseLenderBorrow(button.dataset.item);
@@ -445,8 +442,6 @@ class App {
     if (vesselForm) { event.preventDefault(); this.completeCreation(vesselForm); return; }
     const rebindForm = event.target.closest('#vessel-rebind-form');
     if (rebindForm) { event.preventDefault(); this.saveVesselRebind(rebindForm); return; }
-    const appearanceForm = event.target.closest('#appearance-atelier-form');
-    if (appearanceForm) { event.preventDefault(); this.saveRealisticAppearance(appearanceForm); return; }
     const statForm = event.target.closest('#starting-stat-form');
     if (statForm) { event.preventDefault(); this.saveStartingStatRedistribution(statForm); return; }
     const classlessForm = event.target.closest('#classless-config-form');
@@ -454,7 +449,6 @@ class App {
   }
 
   onInput(event) {
-    if (event.target.matches('[data-portrait-color]')) { this.refreshAppearancePreview(event.target.closest('#appearance-atelier-form')); return; }
     if (event.target.matches('[data-stat-input]')) this.refreshStatAllocator(event.target.closest('form'));
     if (event.target.matches('[data-help-search]')) { this.helpQuery=event.target.value||''; this.render(ROUTES.HELP); const input=this.root.querySelector('[data-help-search]'); if(input){input.focus();input.setSelectionRange(input.value.length,input.value.length);} }
     if (event.target.matches('[data-library-search]')) { this.libraryQuery=event.target.value||''; this.render(ROUTES.TAVERN); const input=this.root.querySelector('[data-library-search]'); if(input){input.focus();input.setSelectionRange(input.value.length,input.value.length);} }
@@ -480,7 +474,6 @@ class App {
     if (event.target.matches('[data-crafting-subtype]')) { this.craftingSubtype=event.target.value||'all'; this.render(ROUTES.CAMPAIGN_RUN); return; }
     if (event.target.matches('[data-crafting-weapon-type]')) { this.craftingWeaponType=event.target.value||'all'; this.render(ROUTES.CAMPAIGN_RUN); return; }
     if (event.target.matches('[data-crafting-armor-weight]')) { this.craftingArmorWeight=event.target.value||'all'; this.render(ROUTES.CAMPAIGN_RUN); return; }
-    if (event.target.matches('[data-portrait-identity-select]')) { this.changeAppearanceIdentity(event.target.closest('#appearance-atelier-form'),event.target.value); return; }
     if (event.target.matches('[data-starting-race]')) { this.refreshStatAllocator(event.target.closest('form')); return; }
     const keptChoice = event.target.closest('[data-kept-choice]');
     if (keptChoice) { this.changeKeptChoice(keptChoice); return; }
@@ -953,26 +946,12 @@ class App {
     if(result.ok)this.save.saveSlot(slotNumber,result.slot); this.render(ROUTES.TAVERN);
   }
 
-  refreshAppearancePreview(form) {
-    if(!form)return;const preview=form.querySelector('[data-portrait-composite]');if(!preview)return;const colors={};for(const input of form.querySelectorAll('[data-portrait-color]'))colors[input.dataset.portraitColor]=input.value;preview.dataset.colors=JSON.stringify(colors);renderPortraitCompositeElement(preview,{colors,cache:false});
-  }
-
-  changeAppearanceIdentity(form,identityId) {
-    if(!form||!identityId)return;
-    let options=[];try{options=JSON.parse(form.dataset.portraitOptions||'[]');}catch{return;}
-    const selected=options.find(x=>x.id===identityId);if(!selected)return;
-    const gender=form.querySelector('[name="portrait_gender"]'),subclass=form.querySelector('[name="portrait_subclass"]');if(gender)gender.value=selected.gender;if(subclass)subclass.value=selected.subclass;
-    const chip=form.querySelector('[data-portrait-system-chip]');if(chip)chip.textContent=selected.label||identityId;
-    const preview=form.querySelector('[data-portrait-composite]');if(!preview)return;
-    const masks=Object.fromEntries((selected.channels||[]).map(ch=>[ch.id,ch.mask]));const colors={};
-    for(const input of form.querySelectorAll('[data-portrait-color]')){const channel=(selected.channels||[]).find(ch=>ch.id===input.dataset.portraitColor);if(channel){input.dataset.default=channel.default||input.dataset.default||input.value;input.value=channel.default||input.value;}colors[input.dataset.portraitColor]=input.value;}
-    preview.dataset.base=selected.asset||'';preview.dataset.masks=JSON.stringify(masks);preview.dataset.colors=JSON.stringify(colors);const fallback=preview.querySelector('.portrait-base-fallback');if(fallback&&selected.asset)fallback.src=selected.asset;renderPortraitCompositeElement(preview,{colors,cache:false});
-  }
-
-  saveRealisticAppearance(form) {
-    const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.character)return;const fd=new FormData(form),colors={};for(const input of form.querySelectorAll('[data-portrait-color]'))colors[input.dataset.portraitColor]=input.value;
-    const result=configureRealisticVesselPortrait(slot,{gender:fd.get('portrait_gender'),subclass:fd.get('portrait_subclass'),colors},this.canon.getSubclassAbilities(),this.canon.getPortraitSystem());
-    this.tavernMessage=result.ok?'Realistic Vessel appearance saved. Hair, skin, clothing, armor, accent and eye colors will follow this Vessel into the next campaign.':result.error;if(result.ok)this.save.saveSlot(slotNumber,result.slot);this.render(ROUTES.TAVERN);
+  changeStaticVesselPortrait(portraitId) {
+    const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.character)return;
+    const result=selectStaticVesselPortrait(slot,{portraitId},this.canon.getSubclassAbilities(),this.canon.getPortraitSystem());
+    this.tavernMessage=result.ok?'Static Vessel portrait updated.':result.error;
+    if(result.ok)this.save.saveSlot(slotNumber,result.slot);
+    this.render(ROUTES.TAVERN);
   }
 
   changeVesselPortrait(portraitId) {

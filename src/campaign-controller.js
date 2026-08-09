@@ -85,8 +85,6 @@ export function startCampaign(slot, { account = null, chronicleTrees = null, reg
       portraitAsset: next.character.appearance?.portraitAsset||null,
       portraitSystemId: next.character.appearance?.portraitSystemId||null,
       portraitIdentity: next.character.appearance?.portraitIdentity||null,
-      portraitColors: clone(next.character.appearance?.portraitColors||null),
-      portraitMasks: clone(next.character.appearance?.portraitMasks||null),
       permanentBaseClass: baseClass,
       effectiveBaseClass: classless ? null : baseClass,
       effectiveSubclass: subclass,

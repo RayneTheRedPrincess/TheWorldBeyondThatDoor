@@ -117,8 +117,6 @@ export function createCombatActor(spec = {}, { slotIndex = 1 } = {}) {
     personality: spec.personality || null,
     priority: spec.priority || null,
     portraitAsset: spec.portraitAsset || spec.portrait || null,
-    portraitColors: clone(spec.portraitColors || null),
-    portraitMasks: clone(spec.portraitMasks || null),
     expReward: Math.max(0, Number(spec.expReward || 0)),
     onyxReward: Math.max(0, Number(spec.onyxReward || 0)),
     enemyTemplateId: spec.enemyTemplateId || null,

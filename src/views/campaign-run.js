@@ -115,7 +115,7 @@ function actorCard(actor, currentActorId, { presentation, featured = false, targ
   const form = actor.baseClass === 'Druid' && actor.classState?.form ? `<div class="actor-special-resource"><span>Form</span><strong>${escapeHtml(actor.classState.form)}</strong></div>` : '';
   return `<article class="${classes}" data-side="${escapeHtml(actor.side)}" data-combat-actor-id="${escapeHtml(actor.id)}" ${targetable && !defeated ? 'data-action="combat-select-actor" tabindex="0" role="button" aria-label="Select ${escapeHtml(actor.name)} as target"' : ''}>
     <div class="actor-ground-shadow" aria-hidden="true"></div>${(semanticSource||semanticTarget)&&semanticLabel?`<span class="semantic-action-badge">${semanticSource?'Using':'Receiving'} ${escapeHtml(semanticLabel)}</span>`:''}
-    <div class="actor-portrait-shell" aria-hidden="true"><div class="actor-portrait">${actor.portraitAsset?portraitInnerMarkup({asset:actor.portraitAsset,masks:actor.portraitMasks,colors:actor.portraitColors,alt:''}):`<span>${escapeHtml(initials)}</span>`}</div>${featured ? '<div class="boss-crown">✦</div>' : ''}</div>
+    <div class="actor-portrait-shell" aria-hidden="true"><div class="actor-portrait">${actor.portraitAsset?portraitInnerMarkup({asset:actor.portraitAsset,alt:''}):`<span>${escapeHtml(initials)}</span>`}</div>${featured ? '<div class="boss-crown">✦</div>' : ''}</div>
     <div class="actor-readout">
       <div class="actor-name-row"><div><div class="battle-slot">${escapeHtml(actor.battlefieldSlot?.key || '')}</div><h4>${escapeHtml(actor.name)}</h4><small>${escapeHtml(sideLabel)}${actor.combatRole ? ` · ${escapeHtml(actor.combatRole)}` : ''}</small></div>${current ? '<span class="turn-chip">NOW</span>' : ''}</div>
       <div class="meter hp-meter"><div class="meter-fill" style="width:${hpPercent(actor).toFixed(2)}%"></div><div class="meter-label"><span>HP</span><strong>${showNumbers ? `${hp} / ${maxHp}` : `${Math.round(hpPercent(actor))}%`}</strong></div></div>
@@ -403,7 +403,7 @@ export function renderCampaignRun({ run, baseAbilities, subclassAbilities, progr
   const progress = Math.max(0, Math.min(100, (Number(expedition.depth || 1) / Number(expedition.maxDepth || 30)) * 100));
   return shell(`
     <section class="campaign-run-hero panel ${run.configuration?.portraitAsset?'with-vessel-portrait':''}">
-      ${run.configuration?.portraitAsset?`<div class="campaign-vessel-portrait">${portraitInnerMarkup({asset:run.configuration.portraitAsset,masks:run.configuration.portraitMasks,colors:run.configuration.portraitColors,alt:'Selected Vessel portrait'})}</div>`:''}
+      ${run.configuration?.portraitAsset?`<div class="campaign-vessel-portrait">${portraitInnerMarkup({asset:run.configuration.portraitAsset,alt:'Selected Vessel portrait'})}</div>`:''}
       <div><div class="kicker">Beyond the Door</div><h2>${escapeHtml(expedition.regionName)} · Depth ${expedition.depth} / ${expedition.maxDepth}</h2><p class="muted">The expedition is preserved exactly when you leave this screen. No Depth, card, encounter, campsite, or combat turn advances while you are away.</p></div>
       <div class="run-level"><span>Character Level</span><strong>${run.character.level}</strong><small>${Math.round(Number(run.character.exp||0))} EXP · ${Math.round(expToNextLevel(run.character,progression))} to next</small></div>
     </section>
