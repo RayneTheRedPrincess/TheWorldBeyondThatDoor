@@ -4,7 +4,8 @@ import { Router } from './router.js';
 import { applyAccountBootstrap, migrateMantleUnlocksFromTrainerHistory } from './account-bootstrap.js';
 import { createVesselSlotState, validateVesselDraft } from './character-creator.js';
 import { rebindVessel } from './vessel-controller.js';
-import { selectVesselPortrait } from './portrait-controller.js';
+import { selectVesselPortrait, configureRealisticVesselPortrait } from './portrait-controller.js';
+import { mountPortraitComposites, renderPortraitCompositeElement } from './portrait-renderer.js';
 import { SaveController } from './save-controller.js';
 import { TavernController } from './tavern-controller.js';
 import { equipKeptImpression, unequipKeptImpression, setKeptImpressionChoice } from './kept-impression-controller.js';
@@ -94,6 +95,7 @@ class App {
     this.contextLessonId = null;
     this.tutorialReturnRoute = null;
     this.tutorialReturnTavernRoom = null;
+    this.displayMode = null;
     this.started = false;
     this.startPromise = null;
     this.boundRootHandlers = {
@@ -111,6 +113,8 @@ class App {
       this.root.innerHTML = '<main class="shell"><section class="hero"><p class="subtitle">Opening the Tavern…</p></section></main>';
       this.canon = await CanonRegistry.load();
       this.account = this.bootstrapAccount(this.save.ensureAccount());
+      this.displayMode = this.readDisplayMode();
+      this.applyDisplayMode(this.displayMode);
       this.root.addEventListener('click', this.boundRootHandlers.click);
       this.root.addEventListener('change', this.boundRootHandlers.change);
       this.root.addEventListener('input', this.boundRootHandlers.input);
@@ -149,6 +153,36 @@ class App {
   slots() { return this.save.listSlots(); }
   activeSlotNumber() { const number = Number(this.account?.activeSlot || 0); return number >= 1 && number <= 9 ? number : null; }
   activeSlot() { const number = this.activeSlotNumber(); return number ? this.save.loadSlot(number) : null; }
+
+  readDisplayMode() {
+    try {
+      const saved = localStorage.getItem('twbtd-display-mode');
+      if (saved === 'mobile' || saved === 'desktop') return saved;
+    } catch {}
+    return globalThis.matchMedia?.('(max-width: 720px)')?.matches ? 'mobile' : 'desktop';
+  }
+
+  applyDisplayMode(mode = this.displayMode) {
+    const next = mode === 'mobile' ? 'mobile' : 'desktop';
+    this.displayMode = next;
+    document.documentElement.dataset.displayMode = next;
+    const viewport = document.querySelector('meta[name="viewport"]');
+    if (viewport) viewport.setAttribute('content', next === 'desktop' ? 'width=1280, viewport-fit=cover' : 'width=device-width, initial-scale=1, viewport-fit=cover');
+    return next;
+  }
+
+  setDisplayMode(mode) {
+    const next = this.applyDisplayMode(mode);
+    try { localStorage.setItem('twbtd-display-mode', next); } catch {}
+    this.render(this.router.routeFromLocation());
+  }
+
+  mountDisplayModeSwitch(route) {
+    const eligible = route === ROUTES.HOME || route === ROUTES.TAVERN || (route === ROUTES.CAMPAIGN_RUN && Boolean(this.root.querySelector('.combat-presentation')));
+    if (!eligible || this.root.querySelector('.display-mode-switch')) return;
+    const mobile = this.displayMode === 'mobile';
+    this.root.insertAdjacentHTML('beforeend', `<aside class="display-mode-switch" aria-label="Display mode"><span>View</span><div><button type="button" data-action="display-mode" data-mode="desktop" aria-pressed="${mobile?'false':'true'}" class="${mobile?'':'active'}">Desktop</button><button type="button" data-action="display-mode" data-mode="mobile" aria-pressed="${mobile?'true':'false'}" class="${mobile?'active':''}">Mobile</button></div></aside>`);
+  }
 
   combatPresentationDelayMs(){return combatPresentationDelayMsForSpeed(this.account?.settings?.combatSpeed||1);}
 
@@ -203,6 +237,7 @@ class App {
     if(route!==ROUTES.CAMPAIGN_RUN)this.clearCombatPlaybackTimer();
     if (starterNeedsResolution(this.account)) {
       this.root.innerHTML = renderHome({ hasContinuableSlot: this.slots().some(s => s?.character) }) + starterTutorialOverlay({ starter:this.canon.getTutorialsHelp().mandatoryStarter, stepIndex:this.starterTutorialStep });
+      this.mountDisplayModeSwitch(ROUTES.HOME);
       return;
     }
     if (this.forcePendingSettlement(route)) return;
@@ -229,9 +264,11 @@ class App {
         room: this.tavern.currentRoom(), slot, account: this.account,
         subclassesForBase: this.canon.getSubclassesForBase(slot.character.baseClass),
         keptEntries: this.canon.getKeptImpressions(), keptRuntimeEntries: this.canon.getKeptImpressionRuntime().entries, tavernAdventurers: this.canon.getTavernAdventurers(), tavernServices:this.canon.getTavernServices(), equipmentCatalog:this.canon.getEquipmentConsumablesStatus(),
-        baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), unlockedRaces:this.account.unlocks?.races||[], baseClasses:this.canon.getBaseClasses(), message: this.tavernMessage,
+        baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), portraitSystem:this.canon.getPortraitSystem(), unlockedRaces:this.account.unlocks?.races||[], baseClasses:this.canon.getBaseClasses(), message: this.tavernMessage,
         ux: { libraryQuery:this.libraryQuery, librarySlotCost:this.librarySlotCost, libraryType:this.libraryType, libraryFamily:this.libraryFamily, libraryTags:this.libraryTags, librarySort:this.librarySort, lenderQuery:this.lenderQuery, lenderSlot:this.lenderSlot, lenderWeaponType:this.lenderWeaponType, lenderSort:this.lenderSort }
       });
+      this.mountDisplayModeSwitch(ROUTES.TAVERN);
+      mountPortraitComposites(this.root);
       this.tavernMessage = '';
       this.refreshStatAllocator(this.root.querySelector('#starting-stat-form'));
       const roomId=this.tavern.currentRoom().id;
@@ -265,6 +302,8 @@ class App {
       const combatIdentity=run.combat?.id||run.combat?.encounterId||null;
       if(combatIdentity!==this.presentationCombatId){this.presentationCombatId=combatIdentity;this.consumedCombatPresentationId=null;}
       this.root.innerHTML = renderCampaignRun({ run, baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), progression: this.canon.getCharacterProgression(), equipmentCatalog: this.canon.getEquipmentConsumablesStatus(), forestCrafting: this.canon.getForestCrafting(), forestTrainers: this.canon.getForestTrainers(), maraQuestStatus:activeQuest?{...activeQuest,...questEval,status:questEval?.complete?'Completed — Pending Return':'In Progress'}:null, craftingUi: { onlyCraftable:this.craftingOnlyCraftable, sortStat:this.craftingSortStat, direction:this.craftingSortDirection, query:this.craftingQuery, slot:this.craftingSlot, itemType:this.craftingType, subtype:this.craftingSubtype, weaponType:this.craftingWeaponType, armorWeight:this.craftingArmorWeight, message:this.craftingMessage }, presentationUi: { actionPanel:this.combatActionPanel, settings:this.account.settings || {}, equipmentOwnerId:this.campsiteEquipmentOwnerId, consumedPresentationId:this.consumedCombatPresentationId } });
+      this.mountDisplayModeSwitch(ROUTES.CAMPAIGN_RUN);
+      mountPortraitComposites(this.root);
       const renderedPresentationId=this.root.querySelector('.combat-presentation')?.dataset?.presentationId||null;
       if(renderedPresentationId)this.consumedCombatPresentationId=renderedPresentationId;
       this.syncCombatTargetHighlight(this.root.querySelector('[data-primary-combat-target]'));
@@ -299,12 +338,14 @@ class App {
     if (route === ROUTES.CREDITS) { this.root.innerHTML = renderCredits(); return; }
     if (route === ROUTES.SETTINGS) { this.root.innerHTML = renderSettings({ combatSpeed: this.account.settings?.combatSpeed ?? 1, reducedMotion:Boolean(this.account.settings?.reducedMotion), combatNumbers:this.account.settings?.combatNumbers !== false, screenFlash:this.account.settings?.screenFlash || 'standard' }); return; }
     this.root.innerHTML = renderHome({ hasContinuableSlot: this.slots().some(s => s?.character) });
+    this.mountDisplayModeSwitch(ROUTES.HOME);
   }
 
   onClick(event) {
     const button = event.target.closest('[data-action]');
     if (!button) return;
     const action = button.dataset.action;
+    if (action === 'display-mode') return this.setDisplayMode(button.dataset.mode);
     if (action === 'starter-next') { const max=this.canon.getTutorialsHelp().mandatoryStarter.steps.length-1; this.starterTutorialStep=Math.min(max,this.starterTutorialStep+1); return this.render(this.router.routeFromLocation()); }
     if (action === 'starter-prev') { this.starterTutorialStep=Math.max(0,this.starterTutorialStep-1); return this.render(this.router.routeFromLocation()); }
     if (action === 'starter-complete') return this.resolveStarterOnboarding('completed');
@@ -367,6 +408,7 @@ class App {
     if (action === 'run-stat-add') return this.addRunStat(button.dataset.stat);
     if (action === 'adventurer-toggle') return this.toggleTavernAdventurer(button.dataset.adventurer);
     if (action === 'vessel-portrait-select') return this.changeVesselPortrait(button.dataset.portrait);
+    if (action === 'portrait-colors-reset') { const form=button.closest('#appearance-atelier-form');if(form){for(const input of form.querySelectorAll('[data-portrait-color]'))input.value=input.dataset.default||input.value;this.refreshAppearancePreview(form);}return; }
     if (action === 'mara-quest-accept') return this.acceptMaraQuestOffer(button.dataset.quest);
     if (action === 'mara-quest-abandon') return this.abandonMaraQuestOffer();
     if (action === 'lender-borrow') return this.chooseLenderBorrow(button.dataset.item);
@@ -403,6 +445,8 @@ class App {
     if (vesselForm) { event.preventDefault(); this.completeCreation(vesselForm); return; }
     const rebindForm = event.target.closest('#vessel-rebind-form');
     if (rebindForm) { event.preventDefault(); this.saveVesselRebind(rebindForm); return; }
+    const appearanceForm = event.target.closest('#appearance-atelier-form');
+    if (appearanceForm) { event.preventDefault(); this.saveRealisticAppearance(appearanceForm); return; }
     const statForm = event.target.closest('#starting-stat-form');
     if (statForm) { event.preventDefault(); this.saveStartingStatRedistribution(statForm); return; }
     const classlessForm = event.target.closest('#classless-config-form');
@@ -410,6 +454,7 @@ class App {
   }
 
   onInput(event) {
+    if (event.target.matches('[data-portrait-color]')) { this.refreshAppearancePreview(event.target.closest('#appearance-atelier-form')); return; }
     if (event.target.matches('[data-stat-input]')) this.refreshStatAllocator(event.target.closest('form'));
     if (event.target.matches('[data-help-search]')) { this.helpQuery=event.target.value||''; this.render(ROUTES.HELP); const input=this.root.querySelector('[data-help-search]'); if(input){input.focus();input.setSelectionRange(input.value.length,input.value.length);} }
     if (event.target.matches('[data-library-search]')) { this.libraryQuery=event.target.value||''; this.render(ROUTES.TAVERN); const input=this.root.querySelector('[data-library-search]'); if(input){input.focus();input.setSelectionRange(input.value.length,input.value.length);} }
@@ -435,6 +480,7 @@ class App {
     if (event.target.matches('[data-crafting-subtype]')) { this.craftingSubtype=event.target.value||'all'; this.render(ROUTES.CAMPAIGN_RUN); return; }
     if (event.target.matches('[data-crafting-weapon-type]')) { this.craftingWeaponType=event.target.value||'all'; this.render(ROUTES.CAMPAIGN_RUN); return; }
     if (event.target.matches('[data-crafting-armor-weight]')) { this.craftingArmorWeight=event.target.value||'all'; this.render(ROUTES.CAMPAIGN_RUN); return; }
+    if (event.target.matches('[data-portrait-identity-select]')) { this.changeAppearanceIdentity(event.target.closest('#appearance-atelier-form'),event.target.value); return; }
     if (event.target.matches('[data-starting-race]')) { this.refreshStatAllocator(event.target.closest('form')); return; }
     const keptChoice = event.target.closest('[data-kept-choice]');
     if (keptChoice) { this.changeKeptChoice(keptChoice); return; }
@@ -905,6 +951,28 @@ class App {
     const current=[...new Set(slot.party?.tavernAdventurerIds||[])]; const nextIds=current.includes(id)?current.filter(x=>x!==id):[...current,id];
     const result=setTavernAdventurerParty(slot,nextIds,{catalog:this.canon.getTavernAdventurers(),recruitedIds:recruited}); this.tavernMessage=result.ok?'Expedition party updated.':result.error;
     if(result.ok)this.save.saveSlot(slotNumber,result.slot); this.render(ROUTES.TAVERN);
+  }
+
+  refreshAppearancePreview(form) {
+    if(!form)return;const preview=form.querySelector('[data-portrait-composite]');if(!preview)return;const colors={};for(const input of form.querySelectorAll('[data-portrait-color]'))colors[input.dataset.portraitColor]=input.value;preview.dataset.colors=JSON.stringify(colors);renderPortraitCompositeElement(preview,{colors,cache:false});
+  }
+
+  changeAppearanceIdentity(form,identityId) {
+    if(!form||!identityId)return;
+    let options=[];try{options=JSON.parse(form.dataset.portraitOptions||'[]');}catch{return;}
+    const selected=options.find(x=>x.id===identityId);if(!selected)return;
+    const gender=form.querySelector('[name="portrait_gender"]'),subclass=form.querySelector('[name="portrait_subclass"]');if(gender)gender.value=selected.gender;if(subclass)subclass.value=selected.subclass;
+    const chip=form.querySelector('[data-portrait-system-chip]');if(chip)chip.textContent=selected.label||identityId;
+    const preview=form.querySelector('[data-portrait-composite]');if(!preview)return;
+    const masks=Object.fromEntries((selected.channels||[]).map(ch=>[ch.id,ch.mask]));const colors={};
+    for(const input of form.querySelectorAll('[data-portrait-color]')){const channel=(selected.channels||[]).find(ch=>ch.id===input.dataset.portraitColor);if(channel){input.dataset.default=channel.default||input.dataset.default||input.value;input.value=channel.default||input.value;}colors[input.dataset.portraitColor]=input.value;}
+    preview.dataset.base=selected.asset||'';preview.dataset.masks=JSON.stringify(masks);preview.dataset.colors=JSON.stringify(colors);const fallback=preview.querySelector('.portrait-base-fallback');if(fallback&&selected.asset)fallback.src=selected.asset;renderPortraitCompositeElement(preview,{colors,cache:false});
+  }
+
+  saveRealisticAppearance(form) {
+    const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.character)return;const fd=new FormData(form),colors={};for(const input of form.querySelectorAll('[data-portrait-color]'))colors[input.dataset.portraitColor]=input.value;
+    const result=configureRealisticVesselPortrait(slot,{gender:fd.get('portrait_gender'),subclass:fd.get('portrait_subclass'),colors},this.canon.getSubclassAbilities(),this.canon.getPortraitSystem());
+    this.tavernMessage=result.ok?'Realistic Vessel appearance saved. Hair, skin, clothing, armor, accent and eye colors will follow this Vessel into the next campaign.':result.error;if(result.ok)this.save.saveSlot(slotNumber,result.slot);this.render(ROUTES.TAVERN);
   }
 
   changeVesselPortrait(portraitId) {

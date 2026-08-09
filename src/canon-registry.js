@@ -10,7 +10,7 @@ function assert(condition, message) {
 }
 
 export class CanonRegistry {
-  constructor({ authority, keptImpressions, keptImpressionRuntime, accountBootstrap, chronicleTrees, regions, combatRules, baseAbilities, subclassAbilities, baseResources, forestEnemies, forestEvents, forestTrainers, characterProgression, tavernAdventurers, equipmentConsumablesStatus, forestCrafting, tavernServices, tutorialsHelp }) {
+  constructor({ authority, keptImpressions, keptImpressionRuntime, accountBootstrap, chronicleTrees, regions, combatRules, baseAbilities, subclassAbilities, baseResources, forestEnemies, forestEvents, forestTrainers, characterProgression, tavernAdventurers, equipmentConsumablesStatus, forestCrafting, tavernServices, tutorialsHelp, portraitSystem = null }) {
     this.authority = deepFreeze(authority);
     this.keptImpressions = deepFreeze(keptImpressions);
     this.keptImpressionRuntime = deepFreeze(keptImpressionRuntime);
@@ -30,6 +30,7 @@ export class CanonRegistry {
     this.forestCrafting = deepFreeze(forestCrafting);
     this.tavernServices = deepFreeze(tavernServices);
     this.tutorialsHelp = deepFreeze(tutorialsHelp);
+    this.portraitSystem = deepFreeze(portraitSystem);
     this.baseAbilityIndex = new Map((baseAbilities?.abilities || []).map(entry => [entry.id, entry]));
     this.subclassAbilityIndex = new Map((subclassAbilities?.abilities || []).map(entry => [entry.id, entry]));
     this.keptIndex = new Map((keptImpressions.entries || []).map(entry => [entry.id, entry]));
@@ -37,7 +38,7 @@ export class CanonRegistry {
   }
 
   static async load() {
-    const [authorityResponse, keptResponse, keptRuntimeResponse, bootstrapResponse, chronicleResponse, regionsResponse, combatRulesResponse, baseAbilitiesResponse, subclassAbilitiesResponse, baseResourcesResponse, forestEnemiesResponse, forestEventsResponse, forestTrainersResponse, characterProgressionResponse, tavernAdventurersResponse, equipmentResponse, forestCraftingResponse, tavernServicesResponse, tutorialsHelpResponse] = await Promise.all([
+    const [authorityResponse, keptResponse, keptRuntimeResponse, bootstrapResponse, chronicleResponse, regionsResponse, combatRulesResponse, baseAbilitiesResponse, subclassAbilitiesResponse, baseResourcesResponse, forestEnemiesResponse, forestEventsResponse, forestTrainersResponse, characterProgressionResponse, tavernAdventurersResponse, equipmentResponse, forestCraftingResponse, tavernServicesResponse, tutorialsHelpResponse, portraitSystemResponse] = await Promise.all([
       fetch('./data/canon-authority.json', { cache: 'no-cache' }),
       fetch('./data/kept-impressions.json', { cache: 'no-cache' }),
       fetch('./data/kept-impression-runtime.json', { cache: 'no-cache' }),
@@ -56,9 +57,10 @@ export class CanonRegistry {
       fetch('./data/equipment-consumables-status.json', { cache: 'no-cache' }),
       fetch('./data/forest-crafting.json', { cache: 'no-cache' }),
       fetch('./data/tavern-services.json', { cache: 'no-cache' }),
-      fetch('./data/tutorials-help.json', { cache: 'no-cache' })
+      fetch('./data/tutorials-help.json', { cache: 'no-cache' }),
+      fetch('./data/portrait-system.json', { cache: 'no-cache' })
     ]);
-    if (!authorityResponse.ok || !keptResponse.ok || !keptRuntimeResponse.ok || !bootstrapResponse.ok || !chronicleResponse.ok || !regionsResponse.ok || !combatRulesResponse.ok || !baseAbilitiesResponse.ok || !subclassAbilitiesResponse.ok || !baseResourcesResponse.ok || !forestEnemiesResponse.ok || !forestEventsResponse.ok || !forestTrainersResponse.ok || !characterProgressionResponse.ok || !tavernAdventurersResponse.ok || !equipmentResponse.ok || !forestCraftingResponse.ok || !tavernServicesResponse.ok || !tutorialsHelpResponse.ok) {
+    if (!authorityResponse.ok || !keptResponse.ok || !keptRuntimeResponse.ok || !bootstrapResponse.ok || !chronicleResponse.ok || !regionsResponse.ok || !combatRulesResponse.ok || !baseAbilitiesResponse.ok || !subclassAbilitiesResponse.ok || !baseResourcesResponse.ok || !forestEnemiesResponse.ok || !forestEventsResponse.ok || !forestTrainersResponse.ok || !characterProgressionResponse.ok || !tavernAdventurersResponse.ok || !equipmentResponse.ok || !forestCraftingResponse.ok || !tavernServicesResponse.ok || !tutorialsHelpResponse.ok || !portraitSystemResponse.ok) {
       throw new Error('Canonical data files could not be loaded.');
     }
     return new CanonRegistry({
@@ -80,7 +82,8 @@ export class CanonRegistry {
       equipmentConsumablesStatus: await equipmentResponse.json(),
       forestCrafting: await forestCraftingResponse.json(),
       tavernServices: await tavernServicesResponse.json(),
-      tutorialsHelp: await tutorialsHelpResponse.json()
+      tutorialsHelp: await tutorialsHelpResponse.json(),
+      portraitSystem: await portraitSystemResponse.json()
     });
   }
 
@@ -196,6 +199,17 @@ export class CanonRegistry {
     assert(this.tutorialsHelp?.mandatoryStarter?.skipAllowed===true,'I18 starter tutorial must grant its reward even when skipped');
     assert(this.tutorialsHelp?.tutorials?.length===8,'I18 must retain exactly eight replayable named tutorials');
     assert(this.tutorialsHelp?.helpEntries?.length>=20,'I18 Help Codex must cover the current core systems');
+    if (this.portraitSystem) {
+      const portrait = this.portraitSystem.vesselPortraits || {};
+      const subclassCount = this.authority.class_families.reduce((sum,family)=>sum+(family.entities||[]).filter(entity=>entity.name!==family.base_class).length,0);
+      assert(portrait.oneBasePortraitPerRaceGenderSubclass===true,'portrait system must use one base portrait per Race × Gender × Subclass');
+      assert(Number(portrait.targetRaceCount)===this.authority.races.count,'portrait race target must match canon');
+      assert(Number(portrait.targetSubclassCount)===subclassCount,'portrait subclass target must match canon');
+      assert(Number(portrait.targetGenderCount)===(portrait.genders||[]).length,'portrait gender target must match configured genders');
+      assert(Number(portrait.targetBasePortraitCount)===this.authority.races.count*subclassCount*(portrait.genders||[]).length,'portrait base target count mismatch');
+      assert((portrait.channels||[]).length>=6,'portrait recolor system must define the approved material channels');
+      assert(this.portraitSystem.tavernAdventurers?.limitedAlternates===true,'Tavern Adventurers must support limited canonical alternates');
+    }
   }
 
   getBaseClasses() { return this.authority.class_families.map(f => f.base_class); }
@@ -240,5 +254,6 @@ export class CanonRegistry {
   getCombatRules() { return this.combatRules; }
   getTavernServices() { return this.tavernServices; }
   getTutorialsHelp() { return this.tutorialsHelp; }
+  getPortraitSystem() { return this.portraitSystem; }
   getAccountBootstrap() { return this.accountBootstrap; }
 }

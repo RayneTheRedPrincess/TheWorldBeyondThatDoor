@@ -1,4 +1,4 @@
-export const APP_VERSION = 'I22-2026-08-08';
+export const APP_VERSION = 'PORTRAIT-A1-2026-08-08';
 export const CANON_VERSION = 'v25-2026-08-07';
 export const ACCOUNT_KEY = 'TWBTD_V2_ACCOUNT';
 export const SLOT_KEYS = Object.freeze(Array.from({ length: 9 }, (_, i) => `TWBTD_V2_SLOT_${i + 1}`));

@@ -46,7 +46,9 @@
       ],
       "keptImpressionChoices": {},
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-elowen.png"
+      "portrait": "./assets/portraits/adventurers/guest-elowen.png",
+      "portraitAlternates": [],
+      "portraitAlternateTarget": 2
     },
     {
       "id": "guest-briar",
@@ -86,7 +88,9 @@
         }
       },
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-briar.png"
+      "portrait": "./assets/portraits/adventurers/guest-briar.png",
+      "portraitAlternates": [],
+      "portraitAlternateTarget": 2
     },
     {
       "id": "guest-vesper",
@@ -122,7 +126,9 @@
       ],
       "keptImpressionChoices": {},
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-vesper.png"
+      "portrait": "./assets/portraits/adventurers/guest-vesper.png",
+      "portraitAlternates": [],
+      "portraitAlternateTarget": 2
     },
     {
       "id": "guest-brakka",
@@ -158,7 +164,9 @@
       ],
       "keptImpressionChoices": {},
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-brakka.png"
+      "portrait": "./assets/portraits/adventurers/guest-brakka.png",
+      "portraitAlternates": [],
+      "portraitAlternateTarget": 2
     },
     {
       "id": "guest-sparkscale",
@@ -193,7 +201,9 @@
       ],
       "keptImpressionChoices": {},
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-sparkscale.png"
+      "portrait": "./assets/portraits/adventurers/guest-sparkscale.png",
+      "portraitAlternates": [],
+      "portraitAlternateTarget": 2
     },
     {
       "id": "guest-nib",
@@ -229,7 +239,9 @@
       ],
       "keptImpressionChoices": {},
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-nib.png"
+      "portrait": "./assets/portraits/adventurers/guest-nib.png",
+      "portraitAlternates": [],
+      "portraitAlternateTarget": 2
     },
     {
       "id": "guest-mercury",
@@ -269,7 +281,9 @@
         }
       },
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-mercury.png"
+      "portrait": "./assets/portraits/adventurers/guest-mercury.png",
+      "portraitAlternates": [],
+      "portraitAlternateTarget": 2
     },
     {
       "id": "guest-unit-seven",
@@ -305,7 +319,9 @@
       ],
       "keptImpressionChoices": {},
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-unit-seven.png"
+      "portrait": "./assets/portraits/adventurers/guest-unit-seven.png",
+      "portraitAlternates": [],
+      "portraitAlternateTarget": 2
     },
     {
       "id": "guest-tawny",
@@ -340,7 +356,9 @@
       ],
       "keptImpressionChoices": {},
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-tawny.png"
+      "portrait": "./assets/portraits/adventurers/guest-tawny.png",
+      "portraitAlternates": [],
+      "portraitAlternateTarget": 2
     },
     {
       "id": "guest-sera",
@@ -376,7 +394,9 @@
       ],
       "keptImpressionChoices": {},
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-sera.png"
+      "portrait": "./assets/portraits/adventurers/guest-sera.png",
+      "portraitAlternates": [],
+      "portraitAlternateTarget": 2
     },
     {
       "id": "guest-kethravel",
@@ -416,7 +436,9 @@
         }
       },
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-kethravel.png"
+      "portrait": "./assets/portraits/adventurers/guest-kethravel.png",
+      "portraitAlternates": [],
+      "portraitAlternateTarget": 2
     },
     {
       "id": "guest-rill",
@@ -455,7 +477,9 @@
         }
       },
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-rill.png"
+      "portrait": "./assets/portraits/adventurers/guest-rill.png",
+      "portraitAlternates": [],
+      "portraitAlternateTarget": 2
     },
     {
       "id": "guest-dane",
@@ -490,7 +514,9 @@
       ],
       "keptImpressionChoices": {},
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-dane.png"
+      "portrait": "./assets/portraits/adventurers/guest-dane.png",
+      "portraitAlternates": [],
+      "portraitAlternateTarget": 2
     }
   ]
 }

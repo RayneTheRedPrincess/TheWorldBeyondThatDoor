@@ -657,3 +657,238 @@ html[data-reduced-motion="true"] .tutorial-arrow{animation:none}
 .campaign-vessel-portrait img,.adventurer-sheet-portrait{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 .adventurer-sheet-portrait{width:5rem;aspect-ratio:4/5;height:auto;border-radius:.65rem;border:1px solid rgba(255,255,255,.1);float:left;margin:0 .75rem .55rem 0}
 @media (max-width:720px){.campaign-run-hero.with-vessel-portrait{grid-template-columns:auto minmax(0,1fr)}.campaign-run-hero.with-vessel-portrait .run-level{grid-column:1/-1}.battle-side.formation-dense .battle-actor,.battle-side.formation-very-dense .battle-actor{min-height:5.85rem}.battle-side.formation-very-dense .actor-portrait{height:3.75rem}}
+
+/* Beta Test 3 repair 2 — expanded desktop combat workspace/readability */
+@media (min-width:1180px){
+  .shell:has(.combat-presentation){
+    width:min(1760px,100%);
+    max-width:none;
+    padding-left:clamp(12px,1.25vw,24px);
+    padding-right:clamp(12px,1.25vw,24px);
+  }
+  .combat-layout{
+    grid-template-columns:minmax(19rem,22rem) minmax(34rem,1fr) minmax(16rem,19rem);
+    gap:1rem;
+  }
+  .combat-left-sidebar,.combat-right-sidebar{max-height:82vh}
+  .combat-center-stage .battle-scene{min-height:clamp(40rem,82vh,56rem)}
+  .combat-left-sidebar .combat-head h3{font-size:1.35rem}
+  .combat-left-sidebar .combat-command-bar{gap:.7rem;padding:.8rem}
+  .combat-left-sidebar .combat-command-bar button{min-height:4.35rem}
+  .combat-left-sidebar .combat-command-bar button span{font-size:1.08rem}
+  .combat-left-sidebar .combat-command-bar button small{font-size:.7rem;line-height:1.22}
+  .battle-scene .battle-actor{min-height:12.8rem;grid-template-columns:4.35rem minmax(0,1fr);gap:.7rem;padding:.7rem}
+  .battle-scene .battle-actor.featured-enemy{min-height:14rem;width:min(100%,28rem)}
+  .actor-portrait-shell{min-height:6.8rem}
+  .actor-portrait{width:4.15rem;height:6.25rem}
+  .featured-enemy .actor-portrait{width:5rem;height:7.5rem}
+  .actor-name-row h4{font-size:clamp(.92rem,1vw,1.08rem)}
+  .actor-name-row small{font-size:.72rem}
+  .battle-slot{font-size:.61rem}
+  .turn-chip{font-size:.62rem;padding:.2rem .36rem}
+  .meter{height:1.25rem}
+  .meter-label{font-size:.64rem;padding:0 .38rem}
+  .actor-special-resource,.actor-resource-grid .battle-resource{font-size:.64rem}
+  .guard-mark{font-size:.62rem}
+  .status-token{width:1.45rem;height:1.45rem;font-size:.52rem}
+  .combat-turn-order-panel{padding:.8rem}
+  .combat-right-sidebar .initiative-token{grid-template-columns:1.9rem 3.1rem minmax(0,1fr);gap:.45rem;padding:.52rem .62rem}
+  .combat-right-sidebar .initiative-token>span{width:1.85rem;height:1.85rem}
+  .combat-right-sidebar .initiative-token strong{font-size:.82rem;max-width:none}
+  .combat-log-panel summary{padding:.82rem .95rem;font-size:1rem}
+  .combat-log-lines{font-size:.8rem;line-height:1.52;padding:.3rem .95rem .95rem}
+  .combat-log-lines>div{padding:.45rem .55rem}
+}
+
+/* Beta Test 3 repair 3 — full-width battlefield with left action HUD overlaid inside combat */
+@media (min-width:1180px){
+  .combat-layout{
+    position:relative;
+    grid-template-columns:minmax(0,1fr) minmax(16rem,19rem);
+    grid-template-rows:minmax(0,1fr);
+    gap:1rem;
+    align-items:stretch;
+  }
+
+  /* The actual battlefield now owns the complete left combat workspace. */
+  .combat-center-stage{
+    grid-column:1;
+    grid-row:1;
+    min-width:0;
+    z-index:1;
+  }
+  .combat-center-stage .battle-scene{
+    min-height:clamp(44rem,84vh,60rem);
+    height:100%;
+    /* Reserve actor-space for the overlaid action HUD while keeping the scene art full-width. */
+    padding-left:clamp(22rem,25vw,26rem);
+  }
+
+  /* Abilities/actions are back inside the combat screen instead of consuming battlefield width. */
+  .combat-left-sidebar{
+    grid-column:1;
+    grid-row:1;
+    z-index:6;
+    align-self:start;
+    width:clamp(20rem,23vw,24rem);
+    max-height:calc(84vh - 2rem);
+    overflow:auto;
+    margin:1rem 0 1rem 1rem;
+    padding:.85rem;
+    border:1px solid rgba(230,206,151,.18);
+    border-radius:1rem;
+    background:linear-gradient(180deg,rgba(20,16,13,.96),rgba(15,12,10,.91));
+    box-shadow:0 .8rem 2rem rgba(0,0,0,.34);
+    backdrop-filter:blur(7px);
+  }
+  .combat-left-sidebar .combat-head{
+    padding:.15rem .15rem .65rem;
+  }
+
+  /* Turn order/log remain the dedicated right rail. */
+  .combat-right-sidebar{
+    grid-column:2;
+    grid-row:1;
+    max-height:84vh;
+  }
+}
+
+/* At slightly narrower desktop widths, keep the previous non-overlay two-column fallback. */
+@media (min-width:981px) and (max-width:1179px){
+  .combat-center-stage .battle-scene{padding-left:clamp(.75rem,2vw,1.3rem)}
+}
+
+/* Beta Test 3 repair 4 — persistent manual Desktop / Mobile display override */
+.display-mode-switch{
+  position:fixed;
+  top:max(.65rem,env(safe-area-inset-top));
+  right:max(.65rem,env(safe-area-inset-right));
+  z-index:90;
+  display:flex;
+  align-items:center;
+  gap:.45rem;
+  padding:.38rem .45rem;
+  border:1px solid rgba(255,213,138,.34);
+  border-radius:999px;
+  background:rgba(15,12,10,.94);
+  box-shadow:0 .45rem 1.25rem rgba(0,0,0,.34);
+  backdrop-filter:blur(8px);
+  font-family:Georgia,"Times New Roman",serif;
+}
+.display-mode-switch>span{color:var(--muted);font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;padding-left:.25rem}
+.display-mode-switch>div{display:flex;gap:.2rem}
+.display-mode-switch button{
+  min-height:2rem;
+  padding:.34rem .65rem;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:999px;
+  background:rgba(255,255,255,.035);
+  color:var(--text);
+  cursor:pointer;
+  font-size:.72rem;
+  line-height:1;
+}
+.display-mode-switch button.active,.display-mode-switch button[aria-pressed="true"]{
+  border-color:rgba(255,213,138,.68);
+  background:rgba(222,184,109,.16);
+  color:var(--gold-strong);
+}
+
+/* Manual Mobile Mode: emulate the compact layout even on a wide desktop browser. */
+html[data-display-mode="mobile"],html[data-display-mode="mobile"] body{max-width:100%;overflow-x:hidden}
+html[data-display-mode="mobile"] .shell{width:min(480px,100%);max-width:480px;padding-left:12px;padding-right:12px}
+html[data-display-mode="mobile"] .hero{min-height:42dvh}
+html[data-display-mode="mobile"] h1{font-size:clamp(2.35rem,12vw,3.65rem)}
+html[data-display-mode="mobile"] .hall-hero{grid-template-columns:1fr}
+html[data-display-mode="mobile"] .active-vessel{border-left:0;border-top:1px solid var(--line);padding-left:0;padding-top:14px;min-width:0}
+html[data-display-mode="mobile"] .outside-door{align-items:stretch;flex-direction:column}
+html[data-display-mode="mobile"] .outside-door .secondary{width:100%}
+html[data-display-mode="mobile"] .tutorial-list{columns:1}
+html[data-display-mode="mobile"] .room-grid,
+html[data-display-mode="mobile"] .service-grid,
+html[data-display-mode="mobile"] .quest-offers,
+html[data-display-mode="mobile"] .lender-grid{grid-template-columns:1fr}
+html[data-display-mode="mobile"] .capacity-bar{grid-template-columns:1fr}
+html[data-display-mode="mobile"] .library-chronicle-link,
+html[data-display-mode="mobile"] .chronicle-tree-header{align-items:stretch;flex-direction:column}
+html[data-display-mode="mobile"] .chronicle-budget{align-items:flex-start}
+html[data-display-mode="mobile"] .campaign-run-hero{display:grid}
+html[data-display-mode="mobile"] .run-level{text-align:left}
+html[data-display-mode="mobile"] .expedition-heading-row{display:grid}
+html[data-display-mode="mobile"] .depth-badge{justify-self:start}
+html[data-display-mode="mobile"] .expedition-card-grid{grid-template-columns:1fr}
+html[data-display-mode="mobile"] .expedition-card{min-height:11rem}
+
+html[data-display-mode="mobile"] .shell:has(.combat-presentation){width:min(520px,100%);max-width:520px;padding-left:8px;padding-right:8px}
+html[data-display-mode="mobile"] .combat-layout{display:flex!important;flex-direction:column!important;gap:.75rem!important}
+html[data-display-mode="mobile"] .combat-center-stage{order:1!important;min-width:0!important}
+html[data-display-mode="mobile"] .combat-left-sidebar{order:2!important;position:static!important;width:100%!important;max-height:none!important;overflow:visible!important;margin:0!important;padding:.75rem!important;border:1px solid rgba(230,206,151,.18)!important;border-radius:1rem!important;background:var(--panel)!important;box-shadow:none!important;backdrop-filter:none!important}
+html[data-display-mode="mobile"] .combat-right-sidebar{order:3!important;display:flex!important;flex-direction:column!important;width:100%!important;max-height:none!important;overflow:visible!important}
+html[data-display-mode="mobile"] .combat-right-sidebar .initiative-strip{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;overflow:visible!important}
+html[data-display-mode="mobile"] .combat-center-stage .battle-scene{height:auto!important;min-height:34rem!important;padding:.6rem!important;grid-template-columns:minmax(0,1fr) 1.65rem minmax(0,1fr)!important;gap:.28rem!important}
+html[data-display-mode="mobile"] .battle-scene .battle-side{padding:3.25rem 0 .6rem!important}
+html[data-display-mode="mobile"] .battle-actor-slot{transform:translate3d(calc(var(--slot-shift-x) * .42),calc(var(--slot-rise) * -.42),0) scale(calc(.96 * var(--slot-scale)))!important}
+html[data-display-mode="mobile"] .battle-scene .battle-actor,
+html[data-display-mode="mobile"] .battle-scene .battle-actor.featured-enemy{min-height:6.9rem!important;grid-template-columns:2rem minmax(0,1fr)!important;padding:.35rem!important;gap:.3rem!important;border-radius:.58rem!important;width:100%!important}
+html[data-display-mode="mobile"] .battle-scene .battle-actor.featured-enemy{min-height:7.4rem!important}
+html[data-display-mode="mobile"] .actor-portrait-shell{min-height:3.6rem!important}
+html[data-display-mode="mobile"] .actor-portrait,
+html[data-display-mode="mobile"] .featured-enemy .actor-portrait{width:1.9rem!important;height:3.25rem!important;font-size:.55rem!important}
+html[data-display-mode="mobile"] .combat-left-sidebar .ability-grid{grid-template-columns:1fr!important}
+html[data-display-mode="mobile"] .craft-filter-grid{grid-template-columns:1fr!important}
+html[data-display-mode="mobile"] .craft-filter-grid .craft-search{grid-column:auto!important}
+html[data-display-mode="mobile"] .portrait-choice-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+
+/* Manual Desktop Mode: stay wide even when the physical device is narrow. */
+html[data-display-mode="desktop"] body{min-width:1180px;overflow-x:auto}
+html[data-display-mode="desktop"] .shell{width:min(1120px,100%);max-width:1120px;padding-left:16px;padding-right:16px}
+html[data-display-mode="desktop"] .hero{min-height:48dvh}
+html[data-display-mode="desktop"] .hall-hero{grid-template-columns:1fr auto}
+html[data-display-mode="desktop"] .active-vessel{min-width:190px;border-left:1px solid var(--line);border-top:0;padding-left:18px;padding-top:0}
+html[data-display-mode="desktop"] .outside-door{align-items:center;flex-direction:row}
+html[data-display-mode="desktop"] .outside-door .secondary{width:auto;min-width:180px}
+html[data-display-mode="desktop"] .tutorial-list{columns:2}
+html[data-display-mode="desktop"] .campaign-run-hero{display:flex}
+html[data-display-mode="desktop"] .run-level{text-align:right}
+html[data-display-mode="desktop"] .expedition-heading-row{display:flex}
+html[data-display-mode="desktop"] .expedition-card-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+
+html[data-display-mode="desktop"] .shell:has(.combat-presentation){width:min(1760px,100%);max-width:none;padding-left:clamp(12px,1.25vw,24px);padding-right:clamp(12px,1.25vw,24px)}
+html[data-display-mode="desktop"] .combat-layout{position:relative!important;display:grid!important;grid-template-columns:minmax(0,1fr) minmax(16rem,19rem)!important;grid-template-rows:minmax(0,1fr)!important;gap:1rem!important;align-items:stretch!important}
+html[data-display-mode="desktop"] .combat-center-stage{grid-column:1!important;grid-row:1!important;order:initial!important;min-width:0!important;z-index:1!important}
+html[data-display-mode="desktop"] .combat-center-stage .battle-scene{min-height:clamp(44rem,84vh,60rem)!important;height:100%!important;padding-left:clamp(22rem,25vw,26rem)!important}
+html[data-display-mode="desktop"] .combat-left-sidebar{grid-column:1!important;grid-row:1!important;order:initial!important;z-index:6!important;align-self:start!important;width:clamp(20rem,23vw,24rem)!important;max-height:calc(84vh - 2rem)!important;overflow:auto!important;margin:1rem 0 1rem 1rem!important;padding:.85rem!important;border:1px solid rgba(230,206,151,.18)!important;border-radius:1rem!important;background:linear-gradient(180deg,rgba(20,16,13,.96),rgba(15,12,10,.91))!important;box-shadow:0 .8rem 2rem rgba(0,0,0,.34)!important;backdrop-filter:blur(7px)!important}
+html[data-display-mode="desktop"] .combat-right-sidebar{grid-column:2!important;grid-row:1!important;order:initial!important;display:flex!important;max-height:84vh!important;overflow:auto!important}
+html[data-display-mode="desktop"] .combat-left-sidebar .combat-head h3{font-size:1.35rem}
+html[data-display-mode="desktop"] .combat-left-sidebar .combat-command-bar button{min-height:4.35rem}
+html[data-display-mode="desktop"] .battle-scene .battle-actor{min-height:12.8rem;grid-template-columns:4.35rem minmax(0,1fr);gap:.7rem;padding:.7rem}
+html[data-display-mode="desktop"] .battle-scene .battle-actor.featured-enemy{min-height:14rem;width:min(100%,28rem)}
+html[data-display-mode="desktop"] .actor-portrait-shell{min-height:6.8rem}
+html[data-display-mode="desktop"] .actor-portrait{width:4.15rem;height:6.25rem}
+html[data-display-mode="desktop"] .featured-enemy .actor-portrait{width:5rem;height:7.5rem}
+html[data-display-mode="desktop"] .combat-right-sidebar .initiative-strip{display:grid;grid-template-columns:1fr;overflow:visible}
+
+@media (max-device-width:720px){
+  html[data-display-mode="desktop"] .display-mode-switch{left:max(.65rem,env(safe-area-inset-left));right:auto}
+}
+
+/* Portrait Expansion A2 — realistic portrait compositor + Appearance Atelier */
+.portrait-composite{position:relative;display:block;width:100%;height:100%;overflow:hidden;border-radius:inherit;background:#0b0b0b}
+.portrait-composite>.portrait-base-fallback,.portrait-composite>canvas{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;object-position:center top;border-radius:inherit}
+.portrait-composite>canvas{opacity:0;transition:opacity .16s ease}
+.portrait-composite.portrait-composite-ready>canvas{opacity:1}
+.portrait-composite.portrait-composite-ready>.portrait-base-fallback{opacity:0}
+.appearance-atelier{border-color:rgba(221,171,100,.28);background:linear-gradient(180deg,rgba(89,63,43,.16),rgba(255,255,255,.02))}
+
+.portrait-identity-picker{display:grid;gap:.35rem;max-width:28rem;margin-top:.8rem}.portrait-identity-picker span{font-weight:700;color:var(--gold)}.portrait-identity-picker select{width:100%}
+.appearance-atelier-layout{display:grid;grid-template-columns:minmax(220px,330px) minmax(0,1fr);gap:1rem;align-items:start;margin-top:1rem}
+.appearance-preview-frame{width:100%;aspect-ratio:2/3;max-height:32rem;overflow:hidden;border:1px solid rgba(255,213,138,.35);border-radius:.9rem;background:#0d0d0d;box-shadow:0 .75rem 1.8rem rgba(0,0,0,.3)}
+.appearance-preview-frame .portrait-composite{width:100%;height:100%}
+.appearance-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}
+.portrait-color-control{display:grid;grid-template-columns:minmax(0,1fr) 4.25rem;align-items:center;gap:.65rem;padding:.65rem .75rem;border:1px solid rgba(255,255,255,.08);border-radius:.7rem;background:rgba(0,0,0,.16)}
+.portrait-color-control span{font-weight:700}.portrait-color-control small{font-weight:400;color:var(--muted)}
+.portrait-color-control input[type="color"]{width:4.25rem;height:2.65rem;padding:.15rem;border:1px solid rgba(255,255,255,.14);border-radius:.55rem;background:#111;cursor:pointer}
+.portrait-system-chip{align-self:center;padding:.35rem .55rem;border:1px solid rgba(255,213,138,.25);border-radius:999px;color:var(--gold);font-size:.75rem;white-space:nowrap}
+.appearance-atelier.unavailable{opacity:.88}
+.campaign-vessel-portrait>.portrait-composite,.actor-portrait>.portrait-composite{width:100%;height:100%}
+@media(max-width:720px){.appearance-atelier-layout{grid-template-columns:1fr}.appearance-preview-frame{max-width:20rem;margin-inline:auto}.appearance-controls{grid-template-columns:1fr}}

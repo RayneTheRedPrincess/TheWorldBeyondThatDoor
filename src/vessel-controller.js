@@ -42,6 +42,7 @@ export function rebindVessel(slot,{race,baseClass,confirmed=false}={},options={}
   if(oldBaseClass!==baseClass)next.character.subclass=null;
   next.character.appearance={...(next.character.appearance||{})};
   if(oldBaseClass!==baseClass){delete next.character.appearance.portraitId;delete next.character.appearance.portraitAsset;delete next.character.appearance.portraitSubclass;}
+  if((oldRace!==race||oldBaseClass!==baseClass)&&next.character.appearance.portraitSystemId){for(const key of ['portraitSystemId','portraitIdentity','portraitRace','portraitGender','portraitSubclass','portraitAsset','portraitColors','portraitMasks'])delete next.character.appearance[key];}
   next.character.lastReboundAt=new Date().toISOString();
   next.character.rebindCount=Math.max(0,Number(next.character.rebindCount||0))+1;
   return {ok:true,slot:next,previous:{race:oldRace,baseClass:oldBaseClass},current:{race,baseClass},startingStatPool:pool};

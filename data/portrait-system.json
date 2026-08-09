@@ -1,0 +1,1448 @@
+{
+  "version": "Portrait-A3-2026-08-08",
+  "status": "a3-warrior-family-live",
+  "vesselPortraits": {
+    "systemId": "realistic-v1",
+    "genders": [
+      "male",
+      "female"
+    ],
+    "oneBasePortraitPerRaceGenderSubclass": true,
+    "assetRoot": "./assets/portraits/vessels-realistic",
+    "maskRoot": "./assets/portrait-masks/vessels-realistic",
+    "assetPattern": "{race}/{subclass}/{gender}.png",
+    "maskPattern": "{race}/{subclass}/{gender}-{channel}.png",
+    "targetRaceCount": 16,
+    "targetSubclassCount": 33,
+    "targetGenderCount": 2,
+    "targetBasePortraitCount": 1056,
+    "readyPortraitIds": [
+      "arbordyan:female:brandblade",
+      "arbordyan:female:ruinhewer",
+      "arbordyan:female:steelbearer",
+      "arbordyan:male:brandblade",
+      "arbordyan:male:ruinhewer",
+      "arbordyan:male:steelbearer",
+      "demon:female:brandblade",
+      "demon:female:ruinhewer",
+      "demon:female:steelbearer",
+      "demon:male:brandblade",
+      "demon:male:ruinhewer",
+      "demon:male:steelbearer",
+      "duvenari:female:brandblade",
+      "duvenari:female:ruinhewer",
+      "duvenari:female:steelbearer",
+      "duvenari:male:brandblade",
+      "duvenari:male:ruinhewer",
+      "duvenari:male:steelbearer",
+      "elf:female:brandblade",
+      "elf:female:ruinhewer",
+      "elf:female:steelbearer",
+      "elf:male:brandblade",
+      "elf:male:ruinhewer",
+      "elf:male:steelbearer",
+      "faervani:female:brandblade",
+      "faervani:female:ruinhewer",
+      "faervani:female:steelbearer",
+      "faervani:male:brandblade",
+      "faervani:male:ruinhewer",
+      "faervani:male:steelbearer",
+      "goblin:female:brandblade",
+      "goblin:female:ruinhewer",
+      "goblin:female:steelbearer",
+      "goblin:male:brandblade",
+      "goblin:male:ruinhewer",
+      "goblin:male:steelbearer",
+      "halynari:female:brandblade",
+      "halynari:female:ruinhewer",
+      "halynari:female:steelbearer",
+      "halynari:male:brandblade",
+      "halynari:male:ruinhewer",
+      "halynari:male:steelbearer",
+      "high-elf:female:brandblade",
+      "high-elf:female:ruinhewer",
+      "high-elf:female:steelbearer",
+      "high-elf:male:brandblade",
+      "high-elf:male:ruinhewer",
+      "high-elf:male:steelbearer",
+      "human:female:brandblade",
+      "human:female:ruinhewer",
+      "human:female:steelbearer",
+      "human:female:vowscarred",
+      "human:male:brandblade",
+      "human:male:ruinhewer",
+      "human:male:steelbearer",
+      "kyravari:female:brandblade",
+      "kyravari:female:ruinhewer",
+      "kyravari:female:steelbearer",
+      "kyravari:male:brandblade",
+      "kyravari:male:ruinhewer",
+      "kyravari:male:steelbearer",
+      "orc:female:brandblade",
+      "orc:female:ruinhewer",
+      "orc:female:steelbearer",
+      "orc:male:brandblade",
+      "orc:male:ruinhewer",
+      "orc:male:steelbearer",
+      "rhazekai:female:brandblade",
+      "rhazekai:female:ruinhewer",
+      "rhazekai:female:steelbearer",
+      "rhazekai:male:brandblade",
+      "rhazekai:male:ruinhewer",
+      "rhazekai:male:steelbearer",
+      "rifthari:female:brandblade",
+      "rifthari:female:ruinhewer",
+      "rifthari:female:steelbearer",
+      "rifthari:male:brandblade",
+      "rifthari:male:ruinhewer",
+      "rifthari:male:steelbearer",
+      "silxered:female:brandblade",
+      "silxered:female:ruinhewer",
+      "silxered:female:steelbearer",
+      "silxered:male:brandblade",
+      "silxered:male:ruinhewer",
+      "silxered:male:steelbearer",
+      "veldrathi:female:brandblade",
+      "veldrathi:female:ruinhewer",
+      "veldrathi:female:steelbearer",
+      "veldrathi:male:brandblade",
+      "veldrathi:male:ruinhewer",
+      "veldrathi:male:steelbearer",
+      "veyssryn:female:brandblade",
+      "veyssryn:female:ruinhewer",
+      "veyssryn:female:steelbearer",
+      "veyssryn:male:brandblade",
+      "veyssryn:male:ruinhewer",
+      "veyssryn:male:steelbearer"
+    ],
+    "legacyPortraitFallback": true,
+    "channels": [
+      {
+        "id": "hair",
+        "label": "Hair",
+        "maskSuffix": "hair",
+        "default": "#5A3A2B"
+      },
+      {
+        "id": "skin",
+        "label": "Skin Tone",
+        "maskSuffix": "skin",
+        "default": "#B97A5E"
+      },
+      {
+        "id": "primaryClothing",
+        "label": "Primary Clothing",
+        "maskSuffix": "cloth-primary",
+        "default": "#34485D"
+      },
+      {
+        "id": "secondaryClothing",
+        "label": "Secondary Clothing",
+        "maskSuffix": "cloth-secondary",
+        "default": "#6B4B6F"
+      },
+      {
+        "id": "armorMetal",
+        "label": "Armor / Metal",
+        "maskSuffix": "armor-metal",
+        "default": "#8A8D91"
+      },
+      {
+        "id": "accentGlow",
+        "label": "Accent / Glow",
+        "maskSuffix": "accent-glow",
+        "default": "#D5B35B"
+      },
+      {
+        "id": "eyes",
+        "label": "Eyes",
+        "maskSuffix": "eyes",
+        "default": "#6F8C8C",
+        "optional": true
+      }
+    ],
+    "saveRule": "Store portrait identity plus channel colors only; never serialize rendered PNG/canvas data.",
+    "identityOverrides": {
+      "human:female:vowscarred": {
+        "label": "Human \u00b7 Female \u00b7 Vowscarred",
+        "defaultColors": {
+          "hair": "#4A2E25",
+          "skin": "#C58A72",
+          "primaryClothing": "#704544",
+          "secondaryClothing": "#35262C",
+          "armorMetal": "#77736D",
+          "accentGlow": "#9E4741",
+          "eyes": "#68777B"
+        },
+        "a2VerticalSlice": true
+      },
+      "veldrathi:male:brandblade": {
+        "label": "Veldrathi \u00b7 Male \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#738394",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "veldrathi:male:ruinhewer": {
+        "label": "Veldrathi \u00b7 Male \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#738394",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "veldrathi:male:steelbearer": {
+        "label": "Veldrathi \u00b7 Male \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#738394",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "veldrathi:female:brandblade": {
+        "label": "Veldrathi \u00b7 Female \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#738394",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "veldrathi:female:ruinhewer": {
+        "label": "Veldrathi \u00b7 Female \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#738394",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "veldrathi:female:steelbearer": {
+        "label": "Veldrathi \u00b7 Female \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#738394",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "rhazekai:male:brandblade": {
+        "label": "Rhazekai \u00b7 Male \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#9A6651",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "rhazekai:male:ruinhewer": {
+        "label": "Rhazekai \u00b7 Male \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#9A6651",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "rhazekai:male:steelbearer": {
+        "label": "Rhazekai \u00b7 Male \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#9A6651",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "rhazekai:female:brandblade": {
+        "label": "Rhazekai \u00b7 Female \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#9A6651",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "rhazekai:female:ruinhewer": {
+        "label": "Rhazekai \u00b7 Female \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#9A6651",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "rhazekai:female:steelbearer": {
+        "label": "Rhazekai \u00b7 Female \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#9A6651",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "veyssryn:male:brandblade": {
+        "label": "Veyssryn \u00b7 Male \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#806F9B",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "veyssryn:male:ruinhewer": {
+        "label": "Veyssryn \u00b7 Male \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#806F9B",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "veyssryn:male:steelbearer": {
+        "label": "Veyssryn \u00b7 Male \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#806F9B",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "veyssryn:female:brandblade": {
+        "label": "Veyssryn \u00b7 Female \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#806F9B",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "veyssryn:female:ruinhewer": {
+        "label": "Veyssryn \u00b7 Female \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#806F9B",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "veyssryn:female:steelbearer": {
+        "label": "Veyssryn \u00b7 Female \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#806F9B",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "faervani:male:brandblade": {
+        "label": "Faervani \u00b7 Male \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#B6876C",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "faervani:male:ruinhewer": {
+        "label": "Faervani \u00b7 Male \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#B6876C",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "faervani:male:steelbearer": {
+        "label": "Faervani \u00b7 Male \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#B6876C",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "faervani:female:brandblade": {
+        "label": "Faervani \u00b7 Female \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#B6876C",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "faervani:female:ruinhewer": {
+        "label": "Faervani \u00b7 Female \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#B6876C",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "faervani:female:steelbearer": {
+        "label": "Faervani \u00b7 Female \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#B6876C",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "duvenari:male:brandblade": {
+        "label": "Duvenari \u00b7 Male \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#8A7868",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "duvenari:male:ruinhewer": {
+        "label": "Duvenari \u00b7 Male \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#8A7868",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "duvenari:male:steelbearer": {
+        "label": "Duvenari \u00b7 Male \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#8A7868",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "duvenari:female:brandblade": {
+        "label": "Duvenari \u00b7 Female \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#8A7868",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "duvenari:female:ruinhewer": {
+        "label": "Duvenari \u00b7 Female \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#8A7868",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "duvenari:female:steelbearer": {
+        "label": "Duvenari \u00b7 Female \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#8A7868",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "kyravari:male:brandblade": {
+        "label": "Kyravari \u00b7 Male \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#718294",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "kyravari:male:ruinhewer": {
+        "label": "Kyravari \u00b7 Male \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#718294",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "kyravari:male:steelbearer": {
+        "label": "Kyravari \u00b7 Male \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#718294",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "kyravari:female:brandblade": {
+        "label": "Kyravari \u00b7 Female \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#718294",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "kyravari:female:ruinhewer": {
+        "label": "Kyravari \u00b7 Female \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#718294",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "kyravari:female:steelbearer": {
+        "label": "Kyravari \u00b7 Female \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#718294",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "rifthari:male:brandblade": {
+        "label": "Rifthari \u00b7 Male \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#80668F",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "rifthari:male:ruinhewer": {
+        "label": "Rifthari \u00b7 Male \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#80668F",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "rifthari:male:steelbearer": {
+        "label": "Rifthari \u00b7 Male \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#80668F",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "rifthari:female:brandblade": {
+        "label": "Rifthari \u00b7 Female \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#80668F",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "rifthari:female:ruinhewer": {
+        "label": "Rifthari \u00b7 Female \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#80668F",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "rifthari:female:steelbearer": {
+        "label": "Rifthari \u00b7 Female \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#80668F",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "demon:male:brandblade": {
+        "label": "Demon \u00b7 Male \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#A65449",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "demon:male:ruinhewer": {
+        "label": "Demon \u00b7 Male \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#A65449",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "demon:male:steelbearer": {
+        "label": "Demon \u00b7 Male \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#A65449",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "demon:female:brandblade": {
+        "label": "Demon \u00b7 Female \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#A65449",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "demon:female:ruinhewer": {
+        "label": "Demon \u00b7 Female \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#A65449",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "demon:female:steelbearer": {
+        "label": "Demon \u00b7 Female \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#A65449",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "halynari:male:brandblade": {
+        "label": "Halynari \u00b7 Male \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#D0B493",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "halynari:male:ruinhewer": {
+        "label": "Halynari \u00b7 Male \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#D0B493",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "halynari:male:steelbearer": {
+        "label": "Halynari \u00b7 Male \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#D0B493",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "halynari:female:brandblade": {
+        "label": "Halynari \u00b7 Female \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#D0B493",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "halynari:female:ruinhewer": {
+        "label": "Halynari \u00b7 Female \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#D0B493",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "halynari:female:steelbearer": {
+        "label": "Halynari \u00b7 Female \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#D0B493",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "human:male:brandblade": {
+        "label": "Human \u00b7 Male \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#B97A5E",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "human:male:ruinhewer": {
+        "label": "Human \u00b7 Male \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#B97A5E",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "human:male:steelbearer": {
+        "label": "Human \u00b7 Male \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#B97A5E",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "human:female:brandblade": {
+        "label": "Human \u00b7 Female \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#B97A5E",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "human:female:ruinhewer": {
+        "label": "Human \u00b7 Female \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#B97A5E",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "human:female:steelbearer": {
+        "label": "Human \u00b7 Female \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#B97A5E",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "elf:male:brandblade": {
+        "label": "Elf \u00b7 Male \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#C3947C",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "elf:male:ruinhewer": {
+        "label": "Elf \u00b7 Male \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#C3947C",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "elf:male:steelbearer": {
+        "label": "Elf \u00b7 Male \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#C3947C",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "elf:female:brandblade": {
+        "label": "Elf \u00b7 Female \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#C3947C",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "elf:female:ruinhewer": {
+        "label": "Elf \u00b7 Female \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#C3947C",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "elf:female:steelbearer": {
+        "label": "Elf \u00b7 Female \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#C3947C",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "high-elf:male:brandblade": {
+        "label": "High Elf \u00b7 Male \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#D7BDA9",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "high-elf:male:ruinhewer": {
+        "label": "High Elf \u00b7 Male \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#D7BDA9",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "high-elf:male:steelbearer": {
+        "label": "High Elf \u00b7 Male \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#D7BDA9",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "high-elf:female:brandblade": {
+        "label": "High Elf \u00b7 Female \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#D7BDA9",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "high-elf:female:ruinhewer": {
+        "label": "High Elf \u00b7 Female \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#D7BDA9",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "high-elf:female:steelbearer": {
+        "label": "High Elf \u00b7 Female \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#D7BDA9",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "arbordyan:male:brandblade": {
+        "label": "Arbordyan \u00b7 Male \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#8C7653",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "arbordyan:male:ruinhewer": {
+        "label": "Arbordyan \u00b7 Male \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#8C7653",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "arbordyan:male:steelbearer": {
+        "label": "Arbordyan \u00b7 Male \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#8C7653",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "arbordyan:female:brandblade": {
+        "label": "Arbordyan \u00b7 Female \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#8C7653",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "arbordyan:female:ruinhewer": {
+        "label": "Arbordyan \u00b7 Female \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#8C7653",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "arbordyan:female:steelbearer": {
+        "label": "Arbordyan \u00b7 Female \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#8C7653",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "orc:male:brandblade": {
+        "label": "Orc \u00b7 Male \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#6F8155",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "orc:male:ruinhewer": {
+        "label": "Orc \u00b7 Male \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#6F8155",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "orc:male:steelbearer": {
+        "label": "Orc \u00b7 Male \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#6F8155",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "orc:female:brandblade": {
+        "label": "Orc \u00b7 Female \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#6F8155",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "orc:female:ruinhewer": {
+        "label": "Orc \u00b7 Female \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#6F8155",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "orc:female:steelbearer": {
+        "label": "Orc \u00b7 Female \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#6F8155",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "goblin:male:brandblade": {
+        "label": "Goblin \u00b7 Male \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#78945B",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "goblin:male:ruinhewer": {
+        "label": "Goblin \u00b7 Male \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#78945B",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "goblin:male:steelbearer": {
+        "label": "Goblin \u00b7 Male \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#78945B",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "goblin:female:brandblade": {
+        "label": "Goblin \u00b7 Female \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#78945B",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "goblin:female:ruinhewer": {
+        "label": "Goblin \u00b7 Female \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#78945B",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "goblin:female:steelbearer": {
+        "label": "Goblin \u00b7 Female \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#78945B",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "silxered:male:brandblade": {
+        "label": "Silxered \u00b7 Male \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#8FA5AD",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "silxered:male:ruinhewer": {
+        "label": "Silxered \u00b7 Male \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#8FA5AD",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "silxered:male:steelbearer": {
+        "label": "Silxered \u00b7 Male \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#30251F",
+          "skin": "#8FA5AD",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      },
+      "silxered:female:brandblade": {
+        "label": "Silxered \u00b7 Female \u00b7 BrandBlade",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#8FA5AD",
+          "primaryClothing": "#6A2A1E",
+          "secondaryClothing": "#281B1A",
+          "armorMetal": "#7A6755",
+          "accentGlow": "#E57B22",
+          "eyes": "#C98A46"
+        },
+        "a3WarriorBatch": true
+      },
+      "silxered:female:ruinhewer": {
+        "label": "Silxered \u00b7 Female \u00b7 Ruinhewer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#8FA5AD",
+          "primaryClothing": "#50352D",
+          "secondaryClothing": "#262221",
+          "armorMetal": "#696057",
+          "accentGlow": "#AE4F37",
+          "eyes": "#75826E"
+        },
+        "a3WarriorBatch": true
+      },
+      "silxered:female:steelbearer": {
+        "label": "Silxered \u00b7 Female \u00b7 SteelBearer",
+        "defaultColors": {
+          "hair": "#3E2B24",
+          "skin": "#8FA5AD",
+          "primaryClothing": "#32465B",
+          "secondaryClothing": "#202935",
+          "armorMetal": "#8C9198",
+          "accentGlow": "#D1B85D",
+          "eyes": "#70889A"
+        },
+        "a3WarriorBatch": true
+      }
+    },
+    "a3WarriorFamily": {
+      "baseClass": "Warrior",
+      "subclasses": [
+        "BrandBlade",
+        "Ruinhewer",
+        "SteelBearer"
+      ],
+      "raceCount": 16,
+      "genderCount": 2,
+      "installedBasePortraitCount": 96,
+      "installedMaskCount": 672
+    }
+  },
+  "tavernAdventurers": {
+    "canonicalPortraitRequired": true,
+    "limitedAlternates": true,
+    "alternateTargetPerAdventurer": 2,
+    "playerRecoloringAllowed": false,
+    "recognizableIdentityRequired": true
+  }
+}
