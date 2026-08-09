@@ -34,6 +34,7 @@ function lastResolvedLog(combat = {}) {
   const logs = Array.isArray(combat.log) ? combat.log : [];
   for (let i = logs.length - 1; i >= 0; i -= 1) {
     const entry = logs[i];
+    if (entry?.presentationId) return entry;
     if (Array.isArray(entry?.results) && entry.results.length) return entry;
     if (['status-damage','ki-deferred-damage','redirect','trailstock-echo','guard','charge'].includes(entry?.type)) return entry;
     if (entry?.type === 'action') return entry;
@@ -50,10 +51,15 @@ function combatTravelClass(sourceSide, targetSide) {
   return sourceSide === targetSide ? 'self' : '';
 }
 
-export function latestCombatPresentation(combat = {}) {
+export function latestCombatPresentation(combat = {}, { consumedPresentationId = null } = {}) {
   const feedback = new Map();
   const actors = new Map((combat.actors || []).map(actor => [actor.id, actor]));
   const action = lastResolvedLog(combat);
+  const fallbackId = action ? `${combat.id || combat.encounterId || 'combat'}:legacy:${Math.max(0,(combat.log||[]).indexOf(action))}:${action.type || 'event'}` : null;
+  const presentationId = action?.presentationId || fallbackId;
+  if (presentationId && consumedPresentationId === presentationId) {
+    return { presentationId, consumed:true, actingActorId:null, actingType:'', feedback, primaryTargetId:null, primaryResultType:'', actionTravelClass:'', supportAction:false, semanticAction:null };
+  }
   const actingActorId = action?.actorId || action?.sourceActorId || null;
   const actingType = action?.action || action?.type || '';
   let primaryTargetId = null;
@@ -119,15 +125,22 @@ export function latestCombatPresentation(combat = {}) {
   const targetSide = actors.get(primaryTargetId)?.side || null;
   const actionTravelClass = combatTravelClass(actingSide, targetSide);
   const supportTypes = new Set(['heal','heal-from-damage','conditional-heal','answer-heal','lumen-heal','adaptation-heal','profane-exchange-heal','lifesteal','hypha-heal-transmission','shield','overheal-shield','hypha-shield-transmission','guard','charge']);
+  const healingTypes = new Set(['heal','heal-from-damage','conditional-heal','answer-heal','lumen-heal','adaptation-heal','profane-exchange-heal','lifesteal','hypha-heal-transmission']);
+  const protectionTypes = new Set(['shield','overheal-shield','hypha-shield-transmission','guard']);
+  const damageTypes = new Set(['damage','bonus-damage','conduit-arc','hypha-transmission','basic-attack']);
+  const semanticAction = healingTypes.has(primaryResultType) ? 'healing' : protectionTypes.has(primaryResultType) ? 'protection' : damageTypes.has(primaryResultType) || ['damage','crit','block','dodge'].some(k => [...feedback.values()].flat().some(x=>x.kind===k)) ? 'damage' : null;
 
   return {
+    presentationId,
+    consumed:false,
     actingActorId,
     actingType,
     feedback,
     primaryTargetId,
     primaryResultType,
     actionTravelClass,
-    supportAction: supportTypes.has(primaryResultType)
+    supportAction: supportTypes.has(primaryResultType),
+    semanticAction
   };
 }
 
@@ -160,8 +173,8 @@ export function summarizeCombatLog(combat = {}, abilityNames = new Map()) {
     else if (entry.type === 'turn-end') lines.push(`${name(entry.actorId)} ends their turn.`);
     else if (entry.type === 'action' && entry.action === 'charge') lines.push(`${name(entry.actorId)} Charges for +1 Energy.`);
     else if (entry.type === 'action' && entry.action === 'guard') lines.push(`${name(entry.actorId)} Guards until their next turn.`);
-    else if (['ability','subclass-ability'].includes(entry.type)) {
-      const label = abilityNames.get(entry.abilityId) || entry.abilityId || 'an ability';
+    else if (['ability','subclass-ability','equipment-ability'].includes(entry.type)) {
+      const label = abilityNames.get(entry.abilityId) || entry.abilityName || entry.abilityId || 'an ability';
       const bits = [];
       for (const result of entry.results || []) {
         if (result.type === 'damage') {

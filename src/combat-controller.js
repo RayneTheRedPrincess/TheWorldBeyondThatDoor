@@ -24,6 +24,35 @@ function trimCombatLog(combat) {
   combat.log.splice(0, combat.log.length - MAX_PERSISTED_COMBAT_LOG_ENTRIES);
 }
 
+export function nextCombatPresentationId(combat, kind = 'event') {
+  if (!combat) return null;
+  combat.presentationSequence = Math.max(0, Number(combat.presentationSequence || 0)) + 1;
+  return `${combat.id || combat.encounterId || 'combat'}:${String(kind || 'event')}:${combat.presentationSequence}`;
+}
+
+export function appendCombatLog(combat, entry = {}, { presentation = false } = {}) {
+  if (!combat) return null;
+  const logged = { ...clone(entry) };
+  if (presentation && !logged.presentationId) logged.presentationId = nextCombatPresentationId(combat, logged.type || 'event');
+  combat.log = Array.isArray(combat.log) ? combat.log : [];
+  combat.log.push(logged);
+  trimCombatLog(combat);
+  return logged;
+}
+
+export function finalizeCombatOutcome(combat, { now = nowIso() } = {}) {
+  if (!combat) return null;
+  const outcome = getCombatOutcome(combat);
+  if (!outcome) return null;
+  combat.state = 'complete';
+  combat.outcome = outcome;
+  combat.completedAt = combat.completedAt || now;
+  combat.currentActorId = null;
+  combat.turn = null;
+  trimCombatLog(combat);
+  return outcome;
+}
+
 export function calculateInitiativeBonus({ level = 1, dex = 0, explicitBonus = 0 } = {}) {
   const levelBonus = Math.floor(Math.max(0, Number(level) || 0) / 3);
   const dexBonus = Math.floor(Math.max(0, Number(dex) || 0) / 9);
@@ -77,7 +106,7 @@ export function createCombatActor(spec = {}, { slotIndex = 1 } = {}) {
     resources: {
       hp,
       maxHp,
-      shield: Math.max(0, Number(spec.shield || 0) || 0),
+      shield: Math.max(0, Number(spec.shield || 0) || 0) + Math.max(0, Math.round(maxHp * Number(spec.startingShieldPctMax || 0) / 100)),
       energy: 0,
       maxEnergy: BASE_MAX_ENERGY,
       shieldLayers: []
@@ -87,6 +116,7 @@ export function createCombatActor(spec = {}, { slotIndex = 1 } = {}) {
     combatRole: spec.combatRole || null,
     personality: spec.personality || null,
     priority: spec.priority || null,
+    portraitAsset: spec.portraitAsset || spec.portrait || null,
     expReward: Math.max(0, Number(spec.expReward || 0)),
     onyxReward: Math.max(0, Number(spec.onyxReward || 0)),
     enemyTemplateId: spec.enemyTemplateId || null,
@@ -96,6 +126,7 @@ export function createCombatActor(spec = {}, { slotIndex = 1 } = {}) {
     weaponType: spec.weaponType || null,
     equipment: clone(spec.equipment || {}),
     equipmentModifiers: clone(spec.equipmentModifiers || {}),
+    equipmentAbilities: Array.isArray(spec.equipmentAbilities) ? clone(spec.equipmentAbilities) : [],
     armorCategory: spec.armorCategory || null,
     consumableIds: Array.isArray(spec.consumableIds) ? [...spec.consumableIds.map(String)] : [],
     consumableUsesThisBattle: 0,
@@ -351,10 +382,10 @@ function beginCurrentTurn(combat, { now = nowIso(), rng = Math.random } = {}) {
     processTurnStartEffects(combat, actor, { rng });
     const keptStart = keptBeforeTurnStart({ combat, actor });
     if (!actorAlive(actor)) {
-      combat.log.push({ type:'turn-start-defeat-by-status', round:combat.round, actorId:actor.id, at:now });
+      appendCombatLog(combat, { type:'turn-start-defeat-by-status', round:combat.round, actorId:actor.id, at:now }, { presentation:true });
       combat.queueIndex += 1;
       const outcome=getCombatOutcome(combat);
-      if(outcome){combat.state='complete';combat.outcome=outcome;combat.completedAt=now;combat.currentActorId=null;combat.turn=null;return true;}
+      if(outcome){finalizeCombatOutcome(combat,{now});return true;}
       continue;
     }
     actor.resources.energy = Math.min(Number(actor.resources.maxEnergy || BASE_MAX_ENERGY), Math.max(0, Number(actor.resources.energy || 0)) + 1);
@@ -423,7 +454,7 @@ function commitAction(combat, action) {
   combat.turn.actionType = action.type;
   combat.turn.actionPayload = clone(action.payload || null);
   combat.turn.canEndTurn = true;
-  combat.log.push({ type: 'action', round: combat.round, actorId: actor.id, action: action.type, payload: clone(action.payload || null), at: nowIso() });
+  appendCombatLog(combat, { type: 'action', round: combat.round, actorId: actor.id, action: action.type, payload: clone(action.payload || null), at: nowIso() }, { presentation: true });
   return { ok: true, actor };
 }
 
@@ -489,14 +520,8 @@ export function endCombatTurn(slot, { now = nowIso(), rng = Math.random } = {}) 
   combat.currentActorId = null;
   combat.turn = null;
 
-  const outcome = getCombatOutcome(combat);
-  if (outcome) {
-    combat.state = 'complete';
-    combat.outcome = outcome;
-    combat.completedAt = now;
-    trimCombatLog(combat);
-    return { ok: true, slot: next, combat: clone(combat), outcome };
-  }
+  const outcome = finalizeCombatOutcome(combat, { now });
+  if (outcome) return { ok: true, slot: next, combat: clone(combat), outcome };
 
   if (nextQueuedLivingActorId(combat)) {
     beginCurrentTurn(combat, { now });

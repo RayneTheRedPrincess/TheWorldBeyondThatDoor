@@ -1,4 +1,4 @@
-import { getCombatActor, getAbilityCooldown, setAbilityCooldown, addCombatEffect, grantCombatShield, pendingEnergyCostAdd, consumeNextEnergyCostEffects } from './combat-controller.js';
+import { getCombatActor, getAbilityCooldown, setAbilityCooldown, addCombatEffect, grantCombatShield, pendingEnergyCostAdd, consumeNextEnergyCostEffects, appendCombatLog, finalizeCombatOutcome } from './combat-controller.js';
 import { keptEnergyCost, keptCooldown, keptHpCostPct, keptDamageType, keptScaling } from './kept-impression-state.js';
 import { keptBeforeAction, keptEnergySpent, keptAfterLifesteal, keptOnPositiveRemoved } from './kept-impression-runtime.js';
 import { resolveDamageComponent, resolveHealComponent, resolveShieldComponent, resolvePercentOfActualDamageHeal, applyStatus, getActorDerivedCombatStats } from './combat-resolution.js';
@@ -393,8 +393,9 @@ export function executeSubclassAbility(slot,{abilityId,catalog,targets={},choice
   if(isSubclassResourceActive(actor,'Glyphmorpher')&&ability.subclass==='Glyphmorpher'&&intrinsicCost>=2&&!actor.subclassState.turnFlags.glyphCreated){addGlyph(actor,['Edge','Echo','Veil'].includes(choices.createGlyph)?choices.createGlyph:'Edge');actor.subclassState.turnFlags.glyphCreated=true;}
   setAbilityCooldown(combat,actor.id,ability.id,keptCooldown(actor,ability,ability.cooldown));
   combat.turn.actionTaken=true;combat.turn.actionType='ability';combat.turn.actionPayload={abilityId:ability.id,subclassAbility:true,targets:clone(targets),choices:clone(choices)};combat.turn.canEndTurn=true;
-  combat.log.push({type:'subclass-ability',round:combat.round,actorId:actor.id,abilityId:ability.id,energySpent:avail.energyCost,hpPaid,resourceSpent:spent,results:clone(results),at:new Date().toISOString()});
-  return {ok:true,slot:next,combat:clone(combat),ability:clone(ability),results};
+  appendCombatLog(combat,{type:'subclass-ability',round:combat.round,actorId:actor.id,abilityId:ability.id,energySpent:avail.energyCost,hpPaid,resourceSpent:spent,results:clone(results),at:new Date().toISOString()},{presentation:true});
+  const outcome=finalizeCombatOutcome(combat);
+  return {ok:true,slot:next,combat:clone(combat),ability:clone(ability),results,outcome};
 }
 
 export function resolveSubclassTurnStartEvents(slot,{rng=Math.random}={}){

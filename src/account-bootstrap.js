@@ -28,3 +28,16 @@ export function applyAccountBootstrap(account, policy) {
     }
   };
 }
+
+export function migrateMantleUnlocksFromTrainerHistory(account, forestTrainers) {
+  const next = { ...account, unlocks:{...(account?.unlocks||{})} };
+  const learned = new Set(Array.isArray(account?.records?.trainersLearnedFrom) ? account.records.trainersLearnedFrom.map(String) : []);
+  const unlockedSubclasses = new Set(Array.isArray(account?.unlocks?.subclasses) ? account.unlocks.subclasses.map(String) : []);
+  const mantle = new Set(Array.isArray(account?.unlocks?.mantleBaseClasses) ? account.unlocks.mantleBaseClasses.map(String) : []);
+  for (const trainer of forestTrainers?.entries || []) {
+    if (learned.has(String(trainer.id)) && unlockedSubclasses.has(String(trainer.subclass))) mantle.add(String(trainer.baseClass));
+  }
+  next.unlocks.mantleBaseClasses=[...mantle];
+  if(next.unlocks.mantleBaseClasses.length)next.progressionFeatures={...(next.progressionFeatures||{}),mantle:true};
+  return next;
+}

@@ -43,6 +43,26 @@ export function getForestCheckParticipants(run,card,equipmentCatalog){
   return ids.map(id=>{const p=participantState(run,id);if(p&&Number.isFinite(Number(p.state?.currentHp))&&Number(p.state.currentHp)<=0)return null;const calc=calculateForestCheck({run,participantId:id,check:card.check,equipmentCatalog});return p&&calc?{id,name:p.name,...calc}:null;}).filter(Boolean).sort((a,b)=>b.successChancePct-a.successChancePct||b.relevantStat-a.relevantStat||a.name.localeCompare(b.name));
 }
 function addInventoryMaterial(run,id,qty,crafting){if(!id||qty<=0)return;const def=(crafting?.materials||[]).find(m=>m.id===id);run.inventory=run.inventory||{};run.inventory.materials=run.inventory.materials||{};const cur=run.inventory.materials[id]||{name:def?.name||id,quantity:0};cur.quantity=Number(cur.quantity||0)+qty;run.inventory.materials[id]=cur;}
+function eventMaterialReward(card,crafting,{criticalSuccess=false}={}){
+  const materials=(crafting?.materials||[]).filter(m=>m.kind==='ordinary-enemy'||m.rarity==='Normal');if(!materials.length)return null;
+  const text=`${card?.label||''} ${card?.description||''} ${card?.id||''}`.toLowerCase();
+  const themes=[
+    [/spore|mushroom|fung|cap|mold|mycel/,['soft-spore-sack','gloomcap-cluster']],
+    [/bramble|thorn|briar|vine|root|bark|wood|tree|sapling/,['bramble-hook','vinebound-chain','hexroot-knot','ironbark-plate']],
+    [/leaf|fern|frond|moss|grove|green|canopy/,['chimeleaf-frond','mossjaw-tusk']],
+    [/glass|shard|crystal|glint|mirror/,['glasswing-shard']],
+    [/claw|fang|beast|track|growl|lynx|predator/,['needlefang','mossjaw-tusk']],
+    [/sun|antler|hart|light|gold/,['sunscar-antler','chimeleaf-frond']],
+    [/needle|sting|wing|insect|buzz/,['glasswing-shard','needlefang']],
+    [/chain|iron|metal|ruin|broken/,['vinebound-chain','ironbark-plate']]
+  ];
+  const index=new Map(materials.map(m=>[m.id,m]));let ids=[];for(const [re,choices] of themes)if(re.test(text)){ids=choices.filter(id=>index.has(id));if(ids.length)break;}
+  if(!ids.length){let hash=0;for(const ch of String(card?.eventId||card?.id||card?.label||'forest'))hash=(hash*31+ch.charCodeAt(0))>>>0;ids=[materials[hash%materials.length].id];}
+  const id=ids[criticalSuccess&&ids.length>1?1:0]||ids[0],def=index.get(id)||materials.find(m=>m.id===id);
+  return def?{id:def.id,name:def.name,quantity:criticalSuccess?2:1,critical:criticalSuccess}:null;
+}
+function grantEventMaterial(run,card,crafting,{criticalSuccess=false}={}){const reward=eventMaterialReward(card,crafting,{criticalSuccess});if(!reward)return null;addInventoryMaterial(run,reward.id,reward.quantity,crafting);return reward;}
+
 function addFood(run,id,qty,catalog){if(!id||qty<=0)return;const def=(catalog?.consumables||[]).find(c=>c.id===id);run.inventory=run.inventory||{};run.inventory.consumables=run.inventory.consumables||{};const cur=run.inventory.consumables[id]||{name:def?.name||id,quantity:0};cur.quantity=Number(cur.quantity||0)+qty;run.inventory.consumables[id]=cur;}
 function adjustHp(run,participantId,pct,equipmentCatalog,progression){const p=participantState(run,participantId);if(!p||!pct)return 0;const max=maxHpForParticipant(run,participantId,equipmentCatalog,progression);const before=Number.isFinite(Number(p.state.currentHp))?Number(p.state.currentHp):max;const amount=Math.round(max*Math.abs(Number(pct))/100);const after=pct>0?Math.min(max,before+amount):Math.max(1,before-amount);p.state.currentHp=after;return after-before;}
 function applyOutcomeEffects(next,participantId,effect,{equipmentCatalog,forestCrafting,progression}={}){
@@ -65,6 +85,7 @@ export function resolveForestEventCheck(slot,{participantId,rng=Math.random,equi
   let next=clone(slot); const eventDef=card.eventId; // card carries the outcome payload injected by expedition selection
   const payload=ex.encounter.eventPayload||{}; const base=success?payload.success:payload.failure; const critical=criticalSuccess?payload.criticalSuccess:(criticalFailure?payload.criticalFailure:null);
   const applied=[applyOutcomeEffects(next,participantId,base,{equipmentCatalog,forestCrafting,progression}),applyOutcomeEffects(next,participantId,critical,{equipmentCatalog,forestCrafting,progression})];
+  if(success){const material=grantEventMaterial(next.campaign.state,card,forestCrafting,{criticalSuccess});if(material)applied.push({material:{id:material.id,quantity:material.quantity},eventMaterial:true,critical:criticalSuccess});}
   const details={eventId:eventDef,participantId,stat:calc.stat,relevantStat:calc.relevantStat,dc:calc.dc,roll,modifier:calc.modifier,total,successChancePct:calc.successChancePct,outcome:success?'success':'failure',criticalSuccess,criticalFailure,applied};
   const routed=card.checkmark?resolveNoncombatCheckmark(next,success?'success':'failure',{rng,details}):resolveNoncombatWithoutCheckmark(next,{note:success?'success':'failure',details});
   if(!routed.ok)return routed;

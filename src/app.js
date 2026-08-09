@@ -1,8 +1,10 @@
 import { ROUTES } from './constants.js';
 import { CanonRegistry } from './canon-registry.js';
 import { Router } from './router.js';
-import { applyAccountBootstrap } from './account-bootstrap.js';
+import { applyAccountBootstrap, migrateMantleUnlocksFromTrainerHistory } from './account-bootstrap.js';
 import { createVesselSlotState, validateVesselDraft } from './character-creator.js';
+import { rebindVessel } from './vessel-controller.js';
+import { selectVesselPortrait } from './portrait-controller.js';
 import { SaveController } from './save-controller.js';
 import { TavernController } from './tavern-controller.js';
 import { equipKeptImpression, unequipKeptImpression, setKeptImpressionChoice } from './kept-impression-controller.js';
@@ -22,6 +24,7 @@ import { executeBaseAbility, chooseDruidStartingForm } from './ability-controlle
 import { executeSubclassAbility, resolveSubclassTurnStartEvents } from './subclass-controller.js';
 import { executeKeptActiveAbility, setKeptCombatStartChoice } from './kept-impression-runtime.js';
 import { executeEquippedConsumable, resolveTrailstockTurnStart, equipConsumableAtCampsite, unequipConsumableAtCampsite } from './consumable-controller.js';
+import { executeEquipmentAbility } from './equipment-ability-controller.js';
 import { equipRunEquipmentAtCampsite, unequipRunEquipmentAtCampsite } from './equipment-controller.js';
 import { craftAtCampsite } from './crafting-controller.js';
 import { updateClasslessConfig, classlessLimits } from './classless-controller.js';
@@ -59,11 +62,19 @@ class App {
     this.craftingOnlyCraftable = false;
     this.craftingSortStat = '';
     this.craftingSortDirection = 'desc';
+    this.craftingQuery = '';
+    this.craftingSlot = 'all';
+    this.craftingType = 'all';
+    this.craftingSubtype = 'all';
+    this.craftingWeaponType = 'all';
+    this.craftingArmorWeight = 'all';
     this.craftingMessage = '';
     this.resultsMessage = '';
     this.combatActionPanel = 'abilities';
     this.combatPlaybackTimer = null;
     this.combatCompletionHoldEncounterId = null;
+    this.consumedCombatPresentationId = null;
+    this.presentationCombatId = null;
     this.deferNextAiAction = false;
     this.campsiteEquipmentOwnerId = 'vessel';
     this.starterTutorialStep = 0;
@@ -74,6 +85,7 @@ class App {
     this.librarySlotCost = 'all';
     this.libraryType = 'all';
     this.libraryFamily = 'all';
+    this.libraryTags = [];
     this.librarySort = 'id';
     this.lenderQuery = '';
     this.lenderSlot = 'all';
@@ -124,7 +136,8 @@ class App {
   }
 
   bootstrapAccount(account) {
-    const next = applyAccountBootstrap(account, this.canon.getAccountBootstrap());
+    let next = applyAccountBootstrap(account, this.canon.getAccountBootstrap());
+    next = migrateMantleUnlocksFromTrainerHistory(next, this.canon.getForestTrainers());
     next.currencies = { ...(next.currencies || {}), onyx: Number(next.currencies?.onyx || 0) };
     next.settings = { combatSpeed: 1, reducedMotion: false, combatNumbers: true, screenFlash: 'standard', ...(next.settings || {}) };
     const withTutorials = normalizeTutorialState(next);
@@ -144,7 +157,8 @@ class App {
   scheduleCombatPlayback(run){
     this.clearCombatPlaybackTimer(); const combat=run?.combat;if(!combat)return;
     const current=(combat.actors||[]).find(a=>a.id===combat.currentActorId);const needsStep=combat.state==='complete'||(combat.state==='active'&&current?.control==='ai');if(!needsStep)return;
-    this.combatPlaybackTimer=setTimeout(()=>{this.combatPlaybackTimer=null;if(this.router.routeFromLocation()===ROUTES.CAMPAIGN_RUN)this.render(ROUTES.CAMPAIGN_RUN);},this.combatPresentationDelayMs());
+    const delay=combat.state==='complete'?650:this.combatPresentationDelayMs();
+    this.combatPlaybackTimer=setTimeout(()=>{this.combatPlaybackTimer=null;if(this.router.routeFromLocation()===ROUTES.CAMPAIGN_RUN)this.render(ROUTES.CAMPAIGN_RUN);},delay);
   }
 
   normalizeActiveCampaignCombat() {
@@ -215,8 +229,8 @@ class App {
         room: this.tavern.currentRoom(), slot, account: this.account,
         subclassesForBase: this.canon.getSubclassesForBase(slot.character.baseClass),
         keptEntries: this.canon.getKeptImpressions(), keptRuntimeEntries: this.canon.getKeptImpressionRuntime().entries, tavernAdventurers: this.canon.getTavernAdventurers(), tavernServices:this.canon.getTavernServices(), equipmentCatalog:this.canon.getEquipmentConsumablesStatus(),
-        baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), message: this.tavernMessage,
-        ux: { libraryQuery:this.libraryQuery, librarySlotCost:this.librarySlotCost, libraryType:this.libraryType, libraryFamily:this.libraryFamily, librarySort:this.librarySort, lenderQuery:this.lenderQuery, lenderSlot:this.lenderSlot, lenderWeaponType:this.lenderWeaponType, lenderSort:this.lenderSort }
+        baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), unlockedRaces:this.account.unlocks?.races||[], baseClasses:this.canon.getBaseClasses(), message: this.tavernMessage,
+        ux: { libraryQuery:this.libraryQuery, librarySlotCost:this.librarySlotCost, libraryType:this.libraryType, libraryFamily:this.libraryFamily, libraryTags:this.libraryTags, librarySort:this.librarySort, lenderQuery:this.lenderQuery, lenderSlot:this.lenderSlot, lenderWeaponType:this.lenderWeaponType, lenderSort:this.lenderSort }
       });
       this.tavernMessage = '';
       this.refreshStatAllocator(this.root.querySelector('#starting-stat-form'));
@@ -248,7 +262,11 @@ class App {
       if (!run) { this.router.replace(ROUTES.TAVERN); return; }
       this.tavern.leave();
       const activeQuest=normalized.slot?.tavernServices?.mara?.activeQuest||null; const questEval=activeQuest?evaluateMaraQuest(activeQuest,run):null;
-      this.root.innerHTML = renderCampaignRun({ run, baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), progression: this.canon.getCharacterProgression(), equipmentCatalog: this.canon.getEquipmentConsumablesStatus(), forestCrafting: this.canon.getForestCrafting(), forestTrainers: this.canon.getForestTrainers(), maraQuestStatus:activeQuest?{...activeQuest,...questEval,status:questEval?.complete?'Completed — Pending Return':'In Progress'}:null, craftingUi: { onlyCraftable:this.craftingOnlyCraftable, sortStat:this.craftingSortStat, direction:this.craftingSortDirection, message:this.craftingMessage }, presentationUi: { actionPanel:this.combatActionPanel, settings:this.account.settings || {}, equipmentOwnerId:this.campsiteEquipmentOwnerId } });
+      const combatIdentity=run.combat?.id||run.combat?.encounterId||null;
+      if(combatIdentity!==this.presentationCombatId){this.presentationCombatId=combatIdentity;this.consumedCombatPresentationId=null;}
+      this.root.innerHTML = renderCampaignRun({ run, baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), progression: this.canon.getCharacterProgression(), equipmentCatalog: this.canon.getEquipmentConsumablesStatus(), forestCrafting: this.canon.getForestCrafting(), forestTrainers: this.canon.getForestTrainers(), maraQuestStatus:activeQuest?{...activeQuest,...questEval,status:questEval?.complete?'Completed — Pending Return':'In Progress'}:null, craftingUi: { onlyCraftable:this.craftingOnlyCraftable, sortStat:this.craftingSortStat, direction:this.craftingSortDirection, query:this.craftingQuery, slot:this.craftingSlot, itemType:this.craftingType, subtype:this.craftingSubtype, weaponType:this.craftingWeaponType, armorWeight:this.craftingArmorWeight, message:this.craftingMessage }, presentationUi: { actionPanel:this.combatActionPanel, settings:this.account.settings || {}, equipmentOwnerId:this.campsiteEquipmentOwnerId, consumedPresentationId:this.consumedCombatPresentationId } });
+      const renderedPresentationId=this.root.querySelector('.combat-presentation')?.dataset?.presentationId||null;
+      if(renderedPresentationId)this.consumedCombatPresentationId=renderedPresentationId;
       this.syncCombatTargetHighlight(this.root.querySelector('[data-primary-combat-target]'));
       this.scheduleCombatPlayback(run);
       this.craftingMessage = '';
@@ -332,6 +350,7 @@ class App {
     if (action === 'combat-charge') return this.performCombatAction('charge');
     if (action === 'combat-guard') return this.performCombatAction('guard');
     if (action === 'combat-use-consumable') return this.performConsumable(button);
+    if (action === 'combat-use-equipment-ability') return this.performEquipmentAbility(button);
     if (action === 'campsite-equipment-owner') { this.campsiteEquipmentOwnerId=button.dataset.owner||'vessel'; return this.render(ROUTES.CAMPAIGN_RUN); }
     if (action === 'campsite-equip-consumable') return this.equipCampConsumable(button);
     if (action === 'campsite-unequip-consumable') return this.unequipCampConsumable(button);
@@ -347,6 +366,7 @@ class App {
     if (action === 'combat-end-turn') return this.finishCombatTurn();
     if (action === 'run-stat-add') return this.addRunStat(button.dataset.stat);
     if (action === 'adventurer-toggle') return this.toggleTavernAdventurer(button.dataset.adventurer);
+    if (action === 'vessel-portrait-select') return this.changeVesselPortrait(button.dataset.portrait);
     if (action === 'mara-quest-accept') return this.acceptMaraQuestOffer(button.dataset.quest);
     if (action === 'mara-quest-abandon') return this.abandonMaraQuestOffer();
     if (action === 'lender-borrow') return this.chooseLenderBorrow(button.dataset.item);
@@ -381,6 +401,8 @@ class App {
   onSubmit(event) {
     const vesselForm = event.target.closest('#vessel-form');
     if (vesselForm) { event.preventDefault(); this.completeCreation(vesselForm); return; }
+    const rebindForm = event.target.closest('#vessel-rebind-form');
+    if (rebindForm) { event.preventDefault(); this.saveVesselRebind(rebindForm); return; }
     const statForm = event.target.closest('#starting-stat-form');
     if (statForm) { event.preventDefault(); this.saveStartingStatRedistribution(statForm); return; }
     const classlessForm = event.target.closest('#classless-config-form');
@@ -392,6 +414,7 @@ class App {
     if (event.target.matches('[data-help-search]')) { this.helpQuery=event.target.value||''; this.render(ROUTES.HELP); const input=this.root.querySelector('[data-help-search]'); if(input){input.focus();input.setSelectionRange(input.value.length,input.value.length);} }
     if (event.target.matches('[data-library-search]')) { this.libraryQuery=event.target.value||''; this.render(ROUTES.TAVERN); const input=this.root.querySelector('[data-library-search]'); if(input){input.focus();input.setSelectionRange(input.value.length,input.value.length);} }
     if (event.target.matches('[data-lender-search]')) { this.lenderQuery=event.target.value||''; this.render(ROUTES.TAVERN); const input=this.root.querySelector('[data-lender-search]'); if(input){input.focus();input.setSelectionRange(input.value.length,input.value.length);} }
+    if (event.target.matches('[data-crafting-search]')) { this.craftingQuery=event.target.value||''; this.render(ROUTES.CAMPAIGN_RUN); const input=this.root.querySelector('[data-crafting-search]'); if(input){input.focus();input.setSelectionRange(input.value.length,input.value.length);} }
   }
 
   onChange(event) {
@@ -399,6 +422,7 @@ class App {
     if (event.target.matches('[data-library-type]')) { this.libraryType=event.target.value||'all'; this.render(ROUTES.TAVERN); return; }
     if (event.target.matches('[data-library-family]')) { this.libraryFamily=event.target.value||'all'; this.render(ROUTES.TAVERN); return; }
     if (event.target.matches('[data-library-sort]')) { this.librarySort=event.target.value||'id'; this.render(ROUTES.TAVERN); return; }
+    if (event.target.matches('[data-library-tag]')) { const value=event.target.value;const set=new Set(this.libraryTags||[]);event.target.checked?set.add(value):set.delete(value);this.libraryTags=[...set];this.render(ROUTES.TAVERN);return; }
     if (event.target.matches('[data-lender-slot]')) { this.lenderSlot=event.target.value||'all'; this.render(ROUTES.TAVERN); return; }
     if (event.target.matches('[data-lender-weapon-type]')) { this.lenderWeaponType=event.target.value||'all'; this.render(ROUTES.TAVERN); return; }
     if (event.target.matches('[data-lender-sort]')) { this.lenderSort=event.target.value||'name'; this.render(ROUTES.TAVERN); return; }
@@ -406,6 +430,11 @@ class App {
     if (event.target.matches('[data-ability-target-shield], [data-ability-target-heal]')) return;
     if (event.target.matches('[data-crafting-only]')) { this.craftingOnlyCraftable = Boolean(event.target.checked); this.render(ROUTES.CAMPAIGN_RUN); return; }
     if (event.target.matches('[data-crafting-sort]')) { this.craftingSortStat = event.target.value || ''; this.render(ROUTES.CAMPAIGN_RUN); return; }
+    if (event.target.matches('[data-crafting-slot]')) { this.craftingSlot=event.target.value||'all'; this.render(ROUTES.CAMPAIGN_RUN); return; }
+    if (event.target.matches('[data-crafting-type]')) { this.craftingType=event.target.value||'all'; this.render(ROUTES.CAMPAIGN_RUN); return; }
+    if (event.target.matches('[data-crafting-subtype]')) { this.craftingSubtype=event.target.value||'all'; this.render(ROUTES.CAMPAIGN_RUN); return; }
+    if (event.target.matches('[data-crafting-weapon-type]')) { this.craftingWeaponType=event.target.value||'all'; this.render(ROUTES.CAMPAIGN_RUN); return; }
+    if (event.target.matches('[data-crafting-armor-weight]')) { this.craftingArmorWeight=event.target.value||'all'; this.render(ROUTES.CAMPAIGN_RUN); return; }
     if (event.target.matches('[data-starting-race]')) { this.refreshStatAllocator(event.target.closest('form')); return; }
     const keptChoice = event.target.closest('[data-kept-choice]');
     if (keptChoice) { this.changeKeptChoice(keptChoice); return; }
@@ -693,6 +722,13 @@ class App {
     this.render(ROUTES.CAMPAIGN_RUN);
   }
 
+  performEquipmentAbility(button) {
+    const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active)return;
+    const abilityId=button.dataset.equipmentAbility||null;const targetId=abilityId?this.root.querySelector(`[data-equipment-ability-target="${CSS.escape(abilityId)}"]`)?.value||null:null;
+    const result=executeEquipmentAbility(slot,{abilityId,targetId});if(!result.ok)return;
+    this.save.saveSlot(slotNumber,result.slot);this.render(ROUTES.CAMPAIGN_RUN);
+  }
+
   performConsumable(button) {
     const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active)return;
     const itemId=button.dataset.consumable||null;const targetId=itemId?this.root.querySelector(`[data-consumable-target="${CSS.escape(itemId)}"]`)?.value||null:null;
@@ -871,6 +907,23 @@ class App {
     if(result.ok)this.save.saveSlot(slotNumber,result.slot); this.render(ROUTES.TAVERN);
   }
 
+  changeVesselPortrait(portraitId) {
+    const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.character)return;
+    const result=selectVesselPortrait(slot,{portraitId},this.canon.getSubclassAbilities());
+    this.tavernMessage=result.ok?'Vessel portrait updated.':result.error;
+    if(result.ok)this.save.saveSlot(slotNumber,result.slot);
+    this.render(ROUTES.TAVERN);
+  }
+
+  saveVesselRebind(form) {
+    const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.character)return;
+    const fd=new FormData(form);
+    const result=rebindVessel(slot,{race:fd.get('rebind_race'),baseClass:fd.get('rebind_base_class'),confirmed:Boolean(fd.get('rebind_confirmed'))},{unlockedRaces:this.account.unlocks?.races||[],baseClasses:this.canon.getBaseClasses()});
+    this.tavernMessage=result.ok?`Vessel rebound to ${result.current.race} ${result.current.baseClass}. Existing records and account unlocks were preserved.`:result.error;
+    if(result.ok)this.save.saveSlot(slotNumber,result.slot);
+    this.render(ROUTES.TAVERN);
+  }
+
   saveClasslessConfiguration(form) {
     const slotNumber = this.activeSlotNumber(), slot = this.activeSlot();
     if (!slotNumber || !slot?.character) return;
@@ -915,7 +968,7 @@ class App {
     if (!slotNumber || this.save.loadSlot(slotNumber)) { this.creationErrors = ['That Vessel slot is no longer empty.']; this.render(ROUTES.CREATE); return; }
     const values = new FormData(form);
     const validation = validateVesselDraft({ name: values.get('name'), race: values.get('race'), baseClass: values.get('baseClass'), startingStats: readStartingStatsFromForm(values) }, { unlockedRaces: this.account.unlocks?.races || [], baseClasses: this.canon.getBaseClasses() });
-    if (!values.get('bindingConfirmed')) validation.errors.push('Confirm the permanent Vessel binding before continuing.');
+    if (!values.get('bindingConfirmed')) validation.errors.push('Confirm this initial Vessel setup before continuing.');
     validation.ok = validation.errors.length === 0;
     if (!validation.ok) { this.creationErrors = validation.errors; this.render(ROUTES.CREATE); return; }
     const slotState = createVesselSlotState(validation.value);

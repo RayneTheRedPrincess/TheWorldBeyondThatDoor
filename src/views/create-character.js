@@ -17,7 +17,7 @@ export function renderCharacterCreation({ slotNumber, unlockedRaces, classDetail
 
   return shell(`
     <section class="section-title"><div><h2>Bind a Vessel</h2><div class="muted">Vessel Slot ${slotNumber}</div></div></section>
-    <div class="notice">Race and base class remain bound to this Vessel unless the slot is deleted. Starting stats are a Level-0 Vessel setup; every campaign begins at Character Level 1.</div>
+    <div class="notice">This is the Vessel’s initial race and base class. You may later rebind either only while safely in the Tavern between campaigns. Starting stats are a Level-0 Vessel setup; every campaign begins at Character Level 1.</div>
     ${errorBlock}
     <form id="vessel-form" class="section creation-layout" autocomplete="off">
       <section class="panel">
@@ -53,12 +53,12 @@ export function renderCharacterCreation({ slotNumber, unlockedRaces, classDetail
 
       <section class="panel creation-wide stat-panel">
         <div class="stat-panel-head"><div><div class="kicker">Level 0 Setup</div><h3>Starting Stats</h3></div><div class="stat-remaining"><strong data-stat-remaining>Choose a race</strong><span>points remaining</span></div></div>
-        <p class="muted">Every Vessel receives ${BASE_STARTING_STAT_POINTS} base starting points. A race may add free starting points. Once the Vessel is bound, its resulting total pool is permanent: you may redistribute those points later, but you can never gain or lose points from this pool.</p>
+        <p class="muted">Every Vessel receives ${BASE_STARTING_STAT_POINTS} base starting points. A race may add free starting points. The current race determines the fixed starting-point total. You may redistribute it between campaigns; rebinding race in the Tavern recalculates that race’s starting pool.</p>
         ${statAllocator()}
       </section>
 
       <section class="panel creation-wide bind-panel">
-        <label class="confirm-line"><input type="checkbox" name="bindingConfirmed" required /> <span>I understand this race and base class stay bound to this Vessel until the slot is deleted.</span></label>
+        <label class="confirm-line"><input type="checkbox" name="bindingConfirmed" required /> <span>I understand this setup is locked during campaigns and may only be rebound in the Tavern between campaigns.</span></label>
         <div class="bind-actions">
           <button type="button" class="secondary" data-action="cancel-create">Cancel</button>
           <button type="submit" class="primary">Complete Vessel</button>

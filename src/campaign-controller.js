@@ -81,6 +81,8 @@ export function startCampaign(slot, { account = null, chronicleTrees = null, reg
     },
     configuration: {
       race: next.character.race,
+      portraitId: next.character.appearance?.portraitId||null,
+      portraitAsset: next.character.appearance?.portraitAsset||null,
       permanentBaseClass: baseClass,
       effectiveBaseClass: classless ? null : baseClass,
       effectiveSubclass: subclass,
@@ -110,7 +112,7 @@ export function startCampaign(slot, { account = null, chronicleTrees = null, reg
     adventurers: Object.fromEntries(selectedAdventurers.map(entry => [entry.id, {
       id: entry.id, name: entry.name, level: 1, exp: 0, startingStats: clone(entry.startingStats || emptyCoreStats()), levelEarnedStats: emptyCoreStats(),
       unspentLevelStatPoints: 0, baseClass: entry.baseClass, subclass: entry.subclass, personality: entry.personality, priority: entry.priority,
-      combatRole: entry.combatRole, levelStatWeights: clone(entry.levelStatWeights || {}), keptImpressions: clone(entry.keptImpressions || []), keptImpressionChoices: clone(entry.keptImpressionChoices || {}),
+      combatRole: entry.combatRole, portrait:entry.portrait||null, levelStatWeights: clone(entry.levelStatWeights || {}), keptImpressions: clone(entry.keptImpressions || []), keptImpressionChoices: clone(entry.keptImpressionChoices || {}),
       equipment: clone(initializeCampaignCraftingInventory(entry.baseClass, forestCrafting).initialEquipment || {}), progressionSource: 'tavern-adventurer'
     }])),
     metrics: {

@@ -27,7 +27,7 @@ export function renderSlots({ slots, mode }) {
   const title = mode === 'continue' ? 'Continue' : 'Choose a Vessel';
   const note = mode === 'continue'
     ? 'Each vessel preserves its own exact campaign state. Character Level is intentionally not shown here.'
-    : 'A character remains bound to its vessel slot until that slot is deleted.';
+    : 'A Vessel remains in its slot until deleted; its race and base class may be rebound only in the Tavern between campaigns.';
   return shell(`
     <section class="section-title"><div><h2>${title}</h2><div class="muted">Nine persistent character slots</div></div></section>
     <div class="notice">${note}</div>

@@ -608,3 +608,52 @@ html[data-reduced-motion="true"] .tutorial-arrow{animation:none}
 .battle-scene .battle-actor.acting[data-side="party"]{animation:i17-party-action var(--action-time) ease-out both}.battle-scene .battle-actor.acting[data-side="enemy"]{animation:i17-enemy-action var(--action-time) ease-out both}
 @media (max-width:760px){.initiative-strip{overflow-x:auto;flex-wrap:nowrap}.battle-scene{min-height:35rem;grid-template-columns:minmax(0,1fr) 1.65rem minmax(0,1fr);padding:.6rem;gap:.28rem}.battle-scene .battle-side{padding:3.25rem 0 .6rem}.battle-actor-slot{transform:translate3d(calc(var(--slot-shift-x) * .42),calc(var(--slot-rise) * -.42),0) scale(calc(.96 * var(--slot-scale)))}.battle-scene .battle-actor,.battle-scene .battle-actor.featured-enemy{min-height:6.9rem;grid-template-columns:2rem minmax(0,1fr);padding:.35rem;gap:.3rem;border-radius:.58rem}.battle-scene .battle-actor.featured-enemy{min-height:7.4rem;width:100%}.actor-portrait-shell{min-height:3.6rem}.actor-portrait,.featured-enemy .actor-portrait{width:1.9rem;height:3.25rem;font-size:.55rem}.battle-action-lane.party-to-enemy,.battle-action-lane.enemy-to-party{left:23%;right:23%}.battle-action-lane.party-to-party{left:6%;right:54%}.battle-action-lane.enemy-to-enemy{left:54%;right:6%}}
 @media (max-width:430px){.battle-scene{min-height:32rem}.battle-scene .battle-side{padding-top:3rem}.battle-actor-slot{transform:translate3d(calc(var(--slot-shift-x) * .24),calc(var(--slot-rise) * -.3),0) scale(calc(.94 * var(--slot-scale)))}.battle-action-lane{display:none}}
+
+/* Beta Test 3 preparation — responsive combat HUD, semantic actions, portraits, filters */
+.actor-portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:inherit;display:block}
+.combat-layout{display:grid;grid-template-columns:minmax(15rem,20rem) minmax(0,1fr) minmax(12rem,16rem);gap:.75rem;align-items:stretch;min-width:0;max-width:100%}
+.combat-left-sidebar,.combat-center-stage,.combat-right-sidebar{min-width:0;max-width:100%}
+.combat-left-sidebar,.combat-right-sidebar{display:flex;flex-direction:column;gap:.7rem}
+.combat-left-sidebar{max-height:76vh;overflow:auto;padding-right:.15rem}
+.combat-center-stage{align-self:stretch}
+.combat-center-stage .battle-scene{height:100%;min-height:clamp(34rem,72vh,48rem)}
+.combat-right-sidebar{max-height:76vh}
+.combat-turn-order-panel{border:1px solid rgba(255,255,255,.08);border-radius:.85rem;background:rgba(8,10,9,.52);padding:.65rem;overflow:auto}
+.combat-right-sidebar .initiative-strip{display:grid;grid-template-columns:1fr;gap:.38rem;padding:.45rem 0 0;overflow:visible}
+.combat-right-sidebar .initiative-token{display:grid;grid-template-columns:1.65rem 2.6rem minmax(0,1fr);align-items:center;gap:.35rem;min-width:0}
+.combat-right-sidebar .initiative-token strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.combat-right-sidebar .combat-log-panel{display:flex;flex-direction:column;min-height:0;flex:1}
+.combat-right-sidebar .combat-log-panel[open] .combat-log-lines{flex:1;max-height:none;min-height:10rem}
+.combat-left-sidebar .combat-command-bar{grid-template-columns:repeat(2,minmax(0,1fr))}
+.combat-left-sidebar .ability-grid{grid-template-columns:1fr}
+.combat-left-sidebar .combat-action-drawer{min-width:0}
+.combat-left-sidebar .ability-card select,.combat-left-sidebar .ability-card button{width:100%;max-width:100%}
+.combat-outcome-notice{display:grid;gap:.2rem}
+.semantic-action-badge{position:absolute;z-index:8;left:.4rem;top:.35rem;max-width:calc(100% - .8rem);padding:.2rem .36rem;border-radius:.38rem;font:800 .55rem/1.15 system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;background:#151515;color:#fff;border:1px solid currentColor;box-shadow:0 .25rem .75rem rgba(0,0,0,.35)}
+.battle-actor.semantic-damage-source,.battle-actor.semantic-damage-target{outline:2px solid rgba(218,77,68,.58);outline-offset:-3px}.battle-actor.semantic-damage-source .semantic-action-badge,.battle-actor.semantic-damage-target .semantic-action-badge{color:#ff9d95}
+.battle-actor.semantic-protection-source,.battle-actor.semantic-protection-target{outline:2px solid rgba(76,151,226,.62);outline-offset:-3px}.battle-actor.semantic-protection-source .semantic-action-badge,.battle-actor.semantic-protection-target .semantic-action-badge{color:#a9d5ff}
+.battle-actor.semantic-healing-source,.battle-actor.semantic-healing-target{outline:2px solid rgba(231,193,65,.62);outline-offset:-3px}.battle-actor.semantic-healing-source .semantic-action-badge,.battle-actor.semantic-healing-target .semantic-action-badge{color:#ffe888}
+.mechanic-note{display:block;color:#d9ccb5;line-height:1.4;margin:.15rem 0}
+.craft-filter-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:end}.craft-filter-grid label{display:grid;gap:.3rem;align-items:initial}.craft-filter-grid select,.craft-filter-grid input[type="search"]{width:100%;min-width:0;background:#201a14;color:var(--text);border:1px solid var(--line);border-radius:10px;padding:9px 10px}.craft-filter-grid .craft-search{grid-column:span 2}.craft-filter-grid .craft-checkbox{display:flex;align-items:center;min-height:42px}.craft-filter-grid button{min-height:42px}
+.tag-filter-panel{border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:.7rem;margin:.7rem 0}.tag-filter-panel legend{color:var(--gold);padding:0 .35rem}.tag-filter-grid{display:flex;gap:.35rem;flex-wrap:wrap;max-height:13rem;overflow:auto}.tag-filter-chip{position:relative}.tag-filter-chip input{position:absolute;opacity:0;pointer-events:none}.tag-filter-chip span{display:block;padding:.32rem .52rem;border:1px solid rgba(255,255,255,.1);border-radius:999px;background:rgba(255,255,255,.025);font-size:.72rem;cursor:pointer}.tag-filter-chip input:checked+span{border-color:rgba(255,213,138,.7);background:rgba(222,184,109,.14);color:#fff1cf}
+.ki-tag-row{display:flex;gap:.28rem;flex-wrap:wrap}.ki-tag,.mechanic-tag{display:inline-flex;padding:.18rem .38rem;border-radius:999px;border:1px solid rgba(255,255,255,.08);font-size:.65rem;color:#d8c9ad;background:rgba(255,255,255,.025)}
+.portrait-choice-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:.6rem}.portrait-choice{min-width:0;display:grid;gap:.3rem;text-align:left;padding:.45rem;border:1px solid rgba(255,255,255,.08);border-radius:.8rem;background:rgba(255,255,255,.025);color:var(--text)}.portrait-choice.selected{border-color:rgba(255,213,138,.72);box-shadow:0 0 0 2px rgba(255,213,138,.1)}.portrait-choice img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:.55rem;background:#111}.portrait-choice span{font-weight:700}.portrait-choice small{color:var(--muted)}.adventurer-portrait{width:100%;max-height:15rem;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:.7rem;margin-bottom:.55rem;background:#111}
+@media (max-width:980px){.combat-layout{grid-template-columns:minmax(13rem,17rem) minmax(0,1fr)}.combat-right-sidebar{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);max-height:none}.combat-right-sidebar .initiative-strip{grid-template-columns:repeat(auto-fit,minmax(8rem,1fr))}.combat-right-sidebar .combat-log-panel[open] .combat-log-lines{max-height:13rem}.combat-left-sidebar{max-height:none}.combat-center-stage .battle-scene{min-height:36rem}.craft-filter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:720px){html,body{max-width:100%;overflow-x:hidden}.combat-layout{display:flex;flex-direction:column}.combat-center-stage{order:1}.combat-left-sidebar{order:2}.combat-right-sidebar{order:3;display:flex}.combat-left-sidebar,.combat-right-sidebar{max-height:none;overflow:visible}.combat-right-sidebar .initiative-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible}.combat-center-stage .battle-scene{height:auto;min-height:34rem}.combat-left-sidebar .ability-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.craft-filter-grid{grid-template-columns:1fr}.craft-filter-grid .craft-search{grid-column:auto}.portrait-choice-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:430px){.combat-right-sidebar .initiative-strip{grid-template-columns:1fr}.combat-left-sidebar .ability-grid{grid-template-columns:1fr}.portrait-choice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.semantic-action-badge{font-size:.46rem}}
+/* Beta Test 3 formation-density and campaign portrait completion */
+.battle-side.formation-dense{gap:0}
+.battle-side.formation-dense .battle-actor{min-height:7.15rem;padding:.48rem;gap:.42rem}
+.battle-side.formation-dense .actor-portrait-shell{min-height:5.6rem}
+.battle-side.formation-dense .actor-portrait{width:2.75rem;height:5.15rem}
+.battle-side.formation-very-dense{gap:0;padding-top:3.25rem;padding-bottom:.65rem}
+.battle-side.formation-very-dense .battle-actor{min-height:6.1rem;padding:.38rem;gap:.34rem;grid-template-columns:2.35rem minmax(0,1fr)}
+.battle-side.formation-very-dense .actor-portrait-shell{min-height:4.6rem}
+.battle-side.formation-very-dense .actor-portrait{width:2.2rem;height:4.35rem}
+.battle-side.formation-very-dense .actor-name-row h4{font-size:.78rem}.battle-side.formation-very-dense .actor-name-row small{font-size:.58rem}
+.battle-side.formation-very-dense .actor-special-resource,.battle-side.formation-very-dense .battle-resource{font-size:.58rem}
+.campaign-run-hero.with-vessel-portrait{grid-template-columns:auto minmax(0,1fr) auto;align-items:center}
+.campaign-vessel-portrait{width:4.5rem;aspect-ratio:4/5;border:1px solid rgba(255,213,138,.32);border-radius:.75rem;overflow:hidden;background:#111;box-shadow:0 .5rem 1.4rem rgba(0,0,0,.26)}
+.campaign-vessel-portrait img,.adventurer-sheet-portrait{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.adventurer-sheet-portrait{width:5rem;aspect-ratio:4/5;height:auto;border-radius:.65rem;border:1px solid rgba(255,255,255,.1);float:left;margin:0 .75rem .55rem 0}
+@media (max-width:720px){.campaign-run-hero.with-vessel-portrait{grid-template-columns:auto minmax(0,1fr)}.campaign-run-hero.with-vessel-portrait .run-level{grid-column:1/-1}.battle-side.formation-dense .battle-actor,.battle-side.formation-very-dense .battle-actor{min-height:5.85rem}.battle-side.formation-very-dense .actor-portrait{height:3.75rem}}

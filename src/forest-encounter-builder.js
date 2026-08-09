@@ -44,7 +44,7 @@ export function scaleEnemyTemplate(template, tier, ordinal=1) {
     side:'enemy',kind:'enemy',control:'ai',real:true,
     level:Number(template.level||tier?.level||1),stats,
     maxHp:Math.max(1,Math.round(Number(template.baseMaxHp||1)*Number(tier?.hpMultiplier||1))),
-    combatRole:template.role,enemyTemplateId:template.id,enemyAi:clone(template.ai||{}),basicAttack:basic,
+    combatRole:template.role,portraitAsset:template.portrait||null,enemyTemplateId:template.id,enemyAi:clone(template.ai||{}),basicAttack:basic,
     abilityIds:(template.abilities||[]).map(a=>a.id),
     enemyAbilities:(template.abilities||[]).map(a=>scaledAbility(a,tier)),
     expReward:Math.max(0,Math.round(Number(template.baseExpReward||0)+Number(tier?.expAdd||0))),
@@ -56,7 +56,7 @@ function specialEnemySpec(template, ordinal=1, scaling={maxHpMultiplier:1,damage
   const damageMultiplier=Number(scaling.damageMultiplier||1), maxHpMultiplier=Number(scaling.maxHpMultiplier||1);
   return {
     id:`enemy-${template.id}-${ordinal}`,name:template.name,side:'enemy',kind:'enemy',control:'ai',real:true,
-    level:Number(template.level||1),stats:clone(template.stats||{}),maxHp:Math.max(1,Math.round(Number(template.baseMaxHp||1)*maxHpMultiplier)),combatRole:template.role,
+    level:Number(template.level||1),stats:clone(template.stats||{}),maxHp:Math.max(1,Math.round(Number(template.baseMaxHp||1)*maxHpMultiplier)),combatRole:template.role,portraitAsset:template.portrait||null,
     enemyTemplateId:template.id,enemyAi:clone(template.ai||{}),basicAttack:{...clone(template.basicAttack||{}),base:scaleBase(template.basicAttack?.base||1,damageMultiplier)},
     abilityIds:(template.abilities||[]).map(a=>a.id),enemyAbilities:(template.abilities||[]).map(a=>({...clone(a),components:(a.components||[]).map(c=>c.type==='damage'?{...c,base:scaleBase(c.base,damageMultiplier)}:clone(c))})),expReward:Number(template.expReward||0),onyxReward:Number(template.onyxReward||0),resistances:clone(template.resistances||{}),
     partyScaling:{maxHpMultiplier,damageMultiplier}
@@ -93,7 +93,7 @@ function trainerCombatSpec(trainer, scaling={maxHpMultiplier:1,damageMultiplier:
     id:`trainer-${trainer.id}`,name:trainer.name,side:'enemy',kind:'enemy',control:'ai',real:true,level:Number(c.level||4),stats:clone(c.stats||{}),
     maxHp:Math.max(1,Math.round(Number(c.baseMaxHp||36)*maxHpMultiplier)),combatRole:c.role||`${trainer.subclass} Trainer`,enemyTemplateId:`trainer:${trainer.id}`,
     enemyAi:clone(c.ai||{}),basicAttack:{...clone(c.basicAttack||{}),base:scaleBase(c.basicAttack?.base||3,damageMultiplier)},abilityIds:scaledAbilities.map(a=>a.id),enemyAbilities:scaledAbilities,
-    expReward:Number(c.expReward||0),onyxReward:Number(c.onyxReward||0),resistances:clone(c.resistances||{}),partyScaling:{maxHpMultiplier,damageMultiplier},trainerId:trainer.id,trainerSubclass:trainer.subclass
+    expReward:Number(c.expReward||0),onyxReward:Number(c.onyxReward||0),resistances:clone(c.resistances||{}),partyScaling:{maxHpMultiplier,damageMultiplier},trainerId:trainer.id,trainerSubclass:trainer.subclass,portraitAsset:`./assets/portraits/vessels/${String(trainer.subclass||'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')}/male-01.png`
   };
 }
 export function buildForestTrainerRoster({forestTrainers,forestEnemies,trainerId,realPartySize=1}={}) {
@@ -138,7 +138,7 @@ export function buildVesselCombatSpec(run, baseAbilities, subclassAbilities, pro
   return {
     id:'vessel',name:run?.party?.find(p=>p.id==='vessel')?.name||'Otherworlder',side:'party',kind:'vessel',control:'player',real:true,
     level,stats,maxHp:Math.max(1,Math.round(maxHpFor({level,con:stats.CON,progression})*keptMaxHpMultiplier(keptImpressions))),hp:Number.isFinite(Number(run?.character?.currentHp))?Math.max(0,Number(run.character.currentHp)):undefined,baseClass:baseClass||null,subclass,
-    combatRole:classRole(baseClass),weaponType:equipment.mainHandWeaponType||null,equipment:equipment.equipment,equipmentModifiers:equipment.modifiers,resistances:equipment.resistances,explicitInitiativeBonus:Number(equipment.initiativeBonus||0),armorMitigationPct:Number(equipment.armorMitigationPct||0),armorCategory:equipment.armorCategory||null,consumableIds:[...(run?.configuration?.consumables||[])].filter(Boolean),abilityIds:unlocked,subclassAbilityIds:unlockedSubclass,classless,resourceImprint:classless?(selections.resourceImprint||null):null,keptImpressions,keptImpressionChoices
+    combatRole:classRole(baseClass),weaponType:equipment.mainHandWeaponType||null,equipment:equipment.equipment,equipmentModifiers:equipment.modifiers,resistances:equipment.resistances,explicitInitiativeBonus:Number(equipment.initiativeBonus||0),armorMitigationPct:Number(equipment.armorMitigationPct||0),armorCategory:equipment.armorCategory||null,startingShieldPctMax:Number(equipment.startingShieldPctMax||0),equipmentAbilities:clone(equipment.grantedAbilities||[]),consumableIds:[...(run?.configuration?.consumables||[])].filter(Boolean),abilityIds:unlocked,subclassAbilityIds:unlockedSubclass,classless,resourceImprint:classless?(selections.resourceImprint||null):null,keptImpressions,keptImpressionChoices,portraitAsset:run?.configuration?.portraitAsset||null
   };
 }
 export function buildTavernAdventurerCombatSpec(state, baseAbilities, subclassAbilities, progression, equipmentCatalog=null) {
@@ -149,7 +149,7 @@ export function buildTavernAdventurerCombatSpec(state, baseAbilities, subclassAb
   if(!equipment.ok)throw new Error(equipment.errors?.[0]||'Invalid Tavern Adventurer starter equipment.');
   const equippedStats=applyEquipmentCoreStats(rawStats,equipment);const stats=applyKeptPreCombatStats(equippedStats,subclass,keptImpressions,keptImpressionChoices);
   const unlockedSubclass=(subclassAbilities?.abilities||[]).filter(a=>a.subclass===subclass&&Number(a.level||1)<=level).map(a=>a.id);
-  return {id:state.id,name:state.name,side:'party',kind:'tavern-adventurer',control:'ai',real:true,level,stats,maxHp:Math.max(1,Math.round(maxHpFor({level,con:stats.CON,progression})*keptMaxHpMultiplier(keptImpressions))),hp:Number.isFinite(Number(state?.currentHp))?Math.max(0,Number(state.currentHp)):undefined,baseClass,subclass,combatRole:state.combatRole||classRole(baseClass),personality:state.personality||'Balanced',priority:state.priority||'Balanced',abilityIds:unlocked,subclassAbilityIds:unlockedSubclass,keptImpressions,keptImpressionChoices,weaponType:equipment.mainHandWeaponType||null,equipment:equipment.equipment,equipmentModifiers:equipment.modifiers,resistances:equipment.resistances,explicitInitiativeBonus:Number(equipment.initiativeBonus||0),armorMitigationPct:Number(equipment.armorMitigationPct||0),armorCategory:equipment.armorCategory||null};
+  return {id:state.id,name:state.name,side:'party',kind:'tavern-adventurer',control:'ai',real:true,level,stats,maxHp:Math.max(1,Math.round(maxHpFor({level,con:stats.CON,progression})*keptMaxHpMultiplier(keptImpressions))),hp:Number.isFinite(Number(state?.currentHp))?Math.max(0,Number(state.currentHp)):undefined,baseClass,subclass,combatRole:state.combatRole||classRole(baseClass),personality:state.personality||'Balanced',priority:state.priority||'Balanced',abilityIds:unlocked,subclassAbilityIds:unlockedSubclass,keptImpressions,keptImpressionChoices,weaponType:equipment.mainHandWeaponType||null,equipment:equipment.equipment,equipmentModifiers:equipment.modifiers,resistances:equipment.resistances,explicitInitiativeBonus:Number(equipment.initiativeBonus||0),armorMitigationPct:Number(equipment.armorMitigationPct||0),armorCategory:equipment.armorCategory||null,startingShieldPctMax:Number(equipment.startingShieldPctMax||0),equipmentAbilities:clone(equipment.grantedAbilities||[]),portraitAsset:state?.portrait||null};
 }
 export function buildPartyCombatSpecs(run, baseAbilities, subclassAbilities, progression, suppliedSpecs=null, equipmentCatalog=null) {
   if (Array.isArray(suppliedSpecs)&&suppliedSpecs.length) return clone(suppliedSpecs);

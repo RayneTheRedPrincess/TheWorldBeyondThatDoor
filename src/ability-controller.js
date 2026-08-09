@@ -1,4 +1,4 @@
-import { getCombatActor, setAbilityCooldown, getAbilityCooldown, addCombatEffect, removeOneNegativeCombatEffect, pendingEnergyCostAdd, consumeNextEnergyCostEffects } from './combat-controller.js';
+import { getCombatActor, setAbilityCooldown, getAbilityCooldown, addCombatEffect, removeOneNegativeCombatEffect, pendingEnergyCostAdd, consumeNextEnergyCostEffects, appendCombatLog, finalizeCombatOutcome } from './combat-controller.js';
 import { keptEnergyCost, keptCooldown } from './kept-impression-state.js';
 import { keptBeforeAction, keptEnergySpent, keptOnNegativeRemoved } from './kept-impression-runtime.js';
 import { resolveDamageComponent, resolveHealComponent, resolveShieldComponent, resolvePercentOfActualDamageHeal, hasNegativeEffect, applyStatus } from './combat-resolution.js';
@@ -299,8 +299,9 @@ export function executeBaseAbility(slot, { abilityId, catalog, targets = {}, for
   if (heavyMomentum && preResource>=4 && !(spentResource>=preResource)) setResourceValue(actor,Math.max(0,resourceValue(actor)-1));
   setAbilityCooldown(combat,actor.id,ability.id,keptCooldown(actor,ability,ability.cooldown));
   combat.turn.actionTaken=true; combat.turn.actionType='ability'; combat.turn.actionPayload={abilityId:ability.id,targets:clone(targets),form}; combat.turn.canEndTurn=true;
-  combat.log.push({type:'ability',round:combat.round,actorId:actor.id,abilityId:ability.id,energySpent:available.energyCost,resourceSpent:spentResource,results:clone(results),at:new Date().toISOString()});
-  return {ok:true,slot:next,combat:clone(combat),ability:clone(ability),results};
+  appendCombatLog(combat,{type:'ability',round:combat.round,actorId:actor.id,abilityId:ability.id,energySpent:available.energyCost,resourceSpent:spentResource,results:clone(results),at:new Date().toISOString()},{presentation:true});
+  const outcome=finalizeCombatOutcome(combat);
+  return {ok:true,slot:next,combat:clone(combat),ability:clone(ability),results,outcome};
 }
 
 export function listUsableBaseAbilities(combat, actorId, catalog) {

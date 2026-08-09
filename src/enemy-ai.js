@@ -1,5 +1,5 @@
 import { BASE_MAX_ENERGY } from './combat-math.js';
-import { commitResolvedAiAction, endCombatTurn, getAbilityCooldown, getCombatActor, setAbilityCooldown, pendingEnergyCostAdd, consumeNextEnergyCostEffects } from './combat-controller.js';
+import { commitResolvedAiAction, endCombatTurn, getAbilityCooldown, getCombatActor, setAbilityCooldown, pendingEnergyCostAdd, consumeNextEnergyCostEffects, finalizeCombatOutcome } from './combat-controller.js';
 import { applyStatus, getActorDerivedCombatStats, resolveDamageComponent, resolveHealComponent, resolvePercentOfActualDamageHeal, resolveShieldComponent } from './combat-resolution.js';
 
 function clone(v){return typeof structuredClone==='function'?structuredClone(v):JSON.parse(JSON.stringify(v));}
@@ -86,7 +86,8 @@ export function executeEnemyAction(slot,{difficulty='Normal',rng=Math.random}={}
     const component={type:'damage',base:Number(actor.basicAttack?.base||1),damageType:actor.basicAttack?.damageType||'Physical',scaling:clone(actor.basicAttack?.scaling||{})};
     const result=resolveDamageComponent(next,combat,actor,target,{id:`${actor.enemyTemplateId||actor.id}-basic`,name:actor.basicAttack?.name||'Basic Attack'},component,{rng});
     const committed=commitResolvedAiAction(next,{type:'basic-attack',payload:{targetId:target.id,name:actor.basicAttack?.name||'Basic Attack',result}}); if(!committed.ok)return committed;
-    return {ok:true,slot:committed.slot,action:{type:'basic-attack',actorId:actor.id,targetId:target.id,result}};
+    const outcome=finalizeCombatOutcome(committed.slot.campaign.state.combat);
+    return {ok:true,slot:committed.slot,action:{type:'basic-attack',actorId:actor.id,targetId:target.id,result},outcome};
   }
   const ability=choice.ability; combat=next.campaign.state.combat; actor=getCombatActor(combat,combat.currentActorId);
   const intrinsicCost=Math.max(0,Number(ability.energyCost||0)),cost=enemyAbilityCost(actor,ability); if(Number(actor.resources.energy||0)<cost)return {ok:false,error:'Enemy cannot afford chosen ability.'};
@@ -97,10 +98,12 @@ export function executeEnemyAction(slot,{difficulty='Normal',rng=Math.random}={}
   applyDefinedEffect(combat,actor,actor,ability.selfEffect);
   setAbilityCooldown(combat,actor.id,ability.id,Number(ability.cooldown||0));
   const committed=commitResolvedAiAction(next,{type:'ability',payload:{abilityId:ability.id,name:ability.name,outcomes}}); if(!committed.ok)return committed;
-  return {ok:true,slot:committed.slot,action:{type:'ability',actorId:actor.id,abilityId:ability.id,outcomes}};
+  const outcome=finalizeCombatOutcome(committed.slot.campaign.state.combat);
+  return {ok:true,slot:committed.slot,action:{type:'ability',actorId:actor.id,abilityId:ability.id,outcomes},outcome};
 }
 export function resolveEnemyTurn(slot,{difficulty='Normal',rng=Math.random,now=new Date().toISOString()}={}){
   const acted=executeEnemyAction(slot,{difficulty,rng}); if(!acted.ok)return acted;
+  if(acted.slot?.campaign?.state?.combat?.state==='complete')return {ok:true,slot:acted.slot,action:acted.action,outcome:acted.slot.campaign.state.combat.outcome||acted.outcome||null};
   const ended=endCombatTurn(acted.slot,{now}); if(!ended.ok)return ended;
   return {ok:true,slot:ended.slot,action:acted.action,outcome:ended.outcome||null};
 }

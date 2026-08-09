@@ -45,7 +45,8 @@
         "KI-022"
       ],
       "keptImpressionChoices": {},
-      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
+      "portrait": "./assets/portraits/adventurers/guest-elowen.png"
     },
     {
       "id": "guest-briar",
@@ -84,7 +85,8 @@
           "allyId": "vessel"
         }
       },
-      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
+      "portrait": "./assets/portraits/adventurers/guest-briar.png"
     },
     {
       "id": "guest-vesper",
@@ -119,7 +121,8 @@
         "KI-012"
       ],
       "keptImpressionChoices": {},
-      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
+      "portrait": "./assets/portraits/adventurers/guest-vesper.png"
     },
     {
       "id": "guest-brakka",
@@ -154,7 +157,8 @@
         "KI-026"
       ],
       "keptImpressionChoices": {},
-      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
+      "portrait": "./assets/portraits/adventurers/guest-brakka.png"
     },
     {
       "id": "guest-sparkscale",
@@ -188,7 +192,8 @@
         "KI-022"
       ],
       "keptImpressionChoices": {},
-      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
+      "portrait": "./assets/portraits/adventurers/guest-sparkscale.png"
     },
     {
       "id": "guest-nib",
@@ -223,7 +228,8 @@
         "KI-012"
       ],
       "keptImpressionChoices": {},
-      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
+      "portrait": "./assets/portraits/adventurers/guest-nib.png"
     },
     {
       "id": "guest-mercury",
@@ -262,7 +268,8 @@
           "glyph": "Edge"
         }
       },
-      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
+      "portrait": "./assets/portraits/adventurers/guest-mercury.png"
     },
     {
       "id": "guest-unit-seven",
@@ -297,7 +304,8 @@
         "KI-023"
       ],
       "keptImpressionChoices": {},
-      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
+      "portrait": "./assets/portraits/adventurers/guest-unit-seven.png"
     },
     {
       "id": "guest-tawny",
@@ -331,7 +339,8 @@
         "KI-012"
       ],
       "keptImpressionChoices": {},
-      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
+      "portrait": "./assets/portraits/adventurers/guest-tawny.png"
     },
     {
       "id": "guest-sera",
@@ -366,7 +375,8 @@
         "KI-014"
       ],
       "keptImpressionChoices": {},
-      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
+      "portrait": "./assets/portraits/adventurers/guest-sera.png"
     },
     {
       "id": "guest-kethravel",
@@ -405,7 +415,8 @@
           "damageType": "Psychic"
         }
       },
-      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
+      "portrait": "./assets/portraits/adventurers/guest-kethravel.png"
     },
     {
       "id": "guest-rill",
@@ -443,7 +454,8 @@
           "flux": "Twist"
         }
       },
-      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
+      "portrait": "./assets/portraits/adventurers/guest-rill.png"
     },
     {
       "id": "guest-dane",
@@ -477,7 +489,8 @@
         "KI-023"
       ],
       "keptImpressionChoices": {},
-      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon"
+      "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
+      "portrait": "./assets/portraits/adventurers/guest-dane.png"
     }
   ]
 }

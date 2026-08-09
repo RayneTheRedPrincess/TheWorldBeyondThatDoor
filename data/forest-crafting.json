@@ -43,7 +43,8 @@
       "ordinary-enemy"
     ],
     "trainerSoulfireCoreCount": 17,
-    "trainerSoulfireItemsPerTrainer": 3
+    "trainerSoulfireItemsPerTrainer": 3,
+    "beta3EquipmentExpansion": true
   },
   "materials": [
     {
@@ -4724,6 +4725,420 @@
       "sourceId": "ilyne-seedcrown",
       "rarity": "SoulFire",
       "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-beta3-briar-parrying-knife",
+      "name": "Briar Parrying Knife",
+      "category": "Off-Hand Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-beta3-briar-parrying-knife",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bramble-hook",
+          "quantity": 2
+        },
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 1
+        }
+      ],
+      "rarity": "Normal",
+      "location": "Campsite",
+      "beta3Expansion": true
+    },
+    {
+      "id": "recipe-eq-beta3-mossjaw-handaxe",
+      "name": "Mossjaw Handaxe",
+      "category": "Off-Hand Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-beta3-mossjaw-handaxe",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mossjaw-tusk",
+          "quantity": 2
+        },
+        {
+          "materialId": "hexroot-knot",
+          "quantity": 1
+        }
+      ],
+      "rarity": "Normal",
+      "location": "Campsite",
+      "beta3Expansion": true
+    },
+    {
+      "id": "recipe-eq-beta3-glasswing-main-gauche",
+      "name": "Glasswing Main-Gauche",
+      "category": "Off-Hand Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-beta3-glasswing-main-gauche",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 2
+        },
+        {
+          "materialId": "glasswing-shard",
+          "quantity": 1
+        }
+      ],
+      "rarity": "Normal",
+      "location": "Campsite",
+      "beta3Expansion": true
+    },
+    {
+      "id": "recipe-eq-beta3-sunscar-sideblade",
+      "name": "Sunscar Sideblade",
+      "category": "Off-Hand Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-beta3-sunscar-sideblade",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "needlefang",
+          "quantity": 2
+        },
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 1
+        }
+      ],
+      "rarity": "Normal",
+      "location": "Campsite",
+      "beta3Expansion": true
+    },
+    {
+      "id": "recipe-eq-beta3-rootcoil-hex-rod",
+      "name": "Rootcoil Hex Rod",
+      "category": "Off-Hand Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-beta3-rootcoil-hex-rod",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "chimeleaf-frond",
+          "quantity": 2
+        },
+        {
+          "materialId": "gloomcap-cluster",
+          "quantity": 1
+        }
+      ],
+      "rarity": "Normal",
+      "location": "Campsite",
+      "beta3Expansion": true
+    },
+    {
+      "id": "recipe-eq-beta3-chimeleaf-focus-wand",
+      "name": "Chimeleaf Focus Wand",
+      "category": "Off-Hand Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-beta3-chimeleaf-focus-wand",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 2
+        },
+        {
+          "materialId": "sunscar-antler",
+          "quantity": 1
+        }
+      ],
+      "rarity": "Normal",
+      "location": "Campsite",
+      "beta3Expansion": true
+    },
+    {
+      "id": "recipe-eq-beta3-gloomcap-night-wand",
+      "name": "Gloomcap Night Wand",
+      "category": "Off-Hand Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-beta3-gloomcap-night-wand",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "hexroot-knot",
+          "quantity": 2
+        },
+        {
+          "materialId": "volatile-resin",
+          "quantity": 1
+        }
+      ],
+      "rarity": "Normal",
+      "location": "Campsite",
+      "beta3Expansion": true
+    },
+    {
+      "id": "recipe-eq-beta3-thornwrap-left-gauntlet",
+      "name": "Thornwrap Left Gauntlet",
+      "category": "Off-Hand Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-beta3-thornwrap-left-gauntlet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "glasswing-shard",
+          "quantity": 2
+        },
+        {
+          "materialId": "bramble-hook",
+          "quantity": 1
+        }
+      ],
+      "rarity": "Normal",
+      "location": "Campsite",
+      "beta3Expansion": true
+    },
+    {
+      "id": "recipe-eq-beta3-ironbark-guard-gauntlet",
+      "name": "Ironbark Guard Gauntlet",
+      "category": "Off-Hand Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-beta3-ironbark-guard-gauntlet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 2
+        },
+        {
+          "materialId": "mossjaw-tusk",
+          "quantity": 1
+        }
+      ],
+      "rarity": "Normal",
+      "location": "Campsite",
+      "beta3Expansion": true
+    },
+    {
+      "id": "recipe-eq-beta3-needlefang-strike-wrap",
+      "name": "Needlefang Strike Wrap",
+      "category": "Off-Hand Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-beta3-needlefang-strike-wrap",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "gloomcap-cluster",
+          "quantity": 2
+        },
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 1
+        }
+      ],
+      "rarity": "Normal",
+      "location": "Campsite",
+      "beta3Expansion": true
+    },
+    {
+      "id": "recipe-eq-beta3-chimeleaf-handbell",
+      "name": "Chimeleaf Handbell",
+      "category": "Off-Hand Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-beta3-chimeleaf-handbell",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sunscar-antler",
+          "quantity": 2
+        },
+        {
+          "materialId": "needlefang",
+          "quantity": 1
+        }
+      ],
+      "rarity": "Normal",
+      "location": "Campsite",
+      "beta3Expansion": true
+    },
+    {
+      "id": "recipe-eq-beta3-gloomcap-rattle",
+      "name": "Gloomcap Rattle",
+      "category": "Off-Hand Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-beta3-gloomcap-rattle",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "volatile-resin",
+          "quantity": 2
+        },
+        {
+          "materialId": "chimeleaf-frond",
+          "quantity": 1
+        }
+      ],
+      "rarity": "Normal",
+      "location": "Campsite",
+      "beta3Expansion": true
+    },
+    {
+      "id": "recipe-eq-beta3-briar-codex",
+      "name": "Briar Codex",
+      "category": "Spell Books",
+      "output": {
+        "type": "equipment",
+        "id": "eq-beta3-briar-codex",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bramble-hook",
+          "quantity": 2
+        },
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 1
+        }
+      ],
+      "rarity": "Normal",
+      "location": "Campsite",
+      "beta3Expansion": true
+    },
+    {
+      "id": "recipe-eq-beta3-gloamleaf-grimoire",
+      "name": "Gloamleaf Grimoire",
+      "category": "Spell Books",
+      "output": {
+        "type": "equipment",
+        "id": "eq-beta3-gloamleaf-grimoire",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mossjaw-tusk",
+          "quantity": 2
+        },
+        {
+          "materialId": "hexroot-knot",
+          "quantity": 1
+        }
+      ],
+      "rarity": "Normal",
+      "location": "Campsite",
+      "beta3Expansion": true
+    },
+    {
+      "id": "recipe-eq-beta3-stormglass-primer",
+      "name": "Stormglass Primer",
+      "category": "Spell Books",
+      "output": {
+        "type": "equipment",
+        "id": "eq-beta3-stormglass-primer",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soft-spore-sack",
+          "quantity": 2
+        },
+        {
+          "materialId": "glasswing-shard",
+          "quantity": 1
+        }
+      ],
+      "rarity": "Normal",
+      "location": "Campsite",
+      "beta3Expansion": true
+    },
+    {
+      "id": "recipe-eq-beta3-dawnsap-canticle",
+      "name": "Dawnsap Canticle",
+      "category": "Spell Books",
+      "output": {
+        "type": "equipment",
+        "id": "eq-beta3-dawnsap-canticle",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "needlefang",
+          "quantity": 2
+        },
+        {
+          "materialId": "vinebound-chain",
+          "quantity": 1
+        }
+      ],
+      "rarity": "Normal",
+      "location": "Campsite",
+      "beta3Expansion": true
+    },
+    {
+      "id": "recipe-eq-beta3-rootscript-manual",
+      "name": "Rootscript Manual",
+      "category": "Spell Books",
+      "output": {
+        "type": "equipment",
+        "id": "eq-beta3-rootscript-manual",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "chimeleaf-frond",
+          "quantity": 2
+        },
+        {
+          "materialId": "gloomcap-cluster",
+          "quantity": 1
+        }
+      ],
+      "rarity": "Normal",
+      "location": "Campsite",
+      "beta3Expansion": true
+    },
+    {
+      "id": "recipe-eq-beta3-echofern-compendium",
+      "name": "Echofern Compendium",
+      "category": "Spell Books",
+      "output": {
+        "type": "equipment",
+        "id": "eq-beta3-echofern-compendium",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ironbark-plate",
+          "quantity": 2
+        },
+        {
+          "materialId": "sunscar-antler",
+          "quantity": 1
+        }
+      ],
+      "rarity": "Normal",
+      "location": "Campsite",
+      "beta3Expansion": true
     }
   ],
   "starterGear": {

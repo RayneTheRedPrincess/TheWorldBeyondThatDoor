@@ -66,7 +66,16 @@
     "setDefiningThreshold": 3,
     "starterAndDepth1To5Weaker": true,
     "postDepth5UsesSidegradePowerModel": true,
-    "trainerSoulfireItems": 51
+    "trainerSoulfireItems": 51,
+    "handedness": {
+      "twoHandedBlocksOffHand": true,
+      "oneHandedMayUseOffHandWhenCompatible": true,
+      "offHandWeaponsSupported": true
+    },
+    "spellBooksGrantCombatSpells": true,
+    "spellSlotCharmsGrantCombatSpells": true,
+    "vialsHaveLiveCombatStartEffects": true,
+    "abilityItemsGrantCombatAbilities": true
   },
   "equipment": [
     {
@@ -82,7 +91,9 @@
       },
       "rarity": "Normal",
       "acquisition": "runtime-fixture-only",
-      "i12Fixture": true
+      "i12Fixture": true,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-moonhook-dagger",
@@ -97,7 +108,9 @@
       },
       "rarity": "Normal",
       "acquisition": "runtime-fixture-only",
-      "i12Fixture": true
+      "i12Fixture": true,
+      "handedness": "off-hand",
+      "offHandCompatible": true
     },
     {
       "id": "eq-emberglass-wand",
@@ -112,7 +125,9 @@
       },
       "rarity": "Normal",
       "acquisition": "runtime-fixture-only",
-      "i12Fixture": true
+      "i12Fixture": true,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-thunderknuckle-wraps",
@@ -127,7 +142,9 @@
       },
       "rarity": "Normal",
       "acquisition": "runtime-fixture-only",
-      "i12Fixture": true
+      "i12Fixture": true,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-hollowchime-lute",
@@ -142,7 +159,9 @@
       },
       "rarity": "Normal",
       "acquisition": "runtime-fixture-only",
-      "i12Fixture": true
+      "i12Fixture": true,
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-bark-buckler",
@@ -275,7 +294,14 @@
       },
       "rarity": "Normal",
       "acquisition": "runtime-fixture-only",
-      "i12Fixture": true
+      "i12Fixture": true,
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 4
+        }
+      ],
+      "mechanicText": "At combat start, this Vial forms a ward equal to 4% of Maximum HP as Shield."
     },
     {
       "id": "eq-folded-rune-charm",
@@ -290,7 +316,26 @@
       },
       "rarity": "Normal",
       "acquisition": "runtime-fixture-only",
-      "i12Fixture": true
+      "i12Fixture": true,
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-folded-rune-charm",
+          "name": "Folded Rune Charm — Fire Script",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 5,
+              "scaling": {},
+              "damageType": "Fire"
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat spell “Folded Rune Charm — Fire Script”."
     },
     {
       "id": "eq-quiet-bell-trinket",
@@ -320,7 +365,26 @@
       },
       "rarity": "Normal",
       "acquisition": "runtime-fixture-only",
-      "i12Fixture": true
+      "i12Fixture": true,
+      "grantedAbilities": [
+        {
+          "id": "ability-item-eq-memory-prism",
+          "name": "Memory Prism — Break Pattern",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 8,
+              "scaling": {},
+              "damageType": "Fire"
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat technique “Memory Prism — Break Pattern”."
     },
     {
       "id": "eq-hookleaf-hood",
@@ -403,7 +467,9 @@
         "damageCritChancePct": 2
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-thornwrap-knuckles",
@@ -418,7 +484,9 @@
         "LCK": 1
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-mossjaw-helm",
@@ -502,7 +570,9 @@
         "damageCritChancePct": 2
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-mossjaw-fists",
@@ -517,7 +587,9 @@
         "CON": 1
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-sporeveil-cap",
@@ -602,7 +674,9 @@
         "energyGainPct": 3
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-sporebell-chime",
@@ -618,7 +692,9 @@
         "energyGainPct": 3
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-needlefang-hood",
@@ -702,7 +778,9 @@
         "criticalDamagePct": 10
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-sinewbound-claws",
@@ -719,7 +797,9 @@
         "criticalDamagePct": 6
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-chimeleaf-circlet",
@@ -805,7 +885,9 @@
         "energyGainPct": 7
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-resonance-wand",
@@ -823,7 +905,9 @@
         "energyGainPct": 7
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-ironbark-greathelm",
@@ -908,7 +992,9 @@
         "criticalDamagePct": 10
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-ramcore-gauntlets",
@@ -925,7 +1011,9 @@
         "criticalDamagePct": 6
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-hexroot-crown",
@@ -1011,7 +1099,9 @@
         "energyGainPct": 7
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-black-sap-bell",
@@ -1029,7 +1119,9 @@
         "energyGainPct": 7
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-glasswing-visor",
@@ -1111,7 +1203,9 @@
         "criticalDamagePct": 12
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-shardlight-wand",
@@ -1129,7 +1223,9 @@
         "energyGainPct": 7
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-vinebound-helm",
@@ -1213,7 +1309,9 @@
         "criticalDamagePct": 11
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-red-sap-knuckles",
@@ -1230,7 +1328,9 @@
         "criticalDamagePct": 7
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-gloomcap-hood",
@@ -1315,7 +1415,9 @@
         "energyGainPct": 7
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-hollowcap-harp",
@@ -1333,7 +1435,9 @@
         "energyGainPct": 7
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-sunscar-crown",
@@ -1419,7 +1523,9 @@
         "energyGainPct": 7
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-antler-pike",
@@ -1436,7 +1542,9 @@
         "criticalDamagePct": 6
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-barkveil-hood",
@@ -1520,7 +1628,9 @@
         "criticalDamagePct": 10
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-fuseglass-focus",
@@ -1538,7 +1648,9 @@
         "energyGainPct": 7
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-thorn-crown-greathelm",
@@ -1623,7 +1735,9 @@
         "criticalDamagePct": 12
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-thornwarden-gauntlets",
@@ -1640,7 +1754,9 @@
         "criticalDamagePct": 8
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-heartwood-diadem",
@@ -1726,7 +1842,9 @@
         "energyGainPct": 8
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-doorroot-harp",
@@ -1744,7 +1862,9 @@
         "energyGainPct": 8
       },
       "acquisition": "craft-only",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-starter-rustleaf-sword",
@@ -1761,7 +1881,9 @@
         "STR": 1
       },
       "acquisition": "starter-spawn",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-starter-wayknife",
@@ -1778,7 +1900,9 @@
         "DEX": 1
       },
       "acquisition": "starter-spawn",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-starter-canvas-knuckles",
@@ -1795,7 +1919,9 @@
         "STR": 1
       },
       "acquisition": "starter-spawn",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-starter-ashwood-wand",
@@ -1812,7 +1938,9 @@
         "INT": 1
       },
       "acquisition": "starter-spawn",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-starter-prayer-chime",
@@ -1829,7 +1957,9 @@
         "FTH": 1
       },
       "acquisition": "starter-spawn",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-starter-pathbow",
@@ -1846,7 +1976,9 @@
         "DEX": 1
       },
       "acquisition": "starter-spawn",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-starter-travel-lute",
@@ -1863,7 +1995,9 @@
         "CHA": 1
       },
       "acquisition": "starter-spawn",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-starter-spark-rod",
@@ -1880,7 +2014,9 @@
         "CHA": 1
       },
       "acquisition": "starter-spawn",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-starter-covenant-bell",
@@ -1897,7 +2033,9 @@
         "CHA": 1
       },
       "acquisition": "starter-spawn",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-starter-oathblade",
@@ -1914,7 +2052,9 @@
         "STR": 1
       },
       "acquisition": "starter-spawn",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-starter-grove-crook",
@@ -1931,7 +2071,9 @@
         "CON": 1
       },
       "acquisition": "starter-spawn",
-      "weaponBaseDamage": false
+      "weaponBaseDamage": false,
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-starter-wayfarer-vest",
@@ -2160,7 +2302,14 @@
         "blockChancePct": 3,
         "incomingHealingPct": 2
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 5
+        }
+      ],
+      "mechanicText": "At combat start, this Vial forms a ward equal to 5% of Maximum HP as Shield."
     },
     {
       "id": "eq-mossmilk-vial",
@@ -2174,7 +2323,14 @@
         "dodgeChancePct": 3,
         "incomingHealingPct": 2
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 6
+        }
+      ],
+      "mechanicText": "At combat start, this Vial forms a ward equal to 6% of Maximum HP as Shield."
     },
     {
       "id": "eq-sporelight-vial",
@@ -2187,7 +2343,14 @@
         "CON": 2,
         "incomingHealingPct": 6
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 7
+        }
+      ],
+      "mechanicText": "At combat start, this Vial forms a ward equal to 7% of Maximum HP as Shield."
     },
     {
       "id": "eq-glass-sap-vial",
@@ -2201,7 +2364,14 @@
         "energyGainPct": 4,
         "incomingHealingPct": 2
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 8
+        }
+      ],
+      "mechanicText": "At combat start, this Vial forms a ward equal to 8% of Maximum HP as Shield."
     },
     {
       "id": "eq-sunresin-vial",
@@ -2215,7 +2385,14 @@
         "outgoingHealingPct": 4,
         "incomingHealingPct": 2
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 4
+        }
+      ],
+      "mechanicText": "At combat start, this Vial forms a ward equal to 4% of Maximum HP as Shield."
     },
     {
       "id": "eq-gloom-nectar-vial",
@@ -2229,7 +2406,14 @@
         "energyGainPct": 3,
         "incomingHealingPct": 2
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 5
+        }
+      ],
+      "mechanicText": "At combat start, this Vial forms a ward equal to 5% of Maximum HP as Shield."
     },
     {
       "id": "eq-folded-briar-script",
@@ -2243,7 +2427,26 @@
         "damageCritChancePct": 3,
         "energyGainPct": 2
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-folded-briar-script",
+          "name": "Folded Briar Script — Cold Script",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 6,
+              "scaling": {},
+              "damageType": "Cold"
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat spell “Folded Briar Script — Cold Script”."
     },
     {
       "id": "eq-mossjaw-ward-slot",
@@ -2258,7 +2461,26 @@
         "criticalDamagePct": 6,
         "energyGainPct": 2
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-mossjaw-ward-slot",
+          "name": "Mossjaw Ward-Slot — Lightning Script",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 7,
+              "scaling": {},
+              "damageType": "Lightning"
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat spell “Mossjaw Ward-Slot — Lightning Script”."
     },
     {
       "id": "eq-sporecall-script",
@@ -2273,7 +2495,25 @@
         "outgoingHealingPct": 5,
         "energyGainPct": 2
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-sporecall-script",
+          "name": "Sporecall Script — Mending Script",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-ally",
+          "components": [
+            {
+              "type": "heal",
+              "base": 5,
+              "scaling": {}
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat spell “Sporecall Script — Mending Script”."
     },
     {
       "id": "eq-needleline-script",
@@ -2288,7 +2528,25 @@
         "damageCritChancePct": 4,
         "energyGainPct": 2
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-needleline-script",
+          "name": "Needleline Script — Warding Script",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-ally",
+          "components": [
+            {
+              "type": "shield",
+              "base": 6,
+              "scaling": {}
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat spell “Needleline Script — Warding Script”."
     },
     {
       "id": "eq-chimeleaf-canticle-slot",
@@ -2303,7 +2561,26 @@
         "blockChancePct": 4,
         "energyGainPct": 2
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-chimeleaf-canticle-slot",
+          "name": "Chimeleaf Canticle Slot — Force Script",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 7,
+              "scaling": {},
+              "damageType": "Force"
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat spell “Chimeleaf Canticle Slot — Force Script”."
     },
     {
       "id": "eq-hexroot-formula-slot",
@@ -2317,7 +2594,26 @@
         "CHA": 1,
         "energyGainPct": 7
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-hexroot-formula-slot",
+          "name": "Hexroot Formula Slot — Fire Script",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 5,
+              "scaling": {},
+              "damageType": "Fire"
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat spell “Hexroot Formula Slot — Fire Script”."
     },
     {
       "id": "eq-glasswing-vector-slot",
@@ -2331,7 +2627,26 @@
         "blockChancePct": 3,
         "energyGainPct": 2
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-glasswing-vector-slot",
+          "name": "Glasswing Vector Slot — Cold Script",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 6,
+              "scaling": {},
+              "damageType": "Cold"
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat spell “Glasswing Vector Slot — Cold Script”."
     },
     {
       "id": "eq-sunscar-invocation-slot",
@@ -2345,7 +2660,25 @@
         "dodgeChancePct": 3,
         "energyGainPct": 2
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-sunscar-invocation-slot",
+          "name": "Sunscar Invocation Slot — Mending Script",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-ally",
+          "components": [
+            {
+              "type": "heal",
+              "base": 5,
+              "scaling": {}
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat spell “Sunscar Invocation Slot — Mending Script”."
     },
     {
       "id": "eq-hook-tooth-token",
@@ -2572,7 +2905,25 @@
         "CHA": 2,
         "energyGainPct": 6
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "grantedAbilities": [
+        {
+          "id": "ability-item-eq-thornbeat-prism",
+          "name": "Thornbeat Prism — Restore Pattern",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "single-ally",
+          "components": [
+            {
+              "type": "heal",
+              "base": 8,
+              "scaling": {}
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat technique “Thornbeat Prism — Restore Pattern”."
     },
     {
       "id": "eq-mireheart-lens",
@@ -2586,7 +2937,25 @@
         "FTH": 2,
         "incomingHealingPct": 7
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "grantedAbilities": [
+        {
+          "id": "ability-item-eq-mireheart-lens",
+          "name": "Mireheart Lens — Guard Pattern",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "single-ally",
+          "components": [
+            {
+              "type": "shield",
+              "base": 9,
+              "scaling": {}
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat technique “Mireheart Lens — Guard Pattern”."
     },
     {
       "id": "eq-needleclock-dial",
@@ -2600,7 +2969,26 @@
         "LCK": 2,
         "damageCritChancePct": 6
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "grantedAbilities": [
+        {
+          "id": "ability-item-eq-needleclock-dial",
+          "name": "Needleclock Dial — Break Pattern",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 8,
+              "scaling": {},
+              "damageType": "Holy"
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat technique “Needleclock Dial — Break Pattern”."
     },
     {
       "id": "eq-hexcoil-tablet",
@@ -2614,7 +3002,25 @@
         "FTH": 2,
         "criticalDamagePct": 10
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "grantedAbilities": [
+        {
+          "id": "ability-item-eq-hexcoil-tablet",
+          "name": "Hexcoil Tablet — Restore Pattern",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "single-ally",
+          "components": [
+            {
+              "type": "heal",
+              "base": 8,
+              "scaling": {}
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat technique “Hexcoil Tablet — Restore Pattern”."
     },
     {
       "id": "eq-redvine-memory-knot",
@@ -2628,7 +3034,25 @@
         "CON": 3,
         "incomingHealingPct": 8
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "grantedAbilities": [
+        {
+          "id": "ability-item-eq-redvine-memory-knot",
+          "name": "Redvine Memory Knot — Guard Pattern",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "single-ally",
+          "components": [
+            {
+              "type": "shield",
+              "base": 9,
+              "scaling": {}
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat technique “Redvine Memory Knot — Guard Pattern”."
     },
     {
       "id": "eq-sunscar-aperture",
@@ -2642,7 +3066,26 @@
         "DEX": 2,
         "finalDamagePct": 6
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "grantedAbilities": [
+        {
+          "id": "ability-item-eq-sunscar-aperture",
+          "name": "Sunscar Aperture — Break Pattern",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 8,
+              "scaling": {},
+              "damageType": "Fire"
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat technique “Sunscar Aperture — Break Pattern”."
     },
     {
       "id": "eq-thorn-soulfire-seal",
@@ -2656,7 +3099,25 @@
         "STR": 3,
         "blockChancePct": 10
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "grantedAbilities": [
+        {
+          "id": "ability-item-eq-thorn-soulfire-seal",
+          "name": "Thorn SoulFire Seal — Restore Pattern",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "single-ally",
+          "components": [
+            {
+              "type": "heal",
+              "base": 8,
+              "scaling": {}
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat technique “Thorn SoulFire Seal — Restore Pattern”."
     },
     {
       "id": "eq-heartwood-soulfire-seal",
@@ -2670,7 +3131,25 @@
         "INT": 3,
         "shieldStrengthPct": 12
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "grantedAbilities": [
+        {
+          "id": "ability-item-eq-heartwood-soulfire-seal",
+          "name": "Heartwood SoulFire Seal — Guard Pattern",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "single-ally",
+          "components": [
+            {
+              "type": "shield",
+              "base": 9,
+              "scaling": {}
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat technique “Heartwood SoulFire Seal — Guard Pattern”."
     },
     {
       "id": "eq-trainer-torren-ashsplitter-ashsplitter-training-cleaver",
@@ -2687,7 +3166,9 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Ruinhewer",
-      "weaponType": "Physical"
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-trainer-torren-ashsplitter-split-ring-token",
@@ -2740,7 +3221,9 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "SteelBearer",
-      "weaponType": "Physical"
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-trainer-maela-ironroot-ironroot-temper-vial",
@@ -2758,7 +3241,14 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "SteelBearer",
-      "charmType": "Vial"
+      "charmType": "Vial",
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 6
+        }
+      ],
+      "mechanicText": "At combat start, this Vial forms a ward equal to 6% of Maximum HP as Shield."
     },
     {
       "id": "eq-trainer-maela-ironroot-root-iron-cuirass",
@@ -2793,7 +3283,9 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Veil Blade",
-      "weaponType": "Physical"
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-trainer-sileth-shadeleaf-second-shadow-knife",
@@ -2811,7 +3303,9 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Veil Blade",
-      "weaponType": "Physical"
+      "weaponType": "Physical",
+      "handedness": "off-hand",
+      "offHandCompatible": true
     },
     {
       "id": "eq-trainer-sileth-shadeleaf-unseen-step-token",
@@ -2846,7 +3340,9 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Duelist",
-      "weaponType": "Physical"
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-trainer-corven-reedblade-perfect-measure-vial",
@@ -2864,7 +3360,14 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Duelist",
-      "charmType": "Vial"
+      "charmType": "Vial",
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 7
+        }
+      ],
+      "mechanicText": "At combat start, this Vial forms a ward equal to 7% of Maximum HP as Shield."
     },
     {
       "id": "eq-trainer-corven-reedblade-last-word-coin",
@@ -2899,7 +3402,9 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "AdaptedFist",
-      "weaponType": "Gauntlet"
+      "weaponType": "Gauntlet",
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-trainer-juno-stonepulse-bruise-reader-bead",
@@ -2952,7 +3457,9 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Sealweaver",
-      "weaponType": "Magic"
+      "weaponType": "Magic",
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-trainer-ysra-knotwise-folded-ward-scripture",
@@ -2969,7 +3476,25 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Sealweaver",
-      "charmType": "Spell Slot"
+      "charmType": "Spell Slot",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-trainer-ysra-knotwise-folded-ward-scripture",
+          "name": "Folded Ward Scripture — Warding Script",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-ally",
+          "components": [
+            {
+              "type": "shield",
+              "base": 6,
+              "scaling": {}
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat spell “Folded Ward Scripture — Warding Script”."
     },
     {
       "id": "eq-trainer-ysra-knotwise-inkbreath-vial",
@@ -2987,7 +3512,14 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Sealweaver",
-      "charmType": "Vial"
+      "charmType": "Vial",
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 8
+        }
+      ],
+      "mechanicText": "At combat start, this Vial forms a ward equal to 8% of Maximum HP as Shield."
     },
     {
       "id": "eq-trainer-pellin-manysigns-manysign-slate-wand",
@@ -3004,7 +3536,9 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Glyphmorpher",
-      "weaponType": "Magic"
+      "weaponType": "Magic",
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-trainer-pellin-manysigns-rotating-glyph-sheet",
@@ -3021,7 +3555,26 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Glyphmorpher",
-      "charmType": "Spell Slot"
+      "charmType": "Spell Slot",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-trainer-pellin-manysigns-rotating-glyph-sheet",
+          "name": "Rotating Glyph Sheet — Dark Script",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 6,
+              "scaling": {},
+              "damageType": "Dark"
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat spell “Rotating Glyph Sheet — Dark Script”."
     },
     {
       "id": "eq-trainer-pellin-manysigns-third-meaning-script",
@@ -3039,7 +3592,26 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Glyphmorpher",
-      "charmType": "Spell Slot"
+      "charmType": "Spell Slot",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-trainer-pellin-manysigns-third-meaning-script",
+          "name": "Third-Meaning Script — Force Script",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 7,
+              "scaling": {},
+              "damageType": "Force"
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat spell “Third-Meaning Script — Force Script”."
     },
     {
       "id": "eq-trainer-avel-mosslight-mosslight-crook",
@@ -3056,7 +3628,9 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Solaceweaver",
-      "weaponType": "Magic"
+      "weaponType": "Magic",
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-trainer-avel-mosslight-quiet-mercy-vial",
@@ -3074,7 +3648,14 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Solaceweaver",
-      "charmType": "Vial"
+      "charmType": "Vial",
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 4
+        }
+      ],
+      "mechanicText": "At combat start, this Vial forms a ward equal to 4% of Maximum HP as Shield."
     },
     {
       "id": "eq-trainer-avel-mosslight-mosslight-vestment",
@@ -3109,7 +3690,9 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Longwatch",
-      "weaponType": "Physical"
+      "weaponType": "Physical",
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-trainer-cael-farbranch-still-eye-lens",
@@ -3145,7 +3728,14 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Longwatch",
-      "charmType": "Vial"
+      "charmType": "Vial",
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 5
+        }
+      ],
+      "mechanicText": "At combat start, this Vial forms a ward equal to 5% of Maximum HP as Shield."
     },
     {
       "id": "eq-trainer-oryn-pathshield-pathshield-spear",
@@ -3162,7 +3752,9 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Trailguard",
-      "weaponType": "Physical"
+      "weaponType": "Physical",
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-trainer-oryn-pathshield-trailward-coat",
@@ -3215,7 +3807,9 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Choruswarden",
-      "weaponType": "Instrument"
+      "weaponType": "Instrument",
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-trainer-lysa-greenchoir-canopy-canticle",
@@ -3233,7 +3827,26 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Choruswarden",
-      "charmType": "Spell Slot"
+      "charmType": "Spell Slot",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-trainer-lysa-greenchoir-canopy-canticle",
+          "name": "Canopy Canticle — Fire Script",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 5,
+              "scaling": {},
+              "damageType": "Fire"
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat spell “Canopy Canticle — Fire Script”."
     },
     {
       "id": "eq-trainer-lysa-greenchoir-shared-note-bell",
@@ -3268,7 +3881,9 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Fluxwrought",
-      "weaponType": "Magic"
+      "weaponType": "Magic",
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-trainer-nemea-wildspark-unfixed-formula",
@@ -3285,7 +3900,25 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Fluxwrought",
-      "charmType": "Spell Slot"
+      "charmType": "Spell Slot",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-trainer-nemea-wildspark-unfixed-formula",
+          "name": "Unfixed Formula — Mending Script",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-ally",
+          "components": [
+            {
+              "type": "heal",
+              "base": 5,
+              "scaling": {}
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat spell “Unfixed Formula — Mending Script”."
     },
     {
       "id": "eq-trainer-nemea-wildspark-fluxglass-vial",
@@ -3303,7 +3936,14 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Fluxwrought",
-      "charmType": "Vial"
+      "charmType": "Vial",
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 6
+        }
+      ],
+      "mechanicText": "At combat start, this Vial forms a ward equal to 6% of Maximum HP as Shield."
     },
     {
       "id": "eq-trainer-varrik-hollowroot-hollowroot-staff",
@@ -3320,7 +3960,9 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Belowcaller",
-      "weaponType": "Magic"
+      "weaponType": "Magic",
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-trainer-varrik-hollowroot-listening-knot",
@@ -3356,7 +3998,25 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Belowcaller",
-      "charmType": "Spell Slot"
+      "charmType": "Spell Slot",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-trainer-varrik-hollowroot-underbark-litany",
+          "name": "Underbark Litany — Warding Script",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-ally",
+          "components": [
+            {
+              "type": "shield",
+              "base": 6,
+              "scaling": {}
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat spell “Underbark Litany — Warding Script”."
     },
     {
       "id": "eq-trainer-caldus-firstlight-firstlight-sword",
@@ -3373,7 +4033,9 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Dawnwarden",
-      "weaponType": "Physical"
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-trainer-caldus-firstlight-lanternward-plate",
@@ -3409,7 +4071,14 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Dawnwarden",
-      "charmType": "Vial"
+      "charmType": "Vial",
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 7
+        }
+      ],
+      "mechanicText": "At combat start, this Vial forms a ward equal to 7% of Maximum HP as Shield."
     },
     {
       "id": "eq-trainer-mira-oaththorn-oaththorn-blade",
@@ -3426,7 +4095,9 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Vowscarred",
-      "weaponType": "Physical"
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
     },
     {
       "id": "eq-trainer-mira-oaththorn-rewritten-oath-seal",
@@ -3479,7 +4150,9 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Barkmorph",
-      "weaponType": "Magic"
+      "weaponType": "Magic",
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-trainer-odo-broadbark-living-bark-harness",
@@ -3514,7 +4187,14 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Barkmorph",
-      "charmType": "Vial"
+      "charmType": "Vial",
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 8
+        }
+      ],
+      "mechanicText": "At combat start, this Vial forms a ward equal to 8% of Maximum HP as Shield."
     },
     {
       "id": "eq-trainer-ilyne-seedcrown-seedcrown-staff",
@@ -3531,7 +4211,9 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Seedmarshal",
-      "weaponType": "Magic"
+      "weaponType": "Magic",
+      "handedness": "two-handed",
+      "offHandCompatible": false
     },
     {
       "id": "eq-trainer-ilyne-seedcrown-germination-ledger",
@@ -3549,7 +4231,26 @@
       },
       "acquisition": "craft-only",
       "trainerSubclass": "Seedmarshal",
-      "charmType": "Spell Slot"
+      "charmType": "Spell Slot",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-trainer-ilyne-seedcrown-germination-ledger",
+          "name": "Germination Ledger — Holy Script",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 5,
+              "scaling": {},
+              "damageType": "Holy"
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat spell “Germination Ledger — Holy Script”."
     },
     {
       "id": "eq-trainer-ilyne-seedcrown-first-sprout-locket",
@@ -3567,6 +4268,504 @@
       "acquisition": "craft-only",
       "trainerSubclass": "Seedmarshal",
       "charmType": "Trinket"
+    },
+    {
+      "id": "eq-beta3-briar-parrying-knife",
+      "name": "Briar Parrying Knife",
+      "slot": "offHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "handedness": "off-hand",
+      "offHandCompatible": true,
+      "listedStats": {
+        "DEX": 2,
+        "dodgeChancePct": 3
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false,
+      "beta3Expansion": true
+    },
+    {
+      "id": "eq-beta3-mossjaw-handaxe",
+      "name": "Mossjaw Handaxe",
+      "slot": "offHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "handedness": "off-hand",
+      "offHandCompatible": true,
+      "listedStats": {
+        "STR": 2,
+        "blockChancePct": 3
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false,
+      "beta3Expansion": true
+    },
+    {
+      "id": "eq-beta3-glasswing-main-gauche",
+      "name": "Glasswing Main-Gauche",
+      "slot": "offHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "handedness": "off-hand",
+      "offHandCompatible": true,
+      "listedStats": {
+        "DEX": 2,
+        "damageCritChancePct": 3
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false,
+      "beta3Expansion": true
+    },
+    {
+      "id": "eq-beta3-sunscar-sideblade",
+      "name": "Sunscar Sideblade",
+      "slot": "offHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "handedness": "off-hand",
+      "offHandCompatible": true,
+      "listedStats": {
+        "STR": 1,
+        "DEX": 1,
+        "criticalDamagePct": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false,
+      "beta3Expansion": true
+    },
+    {
+      "id": "eq-beta3-rootcoil-hex-rod",
+      "name": "Rootcoil Hex Rod",
+      "slot": "offHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "handedness": "off-hand",
+      "offHandCompatible": true,
+      "listedStats": {
+        "INT": 2,
+        "energyGainPct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false,
+      "beta3Expansion": true
+    },
+    {
+      "id": "eq-beta3-chimeleaf-focus-wand",
+      "name": "Chimeleaf Focus Wand",
+      "slot": "offHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "handedness": "off-hand",
+      "offHandCompatible": true,
+      "listedStats": {
+        "FTH": 1,
+        "INT": 1,
+        "outgoingHealingPct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false,
+      "beta3Expansion": true
+    },
+    {
+      "id": "eq-beta3-gloomcap-night-wand",
+      "name": "Gloomcap Night Wand",
+      "slot": "offHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "handedness": "off-hand",
+      "offHandCompatible": true,
+      "listedStats": {
+        "INT": 2,
+        "damageCritChancePct": 2
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false,
+      "beta3Expansion": true
+    },
+    {
+      "id": "eq-beta3-thornwrap-left-gauntlet",
+      "name": "Thornwrap Left Gauntlet",
+      "slot": "offHand",
+      "itemType": "Weapon",
+      "weaponType": "Gauntlet",
+      "handedness": "off-hand",
+      "offHandCompatible": true,
+      "listedStats": {
+        "STR": 2,
+        "CON": 1
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false,
+      "beta3Expansion": true
+    },
+    {
+      "id": "eq-beta3-ironbark-guard-gauntlet",
+      "name": "Ironbark Guard Gauntlet",
+      "slot": "offHand",
+      "itemType": "Weapon",
+      "weaponType": "Gauntlet",
+      "handedness": "off-hand",
+      "offHandCompatible": true,
+      "listedStats": {
+        "CON": 2,
+        "blockChancePct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false,
+      "beta3Expansion": true
+    },
+    {
+      "id": "eq-beta3-needlefang-strike-wrap",
+      "name": "Needlefang Strike Wrap",
+      "slot": "offHand",
+      "itemType": "Weapon",
+      "weaponType": "Gauntlet",
+      "handedness": "off-hand",
+      "offHandCompatible": true,
+      "listedStats": {
+        "DEX": 2,
+        "criticalDamagePct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false,
+      "beta3Expansion": true
+    },
+    {
+      "id": "eq-beta3-chimeleaf-handbell",
+      "name": "Chimeleaf Handbell",
+      "slot": "offHand",
+      "itemType": "Weapon",
+      "weaponType": "Instrument",
+      "handedness": "off-hand",
+      "offHandCompatible": true,
+      "listedStats": {
+        "CHA": 2,
+        "outgoingHealingPct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false,
+      "beta3Expansion": true
+    },
+    {
+      "id": "eq-beta3-gloomcap-rattle",
+      "name": "Gloomcap Rattle",
+      "slot": "offHand",
+      "itemType": "Weapon",
+      "weaponType": "Instrument",
+      "handedness": "off-hand",
+      "offHandCompatible": true,
+      "listedStats": {
+        "CHA": 1,
+        "INT": 1,
+        "energyGainPct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "weaponBaseDamage": false,
+      "beta3Expansion": true
+    },
+    {
+      "id": "eq-beta3-briar-codex",
+      "name": "Briar Codex",
+      "slot": "offHand",
+      "itemType": "Spell Book",
+      "itemSubtype": "Spell Book",
+      "listedStats": {
+        "INT": 2,
+        "energyGainPct": 4
+      },
+      "grantedAbilities": [
+        {
+          "id": "book-eq-beta3-briar-codex-bolt",
+          "name": "Briar Codex — Force Verse",
+          "energyCost": 2,
+          "cooldown": 1,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 6,
+              "scaling": {},
+              "damageType": "Force"
+            }
+          ],
+          "source": "equipment"
+        },
+        {
+          "id": "book-eq-beta3-briar-codex-rite",
+          "name": "Briar Codex — Warding Verse",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "single-ally",
+          "components": [
+            {
+              "type": "shield",
+              "base": 9,
+              "scaling": {}
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants Briar Codex — Force Verse and Briar Codex — Warding Verse while equipped.",
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "beta3Expansion": true
+    },
+    {
+      "id": "eq-beta3-gloamleaf-grimoire",
+      "name": "Gloamleaf Grimoire",
+      "slot": "offHand",
+      "itemType": "Spell Book",
+      "itemSubtype": "Spell Book",
+      "listedStats": {
+        "INT": 2,
+        "criticalDamagePct": 5,
+        "energyGainPct": 3
+      },
+      "grantedAbilities": [
+        {
+          "id": "book-eq-beta3-gloamleaf-grimoire-bolt",
+          "name": "Gloamleaf Grimoire — Dark Verse",
+          "energyCost": 2,
+          "cooldown": 1,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 6,
+              "scaling": {},
+              "damageType": "Dark"
+            }
+          ],
+          "source": "equipment"
+        },
+        {
+          "id": "book-eq-beta3-gloamleaf-grimoire-rite",
+          "name": "Gloamleaf Grimoire — Greater Dark Verse",
+          "energyCost": 4,
+          "cooldown": 3,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 10,
+              "scaling": {},
+              "damageType": "Dark"
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants Gloamleaf Grimoire — Dark Verse and Gloamleaf Grimoire — Greater Dark Verse while equipped.",
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "beta3Expansion": true
+    },
+    {
+      "id": "eq-beta3-stormglass-primer",
+      "name": "Stormglass Primer",
+      "slot": "offHand",
+      "itemType": "Spell Book",
+      "itemSubtype": "Spell Book",
+      "listedStats": {
+        "LCK": 2,
+        "energyGainPct": 4
+      },
+      "grantedAbilities": [
+        {
+          "id": "book-eq-beta3-stormglass-primer-bolt",
+          "name": "Stormglass Primer — Lightning Verse",
+          "energyCost": 2,
+          "cooldown": 1,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 6,
+              "scaling": {},
+              "damageType": "Lightning"
+            }
+          ],
+          "source": "equipment"
+        },
+        {
+          "id": "book-eq-beta3-stormglass-primer-rite",
+          "name": "Stormglass Primer — Greater Lightning Verse",
+          "energyCost": 4,
+          "cooldown": 3,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 10,
+              "scaling": {},
+              "damageType": "Lightning"
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants Stormglass Primer — Lightning Verse and Stormglass Primer — Greater Lightning Verse while equipped.",
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "beta3Expansion": true
+    },
+    {
+      "id": "eq-beta3-dawnsap-canticle",
+      "name": "Dawnsap Canticle",
+      "slot": "offHand",
+      "itemType": "Spell Book",
+      "itemSubtype": "Spell Book",
+      "listedStats": {
+        "FTH": 2,
+        "energyGainPct": 4
+      },
+      "grantedAbilities": [
+        {
+          "id": "book-eq-beta3-dawnsap-canticle-bolt",
+          "name": "Dawnsap Canticle — Holy Verse",
+          "energyCost": 2,
+          "cooldown": 1,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 6,
+              "scaling": {},
+              "damageType": "Holy"
+            }
+          ],
+          "source": "equipment"
+        },
+        {
+          "id": "book-eq-beta3-dawnsap-canticle-rite",
+          "name": "Dawnsap Canticle — Restoring Verse",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "single-ally",
+          "components": [
+            {
+              "type": "heal",
+              "base": 8,
+              "scaling": {}
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants Dawnsap Canticle — Holy Verse and Dawnsap Canticle — Restoring Verse while equipped.",
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "beta3Expansion": true
+    },
+    {
+      "id": "eq-beta3-rootscript-manual",
+      "name": "Rootscript Manual",
+      "slot": "offHand",
+      "itemType": "Spell Book",
+      "itemSubtype": "Spell Book",
+      "listedStats": {
+        "CON": 2,
+        "energyGainPct": 4
+      },
+      "grantedAbilities": [
+        {
+          "id": "book-eq-beta3-rootscript-manual-bolt",
+          "name": "Rootscript Manual — Cold Verse",
+          "energyCost": 2,
+          "cooldown": 1,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 6,
+              "scaling": {},
+              "damageType": "Cold"
+            }
+          ],
+          "source": "equipment"
+        },
+        {
+          "id": "book-eq-beta3-rootscript-manual-rite",
+          "name": "Rootscript Manual — Warding Verse",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "single-ally",
+          "components": [
+            {
+              "type": "shield",
+              "base": 9,
+              "scaling": {}
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants Rootscript Manual — Cold Verse and Rootscript Manual — Warding Verse while equipped.",
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "beta3Expansion": true
+    },
+    {
+      "id": "eq-beta3-echofern-compendium",
+      "name": "Echofern Compendium",
+      "slot": "offHand",
+      "itemType": "Spell Book",
+      "itemSubtype": "Spell Book",
+      "listedStats": {
+        "CHA": 2,
+        "energyGainPct": 4
+      },
+      "grantedAbilities": [
+        {
+          "id": "book-eq-beta3-echofern-compendium-bolt",
+          "name": "Echofern Compendium — Force Verse",
+          "energyCost": 2,
+          "cooldown": 1,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 6,
+              "scaling": {},
+              "damageType": "Force"
+            }
+          ],
+          "source": "equipment"
+        },
+        {
+          "id": "book-eq-beta3-echofern-compendium-rite",
+          "name": "Echofern Compendium — Restoring Verse",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "single-ally",
+          "components": [
+            {
+              "type": "heal",
+              "base": 8,
+              "scaling": {}
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants Echofern Compendium — Force Verse and Echofern Compendium — Restoring Verse while equipped.",
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "beta3Expansion": true
     }
   ],
   "consumables": [

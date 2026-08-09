@@ -32,8 +32,15 @@ export function craftAtCampsite(slot,{recipeId,crafting,catalog}={}){
  run.crafting=run.crafting||{crafted:[],equippedHistory:[]};run.crafting.crafted=Array.isArray(run.crafting.crafted)?run.crafting.crafted:[];run.crafting.crafted.push({recipeId:recipe.id,output:clone(output),at:new Date().toISOString()});
  return {ok:true,slot:next,recipe:clone(recipe),ingredients:clone(check.ingredients),usedThreadedMaterial:usedThreaded};
 }
-export function listCraftingRecipes(run,crafting,catalog,{onlyCraftable=false,sortStat=null,direction='desc'}={}){
- const eidx=equipmentIndex(catalog),cidx=consumableIndex(catalog);let rows=(crafting?.recipes||[]).map(recipe=>{const output=recipe.output?.type==='equipment'?eidx.get(recipe.output.id):cidx.get(recipe.output?.id);const check=recipeCraftability(run,recipe,crafting);const statValue=n(output?.listedStats?.[sortStat]);return {recipe:clone(recipe),output:clone(output),craftable:check.craftable,ingredients:check.ingredients,missing:check.missing,sortValue:statValue};});
- if(onlyCraftable)rows=rows.filter(x=>x.craftable);if(sortStat){const dir=direction==='asc'?1:-1;rows.sort((a,b)=>(a.sortValue-b.sortValue)*dir||a.recipe.name.localeCompare(b.recipe.name));}
+export function listCraftingRecipes(run,crafting,catalog,{onlyCraftable=false,sortStat=null,direction='desc',query='',slot='all',itemType='all',subtype='all',weaponType='all',armorWeight='all'}={}){
+ const eidx=equipmentIndex(catalog),cidx=consumableIndex(catalog),needle=String(query||'').trim().toLowerCase();let rows=(crafting?.recipes||[]).map(recipe=>{const output=recipe.output?.type==='equipment'?eidx.get(recipe.output.id):cidx.get(recipe.output?.id);const check=recipeCraftability(run,recipe,crafting);const statValue=n(output?.listedStats?.[sortStat]);return {recipe:clone(recipe),output:clone(output),craftable:check.craftable,ingredients:check.ingredients,missing:check.missing,sortValue:statValue};});
+ if(onlyCraftable)rows=rows.filter(x=>x.craftable);
+ if(needle)rows=rows.filter(({recipe,output})=>[recipe?.name,recipe?.category,output?.name,output?.itemType,output?.itemSubtype,output?.subtype,output?.charmType,output?.weaponType,output?.armorCategory].filter(Boolean).some(v=>String(v).toLowerCase().includes(needle)));
+ if(slot!=='all')rows=rows.filter(({output})=>(output?.slot||'consumable')===slot);
+ if(itemType!=='all')rows=rows.filter(({output})=>(output?.itemType||'Consumable')===itemType);
+ if(subtype!=='all')rows=rows.filter(({output})=>(output?.itemSubtype||output?.charmType||output?.subtype||'')===subtype);
+ if(weaponType!=='all')rows=rows.filter(({output})=>output?.weaponType===weaponType);
+ if(armorWeight!=='all')rows=rows.filter(({output})=>output?.armorCategory===armorWeight);
+ if(sortStat){const dir=direction==='asc'?1:-1;rows.sort((a,b)=>(a.sortValue-b.sortValue)*dir||a.recipe.name.localeCompare(b.recipe.name));}
  return rows;
 }
