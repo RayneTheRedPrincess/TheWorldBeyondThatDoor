@@ -1,0 +1,1120 @@
+{
+  "version": "BOG-FOUNDATION-TRAINERS-2026-08-10",
+  "count": 11,
+  "rules": {
+    "activeRosterMin": 8,
+    "activeRosterMax": 11,
+    "matchingBaseClassAnchorChancePct": 95,
+    "matchingFamilyWeight": 4,
+    "soulfireCoreDropByRealPartySize": {
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4
+    },
+    "learningModel": "same-as-Forest",
+    "positions": "randomized-depth-3-to-29-excluding-15-and-30"
+  },
+  "entries": [
+    {
+      "id": "ser-kael-ashbrand",
+      "name": "Ser Kael Ashbrand",
+      "baseClass": "Warrior",
+      "subclass": "BrandBlade",
+      "focusStat": "STR",
+      "minDepth": 3,
+      "maxDepth": 29,
+      "description": "Brands the edge of a rusted greatsword over a soldier’s funeral pyre.",
+      "soulfireCore": {
+        "id": "ser-kael-ashbrand-soulfirecore",
+        "name": "Ser Kael Ashbrand SoulfireCore"
+      },
+      "combat": {
+        "level": 10,
+        "baseMaxHp": 62,
+        "stats": {
+          "STR": 18,
+          "DEX": 8,
+          "CON": 16,
+          "INT": 0,
+          "FTH": 0,
+          "CHA": 8,
+          "LCK": 0
+        },
+        "role": "BrandBlade Trainer",
+        "basicAttack": {
+          "name": "Ser Kael Ashbrand Basic Technique",
+          "base": 7,
+          "damageType": "Fire",
+          "scaling": {
+            "STR": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "ser-kael-ashbrand-lesson-one",
+            "name": "BrandBlade Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Fire",
+                "scaling": {
+                  "STR": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "ser-kael-ashbrand-lesson-two",
+            "name": "BrandBlade Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 13,
+                "damageType": "Fire",
+                "scaling": {
+                  "STR": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "ser-kael-ashbrand-lesson-three",
+            "name": "BrandBlade Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 11,
+                "scaling": {
+                  "CON": 0.45,
+                  "CHA": 0.25
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 4,
+          "shieldThresholdPct": 68
+        },
+        "expReward": 150,
+        "onyxReward": 100
+      },
+      "soulfireItemIds": [
+        "eq-bog-trainer-ser-kael-ashbrand-ashbrand-greatblade",
+        "eq-bog-trainer-ser-kael-ashbrand-brandguard-sigil",
+        "eq-bog-trainer-ser-kael-ashbrand-cinderplate-mantle"
+      ]
+    },
+    {
+      "id": "nara-breakwater",
+      "name": "Nara Breakwater",
+      "baseClass": "Ranger",
+      "subclass": "Breachstrider",
+      "focusStat": "DEX",
+      "minDepth": 3,
+      "maxDepth": 29,
+      "description": "Maps safe lines through flooded trenches where arrows disappear into the fog.",
+      "soulfireCore": {
+        "id": "nara-breakwater-soulfirecore",
+        "name": "Nara Breakwater SoulfireCore"
+      },
+      "combat": {
+        "level": 10,
+        "baseMaxHp": 66,
+        "stats": {
+          "STR": 9,
+          "DEX": 18,
+          "CON": 10,
+          "INT": 9,
+          "FTH": 0,
+          "CHA": 0,
+          "LCK": 8
+        },
+        "role": "Breachstrider Trainer",
+        "basicAttack": {
+          "name": "Nara Breakwater Basic Technique",
+          "base": 7,
+          "damageType": "Physical",
+          "scaling": {
+            "DEX": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "nara-breakwater-lesson-one",
+            "name": "Breachstrider Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Physical",
+                "scaling": {
+                  "DEX": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "nara-breakwater-lesson-two",
+            "name": "Breachstrider Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 13,
+                "damageType": "Physical",
+                "scaling": {
+                  "DEX": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "nara-breakwater-lesson-three",
+            "name": "Breachstrider Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 11,
+                "scaling": {
+                  "CON": 0.45,
+                  "CHA": 0.25
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 4,
+          "shieldThresholdPct": 68
+        },
+        "expReward": 150,
+        "onyxReward": 100
+      },
+      "soulfireItemIds": [
+        "eq-bog-trainer-nara-breakwater-breakwater-spear",
+        "eq-bog-trainer-nara-breakwater-breachfinder-lens",
+        "eq-bog-trainer-nara-breakwater-riftstep-harness"
+      ]
+    },
+    {
+      "id": "pell-crowsong",
+      "name": "Pell Crowsong",
+      "baseClass": "Bard",
+      "subclass": "Cadenceblade",
+      "focusStat": "CHA",
+      "minDepth": 3,
+      "maxDepth": 29,
+      "description": "Keeps marching rhythm on a chipped saber and a drum made from an old shield.",
+      "soulfireCore": {
+        "id": "pell-crowsong-soulfirecore",
+        "name": "Pell Crowsong SoulfireCore"
+      },
+      "combat": {
+        "level": 10,
+        "baseMaxHp": 70,
+        "stats": {
+          "STR": 7,
+          "DEX": 12,
+          "CON": 10,
+          "INT": 8,
+          "FTH": 0,
+          "CHA": 18,
+          "LCK": 8
+        },
+        "role": "Cadenceblade Trainer",
+        "basicAttack": {
+          "name": "Pell Crowsong Basic Technique",
+          "base": 7,
+          "damageType": "Force",
+          "scaling": {
+            "CHA": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "pell-crowsong-lesson-one",
+            "name": "Cadenceblade Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Force",
+                "scaling": {
+                  "CHA": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "pell-crowsong-lesson-two",
+            "name": "Cadenceblade Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 13,
+                "damageType": "Force",
+                "scaling": {
+                  "CHA": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "pell-crowsong-lesson-three",
+            "name": "Cadenceblade Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 11,
+                "scaling": {
+                  "CON": 0.45,
+                  "CHA": 0.25
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 4,
+          "shieldThresholdPct": 68
+        },
+        "expReward": 150,
+        "onyxReward": 100
+      },
+      "soulfireItemIds": [
+        "eq-bog-trainer-pell-crowsong-crowsong-sabre",
+        "eq-bog-trainer-pell-crowsong-marching-refrain",
+        "eq-bog-trainer-pell-crowsong-cadence-sash"
+      ]
+    },
+    {
+      "id": "two-gun-thomas",
+      "name": "Two Gun Thomas",
+      "baseClass": "Rogue",
+      "subclass": "Gunslinger",
+      "focusStat": "DEX",
+      "minDepth": 3,
+      "maxDepth": 29,
+      "description": "Runs a hidden firing lane behind a collapsed Blackbanner earthwork.",
+      "soulfireCore": {
+        "id": "two-gun-thomas-soulfirecore",
+        "name": "Two Gun Thomas SoulfireCore"
+      },
+      "combat": {
+        "level": 10,
+        "baseMaxHp": 62,
+        "stats": {
+          "STR": 8,
+          "DEX": 19,
+          "CON": 9,
+          "INT": 0,
+          "FTH": 0,
+          "CHA": 0,
+          "LCK": 11
+        },
+        "role": "Gunslinger Trainer",
+        "basicAttack": {
+          "name": "Two Gun Thomas Basic Technique",
+          "base": 7,
+          "damageType": "Physical",
+          "scaling": {
+            "DEX": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "two-gun-thomas-lesson-one",
+            "name": "Gunslinger Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Physical",
+                "scaling": {
+                  "DEX": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "two-gun-thomas-lesson-two",
+            "name": "Gunslinger Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 13,
+                "damageType": "Physical",
+                "scaling": {
+                  "DEX": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "two-gun-thomas-lesson-three",
+            "name": "Gunslinger Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 11,
+                "scaling": {
+                  "CON": 0.45,
+                  "CHA": 0.25
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 4,
+          "shieldThresholdPct": 68
+        },
+        "expReward": 150,
+        "onyxReward": 100
+      },
+      "soulfireItemIds": [
+        "eq-bog-trainer-two-gun-thomas-thomas-s-sidearm",
+        "eq-bog-trainer-two-gun-thomas-quickdraw-token",
+        "eq-bog-trainer-two-gun-thomas-powderline-bandolier"
+      ]
+    },
+    {
+      "id": "mother-spore-velda",
+      "name": "Mother Spore Velda",
+      "baseClass": "Druid",
+      "subclass": "Hyphaweaver",
+      "focusStat": "INT",
+      "minDepth": 3,
+      "maxDepth": 29,
+      "description": "Tends pale fungal rings that feed on curses without spreading them.",
+      "soulfireCore": {
+        "id": "mother-spore-velda-soulfirecore",
+        "name": "Mother Spore Velda SoulfireCore"
+      },
+      "combat": {
+        "level": 10,
+        "baseMaxHp": 66,
+        "stats": {
+          "STR": 5,
+          "DEX": 10,
+          "CON": 13,
+          "INT": 16,
+          "FTH": 15,
+          "CHA": 0,
+          "LCK": 0
+        },
+        "role": "Hyphaweaver Trainer",
+        "basicAttack": {
+          "name": "Mother Spore Velda Basic Technique",
+          "base": 7,
+          "damageType": "Poison",
+          "scaling": {
+            "INT": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "mother-spore-velda-lesson-one",
+            "name": "Hyphaweaver Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Poison",
+                "scaling": {
+                  "INT": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "mother-spore-velda-lesson-two",
+            "name": "Hyphaweaver Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 13,
+                "damageType": "Poison",
+                "scaling": {
+                  "INT": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "mother-spore-velda-lesson-three",
+            "name": "Hyphaweaver Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 11,
+                "scaling": {
+                  "CON": 0.45,
+                  "CHA": 0.25
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 4,
+          "shieldThresholdPct": 68
+        },
+        "expReward": 150,
+        "onyxReward": 100
+      },
+      "soulfireItemIds": [
+        "eq-bog-trainer-mother-spore-velda-sporewood-crook",
+        "eq-bog-trainer-mother-spore-velda-hypha-heart",
+        "eq-bog-trainer-mother-spore-velda-bloomweave-shawl"
+      ]
+    },
+    {
+      "id": "sister-malva-vane",
+      "name": "Sister Malva Vane",
+      "baseClass": "Cleric",
+      "subclass": "Malisunder",
+      "focusStat": "FTH",
+      "minDepth": 3,
+      "maxDepth": 29,
+      "description": "Studies how holy force can break the bindings that keep battlefield dead walking.",
+      "soulfireCore": {
+        "id": "sister-malva-vane-soulfirecore",
+        "name": "Sister Malva Vane SoulfireCore"
+      },
+      "combat": {
+        "level": 10,
+        "baseMaxHp": 70,
+        "stats": {
+          "STR": 7,
+          "DEX": 8,
+          "CON": 14,
+          "INT": 8,
+          "FTH": 18,
+          "CHA": 11,
+          "LCK": 0
+        },
+        "role": "Malisunder Trainer",
+        "basicAttack": {
+          "name": "Sister Malva Vane Basic Technique",
+          "base": 7,
+          "damageType": "Radiant",
+          "scaling": {
+            "FTH": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "sister-malva-vane-lesson-one",
+            "name": "Malisunder Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Radiant",
+                "scaling": {
+                  "FTH": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "sister-malva-vane-lesson-two",
+            "name": "Malisunder Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 13,
+                "damageType": "Radiant",
+                "scaling": {
+                  "FTH": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "sister-malva-vane-lesson-three",
+            "name": "Malisunder Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 11,
+                "scaling": {
+                  "CON": 0.45,
+                  "CHA": 0.25
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 4,
+          "shieldThresholdPct": 68
+        },
+        "expReward": 150,
+        "onyxReward": 100
+      },
+      "soulfireItemIds": [
+        "eq-bog-trainer-sister-malva-vane-malisunder-scepter",
+        "eq-bog-trainer-sister-malva-vane-fracture-rosary",
+        "eq-bog-trainer-sister-malva-vane-sundered-vestment"
+      ]
+    },
+    {
+      "id": "talar-seven-palms",
+      "name": "Talar Seven Palms",
+      "baseClass": "Brawler",
+      "subclass": "Prismatic Palm",
+      "focusStat": "LCK",
+      "minDepth": 3,
+      "maxDepth": 29,
+      "description": "Practices shifting palm forms on standing stones that change color in the fog.",
+      "soulfireCore": {
+        "id": "talar-seven-palms-soulfirecore",
+        "name": "Talar Seven Palms SoulfireCore"
+      },
+      "combat": {
+        "level": 10,
+        "baseMaxHp": 62,
+        "stats": {
+          "STR": 16,
+          "DEX": 14,
+          "CON": 13,
+          "INT": 0,
+          "FTH": 0,
+          "CHA": 0,
+          "LCK": 10
+        },
+        "role": "Prismatic Palm Trainer",
+        "basicAttack": {
+          "name": "Talar Seven Palms Basic Technique",
+          "base": 7,
+          "damageType": "Force",
+          "scaling": {
+            "LCK": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "talar-seven-palms-lesson-one",
+            "name": "Prismatic Palm Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Force",
+                "scaling": {
+                  "LCK": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "talar-seven-palms-lesson-two",
+            "name": "Prismatic Palm Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 13,
+                "damageType": "Force",
+                "scaling": {
+                  "LCK": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "talar-seven-palms-lesson-three",
+            "name": "Prismatic Palm Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 11,
+                "scaling": {
+                  "CON": 0.45,
+                  "CHA": 0.25
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 4,
+          "shieldThresholdPct": 68
+        },
+        "expReward": 150,
+        "onyxReward": 100
+      },
+      "soulfireItemIds": [
+        "eq-bog-trainer-talar-seven-palms-seven-palm-wraps",
+        "eq-bog-trainer-talar-seven-palms-prismatic-bead",
+        "eq-bog-trainer-talar-seven-palms-facetwalker-sash"
+      ]
+    },
+    {
+      "id": "old-ember-nox",
+      "name": "Old Ember Nox",
+      "baseClass": "Warlock",
+      "subclass": "Pyrecovenant",
+      "focusStat": "INT",
+      "minDepth": 3,
+      "maxDepth": 29,
+      "description": "Burns witch-signs into wet timber with a flame the Bog cannot drown.",
+      "soulfireCore": {
+        "id": "old-ember-nox-soulfirecore",
+        "name": "Old Ember Nox SoulfireCore"
+      },
+      "combat": {
+        "level": 10,
+        "baseMaxHp": 66,
+        "stats": {
+          "STR": 5,
+          "DEX": 8,
+          "CON": 11,
+          "INT": 18,
+          "FTH": 9,
+          "CHA": 13,
+          "LCK": 0
+        },
+        "role": "Pyrecovenant Trainer",
+        "basicAttack": {
+          "name": "Old Ember Nox Basic Technique",
+          "base": 7,
+          "damageType": "Fire",
+          "scaling": {
+            "INT": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "old-ember-nox-lesson-one",
+            "name": "Pyrecovenant Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Fire",
+                "scaling": {
+                  "INT": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "old-ember-nox-lesson-two",
+            "name": "Pyrecovenant Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 13,
+                "damageType": "Fire",
+                "scaling": {
+                  "INT": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "old-ember-nox-lesson-three",
+            "name": "Pyrecovenant Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 11,
+                "scaling": {
+                  "CON": 0.45,
+                  "CHA": 0.25
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 4,
+          "shieldThresholdPct": 68
+        },
+        "expReward": 150,
+        "onyxReward": 100
+      },
+      "soulfireItemIds": [
+        "eq-bog-trainer-old-ember-nox-ember-nox-rod",
+        "eq-bog-trainer-old-ember-nox-pyre-covenant-seal",
+        "eq-bog-trainer-old-ember-nox-ashen-pactcoat"
+      ]
+    },
+    {
+      "id": "coilmage-yrra",
+      "name": "Coilmage Yrra",
+      "baseClass": "Sorcerer",
+      "subclass": "Spellconductor",
+      "focusStat": "INT",
+      "minDepth": 3,
+      "maxDepth": 29,
+      "description": "Harvests lightning from iron pikes left standing in the cursed battlefield.",
+      "soulfireCore": {
+        "id": "coilmage-yrra-soulfirecore",
+        "name": "Coilmage Yrra SoulfireCore"
+      },
+      "combat": {
+        "level": 10,
+        "baseMaxHp": 70,
+        "stats": {
+          "STR": 4,
+          "DEX": 9,
+          "CON": 10,
+          "INT": 19,
+          "FTH": 0,
+          "CHA": 14,
+          "LCK": 8
+        },
+        "role": "Spellconductor Trainer",
+        "basicAttack": {
+          "name": "Coilmage Yrra Basic Technique",
+          "base": 7,
+          "damageType": "Lightning",
+          "scaling": {
+            "INT": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "coilmage-yrra-lesson-one",
+            "name": "Spellconductor Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Lightning",
+                "scaling": {
+                  "INT": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "coilmage-yrra-lesson-two",
+            "name": "Spellconductor Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 13,
+                "damageType": "Lightning",
+                "scaling": {
+                  "INT": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "coilmage-yrra-lesson-three",
+            "name": "Spellconductor Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 11,
+                "scaling": {
+                  "CON": 0.45,
+                  "CHA": 0.25
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 4,
+          "shieldThresholdPct": 68
+        },
+        "expReward": 150,
+        "onyxReward": 100
+      },
+      "soulfireItemIds": [
+        "eq-bog-trainer-coilmage-yrra-yrra-s-coilrod",
+        "eq-bog-trainer-coilmage-yrra-conductor-loop",
+        "eq-bog-trainer-coilmage-yrra-stormwire-sash"
+      ]
+    },
+    {
+      "id": "maelis-starflash",
+      "name": "Maelis Starflash",
+      "baseClass": "Mage",
+      "subclass": "Spellflare",
+      "focusStat": "INT",
+      "minDepth": 3,
+      "maxDepth": 29,
+      "description": "Uses brief flares of violent spell-light to force wandering spirits back into the mist.",
+      "soulfireCore": {
+        "id": "maelis-starflash-soulfirecore",
+        "name": "Maelis Starflash SoulfireCore"
+      },
+      "combat": {
+        "level": 10,
+        "baseMaxHp": 62,
+        "stats": {
+          "STR": 4,
+          "DEX": 9,
+          "CON": 10,
+          "INT": 20,
+          "FTH": 0,
+          "CHA": 0,
+          "LCK": 9
+        },
+        "role": "Spellflare Trainer",
+        "basicAttack": {
+          "name": "Maelis Starflash Basic Technique",
+          "base": 7,
+          "damageType": "Arcane",
+          "scaling": {
+            "INT": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "maelis-starflash-lesson-one",
+            "name": "Spellflare Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Arcane",
+                "scaling": {
+                  "INT": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "maelis-starflash-lesson-two",
+            "name": "Spellflare Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 13,
+                "damageType": "Arcane",
+                "scaling": {
+                  "INT": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "maelis-starflash-lesson-three",
+            "name": "Spellflare Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 11,
+                "scaling": {
+                  "CON": 0.45,
+                  "CHA": 0.25
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 4,
+          "shieldThresholdPct": 68
+        },
+        "expReward": 150,
+        "onyxReward": 100
+      },
+      "soulfireItemIds": [
+        "eq-bog-trainer-maelis-starflash-starflash-wand",
+        "eq-bog-trainer-maelis-starflash-flareglass-prism",
+        "eq-bog-trainer-maelis-starflash-spellflare-mantle"
+      ]
+    },
+    {
+      "id": "judicator-ren",
+      "name": "Judicator Ren",
+      "baseClass": "Paladin",
+      "subclass": "Verdictbearer",
+      "focusStat": "FTH",
+      "minDepth": 3,
+      "maxDepth": 29,
+      "description": "Keeps a solitary tribunal in a ruined field chapel, judging bandits and restless dead alike.",
+      "soulfireCore": {
+        "id": "judicator-ren-soulfirecore",
+        "name": "Judicator Ren SoulfireCore"
+      },
+      "combat": {
+        "level": 10,
+        "baseMaxHp": 66,
+        "stats": {
+          "STR": 15,
+          "DEX": 6,
+          "CON": 16,
+          "INT": 0,
+          "FTH": 16,
+          "CHA": 12,
+          "LCK": 0
+        },
+        "role": "Verdictbearer Trainer",
+        "basicAttack": {
+          "name": "Judicator Ren Basic Technique",
+          "base": 7,
+          "damageType": "Radiant",
+          "scaling": {
+            "FTH": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "judicator-ren-lesson-one",
+            "name": "Verdictbearer Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Radiant",
+                "scaling": {
+                  "FTH": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "judicator-ren-lesson-two",
+            "name": "Verdictbearer Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 13,
+                "damageType": "Radiant",
+                "scaling": {
+                  "FTH": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "judicator-ren-lesson-three",
+            "name": "Verdictbearer Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 11,
+                "scaling": {
+                  "CON": 0.45,
+                  "CHA": 0.25
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 4,
+          "shieldThresholdPct": 68
+        },
+        "expReward": 150,
+        "onyxReward": 100
+      },
+      "soulfireItemIds": [
+        "eq-bog-trainer-judicator-ren-ren-s-verdict-blade",
+        "eq-bog-trainer-judicator-ren-judicator-seal",
+        "eq-bog-trainer-judicator-ren-final-appeal-plate"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "phase": "Phase 8R \u2014 Staging Recovery",
+  "date": "2026-08-09",
+  "item": "P8-005",
+  "status": "RESOLVED",
+  "friendlyName": "misty_rain_soaked_forest_path.png",
+  "generatorArchiveSource": "/mnt/data/ghostwriter_images/generated/a_highly_detailed_atmospheric_photorealistic_dar_3_batch_3.png",
+  "sourceExists": true,
+  "sourceSize": 2467948,
+  "sourceSha256": "02a0c90c9d69baf01dd1a54212c204b4bfd27f2395dbcde568671658201d1a69",
+  "restoredRootSize": 2467948,
+  "restoredRootSha256": "02a0c90c9d69baf01dd1a54212c204b4bfd27f2395dbcde568671658201d1a69",
+  "stagedCopySize": 2467948,
+  "stagedCopySha256": "02a0c90c9d69baf01dd1a54212c204b4bfd27f2395dbcde568671658201d1a69",
+  "byteIdenticalSourceRoot": true,
+  "byteIdenticalSourceStaged": true,
+  "transformations": [],
+  "note": "Recovered by byte-for-byte copy only; no image decoding, resizing, repainting, or re-encoding."
+}

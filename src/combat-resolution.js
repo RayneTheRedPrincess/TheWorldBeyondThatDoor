@@ -350,6 +350,6 @@ export function applyStatus(combat, actorId, { id, sourceActorId, negative = fal
   if(['Burn','Poison','Bleed'].includes(statusKind)&&periodic&&stacking==='refresh')stacking='stack-refresh';
   const effect={ id, sourceActorId, negative, removable, modifiers, duration, memory:enrichedMemory, stacking };
   const added=addCombatEffect(combat, actorId, effect);
-  if(added&&target){const actual=(target.effects||[]).filter(e=>e.id===id&&e.sourceActorId===sourceActorId).at(-1)||effect;keptOnStatusApplied({combat,source,target,effect:actual});}
+  if(added&&target){const actual=(target.effects||[]).filter(e=>e.id===id&&e.sourceActorId===sourceActorId).at(-1)||effect;keptOnStatusApplied({combat,source,target,effect:actual});if(combat){combat.metrics=combat.metrics||{};if(negative&&source?.side==='party'&&target.side==='enemy'){combat.metrics.negativeStatusesApplied=Number(combat.metrics.negativeStatusesApplied||0)+1;if(String(statusKind||id).toLowerCase().includes('poison'))combat.metrics.poisonStatusesApplied=Number(combat.metrics.poisonStatusesApplied||0)+1;}if(negative&&source?.side==='enemy'&&target.side==='party')combat.metrics.negativeEffectsSuffered=Number(combat.metrics.negativeEffectsSuffered||0)+1;}}
   return added;
 }

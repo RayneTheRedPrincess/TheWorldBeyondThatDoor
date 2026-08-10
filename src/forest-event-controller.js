@@ -13,7 +13,7 @@ function getTrainer(catalog,id){return (catalog?.entries||[]).find(t=>t.id===id)
 function participantState(run,id){
   if(id==='vessel')return {kind:'vessel',state:run.character,name:run.party?.find(p=>p.id==='vessel')?.name||'Otherworlder',baseClass:run.configuration?.effectiveBaseClass||null,subclass:run.configuration?.effectiveSubclass||null,race:run.configuration?.race,equipment:run.configuration?.equipment||{},keptImpressions:run.configuration?.keptImpressions||[],keptChoices:run.configuration?.keptImpressionChoices||{},classless:Boolean(run.configuration?.classless)};
   const a=run.adventurers?.[id]; if(!a)return null;
-  return {kind:'tavern-adventurer',state:a,name:a.name,baseClass:a.baseClass,subclass:a.subclass,race:null,equipment:a.equipment||{},keptImpressions:a.keptImpressions||[],keptChoices:a.keptImpressionChoices||{},classless:false};
+  return {kind:'tavern-adventurer',state:a,name:a.name,baseClass:a.baseClass,subclass:a.subclass,race:a.race||null,equipment:a.equipment||{},keptImpressions:a.keptImpressions||[],keptChoices:a.keptImpressionChoices||{},classless:false};
 }
 function statsForParticipant(run,id,equipmentCatalog){
   const p=participantState(run,id); if(!p)return null;
@@ -87,6 +87,7 @@ export function resolveForestEventCheck(slot,{participantId,rng=Math.random,equi
   const applied=[applyOutcomeEffects(next,participantId,base,{equipmentCatalog,forestCrafting,progression}),applyOutcomeEffects(next,participantId,critical,{equipmentCatalog,forestCrafting,progression})];
   if(success){const material=grantEventMaterial(next.campaign.state,card,forestCrafting,{criticalSuccess});if(material)applied.push({material:{id:material.id,quantity:material.quantity},eventMaterial:true,critical:criticalSuccess});}
   const details={eventId:eventDef,participantId,stat:calc.stat,relevantStat:calc.relevantStat,dc:calc.dc,roll,modifier:calc.modifier,total,successChancePct:calc.successChancePct,outcome:success?'success':'failure',criticalSuccess,criticalFailure,applied};
+  if(!success&&next.campaign.state.expedition?.regionId==='bog-of-lost-souls'&&Number(card.fogOnFailure||0)>0){const bog=next.campaign.state.expedition;bog.fogPressure=Math.min(3,Math.max(0,Number(bog.fogPressure||0)+Number(card.fogOnFailure||0)));details.fogPressureAfter=bog.fogPressure;}
   const routed=card.checkmark?resolveNoncombatCheckmark(next,success?'success':'failure',{rng,details}):resolveNoncombatWithoutCheckmark(next,{note:success?'success':'failure',details});
   if(!routed.ok)return routed;
   if(card.checkmark){const r=clone(routed.slot);const rex=r.campaign.state.expedition;rex.pendingPostEventCombat=clone(rex.encounter);rex.encounter=null;rex.state='event-result';rex.lastEventResult=clone(details);routed.slot=r;routed.encounter=null;}

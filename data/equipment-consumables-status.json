@@ -4766,6 +4766,1421 @@
       "rarity": "Normal",
       "acquisition": "craft-only",
       "beta3Expansion": true
+    },
+    {
+      "id": "eq-trainer-gritto-ironknuckle-redline-wraps",
+      "name": "Redline Wraps",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "gritto-ironknuckle",
+      "listedStats": {
+        "STR": 4,
+        "CON": 3,
+        "LCK": 2,
+        "lifestealPct": 6
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Bloodknuckle",
+      "weaponType": "Gauntlet",
+      "handedness": "unarmed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-trainer-gritto-ironknuckle-bloodcrowd-token",
+      "name": "Bloodcrowd Token",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "gritto-ironknuckle",
+      "listedStats": {
+        "STR": 4,
+        "CON": 3,
+        "LCK": 2,
+        "lifestealPct": 8,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Bloodknuckle",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-trainer-gritto-ironknuckle-ironknuckle-harness",
+      "name": "Ironknuckle Harness",
+      "slot": "chest",
+      "itemType": "Armor",
+      "rarity": "SoulFire",
+      "sourceId": "gritto-ironknuckle",
+      "listedStats": {
+        "STR": 4,
+        "CON": 3,
+        "LCK": 2,
+        "lifestealPct": 6,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Bloodknuckle",
+      "armorCategory": "Medium"
+    },
+    {
+      "id": "eq-trainer-sister-elynvera-lumen-censer",
+      "name": "Lumen Censer",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "sister-elynvera",
+      "listedStats": {
+        "FTH": 4,
+        "CHA": 3,
+        "CON": 2,
+        "outgoingHealingPct": 8
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Lumenwrath",
+      "weaponType": "Magic",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-trainer-sister-elynvera-sunvow-scripture",
+      "name": "Sunvow Scripture",
+      "slot": "offHand",
+      "itemType": "Offhand",
+      "rarity": "SoulFire",
+      "sourceId": "sister-elynvera",
+      "listedStats": {
+        "FTH": 4,
+        "CHA": 3,
+        "CON": 2,
+        "holyDamagePct": 10
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Lumenwrath",
+      "offHandType": "Book"
+    },
+    {
+      "id": "eq-trainer-sister-elynvera-judgement-vestment",
+      "name": "Judgement Vestment",
+      "slot": "chest",
+      "itemType": "Armor",
+      "rarity": "SoulFire",
+      "sourceId": "sister-elynvera",
+      "listedStats": {
+        "FTH": 4,
+        "CHA": 3,
+        "CON": 2,
+        "outgoingHealingPct": 8,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Lumenwrath",
+      "armorCategory": "Light"
+    },
+    {
+      "id": "eq-trainer-lyricus-vaeldorn-blackwood-lute",
+      "name": "Blackwood Lute",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "lyricus-vaeldorn",
+      "listedStats": {
+        "CHA": 4,
+        "FTH": 3,
+        "CON": 2,
+        "darkDamagePct": 8
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Dreadcantor",
+      "weaponType": "Instrument",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-trainer-lyricus-vaeldorn-funeral-refrain",
+      "name": "Funeral Refrain",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "lyricus-vaeldorn",
+      "listedStats": {
+        "CHA": 4,
+        "FTH": 3,
+        "CON": 2,
+        "darkDamagePct": 10,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Dreadcantor",
+      "charmType": "Spell Slot",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-trainer-lyricus-vaeldorn-funeral-refrain",
+          "name": "Funeral Refrain — Grave Echo",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 5,
+              "scaling": {},
+              "damageType": "Dark"
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat spell “Funeral Refrain — Grave Echo”."
+    },
+    {
+      "id": "eq-trainer-lyricus-vaeldorn-griefcloak",
+      "name": "Griefcloak",
+      "slot": "chest",
+      "itemType": "Armor",
+      "rarity": "SoulFire",
+      "sourceId": "lyricus-vaeldorn",
+      "listedStats": {
+        "CHA": 4,
+        "FTH": 3,
+        "CON": 2,
+        "darkDamagePct": 8,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Dreadcantor",
+      "armorCategory": "Light"
+    },
+    {
+      "id": "eq-trainer-embsy-fountain-rod",
+      "name": "Fountain Rod",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "embsy",
+      "listedStats": {
+        "INT": 4,
+        "CHA": 3,
+        "CON": 2,
+        "energyGainPct": 8
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Fontborn",
+      "weaponType": "Magic",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-trainer-embsy-runnel-sigil",
+      "name": "Runnel Sigil",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "embsy",
+      "listedStats": {
+        "INT": 4,
+        "CHA": 3,
+        "CON": 2,
+        "forceDamagePct": 10,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Fontborn",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-trainer-embsy-splashweave-sash",
+      "name": "Splashweave Sash",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "SoulFire",
+      "sourceId": "embsy",
+      "listedStats": {
+        "INT": 4,
+        "CHA": 3,
+        "CON": 2,
+        "forceDamagePct": 8,
+        "dodgeChancePct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Fontborn",
+      "accessoryType": "Belt"
+    },
+    {
+      "id": "eq-trainer-varein-gravescript-staff",
+      "name": "Gravescript Staff",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "varein",
+      "listedStats": {
+        "INT": 4,
+        "CHA": 3,
+        "CON": 2,
+        "darkDamagePct": 8
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Mortisworn",
+      "weaponType": "Magic",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-trainer-varein-ossuary-ring",
+      "name": "Ossuary Ring",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "varein",
+      "listedStats": {
+        "INT": 4,
+        "CHA": 3,
+        "CON": 2,
+        "darkDamagePct": 10,
+        "energyGainPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Mortisworn",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-trainer-varein-mourning-robe",
+      "name": "Mourning Robe",
+      "slot": "chest",
+      "itemType": "Armor",
+      "rarity": "SoulFire",
+      "sourceId": "varein",
+      "listedStats": {
+        "INT": 4,
+        "CHA": 3,
+        "CON": 2,
+        "darkDamagePct": 8,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "trainerSubclass": "Mortisworn",
+      "armorCategory": "Light"
+    },
+    {
+      "id": "eq-bog-darksteel-helm",
+      "name": "Darksteel Sallet",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "rarity": "Normal",
+      "sourceId": "bandit",
+      "listedStats": {
+        "STR": 2,
+        "CON": 2,
+        "blockChancePct": 3
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "setId": "set-bog-blackbanner-darksteel",
+      "armorCategory": "Heavy"
+    },
+    {
+      "id": "eq-bog-blackbanner-cuirass",
+      "name": "Blackbanner Cuirass",
+      "slot": "chest",
+      "itemType": "Armor",
+      "rarity": "Normal",
+      "sourceId": "bandit",
+      "listedStats": {
+        "STR": 2,
+        "CON": 2,
+        "blockedDamageReductionPct": 4
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "setId": "set-bog-blackbanner-darksteel",
+      "armorCategory": "Heavy"
+    },
+    {
+      "id": "eq-bog-darksteel-gauntlets",
+      "name": "Darksteel Gauntlets",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "rarity": "Normal",
+      "sourceId": "bandit",
+      "listedStats": {
+        "STR": 2,
+        "CON": 2,
+        "damageCritChancePct": 3
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "setId": "set-bog-blackbanner-darksteel",
+      "armorCategory": "Heavy"
+    },
+    {
+      "id": "eq-bog-marcher-greaves",
+      "name": "Blackbanner Marcher Greaves",
+      "slot": "boots",
+      "itemType": "Armor",
+      "rarity": "Normal",
+      "sourceId": "bandit",
+      "listedStats": {
+        "CON": 2,
+        "CHA": 2,
+        "blockChancePct": 3
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "setId": "set-bog-blackbanner-darksteel",
+      "armorCategory": "Heavy"
+    },
+    {
+      "id": "eq-bog-mourning-visor",
+      "name": "Mourning Visor",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "rarity": "Normal",
+      "sourceId": "undead",
+      "listedStats": {
+        "FTH": 2,
+        "CON": 2,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "setId": "set-bog-mourning-warden",
+      "armorCategory": "Medium"
+    },
+    {
+      "id": "eq-bog-spiritmail",
+      "name": "Spiritmail Coat",
+      "slot": "chest",
+      "itemType": "Armor",
+      "rarity": "Normal",
+      "sourceId": "undead",
+      "listedStats": {
+        "FTH": 2,
+        "CON": 2,
+        "energyGainPct": 3
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "setId": "set-bog-mourning-warden",
+      "armorCategory": "Medium"
+    },
+    {
+      "id": "eq-bog-graveward-gloves",
+      "name": "Graveward Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "rarity": "Normal",
+      "sourceId": "undead",
+      "listedStats": {
+        "FTH": 2,
+        "INT": 2,
+        "damageCritChancePct": 3
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "setId": "set-bog-mourning-warden",
+      "armorCategory": "Medium"
+    },
+    {
+      "id": "eq-bog-ghoststep-boots",
+      "name": "Ghoststep Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "rarity": "Normal",
+      "sourceId": "undead",
+      "listedStats": {
+        "INT": 2,
+        "CON": 2,
+        "dodgeChancePct": 3
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "setId": "set-bog-mourning-warden",
+      "armorCategory": "Medium"
+    },
+    {
+      "id": "eq-bog-venommire-mask",
+      "name": "Venommire Mask",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "rarity": "Normal",
+      "sourceId": "mutation",
+      "listedStats": {
+        "DEX": 2,
+        "LCK": 2,
+        "dodgeChancePct": 3
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "setId": "set-bog-venommire-stalker",
+      "armorCategory": "Light"
+    },
+    {
+      "id": "eq-bog-mirehide-jerkin",
+      "name": "Mirehide Jerkin",
+      "slot": "chest",
+      "itemType": "Armor",
+      "rarity": "Normal",
+      "sourceId": "mutation",
+      "listedStats": {
+        "DEX": 2,
+        "CON": 2,
+        "incomingHealingPct": 4
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "setId": "set-bog-venommire-stalker",
+      "armorCategory": "Light"
+    },
+    {
+      "id": "eq-bog-venomgrip-wraps",
+      "name": "Venomgrip Wraps",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "rarity": "Normal",
+      "sourceId": "mutation",
+      "listedStats": {
+        "DEX": 2,
+        "LCK": 2,
+        "damageCritChancePct": 4
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "setId": "set-bog-venommire-stalker",
+      "armorCategory": "Light"
+    },
+    {
+      "id": "eq-bog-fenrunner-boots",
+      "name": "Fenrunner Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "rarity": "Normal",
+      "sourceId": "mutation",
+      "listedStats": {
+        "DEX": 2,
+        "LCK": 2,
+        "dodgeChancePct": 4
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "setId": "set-bog-venommire-stalker",
+      "armorCategory": "Light"
+    },
+    {
+      "id": "eq-bog-darksteel-cleaver",
+      "name": "Darksteel Mire Cleaver",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "Normal",
+      "sourceId": "bog-of-lost-souls",
+      "listedStats": {
+        "STR": 3,
+        "CON": 2,
+        "criticalDamagePct": 7
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-bog-blackbanner-buckler",
+      "name": "Blackbanner Buckler",
+      "slot": "offHand",
+      "itemType": "Shield",
+      "rarity": "Normal",
+      "sourceId": "bog-of-lost-souls",
+      "listedStats": {
+        "CON": 3,
+        "STR": 2,
+        "blockChancePct": 7,
+        "blockedDamageReductionPct": 5
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true
+    },
+    {
+      "id": "eq-bog-gravebone-pike",
+      "name": "Gravebone Pike",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "Normal",
+      "sourceId": "bog-of-lost-souls",
+      "listedStats": {
+        "STR": 2,
+        "DEX": 2,
+        "FTH": 2,
+        "damageCritChancePct": 5
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "weaponType": "Physical",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-bog-ectoplasm-codex",
+      "name": "Ectoplasm Codex",
+      "slot": "offHand",
+      "itemType": "Weapon",
+      "rarity": "Normal",
+      "sourceId": "bog-of-lost-souls",
+      "listedStats": {
+        "INT": 3,
+        "FTH": 2,
+        "energyGainPct": 6
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "weaponType": "Magic",
+      "handedness": "off-hand",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-bog-venomfang-knife",
+      "name": "Venomfang Knife",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "Normal",
+      "sourceId": "bog-of-lost-souls",
+      "listedStats": {
+        "DEX": 3,
+        "LCK": 2,
+        "damageCritChancePct": 6
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-bog-mirebone-knuckles",
+      "name": "Mirebone Knuckles",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "Normal",
+      "sourceId": "bog-of-lost-souls",
+      "listedStats": {
+        "STR": 3,
+        "CON": 2,
+        "damageCritChancePct": 5
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "weaponType": "Gauntlet",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-bog-curseglass-focus",
+      "name": "Curseglass Focus",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "Normal",
+      "sourceId": "bog-of-lost-souls",
+      "listedStats": {
+        "INT": 2,
+        "CHA": 2,
+        "energyGainPct": 5
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-bog-gravesalt-medallion",
+      "name": "Gravesalt Medallion",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "Normal",
+      "sourceId": "bog-of-lost-souls",
+      "listedStats": {
+        "FTH": 2,
+        "CON": 2,
+        "incomingHealingPct": 6
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "charmType": "Trinket",
+      "resistances": {
+        "Dark": 6
+      }
+    },
+    {
+      "id": "eq-bog-witchthread-sash",
+      "name": "Witchthread Sash",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "Normal",
+      "sourceId": "bog-of-lost-souls",
+      "listedStats": {
+        "CHA": 2,
+        "INT": 2,
+        "dodgeChancePct": 4
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "accessoryType": "Belt"
+    },
+    {
+      "id": "eq-bog-blackbanner-bandolier",
+      "name": "Blackbanner Bandolier",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "Normal",
+      "sourceId": "bog-of-lost-souls",
+      "listedStats": {
+        "DEX": 2,
+        "LCK": 2,
+        "damageCritChancePct": 4
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "accessoryType": "Bandolier"
+    },
+    {
+      "id": "eq-bog-soulash-censer",
+      "name": "Soul-Ash Censer",
+      "slot": "offHand",
+      "itemType": "Weapon",
+      "rarity": "Normal",
+      "sourceId": "bog-of-lost-souls",
+      "listedStats": {
+        "FTH": 3,
+        "CHA": 2,
+        "outgoingHealingPct": 6
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "weaponType": "Magic",
+      "handedness": "off-hand",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-bog-mutagen-vial-charm",
+      "name": "Sealed Mutagen Vial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "Normal",
+      "sourceId": "bog-of-lost-souls",
+      "listedStats": {
+        "CON": 2,
+        "LCK": 2,
+        "incomingHealingPct": 4,
+        "dodgeChancePct": 3
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-bog-mirebound-jaw",
+      "name": "Mirebound Jaw",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "mirebound-abomination",
+      "listedStats": {
+        "STR": 5,
+        "CON": 4,
+        "LCK": 2,
+        "damageCritChancePct": 8
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "weaponType": "Gauntlet",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-bog-varris-lifeline",
+      "name": "Varris’s Lifeline",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "varris-blackbanner",
+      "listedStats": {
+        "CON": 5,
+        "CHA": 4,
+        "FTH": 3,
+        "incomingHealingPct": 8,
+        "shieldStrengthPct": 8
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-bog-miras-hexstaff",
+      "name": "Mira’s Crooked Hexstaff",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "crazed-witch-mira",
+      "listedStats": {
+        "INT": 5,
+        "CHA": 4,
+        "LCK": 3,
+        "energyGainPct": 8,
+        "criticalDamagePct": 10
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "weaponType": "Magic",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-bog-jacks-darksteel-greatblade",
+      "name": "Jack’s Darksteel Greatblade",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "bandit-king-jack",
+      "listedStats": {
+        "STR": 6,
+        "CON": 4,
+        "CHA": 3,
+        "criticalDamagePct": 12,
+        "damageCritChancePct": 6
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "weaponType": "Physical",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-bog-trainer-ser-kael-ashbrand-ashbrand-greatblade",
+      "name": "Ashbrand Greatblade",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "ser-kael-ashbrand",
+      "listedStats": {
+        "STR": 5,
+        "CON": 4,
+        "CHA": 3,
+        "blockChancePct": 6
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "BrandBlade",
+      "weaponType": "Physical",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-bog-trainer-ser-kael-ashbrand-brandguard-sigil",
+      "name": "Brandguard Sigil",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "ser-kael-ashbrand",
+      "listedStats": {
+        "STR": 5,
+        "CON": 4,
+        "CHA": 3,
+        "energyGainPct": 5
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "BrandBlade",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-bog-trainer-ser-kael-ashbrand-cinderplate-mantle",
+      "name": "Cinderplate Mantle",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "SoulFire",
+      "sourceId": "ser-kael-ashbrand",
+      "listedStats": {
+        "STR": 5,
+        "CON": 4,
+        "CHA": 3,
+        "incomingHealingPct": 5,
+        "dodgeChancePct": 3
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "BrandBlade",
+      "accessoryType": "Trainer Relic"
+    },
+    {
+      "id": "eq-bog-trainer-nara-breakwater-breakwater-spear",
+      "name": "Breakwater Spear",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "nara-breakwater",
+      "listedStats": {
+        "DEX": 5,
+        "CON": 4,
+        "INT": 3,
+        "damageCritChancePct": 7
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Breachstrider",
+      "weaponType": "Physical",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-bog-trainer-nara-breakwater-breachfinder-lens",
+      "name": "Breachfinder Lens",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "nara-breakwater",
+      "listedStats": {
+        "DEX": 5,
+        "CON": 4,
+        "INT": 3,
+        "energyGainPct": 5
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Breachstrider",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-bog-trainer-nara-breakwater-riftstep-harness",
+      "name": "Riftstep Harness",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "SoulFire",
+      "sourceId": "nara-breakwater",
+      "listedStats": {
+        "DEX": 5,
+        "CON": 4,
+        "INT": 3,
+        "incomingHealingPct": 5,
+        "dodgeChancePct": 3
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Breachstrider",
+      "accessoryType": "Trainer Relic"
+    },
+    {
+      "id": "eq-bog-trainer-pell-crowsong-crowsong-sabre",
+      "name": "Crowsong Sabre",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "pell-crowsong",
+      "listedStats": {
+        "CHA": 5,
+        "DEX": 4,
+        "CON": 3,
+        "energyGainPct": 7
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Cadenceblade",
+      "weaponType": "Instrument",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-bog-trainer-pell-crowsong-marching-refrain",
+      "name": "Marching Refrain",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "pell-crowsong",
+      "listedStats": {
+        "CHA": 5,
+        "DEX": 4,
+        "CON": 3,
+        "energyGainPct": 5
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Cadenceblade",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-bog-trainer-pell-crowsong-cadence-sash",
+      "name": "Cadence Sash",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "SoulFire",
+      "sourceId": "pell-crowsong",
+      "listedStats": {
+        "CHA": 5,
+        "DEX": 4,
+        "CON": 3,
+        "incomingHealingPct": 5,
+        "dodgeChancePct": 3
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Cadenceblade",
+      "accessoryType": "Trainer Relic"
+    },
+    {
+      "id": "eq-bog-trainer-two-gun-thomas-thomas-s-sidearm",
+      "name": "Thomas’s Sidearm",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "two-gun-thomas",
+      "listedStats": {
+        "DEX": 5,
+        "LCK": 4,
+        "CON": 3,
+        "damageCritChancePct": 8
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Gunslinger",
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-bog-trainer-two-gun-thomas-quickdraw-token",
+      "name": "Quickdraw Token",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "two-gun-thomas",
+      "listedStats": {
+        "DEX": 5,
+        "LCK": 4,
+        "CON": 3,
+        "energyGainPct": 5
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Gunslinger",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-bog-trainer-two-gun-thomas-powderline-bandolier",
+      "name": "Powderline Bandolier",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "SoulFire",
+      "sourceId": "two-gun-thomas",
+      "listedStats": {
+        "DEX": 5,
+        "LCK": 4,
+        "CON": 3,
+        "incomingHealingPct": 5,
+        "dodgeChancePct": 3
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Gunslinger",
+      "accessoryType": "Trainer Relic"
+    },
+    {
+      "id": "eq-bog-trainer-mother-spore-velda-sporewood-crook",
+      "name": "Sporewood Crook",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "mother-spore-velda",
+      "listedStats": {
+        "INT": 5,
+        "FTH": 4,
+        "CON": 3,
+        "DEX": 2,
+        "outgoingHealingPct": 7
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Hyphaweaver",
+      "weaponType": "Magic",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-bog-trainer-mother-spore-velda-hypha-heart",
+      "name": "Hypha Heart",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "mother-spore-velda",
+      "listedStats": {
+        "INT": 5,
+        "FTH": 4,
+        "CON": 3,
+        "DEX": 2,
+        "energyGainPct": 5
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Hyphaweaver",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-bog-trainer-mother-spore-velda-bloomweave-shawl",
+      "name": "Bloomweave Shawl",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "SoulFire",
+      "sourceId": "mother-spore-velda",
+      "listedStats": {
+        "INT": 5,
+        "FTH": 4,
+        "CON": 3,
+        "DEX": 2,
+        "incomingHealingPct": 5,
+        "dodgeChancePct": 3
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Hyphaweaver",
+      "accessoryType": "Trainer Relic"
+    },
+    {
+      "id": "eq-bog-trainer-sister-malva-vane-malisunder-scepter",
+      "name": "Malisunder Scepter",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "sister-malva-vane",
+      "listedStats": {
+        "FTH": 5,
+        "CON": 4,
+        "CHA": 3,
+        "outgoingHealingPct": 8
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Malisunder",
+      "weaponType": "Magic",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-bog-trainer-sister-malva-vane-fracture-rosary",
+      "name": "Fracture Rosary",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "sister-malva-vane",
+      "listedStats": {
+        "FTH": 5,
+        "CON": 4,
+        "CHA": 3,
+        "energyGainPct": 5
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Malisunder",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-bog-trainer-sister-malva-vane-sundered-vestment",
+      "name": "Sundered Vestment",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "SoulFire",
+      "sourceId": "sister-malva-vane",
+      "listedStats": {
+        "FTH": 5,
+        "CON": 4,
+        "CHA": 3,
+        "incomingHealingPct": 5,
+        "dodgeChancePct": 3
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Malisunder",
+      "accessoryType": "Trainer Relic"
+    },
+    {
+      "id": "eq-bog-trainer-talar-seven-palms-seven-palm-wraps",
+      "name": "Seven-Palm Wraps",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "talar-seven-palms",
+      "listedStats": {
+        "STR": 5,
+        "DEX": 4,
+        "CON": 3,
+        "damageCritChancePct": 7
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Prismatic Palm",
+      "weaponType": "Gauntlet",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-bog-trainer-talar-seven-palms-prismatic-bead",
+      "name": "Prismatic Bead",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "talar-seven-palms",
+      "listedStats": {
+        "STR": 5,
+        "DEX": 4,
+        "CON": 3,
+        "energyGainPct": 5
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Prismatic Palm",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-bog-trainer-talar-seven-palms-facetwalker-sash",
+      "name": "Facetwalker Sash",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "SoulFire",
+      "sourceId": "talar-seven-palms",
+      "listedStats": {
+        "STR": 5,
+        "DEX": 4,
+        "CON": 3,
+        "incomingHealingPct": 5,
+        "dodgeChancePct": 3
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Prismatic Palm",
+      "accessoryType": "Trainer Relic"
+    },
+    {
+      "id": "eq-bog-trainer-old-ember-nox-ember-nox-rod",
+      "name": "Ember-Nox Rod",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "old-ember-nox",
+      "listedStats": {
+        "INT": 5,
+        "CHA": 4,
+        "CON": 3,
+        "criticalDamagePct": 10
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Pyrecovenant",
+      "weaponType": "Magic",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-bog-trainer-old-ember-nox-pyre-covenant-seal",
+      "name": "Pyre Covenant Seal",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "old-ember-nox",
+      "listedStats": {
+        "INT": 5,
+        "CHA": 4,
+        "CON": 3,
+        "energyGainPct": 5,
+        "FTH": 2
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Pyrecovenant",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-bog-trainer-old-ember-nox-ashen-pactcoat",
+      "name": "Ashen Pactcoat",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "SoulFire",
+      "sourceId": "old-ember-nox",
+      "listedStats": {
+        "INT": 5,
+        "CHA": 4,
+        "CON": 3,
+        "incomingHealingPct": 5,
+        "dodgeChancePct": 3,
+        "FTH": 2
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Pyrecovenant",
+      "accessoryType": "Trainer Relic"
+    },
+    {
+      "id": "eq-bog-trainer-coilmage-yrra-yrra-s-coilrod",
+      "name": "Yrra’s Coilrod",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "coilmage-yrra",
+      "listedStats": {
+        "INT": 5,
+        "CHA": 4,
+        "CON": 3,
+        "energyGainPct": 8
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Spellconductor",
+      "weaponType": "Magic",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-bog-trainer-coilmage-yrra-conductor-loop",
+      "name": "Conductor Loop",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "coilmage-yrra",
+      "listedStats": {
+        "INT": 5,
+        "CHA": 4,
+        "CON": 3,
+        "energyGainPct": 5
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Spellconductor",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-bog-trainer-coilmage-yrra-stormwire-sash",
+      "name": "Stormwire Sash",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "SoulFire",
+      "sourceId": "coilmage-yrra",
+      "listedStats": {
+        "INT": 5,
+        "CHA": 4,
+        "CON": 3,
+        "incomingHealingPct": 5,
+        "dodgeChancePct": 3
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Spellconductor",
+      "accessoryType": "Trainer Relic"
+    },
+    {
+      "id": "eq-bog-trainer-maelis-starflash-starflash-wand",
+      "name": "Starflash Wand",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "maelis-starflash",
+      "listedStats": {
+        "INT": 5,
+        "CON": 4,
+        "DEX": 3,
+        "criticalDamagePct": 10
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Spellflare",
+      "weaponType": "Magic",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-bog-trainer-maelis-starflash-flareglass-prism",
+      "name": "Flareglass Prism",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "maelis-starflash",
+      "listedStats": {
+        "INT": 5,
+        "CON": 4,
+        "DEX": 3,
+        "energyGainPct": 5
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Spellflare",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-bog-trainer-maelis-starflash-spellflare-mantle",
+      "name": "Spellflare Mantle",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "SoulFire",
+      "sourceId": "maelis-starflash",
+      "listedStats": {
+        "INT": 5,
+        "CON": 4,
+        "DEX": 3,
+        "incomingHealingPct": 5,
+        "dodgeChancePct": 3
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Spellflare",
+      "accessoryType": "Trainer Relic"
+    },
+    {
+      "id": "eq-bog-trainer-judicator-ren-ren-s-verdict-blade",
+      "name": "Ren’s Verdict Blade",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "rarity": "SoulFire",
+      "sourceId": "judicator-ren",
+      "listedStats": {
+        "CON": 5,
+        "FTH": 4,
+        "STR": 3,
+        "blockChancePct": 7
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Verdictbearer",
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-bog-trainer-judicator-ren-judicator-seal",
+      "name": "Judicator Seal",
+      "slot": "charm",
+      "itemType": "Charm",
+      "rarity": "SoulFire",
+      "sourceId": "judicator-ren",
+      "listedStats": {
+        "CON": 5,
+        "FTH": 4,
+        "STR": 3,
+        "energyGainPct": 5
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Verdictbearer",
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-bog-trainer-judicator-ren-final-appeal-plate",
+      "name": "Final Appeal Plate",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "rarity": "SoulFire",
+      "sourceId": "judicator-ren",
+      "listedStats": {
+        "CON": 5,
+        "FTH": 4,
+        "STR": 3,
+        "incomingHealingPct": 5,
+        "dodgeChancePct": 3
+      },
+      "acquisition": "craft-only",
+      "bogExpansion": true,
+      "trainerSubclass": "Verdictbearer",
+      "accessoryType": "Trainer Relic"
     }
   ],
   "consumables": [
@@ -5174,7 +6589,7 @@
       "periodic": false
     }
   ],
-  "designStatus": "I14 full Forest craftable equipment/consumable catalogue plus 51 Trainer SoulFire craftables; I12 fixture entries retained but are not player acquisition content",
+  "designStatus": "Phase 10 current Forest equipment/consumable catalogue with 66 Trainer SoulFire craftables; I12 fixture entries retained but are not player acquisition content.",
   "sets": [
     {
       "id": "set-bramblekin-scrapper",
@@ -5696,6 +7111,130 @@
         }
       ],
       "definingThreshold": 3
+    },
+    {
+      "id": "set-bog-blackbanner-darksteel",
+      "name": "Blackbanner Darksteel",
+      "sourceId": "bandit",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-bog-darksteel-helm",
+        "eq-bog-blackbanner-cuirass",
+        "eq-bog-darksteel-gauntlets",
+        "eq-bog-marcher-greaves"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "STR": 2,
+            "CON": 2
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "blockChancePct": 10,
+            "blockedDamageReductionPct": 10
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "CHA": 3
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "bogExpansion": true
+    },
+    {
+      "id": "set-bog-mourning-warden",
+      "name": "Mourning Warden",
+      "sourceId": "undead",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-bog-mourning-visor",
+        "eq-bog-spiritmail",
+        "eq-bog-graveward-gloves",
+        "eq-bog-ghoststep-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "FTH": 2,
+            "CON": 2
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "incomingHealingPct": 10,
+            "energyGainPct": 6
+          },
+          "resistances": {
+            "Dark": 10,
+            "Psychic": 8
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "INT": 3
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "bogExpansion": true
+    },
+    {
+      "id": "set-bog-venommire-stalker",
+      "name": "Venommire Stalker",
+      "sourceId": "mutation",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-bog-venommire-mask",
+        "eq-bog-mirehide-jerkin",
+        "eq-bog-venomgrip-wraps",
+        "eq-bog-fenrunner-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "DEX": 2,
+            "LCK": 2
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "dodgeChancePct": 10,
+            "damageCritChancePct": 7
+          },
+          "resistances": {
+            "Poison": 12
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "CON": 3
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "bogExpansion": true
     }
   ]
 }

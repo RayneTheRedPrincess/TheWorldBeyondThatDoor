@@ -1,5 +1,5 @@
 {
-  "version": "I18-2026-08-08",
+  "version": "Phase10-PreBog-2026-08-10",
   "mara": {
     "offersAtATime": 3,
     "activeQuestLimit": 1,
@@ -258,6 +258,382 @@
         "condition": {
           "type": "highest-depth",
           "target": 6
+        }
+      }
+    ]
+  },
+  "keptImpressionShop": {
+    "currency": "Onyx",
+    "ownershipScope": "account-wide",
+    "purchaseLocation": "Krass's Magical Library",
+    "requirementsScope": "account-wide-regional-accomplishments",
+    "offers": [
+      {
+        "keptId": "KI-009",
+        "onyxCost": 35,
+        "requirement": {
+          "type": "highest-depth",
+          "target": 3,
+          "label": "Reach Forest Depth 3"
+        },
+        "region": "forest"
+      },
+      {
+        "keptId": "KI-011",
+        "onyxCost": 40,
+        "requirement": {
+          "type": "battles-won",
+          "target": 2,
+          "label": "Win 2 Forest battles"
+        },
+        "region": "forest"
+      },
+      {
+        "keptId": "KI-014",
+        "onyxCost": 40,
+        "requirement": {
+          "type": "successful-checks",
+          "target": 1,
+          "label": "Succeed at 1 Forest stat check"
+        },
+        "region": "forest"
+      },
+      {
+        "keptId": "KI-025",
+        "onyxCost": 45,
+        "requirement": {
+          "type": "crafted-items",
+          "target": 1,
+          "label": "Craft 1 item in the Forest"
+        },
+        "region": "forest"
+      },
+      {
+        "keptId": "KI-029",
+        "onyxCost": 70,
+        "requirement": {
+          "type": "highest-depth",
+          "target": 8,
+          "label": "Reach Forest Depth 8"
+        },
+        "region": "forest"
+      },
+      {
+        "keptId": "KI-043",
+        "onyxCost": 80,
+        "requirement": {
+          "type": "battles-won",
+          "target": 6,
+          "label": "Win 6 Forest battles total"
+        },
+        "region": "forest"
+      },
+      {
+        "keptId": "KI-065",
+        "onyxCost": 80,
+        "requirement": {
+          "type": "successful-checks",
+          "target": 4,
+          "label": "Succeed at 4 Forest stat checks total"
+        },
+        "region": "forest"
+      },
+      {
+        "keptId": "KI-077",
+        "onyxCost": 75,
+        "requirement": {
+          "type": "ordinary-materials-collected",
+          "target": 12,
+          "label": "Collect 12 ordinary Forest materials total"
+        },
+        "region": "forest"
+      },
+      {
+        "keptId": "KI-064",
+        "onyxCost": 90,
+        "requirement": {
+          "type": "trainers-fought",
+          "target": 1,
+          "label": "Fight 1 Forest Trainer"
+        },
+        "region": "forest"
+      },
+      {
+        "keptId": "KI-004",
+        "onyxCost": 110,
+        "requirement": {
+          "type": "trainers-learned-from",
+          "target": 1,
+          "label": "Learn from 1 Forest Trainer"
+        },
+        "region": "forest"
+      },
+      {
+        "keptId": "KI-001",
+        "onyxCost": 120,
+        "requirement": {
+          "type": "minibosses-defeated",
+          "target": 1,
+          "label": "Defeat the Forest miniboss"
+        },
+        "region": "forest"
+      },
+      {
+        "keptId": "KI-007",
+        "onyxCost": 150,
+        "requirement": {
+          "type": "forests-cleared",
+          "target": 1,
+          "label": "Defeat the Forest boss and clear the Forest"
+        },
+        "region": "forest"
+      },
+      {
+        "keptId": "KI-080",
+        "onyxCost": 160,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-negative-effects-suffered",
+          "target": 5,
+          "label": "Suffer 5 curse/debuff applications in the Bog"
+        }
+      },
+      {
+        "keptId": "KI-082",
+        "onyxCost": 175,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-negative-effects-expired",
+          "target": 10,
+          "label": "Have 10 Bog negative effects expire"
+        }
+      },
+      {
+        "keptId": "KI-083",
+        "onyxCost": 190,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-two-status-defeats",
+          "target": 10,
+          "label": "Defeat 10 Bog enemies while they carry 2+ negative statuses"
+        }
+      },
+      {
+        "keptId": "KI-085",
+        "onyxCost": 200,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-negative-statuses-applied",
+          "target": 20,
+          "label": "Apply 20 negative statuses to Bog enemies"
+        }
+      },
+      {
+        "keptId": "KI-087",
+        "onyxCost": 210,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-undead-spirits-defeated",
+          "target": 12,
+          "label": "Defeat 12 Bog undead or spirits"
+        }
+      },
+      {
+        "keptId": "KI-103",
+        "onyxCost": 230,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-battles-won",
+          "target": 8,
+          "label": "Win 8 Bog combats"
+        }
+      },
+      {
+        "keptId": "KI-116",
+        "onyxCost": 250,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-three-status-defeats",
+          "target": 5,
+          "label": "Defeat 5 Bog enemies while they carry 3+ negative statuses"
+        }
+      },
+      {
+        "keptId": "KI-119",
+        "onyxCost": 275,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-bandit-camps-defeated",
+          "target": 3,
+          "label": "Defeat 3 Blackbanner Bandit Camps"
+        }
+      },
+      {
+        "keptId": "KI-186",
+        "onyxCost": 300,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-poison-statuses-applied",
+          "target": 25,
+          "label": "Apply Poison 25 times in the Bog"
+        }
+      },
+      {
+        "keptId": "KI-188",
+        "onyxCost": 350,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-minibosses-defeated",
+          "target": 1,
+          "label": "Defeat Varris and Mira's Mirebound Abomination"
+        }
+      },
+      {
+        "keptId": "KI-194",
+        "onyxCost": 375,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-lesser-witches-defeated",
+          "target": 6,
+          "label": "Defeat 6 Lesser Witches"
+        }
+      },
+      {
+        "keptId": "KI-199",
+        "onyxCost": 450,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bogs-cleared",
+          "target": 1,
+          "label": "Defeat Mira and Bandit King Jack and clear the Bog"
+        }
+      }
+    ]
+  },
+  "regionalRaceUnlocks": {
+    "ownershipScope": "account-wide",
+    "tokenCompatibility": "achievement unlocks no-op when the race is already unlocked by the free Race Choice token",
+    "forest": [
+      {
+        "race": "Elf",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 3,
+          "label": "Reach Forest Depth 3"
+        }
+      },
+      {
+        "race": "Arbordyan",
+        "requirement": {
+          "type": "ordinary-materials-collected",
+          "target": 12,
+          "label": "Collect 12 Forest materials"
+        }
+      },
+      {
+        "race": "Faervani",
+        "requirement": {
+          "type": "successful-checks",
+          "target": 4,
+          "label": "Succeed at 4 Forest stat checks"
+        }
+      },
+      {
+        "race": "Goblin",
+        "requirement": {
+          "type": "crafted-items",
+          "target": 3,
+          "label": "Craft 3 Forest items"
+        }
+      },
+      {
+        "race": "Orc",
+        "requirement": {
+          "type": "battles-won",
+          "target": 6,
+          "label": "Win 6 Forest battles"
+        }
+      },
+      {
+        "race": "Kyravari",
+        "requirement": {
+          "type": "trainer-encounters",
+          "target": 1,
+          "label": "Encounter a Forest Trainer"
+        }
+      },
+      {
+        "race": "Rhazekai",
+        "requirement": {
+          "type": "forests-cleared",
+          "target": 1,
+          "label": "Clear the Forest"
+        }
+      }
+    ],
+    "bog-of-lost-souls": [
+      {
+        "race": "Veldrathi",
+        "requirement": {
+          "type": "bog-negative-effects-suffered",
+          "target": 5,
+          "label": "Suffer 5 Bog curse/debuff applications"
+        }
+      },
+      {
+        "race": "Duvenari",
+        "requirement": {
+          "type": "bog-undead-spirits-defeated",
+          "target": 8,
+          "label": "Defeat 8 Bog undead or spirits"
+        }
+      },
+      {
+        "race": "Veyssryn",
+        "requirement": {
+          "type": "bog-successful-checks",
+          "target": 5,
+          "label": "Succeed at 5 Bog stat checks"
+        }
+      },
+      {
+        "race": "Rifthari",
+        "requirement": {
+          "type": "bog-poison-statuses-applied",
+          "target": 15,
+          "label": "Apply Poison 15 times in the Bog"
+        }
+      },
+      {
+        "race": "Halynari",
+        "requirement": {
+          "type": "bog-undead-spirits-defeated",
+          "target": 15,
+          "label": "Defeat 15 Bog undead or spirits"
+        }
+      },
+      {
+        "race": "High Elf",
+        "requirement": {
+          "type": "bog-lesser-witches-defeated",
+          "target": 6,
+          "label": "Defeat 6 Lesser Witches"
+        }
+      },
+      {
+        "race": "Silxered",
+        "requirement": {
+          "type": "bog-darksteel-collected",
+          "target": 10,
+          "label": "Collect 10 Darksteel Shards in the Bog"
+        }
+      },
+      {
+        "race": "Demon",
+        "requirement": {
+          "type": "bogs-cleared",
+          "target": 1,
+          "label": "Clear the Bog of Lost Souls"
         }
       }
     ]

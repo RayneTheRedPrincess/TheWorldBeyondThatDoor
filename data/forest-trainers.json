@@ -1,9 +1,9 @@
 {
-  "version": "I14-2026-08-08",
-  "count": 17,
+  "version": "PHASE9-2026-08-10",
+  "count": 22,
   "rules": {
-    "activeRosterMin": 6,
-    "activeRosterMax": 8,
+    "activeRosterMin": 9,
+    "activeRosterMax": 11,
     "matchingBaseClassAnchorChancePct": 95,
     "matchingFamilyWeight": 4,
     "maxTrainerCardsPerDepth": 1,
@@ -20,699 +20,6 @@
     "combatScalingUsesBossMinibossPartyMultipliers": true
   },
   "entries": [
-    {
-      "id": "torren-ashsplitter",
-      "name": "Torren Ashsplitter",
-      "baseClass": "Warrior",
-      "subclass": "Ruinhewer",
-      "focusStat": "STR",
-      "minDepth": 3,
-      "maxDepth": 18,
-      "description": "Splits fallen trunks with a blunted greatblade and calls restraint the first lesson.",
-      "soulfireCore": {
-        "id": "torren-ashsplitter-soulfirecore",
-        "name": "Ashsplitter SoulfireCore"
-      },
-      "combat": {
-        "level": 4,
-        "baseMaxHp": 38,
-        "stats": {
-          "STR": 11,
-          "DEX": 0,
-          "CON": 8,
-          "INT": 0,
-          "FTH": 0,
-          "CHA": 0,
-          "LCK": 6
-        },
-        "role": "Ruinhewer Trainer",
-        "basicAttack": {
-          "name": "Torren Basic Technique",
-          "base": 3,
-          "damageType": "Physical",
-          "scaling": {
-            "STR": 0.65
-          }
-        },
-        "abilities": [
-          {
-            "id": "torren-ashsplitter-lesson-one",
-            "name": "Ruinhewer Lesson: Opening",
-            "energyCost": 2,
-            "cooldown": 1,
-            "targetMode": "single-enemy",
-            "components": [
-              {
-                "type": "damage",
-                "base": 4,
-                "damageType": "Physical",
-                "scaling": {
-                  "STR": 0.65
-                }
-              }
-            ]
-          },
-          {
-            "id": "torren-ashsplitter-lesson-two",
-            "name": "Ruinhewer Lesson: Pressure",
-            "energyCost": 4,
-            "cooldown": 3,
-            "targetMode": "single-enemy",
-            "components": [
-              {
-                "type": "damage",
-                "base": 7,
-                "damageType": "Physical",
-                "scaling": {
-                  "STR": 0.85
-                }
-              }
-            ]
-          },
-          {
-            "id": "torren-ashsplitter-lesson-three",
-            "name": "Ruinhewer Lesson: Composure",
-            "energyCost": 3,
-            "cooldown": 4,
-            "targetMode": "self",
-            "components": [
-              {
-                "type": "shield",
-                "base": 6,
-                "scaling": {
-                  "CON": 0.45
-                }
-              }
-            ]
-          }
-        ],
-        "ai": {
-          "chargeBelowEnergy": 2,
-          "shieldThresholdPct": 70
-        },
-        "expReward": 90,
-        "onyxReward": 30
-      },
-      "soulfireItemIds": [
-        "eq-trainer-torren-ashsplitter-ashsplitter-training-cleaver",
-        "eq-trainer-torren-ashsplitter-split-ring-token",
-        "eq-trainer-torren-ashsplitter-ashsplitter-shouldercoat"
-      ]
-    },
-    {
-      "id": "maela-ironroot",
-      "name": "Maela Ironroot",
-      "baseClass": "Warrior",
-      "subclass": "SteelBearer",
-      "focusStat": "CON",
-      "minDepth": 8,
-      "maxDepth": 25,
-      "description": "Stands in a ring of hammered root-iron plates and teaches that taking ground is a decision.",
-      "soulfireCore": {
-        "id": "maela-ironroot-soulfirecore",
-        "name": "Ironroot SoulfireCore"
-      },
-      "combat": {
-        "level": 5,
-        "baseMaxHp": 44,
-        "stats": {
-          "STR": 8,
-          "DEX": 0,
-          "CON": 11,
-          "INT": 0,
-          "FTH": 0,
-          "CHA": 6,
-          "LCK": 0
-        },
-        "role": "SteelBearer Trainer",
-        "basicAttack": {
-          "name": "Maela Basic Technique",
-          "base": 4,
-          "damageType": "Physical",
-          "scaling": {
-            "CON": 0.65
-          }
-        },
-        "abilities": [
-          {
-            "id": "maela-ironroot-lesson-one",
-            "name": "SteelBearer Lesson: Opening",
-            "energyCost": 2,
-            "cooldown": 1,
-            "targetMode": "single-enemy",
-            "components": [
-              {
-                "type": "damage",
-                "base": 5,
-                "damageType": "Physical",
-                "scaling": {
-                  "CON": 0.65
-                }
-              }
-            ]
-          },
-          {
-            "id": "maela-ironroot-lesson-two",
-            "name": "SteelBearer Lesson: Pressure",
-            "energyCost": 4,
-            "cooldown": 3,
-            "targetMode": "single-enemy",
-            "components": [
-              {
-                "type": "damage",
-                "base": 8,
-                "damageType": "Physical",
-                "scaling": {
-                  "CON": 0.85
-                }
-              }
-            ]
-          },
-          {
-            "id": "maela-ironroot-lesson-three",
-            "name": "SteelBearer Lesson: Composure",
-            "energyCost": 3,
-            "cooldown": 4,
-            "targetMode": "self",
-            "components": [
-              {
-                "type": "shield",
-                "base": 7,
-                "scaling": {
-                  "STR": 0.45
-                }
-              }
-            ]
-          }
-        ],
-        "ai": {
-          "chargeBelowEnergy": 2,
-          "shieldThresholdPct": 70
-        },
-        "expReward": 120,
-        "onyxReward": 40
-      },
-      "soulfireItemIds": [
-        "eq-trainer-maela-ironroot-ironroot-bastion-blade",
-        "eq-trainer-maela-ironroot-ironroot-temper-vial",
-        "eq-trainer-maela-ironroot-root-iron-cuirass"
-      ]
-    },
-    {
-      "id": "sileth-shadeleaf",
-      "name": "Sileth Shadeleaf",
-      "baseClass": "Rogue",
-      "subclass": "Veil Blade",
-      "focusStat": "DEX",
-      "minDepth": 3,
-      "maxDepth": 20,
-      "description": "Appears only when the party notices the shadow that has been pacing them for an hour.",
-      "soulfireCore": {
-        "id": "sileth-shadeleaf-soulfirecore",
-        "name": "Shadeleaf SoulfireCore"
-      },
-      "combat": {
-        "level": 4,
-        "baseMaxHp": 34,
-        "stats": {
-          "STR": 0,
-          "DEX": 11,
-          "CON": 0,
-          "INT": 6,
-          "FTH": 0,
-          "CHA": 0,
-          "LCK": 8
-        },
-        "role": "Veil Blade Trainer",
-        "basicAttack": {
-          "name": "Sileth Basic Technique",
-          "base": 3,
-          "damageType": "Physical",
-          "scaling": {
-            "DEX": 0.65
-          }
-        },
-        "abilities": [
-          {
-            "id": "sileth-shadeleaf-lesson-one",
-            "name": "Veil Blade Lesson: Opening",
-            "energyCost": 2,
-            "cooldown": 1,
-            "targetMode": "single-enemy",
-            "components": [
-              {
-                "type": "damage",
-                "base": 4,
-                "damageType": "Physical",
-                "scaling": {
-                  "DEX": 0.65
-                }
-              }
-            ]
-          },
-          {
-            "id": "sileth-shadeleaf-lesson-two",
-            "name": "Veil Blade Lesson: Pressure",
-            "energyCost": 4,
-            "cooldown": 3,
-            "targetMode": "single-enemy",
-            "components": [
-              {
-                "type": "damage",
-                "base": 7,
-                "damageType": "Physical",
-                "scaling": {
-                  "DEX": 0.85
-                }
-              }
-            ]
-          },
-          {
-            "id": "sileth-shadeleaf-lesson-three",
-            "name": "Veil Blade Lesson: Composure",
-            "energyCost": 3,
-            "cooldown": 4,
-            "targetMode": "self",
-            "components": [
-              {
-                "type": "shield",
-                "base": 6,
-                "scaling": {
-                  "LCK": 0.45
-                }
-              }
-            ]
-          }
-        ],
-        "ai": {
-          "chargeBelowEnergy": 2,
-          "shieldThresholdPct": 70
-        },
-        "expReward": 90,
-        "onyxReward": 30
-      },
-      "soulfireItemIds": [
-        "eq-trainer-sileth-shadeleaf-shadeleaf-knife",
-        "eq-trainer-sileth-shadeleaf-second-shadow-knife",
-        "eq-trainer-sileth-shadeleaf-unseen-step-token"
-      ]
-    },
-    {
-      "id": "corven-reedblade",
-      "name": "Corven Reedblade",
-      "baseClass": "Rogue",
-      "subclass": "Duelist",
-      "focusStat": "DEX",
-      "minDepth": 8,
-      "maxDepth": 25,
-      "description": "Balances on a wet branch with a practice blade and a patient, insulting smile.",
-      "soulfireCore": {
-        "id": "corven-reedblade-soulfirecore",
-        "name": "Reedblade SoulfireCore"
-      },
-      "combat": {
-        "level": 5,
-        "baseMaxHp": 40,
-        "stats": {
-          "STR": 8,
-          "DEX": 11,
-          "CON": 0,
-          "INT": 0,
-          "FTH": 0,
-          "CHA": 6,
-          "LCK": 0
-        },
-        "role": "Duelist Trainer",
-        "basicAttack": {
-          "name": "Corven Basic Technique",
-          "base": 4,
-          "damageType": "Physical",
-          "scaling": {
-            "DEX": 0.65
-          }
-        },
-        "abilities": [
-          {
-            "id": "corven-reedblade-lesson-one",
-            "name": "Duelist Lesson: Opening",
-            "energyCost": 2,
-            "cooldown": 1,
-            "targetMode": "single-enemy",
-            "components": [
-              {
-                "type": "damage",
-                "base": 5,
-                "damageType": "Physical",
-                "scaling": {
-                  "DEX": 0.65
-                }
-              }
-            ]
-          },
-          {
-            "id": "corven-reedblade-lesson-two",
-            "name": "Duelist Lesson: Pressure",
-            "energyCost": 4,
-            "cooldown": 3,
-            "targetMode": "single-enemy",
-            "components": [
-              {
-                "type": "damage",
-                "base": 8,
-                "damageType": "Physical",
-                "scaling": {
-                  "DEX": 0.85
-                }
-              }
-            ]
-          },
-          {
-            "id": "corven-reedblade-lesson-three",
-            "name": "Duelist Lesson: Composure",
-            "energyCost": 3,
-            "cooldown": 4,
-            "targetMode": "self",
-            "components": [
-              {
-                "type": "shield",
-                "base": 7,
-                "scaling": {
-                  "STR": 0.45
-                }
-              }
-            ]
-          }
-        ],
-        "ai": {
-          "chargeBelowEnergy": 2,
-          "shieldThresholdPct": 70
-        },
-        "expReward": 120,
-        "onyxReward": 40
-      },
-      "soulfireItemIds": [
-        "eq-trainer-corven-reedblade-reedblade-foil",
-        "eq-trainer-corven-reedblade-perfect-measure-vial",
-        "eq-trainer-corven-reedblade-last-word-coin"
-      ]
-    },
-    {
-      "id": "juno-stonepulse",
-      "name": "Juno Stonepulse",
-      "baseClass": "Brawler",
-      "subclass": "AdaptedFist",
-      "focusStat": "STR",
-      "minDepth": 3,
-      "maxDepth": 22,
-      "description": "Studies footwork, bruises, and breath before deciding which lesson the body needs.",
-      "soulfireCore": {
-        "id": "juno-stonepulse-soulfirecore",
-        "name": "Stonepulse SoulfireCore"
-      },
-      "combat": {
-        "level": 4,
-        "baseMaxHp": 38,
-        "stats": {
-          "STR": 11,
-          "DEX": 8,
-          "CON": 6,
-          "INT": 0,
-          "FTH": 0,
-          "CHA": 0,
-          "LCK": 0
-        },
-        "role": "AdaptedFist Trainer",
-        "basicAttack": {
-          "name": "Juno Basic Technique",
-          "base": 3,
-          "damageType": "Physical",
-          "scaling": {
-            "STR": 0.65
-          }
-        },
-        "abilities": [
-          {
-            "id": "juno-stonepulse-lesson-one",
-            "name": "AdaptedFist Lesson: Opening",
-            "energyCost": 2,
-            "cooldown": 1,
-            "targetMode": "single-enemy",
-            "components": [
-              {
-                "type": "damage",
-                "base": 4,
-                "damageType": "Physical",
-                "scaling": {
-                  "STR": 0.65
-                }
-              }
-            ]
-          },
-          {
-            "id": "juno-stonepulse-lesson-two",
-            "name": "AdaptedFist Lesson: Pressure",
-            "energyCost": 4,
-            "cooldown": 3,
-            "targetMode": "single-enemy",
-            "components": [
-              {
-                "type": "damage",
-                "base": 7,
-                "damageType": "Physical",
-                "scaling": {
-                  "STR": 0.85
-                }
-              }
-            ]
-          },
-          {
-            "id": "juno-stonepulse-lesson-three",
-            "name": "AdaptedFist Lesson: Composure",
-            "energyCost": 3,
-            "cooldown": 4,
-            "targetMode": "self",
-            "components": [
-              {
-                "type": "shield",
-                "base": 6,
-                "scaling": {
-                  "DEX": 0.45
-                }
-              }
-            ]
-          }
-        ],
-        "ai": {
-          "chargeBelowEnergy": 2,
-          "shieldThresholdPct": 70
-        },
-        "expReward": 90,
-        "onyxReward": 30
-      },
-      "soulfireItemIds": [
-        "eq-trainer-juno-stonepulse-stonepulse-wraps",
-        "eq-trainer-juno-stonepulse-bruise-reader-bead",
-        "eq-trainer-juno-stonepulse-adaptive-sparring-vest"
-      ]
-    },
-    {
-      "id": "ysra-knotwise",
-      "name": "Ysra Knotwise",
-      "baseClass": "Mage",
-      "subclass": "Sealweaver",
-      "focusStat": "INT",
-      "minDepth": 6,
-      "maxDepth": 24,
-      "description": "Pins glowing paper seals to bark without piercing it, as if the tree volunteered.",
-      "soulfireCore": {
-        "id": "ysra-knotwise-soulfirecore",
-        "name": "Knotwise SoulfireCore"
-      },
-      "combat": {
-        "level": 4,
-        "baseMaxHp": 34,
-        "stats": {
-          "STR": 0,
-          "DEX": 0,
-          "CON": 0,
-          "INT": 11,
-          "FTH": 8,
-          "CHA": 6,
-          "LCK": 0
-        },
-        "role": "Sealweaver Trainer",
-        "basicAttack": {
-          "name": "Ysra Basic Technique",
-          "base": 3,
-          "damageType": "Force",
-          "scaling": {
-            "INT": 0.65
-          }
-        },
-        "abilities": [
-          {
-            "id": "ysra-knotwise-lesson-one",
-            "name": "Sealweaver Lesson: Opening",
-            "energyCost": 2,
-            "cooldown": 1,
-            "targetMode": "single-enemy",
-            "components": [
-              {
-                "type": "damage",
-                "base": 4,
-                "damageType": "Force",
-                "scaling": {
-                  "INT": 0.65
-                }
-              }
-            ]
-          },
-          {
-            "id": "ysra-knotwise-lesson-two",
-            "name": "Sealweaver Lesson: Pressure",
-            "energyCost": 4,
-            "cooldown": 3,
-            "targetMode": "single-enemy",
-            "components": [
-              {
-                "type": "damage",
-                "base": 7,
-                "damageType": "Force",
-                "scaling": {
-                  "INT": 0.85
-                }
-              }
-            ]
-          },
-          {
-            "id": "ysra-knotwise-lesson-three",
-            "name": "Sealweaver Lesson: Composure",
-            "energyCost": 3,
-            "cooldown": 4,
-            "targetMode": "self",
-            "components": [
-              {
-                "type": "shield",
-                "base": 6,
-                "scaling": {
-                  "FTH": 0.45
-                }
-              }
-            ]
-          }
-        ],
-        "ai": {
-          "chargeBelowEnergy": 2,
-          "shieldThresholdPct": 70
-        },
-        "expReward": 90,
-        "onyxReward": 30
-      },
-      "soulfireItemIds": [
-        "eq-trainer-ysra-knotwise-knotwise-seal-rod",
-        "eq-trainer-ysra-knotwise-folded-ward-scripture",
-        "eq-trainer-ysra-knotwise-inkbreath-vial"
-      ]
-    },
-    {
-      "id": "pellin-manysigns",
-      "name": "Pellin Manysigns",
-      "baseClass": "Mage",
-      "subclass": "Glyphmorpher",
-      "focusStat": "INT",
-      "minDepth": 16,
-      "maxDepth": 29,
-      "description": "Carries a slate covered in symbols that keep changing positions when nobody is looking.",
-      "soulfireCore": {
-        "id": "pellin-manysigns-soulfirecore",
-        "name": "Manysigns SoulfireCore"
-      },
-      "combat": {
-        "level": 6,
-        "baseMaxHp": 46,
-        "stats": {
-          "STR": 0,
-          "DEX": 8,
-          "CON": 0,
-          "INT": 11,
-          "FTH": 0,
-          "CHA": 6,
-          "LCK": 0
-        },
-        "role": "Glyphmorpher Trainer",
-        "basicAttack": {
-          "name": "Pellin Basic Technique",
-          "base": 5,
-          "damageType": "Force",
-          "scaling": {
-            "INT": 0.65
-          }
-        },
-        "abilities": [
-          {
-            "id": "pellin-manysigns-lesson-one",
-            "name": "Glyphmorpher Lesson: Opening",
-            "energyCost": 2,
-            "cooldown": 1,
-            "targetMode": "single-enemy",
-            "components": [
-              {
-                "type": "damage",
-                "base": 6,
-                "damageType": "Force",
-                "scaling": {
-                  "INT": 0.65
-                }
-              }
-            ]
-          },
-          {
-            "id": "pellin-manysigns-lesson-two",
-            "name": "Glyphmorpher Lesson: Pressure",
-            "energyCost": 4,
-            "cooldown": 3,
-            "targetMode": "single-enemy",
-            "components": [
-              {
-                "type": "damage",
-                "base": 10,
-                "damageType": "Force",
-                "scaling": {
-                  "INT": 0.85
-                }
-              }
-            ]
-          },
-          {
-            "id": "pellin-manysigns-lesson-three",
-            "name": "Glyphmorpher Lesson: Composure",
-            "energyCost": 3,
-            "cooldown": 4,
-            "targetMode": "self",
-            "components": [
-              {
-                "type": "shield",
-                "base": 9,
-                "scaling": {
-                  "DEX": 0.45
-                }
-              }
-            ]
-          }
-        ],
-        "ai": {
-          "chargeBelowEnergy": 2,
-          "shieldThresholdPct": 70
-        },
-        "expReward": 150,
-        "onyxReward": 50
-      },
-      "soulfireItemIds": [
-        "eq-trainer-pellin-manysigns-manysign-slate-wand",
-        "eq-trainer-pellin-manysigns-rotating-glyph-sheet",
-        "eq-trainer-pellin-manysigns-third-meaning-script"
-      ]
-    },
     {
       "id": "avel-mosslight",
       "name": "Avel Mosslight",
@@ -912,33 +219,132 @@
       ]
     },
     {
-      "id": "oryn-pathshield",
-      "name": "Oryn Pathshield",
-      "baseClass": "Ranger",
-      "subclass": "Trailguard",
-      "focusStat": "CON",
-      "minDepth": 8,
-      "maxDepth": 26,
-      "description": "Marks safe passage with small shield-shaped cuts that disappear once the party passes.",
+      "id": "caldus-firstlight",
+      "name": "Ser Caldus Firstlight",
+      "baseClass": "Paladin",
+      "subclass": "Dawnwarden",
+      "focusStat": "FTH",
+      "minDepth": 3,
+      "maxDepth": 23,
+      "description": "Keeps a dawn-colored lantern lit even beneath the thickest canopy.",
       "soulfireCore": {
-        "id": "oryn-pathshield-soulfirecore",
-        "name": "Pathshield SoulfireCore"
+        "id": "caldus-firstlight-soulfirecore",
+        "name": "Firstlight SoulfireCore"
+      },
+      "combat": {
+        "level": 4,
+        "baseMaxHp": 38,
+        "stats": {
+          "STR": 0,
+          "DEX": 0,
+          "CON": 11,
+          "INT": 0,
+          "FTH": 8,
+          "CHA": 6,
+          "LCK": 0
+        },
+        "role": "Dawnwarden Trainer",
+        "basicAttack": {
+          "name": "Ser Basic Technique",
+          "base": 3,
+          "damageType": "Physical",
+          "scaling": {
+            "CON": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "caldus-firstlight-lesson-one",
+            "name": "Dawnwarden Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 4,
+                "damageType": "Physical",
+                "scaling": {
+                  "CON": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "caldus-firstlight-lesson-two",
+            "name": "Dawnwarden Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 7,
+                "damageType": "Physical",
+                "scaling": {
+                  "CON": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "caldus-firstlight-lesson-three",
+            "name": "Dawnwarden Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 6,
+                "scaling": {
+                  "FTH": 0.45
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 2,
+          "shieldThresholdPct": 70
+        },
+        "expReward": 90,
+        "onyxReward": 30
+      },
+      "soulfireItemIds": [
+        "eq-trainer-caldus-firstlight-firstlight-sword",
+        "eq-trainer-caldus-firstlight-lanternward-plate",
+        "eq-trainer-caldus-firstlight-daybreak-vial"
+      ]
+    },
+    {
+      "id": "corven-reedblade",
+      "name": "Corven Reedblade",
+      "baseClass": "Rogue",
+      "subclass": "Duelist",
+      "focusStat": "DEX",
+      "minDepth": 8,
+      "maxDepth": 25,
+      "description": "Balances on a wet branch with a practice blade and a patient, insulting smile.",
+      "soulfireCore": {
+        "id": "corven-reedblade-soulfirecore",
+        "name": "Reedblade SoulfireCore"
       },
       "combat": {
         "level": 5,
         "baseMaxHp": 40,
         "stats": {
-          "STR": 0,
+          "STR": 8,
           "DEX": 11,
-          "CON": 8,
+          "CON": 0,
           "INT": 0,
           "FTH": 0,
           "CHA": 6,
           "LCK": 0
         },
-        "role": "Trailguard Trainer",
+        "role": "Duelist Trainer",
         "basicAttack": {
-          "name": "Oryn Basic Technique",
+          "name": "Corven Basic Technique",
           "base": 4,
           "damageType": "Physical",
           "scaling": {
@@ -947,8 +353,8 @@
         },
         "abilities": [
           {
-            "id": "oryn-pathshield-lesson-one",
-            "name": "Trailguard Lesson: Opening",
+            "id": "corven-reedblade-lesson-one",
+            "name": "Duelist Lesson: Opening",
             "energyCost": 2,
             "cooldown": 1,
             "targetMode": "single-enemy",
@@ -964,8 +370,8 @@
             ]
           },
           {
-            "id": "oryn-pathshield-lesson-two",
-            "name": "Trailguard Lesson: Pressure",
+            "id": "corven-reedblade-lesson-two",
+            "name": "Duelist Lesson: Pressure",
             "energyCost": 4,
             "cooldown": 3,
             "targetMode": "single-enemy",
@@ -981,8 +387,306 @@
             ]
           },
           {
-            "id": "oryn-pathshield-lesson-three",
-            "name": "Trailguard Lesson: Composure",
+            "id": "corven-reedblade-lesson-three",
+            "name": "Duelist Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 7,
+                "scaling": {
+                  "STR": 0.45
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 2,
+          "shieldThresholdPct": 70
+        },
+        "expReward": 120,
+        "onyxReward": 40
+      },
+      "soulfireItemIds": [
+        "eq-trainer-corven-reedblade-reedblade-foil",
+        "eq-trainer-corven-reedblade-perfect-measure-vial",
+        "eq-trainer-corven-reedblade-last-word-coin"
+      ]
+    },
+    {
+      "id": "embsy",
+      "name": "Embsy",
+      "race": "Goblin",
+      "baseClass": "Sorcerer",
+      "subclass": "Fontborn",
+      "focusStat": "INT",
+      "minDepth": 3,
+      "maxDepth": 23,
+      "description": "A quick-smiling goblin prodigy whose living fountain sigils spill faster than most mages can finish explaining them.",
+      "soulfireCore": {
+        "id": "embsy-soulfirecore",
+        "name": "Embsy SoulfireCore"
+      },
+      "combat": {
+        "level": 4,
+        "baseMaxHp": 36,
+        "stats": {
+          "STR": 0,
+          "DEX": 0,
+          "CON": 6,
+          "INT": 11,
+          "FTH": 0,
+          "CHA": 6,
+          "LCK": 5
+        },
+        "role": "Fontborn Trainer",
+        "basicAttack": {
+          "name": "Embsy Basic Technique",
+          "base": 3,
+          "damageType": "Force",
+          "scaling": {
+            "INT": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "embsy-lesson-one",
+            "name": "Fontborn Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 4,
+                "damageType": "Force",
+                "scaling": {
+                  "INT": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "embsy-lesson-two",
+            "name": "Fontborn Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 7,
+                "damageType": "Force",
+                "scaling": {
+                  "INT": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "embsy-lesson-three",
+            "name": "Fontborn Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 6,
+                "scaling": {
+                  "CHA": 0.45
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 2,
+          "shieldThresholdPct": 70
+        },
+        "expReward": 90,
+        "onyxReward": 30
+      },
+      "soulfireItemIds": [
+        "eq-trainer-embsy-fountain-rod",
+        "eq-trainer-embsy-runnel-sigil",
+        "eq-trainer-embsy-splashweave-sash"
+      ]
+    },
+    {
+      "id": "gritto-ironknuckle",
+      "name": "Gritto Ironknuckle",
+      "baseClass": "Brawler",
+      "subclass": "Bloodknuckle",
+      "focusStat": "STR",
+      "minDepth": 10,
+      "maxDepth": 29,
+      "description": "A scarred pit-fighter who teaches that pain is only useful when you can spend it faster than your enemy can.",
+      "soulfireCore": {
+        "id": "gritto-ironknuckle-soulfirecore",
+        "name": "Ironknuckle SoulfireCore"
+      },
+      "combat": {
+        "level": 5,
+        "baseMaxHp": 46,
+        "stats": {
+          "STR": 11,
+          "DEX": 0,
+          "CON": 8,
+          "INT": 0,
+          "FTH": 0,
+          "CHA": 0,
+          "LCK": 6
+        },
+        "role": "Bloodknuckle Trainer",
+        "basicAttack": {
+          "name": "Gritto Basic Technique",
+          "base": 4,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "gritto-ironknuckle-lesson-one",
+            "name": "Bloodknuckle Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 5,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "gritto-ironknuckle-lesson-two",
+            "name": "Bloodknuckle Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "gritto-ironknuckle-lesson-three",
+            "name": "Bloodknuckle Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 7,
+                "scaling": {
+                  "CON": 0.45
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 2,
+          "shieldThresholdPct": 65
+        },
+        "expReward": 120,
+        "onyxReward": 40
+      },
+      "soulfireItemIds": [
+        "eq-trainer-gritto-ironknuckle-redline-wraps",
+        "eq-trainer-gritto-ironknuckle-bloodcrowd-token",
+        "eq-trainer-gritto-ironknuckle-ironknuckle-harness"
+      ]
+    },
+    {
+      "id": "ilyne-seedcrown",
+      "name": "Ilyne Seedcrown",
+      "baseClass": "Druid",
+      "subclass": "Seedmarshal",
+      "focusStat": "FTH",
+      "minDepth": 8,
+      "maxDepth": 29,
+      "description": "Carries a crown of seedpods and knows which ones will sprout before they touch soil.",
+      "soulfireCore": {
+        "id": "ilyne-seedcrown-soulfirecore",
+        "name": "Seedcrown SoulfireCore"
+      },
+      "combat": {
+        "level": 5,
+        "baseMaxHp": 44,
+        "stats": {
+          "STR": 0,
+          "DEX": 0,
+          "CON": 8,
+          "INT": 6,
+          "FTH": 11,
+          "CHA": 5,
+          "LCK": 0
+        },
+        "role": "Seedmarshal Trainer",
+        "basicAttack": {
+          "name": "Ilyne Basic Technique",
+          "base": 4,
+          "damageType": "Force",
+          "scaling": {
+            "FTH": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "ilyne-seedcrown-lesson-one",
+            "name": "Seedmarshal Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 5,
+                "damageType": "Force",
+                "scaling": {
+                  "FTH": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "ilyne-seedcrown-lesson-two",
+            "name": "Seedmarshal Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Force",
+                "scaling": {
+                  "FTH": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "ilyne-seedcrown-lesson-three",
+            "name": "Seedmarshal Lesson: Composure",
             "energyCost": 3,
             "cooldown": 4,
             "targetMode": "self",
@@ -1005,9 +709,207 @@
         "onyxReward": 40
       },
       "soulfireItemIds": [
-        "eq-trainer-oryn-pathshield-pathshield-spear",
-        "eq-trainer-oryn-pathshield-trailward-coat",
-        "eq-trainer-oryn-pathshield-safe-route-marker"
+        "eq-trainer-ilyne-seedcrown-seedcrown-staff",
+        "eq-trainer-ilyne-seedcrown-germination-ledger",
+        "eq-trainer-ilyne-seedcrown-first-sprout-locket"
+      ]
+    },
+    {
+      "id": "juno-stonepulse",
+      "name": "Juno Stonepulse",
+      "baseClass": "Brawler",
+      "subclass": "AdaptedFist",
+      "focusStat": "STR",
+      "minDepth": 3,
+      "maxDepth": 22,
+      "description": "Studies footwork, bruises, and breath before deciding which lesson the body needs.",
+      "soulfireCore": {
+        "id": "juno-stonepulse-soulfirecore",
+        "name": "Stonepulse SoulfireCore"
+      },
+      "combat": {
+        "level": 4,
+        "baseMaxHp": 38,
+        "stats": {
+          "STR": 11,
+          "DEX": 8,
+          "CON": 6,
+          "INT": 0,
+          "FTH": 0,
+          "CHA": 0,
+          "LCK": 0
+        },
+        "role": "AdaptedFist Trainer",
+        "basicAttack": {
+          "name": "Juno Basic Technique",
+          "base": 3,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "juno-stonepulse-lesson-one",
+            "name": "AdaptedFist Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 4,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "juno-stonepulse-lesson-two",
+            "name": "AdaptedFist Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 7,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "juno-stonepulse-lesson-three",
+            "name": "AdaptedFist Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 6,
+                "scaling": {
+                  "DEX": 0.45
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 2,
+          "shieldThresholdPct": 70
+        },
+        "expReward": 90,
+        "onyxReward": 30
+      },
+      "soulfireItemIds": [
+        "eq-trainer-juno-stonepulse-stonepulse-wraps",
+        "eq-trainer-juno-stonepulse-bruise-reader-bead",
+        "eq-trainer-juno-stonepulse-adaptive-sparring-vest"
+      ]
+    },
+    {
+      "id": "lyricus-vaeldorn",
+      "name": "Lyricus Vaeldorn",
+      "baseClass": "Bard",
+      "subclass": "Dreadcantor",
+      "focusStat": "CHA",
+      "minDepth": 10,
+      "maxDepth": 29,
+      "description": "His blackwood lute sounds like a warning before it sounds like a song, and his lessons always end with a promise someone regrets.",
+      "soulfireCore": {
+        "id": "lyricus-vaeldorn-soulfirecore",
+        "name": "Vaeldorn SoulfireCore"
+      },
+      "combat": {
+        "level": 5,
+        "baseMaxHp": 42,
+        "stats": {
+          "STR": 0,
+          "DEX": 0,
+          "CON": 8,
+          "INT": 0,
+          "FTH": 0,
+          "CHA": 11,
+          "LCK": 6
+        },
+        "role": "Dreadcantor Trainer",
+        "basicAttack": {
+          "name": "Lyricus Basic Technique",
+          "base": 4,
+          "damageType": "Dark",
+          "scaling": {
+            "CHA": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "lyricus-vaeldorn-lesson-one",
+            "name": "Dreadcantor Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 5,
+                "damageType": "Dark",
+                "scaling": {
+                  "CHA": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "lyricus-vaeldorn-lesson-two",
+            "name": "Dreadcantor Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Dark",
+                "scaling": {
+                  "CHA": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "lyricus-vaeldorn-lesson-three",
+            "name": "Dreadcantor Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 7,
+                "scaling": {
+                  "FTH": 0.45
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 2,
+          "shieldThresholdPct": 68
+        },
+        "expReward": 120,
+        "onyxReward": 40
+      },
+      "soulfireItemIds": [
+        "eq-trainer-lyricus-vaeldorn-blackwood-lute",
+        "eq-trainer-lyricus-vaeldorn-funeral-refrain",
+        "eq-trainer-lyricus-vaeldorn-griefcloak"
       ]
     },
     {
@@ -1110,43 +1012,43 @@
       ]
     },
     {
-      "id": "nemea-wildspark",
-      "name": "Nemea Wildspark",
-      "baseClass": "Sorcerer",
-      "subclass": "Fluxwrought",
-      "focusStat": "CHA",
+      "id": "maela-ironroot",
+      "name": "Maela Ironroot",
+      "baseClass": "Warrior",
+      "subclass": "SteelBearer",
+      "focusStat": "CON",
       "minDepth": 8,
-      "maxDepth": 27,
-      "description": "Lets unstable magic choose the first move, then argues with it until it chooses better.",
+      "maxDepth": 25,
+      "description": "Stands in a ring of hammered root-iron plates and teaches that taking ground is a decision.",
       "soulfireCore": {
-        "id": "nemea-wildspark-soulfirecore",
-        "name": "Wildspark SoulfireCore"
+        "id": "maela-ironroot-soulfirecore",
+        "name": "Ironroot SoulfireCore"
       },
       "combat": {
         "level": 5,
-        "baseMaxHp": 40,
+        "baseMaxHp": 44,
         "stats": {
-          "STR": 0,
+          "STR": 8,
           "DEX": 0,
-          "CON": 0,
-          "INT": 6,
+          "CON": 11,
+          "INT": 0,
           "FTH": 0,
-          "CHA": 11,
-          "LCK": 8
+          "CHA": 6,
+          "LCK": 0
         },
-        "role": "Fluxwrought Trainer",
+        "role": "SteelBearer Trainer",
         "basicAttack": {
-          "name": "Nemea Basic Technique",
+          "name": "Maela Basic Technique",
           "base": 4,
-          "damageType": "Force",
+          "damageType": "Physical",
           "scaling": {
-            "CHA": 0.65
+            "CON": 0.65
           }
         },
         "abilities": [
           {
-            "id": "nemea-wildspark-lesson-one",
-            "name": "Fluxwrought Lesson: Opening",
+            "id": "maela-ironroot-lesson-one",
+            "name": "SteelBearer Lesson: Opening",
             "energyCost": 2,
             "cooldown": 1,
             "targetMode": "single-enemy",
@@ -1154,16 +1056,16 @@
               {
                 "type": "damage",
                 "base": 5,
-                "damageType": "Force",
+                "damageType": "Physical",
                 "scaling": {
-                  "CHA": 0.65
+                  "CON": 0.65
                 }
               }
             ]
           },
           {
-            "id": "nemea-wildspark-lesson-two",
-            "name": "Fluxwrought Lesson: Pressure",
+            "id": "maela-ironroot-lesson-two",
+            "name": "SteelBearer Lesson: Pressure",
             "energyCost": 4,
             "cooldown": 3,
             "targetMode": "single-enemy",
@@ -1171,16 +1073,16 @@
               {
                 "type": "damage",
                 "base": 8,
-                "damageType": "Force",
+                "damageType": "Physical",
                 "scaling": {
-                  "CHA": 0.85
+                  "CON": 0.85
                 }
               }
             ]
           },
           {
-            "id": "nemea-wildspark-lesson-three",
-            "name": "Fluxwrought Lesson: Composure",
+            "id": "maela-ironroot-lesson-three",
+            "name": "SteelBearer Lesson: Composure",
             "energyCost": 3,
             "cooldown": 4,
             "targetMode": "self",
@@ -1189,7 +1091,7 @@
                 "type": "shield",
                 "base": 7,
                 "scaling": {
-                  "LCK": 0.45
+                  "STR": 0.45
                 }
               }
             ]
@@ -1203,207 +1105,9 @@
         "onyxReward": 40
       },
       "soulfireItemIds": [
-        "eq-trainer-nemea-wildspark-wildspark-rod",
-        "eq-trainer-nemea-wildspark-unfixed-formula",
-        "eq-trainer-nemea-wildspark-fluxglass-vial"
-      ]
-    },
-    {
-      "id": "varrik-hollowroot",
-      "name": "Varrik Hollowroot",
-      "baseClass": "Warlock",
-      "subclass": "Belowcaller",
-      "focusStat": "FTH",
-      "minDepth": 16,
-      "maxDepth": 29,
-      "description": "Listens at hollow trunks for voices that answer from somewhere much deeper than soil.",
-      "soulfireCore": {
-        "id": "varrik-hollowroot-soulfirecore",
-        "name": "Hollowroot SoulfireCore"
-      },
-      "combat": {
-        "level": 6,
-        "baseMaxHp": 46,
-        "stats": {
-          "STR": 0,
-          "DEX": 0,
-          "CON": 0,
-          "INT": 0,
-          "FTH": 8,
-          "CHA": 11,
-          "LCK": 6
-        },
-        "role": "Belowcaller Trainer",
-        "basicAttack": {
-          "name": "Varrik Basic Technique",
-          "base": 5,
-          "damageType": "Force",
-          "scaling": {
-            "CHA": 0.65
-          }
-        },
-        "abilities": [
-          {
-            "id": "varrik-hollowroot-lesson-one",
-            "name": "Belowcaller Lesson: Opening",
-            "energyCost": 2,
-            "cooldown": 1,
-            "targetMode": "single-enemy",
-            "components": [
-              {
-                "type": "damage",
-                "base": 6,
-                "damageType": "Force",
-                "scaling": {
-                  "CHA": 0.65
-                }
-              }
-            ]
-          },
-          {
-            "id": "varrik-hollowroot-lesson-two",
-            "name": "Belowcaller Lesson: Pressure",
-            "energyCost": 4,
-            "cooldown": 3,
-            "targetMode": "single-enemy",
-            "components": [
-              {
-                "type": "damage",
-                "base": 10,
-                "damageType": "Force",
-                "scaling": {
-                  "CHA": 0.85
-                }
-              }
-            ]
-          },
-          {
-            "id": "varrik-hollowroot-lesson-three",
-            "name": "Belowcaller Lesson: Composure",
-            "energyCost": 3,
-            "cooldown": 4,
-            "targetMode": "self",
-            "components": [
-              {
-                "type": "shield",
-                "base": 9,
-                "scaling": {
-                  "FTH": 0.45
-                }
-              }
-            ]
-          }
-        ],
-        "ai": {
-          "chargeBelowEnergy": 2,
-          "shieldThresholdPct": 70
-        },
-        "expReward": 150,
-        "onyxReward": 50
-      },
-      "soulfireItemIds": [
-        "eq-trainer-varrik-hollowroot-hollowroot-staff",
-        "eq-trainer-varrik-hollowroot-listening-knot",
-        "eq-trainer-varrik-hollowroot-underbark-litany"
-      ]
-    },
-    {
-      "id": "caldus-firstlight",
-      "name": "Ser Caldus Firstlight",
-      "baseClass": "Paladin",
-      "subclass": "Dawnwarden",
-      "focusStat": "FTH",
-      "minDepth": 3,
-      "maxDepth": 23,
-      "description": "Keeps a dawn-colored lantern lit even beneath the thickest canopy.",
-      "soulfireCore": {
-        "id": "caldus-firstlight-soulfirecore",
-        "name": "Firstlight SoulfireCore"
-      },
-      "combat": {
-        "level": 4,
-        "baseMaxHp": 38,
-        "stats": {
-          "STR": 0,
-          "DEX": 0,
-          "CON": 11,
-          "INT": 0,
-          "FTH": 8,
-          "CHA": 6,
-          "LCK": 0
-        },
-        "role": "Dawnwarden Trainer",
-        "basicAttack": {
-          "name": "Ser Basic Technique",
-          "base": 3,
-          "damageType": "Physical",
-          "scaling": {
-            "CON": 0.65
-          }
-        },
-        "abilities": [
-          {
-            "id": "caldus-firstlight-lesson-one",
-            "name": "Dawnwarden Lesson: Opening",
-            "energyCost": 2,
-            "cooldown": 1,
-            "targetMode": "single-enemy",
-            "components": [
-              {
-                "type": "damage",
-                "base": 4,
-                "damageType": "Physical",
-                "scaling": {
-                  "CON": 0.65
-                }
-              }
-            ]
-          },
-          {
-            "id": "caldus-firstlight-lesson-two",
-            "name": "Dawnwarden Lesson: Pressure",
-            "energyCost": 4,
-            "cooldown": 3,
-            "targetMode": "single-enemy",
-            "components": [
-              {
-                "type": "damage",
-                "base": 7,
-                "damageType": "Physical",
-                "scaling": {
-                  "CON": 0.85
-                }
-              }
-            ]
-          },
-          {
-            "id": "caldus-firstlight-lesson-three",
-            "name": "Dawnwarden Lesson: Composure",
-            "energyCost": 3,
-            "cooldown": 4,
-            "targetMode": "self",
-            "components": [
-              {
-                "type": "shield",
-                "base": 6,
-                "scaling": {
-                  "FTH": 0.45
-                }
-              }
-            ]
-          }
-        ],
-        "ai": {
-          "chargeBelowEnergy": 2,
-          "shieldThresholdPct": 70
-        },
-        "expReward": 90,
-        "onyxReward": 30
-      },
-      "soulfireItemIds": [
-        "eq-trainer-caldus-firstlight-firstlight-sword",
-        "eq-trainer-caldus-firstlight-lanternward-plate",
-        "eq-trainer-caldus-firstlight-daybreak-vial"
+        "eq-trainer-maela-ironroot-ironroot-bastion-blade",
+        "eq-trainer-maela-ironroot-ironroot-temper-vial",
+        "eq-trainer-maela-ironroot-root-iron-cuirass"
       ]
     },
     {
@@ -1506,6 +1210,105 @@
       ]
     },
     {
+      "id": "nemea-wildspark",
+      "name": "Nemea Wildspark",
+      "baseClass": "Sorcerer",
+      "subclass": "Fluxwrought",
+      "focusStat": "CHA",
+      "minDepth": 8,
+      "maxDepth": 27,
+      "description": "Lets unstable magic choose the first move, then argues with it until it chooses better.",
+      "soulfireCore": {
+        "id": "nemea-wildspark-soulfirecore",
+        "name": "Wildspark SoulfireCore"
+      },
+      "combat": {
+        "level": 5,
+        "baseMaxHp": 40,
+        "stats": {
+          "STR": 0,
+          "DEX": 0,
+          "CON": 0,
+          "INT": 6,
+          "FTH": 0,
+          "CHA": 11,
+          "LCK": 8
+        },
+        "role": "Fluxwrought Trainer",
+        "basicAttack": {
+          "name": "Nemea Basic Technique",
+          "base": 4,
+          "damageType": "Force",
+          "scaling": {
+            "CHA": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "nemea-wildspark-lesson-one",
+            "name": "Fluxwrought Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 5,
+                "damageType": "Force",
+                "scaling": {
+                  "CHA": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "nemea-wildspark-lesson-two",
+            "name": "Fluxwrought Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Force",
+                "scaling": {
+                  "CHA": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "nemea-wildspark-lesson-three",
+            "name": "Fluxwrought Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 7,
+                "scaling": {
+                  "LCK": 0.45
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 2,
+          "shieldThresholdPct": 70
+        },
+        "expReward": 120,
+        "onyxReward": 40
+      },
+      "soulfireItemIds": [
+        "eq-trainer-nemea-wildspark-wildspark-rod",
+        "eq-trainer-nemea-wildspark-unfixed-formula",
+        "eq-trainer-nemea-wildspark-fluxglass-vial"
+      ]
+    },
+    {
       "id": "odo-broadbark",
       "name": "Odo Broadbark",
       "baseClass": "Druid",
@@ -1605,43 +1408,43 @@
       ]
     },
     {
-      "id": "ilyne-seedcrown",
-      "name": "Ilyne Seedcrown",
-      "baseClass": "Druid",
-      "subclass": "Seedmarshal",
-      "focusStat": "FTH",
+      "id": "oryn-pathshield",
+      "name": "Oryn Pathshield",
+      "baseClass": "Ranger",
+      "subclass": "Trailguard",
+      "focusStat": "CON",
       "minDepth": 8,
-      "maxDepth": 29,
-      "description": "Carries a crown of seedpods and knows which ones will sprout before they touch soil.",
+      "maxDepth": 26,
+      "description": "Marks safe passage with small shield-shaped cuts that disappear once the party passes.",
       "soulfireCore": {
-        "id": "ilyne-seedcrown-soulfirecore",
-        "name": "Seedcrown SoulfireCore"
+        "id": "oryn-pathshield-soulfirecore",
+        "name": "Pathshield SoulfireCore"
       },
       "combat": {
         "level": 5,
-        "baseMaxHp": 44,
+        "baseMaxHp": 40,
         "stats": {
           "STR": 0,
-          "DEX": 0,
+          "DEX": 11,
           "CON": 8,
-          "INT": 6,
-          "FTH": 11,
-          "CHA": 5,
+          "INT": 0,
+          "FTH": 0,
+          "CHA": 6,
           "LCK": 0
         },
-        "role": "Seedmarshal Trainer",
+        "role": "Trailguard Trainer",
         "basicAttack": {
-          "name": "Ilyne Basic Technique",
+          "name": "Oryn Basic Technique",
           "base": 4,
-          "damageType": "Force",
+          "damageType": "Physical",
           "scaling": {
-            "FTH": 0.65
+            "DEX": 0.65
           }
         },
         "abilities": [
           {
-            "id": "ilyne-seedcrown-lesson-one",
-            "name": "Seedmarshal Lesson: Opening",
+            "id": "oryn-pathshield-lesson-one",
+            "name": "Trailguard Lesson: Opening",
             "energyCost": 2,
             "cooldown": 1,
             "targetMode": "single-enemy",
@@ -1649,16 +1452,16 @@
               {
                 "type": "damage",
                 "base": 5,
-                "damageType": "Force",
+                "damageType": "Physical",
                 "scaling": {
-                  "FTH": 0.65
+                  "DEX": 0.65
                 }
               }
             ]
           },
           {
-            "id": "ilyne-seedcrown-lesson-two",
-            "name": "Seedmarshal Lesson: Pressure",
+            "id": "oryn-pathshield-lesson-two",
+            "name": "Trailguard Lesson: Pressure",
             "energyCost": 4,
             "cooldown": 3,
             "targetMode": "single-enemy",
@@ -1666,16 +1469,16 @@
               {
                 "type": "damage",
                 "base": 8,
-                "damageType": "Force",
+                "damageType": "Physical",
                 "scaling": {
-                  "FTH": 0.85
+                  "DEX": 0.85
                 }
               }
             ]
           },
           {
-            "id": "ilyne-seedcrown-lesson-three",
-            "name": "Seedmarshal Lesson: Composure",
+            "id": "oryn-pathshield-lesson-three",
+            "name": "Trailguard Lesson: Composure",
             "energyCost": 3,
             "cooldown": 4,
             "targetMode": "self",
@@ -1698,9 +1501,704 @@
         "onyxReward": 40
       },
       "soulfireItemIds": [
-        "eq-trainer-ilyne-seedcrown-seedcrown-staff",
-        "eq-trainer-ilyne-seedcrown-germination-ledger",
-        "eq-trainer-ilyne-seedcrown-first-sprout-locket"
+        "eq-trainer-oryn-pathshield-pathshield-spear",
+        "eq-trainer-oryn-pathshield-trailward-coat",
+        "eq-trainer-oryn-pathshield-safe-route-marker"
+      ]
+    },
+    {
+      "id": "pellin-manysigns",
+      "name": "Pellin Manysigns",
+      "baseClass": "Mage",
+      "subclass": "Glyphmorpher",
+      "focusStat": "INT",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "description": "Carries a slate covered in symbols that keep changing positions when nobody is looking.",
+      "soulfireCore": {
+        "id": "pellin-manysigns-soulfirecore",
+        "name": "Manysigns SoulfireCore"
+      },
+      "combat": {
+        "level": 6,
+        "baseMaxHp": 46,
+        "stats": {
+          "STR": 0,
+          "DEX": 8,
+          "CON": 0,
+          "INT": 11,
+          "FTH": 0,
+          "CHA": 6,
+          "LCK": 0
+        },
+        "role": "Glyphmorpher Trainer",
+        "basicAttack": {
+          "name": "Pellin Basic Technique",
+          "base": 5,
+          "damageType": "Force",
+          "scaling": {
+            "INT": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "pellin-manysigns-lesson-one",
+            "name": "Glyphmorpher Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 6,
+                "damageType": "Force",
+                "scaling": {
+                  "INT": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "pellin-manysigns-lesson-two",
+            "name": "Glyphmorpher Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 10,
+                "damageType": "Force",
+                "scaling": {
+                  "INT": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "pellin-manysigns-lesson-three",
+            "name": "Glyphmorpher Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 9,
+                "scaling": {
+                  "DEX": 0.45
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 2,
+          "shieldThresholdPct": 70
+        },
+        "expReward": 150,
+        "onyxReward": 50
+      },
+      "soulfireItemIds": [
+        "eq-trainer-pellin-manysigns-manysign-slate-wand",
+        "eq-trainer-pellin-manysigns-rotating-glyph-sheet",
+        "eq-trainer-pellin-manysigns-third-meaning-script"
+      ]
+    },
+    {
+      "id": "sileth-shadeleaf",
+      "name": "Sileth Shadeleaf",
+      "baseClass": "Rogue",
+      "subclass": "Veil Blade",
+      "focusStat": "DEX",
+      "minDepth": 3,
+      "maxDepth": 20,
+      "description": "Appears only when the party notices the shadow that has been pacing them for an hour.",
+      "soulfireCore": {
+        "id": "sileth-shadeleaf-soulfirecore",
+        "name": "Shadeleaf SoulfireCore"
+      },
+      "combat": {
+        "level": 4,
+        "baseMaxHp": 34,
+        "stats": {
+          "STR": 0,
+          "DEX": 11,
+          "CON": 0,
+          "INT": 6,
+          "FTH": 0,
+          "CHA": 0,
+          "LCK": 8
+        },
+        "role": "Veil Blade Trainer",
+        "basicAttack": {
+          "name": "Sileth Basic Technique",
+          "base": 3,
+          "damageType": "Physical",
+          "scaling": {
+            "DEX": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "sileth-shadeleaf-lesson-one",
+            "name": "Veil Blade Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 4,
+                "damageType": "Physical",
+                "scaling": {
+                  "DEX": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "sileth-shadeleaf-lesson-two",
+            "name": "Veil Blade Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 7,
+                "damageType": "Physical",
+                "scaling": {
+                  "DEX": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "sileth-shadeleaf-lesson-three",
+            "name": "Veil Blade Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 6,
+                "scaling": {
+                  "LCK": 0.45
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 2,
+          "shieldThresholdPct": 70
+        },
+        "expReward": 90,
+        "onyxReward": 30
+      },
+      "soulfireItemIds": [
+        "eq-trainer-sileth-shadeleaf-shadeleaf-knife",
+        "eq-trainer-sileth-shadeleaf-second-shadow-knife",
+        "eq-trainer-sileth-shadeleaf-unseen-step-token"
+      ]
+    },
+    {
+      "id": "sister-elynvera",
+      "name": "Sister Elynvera",
+      "baseClass": "Cleric",
+      "subclass": "Lumenwrath",
+      "focusStat": "FTH",
+      "minDepth": 10,
+      "maxDepth": 29,
+      "description": "A radiant battle-priestess who turns prayer into judgment and teaches that mercy loses nothing by carrying a blade.",
+      "soulfireCore": {
+        "id": "sister-elynvera-soulfirecore",
+        "name": "Elynvera SoulfireCore"
+      },
+      "combat": {
+        "level": 5,
+        "baseMaxHp": 44,
+        "stats": {
+          "STR": 0,
+          "DEX": 0,
+          "CON": 8,
+          "INT": 0,
+          "FTH": 11,
+          "CHA": 6,
+          "LCK": 0
+        },
+        "role": "Lumenwrath Trainer",
+        "basicAttack": {
+          "name": "Elynvera Basic Technique",
+          "base": 4,
+          "damageType": "Holy",
+          "scaling": {
+            "FTH": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "sister-elynvera-lesson-one",
+            "name": "Lumenwrath Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 5,
+                "damageType": "Holy",
+                "scaling": {
+                  "FTH": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "sister-elynvera-lesson-two",
+            "name": "Lumenwrath Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Holy",
+                "scaling": {
+                  "FTH": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "sister-elynvera-lesson-three",
+            "name": "Lumenwrath Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 7,
+                "scaling": {
+                  "CHA": 0.45
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 2,
+          "shieldThresholdPct": 70
+        },
+        "expReward": 120,
+        "onyxReward": 40
+      },
+      "soulfireItemIds": [
+        "eq-trainer-sister-elynvera-lumen-censer",
+        "eq-trainer-sister-elynvera-sunvow-scripture",
+        "eq-trainer-sister-elynvera-judgement-vestment"
+      ]
+    },
+    {
+      "id": "torren-ashsplitter",
+      "name": "Torren Ashsplitter",
+      "baseClass": "Warrior",
+      "subclass": "Ruinhewer",
+      "focusStat": "STR",
+      "minDepth": 3,
+      "maxDepth": 18,
+      "description": "Splits fallen trunks with a blunted greatblade and calls restraint the first lesson.",
+      "soulfireCore": {
+        "id": "torren-ashsplitter-soulfirecore",
+        "name": "Ashsplitter SoulfireCore"
+      },
+      "combat": {
+        "level": 4,
+        "baseMaxHp": 38,
+        "stats": {
+          "STR": 11,
+          "DEX": 0,
+          "CON": 8,
+          "INT": 0,
+          "FTH": 0,
+          "CHA": 0,
+          "LCK": 6
+        },
+        "role": "Ruinhewer Trainer",
+        "basicAttack": {
+          "name": "Torren Basic Technique",
+          "base": 3,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "torren-ashsplitter-lesson-one",
+            "name": "Ruinhewer Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 4,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "torren-ashsplitter-lesson-two",
+            "name": "Ruinhewer Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 7,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "torren-ashsplitter-lesson-three",
+            "name": "Ruinhewer Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 6,
+                "scaling": {
+                  "CON": 0.45
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 2,
+          "shieldThresholdPct": 70
+        },
+        "expReward": 90,
+        "onyxReward": 30
+      },
+      "soulfireItemIds": [
+        "eq-trainer-torren-ashsplitter-ashsplitter-training-cleaver",
+        "eq-trainer-torren-ashsplitter-split-ring-token",
+        "eq-trainer-torren-ashsplitter-ashsplitter-shouldercoat"
+      ]
+    },
+    {
+      "id": "varein",
+      "name": "Varein",
+      "race": "High Elf",
+      "ageDescriptor": "old",
+      "baseClass": "Warlock",
+      "subclass": "Mortisworn",
+      "focusStat": "INT",
+      "minDepth": 10,
+      "maxDepth": 29,
+      "description": "An old High Elf occultist who speaks to the dead as peers and insists every binding should remember the shape of its first grave.",
+      "soulfireCore": {
+        "id": "varein-soulfirecore",
+        "name": "Varein SoulfireCore"
+      },
+      "combat": {
+        "level": 5,
+        "baseMaxHp": 42,
+        "stats": {
+          "STR": 0,
+          "DEX": 0,
+          "CON": 8,
+          "INT": 11,
+          "FTH": 0,
+          "CHA": 6,
+          "LCK": 0
+        },
+        "role": "Mortisworn Trainer",
+        "basicAttack": {
+          "name": "Varein Basic Technique",
+          "base": 4,
+          "damageType": "Dark",
+          "scaling": {
+            "INT": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "varein-lesson-one",
+            "name": "Mortisworn Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 5,
+                "damageType": "Dark",
+                "scaling": {
+                  "INT": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "varein-lesson-two",
+            "name": "Mortisworn Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Dark",
+                "scaling": {
+                  "INT": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "varein-lesson-three",
+            "name": "Mortisworn Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 7,
+                "scaling": {
+                  "CHA": 0.45
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 2,
+          "shieldThresholdPct": 68
+        },
+        "expReward": 120,
+        "onyxReward": 40
+      },
+      "soulfireItemIds": [
+        "eq-trainer-varein-gravescript-staff",
+        "eq-trainer-varein-ossuary-ring",
+        "eq-trainer-varein-mourning-robe"
+      ]
+    },
+    {
+      "id": "varrik-hollowroot",
+      "name": "Varrik Hollowroot",
+      "baseClass": "Warlock",
+      "subclass": "Belowcaller",
+      "focusStat": "FTH",
+      "minDepth": 16,
+      "maxDepth": 29,
+      "description": "Listens at hollow trunks for voices that answer from somewhere much deeper than soil.",
+      "soulfireCore": {
+        "id": "varrik-hollowroot-soulfirecore",
+        "name": "Hollowroot SoulfireCore"
+      },
+      "combat": {
+        "level": 6,
+        "baseMaxHp": 46,
+        "stats": {
+          "STR": 0,
+          "DEX": 0,
+          "CON": 0,
+          "INT": 0,
+          "FTH": 8,
+          "CHA": 11,
+          "LCK": 6
+        },
+        "role": "Belowcaller Trainer",
+        "basicAttack": {
+          "name": "Varrik Basic Technique",
+          "base": 5,
+          "damageType": "Force",
+          "scaling": {
+            "CHA": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "varrik-hollowroot-lesson-one",
+            "name": "Belowcaller Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 6,
+                "damageType": "Force",
+                "scaling": {
+                  "CHA": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "varrik-hollowroot-lesson-two",
+            "name": "Belowcaller Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 10,
+                "damageType": "Force",
+                "scaling": {
+                  "CHA": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "varrik-hollowroot-lesson-three",
+            "name": "Belowcaller Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 9,
+                "scaling": {
+                  "FTH": 0.45
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 2,
+          "shieldThresholdPct": 70
+        },
+        "expReward": 150,
+        "onyxReward": 50
+      },
+      "soulfireItemIds": [
+        "eq-trainer-varrik-hollowroot-hollowroot-staff",
+        "eq-trainer-varrik-hollowroot-listening-knot",
+        "eq-trainer-varrik-hollowroot-underbark-litany"
+      ]
+    },
+    {
+      "id": "ysra-knotwise",
+      "name": "Ysra Knotwise",
+      "baseClass": "Mage",
+      "subclass": "Sealweaver",
+      "focusStat": "INT",
+      "minDepth": 6,
+      "maxDepth": 24,
+      "description": "Pins glowing paper seals to bark without piercing it, as if the tree volunteered.",
+      "soulfireCore": {
+        "id": "ysra-knotwise-soulfirecore",
+        "name": "Knotwise SoulfireCore"
+      },
+      "combat": {
+        "level": 4,
+        "baseMaxHp": 34,
+        "stats": {
+          "STR": 0,
+          "DEX": 0,
+          "CON": 0,
+          "INT": 11,
+          "FTH": 8,
+          "CHA": 6,
+          "LCK": 0
+        },
+        "role": "Sealweaver Trainer",
+        "basicAttack": {
+          "name": "Ysra Basic Technique",
+          "base": 3,
+          "damageType": "Force",
+          "scaling": {
+            "INT": 0.65
+          }
+        },
+        "abilities": [
+          {
+            "id": "ysra-knotwise-lesson-one",
+            "name": "Sealweaver Lesson: Opening",
+            "energyCost": 2,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 4,
+                "damageType": "Force",
+                "scaling": {
+                  "INT": 0.65
+                }
+              }
+            ]
+          },
+          {
+            "id": "ysra-knotwise-lesson-two",
+            "name": "Sealweaver Lesson: Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 7,
+                "damageType": "Force",
+                "scaling": {
+                  "INT": 0.85
+                }
+              }
+            ]
+          },
+          {
+            "id": "ysra-knotwise-lesson-three",
+            "name": "Sealweaver Lesson: Composure",
+            "energyCost": 3,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 6,
+                "scaling": {
+                  "FTH": 0.45
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "chargeBelowEnergy": 2,
+          "shieldThresholdPct": 70
+        },
+        "expReward": 90,
+        "onyxReward": 30
+      },
+      "soulfireItemIds": [
+        "eq-trainer-ysra-knotwise-knotwise-seal-rod",
+        "eq-trainer-ysra-knotwise-folded-ward-scripture",
+        "eq-trainer-ysra-knotwise-inkbreath-vial"
       ]
     }
   ]

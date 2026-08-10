@@ -38,7 +38,7 @@
     "craftedEquipmentCampaignOnly": true,
     "permanentEquipmentInventory": false,
     "lenderOnlyCrossCampaignEquipmentException": true,
-    "trainerSoulfireHookStatus": "live-17-trainer-roster",
+    "trainerSoulfireHookStatus": "live-22-trainer-roster",
     "materialThreadEligibleKinds": [
       "ordinary-enemy"
     ],
@@ -262,6 +262,41 @@
       "name": "Seedcrown SoulfireCore",
       "kind": "soulfire-core",
       "sourceId": "ilyne-seedcrown",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "gritto-ironknuckle-soulfirecore",
+      "name": "Ironknuckle SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "gritto-ironknuckle",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "sister-elynvera-soulfirecore",
+      "name": "Elynvera SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "sister-elynvera",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "lyricus-vaeldorn-soulfirecore",
+      "name": "Vaeldorn SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "lyricus-vaeldorn",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "embsy-soulfirecore",
+      "name": "Embsy SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "embsy",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "varein-soulfirecore",
+      "name": "Varein SoulfireCore",
+      "kind": "soulfire-core",
+      "sourceId": "varein",
       "rarity": "SoulFire"
     }
   ],
@@ -5139,6 +5174,291 @@
       "rarity": "Normal",
       "location": "Campsite",
       "beta3Expansion": true
+    },
+    {
+      "id": "recipe-eq-trainer-gritto-ironknuckle-redline-wraps",
+      "name": "Redline Wraps",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-gritto-ironknuckle-redline-wraps",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "gritto-ironknuckle-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "gritto-ironknuckle",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-gritto-ironknuckle-bloodcrowd-token",
+      "name": "Bloodcrowd Token",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-gritto-ironknuckle-bloodcrowd-token",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "gritto-ironknuckle-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "gritto-ironknuckle",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-gritto-ironknuckle-ironknuckle-harness",
+      "name": "Ironknuckle Harness",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-gritto-ironknuckle-ironknuckle-harness",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "gritto-ironknuckle-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "gritto-ironknuckle",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-sister-elynvera-lumen-censer",
+      "name": "Lumen Censer",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-sister-elynvera-lumen-censer",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sister-elynvera-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "sister-elynvera",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-sister-elynvera-sunvow-scripture",
+      "name": "Sunvow Scripture",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-sister-elynvera-sunvow-scripture",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sister-elynvera-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "sister-elynvera",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-sister-elynvera-judgement-vestment",
+      "name": "Judgement Vestment",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-sister-elynvera-judgement-vestment",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sister-elynvera-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "sister-elynvera",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-lyricus-vaeldorn-blackwood-lute",
+      "name": "Blackwood Lute",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-lyricus-vaeldorn-blackwood-lute",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "lyricus-vaeldorn-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "lyricus-vaeldorn",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-lyricus-vaeldorn-funeral-refrain",
+      "name": "Funeral Refrain",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-lyricus-vaeldorn-funeral-refrain",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "lyricus-vaeldorn-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "lyricus-vaeldorn",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-lyricus-vaeldorn-griefcloak",
+      "name": "Griefcloak",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-lyricus-vaeldorn-griefcloak",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "lyricus-vaeldorn-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "lyricus-vaeldorn",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-embsy-fountain-rod",
+      "name": "Fountain Rod",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-embsy-fountain-rod",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "embsy-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "embsy",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-embsy-runnel-sigil",
+      "name": "Runnel Sigil",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-embsy-runnel-sigil",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "embsy-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "embsy",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-embsy-splashweave-sash",
+      "name": "Splashweave Sash",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-embsy-splashweave-sash",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "embsy-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "embsy",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-varein-gravescript-staff",
+      "name": "Gravescript Staff",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-varein-gravescript-staff",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "varein-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "varein",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-varein-ossuary-ring",
+      "name": "Ossuary Ring",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-varein-ossuary-ring",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "varein-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "varein",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-trainer-varein-mourning-robe",
+      "name": "Mourning Robe",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-trainer-varein-mourning-robe",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "varein-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "varein",
+      "rarity": "SoulFire",
+      "location": "Campsite"
     }
   ],
   "starterGear": {
@@ -5192,8 +5512,8 @@
     "charms": 30,
     "abilityItems": 8,
     "craftableFoods": 12,
-    "trainerSoulfireFamilies": 17,
-    "trainerSoulfireItems": 51,
-    "totalRecipes": 199
+    "trainerSoulfireFamilies": 22,
+    "trainerSoulfireItems": 66,
+    "totalRecipes": 232
   }
 }

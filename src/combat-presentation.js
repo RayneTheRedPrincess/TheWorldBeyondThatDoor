@@ -15,6 +15,25 @@ export function forestBattleScene(run = {}) {
   return 'forest-clearing';
 }
 
+
+export function bogBattleScene(run = {}) {
+  const depth = Number(run?.expedition?.depth || 1);
+  const encounter = run?.expedition?.encounter || {};
+  if (encounter.boss || depth >= 30) return 'bog-witch-king-field';
+  if (encounter.miniboss || depth === 15) return 'bog-mirebound-pit';
+  if (encounter.source === 'trainer') return 'bog-trainer-refuge';
+  if (depth >= 26) return 'bog-miras-blight';
+  if (depth >= 21) return 'bog-mourning-fields';
+  if (depth >= 16) return 'bog-blackbanner-mire';
+  if (depth >= 11) return 'bog-witchfen';
+  if (depth >= 6) return 'bog-gravewater-march';
+  return 'bog-drowned-verge';
+}
+
+export function regionalBattleScene(run = {}) {
+  return run?.expedition?.regionId === 'bog-of-lost-souls' ? bogBattleScene(run) : forestBattleScene(run);
+}
+
 export function hpPercent(actor) { return pct(actor?.resources?.hp, actor?.resources?.maxHp); }
 export function shieldPercent(actor) { return pct(actor?.resources?.shield, actor?.resources?.maxHp); }
 export function energyPercent(actor) { return pct(actor?.resources?.energy, actor?.resources?.maxEnergy || 7); }

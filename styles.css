@@ -515,6 +515,7 @@ html[data-reduced-motion="true"] .tutorial-arrow{animation:none}
 .inspection-entry{display:grid;gap:.2rem;padding:.45rem 0;border-top:1px solid rgba(255,255,255,.06)}
 .route-art{height:clamp(6.4rem,11vw,9.3rem);overflow:hidden;border-radius:.75rem;border:1px solid rgba(255,255,255,.09);background:rgba(0,0,0,.2);margin-bottom:.65rem}
 .route-art img{display:block;width:100%;height:100%;object-fit:cover}
+.route-art picture{display:block;width:100%;height:100%}.route-art picture img{width:100%;height:100%;object-fit:cover}
 .expedition-card{min-height:22rem}.expedition-card p{margin-top:.2rem}
 .combat-foundation{min-width:0;max-width:100%;overflow-x:hidden}
 .combat-head{min-width:0;gap:.7rem;flex-wrap:wrap}.combat-speed-control{display:grid;gap:.25rem;min-width:8.5rem;color:var(--muted);font-size:.74rem}
@@ -551,6 +552,16 @@ html[data-reduced-motion="true"] .tutorial-arrow{animation:none}
 .scene-thorn-hollow .scene-backdrop{background-image:linear-gradient(180deg,rgba(8,4,5,.02),rgba(5,2,3,.38)),url('./assets/combat/thorn-hollow.svg')}
 .scene-heartwood-sanctum .scene-backdrop{background-image:linear-gradient(180deg,rgba(4,6,4,.02),rgba(4,4,2,.38)),url('./assets/combat/heartwood-sanctum.svg')}
 .scene-trainer-glade .scene-backdrop{background-image:linear-gradient(180deg,rgba(4,7,5,.02),rgba(3,5,4,.33)),url('./assets/combat/trainer-glade.svg')}
+.scene-bog-drowned-verge .scene-backdrop{background-image:radial-gradient(circle at 48% 22%,rgba(170,190,174,.13),transparent 32%),linear-gradient(180deg,#18221f 0%,#101816 48%,#080d0c 100%)}
+.scene-bog-gravewater-march .scene-backdrop{background-image:radial-gradient(circle at 52% 18%,rgba(189,194,177,.11),transparent 28%),linear-gradient(180deg,#1b2421 0%,#121a18 44%,#0b1110 100%)}
+.scene-bog-witchfen .scene-backdrop{background-image:radial-gradient(circle at 42% 20%,rgba(113,91,130,.18),transparent 31%),linear-gradient(180deg,#1b1d20 0%,#141519 46%,#0a0d0e 100%)}
+.scene-bog-blackbanner-mire .scene-backdrop{background-image:radial-gradient(circle at 55% 24%,rgba(125,116,95,.13),transparent 28%),linear-gradient(180deg,#20211d 0%,#151713 48%,#0b0c0a 100%)}
+.scene-bog-mourning-fields .scene-backdrop{background-image:radial-gradient(circle at 50% 16%,rgba(180,189,184,.16),transparent 34%),linear-gradient(180deg,#1d2524 0%,#121918 46%,#090e0d 100%)}
+.scene-bog-miras-blight .scene-backdrop{background-image:radial-gradient(circle at 50% 22%,rgba(128,74,112,.21),transparent 32%),linear-gradient(180deg,#211a21 0%,#151217 48%,#0b090d 100%)}
+.scene-bog-mirebound-pit .scene-backdrop{background-image:radial-gradient(circle at 48% 31%,rgba(94,125,75,.18),transparent 28%),linear-gradient(180deg,#1c211b 0%,#11160f 45%,#080b07 100%)}
+.scene-bog-witch-king-field .scene-backdrop{background-image:radial-gradient(circle at 50% 18%,rgba(130,76,105,.20),transparent 28%),linear-gradient(180deg,#231b20 0%,#161216 45%,#09080a 100%)}
+.scene-bog-trainer-refuge .scene-backdrop{background-image:radial-gradient(circle at 50% 24%,rgba(211,188,139,.14),transparent 28%),linear-gradient(180deg,#1d231f 0%,#131915 48%,#0a0e0c 100%)}
+.scene-bog-drowned-verge .scene-atmosphere,.scene-bog-gravewater-march .scene-atmosphere,.scene-bog-witchfen .scene-atmosphere,.scene-bog-blackbanner-mire .scene-atmosphere,.scene-bog-mourning-fields .scene-atmosphere,.scene-bog-miras-blight .scene-atmosphere,.scene-bog-mirebound-pit .scene-atmosphere,.scene-bog-witch-king-field .scene-atmosphere,.scene-bog-trainer-refuge .scene-atmosphere{background:radial-gradient(circle at 50% 24%,rgba(211,222,211,.09),transparent 26%),linear-gradient(90deg,rgba(106,132,116,.08),transparent 28%,transparent 70%,rgba(121,90,111,.07));filter:blur(.4px)}
 .battle-scene .scene-midground{z-index:-3;opacity:.9}
 .battle-scene .scene-midground::before,.battle-scene .scene-midground::after{content:"";position:absolute;bottom:26%;width:32%;height:26%;border-radius:42% 58% 20% 20%/55% 45% 28% 18%;background:linear-gradient(180deg,rgba(29,49,37,.74),rgba(9,15,11,.12));filter:blur(1px);box-shadow:0 1rem 2rem rgba(0,0,0,.18)}
 .battle-scene .scene-midground::before{left:-4%;transform:translateZ(48px) scale(1.06)}
@@ -892,3 +903,21 @@ html[data-display-mode="desktop"] .combat-right-sidebar .initiative-strip{displa
 .appearance-atelier.unavailable{opacity:.88}
 .campaign-vessel-portrait>.portrait-composite,.actor-portrait>.portrait-composite{width:100%;height:100%}
 @media(max-width:720px){.appearance-atelier-layout{grid-template-columns:1fr}.appearance-preview-frame{max-width:20rem;margin-inline:auto}.appearance-controls{grid-template-columns:1fr}}
+
+/* Portrait library UX/performance pass: keep exactly six class-family options mounted. */
+.portrait-carousel{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:.65rem;align-items:center}
+.portrait-carousel-grid{grid-template-columns:repeat(6,minmax(0,1fr));gap:.55rem}
+.portrait-carousel-arrow{width:2.6rem;min-width:2.6rem;height:4.5rem;padding:0;display:grid;place-items:center;font-size:2rem;line-height:1;border-radius:.75rem;background:rgba(255,255,255,.035);border:1px solid rgba(255,213,138,.28);color:var(--text)}
+.portrait-carousel-arrow:hover{border-color:rgba(255,213,138,.72);background:rgba(255,213,138,.07)}
+.portrait-carousel-status{text-align:center;margin:.5rem 0 0}
+@media (max-width:900px){.portrait-carousel-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.portrait-carousel-arrow{height:5.5rem}}
+@media (max-width:520px){.portrait-carousel{grid-template-columns:2.25rem minmax(0,1fr) 2.25rem;gap:.35rem}.portrait-carousel-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.4rem}.portrait-carousel-arrow{width:2.25rem;min-width:2.25rem;height:7rem;font-size:1.65rem}}
+
+
+/* Phase 10 pre-Bog account rewards / Forest boon shop */
+.race-token-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px;margin-top:12px}
+.boon-shop-panel{border:1px solid rgba(219,187,126,.24);border-radius:16px;padding:16px;background:rgba(219,187,126,.035)}
+.shop-requirement{display:grid;gap:3px;margin:10px 0;padding:9px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.025)}
+.shop-requirement.met{border-color:rgba(126,202,151,.32)}
+.shop-requirement.locked{opacity:.82}
+.shop-requirement span,.shop-requirement small{color:var(--muted,#a9a7a0)}

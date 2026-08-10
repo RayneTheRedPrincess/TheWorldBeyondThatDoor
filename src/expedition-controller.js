@@ -1,6 +1,8 @@
 import { planForestTrainerRoster, createForestEventCards } from './forest-event-deck.js';
+import { planBogTrainerRoster, createBogEventCards } from './bog-event-deck.js';
 import { keptVictoryRecovery } from './kept-impression-runtime.js';
 const FOREST_ID = 'forest';
+const BOG_ID = 'bog-of-lost-souls';
 const CHECKMARK_OUTCOMES = new Set(['success', 'failure']);
 const COMBAT_SOURCES = new Set(['event-card', 'checkmark-followup', 'boss', 'miniboss']);
 
@@ -67,8 +69,9 @@ function createLegacyEventCards({ runId, region, depth, rng = Math.random } = {}
   return cards;
 }
 
-export function createEventCards({ runId, region, depth, rng = Math.random, forestEvents = null, forestTrainers = null, expedition = null } = {}) {
-  if (forestEvents?.events && expedition) return createForestEventCards({ runId, depth, forestEvents, forestTrainers, expedition, rng });
+export function createEventCards({ runId, region, depth, rng = Math.random, forestEvents = null, forestTrainers = null, bogEvents = null, bogTrainers = null, expedition = null } = {}) {
+  if (region?.id === BOG_ID && bogEvents?.events && expedition) return createBogEventCards({ runId, depth, bogEvents, bogTrainers, expedition, rng });
+  if (region?.id === FOREST_ID && forestEvents?.events && expedition) return createForestEventCards({ runId, depth, forestEvents, forestTrainers, expedition, rng });
   return createLegacyEventCards({ runId, region, depth, rng });
 }
 
@@ -104,6 +107,19 @@ export function createForestExpedition({ runId, regionsData, forestEvents = null
   return expedition;
 }
 
+export function createBogExpedition({ runId, regionsData, bogEvents = null, bogTrainers = null, activeVesselBaseClass = null, partyBaseClasses = [], unlockedSubclasses = [], forcedTrainerIds = [], rng = Math.random } = {}) {
+  const region=getRegion(regionsData,BOG_ID);if(!region)throw new Error('Bog of Lost Souls region definition is missing.');
+  const depth=1,trainerPlan=bogTrainers?.entries?planBogTrainerRoster({bogTrainers,activeVesselBaseClass,partyBaseClasses,unlockedSubclasses,forcedTrainerIds,rng}):null;
+  const expedition={regionId:region.id,regionName:region.name,depth,maxDepth:Number(region.depthCount||30),introductoryBand:clone(region.introductoryBand||{start:1,end:5}),cardsPerStep:Number(region.cardsPerStep||3),state:'choosing-event',step:1,cards:[],selectedCardId:null,encounter:null,campsite:null,history:[],usedEventIds:[],shownTrainerIds:[],trainerPlan:trainerPlan?clone(trainerPlan):null,fogPressure:Math.max(0,Number(region.regionalMechanic?.starting||0)),regionalMechanic:clone(region.regionalMechanic||{}),completionReward:clone(region.completionReward||{onyx:500,chronicleProgress:20}),nextRegion:clone(region.nextRegion||null)};
+  const draw=createEventCards({runId,region,depth,rng,bogEvents,bogTrainers,expedition});expedition.cards=Array.isArray(draw)?draw:draw.cards;if(!Array.isArray(draw)){expedition.usedEventIds=draw.usedEventIds;expedition.shownTrainerIds=draw.shownTrainerIds;}return expedition;
+}
+
+export function enterBogRegion(slot,{regionsData,bogEvents=null,bogTrainers=null,unlockedSubclasses=[],forcedTrainerIds=[],rng=Math.random,now=new Date().toISOString()}={}){
+  const run=activeRun(slot);if(!run)return{ok:false,error:'No active campaign.'};if(run.expedition?.state!=='awaiting-next-region'||run.regionTransition?.toRegionId!==BOG_ID)return{ok:false,error:'The campaign is not waiting to enter the Bog of Lost Souls.'};
+  const next=clone(slot),nextRun=next.campaign.state,old=nextRun.expedition;nextRun.regionSummaries=nextRun.regionSummaries||{};nextRun.regionSummaries[FOREST_ID]={highestDepth:Number(old?.depth||0),history:clone(old?.history||[]),shownTrainerIds:clone(old?.shownTrainerIds||[]),trainerDecisions:clone(nextRun.trainerDecisions||{}),battlesWon:Number(nextRun.metrics?.battlesWon||0),craftedItems:Number(nextRun.crafting?.crafted?.length||0),materialsSnapshot:clone(nextRun.inventory?.materials||{}),cleared:Boolean(nextRun.regionalProgress?.forestCleared)};
+  const partyClasses=[nextRun.configuration?.permanentBaseClass,...Object.values(nextRun.adventurers||{}).map(a=>a.baseClass)].filter(Boolean);nextRun.expedition=createBogExpedition({runId:nextRun.id,regionsData,bogEvents,bogTrainers,activeVesselBaseClass:nextRun.configuration?.permanentBaseClass||null,partyBaseClasses:partyClasses,unlockedSubclasses,forcedTrainerIds,rng});nextRun.regionTransition={...nextRun.regionTransition,state:'entered',enteredAt:now};nextRun.regionBaselines=nextRun.regionBaselines||{};nextRun.regionBaselines[BOG_ID]={battlesWon:Number(nextRun.metrics?.battlesWon||0),craftedItems:Number(nextRun.crafting?.crafted?.length||0),materials:clone(nextRun.inventory?.materials||{})};return{ok:true,slot:next,expedition:clone(nextRun.expedition)};
+}
+
 export function getExpeditionView(slot) {
   return slot?.campaign?.active && slot.campaign.state?.expedition
     ? clone(slot.campaign.state.expedition)
@@ -124,6 +140,11 @@ function makeEncounter(run, card, { source = 'event-card', rng = Math.random, ki
     eventId: card?.eventId || null,
     trainerId: card?.trainerId || null,
     eventPayload: card?.eventPayload ? clone(card.eventPayload) : null,
+    combatProfile: card?.combatProfile || null,
+    faction: card?.faction || null,
+    fogTouched: Boolean(card?.fogTouched),
+    majorHaunting: Boolean(card?.majorHaunting),
+    fogOnFailure: Number(card?.fogOnFailure || 0),
     kind: encounterKind,
     combat: encounterKind === 'combat' || source === 'checkmark-followup' || boss || miniboss,
     noncombat: !(encounterKind === 'combat' || source === 'checkmark-followup' || boss || miniboss),
@@ -240,27 +261,25 @@ export function resolveCombatVictory(slot, { now = new Date().toISOString() } = 
   }
   keptVictoryRecovery(nextRun, nextRun.combat);
   const defeatRecovery = postBattlePartyRecovery(nextRun, nextRun.combat);
+  if(nextRun.expedition?.regionId===BOG_ID&&nextRun.combat){const metrics=nextRun.regionalMetrics||(nextRun.regionalMetrics={});const bog=metrics.bog||(metrics.bog={negativeStatusesApplied:0,poisonStatusesApplied:0,negativeEffectsSuffered:0,negativeEffectsExpired:0,enemiesDefeatedWithTwoStatuses:0,enemiesDefeatedWithThreeStatuses:0,undeadSpiritsDefeated:0,lesserWitchesDefeated:0,banditCampsDefeated:0});const cm=nextRun.combat.metrics||{};for(const key of ['negativeStatusesApplied','poisonStatusesApplied','negativeEffectsSuffered','negativeEffectsExpired'])bog[key]=Number(bog[key]||0)+Number(cm[key]||0);for(const actor of nextRun.combat.actors||[]){if(actor.side!=='enemy'||actor.real===false||Number(actor.resources?.hp||0)>0)continue;const negatives=(actor.effects||[]).filter(e=>e.negative).length;if(negatives>=2)bog.enemiesDefeatedWithTwoStatuses+=1;if(negatives>=3)bog.enemiesDefeatedWithThreeStatuses+=1;}const undead=new Set(['drowned-infantry','gravebound-pikeman','wailing-shade','ectoplasmic-knight','soulmire-leech']);const witches=new Set(['fen-hexer','corpse-lantern-witch']);for(const e of resolved.enemyRoster||[]){const id=String(e.templateId||'').replace(/^trainer:/,'');if(undead.has(id))bog.undeadSpiritsDefeated+=1;if(witches.has(id))bog.lesserWitchesDefeated+=1;}if(resolved.combatProfile==='bandit-camp')bog.banditCampsDefeated+=1;}
   let forestClearedNow = false;
+  let bogClearedNow = false;
+  let regionClearedNow = false;
   let completionReward = null;
-  if (resolved.boss && nextRun.expedition?.regionId === FOREST_ID) {
+  if (resolved.boss) {
+    const regionId=nextRun.expedition?.regionId;
     nextRun.regionalProgress = nextRun.regionalProgress || {};
-    if (!nextRun.regionalProgress.forestCompletionRewardApplied) {
-      const reward = nextRun.expedition.completionReward || { onyx: 100, chronicleProgress: 4 };
-      const onyx = Math.max(0, Math.round(Number(reward.onyx || 0)));
-      const chronicleProgress = Math.max(0, Math.round(Number(reward.chronicleProgress || 0)));
-      nextRun.rewards = nextRun.rewards || { carriedOnyx: 0, chronicleProgress: 0 };
-      nextRun.rewards.carriedOnyx = Number(nextRun.rewards.carriedOnyx || 0) + onyx;
-      nextRun.rewards.chronicleProgress = Number(nextRun.rewards.chronicleProgress || 0) + chronicleProgress;
-      nextRun.regionalProgress.forestCompletionRewardApplied = true;
-      nextRun.regionalProgress.forestCleared = true;
-      nextRun.regionalProgress.forestClearedAt = now;
-      nextRun.regionalProgress.forestCompletionReward = { onyx, chronicleProgress };
-      completionReward = { onyx, chronicleProgress };
-      forestClearedNow = true;
+    const key=regionId===FOREST_ID?'forest':regionId===BOG_ID?'bog':null;
+    if(key&&!nextRun.regionalProgress[`${key}CompletionRewardApplied`]){
+      const fallback=regionId===FOREST_ID?{onyx:100,chronicleProgress:4}:{onyx:500,chronicleProgress:20};
+      const reward=nextRun.expedition.completionReward||fallback,onyx=Math.max(0,Math.round(Number(reward.onyx||0))),chronicleProgress=Math.max(0,Math.round(Number(reward.chronicleProgress||0)));
+      nextRun.rewards=nextRun.rewards||{carriedOnyx:0,chronicleProgress:0};nextRun.rewards.carriedOnyx=Number(nextRun.rewards.carriedOnyx||0)+onyx;nextRun.rewards.chronicleProgress=Number(nextRun.rewards.chronicleProgress||0)+chronicleProgress;
+      nextRun.regionalProgress[`${key}CompletionRewardApplied`]=true;nextRun.regionalProgress[`${key}Cleared`]=true;nextRun.regionalProgress[`${key}ClearedAt`]=now;nextRun.regionalProgress[`${key}CompletionReward`]={onyx,chronicleProgress};completionReward={onyx,chronicleProgress};regionClearedNow=true;forestClearedNow=key==='forest';bogClearedNow=key==='bog';
     }
   }
+  if(resolved.majorHaunting&&nextRun.expedition?.regionId===BOG_ID)nextRun.expedition.fogPressure=Math.max(0,Number(nextRun.expedition.fogPressure||0)-1);
   resolved.state = 'resolved';
-  resolved.resolution = { type: 'victory', at: now, ...(completionReward ? { forestCompletionReward: clone(completionReward) } : {}) };
+  resolved.resolution = { type: 'victory', at: now, ...(completionReward ? { regionCompletionReward: clone(completionReward), ...(nextRun.expedition?.regionId===FOREST_ID?{forestCompletionReward:clone(completionReward)}:{bogCompletionReward:clone(completionReward)}) } : {}) };
   archiveEncounter(nextRun.expedition, resolved);
   nextRun.metrics = nextRun.metrics || {};
   nextRun.metrics.battlesWon = Number(nextRun.metrics.battlesWon || 0) + 1;
@@ -276,7 +295,7 @@ export function resolveCombatVictory(slot, { now = new Date().toISOString() } = 
     defeatRecovery: clone(defeatRecovery)
   };
   nextRun.expedition.state = 'campsite';
-  return { ok: true, slot: next, campsite: clone(nextRun.expedition.campsite), forestClearedNow, completionReward: completionReward ? clone(completionReward) : null };
+  return { ok: true, slot: next, campsite: clone(nextRun.expedition.campsite), forestClearedNow, bogClearedNow, regionClearedNow, completionReward: completionReward ? clone(completionReward) : null };
 }
 
 export function continueBeyondForest(slot, { now = new Date().toISOString() } = {}) {
@@ -296,14 +315,14 @@ export function continueBeyondForest(slot, { now = new Date().toISOString() } = 
   return { ok: true, slot: next, transition: clone(nextRun.regionTransition) };
 }
 
-export function advanceAfterResolvedNoncombat(slot, { regionsData, forestEvents = null, forestTrainers = null, rng = Math.random } = {}) {
+export function advanceAfterResolvedNoncombat(slot, { regionsData, forestEvents = null, forestTrainers = null, bogEvents = null, bogTrainers = null, rng = Math.random } = {}) {
   const run = activeRun(slot);
   if (!run) return { ok: false, error: 'No active campaign.' };
   if (run.expedition?.state !== 'awaiting-next-step') return { ok: false, error: 'The expedition is not ready to advance.' };
-  return advanceDepth(slot, { regionsData, forestEvents, forestTrainers, rng });
+  return advanceDepth(slot, { regionsData, forestEvents, forestTrainers, bogEvents, bogTrainers, rng });
 }
 
-export function leaveCampsite(slot, { regionsData, forestEvents = null, forestTrainers = null, rng = Math.random, now = new Date().toISOString() } = {}) {
+export function leaveCampsite(slot, { regionsData, forestEvents = null, forestTrainers = null, bogEvents = null, bogTrainers = null, rng = Math.random, now = new Date().toISOString() } = {}) {
   const run = activeRun(slot);
   if (!run) return { ok: false, error: 'No active campaign.' };
   if (run.expedition?.state !== 'campsite' || !run.expedition.campsite?.required) return { ok: false, error: 'No mandatory campsite is active.' };
@@ -311,10 +330,11 @@ export function leaveCampsite(slot, { regionsData, forestEvents = null, forestTr
   const nextRun = next.campaign.state;
   const exhaustionRecovery = removeCampsiteExhaustion(nextRun);
   nextRun.expedition.campsite = { ...nextRun.expedition.campsite, required: false, leftAt: now, exhaustionRecovery };
-  return advanceDepth(next, { regionsData, forestEvents, forestTrainers, rng });
+  if(nextRun.expedition?.regionId===BOG_ID)nextRun.expedition.fogPressure=Math.max(0,Number(nextRun.expedition.fogPressure||0)-Number(nextRun.expedition.regionalMechanic?.safeCampReduction||1));
+  return advanceDepth(next, { regionsData, forestEvents, forestTrainers, bogEvents, bogTrainers, rng });
 }
 
-function advanceDepth(slot, { regionsData, forestEvents = null, forestTrainers = null, rng = Math.random } = {}) {
+function advanceDepth(slot, { regionsData, forestEvents = null, forestTrainers = null, bogEvents = null, bogTrainers = null, rng = Math.random } = {}) {
   const next = clone(slot);
   const run = next.campaign.state;
   const expedition = run.expedition;
@@ -341,7 +361,7 @@ function advanceDepth(slot, { regionsData, forestEvents = null, forestTrainers =
     expedition.state = 'combat-pending';
     return { ok: true, slot: next, regionBoundary: false, depth: expedition.depth, specialCombat: boss ? 'boss' : 'miniboss', encounter: clone(expedition.encounter) };
   }
-  const draw = createEventCards({ runId: run.id, region, depth: expedition.depth, rng, forestEvents, forestTrainers, expedition });
+  const draw = createEventCards({ runId: run.id, region, depth: expedition.depth, rng, forestEvents, forestTrainers, bogEvents, bogTrainers, expedition });
   expedition.cards = Array.isArray(draw) ? draw : draw.cards;
   if (!Array.isArray(draw)) { expedition.usedEventIds = draw.usedEventIds; expedition.shownTrainerIds = draw.shownTrainerIds; }
   expedition.state = 'choosing-event';

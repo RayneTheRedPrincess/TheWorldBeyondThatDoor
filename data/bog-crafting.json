@@ -1,0 +1,1723 @@
+{
+  "version": "BOG-FOUNDATION-CRAFTING-2026-08-10",
+  "designStatus": "playable-foundation-no-art",
+  "rules": {
+    "regionId": "bog-of-lost-souls",
+    "location": "Campsite",
+    "enemyEquipmentDrops": false,
+    "merchants": false,
+    "normalMaterialDropByRealPartySize": {
+      "1": [
+        2,
+        4
+      ],
+      "2": [
+        3,
+        5
+      ],
+      "3": [
+        4,
+        6
+      ],
+      "4": [
+        5,
+        7
+      ]
+    },
+    "soulfireCoreDeterministic": true,
+    "materialThreadEligibleKinds": [
+      "ordinary-enemy"
+    ]
+  },
+  "materials": [
+    {
+      "id": "bog-iron-scrap",
+      "name": "Bog Iron Scrap",
+      "kind": "ordinary-enemy",
+      "family": "bandit",
+      "rarity": "Normal"
+    },
+    {
+      "id": "bandit-leather",
+      "name": "Blackbanner Leather",
+      "kind": "ordinary-enemy",
+      "family": "bandit",
+      "rarity": "Normal"
+    },
+    {
+      "id": "darksteel-shard",
+      "name": "Darksteel Shard",
+      "kind": "ordinary-enemy",
+      "family": "bandit",
+      "rarity": "Normal"
+    },
+    {
+      "id": "blackbanner-cloth",
+      "name": "Blackbanner Cloth",
+      "kind": "ordinary-enemy",
+      "family": "bandit",
+      "rarity": "Normal"
+    },
+    {
+      "id": "ectoplasm",
+      "name": "Ectoplasm",
+      "kind": "ordinary-enemy",
+      "family": "undead",
+      "rarity": "Normal"
+    },
+    {
+      "id": "spiritual-flesh",
+      "name": "Spiritual Flesh",
+      "kind": "ordinary-enemy",
+      "family": "undead",
+      "rarity": "Normal"
+    },
+    {
+      "id": "gravebone",
+      "name": "Gravebone",
+      "kind": "ordinary-enemy",
+      "family": "undead",
+      "rarity": "Normal"
+    },
+    {
+      "id": "soul-ash",
+      "name": "Soul Ash",
+      "kind": "ordinary-enemy",
+      "family": "undead",
+      "rarity": "Normal"
+    },
+    {
+      "id": "poisoned-monster-flesh",
+      "name": "Poisoned Monster Flesh",
+      "kind": "ordinary-enemy",
+      "family": "mutation",
+      "rarity": "Normal"
+    },
+    {
+      "id": "venom-gland",
+      "name": "Venom Gland",
+      "kind": "ordinary-enemy",
+      "family": "mutation",
+      "rarity": "Normal"
+    },
+    {
+      "id": "mirehide",
+      "name": "Mirehide",
+      "kind": "ordinary-enemy",
+      "family": "mutation",
+      "rarity": "Normal"
+    },
+    {
+      "id": "mutagenic-bile",
+      "name": "Mutagenic Bile",
+      "kind": "ordinary-enemy",
+      "family": "mutation",
+      "rarity": "Normal"
+    },
+    {
+      "id": "witch-wax",
+      "name": "Witch Wax",
+      "kind": "ordinary-enemy",
+      "family": "witch",
+      "rarity": "Normal"
+    },
+    {
+      "id": "hex-thread",
+      "name": "Hex Thread",
+      "kind": "ordinary-enemy",
+      "family": "witch",
+      "rarity": "Normal"
+    },
+    {
+      "id": "curseglass",
+      "name": "Curseglass",
+      "kind": "ordinary-enemy",
+      "family": "witch",
+      "rarity": "Normal"
+    },
+    {
+      "id": "grave-salt",
+      "name": "Grave Salt",
+      "kind": "ordinary-enemy",
+      "family": "witch",
+      "rarity": "Normal"
+    },
+    {
+      "id": "mirebound-soulfirecore",
+      "name": "Mirebound SoulfireCore",
+      "kind": "soulfire-core",
+      "family": "soulfire-core",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "varris-soulfirecore",
+      "name": "Varris SoulfireCore",
+      "kind": "soulfire-core",
+      "family": "soulfire-core",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "mira-soulfirecore",
+      "name": "Mira SoulfireCore",
+      "kind": "soulfire-core",
+      "family": "soulfire-core",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "jack-soulfirecore",
+      "name": "Jack SoulfireCore",
+      "kind": "soulfire-core",
+      "family": "soulfire-core",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "ser-kael-ashbrand-soulfirecore",
+      "name": "Ser Kael Ashbrand SoulfireCore",
+      "kind": "soulfire-core",
+      "family": "trainer",
+      "sourceId": "ser-kael-ashbrand",
+      "rarity": "SoulFire",
+      "trainerCore": true
+    },
+    {
+      "id": "nara-breakwater-soulfirecore",
+      "name": "Nara Breakwater SoulfireCore",
+      "kind": "soulfire-core",
+      "family": "trainer",
+      "sourceId": "nara-breakwater",
+      "rarity": "SoulFire",
+      "trainerCore": true
+    },
+    {
+      "id": "pell-crowsong-soulfirecore",
+      "name": "Pell Crowsong SoulfireCore",
+      "kind": "soulfire-core",
+      "family": "trainer",
+      "sourceId": "pell-crowsong",
+      "rarity": "SoulFire",
+      "trainerCore": true
+    },
+    {
+      "id": "two-gun-thomas-soulfirecore",
+      "name": "Two Gun Thomas SoulfireCore",
+      "kind": "soulfire-core",
+      "family": "trainer",
+      "sourceId": "two-gun-thomas",
+      "rarity": "SoulFire",
+      "trainerCore": true
+    },
+    {
+      "id": "mother-spore-velda-soulfirecore",
+      "name": "Mother Spore Velda SoulfireCore",
+      "kind": "soulfire-core",
+      "family": "trainer",
+      "sourceId": "mother-spore-velda",
+      "rarity": "SoulFire",
+      "trainerCore": true
+    },
+    {
+      "id": "sister-malva-vane-soulfirecore",
+      "name": "Sister Malva Vane SoulfireCore",
+      "kind": "soulfire-core",
+      "family": "trainer",
+      "sourceId": "sister-malva-vane",
+      "rarity": "SoulFire",
+      "trainerCore": true
+    },
+    {
+      "id": "talar-seven-palms-soulfirecore",
+      "name": "Talar Seven Palms SoulfireCore",
+      "kind": "soulfire-core",
+      "family": "trainer",
+      "sourceId": "talar-seven-palms",
+      "rarity": "SoulFire",
+      "trainerCore": true
+    },
+    {
+      "id": "old-ember-nox-soulfirecore",
+      "name": "Old Ember Nox SoulfireCore",
+      "kind": "soulfire-core",
+      "family": "trainer",
+      "sourceId": "old-ember-nox",
+      "rarity": "SoulFire",
+      "trainerCore": true
+    },
+    {
+      "id": "coilmage-yrra-soulfirecore",
+      "name": "Coilmage Yrra SoulfireCore",
+      "kind": "soulfire-core",
+      "family": "trainer",
+      "sourceId": "coilmage-yrra",
+      "rarity": "SoulFire",
+      "trainerCore": true
+    },
+    {
+      "id": "maelis-starflash-soulfirecore",
+      "name": "Maelis Starflash SoulfireCore",
+      "kind": "soulfire-core",
+      "family": "trainer",
+      "sourceId": "maelis-starflash",
+      "rarity": "SoulFire",
+      "trainerCore": true
+    },
+    {
+      "id": "judicator-ren-soulfirecore",
+      "name": "Judicator Ren SoulfireCore",
+      "kind": "soulfire-core",
+      "family": "trainer",
+      "sourceId": "judicator-ren",
+      "rarity": "SoulFire",
+      "trainerCore": true
+    }
+  ],
+  "sets": [
+    {
+      "id": "set-bog-blackbanner-darksteel",
+      "name": "Blackbanner Darksteel",
+      "sourceId": "bandit",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-bog-darksteel-helm",
+        "eq-bog-blackbanner-cuirass",
+        "eq-bog-darksteel-gauntlets",
+        "eq-bog-marcher-greaves"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "STR": 2,
+            "CON": 2
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "blockChancePct": 10,
+            "blockedDamageReductionPct": 10
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "CHA": 3
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "bogExpansion": true
+    },
+    {
+      "id": "set-bog-mourning-warden",
+      "name": "Mourning Warden",
+      "sourceId": "undead",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-bog-mourning-visor",
+        "eq-bog-spiritmail",
+        "eq-bog-graveward-gloves",
+        "eq-bog-ghoststep-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "FTH": 2,
+            "CON": 2
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "incomingHealingPct": 10,
+            "energyGainPct": 6
+          },
+          "resistances": {
+            "Dark": 10,
+            "Psychic": 8
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "INT": 3
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "bogExpansion": true
+    },
+    {
+      "id": "set-bog-venommire-stalker",
+      "name": "Venommire Stalker",
+      "sourceId": "mutation",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-bog-venommire-mask",
+        "eq-bog-mirehide-jerkin",
+        "eq-bog-venomgrip-wraps",
+        "eq-bog-fenrunner-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "DEX": 2,
+            "LCK": 2
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "dodgeChancePct": 10,
+            "damageCritChancePct": 7
+          },
+          "resistances": {
+            "Poison": 12
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "CON": 3
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "bogExpansion": true
+    }
+  ],
+  "recipes": [
+    {
+      "id": "recipe-eq-bog-darksteel-helm",
+      "name": "Darksteel Sallet",
+      "category": "Bog Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-darksteel-helm",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "darksteel-shard",
+          "quantity": 2
+        },
+        {
+          "materialId": "bog-iron-scrap",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackbanner-cloth",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "bandit",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-blackbanner-cuirass",
+      "name": "Blackbanner Cuirass",
+      "category": "Bog Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-blackbanner-cuirass",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "darksteel-shard",
+          "quantity": 2
+        },
+        {
+          "materialId": "bog-iron-scrap",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackbanner-cloth",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "bandit",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-darksteel-gauntlets",
+      "name": "Darksteel Gauntlets",
+      "category": "Bog Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-darksteel-gauntlets",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "darksteel-shard",
+          "quantity": 2
+        },
+        {
+          "materialId": "bog-iron-scrap",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackbanner-cloth",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "bandit",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-marcher-greaves",
+      "name": "Blackbanner Marcher Greaves",
+      "category": "Bog Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-marcher-greaves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "darksteel-shard",
+          "quantity": 2
+        },
+        {
+          "materialId": "bog-iron-scrap",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackbanner-cloth",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "bandit",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-mourning-visor",
+      "name": "Mourning Visor",
+      "category": "Bog Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-mourning-visor",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ectoplasm",
+          "quantity": 2
+        },
+        {
+          "materialId": "spiritual-flesh",
+          "quantity": 2
+        },
+        {
+          "materialId": "gravebone",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "undead",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-spiritmail",
+      "name": "Spiritmail Coat",
+      "category": "Bog Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-spiritmail",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ectoplasm",
+          "quantity": 2
+        },
+        {
+          "materialId": "spiritual-flesh",
+          "quantity": 2
+        },
+        {
+          "materialId": "gravebone",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "undead",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-graveward-gloves",
+      "name": "Graveward Gloves",
+      "category": "Bog Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-graveward-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ectoplasm",
+          "quantity": 2
+        },
+        {
+          "materialId": "spiritual-flesh",
+          "quantity": 2
+        },
+        {
+          "materialId": "gravebone",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "undead",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-ghoststep-boots",
+      "name": "Ghoststep Boots",
+      "category": "Bog Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-ghoststep-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ectoplasm",
+          "quantity": 2
+        },
+        {
+          "materialId": "spiritual-flesh",
+          "quantity": 2
+        },
+        {
+          "materialId": "gravebone",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "undead",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-venommire-mask",
+      "name": "Venommire Mask",
+      "category": "Bog Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-venommire-mask",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mirehide",
+          "quantity": 2
+        },
+        {
+          "materialId": "poisoned-monster-flesh",
+          "quantity": 2
+        },
+        {
+          "materialId": "venom-gland",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "mutation",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-mirehide-jerkin",
+      "name": "Mirehide Jerkin",
+      "category": "Bog Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-mirehide-jerkin",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mirehide",
+          "quantity": 2
+        },
+        {
+          "materialId": "poisoned-monster-flesh",
+          "quantity": 2
+        },
+        {
+          "materialId": "venom-gland",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "mutation",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-venomgrip-wraps",
+      "name": "Venomgrip Wraps",
+      "category": "Bog Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-venomgrip-wraps",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mirehide",
+          "quantity": 2
+        },
+        {
+          "materialId": "poisoned-monster-flesh",
+          "quantity": 2
+        },
+        {
+          "materialId": "venom-gland",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "mutation",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-fenrunner-boots",
+      "name": "Fenrunner Boots",
+      "category": "Bog Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-fenrunner-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mirehide",
+          "quantity": 2
+        },
+        {
+          "materialId": "poisoned-monster-flesh",
+          "quantity": 2
+        },
+        {
+          "materialId": "venom-gland",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "mutation",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-darksteel-cleaver",
+      "name": "Darksteel Mire Cleaver",
+      "category": "Bog Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-darksteel-cleaver",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "darksteel-shard",
+          "quantity": 3
+        },
+        {
+          "materialId": "bog-iron-scrap",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "bog-of-lost-souls",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-blackbanner-buckler",
+      "name": "Blackbanner Buckler",
+      "category": "Bog Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-blackbanner-buckler",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "darksteel-shard",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackbanner-cloth",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "bog-of-lost-souls",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-gravebone-pike",
+      "name": "Gravebone Pike",
+      "category": "Bog Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-gravebone-pike",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "gravebone",
+          "quantity": 3
+        },
+        {
+          "materialId": "soul-ash",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "bog-of-lost-souls",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-ectoplasm-codex",
+      "name": "Ectoplasm Codex",
+      "category": "Bog Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-ectoplasm-codex",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ectoplasm",
+          "quantity": 3
+        },
+        {
+          "materialId": "spiritual-flesh",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "bog-of-lost-souls",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-venomfang-knife",
+      "name": "Venomfang Knife",
+      "category": "Bog Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-venomfang-knife",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "venom-gland",
+          "quantity": 3
+        },
+        {
+          "materialId": "mirehide",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "bog-of-lost-souls",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-mirebone-knuckles",
+      "name": "Mirebone Knuckles",
+      "category": "Bog Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-mirebone-knuckles",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "poisoned-monster-flesh",
+          "quantity": 2
+        },
+        {
+          "materialId": "gravebone",
+          "quantity": 2
+        },
+        {
+          "materialId": "mirehide",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "bog-of-lost-souls",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-curseglass-focus",
+      "name": "Curseglass Focus",
+      "category": "Bog Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-curseglass-focus",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "curseglass",
+          "quantity": 2
+        },
+        {
+          "materialId": "hex-thread",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "bog-of-lost-souls",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-gravesalt-medallion",
+      "name": "Gravesalt Medallion",
+      "category": "Bog Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-gravesalt-medallion",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "grave-salt",
+          "quantity": 2
+        },
+        {
+          "materialId": "ectoplasm",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "bog-of-lost-souls",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-witchthread-sash",
+      "name": "Witchthread Sash",
+      "category": "Bog Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-witchthread-sash",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "hex-thread",
+          "quantity": 3
+        },
+        {
+          "materialId": "witch-wax",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "bog-of-lost-souls",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-blackbanner-bandolier",
+      "name": "Blackbanner Bandolier",
+      "category": "Bog Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-blackbanner-bandolier",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bandit-leather",
+          "quantity": 3
+        },
+        {
+          "materialId": "blackbanner-cloth",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "bog-of-lost-souls",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-soulash-censer",
+      "name": "Soul-Ash Censer",
+      "category": "Bog Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-soulash-censer",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soul-ash",
+          "quantity": 3
+        },
+        {
+          "materialId": "witch-wax",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "bog-of-lost-souls",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-mutagen-vial-charm",
+      "name": "Sealed Mutagen Vial",
+      "category": "Bog Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-mutagen-vial-charm",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mutagenic-bile",
+          "quantity": 2
+        },
+        {
+          "materialId": "curseglass",
+          "quantity": 1
+        },
+        {
+          "materialId": "venom-gland",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "bog-of-lost-souls",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-mirebound-jaw",
+      "name": "Mirebound Jaw",
+      "category": "Bog SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-mirebound-jaw",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mirebound-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "mirebound-abomination",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-varris-lifeline",
+      "name": "Varris’s Lifeline",
+      "category": "Bog SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-varris-lifeline",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "varris-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "varris-blackbanner",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-miras-hexstaff",
+      "name": "Mira’s Crooked Hexstaff",
+      "category": "Bog SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-miras-hexstaff",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mira-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "crazed-witch-mira",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-jacks-darksteel-greatblade",
+      "name": "Jack’s Darksteel Greatblade",
+      "category": "Bog SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-jacks-darksteel-greatblade",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "jack-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "bandit-king-jack",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-ser-kael-ashbrand-ashbrand-greatblade",
+      "name": "Ashbrand Greatblade",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-ser-kael-ashbrand-ashbrand-greatblade",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ser-kael-ashbrand-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "ser-kael-ashbrand",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-ser-kael-ashbrand-brandguard-sigil",
+      "name": "Brandguard Sigil",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-ser-kael-ashbrand-brandguard-sigil",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ser-kael-ashbrand-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "ser-kael-ashbrand",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-ser-kael-ashbrand-cinderplate-mantle",
+      "name": "Cinderplate Mantle",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-ser-kael-ashbrand-cinderplate-mantle",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ser-kael-ashbrand-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "ser-kael-ashbrand",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-nara-breakwater-breakwater-spear",
+      "name": "Breakwater Spear",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-nara-breakwater-breakwater-spear",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "nara-breakwater-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "nara-breakwater",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-nara-breakwater-breachfinder-lens",
+      "name": "Breachfinder Lens",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-nara-breakwater-breachfinder-lens",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "nara-breakwater-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "nara-breakwater",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-nara-breakwater-riftstep-harness",
+      "name": "Riftstep Harness",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-nara-breakwater-riftstep-harness",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "nara-breakwater-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "nara-breakwater",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-pell-crowsong-crowsong-sabre",
+      "name": "Crowsong Sabre",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-pell-crowsong-crowsong-sabre",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "pell-crowsong-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "pell-crowsong",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-pell-crowsong-marching-refrain",
+      "name": "Marching Refrain",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-pell-crowsong-marching-refrain",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "pell-crowsong-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "pell-crowsong",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-pell-crowsong-cadence-sash",
+      "name": "Cadence Sash",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-pell-crowsong-cadence-sash",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "pell-crowsong-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "pell-crowsong",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-two-gun-thomas-thomas-s-sidearm",
+      "name": "Thomas’s Sidearm",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-two-gun-thomas-thomas-s-sidearm",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "two-gun-thomas-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "two-gun-thomas",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-two-gun-thomas-quickdraw-token",
+      "name": "Quickdraw Token",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-two-gun-thomas-quickdraw-token",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "two-gun-thomas-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "two-gun-thomas",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-two-gun-thomas-powderline-bandolier",
+      "name": "Powderline Bandolier",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-two-gun-thomas-powderline-bandolier",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "two-gun-thomas-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "two-gun-thomas",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-mother-spore-velda-sporewood-crook",
+      "name": "Sporewood Crook",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-mother-spore-velda-sporewood-crook",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mother-spore-velda-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "mother-spore-velda",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-mother-spore-velda-hypha-heart",
+      "name": "Hypha Heart",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-mother-spore-velda-hypha-heart",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mother-spore-velda-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "mother-spore-velda",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-mother-spore-velda-bloomweave-shawl",
+      "name": "Bloomweave Shawl",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-mother-spore-velda-bloomweave-shawl",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mother-spore-velda-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "mother-spore-velda",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-sister-malva-vane-malisunder-scepter",
+      "name": "Malisunder Scepter",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-sister-malva-vane-malisunder-scepter",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sister-malva-vane-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "sister-malva-vane",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-sister-malva-vane-fracture-rosary",
+      "name": "Fracture Rosary",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-sister-malva-vane-fracture-rosary",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sister-malva-vane-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "sister-malva-vane",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-sister-malva-vane-sundered-vestment",
+      "name": "Sundered Vestment",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-sister-malva-vane-sundered-vestment",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sister-malva-vane-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "sister-malva-vane",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-talar-seven-palms-seven-palm-wraps",
+      "name": "Seven-Palm Wraps",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-talar-seven-palms-seven-palm-wraps",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "talar-seven-palms-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "talar-seven-palms",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-talar-seven-palms-prismatic-bead",
+      "name": "Prismatic Bead",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-talar-seven-palms-prismatic-bead",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "talar-seven-palms-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "talar-seven-palms",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-talar-seven-palms-facetwalker-sash",
+      "name": "Facetwalker Sash",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-talar-seven-palms-facetwalker-sash",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "talar-seven-palms-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "talar-seven-palms",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-old-ember-nox-ember-nox-rod",
+      "name": "Ember-Nox Rod",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-old-ember-nox-ember-nox-rod",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "old-ember-nox-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "old-ember-nox",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-old-ember-nox-pyre-covenant-seal",
+      "name": "Pyre Covenant Seal",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-old-ember-nox-pyre-covenant-seal",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "old-ember-nox-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "old-ember-nox",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-old-ember-nox-ashen-pactcoat",
+      "name": "Ashen Pactcoat",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-old-ember-nox-ashen-pactcoat",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "old-ember-nox-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "old-ember-nox",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-coilmage-yrra-yrra-s-coilrod",
+      "name": "Yrra’s Coilrod",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-coilmage-yrra-yrra-s-coilrod",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "coilmage-yrra-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "coilmage-yrra",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-coilmage-yrra-conductor-loop",
+      "name": "Conductor Loop",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-coilmage-yrra-conductor-loop",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "coilmage-yrra-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "coilmage-yrra",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-coilmage-yrra-stormwire-sash",
+      "name": "Stormwire Sash",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-coilmage-yrra-stormwire-sash",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "coilmage-yrra-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "coilmage-yrra",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-maelis-starflash-starflash-wand",
+      "name": "Starflash Wand",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-maelis-starflash-starflash-wand",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "maelis-starflash-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "maelis-starflash",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-maelis-starflash-flareglass-prism",
+      "name": "Flareglass Prism",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-maelis-starflash-flareglass-prism",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "maelis-starflash-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "maelis-starflash",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-maelis-starflash-spellflare-mantle",
+      "name": "Spellflare Mantle",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-maelis-starflash-spellflare-mantle",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "maelis-starflash-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "maelis-starflash",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-judicator-ren-ren-s-verdict-blade",
+      "name": "Ren’s Verdict Blade",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-judicator-ren-ren-s-verdict-blade",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "judicator-ren-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "judicator-ren",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-judicator-ren-judicator-seal",
+      "name": "Judicator Seal",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-judicator-ren-judicator-seal",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "judicator-ren-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "judicator-ren",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-bog-trainer-judicator-ren-final-appeal-plate",
+      "name": "Final Appeal Plate",
+      "category": "Trainer SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-bog-trainer-judicator-ren-final-appeal-plate",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "judicator-ren-soulfirecore",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "judicator-ren",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    }
+  ],
+  "starterGear": [],
+  "catalogueSummary": {
+    "materials": 31,
+    "ordinaryMaterials": 16,
+    "trainerSoulfireCores": 11,
+    "specialSoulfireCores": 4,
+    "sets": 3,
+    "recipes": 61,
+    "trainerSoulfireRecipes": 33,
+    "artStatus": "deferred"
+  }
+}

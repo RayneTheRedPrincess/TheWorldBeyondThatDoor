@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "startingUnlockedRaces": [
     "Human"
   ],
@@ -10,7 +10,7 @@
     "chronicle": false
   },
   "baseClassAvailability": "all-approved-base-classes",
-  "provenance": "Human remains the isolated I2 implementation default because v25 does not serialize an exact starter-race list. Mantle and Chronicle intentionally begin unavailable: they are later Tavern progression systems and are never Campaign Door prerequisites. I15 adds six free starter Tavern Adventurers (2 support, 2 tank, 2 damage) and leaves the remaining seven to easy Forest accomplishments. I18 adds the one-time mandatory starter onboarding reward and isolated tutorial/help state; it does not auto-unlock Kept Impressions.",
+  "provenance": "Human remains the isolated I2 implementation default because v25 does not serialize an exact starter-race list. Mantle and Chronicle intentionally begin unavailable: they are later Tavern progression systems and are never Campaign Door prerequisites. I15 adds six free starter Tavern Adventurers (2 support, 2 tank, 2 damage) and leaves the remaining seven to easy Forest accomplishments. I18 adds the one-time mandatory starter onboarding reward and isolated tutorial/help state; it does not auto-unlock Kept Impressions. Phase 10 pre-Bog extension v5 adds exactly one one-time account-wide Race Choice token when the mandatory starter onboarding is completed or skipped; existing resolved accounts receive the same one-time grant on bootstrap migration.",
   "startingUnlockedTavernAdventurers": [
     "guest-sera",
     "guest-kethravel",

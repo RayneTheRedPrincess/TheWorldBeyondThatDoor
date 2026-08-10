@@ -1,5 +1,5 @@
 {
-  "version": "I16-2026-08-08",
+  "version": "BOG-FOUNDATION-2026-08-10",
   "regions": [
     {
       "id": "forest",
@@ -109,8 +109,8 @@
         "firstEverDepth1Controlled": true,
         "trainerAuthority": "data/forest-trainers.json",
         "activeTrainerRosterPerCampaign": [
-          6,
-          8
+          9,
+          11
         ],
         "matchingPartyBaseClassAnchorChancePct": 95
       },
@@ -131,6 +131,161 @@
         "return-to-tavern",
         "continue-beyond-the-door"
       ]
+    },
+    {
+      "id": "bog-of-lost-souls",
+      "name": "Bog of Lost Souls",
+      "depthCount": 30,
+      "introductoryBand": {
+        "start": 1,
+        "end": 5
+      },
+      "cardsPerStep": 3,
+      "trainerEligibility": {
+        "start": 3,
+        "end": 29
+      },
+      "eventKinds": [
+        {
+          "id": "combat",
+          "label": "Combat",
+          "combat": true
+        },
+        {
+          "id": "trainer",
+          "label": "Trainer",
+          "noncombat": true,
+          "trainer": true
+        },
+        {
+          "id": "landmark",
+          "label": "Haunted Landmark",
+          "noncombat": true
+        },
+        {
+          "id": "discovery",
+          "label": "Bog Discovery",
+          "noncombat": true
+        },
+        {
+          "id": "other-noncombat",
+          "label": "Fog-Touched Path",
+          "noncombat": true
+        }
+      ],
+      "combatStructure": {
+        "depthTiers": [
+          {
+            "id": "tier-1",
+            "name": "The Drowned Verge",
+            "start": 1,
+            "end": 5
+          },
+          {
+            "id": "tier-2",
+            "name": "Gravewater March",
+            "start": 6,
+            "end": 10
+          },
+          {
+            "id": "tier-3",
+            "name": "Witchfen",
+            "start": 11,
+            "end": 14
+          },
+          {
+            "id": "tier-4",
+            "name": "Blackbanner Mire",
+            "start": 16,
+            "end": 20
+          },
+          {
+            "id": "tier-5",
+            "name": "The Mourning Fields",
+            "start": 21,
+            "end": 25
+          },
+          {
+            "id": "tier-6",
+            "name": "Mira's Blight",
+            "start": 26,
+            "end": 29
+          }
+        ],
+        "minibossDepth": 15,
+        "bossDepth": 30,
+        "enemyCountByRealPartySize": {
+          "1": [
+            1,
+            2
+          ],
+          "2": [
+            2,
+            3
+          ],
+          "3": [
+            3,
+            4
+          ],
+          "4": [
+            4,
+            5
+          ]
+        },
+        "scalingBasis": "bog-enemy-type-and-depth-tier",
+        "playerLevelScaling": false
+      },
+      "eventStructure": {
+        "authority": "data/bog-events.json",
+        "noRepeatsWithinCampaign": true,
+        "trainerAuthority": "data/bog-trainers.json",
+        "activeTrainerRosterPerCampaign": [
+          8,
+          11
+        ],
+        "matchingPartyBaseClassAnchorChancePct": 95,
+        "fogPressure": {
+          "min": 0,
+          "max": 3,
+          "safeCampReduction": 1,
+          "pressureOne": "boost-spirit-undead-events",
+          "pressureTwo": "guarantee-fog-touched-choice",
+          "pressureThree": "guarantee-major-haunting-then-reduce"
+        }
+      },
+      "regionalMechanic": {
+        "id": "fog-pressure",
+        "name": "Haunted Fog",
+        "minimum": 0,
+        "maximum": 3,
+        "starting": 0,
+        "safeCampReduction": 1,
+        "raiseSources": [
+          "failed-fog-check",
+          "curse-event",
+          "wandering-spirit-event"
+        ],
+        "effects": {
+          "1": "Wandering spirit and undead events are weighted more heavily.",
+          "2": "At least one offered route is Fog-Touched.",
+          "3": "The next eligible travel step guarantees a Major Haunting; resolving it reduces Fog Pressure by 1."
+        }
+      },
+      "completionReward": {
+        "onyx": 500,
+        "chronicleProgress": 20
+      },
+      "boundaryChoices": [
+        "return-to-tavern"
+      ],
+      "recommendedLevel": {
+        "entry": [
+          5,
+          6
+        ],
+        "targetEndLevel": 12
+      },
+      "merchants": false
     }
   ]
 }

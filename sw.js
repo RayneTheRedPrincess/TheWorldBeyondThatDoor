@@ -1,6 +1,12 @@
-const CACHE_NAME = 'twbtd-i22-portrait-static-a4-v1-2026-08-08';
-const ART_CACHE_NAME = 'twbtd-portrait-static-runtime-a4-v1';
-const MAX_RUNTIME_ART_ENTRIES = 180;
+const CACHE_NAME = 'twbtd-phase10-bog-foundation-v1-2026-08-10';
+const ART_CACHE_NAME = 'twbtd-portrait-static-runtime-phase5b-v3-adaptive-full';
+const THUMB_ART_CACHE_NAME = 'twbtd-portrait-static-runtime-phase5b-v3-adaptive-thumbs';
+const CONTENT_ART_CACHE_NAME = 'twbtd-content-portrait-runtime-phase10-v1';
+const MAX_RUNTIME_ART_ENTRIES = 96; // compatibility ceiling retained from the sealed baseline
+const MAX_RUNTIME_FULL_ENTRIES = 36;
+const MAX_RUNTIME_THUMB_ENTRIES = 72;
+const MAX_RUNTIME_CONTENT_ENTRIES = 96;
+// Legacy compatibility source path: assets/portraits/vessels/ (source-only; not install-precached).
 const STATIC_FILES = [
   './',
   './index.html',
@@ -12,6 +18,8 @@ const STATIC_FILES = [
   './src/ally-ai.js',
   './src/app.js',
   './src/base-class-state.js',
+  './src/bog-encounter-builder.js',
+  './src/bog-event-deck.js',
   './src/campaign-controller.js',
   './src/campaign-door.js',
   './src/canon-registry.js',
@@ -23,6 +31,7 @@ const STATIC_FILES = [
   './src/combat-math.js',
   './src/combat-presentation.js',
   './src/combat-resolution.js',
+  './src/content-portrait.js',
   './src/constants.js',
   './src/consumable-controller.js',
   './src/crafting-controller.js',
@@ -40,6 +49,7 @@ const STATIC_FILES = [
   './src/mantle-controller.js',
   './src/player-facing.js',
   './src/portrait-controller.js',
+  './src/portrait-preload.js',
   './src/progression-features.js',
   './src/router.js',
   './src/save-controller.js',
@@ -68,12 +78,17 @@ const STATIC_FILES = [
   './data/account-bootstrap.json',
   './data/base-abilities.json',
   './data/base-class-resources.json',
+  './data/bog-crafting.json',
+  './data/bog-enemies.json',
+  './data/bog-events.json',
+  './data/bog-trainers.json',
   './data/canon-authority.json',
   './data/character-progression.json',
   './data/chronicle-trees-canon.txt',
   './data/chronicle-trees.json',
   './data/classless-chronicle-canon.txt',
   './data/combat-rules.json',
+  './data/content-portraits.json',
   './data/equipment-consumables-status.json',
   './data/forest-crafting.json',
   './data/forest-enemies.json',
@@ -98,231 +113,6 @@ const STATIC_FILES = [
   './assets/icons/favicon.png',
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
-  './assets/portraits/adventurers/guest-brakka.png',
-  './assets/portraits/adventurers/guest-briar.png',
-  './assets/portraits/adventurers/guest-dane.png',
-  './assets/portraits/adventurers/guest-elowen.png',
-  './assets/portraits/adventurers/guest-kethravel.png',
-  './assets/portraits/adventurers/guest-mercury.png',
-  './assets/portraits/adventurers/guest-nib.png',
-  './assets/portraits/adventurers/guest-rill.png',
-  './assets/portraits/adventurers/guest-sera.png',
-  './assets/portraits/adventurers/guest-sparkscale.png',
-  './assets/portraits/adventurers/guest-tawny.png',
-  './assets/portraits/adventurers/guest-unit-seven.png',
-  './assets/portraits/adventurers/guest-vesper.png',
-  './assets/portraits/enemies/barkveil-sapper.png',
-  './assets/portraits/enemies/bramblekin-scrapper.png',
-  './assets/portraits/enemies/chimeleaf-wisp.png',
-  './assets/portraits/enemies/crown-of-thorns-warden.png',
-  './assets/portraits/enemies/glasswing-needler.png',
-  './assets/portraits/enemies/gloomcap-binder.png',
-  './assets/portraits/enemies/heartwood-sovereign.png',
-  './assets/portraits/enemies/ironbark-ram.png',
-  './assets/portraits/enemies/mossjaw-boar.png',
-  './assets/portraits/enemies/needlefang-lynx.png',
-  './assets/portraits/enemies/rootcoil-hexer.png',
-  './assets/portraits/enemies/sporecap-tender.png',
-  './assets/portraits/enemies/sunscar-hart.png',
-  './assets/portraits/enemies/vinebound-reaver.png',
-  './assets/portraits/vessels/adaptedfist/female-01.png',
-  './assets/portraits/vessels/adaptedfist/female-02.png',
-  './assets/portraits/vessels/adaptedfist/female-03.png',
-  './assets/portraits/vessels/adaptedfist/male-01.png',
-  './assets/portraits/vessels/adaptedfist/male-02.png',
-  './assets/portraits/vessels/adaptedfist/male-03.png',
-  './assets/portraits/vessels/barkmorph/female-01.png',
-  './assets/portraits/vessels/barkmorph/female-02.png',
-  './assets/portraits/vessels/barkmorph/female-03.png',
-  './assets/portraits/vessels/barkmorph/male-01.png',
-  './assets/portraits/vessels/barkmorph/male-02.png',
-  './assets/portraits/vessels/barkmorph/male-03.png',
-  './assets/portraits/vessels/belowcaller/female-01.png',
-  './assets/portraits/vessels/belowcaller/female-02.png',
-  './assets/portraits/vessels/belowcaller/female-03.png',
-  './assets/portraits/vessels/belowcaller/male-01.png',
-  './assets/portraits/vessels/belowcaller/male-02.png',
-  './assets/portraits/vessels/belowcaller/male-03.png',
-  './assets/portraits/vessels/bloodknuckle/female-01.png',
-  './assets/portraits/vessels/bloodknuckle/female-02.png',
-  './assets/portraits/vessels/bloodknuckle/female-03.png',
-  './assets/portraits/vessels/bloodknuckle/male-01.png',
-  './assets/portraits/vessels/bloodknuckle/male-02.png',
-  './assets/portraits/vessels/bloodknuckle/male-03.png',
-  './assets/portraits/vessels/brandblade/female-01.png',
-  './assets/portraits/vessels/brandblade/female-02.png',
-  './assets/portraits/vessels/brandblade/female-03.png',
-  './assets/portraits/vessels/brandblade/male-01.png',
-  './assets/portraits/vessels/brandblade/male-02.png',
-  './assets/portraits/vessels/brandblade/male-03.png',
-  './assets/portraits/vessels/breachstrider/female-01.png',
-  './assets/portraits/vessels/breachstrider/female-02.png',
-  './assets/portraits/vessels/breachstrider/female-03.png',
-  './assets/portraits/vessels/breachstrider/male-01.png',
-  './assets/portraits/vessels/breachstrider/male-02.png',
-  './assets/portraits/vessels/breachstrider/male-03.png',
-  './assets/portraits/vessels/cadenceblade/female-01.png',
-  './assets/portraits/vessels/cadenceblade/female-02.png',
-  './assets/portraits/vessels/cadenceblade/female-03.png',
-  './assets/portraits/vessels/cadenceblade/male-01.png',
-  './assets/portraits/vessels/cadenceblade/male-02.png',
-  './assets/portraits/vessels/cadenceblade/male-03.png',
-  './assets/portraits/vessels/choruswarden/female-01.png',
-  './assets/portraits/vessels/choruswarden/female-02.png',
-  './assets/portraits/vessels/choruswarden/female-03.png',
-  './assets/portraits/vessels/choruswarden/male-01.png',
-  './assets/portraits/vessels/choruswarden/male-02.png',
-  './assets/portraits/vessels/choruswarden/male-03.png',
-  './assets/portraits/vessels/dawnwarden/female-01.png',
-  './assets/portraits/vessels/dawnwarden/female-02.png',
-  './assets/portraits/vessels/dawnwarden/female-03.png',
-  './assets/portraits/vessels/dawnwarden/male-01.png',
-  './assets/portraits/vessels/dawnwarden/male-02.png',
-  './assets/portraits/vessels/dawnwarden/male-03.png',
-  './assets/portraits/vessels/dreadcantor/female-01.png',
-  './assets/portraits/vessels/dreadcantor/female-02.png',
-  './assets/portraits/vessels/dreadcantor/female-03.png',
-  './assets/portraits/vessels/dreadcantor/male-01.png',
-  './assets/portraits/vessels/dreadcantor/male-02.png',
-  './assets/portraits/vessels/dreadcantor/male-03.png',
-  './assets/portraits/vessels/duelist/female-01.png',
-  './assets/portraits/vessels/duelist/female-02.png',
-  './assets/portraits/vessels/duelist/female-03.png',
-  './assets/portraits/vessels/duelist/male-01.png',
-  './assets/portraits/vessels/duelist/male-02.png',
-  './assets/portraits/vessels/duelist/male-03.png',
-  './assets/portraits/vessels/fluxwrought/female-01.png',
-  './assets/portraits/vessels/fluxwrought/female-02.png',
-  './assets/portraits/vessels/fluxwrought/female-03.png',
-  './assets/portraits/vessels/fluxwrought/male-01.png',
-  './assets/portraits/vessels/fluxwrought/male-02.png',
-  './assets/portraits/vessels/fluxwrought/male-03.png',
-  './assets/portraits/vessels/fontborn/female-01.png',
-  './assets/portraits/vessels/fontborn/female-02.png',
-  './assets/portraits/vessels/fontborn/female-03.png',
-  './assets/portraits/vessels/fontborn/male-01.png',
-  './assets/portraits/vessels/fontborn/male-02.png',
-  './assets/portraits/vessels/fontborn/male-03.png',
-  './assets/portraits/vessels/glyphmorpher/female-01.png',
-  './assets/portraits/vessels/glyphmorpher/female-02.png',
-  './assets/portraits/vessels/glyphmorpher/female-03.png',
-  './assets/portraits/vessels/glyphmorpher/male-01.png',
-  './assets/portraits/vessels/glyphmorpher/male-02.png',
-  './assets/portraits/vessels/glyphmorpher/male-03.png',
-  './assets/portraits/vessels/gunslinger/female-01.png',
-  './assets/portraits/vessels/gunslinger/female-02.png',
-  './assets/portraits/vessels/gunslinger/female-03.png',
-  './assets/portraits/vessels/gunslinger/male-01.png',
-  './assets/portraits/vessels/gunslinger/male-02.png',
-  './assets/portraits/vessels/gunslinger/male-03.png',
-  './assets/portraits/vessels/hyphaweaver/female-01.png',
-  './assets/portraits/vessels/hyphaweaver/female-02.png',
-  './assets/portraits/vessels/hyphaweaver/female-03.png',
-  './assets/portraits/vessels/hyphaweaver/male-01.png',
-  './assets/portraits/vessels/hyphaweaver/male-02.png',
-  './assets/portraits/vessels/hyphaweaver/male-03.png',
-  './assets/portraits/vessels/longwatch/female-01.png',
-  './assets/portraits/vessels/longwatch/female-02.png',
-  './assets/portraits/vessels/longwatch/female-03.png',
-  './assets/portraits/vessels/longwatch/male-01.png',
-  './assets/portraits/vessels/longwatch/male-02.png',
-  './assets/portraits/vessels/longwatch/male-03.png',
-  './assets/portraits/vessels/lumenwrath/female-01.png',
-  './assets/portraits/vessels/lumenwrath/female-02.png',
-  './assets/portraits/vessels/lumenwrath/female-03.png',
-  './assets/portraits/vessels/lumenwrath/male-01.png',
-  './assets/portraits/vessels/lumenwrath/male-02.png',
-  './assets/portraits/vessels/lumenwrath/male-03.png',
-  './assets/portraits/vessels/malisunder/female-01.png',
-  './assets/portraits/vessels/malisunder/female-02.png',
-  './assets/portraits/vessels/malisunder/female-03.png',
-  './assets/portraits/vessels/malisunder/male-01.png',
-  './assets/portraits/vessels/malisunder/male-02.png',
-  './assets/portraits/vessels/malisunder/male-03.png',
-  './assets/portraits/vessels/mortisworn/female-01.png',
-  './assets/portraits/vessels/mortisworn/female-02.png',
-  './assets/portraits/vessels/mortisworn/female-03.png',
-  './assets/portraits/vessels/mortisworn/male-01.png',
-  './assets/portraits/vessels/mortisworn/male-02.png',
-  './assets/portraits/vessels/mortisworn/male-03.png',
-  './assets/portraits/vessels/prismatic-palm/female-01.png',
-  './assets/portraits/vessels/prismatic-palm/female-02.png',
-  './assets/portraits/vessels/prismatic-palm/female-03.png',
-  './assets/portraits/vessels/prismatic-palm/male-01.png',
-  './assets/portraits/vessels/prismatic-palm/male-02.png',
-  './assets/portraits/vessels/prismatic-palm/male-03.png',
-  './assets/portraits/vessels/pyrecovenant/female-01.png',
-  './assets/portraits/vessels/pyrecovenant/female-02.png',
-  './assets/portraits/vessels/pyrecovenant/female-03.png',
-  './assets/portraits/vessels/pyrecovenant/male-01.png',
-  './assets/portraits/vessels/pyrecovenant/male-02.png',
-  './assets/portraits/vessels/pyrecovenant/male-03.png',
-  './assets/portraits/vessels/ruinhewer/female-01.png',
-  './assets/portraits/vessels/ruinhewer/female-02.png',
-  './assets/portraits/vessels/ruinhewer/female-03.png',
-  './assets/portraits/vessels/ruinhewer/male-01.png',
-  './assets/portraits/vessels/ruinhewer/male-02.png',
-  './assets/portraits/vessels/ruinhewer/male-03.png',
-  './assets/portraits/vessels/sealweaver/female-01.png',
-  './assets/portraits/vessels/sealweaver/female-02.png',
-  './assets/portraits/vessels/sealweaver/female-03.png',
-  './assets/portraits/vessels/sealweaver/male-01.png',
-  './assets/portraits/vessels/sealweaver/male-02.png',
-  './assets/portraits/vessels/sealweaver/male-03.png',
-  './assets/portraits/vessels/seedmarshal/female-01.png',
-  './assets/portraits/vessels/seedmarshal/female-02.png',
-  './assets/portraits/vessels/seedmarshal/female-03.png',
-  './assets/portraits/vessels/seedmarshal/male-01.png',
-  './assets/portraits/vessels/seedmarshal/male-02.png',
-  './assets/portraits/vessels/seedmarshal/male-03.png',
-  './assets/portraits/vessels/solaceweaver/female-01.png',
-  './assets/portraits/vessels/solaceweaver/female-02.png',
-  './assets/portraits/vessels/solaceweaver/female-03.png',
-  './assets/portraits/vessels/solaceweaver/male-01.png',
-  './assets/portraits/vessels/solaceweaver/male-02.png',
-  './assets/portraits/vessels/solaceweaver/male-03.png',
-  './assets/portraits/vessels/spellconductor/female-01.png',
-  './assets/portraits/vessels/spellconductor/female-02.png',
-  './assets/portraits/vessels/spellconductor/female-03.png',
-  './assets/portraits/vessels/spellconductor/male-01.png',
-  './assets/portraits/vessels/spellconductor/male-02.png',
-  './assets/portraits/vessels/spellconductor/male-03.png',
-  './assets/portraits/vessels/spellflare/female-01.png',
-  './assets/portraits/vessels/spellflare/female-02.png',
-  './assets/portraits/vessels/spellflare/female-03.png',
-  './assets/portraits/vessels/spellflare/male-01.png',
-  './assets/portraits/vessels/spellflare/male-02.png',
-  './assets/portraits/vessels/spellflare/male-03.png',
-  './assets/portraits/vessels/steelbearer/female-01.png',
-  './assets/portraits/vessels/steelbearer/female-02.png',
-  './assets/portraits/vessels/steelbearer/female-03.png',
-  './assets/portraits/vessels/steelbearer/male-01.png',
-  './assets/portraits/vessels/steelbearer/male-02.png',
-  './assets/portraits/vessels/steelbearer/male-03.png',
-  './assets/portraits/vessels/trailguard/female-01.png',
-  './assets/portraits/vessels/trailguard/female-02.png',
-  './assets/portraits/vessels/trailguard/female-03.png',
-  './assets/portraits/vessels/trailguard/male-01.png',
-  './assets/portraits/vessels/trailguard/male-02.png',
-  './assets/portraits/vessels/trailguard/male-03.png',
-  './assets/portraits/vessels/veil-blade/female-01.png',
-  './assets/portraits/vessels/veil-blade/female-02.png',
-  './assets/portraits/vessels/veil-blade/female-03.png',
-  './assets/portraits/vessels/veil-blade/male-01.png',
-  './assets/portraits/vessels/veil-blade/male-02.png',
-  './assets/portraits/vessels/veil-blade/male-03.png',
-  './assets/portraits/vessels/verdictbearer/female-01.png',
-  './assets/portraits/vessels/verdictbearer/female-02.png',
-  './assets/portraits/vessels/verdictbearer/female-03.png',
-  './assets/portraits/vessels/verdictbearer/male-01.png',
-  './assets/portraits/vessels/verdictbearer/male-02.png',
-  './assets/portraits/vessels/verdictbearer/male-03.png',
-  './assets/portraits/vessels/vowscarred/female-01.png',
-  './assets/portraits/vessels/vowscarred/female-02.png',
-  './assets/portraits/vessels/vowscarred/female-03.png',
-  './assets/portraits/vessels/vowscarred/male-01.png',
-  './assets/portraits/vessels/vowscarred/male-02.png',
-  './assets/portraits/vessels/vowscarred/male-03.png',
   './assets/route-art/combat.svg',
   './assets/route-art/discovery.svg',
   './assets/route-art/event.svg',
@@ -332,12 +122,25 @@ const STATIC_FILES = [
 ];
 
 function isRuntimeVesselPortrait(url){
-  return /\/assets\/portraits\/vessels-static\//.test(url.pathname);
+  // Keep the sealed compatibility matcher for canonical/full WebP paths while
+  // also recognizing the adaptive AVIF and 128px delivery directories.
+  if(/\/assets\/portraits\/vessels-static(?:-webp)?\//.test(url.pathname))return true;
+  return /\/assets\/portraits\/vessels-static-(?:avif|128-(?:avif|webp))\//.test(url.pathname);
 }
 
-async function trimRuntimeArt(cache){
+
+function isRuntimeContentPortrait(url){
+  return /\/assets\/portraits\/(?:enemies\/|enemies-static(?:-avif|-webp)?\/|events-static(?:-400-(?:avif|webp))?\/|trainers-static(?:-400-(?:avif|webp))?\/|adventurers-static(?:-(?:avif|webp))?\/)/.test(url.pathname);
+}
+
+function portraitCacheProfile(url){
+  if(/\/assets\/portraits\/vessels-static-128-(?:avif|webp)\//.test(url.pathname))return {name:THUMB_ART_CACHE_NAME,limit:MAX_RUNTIME_THUMB_ENTRIES};
+  return {name:ART_CACHE_NAME,limit:MAX_RUNTIME_FULL_ENTRIES};
+}
+
+async function trimRuntimeArt(cache,limit){
   const keys=await cache.keys();
-  const excess=keys.length-MAX_RUNTIME_ART_ENTRIES;
+  const excess=keys.length-limit;
   if(excess>0)await Promise.all(keys.slice(0,excess).map(request=>cache.delete(request)));
 }
 
@@ -347,17 +150,17 @@ self.addEventListener('install', event => {
 });
 
 self.addEventListener('activate', event => {
-  event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k.startsWith('twbtd-') && k !== CACHE_NAME && k !== ART_CACHE_NAME).map(k => caches.delete(k)))));
+  event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k => k.startsWith('twbtd-') && k !== CACHE_NAME && k !== ART_CACHE_NAME && k !== THUMB_ART_CACHE_NAME && k !== CONTENT_ART_CACHE_NAME).map(k => caches.delete(k)))));
   self.clients.claim();
 });
 
-async function safeNetwork(request,cacheName=CACHE_NAME) {
+async function safeNetwork(request,cacheName=CACHE_NAME,limit=null) {
   try {
     const response = await fetch(request);
     if (response && response.ok) {
       const cache = await caches.open(cacheName);
       await cache.put(request, response.clone());
-      if(cacheName===ART_CACHE_NAME)await trimRuntimeArt(cache);
+      if(limit)await trimRuntimeArt(cache,limit);
     }
     return response;
   } catch (_error) {
@@ -365,11 +168,12 @@ async function safeNetwork(request,cacheName=CACHE_NAME) {
   }
 }
 
-async function runtimePortraitResponse(request){
-  const cache=await caches.open(ART_CACHE_NAME);
+async function runtimePortraitResponse(request,url){
+  const profile=isRuntimeContentPortrait(url)?{name:CONTENT_ART_CACHE_NAME,limit:MAX_RUNTIME_CONTENT_ENTRIES}:portraitCacheProfile(url);
+  const cache=await caches.open(profile.name);
   const cached=await cache.match(request);
   if(cached)return cached;
-  return (await safeNetwork(request,ART_CACHE_NAME)) || new Response('Offline portrait unavailable until it has been viewed once.', { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
+  return (await safeNetwork(request,profile.name,profile.limit)) || new Response('Offline portrait unavailable until it has been viewed once.', { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } });
 }
 
 self.addEventListener('fetch', event => {
@@ -387,6 +191,6 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  if(isRuntimeVesselPortrait(url)){event.respondWith(runtimePortraitResponse(request));return;}
+  if(isRuntimeVesselPortrait(url)||isRuntimeContentPortrait(url)){event.respondWith(runtimePortraitResponse(request,url));return;}
   event.respondWith(caches.match(request).then(cached => cached || safeNetwork(request).then(network => network || new Response('Offline asset unavailable.', { status: 503, headers: { 'Content-Type': 'text/plain; charset=utf-8' } }))));
 });

@@ -1,0 +1,3355 @@
+{
+  "version": "BOG-FOUNDATION-2026-08-10",
+  "rules": {
+    "noDefinitionRepeatsWithinCampaign": true,
+    "nonTrainerNoncombatUsesSingleCoreStatCheck": true,
+    "cardsPerStep": 3,
+    "fogPressureEnabled": true,
+    "noArtYet": true
+  },
+  "introCardIds": [
+    "bog-intro-dead-bell",
+    "bog-intro-cut-rope",
+    "bog-intro-bloated-track"
+  ],
+  "events": [
+    {
+      "id": "bog-intro-dead-bell",
+      "kind": "landmark",
+      "label": "The Bell Beneath the Water",
+      "description": "A drowned battlefield bell tolls once beneath black water. Pale soldiers turn their faces toward the sound.",
+      "minDepth": 1,
+      "maxDepth": 1,
+      "introOnly": true,
+      "check": {
+        "stat": "FTH",
+        "dc": 9
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 8,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 5,
+        "flag": "bog-fog-rise"
+      },
+      "criticalSuccess": {
+        "onyx": 4
+      },
+      "weight": 1,
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-intro-cut-rope",
+      "kind": "discovery",
+      "label": "The Cut Ferry Rope",
+      "description": "A ferry rope has been sliced cleanly and bootprints vanish into reeds on both banks.",
+      "minDepth": 1,
+      "maxDepth": 1,
+      "introOnly": true,
+      "check": {
+        "stat": "LCK",
+        "dc": 9
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 7,
+        "materialId": "bandit-leather",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "onyxLoss": 4
+      },
+      "criticalSuccess": {
+        "materialId": "bog-iron-scrap",
+        "materialQuantity": 1
+      },
+      "weight": 1
+    },
+    {
+      "id": "bog-intro-bloated-track",
+      "kind": "discovery",
+      "label": "The Bloated Track",
+      "description": "Something too heavy for a natural beast dragged itself through the mud, leaving venom-bright saliva in its wake.",
+      "minDepth": 1,
+      "maxDepth": 1,
+      "introOnly": true,
+      "check": {
+        "stat": "INT",
+        "dc": 9
+      },
+      "checkmark": true,
+      "success": {
+        "onyx": 6,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "materialId": "venom-gland",
+        "materialQuantity": 1
+      },
+      "weight": 1,
+      "combatProfile": "mutation"
+    },
+    {
+      "id": "bog-combat-01-bandit-camp",
+      "kind": "combat",
+      "combat": true,
+      "label": "Blackbanner Encampment — Drowned Verge",
+      "description": "Jack’s Blackbanner bandits have fortified a patch of dry ground with scavenged timber, iron hooks, and watchfires.",
+      "minDepth": 2,
+      "maxDepth": 5,
+      "weight": 1,
+      "combatProfile": "bandit-camp",
+      "faction": "Blackbanner",
+      "fogTouched": false,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-01-bandit-ambush",
+      "kind": "combat",
+      "combat": true,
+      "label": "Reedline Ambush — Drowned Verge",
+      "description": "A snapped reed is the only warning before Blackbanner raiders rise from concealed firing positions.",
+      "minDepth": 2,
+      "maxDepth": 5,
+      "weight": 1,
+      "combatProfile": "bandit-ambush",
+      "faction": "Blackbanner",
+      "fogTouched": false,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-01-undead",
+      "kind": "combat",
+      "combat": true,
+      "label": "The Dead Reform — Drowned Verge",
+      "description": "Mud-caked soldiers pull themselves from an old battle line and resume a war that ended long ago.",
+      "minDepth": 2,
+      "maxDepth": 5,
+      "weight": 1,
+      "combatProfile": "undead",
+      "faction": "Battlefield Dead",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-01-major-haunting",
+      "kind": "combat",
+      "combat": true,
+      "label": "The Fog Remembers — Drowned Verge",
+      "description": "The fog thickens until the battlefield overlays the present, and a mass of wandering spirits turns toward the living.",
+      "minDepth": 2,
+      "maxDepth": 5,
+      "weight": 1,
+      "combatProfile": "major-haunting",
+      "faction": "Battlefield Dead",
+      "fogTouched": true,
+      "majorHaunting": true
+    },
+    {
+      "id": "bog-combat-01-mutation",
+      "kind": "combat",
+      "combat": true,
+      "label": "Mira’s Runoff — Drowned Verge",
+      "description": "A swollen creature bearing stitched scars and witch-burn brands lunges from poisoned water.",
+      "minDepth": 2,
+      "maxDepth": 5,
+      "weight": 1,
+      "combatProfile": "mutation",
+      "faction": "Mira's Mutations",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-01-witch",
+      "kind": "combat",
+      "combat": true,
+      "label": "Candle in the Fen — Drowned Verge",
+      "description": "A lesser witch has hung corpse-lanterns from dead branches and is waiting beneath them.",
+      "minDepth": 2,
+      "maxDepth": 5,
+      "weight": 1,
+      "combatProfile": "witch",
+      "faction": "Lesser Witches",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-01-mixed",
+      "kind": "combat",
+      "combat": true,
+      "label": "Broken Truce — Drowned Verge",
+      "description": "Bandits drive cursed dead and mutated beasts ahead of them, turning the path into a three-sided killing ground.",
+      "minDepth": 2,
+      "maxDepth": 5,
+      "weight": 1,
+      "combatProfile": "mixed",
+      "faction": "Mixed",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-02-bandit-camp",
+      "kind": "combat",
+      "combat": true,
+      "label": "Blackbanner Encampment — Gravewater March",
+      "description": "Jack’s Blackbanner bandits have fortified a patch of dry ground with scavenged timber, iron hooks, and watchfires.",
+      "minDepth": 6,
+      "maxDepth": 10,
+      "weight": 1,
+      "combatProfile": "bandit-camp",
+      "faction": "Blackbanner",
+      "fogTouched": false,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-02-bandit-ambush",
+      "kind": "combat",
+      "combat": true,
+      "label": "Reedline Ambush — Gravewater March",
+      "description": "A snapped reed is the only warning before Blackbanner raiders rise from concealed firing positions.",
+      "minDepth": 6,
+      "maxDepth": 10,
+      "weight": 1,
+      "combatProfile": "bandit-ambush",
+      "faction": "Blackbanner",
+      "fogTouched": false,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-02-undead",
+      "kind": "combat",
+      "combat": true,
+      "label": "The Dead Reform — Gravewater March",
+      "description": "Mud-caked soldiers pull themselves from an old battle line and resume a war that ended long ago.",
+      "minDepth": 6,
+      "maxDepth": 10,
+      "weight": 1,
+      "combatProfile": "undead",
+      "faction": "Battlefield Dead",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-02-major-haunting",
+      "kind": "combat",
+      "combat": true,
+      "label": "The Fog Remembers — Gravewater March",
+      "description": "The fog thickens until the battlefield overlays the present, and a mass of wandering spirits turns toward the living.",
+      "minDepth": 6,
+      "maxDepth": 10,
+      "weight": 1,
+      "combatProfile": "major-haunting",
+      "faction": "Battlefield Dead",
+      "fogTouched": true,
+      "majorHaunting": true
+    },
+    {
+      "id": "bog-combat-02-mutation",
+      "kind": "combat",
+      "combat": true,
+      "label": "Mira’s Runoff — Gravewater March",
+      "description": "A swollen creature bearing stitched scars and witch-burn brands lunges from poisoned water.",
+      "minDepth": 6,
+      "maxDepth": 10,
+      "weight": 1,
+      "combatProfile": "mutation",
+      "faction": "Mira's Mutations",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-02-witch",
+      "kind": "combat",
+      "combat": true,
+      "label": "Candle in the Fen — Gravewater March",
+      "description": "A lesser witch has hung corpse-lanterns from dead branches and is waiting beneath them.",
+      "minDepth": 6,
+      "maxDepth": 10,
+      "weight": 1,
+      "combatProfile": "witch",
+      "faction": "Lesser Witches",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-02-mixed",
+      "kind": "combat",
+      "combat": true,
+      "label": "Broken Truce — Gravewater March",
+      "description": "Bandits drive cursed dead and mutated beasts ahead of them, turning the path into a three-sided killing ground.",
+      "minDepth": 6,
+      "maxDepth": 10,
+      "weight": 1,
+      "combatProfile": "mixed",
+      "faction": "Mixed",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-03-bandit-camp",
+      "kind": "combat",
+      "combat": true,
+      "label": "Blackbanner Encampment — Witchfen",
+      "description": "Jack’s Blackbanner bandits have fortified a patch of dry ground with scavenged timber, iron hooks, and watchfires.",
+      "minDepth": 11,
+      "maxDepth": 14,
+      "weight": 1,
+      "combatProfile": "bandit-camp",
+      "faction": "Blackbanner",
+      "fogTouched": false,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-03-bandit-ambush",
+      "kind": "combat",
+      "combat": true,
+      "label": "Reedline Ambush — Witchfen",
+      "description": "A snapped reed is the only warning before Blackbanner raiders rise from concealed firing positions.",
+      "minDepth": 11,
+      "maxDepth": 14,
+      "weight": 1,
+      "combatProfile": "bandit-ambush",
+      "faction": "Blackbanner",
+      "fogTouched": false,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-03-undead",
+      "kind": "combat",
+      "combat": true,
+      "label": "The Dead Reform — Witchfen",
+      "description": "Mud-caked soldiers pull themselves from an old battle line and resume a war that ended long ago.",
+      "minDepth": 11,
+      "maxDepth": 14,
+      "weight": 1,
+      "combatProfile": "undead",
+      "faction": "Battlefield Dead",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-03-major-haunting",
+      "kind": "combat",
+      "combat": true,
+      "label": "The Fog Remembers — Witchfen",
+      "description": "The fog thickens until the battlefield overlays the present, and a mass of wandering spirits turns toward the living.",
+      "minDepth": 11,
+      "maxDepth": 14,
+      "weight": 1,
+      "combatProfile": "major-haunting",
+      "faction": "Battlefield Dead",
+      "fogTouched": true,
+      "majorHaunting": true
+    },
+    {
+      "id": "bog-combat-03-mutation",
+      "kind": "combat",
+      "combat": true,
+      "label": "Mira’s Runoff — Witchfen",
+      "description": "A swollen creature bearing stitched scars and witch-burn brands lunges from poisoned water.",
+      "minDepth": 11,
+      "maxDepth": 14,
+      "weight": 1,
+      "combatProfile": "mutation",
+      "faction": "Mira's Mutations",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-03-witch",
+      "kind": "combat",
+      "combat": true,
+      "label": "Candle in the Fen — Witchfen",
+      "description": "A lesser witch has hung corpse-lanterns from dead branches and is waiting beneath them.",
+      "minDepth": 11,
+      "maxDepth": 14,
+      "weight": 1,
+      "combatProfile": "witch",
+      "faction": "Lesser Witches",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-03-mixed",
+      "kind": "combat",
+      "combat": true,
+      "label": "Broken Truce — Witchfen",
+      "description": "Bandits drive cursed dead and mutated beasts ahead of them, turning the path into a three-sided killing ground.",
+      "minDepth": 11,
+      "maxDepth": 14,
+      "weight": 1,
+      "combatProfile": "mixed",
+      "faction": "Mixed",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-04-bandit-camp",
+      "kind": "combat",
+      "combat": true,
+      "label": "Blackbanner Encampment — Blackbanner Mire",
+      "description": "Jack’s Blackbanner bandits have fortified a patch of dry ground with scavenged timber, iron hooks, and watchfires.",
+      "minDepth": 16,
+      "maxDepth": 20,
+      "weight": 1,
+      "combatProfile": "bandit-camp",
+      "faction": "Blackbanner",
+      "fogTouched": false,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-04-bandit-ambush",
+      "kind": "combat",
+      "combat": true,
+      "label": "Reedline Ambush — Blackbanner Mire",
+      "description": "A snapped reed is the only warning before Blackbanner raiders rise from concealed firing positions.",
+      "minDepth": 16,
+      "maxDepth": 20,
+      "weight": 1,
+      "combatProfile": "bandit-ambush",
+      "faction": "Blackbanner",
+      "fogTouched": false,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-04-undead",
+      "kind": "combat",
+      "combat": true,
+      "label": "The Dead Reform — Blackbanner Mire",
+      "description": "Mud-caked soldiers pull themselves from an old battle line and resume a war that ended long ago.",
+      "minDepth": 16,
+      "maxDepth": 20,
+      "weight": 1,
+      "combatProfile": "undead",
+      "faction": "Battlefield Dead",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-04-major-haunting",
+      "kind": "combat",
+      "combat": true,
+      "label": "The Fog Remembers — Blackbanner Mire",
+      "description": "The fog thickens until the battlefield overlays the present, and a mass of wandering spirits turns toward the living.",
+      "minDepth": 16,
+      "maxDepth": 20,
+      "weight": 1,
+      "combatProfile": "major-haunting",
+      "faction": "Battlefield Dead",
+      "fogTouched": true,
+      "majorHaunting": true
+    },
+    {
+      "id": "bog-combat-04-mutation",
+      "kind": "combat",
+      "combat": true,
+      "label": "Mira’s Runoff — Blackbanner Mire",
+      "description": "A swollen creature bearing stitched scars and witch-burn brands lunges from poisoned water.",
+      "minDepth": 16,
+      "maxDepth": 20,
+      "weight": 1,
+      "combatProfile": "mutation",
+      "faction": "Mira's Mutations",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-04-witch",
+      "kind": "combat",
+      "combat": true,
+      "label": "Candle in the Fen — Blackbanner Mire",
+      "description": "A lesser witch has hung corpse-lanterns from dead branches and is waiting beneath them.",
+      "minDepth": 16,
+      "maxDepth": 20,
+      "weight": 1,
+      "combatProfile": "witch",
+      "faction": "Lesser Witches",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-04-mixed",
+      "kind": "combat",
+      "combat": true,
+      "label": "Broken Truce — Blackbanner Mire",
+      "description": "Bandits drive cursed dead and mutated beasts ahead of them, turning the path into a three-sided killing ground.",
+      "minDepth": 16,
+      "maxDepth": 20,
+      "weight": 1,
+      "combatProfile": "mixed",
+      "faction": "Mixed",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-05-bandit-camp",
+      "kind": "combat",
+      "combat": true,
+      "label": "Blackbanner Encampment — Mourning Fields",
+      "description": "Jack’s Blackbanner bandits have fortified a patch of dry ground with scavenged timber, iron hooks, and watchfires.",
+      "minDepth": 21,
+      "maxDepth": 25,
+      "weight": 1,
+      "combatProfile": "bandit-camp",
+      "faction": "Blackbanner",
+      "fogTouched": false,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-05-bandit-ambush",
+      "kind": "combat",
+      "combat": true,
+      "label": "Reedline Ambush — Mourning Fields",
+      "description": "A snapped reed is the only warning before Blackbanner raiders rise from concealed firing positions.",
+      "minDepth": 21,
+      "maxDepth": 25,
+      "weight": 1,
+      "combatProfile": "bandit-ambush",
+      "faction": "Blackbanner",
+      "fogTouched": false,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-05-undead",
+      "kind": "combat",
+      "combat": true,
+      "label": "The Dead Reform — Mourning Fields",
+      "description": "Mud-caked soldiers pull themselves from an old battle line and resume a war that ended long ago.",
+      "minDepth": 21,
+      "maxDepth": 25,
+      "weight": 1,
+      "combatProfile": "undead",
+      "faction": "Battlefield Dead",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-05-major-haunting",
+      "kind": "combat",
+      "combat": true,
+      "label": "The Fog Remembers — Mourning Fields",
+      "description": "The fog thickens until the battlefield overlays the present, and a mass of wandering spirits turns toward the living.",
+      "minDepth": 21,
+      "maxDepth": 25,
+      "weight": 1,
+      "combatProfile": "major-haunting",
+      "faction": "Battlefield Dead",
+      "fogTouched": true,
+      "majorHaunting": true
+    },
+    {
+      "id": "bog-combat-05-mutation",
+      "kind": "combat",
+      "combat": true,
+      "label": "Mira’s Runoff — Mourning Fields",
+      "description": "A swollen creature bearing stitched scars and witch-burn brands lunges from poisoned water.",
+      "minDepth": 21,
+      "maxDepth": 25,
+      "weight": 1,
+      "combatProfile": "mutation",
+      "faction": "Mira's Mutations",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-05-witch",
+      "kind": "combat",
+      "combat": true,
+      "label": "Candle in the Fen — Mourning Fields",
+      "description": "A lesser witch has hung corpse-lanterns from dead branches and is waiting beneath them.",
+      "minDepth": 21,
+      "maxDepth": 25,
+      "weight": 1,
+      "combatProfile": "witch",
+      "faction": "Lesser Witches",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-05-mixed",
+      "kind": "combat",
+      "combat": true,
+      "label": "Broken Truce — Mourning Fields",
+      "description": "Bandits drive cursed dead and mutated beasts ahead of them, turning the path into a three-sided killing ground.",
+      "minDepth": 21,
+      "maxDepth": 25,
+      "weight": 1,
+      "combatProfile": "mixed",
+      "faction": "Mixed",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-06-bandit-camp",
+      "kind": "combat",
+      "combat": true,
+      "label": "Blackbanner Encampment — Mira's Blight",
+      "description": "Jack’s Blackbanner bandits have fortified a patch of dry ground with scavenged timber, iron hooks, and watchfires.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "weight": 1,
+      "combatProfile": "bandit-camp",
+      "faction": "Blackbanner",
+      "fogTouched": false,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-06-bandit-ambush",
+      "kind": "combat",
+      "combat": true,
+      "label": "Reedline Ambush — Mira's Blight",
+      "description": "A snapped reed is the only warning before Blackbanner raiders rise from concealed firing positions.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "weight": 1,
+      "combatProfile": "bandit-ambush",
+      "faction": "Blackbanner",
+      "fogTouched": false,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-06-undead",
+      "kind": "combat",
+      "combat": true,
+      "label": "The Dead Reform — Mira's Blight",
+      "description": "Mud-caked soldiers pull themselves from an old battle line and resume a war that ended long ago.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "weight": 1,
+      "combatProfile": "undead",
+      "faction": "Battlefield Dead",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-06-major-haunting",
+      "kind": "combat",
+      "combat": true,
+      "label": "The Fog Remembers — Mira's Blight",
+      "description": "The fog thickens until the battlefield overlays the present, and a mass of wandering spirits turns toward the living.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "weight": 1,
+      "combatProfile": "major-haunting",
+      "faction": "Battlefield Dead",
+      "fogTouched": true,
+      "majorHaunting": true
+    },
+    {
+      "id": "bog-combat-06-mutation",
+      "kind": "combat",
+      "combat": true,
+      "label": "Mira’s Runoff — Mira's Blight",
+      "description": "A swollen creature bearing stitched scars and witch-burn brands lunges from poisoned water.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "weight": 1,
+      "combatProfile": "mutation",
+      "faction": "Mira's Mutations",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-06-witch",
+      "kind": "combat",
+      "combat": true,
+      "label": "Candle in the Fen — Mira's Blight",
+      "description": "A lesser witch has hung corpse-lanterns from dead branches and is waiting beneath them.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "weight": 1,
+      "combatProfile": "witch",
+      "faction": "Lesser Witches",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-combat-06-mixed",
+      "kind": "combat",
+      "combat": true,
+      "label": "Broken Truce — Mira's Blight",
+      "description": "Bandits drive cursed dead and mutated beasts ahead of them, turning the path into a three-sided killing ground.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "weight": 1,
+      "combatProfile": "mixed",
+      "faction": "Mixed",
+      "fogTouched": true,
+      "majorHaunting": false
+    },
+    {
+      "id": "bog-09-3-mira-s-feeding-pit",
+      "kind": "discovery",
+      "label": "Mira’s Feeding Pit — Harvested",
+      "description": "Discarded carcasses twitch around a pit slick with alchemical poison and witchcraft. Search the aftermath for something useful.",
+      "minDepth": 11,
+      "maxDepth": 20,
+      "check": {
+        "stat": "CON",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 13,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-09-4-mira-s-feeding-pit",
+      "kind": "discovery",
+      "label": "Mira’s Feeding Pit — Endured",
+      "description": "Discarded carcasses twitch around a pit slick with alchemical poison and witchcraft. Cross the danger without yielding ground.",
+      "minDepth": 16,
+      "maxDepth": 25,
+      "check": {
+        "stat": "FTH",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 15,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-09-5-mira-s-feeding-pit",
+      "kind": "discovery",
+      "label": "Mira’s Feeding Pit — Turned",
+      "description": "Discarded carcasses twitch around a pit slick with alchemical poison and witchcraft. Use the threat against itself.",
+      "minDepth": 21,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CON",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 17,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-10-1-venom-nest",
+      "kind": "discovery",
+      "label": "Venom Nest — Scouted",
+      "description": "A nest of swollen eggs pulses beneath hanging roots, each shell veined with green-black venom. Read the danger before committing to the route.",
+      "minDepth": 4,
+      "maxDepth": 14,
+      "check": {
+        "stat": "DEX",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 11,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-10-2-venom-nest",
+      "kind": "discovery",
+      "label": "Venom Nest — Broken",
+      "description": "A nest of swollen eggs pulses beneath hanging roots, each shell veined with green-black venom. Force a safer passage through the threat.",
+      "minDepth": 9,
+      "maxDepth": 19,
+      "check": {
+        "stat": "INT",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 13,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-10-3-venom-nest",
+      "kind": "discovery",
+      "label": "Venom Nest — Harvested",
+      "description": "A nest of swollen eggs pulses beneath hanging roots, each shell veined with green-black venom. Search the aftermath for something useful.",
+      "minDepth": 14,
+      "maxDepth": 24,
+      "check": {
+        "stat": "DEX",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 14,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-10-4-venom-nest",
+      "kind": "discovery",
+      "label": "Venom Nest — Endured",
+      "description": "A nest of swollen eggs pulses beneath hanging roots, each shell veined with green-black venom. Cross the danger without yielding ground.",
+      "minDepth": 19,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CHA",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 16,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-10-5-venom-nest",
+      "kind": "discovery",
+      "label": "Venom Nest — Turned",
+      "description": "A nest of swollen eggs pulses beneath hanging roots, each shell veined with green-black venom. Use the threat against itself.",
+      "minDepth": 24,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 14
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 18,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-11-1-stitched-carcass-trail",
+      "kind": "discovery",
+      "label": "Stitched Carcass Trail — Scouted",
+      "description": "Crude sutures and witch-thread mark a trail of failed experiments toward deeper water. Read the danger before committing to the route.",
+      "minDepth": 7,
+      "maxDepth": 18,
+      "check": {
+        "stat": "INT",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 12,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-11-2-stitched-carcass-trail",
+      "kind": "discovery",
+      "label": "Stitched Carcass Trail — Broken",
+      "description": "Crude sutures and witch-thread mark a trail of failed experiments toward deeper water. Force a safer passage through the threat.",
+      "minDepth": 12,
+      "maxDepth": 23,
+      "check": {
+        "stat": "FTH",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 14,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-11-3-stitched-carcass-trail",
+      "kind": "discovery",
+      "label": "Stitched Carcass Trail — Harvested",
+      "description": "Crude sutures and witch-thread mark a trail of failed experiments toward deeper water. Search the aftermath for something useful.",
+      "minDepth": 17,
+      "maxDepth": 28,
+      "check": {
+        "stat": "INT",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 15,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-11-4-stitched-carcass-trail",
+      "kind": "discovery",
+      "label": "Stitched Carcass Trail — Endured",
+      "description": "Crude sutures and witch-thread mark a trail of failed experiments toward deeper water. Cross the danger without yielding ground.",
+      "minDepth": 22,
+      "maxDepth": 29,
+      "check": {
+        "stat": "LCK",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 17,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-11-5-stitched-carcass-trail",
+      "kind": "discovery",
+      "label": "Stitched Carcass Trail — Turned",
+      "description": "Crude sutures and witch-thread mark a trail of failed experiments toward deeper water. Use the threat against itself.",
+      "minDepth": 2,
+      "maxDepth": 13,
+      "check": {
+        "stat": "INT",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 10,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-12-1-blightback-wallows",
+      "kind": "discovery",
+      "label": "Blightback Wallows — Scouted",
+      "description": "The mud is churned by enormous bodies and stained with toxic yellow foam. Read the danger before committing to the route.",
+      "minDepth": 10,
+      "maxDepth": 22,
+      "check": {
+        "stat": "STR",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 13,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-12-2-blightback-wallows",
+      "kind": "discovery",
+      "label": "Blightback Wallows — Broken",
+      "description": "The mud is churned by enormous bodies and stained with toxic yellow foam. Force a safer passage through the threat.",
+      "minDepth": 15,
+      "maxDepth": 27,
+      "check": {
+        "stat": "CHA",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 15,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-12-3-blightback-wallows",
+      "kind": "discovery",
+      "label": "Blightback Wallows — Harvested",
+      "description": "The mud is churned by enormous bodies and stained with toxic yellow foam. Search the aftermath for something useful.",
+      "minDepth": 20,
+      "maxDepth": 29,
+      "check": {
+        "stat": "STR",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 16,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-12-4-blightback-wallows",
+      "kind": "discovery",
+      "label": "Blightback Wallows — Endured",
+      "description": "The mud is churned by enormous bodies and stained with toxic yellow foam. Cross the danger without yielding ground.",
+      "minDepth": 25,
+      "maxDepth": 29,
+      "check": {
+        "stat": "STR",
+        "dc": 14
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 18,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 10
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-12-5-blightback-wallows",
+      "kind": "discovery",
+      "label": "Blightback Wallows — Turned",
+      "description": "The mud is churned by enormous bodies and stained with toxic yellow foam. Use the threat against itself.",
+      "minDepth": 5,
+      "maxDepth": 17,
+      "check": {
+        "stat": "STR",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 11,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-13-1-crooked-effigy",
+      "kind": "other-noncombat",
+      "label": "Crooked Effigy — Scouted",
+      "description": "A lesser witch has tied battlefield dog tags, teeth and black wax into a swaying effigy. Read the danger before committing to the route.",
+      "minDepth": 13,
+      "maxDepth": 20,
+      "check": {
+        "stat": "FTH",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 14,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-13-2-crooked-effigy",
+      "kind": "other-noncombat",
+      "label": "Crooked Effigy — Broken",
+      "description": "A lesser witch has tied battlefield dog tags, teeth and black wax into a swaying effigy. Force a safer passage through the threat.",
+      "minDepth": 18,
+      "maxDepth": 25,
+      "check": {
+        "stat": "LCK",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 16,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-13-3-crooked-effigy",
+      "kind": "other-noncombat",
+      "label": "Crooked Effigy — Harvested",
+      "description": "A lesser witch has tied battlefield dog tags, teeth and black wax into a swaying effigy. Search the aftermath for something useful.",
+      "minDepth": 23,
+      "maxDepth": 29,
+      "check": {
+        "stat": "FTH",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 17,
+        "materialId": "witch-wax",
+        "materialQuantity": 2
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-13-4-crooked-effigy",
+      "kind": "other-noncombat",
+      "label": "Crooked Effigy — Endured",
+      "description": "A lesser witch has tied battlefield dog tags, teeth and black wax into a swaying effigy. Cross the danger without yielding ground.",
+      "minDepth": 3,
+      "maxDepth": 10,
+      "check": {
+        "stat": "DEX",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 11,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-13-5-crooked-effigy",
+      "kind": "other-noncombat",
+      "label": "Crooked Effigy — Turned",
+      "description": "A lesser witch has tied battlefield dog tags, teeth and black wax into a swaying effigy. Use the threat against itself.",
+      "minDepth": 8,
+      "maxDepth": 15,
+      "check": {
+        "stat": "FTH",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 12,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-14-1-curseglass-circle",
+      "kind": "other-noncombat",
+      "label": "Curseglass Circle — Scouted",
+      "description": "Green-black glass shards form a ritual circle around a soldier who has been dead for decades. Read the danger before committing to the route.",
+      "minDepth": 16,
+      "maxDepth": 24,
+      "check": {
+        "stat": "INT",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 15,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-14-2-curseglass-circle",
+      "kind": "other-noncombat",
+      "label": "Curseglass Circle — Broken",
+      "description": "Green-black glass shards form a ritual circle around a soldier who has been dead for decades. Force a safer passage through the threat.",
+      "minDepth": 21,
+      "maxDepth": 29,
+      "check": {
+        "stat": "STR",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 17,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-14-3-curseglass-circle",
+      "kind": "other-noncombat",
+      "label": "Curseglass Circle — Harvested",
+      "description": "Green-black glass shards form a ritual circle around a soldier who has been dead for decades. Search the aftermath for something useful.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "INT",
+        "dc": 14
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 18,
+        "materialId": "witch-wax",
+        "materialQuantity": 2
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 10
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-14-4-curseglass-circle",
+      "kind": "other-noncombat",
+      "label": "Curseglass Circle — Endured",
+      "description": "Green-black glass shards form a ritual circle around a soldier who has been dead for decades. Cross the danger without yielding ground.",
+      "minDepth": 6,
+      "maxDepth": 14,
+      "check": {
+        "stat": "CON",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 12,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-14-5-curseglass-circle",
+      "kind": "other-noncombat",
+      "label": "Curseglass Circle — Turned",
+      "description": "Green-black glass shards form a ritual circle around a soldier who has been dead for decades. Use the threat against itself.",
+      "minDepth": 11,
+      "maxDepth": 19,
+      "check": {
+        "stat": "INT",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 13,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-15-1-witch-wax-candles",
+      "kind": "other-noncombat",
+      "label": "Witch-Wax Candles — Scouted",
+      "description": "Candles float directly on the bog water. Each flame bends toward the party as they approach. Read the danger before committing to the route.",
+      "minDepth": 19,
+      "maxDepth": 28,
+      "check": {
+        "stat": "LCK",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 16,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-15-2-witch-wax-candles",
+      "kind": "other-noncombat",
+      "label": "Witch-Wax Candles — Broken",
+      "description": "Candles float directly on the bog water. Each flame bends toward the party as they approach. Force a safer passage through the threat.",
+      "minDepth": 24,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 14
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 18,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-15-3-witch-wax-candles",
+      "kind": "other-noncombat",
+      "label": "Witch-Wax Candles — Harvested",
+      "description": "Candles float directly on the bog water. Each flame bends toward the party as they approach. Search the aftermath for something useful.",
+      "minDepth": 4,
+      "maxDepth": 13,
+      "check": {
+        "stat": "LCK",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 11,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-15-4-witch-wax-candles",
+      "kind": "other-noncombat",
+      "label": "Witch-Wax Candles — Endured",
+      "description": "Candles float directly on the bog water. Each flame bends toward the party as they approach. Cross the danger without yielding ground.",
+      "minDepth": 9,
+      "maxDepth": 18,
+      "check": {
+        "stat": "INT",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 13,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-15-5-witch-wax-candles",
+      "kind": "other-noncombat",
+      "label": "Witch-Wax Candles — Turned",
+      "description": "Candles float directly on the bog water. Each flame bends toward the party as they approach. Use the threat against itself.",
+      "minDepth": 14,
+      "maxDepth": 23,
+      "check": {
+        "stat": "LCK",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 14,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-16-1-borrowed-voice",
+      "kind": "other-noncombat",
+      "label": "Borrowed Voice — Scouted",
+      "description": "Someone calls from the fog in the exact voice of a party member who is standing beside you. Read the danger before committing to the route.",
+      "minDepth": 22,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CHA",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 17,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-16-2-borrowed-voice",
+      "kind": "other-noncombat",
+      "label": "Borrowed Voice — Broken",
+      "description": "Someone calls from the fog in the exact voice of a party member who is standing beside you. Force a safer passage through the threat.",
+      "minDepth": 2,
+      "maxDepth": 12,
+      "check": {
+        "stat": "CON",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 10,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-16-3-borrowed-voice",
+      "kind": "other-noncombat",
+      "label": "Borrowed Voice — Harvested",
+      "description": "Someone calls from the fog in the exact voice of a party member who is standing beside you. Search the aftermath for something useful.",
+      "minDepth": 7,
+      "maxDepth": 17,
+      "check": {
+        "stat": "CHA",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 12,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-16-4-borrowed-voice",
+      "kind": "other-noncombat",
+      "label": "Borrowed Voice — Endured",
+      "description": "Someone calls from the fog in the exact voice of a party member who is standing beside you. Cross the danger without yielding ground.",
+      "minDepth": 12,
+      "maxDepth": 22,
+      "check": {
+        "stat": "FTH",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 14,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-16-5-borrowed-voice",
+      "kind": "other-noncombat",
+      "label": "Borrowed Voice — Turned",
+      "description": "Someone calls from the fog in the exact voice of a party member who is standing beside you. Use the threat against itself.",
+      "minDepth": 17,
+      "maxDepth": 27,
+      "check": {
+        "stat": "CHA",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 15,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-17-1-sunken-powder-cart",
+      "kind": "discovery",
+      "label": "Sunken Powder Cart — Scouted",
+      "description": "A military powder cart lies half submerged, recently stripped by Jack’s scavengers. Read the danger before committing to the route.",
+      "minDepth": 25,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 14
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 18,
+        "materialId": "bog-iron-scrap",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 10
+      },
+      "weight": 1,
+      "faction": "bandit",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-17-2-sunken-powder-cart",
+      "kind": "discovery",
+      "label": "Sunken Powder Cart — Broken",
+      "description": "A military powder cart lies half submerged, recently stripped by Jack’s scavengers. Force a safer passage through the threat.",
+      "minDepth": 5,
+      "maxDepth": 16,
+      "check": {
+        "stat": "INT",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 11,
+        "materialId": "bog-iron-scrap",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "bandit",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-17-3-sunken-powder-cart",
+      "kind": "discovery",
+      "label": "Sunken Powder Cart — Harvested",
+      "description": "A military powder cart lies half submerged, recently stripped by Jack’s scavengers. Search the aftermath for something useful.",
+      "minDepth": 10,
+      "maxDepth": 21,
+      "check": {
+        "stat": "DEX",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 13,
+        "materialId": "bog-iron-scrap",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "bandit",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-17-4-sunken-powder-cart",
+      "kind": "discovery",
+      "label": "Sunken Powder Cart — Endured",
+      "description": "A military powder cart lies half submerged, recently stripped by Jack’s scavengers. Cross the danger without yielding ground.",
+      "minDepth": 15,
+      "maxDepth": 26,
+      "check": {
+        "stat": "CHA",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 15,
+        "materialId": "bog-iron-scrap",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "bandit",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-17-5-sunken-powder-cart",
+      "kind": "discovery",
+      "label": "Sunken Powder Cart — Turned",
+      "description": "A military powder cart lies half submerged, recently stripped by Jack’s scavengers. Use the threat against itself.",
+      "minDepth": 20,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 16,
+        "materialId": "bog-iron-scrap",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "bandit",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-18-1-darksteel-cache",
+      "kind": "discovery",
+      "label": "Darksteel Cache — Scouted",
+      "description": "A locked Blackbanner chest has been chained beneath a collapsed bridge. Read the danger before committing to the route.",
+      "minDepth": 3,
+      "maxDepth": 15,
+      "check": {
+        "stat": "STR",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 11,
+        "materialId": "bog-iron-scrap",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "weight": 1,
+      "faction": "bandit",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-18-2-darksteel-cache",
+      "kind": "discovery",
+      "label": "Darksteel Cache — Broken",
+      "description": "A locked Blackbanner chest has been chained beneath a collapsed bridge. Force a safer passage through the threat.",
+      "minDepth": 8,
+      "maxDepth": 20,
+      "check": {
+        "stat": "FTH",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 12,
+        "materialId": "bog-iron-scrap",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "bandit",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-18-3-darksteel-cache",
+      "kind": "discovery",
+      "label": "Darksteel Cache — Harvested",
+      "description": "A locked Blackbanner chest has been chained beneath a collapsed bridge. Search the aftermath for something useful.",
+      "minDepth": 13,
+      "maxDepth": 25,
+      "check": {
+        "stat": "STR",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 14,
+        "materialId": "bog-iron-scrap",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "bandit",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-18-4-darksteel-cache",
+      "kind": "discovery",
+      "label": "Darksteel Cache — Endured",
+      "description": "A locked Blackbanner chest has been chained beneath a collapsed bridge. Cross the danger without yielding ground.",
+      "minDepth": 18,
+      "maxDepth": 29,
+      "check": {
+        "stat": "LCK",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 16,
+        "materialId": "bog-iron-scrap",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "bandit",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-18-5-darksteel-cache",
+      "kind": "discovery",
+      "label": "Darksteel Cache — Turned",
+      "description": "A locked Blackbanner chest has been chained beneath a collapsed bridge. Use the threat against itself.",
+      "minDepth": 23,
+      "maxDepth": 29,
+      "check": {
+        "stat": "STR",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 17,
+        "materialId": "bog-iron-scrap",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "bandit",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-19-1-officer-without-a-face",
+      "kind": "landmark",
+      "label": "Officer Without a Face — Scouted",
+      "description": "A faceless officer keeps saluting a ruined command tent while invisible troops answer. Read the danger before committing to the route.",
+      "minDepth": 6,
+      "maxDepth": 13,
+      "check": {
+        "stat": "FTH",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 12,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-19-2-officer-without-a-face",
+      "kind": "landmark",
+      "label": "Officer Without a Face — Broken",
+      "description": "A faceless officer keeps saluting a ruined command tent while invisible troops answer. Force a safer passage through the threat.",
+      "minDepth": 11,
+      "maxDepth": 18,
+      "check": {
+        "stat": "CHA",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 13,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-19-3-officer-without-a-face",
+      "kind": "landmark",
+      "label": "Officer Without a Face — Harvested",
+      "description": "A faceless officer keeps saluting a ruined command tent while invisible troops answer. Search the aftermath for something useful.",
+      "minDepth": 16,
+      "maxDepth": 23,
+      "check": {
+        "stat": "FTH",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 15,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-19-4-officer-without-a-face",
+      "kind": "landmark",
+      "label": "Officer Without a Face — Endured",
+      "description": "A faceless officer keeps saluting a ruined command tent while invisible troops answer. Cross the danger without yielding ground.",
+      "minDepth": 21,
+      "maxDepth": 28,
+      "check": {
+        "stat": "STR",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 17,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-19-5-officer-without-a-face",
+      "kind": "landmark",
+      "label": "Officer Without a Face — Turned",
+      "description": "A faceless officer keeps saluting a ruined command tent while invisible troops answer. Use the threat against itself.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "FTH",
+        "dc": 14
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 18,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 10
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-20-1-ectoplasm-ford",
+      "kind": "landmark",
+      "label": "Ectoplasm Ford — Scouted",
+      "description": "The only dry crossing is coated in trembling ectoplasm that reacts to living heat. Read the danger before committing to the route.",
+      "minDepth": 9,
+      "maxDepth": 17,
+      "check": {
+        "stat": "CON",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 13,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-20-2-ectoplasm-ford",
+      "kind": "landmark",
+      "label": "Ectoplasm Ford — Broken",
+      "description": "The only dry crossing is coated in trembling ectoplasm that reacts to living heat. Force a safer passage through the threat.",
+      "minDepth": 14,
+      "maxDepth": 22,
+      "check": {
+        "stat": "LCK",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 14,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-20-3-ectoplasm-ford",
+      "kind": "landmark",
+      "label": "Ectoplasm Ford — Harvested",
+      "description": "The only dry crossing is coated in trembling ectoplasm that reacts to living heat. Search the aftermath for something useful.",
+      "minDepth": 19,
+      "maxDepth": 27,
+      "check": {
+        "stat": "CON",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 16,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-20-4-ectoplasm-ford",
+      "kind": "landmark",
+      "label": "Ectoplasm Ford — Endured",
+      "description": "The only dry crossing is coated in trembling ectoplasm that reacts to living heat. Cross the danger without yielding ground.",
+      "minDepth": 24,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 14
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 18,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-20-5-ectoplasm-ford",
+      "kind": "landmark",
+      "label": "Ectoplasm Ford — Turned",
+      "description": "The only dry crossing is coated in trembling ectoplasm that reacts to living heat. Use the threat against itself.",
+      "minDepth": 4,
+      "maxDepth": 12,
+      "check": {
+        "stat": "CON",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 11,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-21-1-mirejaw-nursery",
+      "kind": "discovery",
+      "label": "Mirejaw Nursery — Scouted",
+      "description": "Small mutated predators hide beneath lily pads around the bones of something much larger. Read the danger before committing to the route.",
+      "minDepth": 12,
+      "maxDepth": 21,
+      "check": {
+        "stat": "LCK",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 14,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-21-2-mirejaw-nursery",
+      "kind": "discovery",
+      "label": "Mirejaw Nursery — Broken",
+      "description": "Small mutated predators hide beneath lily pads around the bones of something much larger. Force a safer passage through the threat.",
+      "minDepth": 17,
+      "maxDepth": 26,
+      "check": {
+        "stat": "STR",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 15,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-21-3-mirejaw-nursery",
+      "kind": "discovery",
+      "label": "Mirejaw Nursery — Harvested",
+      "description": "Small mutated predators hide beneath lily pads around the bones of something much larger. Search the aftermath for something useful.",
+      "minDepth": 22,
+      "maxDepth": 29,
+      "check": {
+        "stat": "LCK",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 17,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 2
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-21-4-mirejaw-nursery",
+      "kind": "discovery",
+      "label": "Mirejaw Nursery — Endured",
+      "description": "Small mutated predators hide beneath lily pads around the bones of something much larger. Cross the danger without yielding ground.",
+      "minDepth": 2,
+      "maxDepth": 11,
+      "check": {
+        "stat": "CON",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 10,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-21-5-mirejaw-nursery",
+      "kind": "discovery",
+      "label": "Mirejaw Nursery — Turned",
+      "description": "Small mutated predators hide beneath lily pads around the bones of something much larger. Use the threat against itself.",
+      "minDepth": 7,
+      "maxDepth": 16,
+      "check": {
+        "stat": "LCK",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 12,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-22-1-bile-orchard",
+      "kind": "discovery",
+      "label": "Bile Orchard — Scouted",
+      "description": "Mira has grafted venom sacs onto dead swamp trees; each swollen branch drips mutagenic bile. Read the danger before committing to the route.",
+      "minDepth": 15,
+      "maxDepth": 25,
+      "check": {
+        "stat": "INT",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 15,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-22-2-bile-orchard",
+      "kind": "discovery",
+      "label": "Bile Orchard — Broken",
+      "description": "Mira has grafted venom sacs onto dead swamp trees; each swollen branch drips mutagenic bile. Force a safer passage through the threat.",
+      "minDepth": 20,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 16,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-22-3-bile-orchard",
+      "kind": "discovery",
+      "label": "Bile Orchard — Harvested",
+      "description": "Mira has grafted venom sacs onto dead swamp trees; each swollen branch drips mutagenic bile. Search the aftermath for something useful.",
+      "minDepth": 25,
+      "maxDepth": 29,
+      "check": {
+        "stat": "INT",
+        "dc": 14
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 18,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 2
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 10
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-22-4-bile-orchard",
+      "kind": "discovery",
+      "label": "Bile Orchard — Endured",
+      "description": "Mira has grafted venom sacs onto dead swamp trees; each swollen branch drips mutagenic bile. Cross the danger without yielding ground.",
+      "minDepth": 5,
+      "maxDepth": 15,
+      "check": {
+        "stat": "INT",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 11,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-22-5-bile-orchard",
+      "kind": "discovery",
+      "label": "Bile Orchard — Turned",
+      "description": "Mira has grafted venom sacs onto dead swamp trees; each swollen branch drips mutagenic bile. Use the threat against itself.",
+      "minDepth": 10,
+      "maxDepth": 20,
+      "check": {
+        "stat": "INT",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 13,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-23-1-hexer-s-snare",
+      "kind": "other-noncombat",
+      "label": "Hexer’s Snare — Scouted",
+      "description": "Thin curse-thread crosses the trail at ankle height and disappears into a witch’s blind. Read the danger before committing to the route.",
+      "minDepth": 18,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 16,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-23-2-hexer-s-snare",
+      "kind": "other-noncombat",
+      "label": "Hexer’s Snare — Broken",
+      "description": "Thin curse-thread crosses the trail at ankle height and disappears into a witch’s blind. Force a safer passage through the threat.",
+      "minDepth": 23,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CON",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 17,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-23-3-hexer-s-snare",
+      "kind": "other-noncombat",
+      "label": "Hexer’s Snare — Harvested",
+      "description": "Thin curse-thread crosses the trail at ankle height and disappears into a witch’s blind. Search the aftermath for something useful.",
+      "minDepth": 3,
+      "maxDepth": 14,
+      "check": {
+        "stat": "DEX",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 11,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-23-4-hexer-s-snare",
+      "kind": "other-noncombat",
+      "label": "Hexer’s Snare — Endured",
+      "description": "Thin curse-thread crosses the trail at ankle height and disappears into a witch’s blind. Cross the danger without yielding ground.",
+      "minDepth": 8,
+      "maxDepth": 19,
+      "check": {
+        "stat": "FTH",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 12,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-23-5-hexer-s-snare",
+      "kind": "other-noncombat",
+      "label": "Hexer’s Snare — Turned",
+      "description": "Thin curse-thread crosses the trail at ankle height and disappears into a witch’s blind. Use the threat against itself.",
+      "minDepth": 13,
+      "maxDepth": 24,
+      "check": {
+        "stat": "DEX",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 14,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-24-1-grave-salt-shrine",
+      "kind": "other-noncombat",
+      "label": "Grave-Salt Shrine — Scouted",
+      "description": "A crude shrine of grave salt and wax keeps a circle of spirits from crossing its boundary. Read the danger before committing to the route.",
+      "minDepth": 21,
+      "maxDepth": 29,
+      "check": {
+        "stat": "FTH",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 17,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-24-2-grave-salt-shrine",
+      "kind": "other-noncombat",
+      "label": "Grave-Salt Shrine — Broken",
+      "description": "A crude shrine of grave salt and wax keeps a circle of spirits from crossing its boundary. Force a safer passage through the threat.",
+      "minDepth": 26,
+      "maxDepth": 29,
+      "check": {
+        "stat": "INT",
+        "dc": 14
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 18,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 10
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-24-3-grave-salt-shrine",
+      "kind": "other-noncombat",
+      "label": "Grave-Salt Shrine — Harvested",
+      "description": "A crude shrine of grave salt and wax keeps a circle of spirits from crossing its boundary. Search the aftermath for something useful.",
+      "minDepth": 6,
+      "maxDepth": 18,
+      "check": {
+        "stat": "FTH",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 12,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-24-4-grave-salt-shrine",
+      "kind": "other-noncombat",
+      "label": "Grave-Salt Shrine — Endured",
+      "description": "A crude shrine of grave salt and wax keeps a circle of spirits from crossing its boundary. Cross the danger without yielding ground.",
+      "minDepth": 11,
+      "maxDepth": 23,
+      "check": {
+        "stat": "CHA",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 13,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-24-5-grave-salt-shrine",
+      "kind": "other-noncombat",
+      "label": "Grave-Salt Shrine — Turned",
+      "description": "A crude shrine of grave salt and wax keeps a circle of spirits from crossing its boundary. Use the threat against itself.",
+      "minDepth": 16,
+      "maxDepth": 28,
+      "check": {
+        "stat": "FTH",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 15,
+        "materialId": "witch-wax",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "witch",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-25-1-lost-field-hospital",
+      "kind": "landmark",
+      "label": "Lost Field Hospital — Scouted",
+      "description": "A canvas hospital reappears through the fog, occupied by wounded soldiers who died before treatment. Read the danger before committing to the route.",
+      "minDepth": 24,
+      "maxDepth": 29,
+      "check": {
+        "stat": "FTH",
+        "dc": 14
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 18,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-25-2-lost-field-hospital",
+      "kind": "landmark",
+      "label": "Lost Field Hospital — Broken",
+      "description": "A canvas hospital reappears through the fog, occupied by wounded soldiers who died before treatment. Force a safer passage through the threat.",
+      "minDepth": 4,
+      "maxDepth": 11,
+      "check": {
+        "stat": "FTH",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 11,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-25-3-lost-field-hospital",
+      "kind": "landmark",
+      "label": "Lost Field Hospital — Harvested",
+      "description": "A canvas hospital reappears through the fog, occupied by wounded soldiers who died before treatment. Search the aftermath for something useful.",
+      "minDepth": 9,
+      "maxDepth": 16,
+      "check": {
+        "stat": "FTH",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 13,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-25-4-lost-field-hospital",
+      "kind": "landmark",
+      "label": "Lost Field Hospital — Endured",
+      "description": "A canvas hospital reappears through the fog, occupied by wounded soldiers who died before treatment. Cross the danger without yielding ground.",
+      "minDepth": 14,
+      "maxDepth": 21,
+      "check": {
+        "stat": "LCK",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 14,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-25-5-lost-field-hospital",
+      "kind": "landmark",
+      "label": "Lost Field Hospital — Turned",
+      "description": "A canvas hospital reappears through the fog, occupied by wounded soldiers who died before treatment. Use the threat against itself.",
+      "minDepth": 19,
+      "maxDepth": 26,
+      "check": {
+        "stat": "FTH",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 16,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-26-1-blackbanner-prison-cage",
+      "kind": "discovery",
+      "label": "Blackbanner Prison Cage — Scouted",
+      "description": "An empty cage hangs from a tree beside fresh bootprints and a ledger of captives. Read the danger before committing to the route.",
+      "minDepth": 2,
+      "maxDepth": 10,
+      "check": {
+        "stat": "CHA",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 10,
+        "materialId": "bog-iron-scrap",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "weight": 1,
+      "faction": "bandit",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-26-2-blackbanner-prison-cage",
+      "kind": "discovery",
+      "label": "Blackbanner Prison Cage — Broken",
+      "description": "An empty cage hangs from a tree beside fresh bootprints and a ledger of captives. Force a safer passage through the threat.",
+      "minDepth": 7,
+      "maxDepth": 15,
+      "check": {
+        "stat": "CHA",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 12,
+        "materialId": "bog-iron-scrap",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "bandit",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-26-3-blackbanner-prison-cage",
+      "kind": "discovery",
+      "label": "Blackbanner Prison Cage — Harvested",
+      "description": "An empty cage hangs from a tree beside fresh bootprints and a ledger of captives. Search the aftermath for something useful.",
+      "minDepth": 12,
+      "maxDepth": 20,
+      "check": {
+        "stat": "CHA",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 14,
+        "materialId": "bog-iron-scrap",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "bandit",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-26-4-blackbanner-prison-cage",
+      "kind": "discovery",
+      "label": "Blackbanner Prison Cage — Endured",
+      "description": "An empty cage hangs from a tree beside fresh bootprints and a ledger of captives. Cross the danger without yielding ground.",
+      "minDepth": 17,
+      "maxDepth": 25,
+      "check": {
+        "stat": "STR",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 15,
+        "materialId": "bog-iron-scrap",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "bandit",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-26-5-blackbanner-prison-cage",
+      "kind": "discovery",
+      "label": "Blackbanner Prison Cage — Turned",
+      "description": "An empty cage hangs from a tree beside fresh bootprints and a ledger of captives. Use the threat against itself.",
+      "minDepth": 22,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CHA",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 17,
+        "materialId": "bog-iron-scrap",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "bandit",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-27-1-mourning-drum",
+      "kind": "landmark",
+      "label": "Mourning Drum — Scouted",
+      "description": "A distant drumbeat forces the battlefield dead to march every time it reaches the fourth beat. Read the danger before committing to the route.",
+      "minDepth": 5,
+      "maxDepth": 14,
+      "check": {
+        "stat": "CHA",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 11,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-27-2-mourning-drum",
+      "kind": "landmark",
+      "label": "Mourning Drum — Broken",
+      "description": "A distant drumbeat forces the battlefield dead to march every time it reaches the fourth beat. Force a safer passage through the threat.",
+      "minDepth": 10,
+      "maxDepth": 19,
+      "check": {
+        "stat": "LCK",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 13,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-27-3-mourning-drum",
+      "kind": "landmark",
+      "label": "Mourning Drum — Harvested",
+      "description": "A distant drumbeat forces the battlefield dead to march every time it reaches the fourth beat. Search the aftermath for something useful.",
+      "minDepth": 15,
+      "maxDepth": 24,
+      "check": {
+        "stat": "CHA",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 15,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-27-4-mourning-drum",
+      "kind": "landmark",
+      "label": "Mourning Drum — Endured",
+      "description": "A distant drumbeat forces the battlefield dead to march every time it reaches the fourth beat. Cross the danger without yielding ground.",
+      "minDepth": 20,
+      "maxDepth": 29,
+      "check": {
+        "stat": "DEX",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 16,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true,
+      "fogOnFailure": 1
+    },
+    {
+      "id": "bog-27-5-mourning-drum",
+      "kind": "landmark",
+      "label": "Mourning Drum — Turned",
+      "description": "A distant drumbeat forces the battlefield dead to march every time it reaches the fourth beat. Use the threat against itself.",
+      "minDepth": 25,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CHA",
+        "dc": 14
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 18,
+        "materialId": "ectoplasm",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 10
+      },
+      "weight": 1,
+      "faction": "undead",
+      "fogTouched": true
+    },
+    {
+      "id": "bog-28-1-mutant-skin-shed",
+      "kind": "discovery",
+      "label": "Mutant Skin-Shed — Scouted",
+      "description": "A translucent skin large enough to wrap a horse hangs from a cypress branch, still warm. Read the danger before committing to the route.",
+      "minDepth": 8,
+      "maxDepth": 18,
+      "check": {
+        "stat": "CON",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 12,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 6
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-28-2-mutant-skin-shed",
+      "kind": "discovery",
+      "label": "Mutant Skin-Shed — Broken",
+      "description": "A translucent skin large enough to wrap a horse hangs from a cypress branch, still warm. Force a safer passage through the threat.",
+      "minDepth": 13,
+      "maxDepth": 23,
+      "check": {
+        "stat": "STR",
+        "dc": 12
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 14,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 7
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-28-3-mutant-skin-shed",
+      "kind": "discovery",
+      "label": "Mutant Skin-Shed — Harvested",
+      "description": "A translucent skin large enough to wrap a horse hangs from a cypress branch, still warm. Search the aftermath for something useful.",
+      "minDepth": 18,
+      "maxDepth": 28,
+      "check": {
+        "stat": "CON",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 16,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 6
+      },
+      "criticalSuccess": {
+        "onyx": 8
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-28-4-mutant-skin-shed",
+      "kind": "discovery",
+      "label": "Mutant Skin-Shed — Endured",
+      "description": "A translucent skin large enough to wrap a horse hangs from a cypress branch, still warm. Cross the danger without yielding ground.",
+      "minDepth": 23,
+      "maxDepth": 29,
+      "check": {
+        "stat": "CON",
+        "dc": 13
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 17,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 8
+      },
+      "criticalSuccess": {
+        "onyx": 9
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    },
+    {
+      "id": "bog-28-5-mutant-skin-shed",
+      "kind": "discovery",
+      "label": "Mutant Skin-Shed — Turned",
+      "description": "A translucent skin large enough to wrap a horse hangs from a cypress branch, still warm. Use the threat against itself.",
+      "minDepth": 3,
+      "maxDepth": 13,
+      "check": {
+        "stat": "CON",
+        "dc": 11
+      },
+      "checkmark": false,
+      "success": {
+        "onyx": 11,
+        "materialId": "poisoned-monster-flesh",
+        "materialQuantity": 1
+      },
+      "failure": {
+        "hpLossPct": 4
+      },
+      "criticalSuccess": {
+        "onyx": 5
+      },
+      "weight": 1,
+      "faction": "mutation",
+      "fogTouched": false
+    }
+  ]
+}

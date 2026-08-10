@@ -86,6 +86,7 @@ export function normalizeAccountSave(value) {
   const currencies = record(value.currencies);
   const history = record(value.history);
   const records = record(value.records);
+  const forestAccomplishments = record(records.forestAccomplishments);
   const settings = record(value.settings);
   const tutorials = record(value.tutorials);
   const starter = record(tutorials.starter);
@@ -128,7 +129,20 @@ export function normalizeAccountSave(value) {
       trainersEncountered: stringList(records.trainersEncountered),
       trainersFought: stringList(records.trainersFought),
       trainersLearnedFrom: stringList(records.trainersLearnedFrom),
-      notableCombat: record(records.notableCombat)
+      notableCombat: record(records.notableCombat),
+      forestAccomplishments: {
+        ...forestAccomplishments,
+        campaignsSettled: Math.max(0, Math.trunc(finite(forestAccomplishments.campaignsSettled, 0))),
+        highestDepth: Math.max(0, Math.trunc(finite(forestAccomplishments.highestDepth, 0))),
+        battlesWon: Math.max(0, Math.trunc(finite(forestAccomplishments.battlesWon, 0))),
+        successfulChecks: Math.max(0, Math.trunc(finite(forestAccomplishments.successfulChecks, 0))),
+        craftedItems: Math.max(0, Math.trunc(finite(forestAccomplishments.craftedItems, 0))),
+        trainerEncounters: Math.max(0, Math.trunc(finite(forestAccomplishments.trainerEncounters, 0))),
+        ordinaryMaterialsCollected: Math.max(0, Math.trunc(finite(forestAccomplishments.ordinaryMaterialsCollected, 0))),
+        minibossesDefeated: Math.max(0, Math.trunc(finite(forestAccomplishments.minibossesDefeated, 0))),
+        bossesDefeated: Math.max(0, Math.trunc(finite(forestAccomplishments.bossesDefeated, 0))),
+        forestsCleared: Math.max(0, Math.trunc(finite(forestAccomplishments.forestsCleared, 0)))
+      }
     },
     settings: {
       ...settings,
@@ -144,10 +158,11 @@ export function normalizeAccountSave(value) {
         resolved: boolean(starter.resolved),
         resolution: ['completed','skipped'].includes(starter.resolution) ? starter.resolution : null,
         rewardGranted: boolean(starter.rewardGranted),
+        raceChoiceGranted: boolean(starter.raceChoiceGranted),
         resolvedAt: typeof starter.resolvedAt === 'string' ? starter.resolvedAt : null
       },
       statuses,
-      tokenWallet: { ...tokenWallet, keptImpression3OrLess: Math.min(2, Math.max(0, Math.trunc(finite(tokenWallet.keptImpression3OrLess, 0)))) },
+      tokenWallet: { ...tokenWallet, keptImpression3OrLess: Math.min(2, Math.max(0, Math.trunc(finite(tokenWallet.keptImpression3OrLess, 0)))), raceChoice: Math.min(1, Math.max(0, Math.trunc(finite(tokenWallet.raceChoice, 0)))) },
       contextualSeen: stringList(tutorials.contextualSeen)
     }
   };
@@ -331,9 +346,9 @@ export function createFreshAccount() {
     chronicle: { families: {}, classless: { rank: 0, progress: 0 } },
     currencies: { onyx: 0 },
     history: { settledCampaignIds: [] },
-    records: { bossesDefeated: 0, minibossesDefeated: 0, trainersEncountered: [], trainersFought: [], trainersLearnedFrom: [], notableCombat: {} },
+    records: { bossesDefeated: 0, minibossesDefeated: 0, trainersEncountered: [], trainersFought: [], trainersLearnedFrom: [], notableCombat: {}, forestAccomplishments: { campaignsSettled: 0, highestDepth: 0, battlesWon: 0, successfulChecks: 0, craftedItems: 0, trainerEncounters: 0, ordinaryMaterialsCollected: 0, minibossesDefeated: 0, bossesDefeated: 0, forestsCleared: 0 } },
     settings: { combatSpeed: 1, reducedMotion: false, combatNumbers: true, screenFlash: 'standard' },
-    tutorials: { starter: { resolved: false, resolution: null, rewardGranted: false, resolvedAt: null }, statuses: {}, tokenWallet: { keptImpression3OrLess: 0 }, contextualSeen: [] }
+    tutorials: { starter: { resolved: false, resolution: null, rewardGranted: false, raceChoiceGranted: false, resolvedAt: null }, statuses: {}, tokenWallet: { keptImpression3OrLess: 0, raceChoice: 0 }, contextualSeen: [] }
   };
 }
 

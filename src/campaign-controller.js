@@ -3,7 +3,7 @@ import { CORE_STATS, getStartingStatPool, normalizeStartingStats, totalStartingS
 import { createForestExpedition } from './expedition-controller.js';
 import { awardExpToCharacter, allocateRunStat, combinedCharacterStats, emptyStats, expToNextLevel } from './character-progression.js';
 import { initializeCampaignCraftingInventory } from './crafting-controller.js';
-import { forcedTrainerIdsForActiveQuest, settleMaraQuest, lenderCandidatesFromRun, summarizeRunAccomplishments, awardRecruitments, clearMaraQuestAfterCampaign } from './tavern-services-controller.js';
+import { forcedTrainerIdsForActiveQuest, settleMaraQuest, lenderCandidatesFromRun, summarizeRunAccomplishments, awardRecruitments, recordForestAccomplishments, recordBogAccomplishments, awardRegionalRaceUnlocks, clearMaraQuestAfterCampaign } from './tavern-services-controller.js';
 import { setProgressionFeature, PROGRESSION_FEATURES } from './progression-features.js';
 
 const NORMAL_CHRONICLE_PROGRESS_PER_RANK = 100;
@@ -112,7 +112,7 @@ export function startCampaign(slot, { account = null, chronicleTrees = null, reg
     consumableRules: { baseEquipCapacity: Number(equipmentConsumablesStatus?.rules?.baseConsumableEquipCapacity || 1), usesPerBattle: Number(equipmentConsumablesStatus?.rules?.usesPerBattle || 1), equipLocation: 'campsite-only' },
     party: [playerMetric, ...selectedAdventurers.map(entry => createPartyMetricEntry({ id: entry.id, name: entry.name, kind: 'tavern-adventurer', real: true }))],
     adventurers: Object.fromEntries(selectedAdventurers.map(entry => [entry.id, {
-      id: entry.id, name: entry.name, level: 1, exp: 0, startingStats: clone(entry.startingStats || emptyCoreStats()), levelEarnedStats: emptyCoreStats(),
+      id: entry.id, name: entry.name, race: entry.race || null, level: 1, exp: 0, startingStats: clone(entry.startingStats || emptyCoreStats()), levelEarnedStats: emptyCoreStats(),
       unspentLevelStatPoints: 0, baseClass: entry.baseClass, subclass: entry.subclass, personality: entry.personality, priority: entry.priority,
       combatRole: entry.combatRole, portrait:entry.portrait||null, levelStatWeights: clone(entry.levelStatWeights || {}), keptImpressions: clone(entry.keptImpressions || []), keptImpressionChoices: clone(entry.keptImpressionChoices || {}),
       equipment: clone(initializeCampaignCraftingInventory(entry.baseClass, forestCrafting).initialEquipment || {}), progressionSource: 'tavern-adventurer'
@@ -339,19 +339,22 @@ export function applyCampaignSettlement(slot, account, { tavernServices = null }
     nextAccount.currencies.onyx += settlement.onyx.banked;
     applyProjectedChronicle(nextAccount, settlement);
     nextAccount.history.settledCampaignIds.push(settlement.id);
-    const accomplishments=settlement.accomplishments||{};
-    nextAccount.history.forestCleared = Boolean(nextAccount.history.forestCleared || accomplishments.forestCleared);
-    if (accomplishments.forestCleared && !nextAccount.history.firstForestClearAt) nextAccount.history.firstForestClearAt = settlement.endedAt;
+    const accomplishments=settlement.accomplishments||{};const forestAccomplishments=accomplishments.regions?.forest||accomplishments;const bogAccomplishments=accomplishments.regions?.['bog-of-lost-souls']||null;
+    nextAccount=recordForestAccomplishments(nextAccount,forestAccomplishments);
+    if(bogAccomplishments)nextAccount=recordBogAccomplishments(nextAccount,bogAccomplishments);
+    nextAccount.history.forestCleared = Boolean(nextAccount.history.forestCleared || forestAccomplishments.forestCleared);
+    if (forestAccomplishments.forestCleared && !nextAccount.history.firstForestClearAt) nextAccount.history.firstForestClearAt = settlement.endedAt;
+    if(bogAccomplishments?.bogCleared){nextAccount.history.bogCleared=true;if(!nextAccount.history.firstBogClearAt)nextAccount.history.firstBogClearAt=settlement.endedAt;}
     nextAccount.records=nextAccount.records||{};
-    nextAccount.records.bossesDefeated=Number(nextAccount.records.bossesDefeated||0)+(accomplishments.bossDefeated?1:0);
-    nextAccount.records.minibossesDefeated=Number(nextAccount.records.minibossesDefeated||0)+(accomplishments.minibossDefeated?1:0);
-    nextAccount.records.trainersEncountered=[...new Set([...(nextAccount.records.trainersEncountered||[]),...(accomplishments.shownTrainerIds||[])])];
-    const decisions=accomplishments.trainerDecisions||{}; nextAccount.records.trainersFought=[...new Set([...(nextAccount.records.trainersFought||[]),...Object.keys(decisions).filter(id=>decisions[id]==='fight')])];
+    nextAccount.records.bossesDefeated=Number(nextAccount.records.bossesDefeated||0)+(forestAccomplishments.bossDefeated?1:0)+(bogAccomplishments?.bossDefeated?1:0);
+    nextAccount.records.minibossesDefeated=Number(nextAccount.records.minibossesDefeated||0)+(forestAccomplishments.minibossDefeated?1:0)+(bogAccomplishments?.minibossDefeated?1:0);
+    nextAccount.records.trainersEncountered=[...new Set([...(nextAccount.records.trainersEncountered||[]),...(forestAccomplishments.shownTrainerIds||[]),...(bogAccomplishments?.shownTrainerIds||[])])];
+    const decisions={...(forestAccomplishments.trainerDecisions||{}),...(bogAccomplishments?.trainerDecisions||{})}; nextAccount.records.trainersFought=[...new Set([...(nextAccount.records.trainersFought||[]),...Object.keys(decisions).filter(id=>decisions[id]==='fight')])];
     nextAccount.records.trainersLearnedFrom=[...new Set([...(nextAccount.records.trainersLearnedFrom||[]),...Object.keys(decisions).filter(id=>decisions[id]==='learn')])];
     const perf=settlement.performance||{}; nextAccount.records.notableCombat=nextAccount.records.notableCombat||{};
     for(const [key,val] of Object.entries(perf)){const old=nextAccount.records.notableCombat[key];if(!old||Number(val?.value||0)>Number(old?.value||0))nextAccount.records.notableCombat[key]=clone(val);}
-    const rec=awardRecruitments(nextAccount,accomplishments,tavernServices||{tavernAdventurerRecruitment:{remaining:[]}}); nextAccount=rec.account; nextAccount.history.lastRecruitmentUnlocks=rec.newIds;
-    if((settlement.outcome==='victory'||settlement.outcome==='return')&&accomplishments.forestCleared){nextAccount=setProgressionFeature(nextAccount,PROGRESSION_FEATURES.CHRONICLE,true);}
+    const rec=awardRecruitments(nextAccount,forestAccomplishments,tavernServices||{tavernAdventurerRecruitment:{remaining:[]}}); nextAccount=rec.account; nextAccount.history.lastRecruitmentUnlocks=rec.newIds;const raceAwards=awardRegionalRaceUnlocks(nextAccount,tavernServices||{});nextAccount=raceAwards.account;nextAccount.history.lastRegionalRaceUnlocks=raceAwards.newRaces;
+    if((settlement.outcome==='victory'||settlement.outcome==='return')&&forestAccomplishments.forestCleared){nextAccount=setProgressionFeature(nextAccount,PROGRESSION_FEATURES.CHRONICLE,true);}
   }
 
   const nextSlot = clone(slot);
@@ -400,7 +403,7 @@ export function applyCampaignSettlement(slot, account, { tavernServices = null }
   Object.assign(nextSlot,cleared);
   nextSlot.campaign = { active: false, state: null, settlement: null, lastCompletedAt: settlement.endedAt };
   nextSlot.tavern = { ...(nextSlot.tavern || {}), lastRoom: 'main-hall' };
-  return { ok: true, account: nextAccount, slot: nextSlot, alreadyApplied, newRecruitIds: alreadyApplied ? [] : [...(nextAccount.history?.lastRecruitmentUnlocks||[])] };
+  return { ok: true, account: nextAccount, slot: nextSlot, alreadyApplied, newRecruitIds: alreadyApplied ? [] : [...(nextAccount.history?.lastRecruitmentUnlocks||[])], newRaceUnlocks: alreadyApplied ? [] : [...(nextAccount.history?.lastRegionalRaceUnlocks||[])] };
 }
 
 export function getCampaignRunView(slot) {

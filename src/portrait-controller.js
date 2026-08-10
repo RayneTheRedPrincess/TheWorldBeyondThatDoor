@@ -31,7 +31,17 @@ export function staticPortraitDescriptor({race,gender,subclass}={},portraitSyste
   if(!race||!subclass||!(rules.genders||[]).includes(String(gender)))return null;
   const id=portraitIdentityId({race,gender,subclass});
   const root=String(rules.assetRoot||'./assets/portraits/vessels-static').replace(/\/$/,'');
-  return {id,race:String(race),gender:String(gender),subclass:String(subclass),label:`${race} · ${String(gender)[0].toUpperCase()+String(gender).slice(1)} · ${subclass}`,asset:`${root}/${slug(race)}/${slug(subclass)}/${slug(gender)}.png`,ready:(rules.readyPortraitIds||[]).includes(id),systemId:String(rules.systemId||'static-v1')};
+  const asset=`${root}/${slug(race)}/${slug(subclass)}/${slug(gender)}.png`;
+  const runtimeRoot=String(rules.runtimeAssetRoot||'./assets/portraits/vessels-static-webp').replace(/\/$/,'');
+  const runtimeAvifRoot=String(rules.runtimeAvifAssetRoot||'./assets/portraits/vessels-static-avif').replace(/\/$/,'');
+  const thumbnailRoot=String(rules.thumbnailRuntimeAssetRoot||'./assets/portraits/vessels-static-128-webp').replace(/\/$/,'');
+  const thumbnailAvifRoot=String(rules.thumbnailAvifAssetRoot||'./assets/portraits/vessels-static-128-avif').replace(/\/$/,'');
+  const leaf=`${slug(race)}/${slug(subclass)}/${slug(gender)}`;
+  const displayAsset=`${thumbnailRoot}/${leaf}.webp`;
+  const displayAvifAsset=`${thumbnailAvifRoot}/${leaf}.avif`;
+  const fullDisplayAsset=`${runtimeRoot}/${leaf}.webp`;
+  const fullDisplayAvifAsset=`${runtimeAvifRoot}/${leaf}.avif`;
+  return {id,race:String(race),gender:String(gender),subclass:String(subclass),label:`${race} · ${String(gender)[0].toUpperCase()+String(gender).slice(1)} · ${subclass}`,asset,displayAsset,displayAvifAsset,fullDisplayAsset,fullDisplayAvifAsset,ready:(rules.readyPortraitIds||[]).includes(id),systemId:String(rules.systemId||'static-v1')};
 }
 
 export function staticPortraitOptionsForSlot(slot,subclassCatalog,portraitSystem){

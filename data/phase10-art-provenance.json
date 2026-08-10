@@ -1,0 +1,49 @@
+{
+  "phase": "Phase 10 release art provenance repair",
+  "trainerRules": {
+    "first10": "approved standalone trainer portrait outputs mapped to their canonical trainer identities",
+    "phase3cFinal7": "cropped from clean 7-panel collage whose identity/order is established by approved Phase 3C labeled board",
+    "phase4a": "Gritto and Lyricus cropped from approved Phase 4A board art panels",
+    "phase8rV": "Elynvera, Embsy, Varein use final user-approved standalone replacements"
+  },
+  "tavernAdventurers": "13 individual runtime cards cropped from the approved TA-1 and TA-2 separated-card sheets; bottom Name/Race/Class\u2013Subclass labels preserved",
+  "trainerIds": [
+    "avel-mosslight",
+    "cael-farbranch",
+    "caldus-firstlight",
+    "corven-reedblade",
+    "embsy",
+    "gritto-ironknuckle",
+    "ilyne-seedcrown",
+    "juno-stonepulse",
+    "lyricus-vaeldorn",
+    "lysa-greenchoir",
+    "maela-ironroot",
+    "mira-oaththorn",
+    "nemea-wildspark",
+    "odo-broadbark",
+    "oryn-pathshield",
+    "pellin-manysigns",
+    "sileth-shadeleaf",
+    "sister-elynvera",
+    "torren-ashsplitter",
+    "varein",
+    "varrik-hollowroot",
+    "ysra-knotwise"
+  ],
+  "adventurerIds": [
+    "guest-brakka",
+    "guest-briar",
+    "guest-dane",
+    "guest-elowen",
+    "guest-kethravel",
+    "guest-mercury",
+    "guest-nib",
+    "guest-rill",
+    "guest-sera",
+    "guest-sparkscale",
+    "guest-tawny",
+    "guest-unit-seven",
+    "guest-vesper"
+  ]
+}

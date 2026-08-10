@@ -1,5 +1,6 @@
 import { escapeHtml, shell } from './shared.js';
 import { CORE_STATS, BASE_STARTING_STAT_POINTS } from '../starting-stats.js';
+import { raceChoiceTokenBalance } from '../tutorial-controller.js';
 
 function statAllocator({ values = {}, prefix = 'stat_' } = {}) {
   return `<div class="stat-allocation-grid">${CORE_STATS.map(stat => `<div class="stat-allocator-row">
@@ -10,7 +11,15 @@ function statAllocator({ values = {}, prefix = 'stat_' } = {}) {
   </div>`).join('')}</div>`;
 }
 
-export function renderCharacterCreation({ slotNumber, unlockedRaces, classDetails, errors = [] }) {
+
+function raceChoicePanel(account, allRaces = []) {
+  const balance=raceChoiceTokenBalance(account);if(balance<1)return '';
+  const owned=new Set(account?.unlocks?.races||[]);const locked=(allRaces||[]).filter(race=>!owned.has(race));
+  if(!locked.length)return `<section class="panel creation-wide starter-token-panel"><h3>Free Race Choice Token</h3><p>Every available race is already unlocked for this account.</p></section>`;
+  return `<section class="panel creation-wide starter-token-panel"><div class="kicker">One-time account reward</div><h3>Free Race Choice Token</h3><p>You have <strong>${balance}</strong> free Race Choice token. Choose one race to permanently unlock for the entire account. It is not tied to this Vessel slot and can be used by any compatible Vessel now or later.</p><div class="race-token-grid">${locked.map(race=>`<button type="button" class="secondary" data-action="race-token-redeem" data-race="${escapeHtml(race)}">Unlock ${escapeHtml(race)}</button>`).join('')}</div></section>`;
+}
+
+export function renderCharacterCreation({ slotNumber, unlockedRaces, allRaces = [], account = null, classDetails, errors = [], message = '' }) {
   const errorBlock = errors.length
     ? `<div class="notice notice-danger" role="alert"><strong>The Vessel could not be bound.</strong><ul>${errors.map(e => `<li>${escapeHtml(e)}</li>`).join('')}</ul></div>`
     : '';
@@ -19,6 +28,7 @@ export function renderCharacterCreation({ slotNumber, unlockedRaces, classDetail
     <section class="section-title"><div><h2>Bind a Vessel</h2><div class="muted">Vessel Slot ${slotNumber}</div></div></section>
     <div class="notice">This is the Vessel’s initial race and base class. You may later rebind either only while safely in the Tavern between campaigns. Starting stats are a Level-0 Vessel setup; every campaign begins at Character Level 1.</div>
     ${errorBlock}
+    ${message ? `<div class="notice">${escapeHtml(message)}</div>` : ''}
     <form id="vessel-form" class="section creation-layout" autocomplete="off">
       <section class="panel">
         <label class="field-label" for="vessel-name">Vessel Name</label>
@@ -34,6 +44,8 @@ export function renderCharacterCreation({ slotNumber, unlockedRaces, classDetail
         </select>
         <div class="field-help">Unlocked races are shared across all nine Vessel slots.</div>
       </section>
+
+      ${raceChoicePanel(account, allRaces)}
 
       <section class="panel creation-wide">
         <fieldset class="class-fieldset">

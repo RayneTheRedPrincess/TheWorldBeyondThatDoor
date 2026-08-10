@@ -12,17 +12,27 @@ import { getRunConsumableCapacity } from '../consumable-controller.js';
 import { listCraftingRecipes } from '../crafting-controller.js';
 import { listUsableEquipmentAbilities } from '../equipment-ability-controller.js';
 import { getForestCheckParticipants } from '../forest-event-controller.js';
-import { forestBattleScene, hpPercent, shieldPercent, energyPercent, actorStatusTokens, latestCombatPresentation, initiativeView, summarizeCombatLog } from '../combat-presentation.js';
+import { regionalBattleScene, hpPercent, shieldPercent, energyPercent, actorStatusTokens, latestCombatPresentation, initiativeView, summarizeCombatLog } from '../combat-presentation.js';
 import { portraitInnerMarkup } from './portrait.js';
+import { eventCardPortraitDescriptor } from '../content-portrait.js';
 
 function statLine(stats = {}) {
   return Object.entries(stats).map(([key, value]) => `<span><strong>${escapeHtml(key)}</strong> ${Number(value || 0)}</span>`).join('');
 }
 
-function routeArtFor(card){if(card?.trainer)return 'trainer';if(card?.combat)return 'combat';return ['landmark','helpful-person','discovery'].includes(card?.kind)?card.kind:'event';}
-function eventCards(expedition) {
-  const cards=Array.isArray(expedition.cards)?expedition.cards:[];
-  return `<div class="expedition-card-grid">${cards.map(card=>`<article class="expedition-card"><div class="route-art"><img src="./assets/route-art/${routeArtFor(card)}.svg" alt="${escapeHtml(card.label)} route scene" loading="lazy"/></div><div class="event-card-number">Path ${card.ordinal}</div><h4>${escapeHtml(card.label)}</h4><p>${escapeHtml(card.description)}</p><button data-action="expedition-select-card" data-card="${escapeHtml(card.id)}">Choose This Path</button></article>`).join('')}</div>`;
+const ROUTE_ART_FALLBACK_ROOT='./assets/route-art/';
+function eventCardArt(card,contentPortraits,{noArt=false}={}){
+  if(noArt)return `<div class="route-art-placeholder" role="img" aria-label="${escapeHtml(card.label)} — Bog artwork deferred"><span>BOG</span><small>Artwork deferred</small></div>`;
+  const art=eventCardPortraitDescriptor(card,contentPortraits);
+  if(art.ready){
+    return `<picture class="content-portrait-picture" data-content-portrait="${escapeHtml(`${art.type}:${art.id}`)}"><source type="image/avif" srcset="${escapeHtml(art.avifAsset)}"><img src="${escapeHtml(art.webpAsset)}" alt="${escapeHtml(card.label)} event illustration" width="${art.width}" height="${art.height}" loading="lazy" decoding="async" draggable="false"></picture>`;
+  }
+  const fallbackAsset=art.fallbackAsset||`${ROUTE_ART_FALLBACK_ROOT}event.svg`;
+  return `<img src="${escapeHtml(fallbackAsset)}" alt="${escapeHtml(card.label)} route scene" width="${art.width}" height="${art.height}" loading="lazy" decoding="async" draggable="false" data-content-portrait-fallback="${escapeHtml(art.id||'unregistered')}">`;
+}
+function eventCards(expedition,contentPortraits) {
+  const cards=Array.isArray(expedition.cards)?expedition.cards:[];const noArt=expedition.regionId==='bog-of-lost-souls';
+  return `<div class="expedition-card-grid">${cards.map(card=>`<article class="expedition-card"><div class="route-art">${eventCardArt(card,contentPortraits,{noArt})}</div><div class="event-card-number">Path ${card.ordinal}</div><h4>${escapeHtml(card.label)}</h4><p>${escapeHtml(card.description)}</p><button data-action="expedition-select-card" data-card="${escapeHtml(card.id)}">Choose This Path</button></article>`).join('')}</div>`;
 }
 
 function selectedCard(expedition) {
@@ -115,9 +125,9 @@ function actorCard(actor, currentActorId, { presentation, featured = false, targ
   const form = actor.baseClass === 'Druid' && actor.classState?.form ? `<div class="actor-special-resource"><span>Form</span><strong>${escapeHtml(actor.classState.form)}</strong></div>` : '';
   return `<article class="${classes}" data-side="${escapeHtml(actor.side)}" data-combat-actor-id="${escapeHtml(actor.id)}" ${targetable && !defeated ? 'data-action="combat-select-actor" tabindex="0" role="button" aria-label="Select ${escapeHtml(actor.name)} as target"' : ''}>
     <div class="actor-ground-shadow" aria-hidden="true"></div>${(semanticSource||semanticTarget)&&semanticLabel?`<span class="semantic-action-badge">${semanticSource?'Using':'Receiving'} ${escapeHtml(semanticLabel)}</span>`:''}
-    <div class="actor-portrait-shell" aria-hidden="true"><div class="actor-portrait">${actor.portraitAsset?portraitInnerMarkup({asset:actor.portraitAsset,alt:''}):`<span>${escapeHtml(initials)}</span>`}</div>${featured ? '<div class="boss-crown">✦</div>' : ''}</div>
+    <div class="actor-portrait-shell" aria-hidden="true"><div class="actor-portrait">${actor.portraitAsset?portraitInnerMarkup({asset:actor.portraitAsset,alt:'',size:'full',loading:'eager'}):`<span>${escapeHtml(initials)}</span>`}</div>${featured ? '<div class="boss-crown">✦</div>' : ''}</div>
     <div class="actor-readout">
-      <div class="actor-name-row"><div><div class="battle-slot">${escapeHtml(actor.battlefieldSlot?.key || '')}</div><h4>${escapeHtml(actor.name)}</h4><small>${escapeHtml(sideLabel)}${actor.combatRole ? ` · ${escapeHtml(actor.combatRole)}` : ''}</small></div>${current ? '<span class="turn-chip">NOW</span>' : ''}</div>
+      <div class="actor-name-row"><div><div class="battle-slot">${escapeHtml(actor.battlefieldSlot?.key || '')}</div><h4>${escapeHtml(actor.name)}</h4><small>${escapeHtml(sideLabel)}${actor.kind === 'tavern-adventurer' && actor.race ? ` · ${escapeHtml(actor.race)}` : ''}${actor.combatRole ? ` · ${escapeHtml(actor.combatRole)}` : ''}</small></div>${current ? '<span class="turn-chip">NOW</span>' : ''}</div>
       <div class="meter hp-meter"><div class="meter-fill" style="width:${hpPercent(actor).toFixed(2)}%"></div><div class="meter-label"><span>HP</span><strong>${showNumbers ? `${hp} / ${maxHp}` : `${Math.round(hpPercent(actor))}%`}</strong></div></div>
       ${shield > 0 ? `<div class="meter shield-meter"><div class="meter-fill" style="width:${Math.min(100, shieldPercent(actor)).toFixed(2)}%"></div><div class="meter-label"><span>Shield</span><strong>${showNumbers ? shield : 'Active'}</strong></div></div>` : ''}
       <div class="energy-pips" aria-label="Energy ${energy} of ${maxEnergy}">${Array.from({length:maxEnergy},(_,i)=>`<span class="${i<energy?'filled':''}"></span>`).join('')}</div>
@@ -257,7 +267,7 @@ function combatBody(run, combat, baseAbilities, subclassAbilities, equipmentCata
   const showNumbers = settings.combatNumbers !== false;
   const flash = ['off','low','standard'].includes(settings.screenFlash) ? settings.screenFlash : 'standard';
   const presentation = latestCombatPresentation(combat,{consumedPresentationId:presentationUi.consumedPresentationId||null});
-  const scene = forestBattleScene(run);
+  const scene = regionalBattleScene(run);
   const special = run.expedition?.encounter || {};
   const initiative = initiativeView(combat);
   const targetableIds = new Set(playerTurn && !actionTaken ? (combat.actors || []).filter(actor => Number(actor.resources?.hp || 0) > 0).map(actor => actor.id) : []);
@@ -288,7 +298,7 @@ function combatBody(run, combat, baseAbilities, subclassAbilities, equipmentCata
 
 function eventEffectSummary(details={},forestCrafting,equipmentCatalog){const mats=new Map((forestCrafting?.materials||[]).map(m=>[m.id,m.name]));const foods=new Map((equipmentCatalog?.consumables||[]).map(c=>[c.id,c.name]));const bits=[];for(const applied of details.applied||[]){if(applied.onyx)bits.push(`+${applied.onyx} Onyx`);if(applied.onyxLost)bits.push(`−${applied.onyxLost} Onyx`);if(applied.chronicleProgress)bits.push(`+${Number(applied.chronicleProgress).toFixed(2).replace(/\.00$/,'')} Chronicle Progress`);if(applied.material)bits.push(`+${applied.material.quantity} ${mats.get(applied.material.id)||applied.material.id}`);if(applied.food)bits.push(`+${applied.food.quantity} ${foods.get(applied.food.id)||applied.food.id}`);if(applied.hpChange)bits.push(`${applied.hpChange>0?'+':''}${applied.hpChange} HP`);if(applied.flag)bits.push('A persistent expedition effect was applied.');}return `<div class="event-reward-summary"><strong>Applied result</strong>${bits.length?`<ul>${bits.map(b=>`<li>${escapeHtml(b)}</li>`).join('')}</ul>`:'<p>No inventory or HP change was attached to this outcome.</p>'}</div>`;}
 
-function expeditionBody(run, baseAbilities, subclassAbilities, equipmentCatalog, forestCrafting, craftingUi, presentationUi = {}) {
+function expeditionBody(run, baseAbilities, subclassAbilities, equipmentCatalog, forestCrafting, craftingUi, presentationUi = {}, contentPortraits = null) {
   const expedition = run.expedition;
   const intro = expedition.depth >= Number(expedition.introductoryBand?.start || 1)
     && expedition.depth <= Number(expedition.introductoryBand?.end || 5);
@@ -298,7 +308,7 @@ function expeditionBody(run, baseAbilities, subclassAbilities, equipmentCatalog,
         <div><h3>Choose a Route</h3><p class="muted">Exactly three possible events have been drawn for this Depth. Choosing one locks the route until its encounter is resolved.</p></div>
         ${intro ? '<span class="depth-badge">Introductory Depth</span>' : ''}
       </div>
-      ${eventCards(expedition)}`;
+      ${eventCards(expedition,contentPortraits)}`;
   }
 
   if (expedition.state === 'combat-pending') {
@@ -318,7 +328,7 @@ function expeditionBody(run, baseAbilities, subclassAbilities, equipmentCatalog,
     if (card?.trainer) {
       return `
         <div class="encounter-lock">
-          <div class="kicker">Forest Trainer</div>
+          <div class="kicker">${escapeHtml(expedition.regionName)} Trainer</div>
           <h3>${escapeHtml(card.label)}</h3>
           <p>${escapeHtml(card.description || '')}</p>
           <div class="notice"><strong>${escapeHtml(card.subclass || '')}</strong> · ${escapeHtml(card.baseClass || '')} subclass</div>
@@ -375,12 +385,13 @@ function expeditionBody(run, baseAbilities, subclassAbilities, equipmentCatalog,
   }
 
   if (expedition.state === 'region-boundary') {
+    const bog=expedition.regionId==='bog-of-lost-souls';
     return `
       <div class="region-boundary">
         <div class="kicker">Depth ${expedition.depth} / ${expedition.maxDepth}</div>
-        <h3>The Forest route has reached its region boundary.</h3>
-        <p class="muted">The expedition will not create a thirty-first Depth. The Heartwood Sovereign has fallen. Return safely and bank the campaign now, or carry every reward and every wound onward toward ${escapeHtml(expedition.nextRegion?.name || 'the next region')}.</p>
-        <div class="button-row"><button class="primary" data-action="campaign-return-tavern">Return to the Tavern</button><button data-action="campaign-continue-beyond">Continue Beyond the Door</button></div>
+        <h3>${escapeHtml(expedition.regionName)} has reached its region boundary.</h3>
+        <p class="muted">${bog?'Mira and Bandit King Jack have fallen. The Bog is cleared; return safely to bank the campaign and its much larger regional rewards.':`The Heartwood Sovereign has fallen. Return safely and bank the campaign now, or carry every reward and every wound onward toward ${escapeHtml(expedition.nextRegion?.name || 'the next region')}.`}</p>
+        <div class="button-row"><button class="primary" data-action="campaign-return-tavern">Return to the Tavern</button>${bog?'':'<button data-action="campaign-continue-beyond">Continue Beyond the Door</button>'}</div>
       </div>`;
   }
 
@@ -390,36 +401,37 @@ function expeditionBody(run, baseAbilities, subclassAbilities, equipmentCatalog,
   return '<p class="muted">The current expedition state is preserved.</p>';
 }
 
-function adventurerSheet(a,run,catalog,baseAbilities,subclassAbilities){const raw=combinedCharacterStats(a);const aggregate=aggregateEquipmentEffects(a.equipment||{},catalog,{baseClass:a.baseClass,classless:false});const core=aggregate.ok?applyEquipmentCoreStats(raw,aggregate):raw;const kept=applyKeptPreCombatStats(core,a.subclass,a.keptImpressions||[],a.keptImpressionChoices||{});const derived=baseDerivedStats(kept);const maxHp=Math.max(1,Math.round(10+Number(kept.CON||0)*2+Math.max(0,Number(a.level||1)-1)*3));const currentHp=Number.isFinite(Number(a.currentHp))?Math.max(0,Number(a.currentHp)):maxHp;const resource=resourceDefinition(a.baseClass);const abilities=[...(baseAbilities?.abilities||[]).filter(x=>x.baseClass===a.baseClass&&Number(x.level||1)<=Number(a.level||1)),...(subclassAbilities?.abilities||[]).filter(x=>x.subclass===a.subclass&&Number(x.level||1)<=Number(a.level||1))];const eqIdx=itemIndex(catalog,'equipment');const equipment=Object.entries(a.equipment||{}).map(([slot,id])=>`${equipmentSlotLabel(slot)}: ${eqIdx.get(typeof id==='string'?id:id?.id)?.name||'Empty'}`).join(' · ')||'No equipment';return `<details class="adventurer-sheet"><summary><strong>${escapeHtml(a.name)}</strong> Lv ${Number(a.level||1)} · ${Math.round(Number(a.exp||0))} EXP · ${escapeHtml(a.subclass||a.baseClass)}</summary><div class="inspection-body">${a.portrait?`<img class="adventurer-sheet-portrait" src="${escapeHtml(a.portrait)}" alt="Portrait of ${escapeHtml(a.name)}" loading="lazy">`:''}<p><strong>Role:</strong> ${escapeHtml(a.combatRole||'Tavern Adventurer')} · ${escapeHtml(a.baseClass)}${a.subclass?` / ${escapeHtml(a.subclass)}`:''}</p><p><strong>HP:</strong> ${Math.round(currentHp)} / ${maxHp} · <strong>Exhaustion:</strong> ${Math.max(0,Math.trunc(Number(a.exhaustion||0)))}</p><p><strong>Core stats:</strong> ${escapeHtml(Object.entries(kept).map(([k,v])=>`${k} ${Math.round(Number(v||0))}`).join(' · '))}</p><p><strong>Derived combat stats:</strong> ${escapeHtml(formatDerivedStats(derived))}</p><p><strong>Class resource:</strong> ${escapeHtml(resource?`${resource.name} 0 / ${resource.max}`:'None')}</p><p><strong>Status effects:</strong> ${escapeHtml((a.statusEffects||[]).map(x=>x.name||x.id).join(', ')||'None between battles')}</p><p><strong>Equipment:</strong> ${escapeHtml(equipment)}</p><div><strong>Abilities</strong>${abilities.map(ab=>`<details class="ability-inspection compact"><summary>${escapeHtml(ab.name)}</summary><pre>${escapeHtml(readableAbilityText(ab))}</pre></details>`).join('')||'<p class="muted">No abilities unlocked yet.</p>'}</div></div></details>`;}
+function adventurerSheet(a,run,catalog,baseAbilities,subclassAbilities){const raw=combinedCharacterStats(a);const aggregate=aggregateEquipmentEffects(a.equipment||{},catalog,{baseClass:a.baseClass,classless:false});const core=aggregate.ok?applyEquipmentCoreStats(raw,aggregate):raw;const kept=applyKeptPreCombatStats(core,a.subclass,a.keptImpressions||[],a.keptImpressionChoices||{});const derived=baseDerivedStats(kept);const maxHp=Math.max(1,Math.round(10+Number(kept.CON||0)*2+Math.max(0,Number(a.level||1)-1)*3));const currentHp=Number.isFinite(Number(a.currentHp))?Math.max(0,Number(a.currentHp)):maxHp;const resource=resourceDefinition(a.baseClass);const abilities=[...(baseAbilities?.abilities||[]).filter(x=>x.baseClass===a.baseClass&&Number(x.level||1)<=Number(a.level||1)),...(subclassAbilities?.abilities||[]).filter(x=>x.subclass===a.subclass&&Number(x.level||1)<=Number(a.level||1))];const eqIdx=itemIndex(catalog,'equipment');const equipment=Object.entries(a.equipment||{}).map(([slot,id])=>`${equipmentSlotLabel(slot)}: ${eqIdx.get(typeof id==='string'?id:id?.id)?.name||'Empty'}`).join(' · ')||'No equipment';return `<details class="adventurer-sheet"><summary><strong>${escapeHtml(a.name)}</strong> Lv ${Number(a.level||1)} · ${Math.round(Number(a.exp||0))} EXP · ${escapeHtml(a.subclass||a.baseClass)}</summary><div class="inspection-body">${a.portrait?`<div class="adventurer-sheet-portrait">${portraitInnerMarkup({asset:a.portrait,alt:`Portrait of ${a.name}`,size:'full',loading:'lazy'})}</div>`:''}<p><strong>Role:</strong> ${escapeHtml(a.combatRole||'Tavern Adventurer')} · ${escapeHtml(a.race||'Unknown Race')} · ${escapeHtml(a.baseClass)}${a.subclass?` / ${escapeHtml(a.subclass)}`:''}</p><p><strong>HP:</strong> ${Math.round(currentHp)} / ${maxHp} · <strong>Exhaustion:</strong> ${Math.max(0,Math.trunc(Number(a.exhaustion||0)))}</p><p><strong>Core stats:</strong> ${escapeHtml(Object.entries(kept).map(([k,v])=>`${k} ${Math.round(Number(v||0))}`).join(' · '))}</p><p><strong>Derived combat stats:</strong> ${escapeHtml(formatDerivedStats(derived))}</p><p><strong>Class resource:</strong> ${escapeHtml(resource?`${resource.name} 0 / ${resource.max}`:'None')}</p><p><strong>Status effects:</strong> ${escapeHtml((a.statusEffects||[]).map(x=>x.name||x.id).join(', ')||'None between battles')}</p><p><strong>Equipment:</strong> ${escapeHtml(equipment)}</p><div><strong>Abilities</strong>${abilities.map(ab=>`<details class="ability-inspection compact"><summary>${escapeHtml(ab.name)}</summary><pre>${escapeHtml(readableAbilityText(ab))}</pre></details>`).join('')||'<p class="muted">No abilities unlocked yet.</p>'}</div></div></details>`;}
 
 function materialInventory(run) {
   const entries = Object.entries(run?.inventory?.materials || {}).filter(([, item]) => Number(item?.quantity || 0) > 0);
-  if (!entries.length) return '<p class="muted">No Forest materials carried yet.</p>';
+  if (!entries.length) return '<p class="muted">No regional materials carried yet.</p>';
   return `<div class="run-stat-strip">${entries.map(([id, item]) => `<span><strong>${escapeHtml(item.name || id)}</strong> ${Math.round(Number(item.quantity || 0))}</span>`).join('')}</div>`;
 }
 
-export function renderCampaignRun({ run, baseAbilities, subclassAbilities, progression, equipmentCatalog, forestCrafting, forestTrainers, maraQuestStatus = null, craftingUi, presentationUi = {} }) {
+export function renderCampaignRun({ run, baseAbilities, subclassAbilities, progression, equipmentCatalog, forestCrafting, forestTrainers, contentPortraits = null, maraQuestStatus = null, craftingUi, presentationUi = {} }) {
   const expedition = run.expedition;
   const progress = Math.max(0, Math.min(100, (Number(expedition.depth || 1) / Number(expedition.maxDepth || 30)) * 100));
   return shell(`
     <section class="campaign-run-hero panel ${run.configuration?.portraitAsset?'with-vessel-portrait':''}">
-      ${run.configuration?.portraitAsset?`<div class="campaign-vessel-portrait">${portraitInnerMarkup({asset:run.configuration.portraitAsset,alt:'Selected Vessel portrait'})}</div>`:''}
+      ${run.configuration?.portraitAsset?`<div class="campaign-vessel-portrait">${portraitInnerMarkup({asset:run.configuration.portraitAsset,alt:'Selected Vessel portrait',size:'full'})}</div>`:''}
       <div><div class="kicker">Beyond the Door</div><h2>${escapeHtml(expedition.regionName)} · Depth ${expedition.depth} / ${expedition.maxDepth}</h2><p class="muted">The expedition is preserved exactly when you leave this screen. No Depth, card, encounter, campsite, or combat turn advances while you are away.</p></div>
       <div class="run-level"><span>Character Level</span><strong>${run.character.level}</strong><small>${Math.round(Number(run.character.exp||0))} EXP · ${Math.round(expToNextLevel(run.character,progression))} to next</small></div>
     </section>
-    <div class="depth-track" aria-label="Forest depth progress"><span style="width:${progress.toFixed(2)}%"></span></div>
+    <div class="depth-track" aria-label="${escapeHtml(expedition.regionName)} depth progress"><span style="width:${progress.toFixed(2)}%"></span></div>
     <section class="identity-grid section">
       <div><span>Path</span><strong>${run.configuration.classless ? 'Classless' : escapeHtml(run.configuration.effectiveBaseClass || '')}</strong></div>
       <div><span>Subclass</span><strong>${run.configuration.classless ? 'Suppressed' : escapeHtml(run.configuration.effectiveSubclass || 'None')}</strong></div>
       <div><span>Carried Onyx</span><strong>${Math.round(run.rewards.carriedOnyx || 0)}</strong></div>
       <div><span>Chronicle Progress Earned</span><strong>${Math.round(run.rewards.chronicleProgress || 0)}</strong></div>
+      ${expedition.regionId==='bog-of-lost-souls'?`<div><span>Haunted Fog Pressure</span><strong>${Math.max(0,Number(expedition.fogPressure||0))} / 3</strong></div>`:''}
     </section>
     ${maraQuestStatus?`<section class="panel section"><div class="kicker">Mara Quest</div><h3>${escapeHtml(maraQuestStatus.label)}</h3><div class="reward-row"><span>${escapeHtml(maraQuestStatus.status)}</span><strong>${Math.min(Number(maraQuestStatus.progress||0),Number(maraQuestStatus.target||1))} / ${Number(maraQuestStatus.target||1)}</strong></div>${maraQuestStatus.complete?'<p class="field-help">The objective is complete. Its Onyx and Chronicle reward is secured for settlement; the Onyx remains part of the carried campaign total until you return or are defeated.</p>':''}</section>`:''}
     <section class="panel section expedition-panel">
-      ${expeditionBody(run, baseAbilities, subclassAbilities, equipmentCatalog, forestCrafting, craftingUi, presentationUi)}
+      ${expeditionBody(run, baseAbilities, subclassAbilities, equipmentCatalog, forestCrafting, craftingUi, presentationUi, contentPortraits)}
     </section>
     <section class="panel section">
-      <h3>Forest Materials</h3>
+      <h3>${escapeHtml(expedition.regionName)} Materials</h3>
       ${materialInventory(run)}
     </section>
     <section class="panel section">

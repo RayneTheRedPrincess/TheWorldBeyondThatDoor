@@ -8,7 +8,9 @@
     "reward": {
       "keptImpressionTokens": 2,
       "maxSlotCost": 3,
-      "oneTimeAccountWide": true
+      "oneTimeAccountWide": true,
+      "raceChoiceTokens": 1,
+      "raceChoiceScope": "account-wide-permanent-race-unlock"
     },
     "steps": [
       {
@@ -25,7 +27,7 @@
       },
       {
         "title": "Your First Kept Impressions",
-        "body": "Resolving this starter lesson\u2014by completing it or skipping it\u2014grants exactly two free Kept Impression tokens. Each token may unlock one Impression costing 3 slots or less."
+        "body": "Resolving this starter lesson\u2014by completing it or skipping it\u2014grants exactly two free Kept Impression tokens (3 slots or less) and exactly one free Race Choice token. The chosen race unlocks permanently for the whole account, not for one Vessel slot."
       }
     ]
   },

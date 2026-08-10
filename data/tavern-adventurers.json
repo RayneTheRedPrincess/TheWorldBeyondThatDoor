@@ -1,6 +1,6 @@
 {
-  "version": "I11-2026-08-08",
-  "status": "Clean compatibility profiles preserving resident identity/personality while mapping retired subclass identities to current TWBTD subclasses.",
+  "version": "Phase10-PreBog-2026-08-10",
+  "status": "Phase 10 compatibility profiles with approved Tavern portrait-card race identity exposed for display; race remains identity-only and does not add Vessel racial mechanics.",
   "rules": {
     "startCampaignLevel": 1,
     "gainFullExpIfLiving": true,
@@ -9,7 +9,8 @@
     "levelStatAssignment": "weighted-random-from-personality-class-subclass-role",
     "maxDeployed": 3,
     "keptImpressionCapacity": 7,
-    "keptImpressionLoadouts": "immutable-current-canon-7-of-7"
+    "keptImpressionLoadouts": "immutable-current-canon-7-of-7",
+    "raceDisplay": "approved-portrait-card-identity-only-no-racial-mechanics"
   },
   "entries": [
     {
@@ -46,9 +47,10 @@
       ],
       "keptImpressionChoices": {},
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-elowen.png",
+      "portrait": "./assets/portraits/adventurers-static/guest-elowen.png",
       "portraitAlternates": [],
-      "portraitAlternateTarget": 2
+      "portraitAlternateTarget": 2,
+      "race": "Human"
     },
     {
       "id": "guest-briar",
@@ -88,9 +90,10 @@
         }
       },
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-briar.png",
+      "portrait": "./assets/portraits/adventurers-static/guest-briar.png",
       "portraitAlternates": [],
-      "portraitAlternateTarget": 2
+      "portraitAlternateTarget": 2,
+      "race": "Human"
     },
     {
       "id": "guest-vesper",
@@ -126,9 +129,10 @@
       ],
       "keptImpressionChoices": {},
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-vesper.png",
+      "portrait": "./assets/portraits/adventurers-static/guest-vesper.png",
       "portraitAlternates": [],
-      "portraitAlternateTarget": 2
+      "portraitAlternateTarget": 2,
+      "race": "Elf"
     },
     {
       "id": "guest-brakka",
@@ -164,9 +168,10 @@
       ],
       "keptImpressionChoices": {},
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-brakka.png",
+      "portrait": "./assets/portraits/adventurers-static/guest-brakka.png",
       "portraitAlternates": [],
-      "portraitAlternateTarget": 2
+      "portraitAlternateTarget": 2,
+      "race": "Orc"
     },
     {
       "id": "guest-sparkscale",
@@ -201,9 +206,10 @@
       ],
       "keptImpressionChoices": {},
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-sparkscale.png",
+      "portrait": "./assets/portraits/adventurers-static/guest-sparkscale.png",
       "portraitAlternates": [],
-      "portraitAlternateTarget": 2
+      "portraitAlternateTarget": 2,
+      "race": "Drakekin"
     },
     {
       "id": "guest-nib",
@@ -239,9 +245,10 @@
       ],
       "keptImpressionChoices": {},
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-nib.png",
+      "portrait": "./assets/portraits/adventurers-static/guest-nib.png",
       "portraitAlternates": [],
-      "portraitAlternateTarget": 2
+      "portraitAlternateTarget": 2,
+      "race": "Goblin"
     },
     {
       "id": "guest-mercury",
@@ -281,9 +288,10 @@
         }
       },
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-mercury.png",
+      "portrait": "./assets/portraits/adventurers-static/guest-mercury.png",
       "portraitAlternates": [],
-      "portraitAlternateTarget": 2
+      "portraitAlternateTarget": 2,
+      "race": "Human"
     },
     {
       "id": "guest-unit-seven",
@@ -319,9 +327,10 @@
       ],
       "keptImpressionChoices": {},
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-unit-seven.png",
+      "portrait": "./assets/portraits/adventurers-static/guest-unit-seven.png",
       "portraitAlternates": [],
-      "portraitAlternateTarget": 2
+      "portraitAlternateTarget": 2,
+      "race": "Silxered"
     },
     {
       "id": "guest-tawny",
@@ -356,9 +365,10 @@
       ],
       "keptImpressionChoices": {},
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-tawny.png",
+      "portrait": "./assets/portraits/adventurers-static/guest-tawny.png",
       "portraitAlternates": [],
-      "portraitAlternateTarget": 2
+      "portraitAlternateTarget": 2,
+      "race": "Arbordyan"
     },
     {
       "id": "guest-sera",
@@ -394,9 +404,10 @@
       ],
       "keptImpressionChoices": {},
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-sera.png",
+      "portrait": "./assets/portraits/adventurers-static/guest-sera.png",
       "portraitAlternates": [],
-      "portraitAlternateTarget": 2
+      "portraitAlternateTarget": 2,
+      "race": "Halynari"
     },
     {
       "id": "guest-kethravel",
@@ -436,9 +447,10 @@
         }
       },
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-kethravel.png",
+      "portrait": "./assets/portraits/adventurers-static/guest-kethravel.png",
       "portraitAlternates": [],
-      "portraitAlternateTarget": 2
+      "portraitAlternateTarget": 2,
+      "race": "Veyssryn"
     },
     {
       "id": "guest-rill",
@@ -477,9 +489,10 @@
         }
       },
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-rill.png",
+      "portrait": "./assets/portraits/adventurers-static/guest-rill.png",
       "portraitAlternates": [],
-      "portraitAlternateTarget": 2
+      "portraitAlternateTarget": 2,
+      "race": "Faervani"
     },
     {
       "id": "guest-dane",
@@ -514,9 +527,10 @@
       ],
       "keptImpressionChoices": {},
       "keptLoadoutPolicy": "immutable-7-of-7-capacity-current-canon",
-      "portrait": "./assets/portraits/adventurers/guest-dane.png",
+      "portrait": "./assets/portraits/adventurers-static/guest-dane.png",
       "portraitAlternates": [],
-      "portraitAlternateTarget": 2
+      "portraitAlternateTarget": 2,
+      "race": "Duvenari"
     }
   ]
 }

@@ -1,5 +1,5 @@
 import { BASE_MAX_ENERGY } from './combat-math.js';
-import { commitResolvedAiAction, endCombatTurn, getAbilityCooldown, getCombatActor, setAbilityCooldown, pendingEnergyCostAdd, consumeNextEnergyCostEffects, finalizeCombatOutcome } from './combat-controller.js';
+import { commitResolvedAiAction, endCombatTurn, getAbilityCooldown, getCombatActor, setAbilityCooldown, pendingEnergyCostAdd, consumeNextEnergyCostEffects, finalizeCombatOutcome, summonCombatActor } from './combat-controller.js';
 import { applyStatus, getActorDerivedCombatStats, resolveDamageComponent, resolveHealComponent, resolvePercentOfActualDamageHeal, resolveShieldComponent } from './combat-resolution.js';
 
 function clone(v){return typeof structuredClone==='function'?structuredClone(v):JSON.parse(JSON.stringify(v));}
@@ -19,8 +19,9 @@ export function chooseAggroTarget(combat,{difficulty='Normal',rng=Math.random}={
   return weightedPick(weighted,rng);
 }
 function lowestHpAlly(combat,source){return (combat.actors||[]).filter(a=>a.side===source.side&&alive(a)).sort((a,b)=>hpPct(a)-hpPct(b)||a.id.localeCompare(b.id))[0]||source;}
+function protectedAlly(combat,source){const wanted=String(source?.enemyAi?.protectedAllyTemplateId||'');return wanted?(combat.actors||[]).find(a=>a.side===source.side&&alive(a)&&a.enemyTemplateId===wanted)||lowestHpAlly(combat,source):lowestHpAlly(combat,source);}
 function durationFor(target,turns){return {mode:'actor-turn-end',actorId:target.id,remaining:Number(turns||1),appliedTurn:Number(target.turnControl?.turnsStarted||0)};}
-function applyDefinedEffect(combat,target,source,effect){if(!effect)return;applyStatus(combat,target.id,{id:effect.id,sourceActorId:source.id,negative:Boolean(effect.negative),modifiers:clone(effect.modifiers||{}),duration:durationFor(target,effect.durationTurns||1),stacking:'refresh'});}
+function applyDefinedEffect(combat,target,source,effect){if(!effect)return;applyStatus(combat,target.id,{id:effect.id,sourceActorId:source.id,negative:Boolean(effect.negative),modifiers:clone(effect.modifiers||{}),memory:clone(effect.memory||{}),removable:effect.removable!==false,duration:durationFor(target,effect.durationTurns||1),stacking:effect.stacking||'refresh'});}
 function enemyAbilityList(actor){return Array.isArray(actor?.enemyAbilities)?actor.enemyAbilities:[];}
 function enemyAbilityCost(actor,ability){const intrinsic=Math.max(0,Number(ability?.energyCost||0));return intrinsic+pendingEnergyCostAdd(actor,intrinsic);}
 function abilityReady(actor,ability){return Number(actor.resources?.energy||0)>=enemyAbilityCost(actor,ability)&&getAbilityCooldown({actors:[actor]},actor.id,ability.id)===0;}
@@ -30,15 +31,23 @@ export function chooseEnemyAction(slot,{difficulty='Normal',rng=Math.random}={})
   if(!actor||actor.control!=='ai'||actor.side!=='enemy'||!alive(actor))return {type:'none'};
   const abilities=enemyAbilityList(actor).filter(a=>abilityReady(actor,a));
   const profile=actor.enemyAi||{}; const allies=(combat.actors||[]).filter(a=>a.side==='enemy'&&alive(a));
-  const heal=abilities.find(a=>a.targetMode==='lowest-hp-ally'&&(a.components||[]).some(c=>c.type==='heal')&&hpPct(lowestHpAlly(combat,actor))<=Number(profile.healThresholdPct||70));
+  const summon=abilities.find(a=>a.targetMode==='summon'&&a.summonTemplateId);
+  if(summon){const cap=Math.max(1,Number(summon.summonCap||profile.summonCap||1));const living=(combat.actors||[]).filter(a=>a.real===false&&a.side==='enemy'&&alive(a)&&a.summonOwnerId===actor.id).length;if(living<cap)return {type:'ability',ability:summon};}
+  const healTarget=protectedAlly(combat,actor);
+  const heal=abilities.find(a=>['lowest-hp-ally','protected-ally'].includes(a.targetMode)&&(a.components||[]).some(c=>c.type==='heal')&&hpPct(a.targetMode==='protected-ally'?healTarget:lowestHpAlly(combat,actor))<=Number(profile.healThresholdPct||70));
   if(heal)return {type:'ability',ability:heal};
+  const allyShieldTarget=protectedAlly(combat,actor);
+  const allyShield=abilities.find(a=>['lowest-hp-ally','protected-ally'].includes(a.targetMode)&&(a.components||[]).some(c=>c.type==='shield')&&allyShieldTarget&&Number((a.targetMode==='protected-ally'?allyShieldTarget:lowestHpAlly(combat,actor)).resources?.shield||0)<=0&&hpPct(a.targetMode==='protected-ally'?allyShieldTarget:lowestHpAlly(combat,actor))<=Number(profile.shieldThresholdPct||85));
+  if(allyShield)return {type:'ability',ability:allyShield};
   const shield=abilities.find(a=>a.targetMode==='self'&&(a.components||[]).some(c=>c.type==='shield')&&hpPct(actor)<=Number(profile.shieldThresholdPct||75)&&Number(actor.resources?.shield||0)<=0);
   if(shield)return {type:'ability',ability:shield};
+  const chargeBelow=Number(profile.chargeBelowEnergy ?? 2);
+  const heavyChargeChance=Math.max(0,Math.min(100,Number(profile.chargeTowardHeavyChancePct||0)));
+  if(heavyChargeChance>0&&Number(actor.resources?.energy||0)<chargeBelow&&Number(actor.resources?.energy||0)<Number(actor.resources?.maxEnergy||BASE_MAX_ENERGY)&&unit(rng)*100<heavyChargeChance)return {type:'charge'};
   const aoe=abilities.filter(a=>a.targetMode==='all-enemies').sort((a,b)=>Number(b.energyCost)-Number(a.energyCost))[0];
   if(aoe&&(combat.actors||[]).filter(a=>a.side==='party'&&alive(a)).length>=2)return {type:'ability',ability:aoe};
   const offensive=abilities.filter(a=>(a.components||[]).some(c=>c.type==='damage')).sort((a,b)=>Number(b.energyCost)-Number(a.energyCost)||String(a.id).localeCompare(String(b.id)))[0];
   if(offensive)return {type:'ability',ability:offensive};
-  const chargeBelow=Number(profile.chargeBelowEnergy ?? 2);
   if(Number(actor.resources?.energy||0)<chargeBelow&&Number(actor.resources?.energy||0)<Number(actor.resources?.maxEnergy||BASE_MAX_ENERGY))return {type:'charge'};
   return {type:'basic-attack'};
 }
@@ -63,7 +72,7 @@ function executeDamageAbility(next,combat,actor,ability,{difficulty,rng}){
   return outcomes;
 }
 function executeSupportAbility(next,combat,actor,ability){
-  const target=ability.targetMode==='self'?actor:lowestHpAlly(combat,actor); const outcomes=[];
+  const target=ability.targetMode==='self'?actor:ability.targetMode==='protected-ally'?protectedAlly(combat,actor):lowestHpAlly(combat,actor); const outcomes=[];
   for(const component of ability.components||[]){
     if(component.type==='heal')outcomes.push({type:'heal',targetId:target.id,...resolveHealComponent(next,combat,actor,target,ability,component)});
     if(component.type==='shield')outcomes.push({type:'shield',targetId:target.id,...resolveShieldComponent(combat,actor,target,ability,component)});
@@ -93,7 +102,10 @@ export function executeEnemyAction(slot,{difficulty='Normal',rng=Math.random}={}
   const intrinsicCost=Math.max(0,Number(ability.energyCost||0)),cost=enemyAbilityCost(actor,ability); if(Number(actor.resources.energy||0)<cost)return {ok:false,error:'Enemy cannot afford chosen ability.'};
   actor.resources.energy-=cost;consumeNextEnergyCostEffects(actor,intrinsicCost);
   let outcomes=[];
-  if((ability.components||[]).some(c=>c.type==='damage')) outcomes=executeDamageAbility(next,combat,actor,ability,{difficulty,rng});
+  if(ability.targetMode==='summon'){
+    const template=(actor.enemyAi?.summonTemplates||[]).find(t=>t.id===ability.summonTemplateId);
+    if(template){const summoned=summonCombatActor(combat,{...clone(template),side:'enemy',control:'ai'},{ownerId:actor.id});if(summoned.ok)outcomes=[{type:'summon',summonId:summoned.actor.id,name:summoned.actor.name}];}
+  } else if((ability.components||[]).some(c=>c.type==='damage')) outcomes=executeDamageAbility(next,combat,actor,ability,{difficulty,rng});
   else outcomes=executeSupportAbility(next,combat,actor,ability);
   applyDefinedEffect(combat,actor,actor,ability.selfEffect);
   setAbilityCooldown(combat,actor.id,ability.id,Number(ability.cooldown||0));

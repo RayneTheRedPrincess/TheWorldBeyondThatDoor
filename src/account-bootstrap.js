@@ -8,6 +8,19 @@ export function applyAccountBootstrap(account, policy) {
   const unlocks = account.unlocks || {};
   const existingFeatures = normalizeProgressionFeatures(account.progressionFeatures);
   const starterFeatures = normalizeProgressionFeatures(policy.startingProgressionFeatures);
+  const priorBootstrapVersion = Math.max(0, Number(account.meta?.accountBootstrapVersion || 0));
+  const targetBootstrapVersion = Math.max(0, Number(policy.version || 0));
+  const tutorials = account.tutorials && typeof account.tutorials === 'object' ? { ...account.tutorials } : {};
+  const starter = tutorials.starter && typeof tutorials.starter === 'object' ? { ...tutorials.starter } : {};
+  const tokenWallet = tutorials.tokenWallet && typeof tutorials.tokenWallet === 'object' ? { ...tutorials.tokenWallet } : {};
+
+  // Bootstrap v5 retroactively grants the new one-time account Race Choice token to
+  // accounts that had already resolved the starter onboarding under Phase 10.
+  if (targetBootstrapVersion >= 5 && priorBootstrapVersion < 5 && starter.resolved && starter.rewardGranted) {
+    tokenWallet.raceChoice = 1;
+    starter.raceChoiceGranted = true;
+  }
+
   return {
     ...account,
     unlocks: {
@@ -22,9 +35,10 @@ export function applyAccountBootstrap(account, policy) {
       mantle: existingFeatures.mantle || starterFeatures.mantle,
       chronicle: existingFeatures.chronicle || starterFeatures.chronicle
     },
+    tutorials: { ...tutorials, starter, tokenWallet },
     meta: {
       ...(account.meta || {}),
-      accountBootstrapVersion: Math.max(Number(account.meta?.accountBootstrapVersion || 0), Number(policy.version || 0))
+      accountBootstrapVersion: Math.max(priorBootstrapVersion, targetBootstrapVersion)
     }
   };
 }

@@ -10,7 +10,7 @@ function assert(condition, message) {
 }
 
 export class CanonRegistry {
-  constructor({ authority, keptImpressions, keptImpressionRuntime, accountBootstrap, chronicleTrees, regions, combatRules, baseAbilities, subclassAbilities, baseResources, forestEnemies, forestEvents, forestTrainers, characterProgression, tavernAdventurers, equipmentConsumablesStatus, forestCrafting, tavernServices, tutorialsHelp, portraitSystem = null }) {
+  constructor({ authority, keptImpressions, keptImpressionRuntime, accountBootstrap, chronicleTrees, regions, combatRules, baseAbilities, subclassAbilities, baseResources, forestEnemies, forestEvents, forestTrainers, bogEnemies = null, bogEvents = null, bogTrainers = null, bogCrafting = null, characterProgression, tavernAdventurers, equipmentConsumablesStatus, forestCrafting, tavernServices, tutorialsHelp, portraitSystem = null, contentPortraits = null }) {
     this.authority = deepFreeze(authority);
     this.keptImpressions = deepFreeze(keptImpressions);
     this.keptImpressionRuntime = deepFreeze(keptImpressionRuntime);
@@ -24,6 +24,10 @@ export class CanonRegistry {
     this.forestEnemies = deepFreeze(forestEnemies);
     this.forestEvents = deepFreeze(forestEvents);
     this.forestTrainers = deepFreeze(forestTrainers);
+    this.bogEnemies = deepFreeze(bogEnemies);
+    this.bogEvents = deepFreeze(bogEvents);
+    this.bogTrainers = deepFreeze(bogTrainers);
+    this.bogCrafting = deepFreeze(bogCrafting);
     this.characterProgression = deepFreeze(characterProgression);
     this.tavernAdventurers = deepFreeze(tavernAdventurers);
     this.equipmentConsumablesStatus = deepFreeze(equipmentConsumablesStatus);
@@ -31,6 +35,7 @@ export class CanonRegistry {
     this.tavernServices = deepFreeze(tavernServices);
     this.tutorialsHelp = deepFreeze(tutorialsHelp);
     this.portraitSystem = deepFreeze(portraitSystem);
+    this.contentPortraits = deepFreeze(contentPortraits);
     this.baseAbilityIndex = new Map((baseAbilities?.abilities || []).map(entry => [entry.id, entry]));
     this.subclassAbilityIndex = new Map((subclassAbilities?.abilities || []).map(entry => [entry.id, entry]));
     this.keptIndex = new Map((keptImpressions.entries || []).map(entry => [entry.id, entry]));
@@ -38,7 +43,7 @@ export class CanonRegistry {
   }
 
   static async load() {
-    const [authorityResponse, keptResponse, keptRuntimeResponse, bootstrapResponse, chronicleResponse, regionsResponse, combatRulesResponse, baseAbilitiesResponse, subclassAbilitiesResponse, baseResourcesResponse, forestEnemiesResponse, forestEventsResponse, forestTrainersResponse, characterProgressionResponse, tavernAdventurersResponse, equipmentResponse, forestCraftingResponse, tavernServicesResponse, tutorialsHelpResponse, portraitSystemResponse] = await Promise.all([
+    const [authorityResponse, keptResponse, keptRuntimeResponse, bootstrapResponse, chronicleResponse, regionsResponse, combatRulesResponse, baseAbilitiesResponse, subclassAbilitiesResponse, baseResourcesResponse, forestEnemiesResponse, forestEventsResponse, forestTrainersResponse, characterProgressionResponse, tavernAdventurersResponse, equipmentResponse, forestCraftingResponse, tavernServicesResponse, tutorialsHelpResponse, bogEnemiesResponse, bogEventsResponse, bogTrainersResponse, bogCraftingResponse, portraitSystemResponse, contentPortraitsResponse] = await Promise.all([
       fetch('./data/canon-authority.json', { cache: 'no-cache' }),
       fetch('./data/kept-impressions.json', { cache: 'no-cache' }),
       fetch('./data/kept-impression-runtime.json', { cache: 'no-cache' }),
@@ -58,9 +63,14 @@ export class CanonRegistry {
       fetch('./data/forest-crafting.json', { cache: 'no-cache' }),
       fetch('./data/tavern-services.json', { cache: 'no-cache' }),
       fetch('./data/tutorials-help.json', { cache: 'no-cache' }),
-      fetch('./data/portrait-system.json', { cache: 'no-cache' })
+      fetch('./data/bog-enemies.json', { cache: 'no-cache' }),
+      fetch('./data/bog-events.json', { cache: 'no-cache' }),
+      fetch('./data/bog-trainers.json', { cache: 'no-cache' }),
+      fetch('./data/bog-crafting.json', { cache: 'no-cache' }),
+      fetch('./data/portrait-system.json', { cache: 'no-cache' }),
+      fetch('./data/content-portraits.json', { cache: 'no-cache' })
     ]);
-    if (!authorityResponse.ok || !keptResponse.ok || !keptRuntimeResponse.ok || !bootstrapResponse.ok || !chronicleResponse.ok || !regionsResponse.ok || !combatRulesResponse.ok || !baseAbilitiesResponse.ok || !subclassAbilitiesResponse.ok || !baseResourcesResponse.ok || !forestEnemiesResponse.ok || !forestEventsResponse.ok || !forestTrainersResponse.ok || !characterProgressionResponse.ok || !tavernAdventurersResponse.ok || !equipmentResponse.ok || !forestCraftingResponse.ok || !tavernServicesResponse.ok || !tutorialsHelpResponse.ok || !portraitSystemResponse.ok) {
+    if (!authorityResponse.ok || !keptResponse.ok || !keptRuntimeResponse.ok || !bootstrapResponse.ok || !chronicleResponse.ok || !regionsResponse.ok || !combatRulesResponse.ok || !baseAbilitiesResponse.ok || !subclassAbilitiesResponse.ok || !baseResourcesResponse.ok || !forestEnemiesResponse.ok || !forestEventsResponse.ok || !forestTrainersResponse.ok || !characterProgressionResponse.ok || !tavernAdventurersResponse.ok || !equipmentResponse.ok || !forestCraftingResponse.ok || !tavernServicesResponse.ok || !tutorialsHelpResponse.ok || !bogEnemiesResponse.ok || !bogEventsResponse.ok || !bogTrainersResponse.ok || !bogCraftingResponse.ok || !portraitSystemResponse.ok || !contentPortraitsResponse.ok) {
       throw new Error('Canonical data files could not be loaded.');
     }
     return new CanonRegistry({
@@ -83,7 +93,12 @@ export class CanonRegistry {
       forestCrafting: await forestCraftingResponse.json(),
       tavernServices: await tavernServicesResponse.json(),
       tutorialsHelp: await tutorialsHelpResponse.json(),
-      portraitSystem: await portraitSystemResponse.json()
+      bogEnemies: await bogEnemiesResponse.json(),
+      bogEvents: await bogEventsResponse.json(),
+      bogTrainers: await bogTrainersResponse.json(),
+      bogCrafting: await bogCraftingResponse.json(),
+      portraitSystem: await portraitSystemResponse.json(),
+      contentPortraits: await contentPortraitsResponse.json()
     });
   }
 
@@ -127,6 +142,29 @@ export class CanonRegistry {
     assert(forest?.trainerEligibility?.start === 3 && forest?.trainerEligibility?.end === 29, 'trainer eligibility must be Depths 3-29');
     assert(Number(forest?.completionReward?.onyx) === 100 && Number(forest?.completionReward?.chronicleProgress) === 4, 'I16 Forest completion reward must be +100 Onyx / +4 Chronicle Progress');
     assert(forest?.nextRegion?.id === 'bog-of-lost-souls' && forest?.nextRegion?.expectedEntryLevel?.join(',') === '5,6' && Number(forest?.nextRegion?.targetEndLevel) === 12, 'I16 Forest boundary must preserve the Bog Level 5-6 -> 12 pacing target');
+    const bog=this.regions?.regions?.find(region=>region.id==='bog-of-lost-souls');
+    assert(bog?.depthCount===30&&bog?.combatStructure?.minibossDepth===15&&bog?.combatStructure?.bossDepth===30,'Bog must be a 30-Depth region with special combats at 15/30');
+    assert(bog?.merchants===false,'Bog of Lost Souls must not contain merchants');
+    // Older sealed unit fixtures construct the registry without post-I22 Bog payloads. When any Bog payload is supplied,
+    // require the entire image-free Bog authority to be present and coherent; production load() always supplies all four.
+    if(this.bogEnemies||this.bogEvents||this.bogTrainers||this.bogCrafting){
+      assert(this.bogEnemies&&this.bogEvents&&this.bogTrainers&&this.bogCrafting,'Bog authority must load enemies, events, Trainers, and crafting together');
+      assert(this.bogEnemies?.regularEnemies?.length===16,'Bog foundation requires 16 regular enemy types');
+      assert(this.bogEnemies?.miniboss?.actors?.map(x=>x.id).join(',')==='mirebound-abomination,varris-blackbanner','Bog miniboss must be Abomination + Varris');
+      assert(this.bogEnemies?.boss?.actors?.map(x=>x.id).join(',')==='crazed-witch-mira,bandit-king-jack','Bog boss must be Mira + Jack');
+      assert(Number(this.bogEnemies?.miniboss?.actors?.[0]?.maxEnergy)===8,'Mira’s Mirebound Abomination must have 8 Max Energy');
+      assert(this.bogTrainers?.count===11&&this.bogTrainers?.entries?.length===11,'Bog must contain the 11 remaining subclass Trainers');
+      assert(Number(this.bogTrainers?.rules?.activeRosterMin)===8&&Number(this.bogTrainers?.rules?.activeRosterMax)===11,'Bog campaign must show 8–11 of its 11 Trainers');
+      assert(this.bogEvents?.events?.length===143&&new Set(this.bogEvents.events.map(e=>e.id)).size===143,'Bog event catalogue must contain 143 unique definitions');
+      assert(this.bogEvents.events.filter(e=>e.kind==='combat'&&e.combat===true).length>=42,'Bog event catalogue must contain a substantial direct-combat route pool');
+      assert(this.bogEvents.events.filter(e=>e.majorHaunting).length>=6,'Bog Fog Pressure must have Major Haunting event definitions across the region');
+      assert(this.bogCrafting?.rules?.location==='Campsite'&&this.bogCrafting?.rules?.merchants===false,'Bog crafting must be Campsite-only with no merchants');
+      assert(this.bogCrafting?.sets?.length===3&&this.bogCrafting.sets.every(s=>s.pieceIds?.length===4),'Bog foundation must contain three four-piece regional armor sets');
+      assert(this.bogCrafting?.recipes?.length===61,'Bog foundation crafting must contain 61 image-free recipes');
+      assert(this.bogTrainers.entries.every(t=>Array.isArray(t.soulfireItemIds)&&t.soulfireItemIds.length===3),'each Bog Trainer must own exactly three SoulFire craftables');
+      assert((this.tavernServices?.keptImpressionShop?.offers||[]).filter(o=>o.region==='bog-of-lost-souls').length===12,'Bog must expose 12 regional account-wide Kept Impression purchases');
+      assert((this.tavernServices?.regionalRaceUnlocks?.['bog-of-lost-souls']||[]).length===8,'Bog must define eight account-wide regional race unlocks');
+    }
 
     assert(this.combatRules?.energy?.combatStart === 0, 'combat Energy must start at 0');
     assert(this.combatRules?.energy?.naturalStartOfTurnGain === 1, 'natural turn Energy must be exactly +1');
@@ -160,6 +198,8 @@ export class CanonRegistry {
     assert(this.characterProgression?.chroniclePerOnyxDivisor === 25, 'Chronicle Progress must derive from Onyx at 1/25 rate');
     assert(Array.isArray(this.tavernAdventurers?.entries) && this.tavernAdventurers.entries.length === 13, 'expected 13 preserved Tavern Adventurer profiles');
     assert(new Set(this.tavernAdventurers.entries.map(e=>e.id)).size === 13, 'Tavern Adventurer ids must be unique');
+    assert(this.tavernAdventurers.entries.every(e=>typeof e.race==='string'&&e.race.trim().length>0), 'every Tavern Adventurer must expose an approved race identity label');
+    assert(this.tavernAdventurers?.rules?.raceDisplay==='approved-portrait-card-identity-only-no-racial-mechanics', 'Tavern Adventurer race identity must remain display-only');
 
     const i14Events=this.forestEvents;
     assert(i14Events?.rules?.noDefinitionRepeatsWithinCampaign===true,'I14 Forest event definitions must never repeat within a campaign');
@@ -168,10 +208,10 @@ export class CanonRegistry {
     assert(new Set(i14Events.events.map(e=>e.id)).size===i14Events.events.length,'I14 Forest event ids must be unique');
     for(const e of i14Events.events.filter(e=>e.kind!=='combat')) assert(e.check&&['STR','DEX','CON','INT','FTH','CHA','LCK'].includes(e.check.stat),'every I14 non-Trainer event must define one core-stat check');
     const i14Trainers=this.forestTrainers;
-    assert(i14Trainers?.count===17&&i14Trainers?.entries?.length===17,'I14 Forest must contain exactly 17 Trainers');
+    assert(i14Trainers?.count===22&&i14Trainers?.entries?.length===22,'Phase 9 Forest must contain exactly 22 Trainers');
     assert(Number(i14Trainers?.rules?.matchingBaseClassAnchorChancePct)===95,'I14 matching base-class Trainer anchor must be 95%');
-    assert(Number(i14Trainers?.rules?.activeRosterMin)===6&&Number(i14Trainers?.rules?.activeRosterMax)===8,'I14 active Trainer roster must contain 6–8 Trainers');
-    assert(new Set(i14Trainers.entries.map(t=>t.id)).size===17,'I14 Trainer ids must be unique');
+    assert(Number(i14Trainers?.rules?.activeRosterMin)===9&&Number(i14Trainers?.rules?.activeRosterMax)===11,'Phase 9 active Trainer roster must contain 9–11 Trainers');
+    assert(new Set(i14Trainers.entries.map(t=>t.id)).size===22,'Phase 9 Trainer ids must be unique');
     assert(i14Trainers.entries.every(t=>Array.isArray(t.soulfireItemIds)&&t.soulfireItemIds.length===3),'each I14 Trainer must own exactly three SoulFire craftables');
 
     const i12=this.equipmentConsumablesStatus;
@@ -192,13 +232,24 @@ export class CanonRegistry {
     assert(i13?.rules?.soulfireCoreDeterministic===true,'SoulfireCore drops must be deterministic');
     assert(i13?.rules?.normalMaterialDropByRealPartySize?.['1']?.join(',')==='1,3'&&i13?.rules?.normalMaterialDropByRealPartySize?.['4']?.join(',')==='4,5','I13 normal material drop ranges mismatch');
     assert(this.equipmentConsumablesStatus?.rules?.rarities?.join(',')==='Normal,SoulFire','I13 supports only Normal and SoulFire rarity');
-    assert(i13?.rules?.trainerSoulfireHookStatus==='live-17-trainer-roster'&&i13?.catalogueSummary?.trainerSoulfireItems===51,'I14 Trainer SoulFire crafting authority mismatch');
+    assert(i13?.rules?.trainerSoulfireHookStatus==='live-22-trainer-roster'&&i13?.catalogueSummary?.trainerSoulfireItems===66,'Phase 9 Trainer SoulFire crafting authority mismatch');
     assert(this.tavernServices?.mara?.offersAtATime===3&&this.tavernServices?.mara?.activeQuestLimit===1,'I15 Mara quest offer/active limits mismatch');
     assert(this.tavernServices?.tavernAdventurerRecruitment?.freeStarterIds?.length===6,'I15 requires six free Tavern Adventurers');
     assert(this.tutorialsHelp?.mandatoryStarter?.reward?.keptImpressionTokens===2&&this.tutorialsHelp?.mandatoryStarter?.reward?.maxSlotCost===3,'I18 starter reward must be exactly two 3-slot-or-lower KI tokens');
     assert(this.tutorialsHelp?.mandatoryStarter?.skipAllowed===true,'I18 starter tutorial must grant its reward even when skipped');
     assert(this.tutorialsHelp?.tutorials?.length===8,'I18 must retain exactly eight replayable named tutorials');
     assert(this.tutorialsHelp?.helpEntries?.length>=20,'I18 Help Codex must cover the current core systems');
+    if (this.contentPortraits) {
+      const summary=this.contentPortraits.summary||{};
+      assert(Number(summary.enemyTargets)===14,'content portrait inventory must contain 14 Forest enemy targets');
+      assert(Number(summary.forestEventTargets)===143,'content portrait inventory must contain 143 Forest event targets');
+      assert(Number(summary.trainerCardTargets)===22,'content portrait inventory must contain 22 Trainer-card targets');
+      assert(Number(summary.eventCardTargets)===165&&Number(summary.totalNewContentTargets)===179,'content portrait inventory totals mismatch');
+      assert(this.contentPortraits.rules?.runtimePrimaryFormat==='AVIF'&&this.contentPortraits.rules?.runtimeFallbackFormat==='WebP','content portraits must use AVIF primary with WebP fallback');
+      assert(this.contentPortraits.rules?.installTimePortraitPrecache===false,'content portraits must remain outside install-time precache');
+      assert(this.contentPortraits.rules?.saveMigrationRequired===false,'content portrait framework must not require save migration');
+    }
+
     if (this.portraitSystem) {
       const portrait = this.portraitSystem.vesselPortraits || {};
       const subclassCount = this.authority.class_families.reduce((sum,family)=>sum+(family.entities||[]).filter(entity=>entity.name!==family.base_class).length,0);
@@ -248,13 +299,18 @@ export class CanonRegistry {
   getForestEvents() { return this.forestEvents; }
   getForestTrainers() { return this.forestTrainers; }
   getForestEnemies() { return this.forestEnemies; }
+  getBogEvents() { return this.bogEvents; }
+  getBogTrainers() { return this.bogTrainers; }
+  getBogEnemies() { return this.bogEnemies; }
   getCharacterProgression() { return this.characterProgression; }
   getTavernAdventurers() { return this.tavernAdventurers; }
   getForestCrafting() { return this.forestCrafting; }
+  getBogCrafting() { return this.bogCrafting; }
   getEquipmentConsumablesStatus() { return this.equipmentConsumablesStatus; }
   getCombatRules() { return this.combatRules; }
   getTavernServices() { return this.tavernServices; }
   getTutorialsHelp() { return this.tutorialsHelp; }
   getPortraitSystem() { return this.portraitSystem; }
+  getContentPortraits() { return this.contentPortraits; }
   getAccountBootstrap() { return this.accountBootstrap; }
 }

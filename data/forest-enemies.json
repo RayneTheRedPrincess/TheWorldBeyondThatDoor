@@ -160,7 +160,7 @@
       ],
       "baseExpReward": 18,
       "baseOnyxReward": 25,
-      "portrait": "./assets/portraits/enemies/bramblekin-scrapper.png"
+      "portrait": "./assets/portraits/enemies-static/bramblekin-scrapper.png"
     },
     {
       "id": "mossjaw-boar",
@@ -245,7 +245,7 @@
       ],
       "baseExpReward": 20,
       "baseOnyxReward": 50,
-      "portrait": "./assets/portraits/enemies/mossjaw-boar.png"
+      "portrait": "./assets/portraits/enemies-static/mossjaw-boar.png"
     },
     {
       "id": "sporecap-tender",
@@ -330,7 +330,7 @@
       ],
       "baseExpReward": 18,
       "baseOnyxReward": 25,
-      "portrait": "./assets/portraits/enemies/sporecap-tender.png"
+      "portrait": "./assets/portraits/enemies-static/sporecap-tender.png"
     },
     {
       "id": "needlefang-lynx",
@@ -410,7 +410,7 @@
       ],
       "baseExpReward": 22,
       "baseOnyxReward": 50,
-      "portrait": "./assets/portraits/enemies/needlefang-lynx.png"
+      "portrait": "./assets/portraits/enemies-static/needlefang-lynx.png"
     },
     {
       "id": "chimeleaf-wisp",
@@ -497,7 +497,7 @@
       ],
       "baseExpReward": 20,
       "baseOnyxReward": 25,
-      "portrait": "./assets/portraits/enemies/chimeleaf-wisp.png"
+      "portrait": "./assets/portraits/enemies-static/chimeleaf-wisp.png"
     },
     {
       "id": "ironbark-ram",
@@ -583,7 +583,7 @@
       ],
       "baseExpReward": 24,
       "baseOnyxReward": 50,
-      "portrait": "./assets/portraits/enemies/ironbark-ram.png"
+      "portrait": "./assets/portraits/enemies-static/ironbark-ram.png"
     },
     {
       "id": "rootcoil-hexer",
@@ -677,7 +677,7 @@
       ],
       "baseExpReward": 23,
       "baseOnyxReward": 50,
-      "portrait": "./assets/portraits/enemies/rootcoil-hexer.png"
+      "portrait": "./assets/portraits/enemies-static/rootcoil-hexer.png"
     },
     {
       "id": "glasswing-needler",
@@ -756,7 +756,7 @@
       ],
       "baseExpReward": 22,
       "baseOnyxReward": 50,
-      "portrait": "./assets/portraits/enemies/glasswing-needler.png"
+      "portrait": "./assets/portraits/enemies-static/glasswing-needler.png"
     },
     {
       "id": "vinebound-reaver",
@@ -842,7 +842,7 @@
       ],
       "baseExpReward": 26,
       "baseOnyxReward": 75,
-      "portrait": "./assets/portraits/enemies/vinebound-reaver.png"
+      "portrait": "./assets/portraits/enemies-static/vinebound-reaver.png"
     },
     {
       "id": "gloomcap-binder",
@@ -935,7 +935,7 @@
       ],
       "baseExpReward": 25,
       "baseOnyxReward": 75,
-      "portrait": "./assets/portraits/enemies/gloomcap-binder.png"
+      "portrait": "./assets/portraits/enemies-static/gloomcap-binder.png"
     },
     {
       "id": "sunscar-hart",
@@ -1015,7 +1015,7 @@
       ],
       "baseExpReward": 28,
       "baseOnyxReward": 75,
-      "portrait": "./assets/portraits/enemies/sunscar-hart.png"
+      "portrait": "./assets/portraits/enemies-static/sunscar-hart.png"
     },
     {
       "id": "barkveil-sapper",
@@ -1103,13 +1103,13 @@
       ],
       "baseExpReward": 26,
       "baseOnyxReward": 75,
-      "portrait": "./assets/portraits/enemies/barkveil-sapper.png"
+      "portrait": "./assets/portraits/enemies-static/barkveil-sapper.png"
     }
   ],
   "miniboss": {
     "id": "crown-of-thorns-warden",
     "name": "Crown-of-Thorns Warden",
-    "role": "Miniboss · Adaptive Defender",
+    "role": "Miniboss \u00b7 Adaptive Defender",
     "fixedDepth": 15,
     "baseMaxHp": 70,
     "stats": {
@@ -1210,12 +1210,12 @@
     ],
     "expReward": 100,
     "onyxReward": 250,
-    "portrait": "./assets/portraits/enemies/crown-of-thorns-warden.png"
+    "portrait": "./assets/portraits/enemies-static/crown-of-thorns-warden.png"
   },
   "boss": {
     "id": "heartwood-sovereign",
     "name": "Heartwood Sovereign",
-    "role": "Boss · Forest Apex",
+    "role": "Boss \u00b7 Forest Apex",
     "fixedDepth": 30,
     "baseMaxHp": 120,
     "stats": {
@@ -1347,7 +1347,7 @@
     ],
     "expReward": 220,
     "onyxReward": 500,
-    "portrait": "./assets/portraits/enemies/heartwood-sovereign.png"
+    "portrait": "./assets/portraits/enemies-static/heartwood-sovereign.png"
   },
   "rules": {
     "enemiesUseConsumables": false,

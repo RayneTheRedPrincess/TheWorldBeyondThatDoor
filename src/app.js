@@ -12,11 +12,13 @@ import { selectMantle } from './mantle-controller.js';
 import { purchaseChronicleNode, respecChronicleFamily } from './chronicle-controller.js';
 import { getCampaignDoorState, getCampaignPreparationSummary } from './campaign-door.js';
 import { startCampaign, getCampaignRunView, applyCampaignSettlement, endCampaign, allocatePlayerRunStat, setTavernAdventurerParty } from './campaign-controller.js';
-import { selectExpeditionCard, leaveCampsite, advanceAfterResolvedNoncombat, resolveCombatVictory, continueBeyondForest, continueAfterForestEventResult } from './expedition-controller.js';
+import { selectExpeditionCard, leaveCampsite, advanceAfterResolvedNoncombat, resolveCombatVictory, continueBeyondForest, continueAfterForestEventResult, enterBogRegion } from './expedition-controller.js';
 import { resolveForestEventCheck, chooseTrainerFight, learnFromTrainer } from './forest-event-controller.js';
 import { takePlayerTurnAction, endCombatTurn } from './combat-controller.js';
 import { combatPresentationDelayMsForSpeed } from './combat-presentation.js';
+import { predecodeUpcomingCombatPortraits } from './portrait-preload.js';
 import { attachForestCombat, awardCurrentForestMaterialCache } from './forest-encounter-builder.js';
+import { attachBogCombat, awardCurrentBogMaterialCache } from './bog-encounter-builder.js';
 import { resolveEnemyTurn } from './enemy-ai.js';
 import { resolveTavernAdventurerTurn } from './ally-ai.js';
 import { awardCurrentForestCombatRewards } from './forest-reward-controller.js';
@@ -28,7 +30,7 @@ import { executeEquipmentAbility } from './equipment-ability-controller.js';
 import { equipRunEquipmentAtCampsite, unequipRunEquipmentAtCampsite } from './equipment-controller.js';
 import { craftAtCampsite } from './crafting-controller.js';
 import { updateClasslessConfig, classlessLimits } from './classless-controller.js';
-import { ensureMaraQuestOffers, acceptMaraQuest, abandonMaraQuest, selectBorrowedLenderItem, selectReturnedLenderItem, evaluateMaraQuest } from './tavern-services-controller.js';
+import { ensureMaraQuestOffers, acceptMaraQuest, abandonMaraQuest, selectBorrowedLenderItem, selectReturnedLenderItem, evaluateMaraQuest, purchaseKeptImpressionBoon } from './tavern-services-controller.js';
 import { getStartingStatPool, readStartingStatsFromForm, redistributeStartingStats, CORE_STATS } from './starting-stats.js';
 import { renderHome } from './views/home.js';
 import { renderSlots } from './views/slots.js';
@@ -40,7 +42,7 @@ import { renderCampaignRun } from './views/campaign-run.js';
 import { renderCampaignResults } from './views/campaign-results.js';
 import { renderSettings } from './views/settings.js';
 import { escapeHtml } from './views/shared.js';
-import { normalizeTutorialState, starterNeedsResolution, resolveStarterTutorial, setTutorialStatus, tutorialStatus, redeemTutorialKeptToken, markContextualSeen, contextualSeen } from './tutorial-controller.js';
+import { normalizeTutorialState, starterNeedsResolution, resolveStarterTutorial, setTutorialStatus, tutorialStatus, redeemTutorialKeptToken, redeemRaceChoiceToken, markContextualSeen, contextualSeen } from './tutorial-controller.js';
 import { renderTutorial, starterTutorialOverlay, guidedTutorialOverlay } from './views/tutorial.js';
 import { renderHelp } from './views/help.js';
 import { renderCredits } from './views/credits.js';
@@ -55,6 +57,7 @@ class App {
     this.tavern = new TavernController();
     this.pendingCreationSlot = null;
     this.creationErrors = [];
+    this.creationMessage = '';
     this.resetStage = 0;
     this.tavernMessage = '';
     this.chronicleMessage = '';
@@ -91,7 +94,9 @@ class App {
     this.lenderSlot = 'all';
     this.lenderWeaponType = 'all';
     this.lenderSort = 'name';
+    this.portraitCarouselOffset = 0;
     this.contextLessonId = null;
+    this.combatPortraitPredecode = { combatId:null, status:'idle', promise:null };
     this.tutorialReturnRoute = null;
     this.tutorialReturnTavernRoom = null;
     this.displayMode = null;
@@ -140,7 +145,7 @@ class App {
 
   bootstrapAccount(account) {
     let next = applyAccountBootstrap(account, this.canon.getAccountBootstrap());
-    next = migrateMantleUnlocksFromTrainerHistory(next, this.canon.getForestTrainers());
+    next = migrateMantleUnlocksFromTrainerHistory(next, {entries:[...(this.canon.getForestTrainers()?.entries||[]),...(this.canon.getBogTrainers()?.entries||[])]});
     next.currencies = { ...(next.currencies || {}), onyx: Number(next.currencies?.onyx || 0) };
     next.settings = { combatSpeed: 1, reducedMotion: false, combatNumbers: true, screenFlash: 'standard', ...(next.settings || {}) };
     const withTutorials = normalizeTutorialState(next);
@@ -187,6 +192,25 @@ class App {
 
   clearCombatPlaybackTimer(){if(this.combatPlaybackTimer!==null){clearTimeout(this.combatPlaybackTimer);this.combatPlaybackTimer=null;}}
 
+  ensureCombatPortraitsPredecoded(run){
+    const combat=run?.combat;const combatId=combat?.id||combat?.encounterId||null;
+    if(!combatId){this.combatPortraitPredecode={combatId:null,status:'idle',promise:null};return true;}
+    if(this.combatPortraitPredecode.combatId===combatId&&this.combatPortraitPredecode.status==='done')return true;
+    if(this.combatPortraitPredecode.combatId===combatId&&this.combatPortraitPredecode.status==='pending')return false;
+    const state={combatId,status:'pending',promise:null};this.combatPortraitPredecode=state;
+    const promise=predecodeUpcomingCombatPortraits(combat,{timeoutMs:750}).catch(()=>({attempted:0,decoded:0,failed:0,results:[]}));
+    state.promise=promise;
+    promise.finally(()=>{
+      if(this.combatPortraitPredecode!==state)return;
+      state.status='done';state.promise=null;
+      if(this.router.routeFromLocation()===ROUTES.CAMPAIGN_RUN){
+        const active=this.activeSlot()?.campaign?.state?.combat;const activeId=active?.id||active?.encounterId||null;
+        if(activeId===combatId)this.render(ROUTES.CAMPAIGN_RUN);
+      }
+    });
+    return false;
+  }
+
   scheduleCombatPlayback(run){
     this.clearCombatPlaybackTimer(); const combat=run?.combat;if(!combat)return;
     const current=(combat.actors||[]).find(a=>a.id===combat.currentActorId);const needsStep=combat.state==='complete'||(combat.state==='active'&&current?.control==='ai');if(!needsStep)return;
@@ -196,7 +220,7 @@ class App {
 
   normalizeActiveCampaignCombat() {
     const slotNumber=this.activeSlotNumber();let slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active||!slot.campaign.state)return{ok:true,slot};let changed=false;const run=()=>slot?.campaign?.state;
-    if(run()?.expedition?.state==='combat-pending'&&run()?.expedition?.encounter?.combat&&!run()?.combat){const attached=attachForestCombat(slot,{forestEnemies:this.canon.getForestEnemies(),forestTrainers:this.canon.getForestTrainers(),baseAbilities:this.canon.getBaseAbilities(),subclassAbilities:this.canon.getSubclassAbilities(),progression:this.canon.getCharacterProgression(),equipmentCatalog:this.canon.getEquipmentConsumablesStatus()});if(!attached.ok)return attached;slot=attached.slot;changed=true;if(changed)this.save.saveSlot(slotNumber,slot);return{ok:true,slot,changed};}
+    if(run()?.expedition?.state==='combat-pending'&&run()?.expedition?.encounter?.combat&&!run()?.combat){const bog=run()?.expedition?.regionId==='bog-of-lost-souls';const attached=bog?attachBogCombat(slot,{bogEnemies:this.canon.getBogEnemies(),bogTrainers:this.canon.getBogTrainers(),baseAbilities:this.canon.getBaseAbilities(),subclassAbilities:this.canon.getSubclassAbilities(),progression:this.canon.getCharacterProgression(),equipmentCatalog:this.canon.getEquipmentConsumablesStatus()}):attachForestCombat(slot,{forestEnemies:this.canon.getForestEnemies(),forestTrainers:this.canon.getForestTrainers(),baseAbilities:this.canon.getBaseAbilities(),subclassAbilities:this.canon.getSubclassAbilities(),progression:this.canon.getCharacterProgression(),equipmentCatalog:this.canon.getEquipmentConsumablesStatus()});if(!attached.ok)return attached;slot=attached.slot;changed=true;if(changed)this.save.saveSlot(slotNumber,slot);return{ok:true,slot,changed};}
     let combat=run()?.combat;
     if(combat?.state==='active'){
       if(!combat.turn?.subclassStartResolved){const ev=resolveSubclassTurnStartEvents(slot);if(!ev.ok)return ev;slot=ev.slot;changed=true;this.save.saveSlot(slotNumber,slot);return{ok:true,slot,changed};}
@@ -215,8 +239,8 @@ class App {
       this.combatCompletionHoldEncounterId=null;
       if(!run()?.expedition?.encounter?.rewardsAwarded){const rewards=awardCurrentForestCombatRewards(slot,{progression:this.canon.getCharacterProgression()});if(!rewards.ok)return rewards;slot=rewards.slot;changed=true;}
       if(combat.outcome==='victory'){
-        if(!run()?.expedition?.encounter?.materialsAwarded){const awarded=awardCurrentForestMaterialCache(slot);if(!awarded.ok)return awarded;slot=awarded.slot;if((awarded.materials||[]).some(item=>item.materialKind==='soulfire-core'))this.contextLessonId='first-soulfire';}
-        const resolved=resolveCombatVictory(slot);if(!resolved.ok)return resolved;slot=resolved.slot;if(resolved.forestClearedNow){const account=structuredClone(this.account);account.history=account.history||{};account.history.forestCleared=true;if(!account.history.firstForestClearAt)account.history.firstForestClearAt=new Date().toISOString();this.account=this.save.saveAccount(account);}changed=true;
+        if(!run()?.expedition?.encounter?.materialsAwarded){const awarded=run()?.expedition?.regionId==='bog-of-lost-souls'?awardCurrentBogMaterialCache(slot):awardCurrentForestMaterialCache(slot);if(!awarded.ok)return awarded;slot=awarded.slot;if((awarded.materials||[]).some(item=>item.materialKind==='soulfire-core'))this.contextLessonId='first-soulfire';}
+        const resolved=resolveCombatVictory(slot);if(!resolved.ok)return resolved;slot=resolved.slot;if(resolved.forestClearedNow||resolved.bogClearedNow){const account=structuredClone(this.account);account.history=account.history||{};if(resolved.forestClearedNow){account.history.forestCleared=true;if(!account.history.firstForestClearAt)account.history.firstForestClearAt=new Date().toISOString();}if(resolved.bogClearedNow){account.history.bogCleared=true;if(!account.history.firstBogClearAt)account.history.firstBogClearAt=new Date().toISOString();}this.account=this.save.saveAccount(account);}changed=true;
       }else if(combat.outcome==='defeat'){const ended=endCampaign(slot,this.account,'defeat');if(!ended.ok)return ended;slot=ended.slot;changed=true;}
     }
     if(changed)this.save.saveSlot(slotNumber,slot);return{ok:true,slot,changed};
@@ -246,7 +270,7 @@ class App {
       if (!this.pendingCreationSlot || this.save.loadSlot(this.pendingCreationSlot)) {
         this.pendingCreationSlot = null; this.creationErrors = []; this.router.replace(ROUTES.NEW_GAME); return;
       }
-      this.root.innerHTML = renderCharacterCreation({ slotNumber: this.pendingCreationSlot, unlockedRaces: this.account.unlocks?.races || [], classDetails: this.canon.getBaseClassDetails(), errors: this.creationErrors });
+      this.root.innerHTML = renderCharacterCreation({ slotNumber: this.pendingCreationSlot, unlockedRaces: this.account.unlocks?.races || [], allRaces: this.canon.getRaces(), account: this.account, classDetails: this.canon.getBaseClassDetails(), errors: this.creationErrors, message: this.creationMessage });
       this.refreshStatAllocator(this.root.querySelector('#vessel-form'));
       this.offerTutorialForContext('character-creation',ROUTES.CREATE);
       return;
@@ -263,8 +287,8 @@ class App {
         room: this.tavern.currentRoom(), slot, account: this.account,
         subclassesForBase: this.canon.getSubclassesForBase(slot.character.baseClass),
         keptEntries: this.canon.getKeptImpressions(), keptRuntimeEntries: this.canon.getKeptImpressionRuntime().entries, tavernAdventurers: this.canon.getTavernAdventurers(), tavernServices:this.canon.getTavernServices(), equipmentCatalog:this.canon.getEquipmentConsumablesStatus(),
-        baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), portraitSystem:this.canon.getPortraitSystem(), unlockedRaces:this.account.unlocks?.races||[], baseClasses:this.canon.getBaseClasses(), message: this.tavernMessage,
-        ux: { libraryQuery:this.libraryQuery, librarySlotCost:this.librarySlotCost, libraryType:this.libraryType, libraryFamily:this.libraryFamily, libraryTags:this.libraryTags, librarySort:this.librarySort, lenderQuery:this.lenderQuery, lenderSlot:this.lenderSlot, lenderWeaponType:this.lenderWeaponType, lenderSort:this.lenderSort }
+        baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), portraitSystem:this.canon.getPortraitSystem(), unlockedRaces:this.account.unlocks?.races||[], allRaces:this.canon.getRaces(), baseClasses:this.canon.getBaseClasses(), message: this.tavernMessage,
+        ux: { libraryQuery:this.libraryQuery, librarySlotCost:this.librarySlotCost, libraryType:this.libraryType, libraryFamily:this.libraryFamily, libraryTags:this.libraryTags, librarySort:this.librarySort, lenderQuery:this.lenderQuery, lenderSlot:this.lenderSlot, lenderWeaponType:this.lenderWeaponType, lenderSort:this.lenderSort, portraitCarouselOffset:this.portraitCarouselOffset }
       });
       this.mountDisplayModeSwitch(ROUTES.TAVERN);
       this.tavernMessage = '';
@@ -299,7 +323,14 @@ class App {
       const activeQuest=normalized.slot?.tavernServices?.mara?.activeQuest||null; const questEval=activeQuest?evaluateMaraQuest(activeQuest,run):null;
       const combatIdentity=run.combat?.id||run.combat?.encounterId||null;
       if(combatIdentity!==this.presentationCombatId){this.presentationCombatId=combatIdentity;this.consumedCombatPresentationId=null;}
-      this.root.innerHTML = renderCampaignRun({ run, baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), progression: this.canon.getCharacterProgression(), equipmentCatalog: this.canon.getEquipmentConsumablesStatus(), forestCrafting: this.canon.getForestCrafting(), forestTrainers: this.canon.getForestTrainers(), maraQuestStatus:activeQuest?{...activeQuest,...questEval,status:questEval?.complete?'Completed — Pending Return':'In Progress'}:null, craftingUi: { onlyCraftable:this.craftingOnlyCraftable, sortStat:this.craftingSortStat, direction:this.craftingSortDirection, query:this.craftingQuery, slot:this.craftingSlot, itemType:this.craftingType, subtype:this.craftingSubtype, weaponType:this.craftingWeaponType, armorWeight:this.craftingArmorWeight, message:this.craftingMessage }, presentationUi: { actionPanel:this.combatActionPanel, settings:this.account.settings || {}, equipmentOwnerId:this.campsiteEquipmentOwnerId, consumedPresentationId:this.consumedCombatPresentationId } });
+      if(combatIdentity&&!this.ensureCombatPortraitsPredecoded(run)){
+        const portraitCount=(run.combat?.actors||[]).filter(actor=>actor?.portraitAsset).length;
+        this.root.innerHTML=`<main class="shell"><section class="panel"><div class="kicker">Combat Encounter</div><h2>Preparing the battlefield…</h2><p class="muted">Predecoding ${portraitCount} upcoming combatant portrait${portraitCount===1?'':'s'} with a bounded best-effort pass. Combat continues even if any portrait cannot be decoded in advance.</p></section></main>`;
+        this.mountDisplayModeSwitch(ROUTES.CAMPAIGN_RUN);
+        return;
+      }
+      if(!combatIdentity)this.ensureCombatPortraitsPredecoded(run);
+      const bogRegion=run.expedition?.regionId==='bog-of-lost-souls';this.root.innerHTML = renderCampaignRun({ run, baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), progression: this.canon.getCharacterProgression(), equipmentCatalog: this.canon.getEquipmentConsumablesStatus(), forestCrafting: bogRegion?this.canon.getBogCrafting():this.canon.getForestCrafting(), forestTrainers: bogRegion?this.canon.getBogTrainers():this.canon.getForestTrainers(), contentPortraits: this.canon.getContentPortraits(), maraQuestStatus:activeQuest?{...activeQuest,...questEval,status:questEval?.complete?'Completed — Pending Return':'In Progress'}:null, craftingUi: { onlyCraftable:this.craftingOnlyCraftable, sortStat:this.craftingSortStat, direction:this.craftingSortDirection, query:this.craftingQuery, slot:this.craftingSlot, itemType:this.craftingType, subtype:this.craftingSubtype, weaponType:this.craftingWeaponType, armorWeight:this.craftingArmorWeight, message:this.craftingMessage }, presentationUi: { actionPanel:this.combatActionPanel, settings:this.account.settings || {}, equipmentOwnerId:this.campsiteEquipmentOwnerId, consumedPresentationId:this.consumedCombatPresentationId } });
       this.mountDisplayModeSwitch(ROUTES.CAMPAIGN_RUN);
       const renderedPresentationId=this.root.querySelector('.combat-presentation')?.dataset?.presentationId||null;
       if(renderedPresentationId)this.consumedCombatPresentationId=renderedPresentationId;
@@ -364,6 +395,8 @@ class App {
     if (action === 'credits') return this.router.go(ROUTES.CREDITS);
     if (action === 'contextual-dismiss') return this.dismissContextualLesson(button.dataset.lesson);
     if (action === 'tutorial-token-redeem') return this.redeemStarterToken(button.dataset.ki);
+    if (action === 'race-token-redeem') return this.redeemRaceToken(button.dataset.race);
+    if (action === 'kept-shop-buy') return this.buyKeptBoon(button.dataset.ki);
     if (action === 'home') return this.router.go(ROUTES.HOME);
     if (action === 'new-game') return this.router.go(ROUTES.NEW_GAME);
     if (action === 'continue') return this.router.go(ROUTES.CONTINUE);
@@ -404,6 +437,8 @@ class App {
     if (action === 'combat-end-turn') return this.finishCombatTurn();
     if (action === 'run-stat-add') return this.addRunStat(button.dataset.stat);
     if (action === 'adventurer-toggle') return this.toggleTavernAdventurer(button.dataset.adventurer);
+    if (action === 'portrait-carousel-prev') return this.stepPortraitCarousel(-1);
+    if (action === 'portrait-carousel-next') return this.stepPortraitCarousel(1);
     if (action === 'static-portrait-select') return this.changeStaticVesselPortrait(button.dataset.portrait);
     if (action === 'vessel-portrait-select') return this.changeVesselPortrait(button.dataset.portrait);
     if (action === 'mara-quest-accept') return this.acceptMaraQuestOffer(button.dataset.quest);
@@ -422,7 +457,7 @@ class App {
       this.router.go(ROUTES.HOME); return;
     }
     if (action === 'empty-slot') return this.beginCreation(Number(button.dataset.slot));
-    if (action === 'cancel-create') { this.pendingCreationSlot = null; this.creationErrors = []; return this.router.go(ROUTES.NEW_GAME); }
+    if (action === 'cancel-create') { this.pendingCreationSlot = null; this.creationErrors = []; this.creationMessage=''; return this.router.go(ROUTES.NEW_GAME); }
     if (action === 'delete-slot') return this.confirmDeleteSlot(Number(button.dataset.slot));
     if (action === 'delete-slot-final') return this.deleteSlotFinal(Number(button.dataset.slot));
     if (action === 'select-slot') return this.selectSlot(Number(button.dataset.slot));
@@ -570,6 +605,30 @@ class App {
     if(result.ok)this.account=this.save.saveAccount(result.account);this.render(ROUTES.TAVERN);
   }
 
+  redeemRaceToken(race) {
+    const result=redeemRaceChoiceToken(this.account,race,this.canon.getRaces());
+    const route=this.router.routeFromLocation();
+    const message=result.ok?`${result.race} is now permanently unlocked for this account. The Race Choice token has been consumed.`:result.error;
+    if(result.ok)this.account=this.save.saveAccount(result.account);
+    if(route===ROUTES.CREATE){this.creationMessage=message;this.creationErrors=[];return this.render(ROUTES.CREATE);}
+    this.tavernMessage=message;this.render(ROUTES.TAVERN);
+  }
+
+
+  buyKeptBoon(keptId) {
+    const result = purchaseKeptImpressionBoon(this.account, keptId, {
+      tavernServices: this.canon.getTavernServices(),
+      keptEntries: this.canon.getKeptImpressions()
+    });
+    if (!result.ok) {
+      this.tavernMessage = result.error;
+      return this.render(ROUTES.TAVERN);
+    }
+    this.account = this.save.saveAccount(result.account);
+    this.tavernMessage = `${result.entry.name} is now permanently Kept by this account. ${result.offer.onyxCost} Onyx spent; ${result.remainingOnyx} Onyx remain.`;
+    return this.render(ROUTES.TAVERN);
+  }
+
   showContextualLesson(id,route=this.router.routeFromLocation()) {
     if(contextualSeen(this.account,id))return;
     if(this.root.querySelector('.contextual-lesson'))return;
@@ -714,7 +773,7 @@ class App {
   rollForestEvent(button) {
     const slotNumber=this.activeSlotNumber(),slot=this.activeSlot(); if(!slotNumber||!slot?.campaign?.active)return;
     const participantId=this.root.querySelector('[data-forest-check-participant]')?.value||'vessel';
-    const result=resolveForestEventCheck(slot,{participantId,equipmentCatalog:this.canon.getEquipmentConsumablesStatus(),forestCrafting:this.canon.getForestCrafting(),progression:this.canon.getCharacterProgression()});
+    const crafting=slot.campaign.state.expedition?.regionId==='bog-of-lost-souls'?this.canon.getBogCrafting():this.canon.getForestCrafting();const result=resolveForestEventCheck(slot,{participantId,equipmentCatalog:this.canon.getEquipmentConsumablesStatus(),forestCrafting:crafting,progression:this.canon.getCharacterProgression()});
     if(!result.ok)return; this.save.saveSlot(slotNumber,result.slot); this.render(ROUTES.CAMPAIGN_RUN);
   }
 
@@ -725,7 +784,7 @@ class App {
 
   learnForestTrainer(trainerId) {
     const slotNumber=this.activeSlotNumber(),slot=this.activeSlot(); if(!slotNumber||!slot?.campaign?.active)return;
-    const result=learnFromTrainer(slot,this.account,{trainerId,forestTrainers:this.canon.getForestTrainers()}); if(!result.ok)return;
+    const trainers=slot.campaign.state.expedition?.regionId==='bog-of-lost-souls'?this.canon.getBogTrainers():this.canon.getForestTrainers();const result=learnFromTrainer(slot,this.account,{trainerId,forestTrainers:trainers}); if(!result.ok)return;
     this.account=this.save.saveAccount(result.account); this.save.saveSlot(slotNumber,result.slot); this.render(ROUTES.CAMPAIGN_RUN); this.showContextualLesson('first-subclass');
   }
 
@@ -733,7 +792,7 @@ class App {
     const slotNumber = this.activeSlotNumber();
     const slot = this.activeSlot();
     if (!slotNumber || !slot?.campaign?.active) return;
-    const result = leaveCampsite(slot, { regionsData: this.canon.getRegions(), forestEvents: this.canon.getForestEvents(), forestTrainers: this.canon.getForestTrainers() });
+    const result = leaveCampsite(slot, { regionsData: this.canon.getRegions(), forestEvents: this.canon.getForestEvents(), forestTrainers: this.canon.getForestTrainers(), bogEvents:this.canon.getBogEvents(), bogTrainers:this.canon.getBogTrainers() });
     if (!result.ok) return;
     this.save.saveSlot(slotNumber, result.slot);
     this.render(ROUTES.CAMPAIGN_RUN);
@@ -743,7 +802,7 @@ class App {
     const slotNumber = this.activeSlotNumber();
     const slot = this.activeSlot();
     if (!slotNumber || !slot?.campaign?.active) return;
-    const result = advanceAfterResolvedNoncombat(slot, { regionsData: this.canon.getRegions(), forestEvents: this.canon.getForestEvents(), forestTrainers: this.canon.getForestTrainers() });
+    const result = advanceAfterResolvedNoncombat(slot, { regionsData: this.canon.getRegions(), forestEvents: this.canon.getForestEvents(), forestTrainers: this.canon.getForestTrainers(), bogEvents:this.canon.getBogEvents(), bogTrainers:this.canon.getBogTrainers() });
     if (!result.ok) return;
     this.save.saveSlot(slotNumber, result.slot);
     this.render(ROUTES.CAMPAIGN_RUN);
@@ -898,7 +957,8 @@ class App {
     this.save.saveSlot(slotNumber, result.slot);
     this.tavern.enter(slotNumber, 'main-hall');
     const names=(result.newRecruitIds||[]).map(id=>this.canon.getTavernAdventurers().entries.find(a=>a.id===id)?.name||id);
-    this.tavernMessage = `Campaign settled. ${result.slot.character.name} is ready for another Level 1 campaign.${names.length?` ${names.join(', ')} joined the Tavern roster.`:''}`;
+    const races=result.newRaceUnlocks||[];
+    this.tavernMessage = `Campaign settled. ${result.slot.character.name} is ready for another Level 1 campaign.${names.length?` ${names.join(', ')} joined the Tavern roster.`:''}${races.length?` New account-wide race unlock${races.length===1?'':'s'}: ${races.join(', ')}.`:''}`;
     this.router.replace(ROUTES.TAVERN);
     if(!mantleWas&&this.account.progressionFeatures?.mantle)this.showContextualLesson('mantle-unlocked');
     else if(!chronicleWas&&this.account.progressionFeatures?.chronicle)this.showContextualLesson('chronicle-unlocked');
@@ -917,7 +977,7 @@ class App {
 
   continueBeyondForest() {
     const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active)return;
-    const result=continueBeyondForest(slot);if(!result.ok)return;this.save.saveSlot(slotNumber,result.slot);this.render(ROUTES.CAMPAIGN_RUN);
+    const result=continueBeyondForest(slot);if(!result.ok)return;const entered=enterBogRegion(result.slot,{regionsData:this.canon.getRegions(),bogEvents:this.canon.getBogEvents(),bogTrainers:this.canon.getBogTrainers(),unlockedSubclasses:this.account.unlocks?.subclasses||[]});if(!entered.ok)return;this.save.saveSlot(slotNumber,entered.slot);this.render(ROUTES.CAMPAIGN_RUN);
   }
 
   acceptMaraQuestOffer(questId) {
@@ -946,6 +1006,16 @@ class App {
     if(result.ok)this.save.saveSlot(slotNumber,result.slot); this.render(ROUTES.TAVERN);
   }
 
+  stepPortraitCarousel(direction=1) {
+    const slot=this.activeSlot();
+    if(!slot?.character)return;
+    const options=staticPortraitOptionsForSlot(slot,this.canon.getSubclassAbilities(),this.canon.getPortraitSystem());
+    if(!options.length)return;
+    const step=direction<0?-1:1;
+    this.portraitCarouselOffset=(Number(this.portraitCarouselOffset||0)+step+options.length)%options.length;
+    this.render(ROUTES.TAVERN);
+  }
+
   changeStaticVesselPortrait(portraitId) {
     const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.character)return;
     const result=selectStaticVesselPortrait(slot,{portraitId},this.canon.getSubclassAbilities(),this.canon.getPortraitSystem());
@@ -967,7 +1037,7 @@ class App {
     const fd=new FormData(form);
     const result=rebindVessel(slot,{race:fd.get('rebind_race'),baseClass:fd.get('rebind_base_class'),confirmed:Boolean(fd.get('rebind_confirmed'))},{unlockedRaces:this.account.unlocks?.races||[],baseClasses:this.canon.getBaseClasses()});
     this.tavernMessage=result.ok?`Vessel rebound to ${result.current.race} ${result.current.baseClass}. Existing records and account unlocks were preserved.`:result.error;
-    if(result.ok)this.save.saveSlot(slotNumber,result.slot);
+    if(result.ok){this.portraitCarouselOffset=0;this.save.saveSlot(slotNumber,result.slot);}
     this.render(ROUTES.TAVERN);
   }
 
@@ -1007,7 +1077,7 @@ class App {
 
   beginCreation(slotNumber) {
     if (slotNumber < 1 || slotNumber > 9 || this.save.loadSlot(slotNumber)) return;
-    this.pendingCreationSlot = slotNumber; this.creationErrors = []; this.router.go(ROUTES.CREATE);
+    this.pendingCreationSlot = slotNumber; this.creationErrors = []; this.creationMessage=''; this.router.go(ROUTES.CREATE);
   }
 
   completeCreation(form) {
@@ -1021,7 +1091,7 @@ class App {
     const slotState = createVesselSlotState(validation.value);
     this.save.createSlot(slotNumber, slotState);
     this.account.activeSlot = slotNumber; this.account = this.save.saveAccount(this.account);
-    this.tavern.enter(slotNumber, 'main-hall'); this.pendingCreationSlot = null; this.creationErrors = []; this.chronicleFamily = validation.value.baseClass;
+    this.tavern.enter(slotNumber, 'main-hall'); this.pendingCreationSlot = null; this.creationErrors = []; this.creationMessage=''; this.chronicleFamily = validation.value.baseClass;
     this.router.go(ROUTES.TAVERN);
   }
 

@@ -108,9 +108,10 @@ export function createCombatActor(spec = {}, { slotIndex = 1 } = {}) {
       maxHp,
       shield: Math.max(0, Number(spec.shield || 0) || 0) + Math.max(0, Math.round(maxHp * Number(spec.startingShieldPctMax || 0) / 100)),
       energy: 0,
-      maxEnergy: BASE_MAX_ENERGY,
+      maxEnergy: Math.max(1, Number.isFinite(Number(spec.maxEnergy)) ? Number(spec.maxEnergy) : BASE_MAX_ENERGY),
       shieldLayers: []
     },
+    race: spec.race || null,
     baseClass: spec.baseClass || null,
     subclass: spec.subclass || null,
     combatRole: spec.combatRole || null,
@@ -219,6 +220,7 @@ export function createCombatState({ encounterId, actors: actorSpecs = [], rng = 
     currentActorId: null,
     turn: null,
     log: [],
+    metrics: {},
     initiativeCadence: 'initial-and-explicit-recalculation-only'
   };
   initializeKeptCombat(combat, { rng });
@@ -276,6 +278,7 @@ function expireEffect(combat, owner, effect, { natural = true, remainingBefore =
     syncCombatShield(owner);
   }
   keptOnStatusExpired({ combat, source: sourceForEffect(combat, effect), target: owner, effect, natural, remainingBefore });
+  if(combat&&owner?.side==='party'&&effect?.negative){combat.metrics=combat.metrics||{};combat.metrics.negativeEffectsExpired=Number(combat.metrics.negativeEffectsExpired||0)+1;}
 }
 
 function statusSourceCrit(combat, effect) {
@@ -443,6 +446,24 @@ export function attachCombatToCampaign(slot, { actorSpecs, rng = Math.random, no
 
 export function getCombatView(slot) {
   return slot?.campaign?.active && slot.campaign.state?.combat ? clone(slot.campaign.state.combat) : null;
+}
+
+export function summonCombatActor(combat, spec = {}, { ownerId = null } = {}) {
+  if (!combat || !Array.isArray(combat.actors)) return { ok:false, error:'No active combat roster.' };
+  const sequence = 1 + combat.actors.filter(actor => actor.real === false).length;
+  const idBase = String(spec.id || 'summon');
+  const uniqueId = `${idBase}-${sequence}`;
+  if (combat.actors.some(actor => actor.id === uniqueId)) return { ok:false, error:'Summon id collision.' };
+  try {
+    const actor = createCombatActor({ ...clone(spec), id:uniqueId, side:spec.side || 'enemy', kind:'summon', real:false, summonOrder:sequence, summonOwnerId:ownerId || spec.summonOwnerId || null }, { slotIndex:combat.actors.filter(a=>a.side===(spec.side||'enemy')).length+1 });
+    combat.actors.push(actor);
+    // Summons act after already-scheduled combatants in the current round and remain
+    // at the end of subsequent rounds, preserving the sealed initiative cadence.
+    combat.queue = Array.isArray(combat.queue) ? combat.queue : [];
+    combat.queue.push(actor.id);
+    appendCombatLog(combat,{type:'summon',actorId:ownerId||null,summonId:actor.id,name:actor.name,round:combat.round},{presentation:true});
+    return {ok:true,actor};
+  } catch (error) { return {ok:false,error:error instanceof Error?error.message:String(error)}; }
 }
 
 function commitAction(combat, action) {

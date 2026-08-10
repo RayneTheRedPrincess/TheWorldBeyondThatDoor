@@ -1,0 +1,2175 @@
+{
+  "version": "BOG-FOUNDATION-2026-08-10",
+  "designStatus": "playable-no-portraits",
+  "depthTiers": [
+    {
+      "id": "tier-1",
+      "name": "The Drowned Verge",
+      "start": 1,
+      "end": 5,
+      "level": 6,
+      "hpMultiplier": 1.0,
+      "statAdd": 0,
+      "damageMultiplier": 1.0,
+      "expAdd": 0,
+      "onyxAdd": 0
+    },
+    {
+      "id": "tier-2",
+      "name": "Gravewater March",
+      "start": 6,
+      "end": 10,
+      "level": 7,
+      "hpMultiplier": 1.12,
+      "statAdd": 1,
+      "damageMultiplier": 1.06,
+      "expAdd": 7,
+      "onyxAdd": 10
+    },
+    {
+      "id": "tier-3",
+      "name": "Witchfen",
+      "start": 11,
+      "end": 14,
+      "level": 8,
+      "hpMultiplier": 1.25,
+      "statAdd": 2,
+      "damageMultiplier": 1.12,
+      "expAdd": 14,
+      "onyxAdd": 20
+    },
+    {
+      "id": "tier-4",
+      "name": "Blackbanner Mire",
+      "start": 16,
+      "end": 20,
+      "level": 9,
+      "hpMultiplier": 1.4,
+      "statAdd": 3,
+      "damageMultiplier": 1.2,
+      "expAdd": 22,
+      "onyxAdd": 35
+    },
+    {
+      "id": "tier-5",
+      "name": "The Mourning Fields",
+      "start": 21,
+      "end": 25,
+      "level": 10,
+      "hpMultiplier": 1.58,
+      "statAdd": 4,
+      "damageMultiplier": 1.28,
+      "expAdd": 30,
+      "onyxAdd": 50
+    },
+    {
+      "id": "tier-6",
+      "name": "Mira's Blight",
+      "start": 26,
+      "end": 29,
+      "level": 11,
+      "hpMultiplier": 1.78,
+      "statAdd": 5,
+      "damageMultiplier": 1.38,
+      "expAdd": 40,
+      "onyxAdd": 70
+    }
+  ],
+  "regularEnemies": [
+    {
+      "id": "blackbanner-scout",
+      "name": "Blackbanner Scout",
+      "role": "Skirmisher",
+      "faction": "bandit",
+      "minTier": 1,
+      "maxTier": 3,
+      "baseMaxHp": 30,
+      "stats": {
+        "STR": 8,
+        "DEX": 13,
+        "CON": 6,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 7
+      },
+      "basicAttack": {
+        "name": "Rust Knife",
+        "base": 5,
+        "damageType": "Physical",
+        "scaling": {
+          "DEX": 0.012
+        }
+      },
+      "abilities": [
+        {
+          "id": "scout-kidney-cut",
+          "name": "Kidney Cut",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 7,
+              "damageType": "Physical",
+              "scaling": {
+                "DEX": 0.013
+              }
+            }
+          ]
+        },
+        {
+          "id": "scout-smoke-step",
+          "name": "Smoke-Step Slash",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 8,
+              "damageType": "Physical",
+              "scaling": {
+                "DEX": 0.011,
+                "LCK": 0.006
+              }
+            }
+          ],
+          "selfEffect": {
+            "id": "smoke-step",
+            "durationTurns": 1,
+            "modifiers": {
+              "dodgeChancePct": 10
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "skirmisher",
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "bandit-leather",
+          "name": "Blackbanner Leather",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "blackbanner-scout"
+        },
+        {
+          "id": "blackbanner-cloth",
+          "name": "Blackbanner Cloth",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "blackbanner-scout"
+        }
+      ],
+      "baseExpReward": 57,
+      "baseOnyxReward": 50,
+      "resistances": {},
+      "portrait": null
+    },
+    {
+      "id": "blackbanner-cutthroat",
+      "name": "Blackbanner Cutthroat",
+      "role": "Assassin",
+      "faction": "bandit",
+      "minTier": 1,
+      "maxTier": 5,
+      "baseMaxHp": 32,
+      "stats": {
+        "STR": 12,
+        "DEX": 14,
+        "CON": 7,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 5
+      },
+      "basicAttack": {
+        "name": "Notched Saber",
+        "base": 6,
+        "damageType": "Physical",
+        "scaling": {
+          "DEX": 0.01,
+          "STR": 0.006
+        }
+      },
+      "abilities": [
+        {
+          "id": "cutthroat-open-wound",
+          "name": "Open Wound",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 9,
+              "damageType": "Physical",
+              "scaling": {
+                "DEX": 0.012
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "open-wound",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "incomingHealingPct": -15
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "assassin",
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "bog-iron-scrap",
+          "name": "Bog Iron Scrap",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "blackbanner-cutthroat"
+        },
+        {
+          "id": "bandit-leather",
+          "name": "Blackbanner Leather",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "blackbanner-cutthroat"
+        }
+      ],
+      "baseExpReward": 63,
+      "baseOnyxReward": 55,
+      "resistances": {},
+      "portrait": null
+    },
+    {
+      "id": "mire-longbow",
+      "name": "Mire Longbow",
+      "role": "Ranged",
+      "faction": "bandit",
+      "minTier": 2,
+      "maxTier": 6,
+      "baseMaxHp": 28,
+      "stats": {
+        "STR": 7,
+        "DEX": 16,
+        "CON": 5,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 8
+      },
+      "basicAttack": {
+        "name": "Mire Arrow",
+        "base": 6,
+        "damageType": "Physical",
+        "scaling": {
+          "DEX": 0.013
+        }
+      },
+      "abilities": [
+        {
+          "id": "longbow-poison-arrow",
+          "name": "Poison Arrow",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 7,
+              "damageType": "Poison",
+              "scaling": {
+                "DEX": 0.01,
+                "LCK": 0.005
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "longbow-poison",
+            "negative": true,
+            "durationTurns": 3,
+            "stacking": "stack-refresh",
+            "memory": {
+              "statusId": "Poison",
+              "statusKind": "Poison",
+              "tickPctMaxHp": 2,
+              "damageType": "Poison",
+              "canCrit": true
+            }
+          }
+        },
+        {
+          "id": "longbow-black-fletching",
+          "name": "Black Fletching",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 11,
+              "damageType": "Physical",
+              "scaling": {
+                "DEX": 0.014
+              }
+            }
+          ],
+          "unblockable": true
+        }
+      ],
+      "ai": {
+        "style": "ranged",
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "bog-iron-scrap",
+          "name": "Bog Iron Scrap",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "mire-longbow"
+        },
+        {
+          "id": "blackbanner-cloth",
+          "name": "Blackbanner Cloth",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "mire-longbow"
+        }
+      ],
+      "baseExpReward": 75,
+      "baseOnyxReward": 65,
+      "resistances": {},
+      "portrait": null
+    },
+    {
+      "id": "darksteel-bruiser",
+      "name": "Darksteel Bruiser",
+      "role": "Tank",
+      "faction": "bandit",
+      "minTier": 3,
+      "maxTier": 6,
+      "baseMaxHp": 50,
+      "stats": {
+        "STR": 17,
+        "DEX": 6,
+        "CON": 17,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 7,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Darksteel Maul",
+        "base": 8,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.014
+        }
+      },
+      "abilities": [
+        {
+          "id": "bruiser-darksteel-guard",
+          "name": "Darksteel Guard",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "self",
+          "components": [
+            {
+              "type": "shield",
+              "base": 12,
+              "scaling": {
+                "CON": 0.012
+              }
+            }
+          ]
+        },
+        {
+          "id": "bruiser-mudbreaker",
+          "name": "Mudbreaker",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 15,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.015,
+                "CON": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "tank",
+        "shieldThresholdPct": 70,
+        "chargeBelowEnergy": 5
+      },
+      "materials": [
+        {
+          "id": "darksteel-shard",
+          "name": "Darksteel Shard",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "darksteel-bruiser"
+        },
+        {
+          "id": "bog-iron-scrap",
+          "name": "Bog Iron Scrap",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "darksteel-bruiser"
+        }
+      ],
+      "baseExpReward": 86,
+      "baseOnyxReward": 75,
+      "resistances": {},
+      "portrait": null
+    },
+    {
+      "id": "blackbanner-sawbones",
+      "name": "Blackbanner Sawbones",
+      "role": "Healer",
+      "faction": "bandit",
+      "minTier": 3,
+      "maxTier": 6,
+      "baseMaxHp": 34,
+      "stats": {
+        "STR": 5,
+        "DEX": 8,
+        "CON": 9,
+        "INT": 10,
+        "FTH": 13,
+        "CHA": 8,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Surgical Shiv",
+        "base": 5,
+        "damageType": "Physical",
+        "scaling": {
+          "DEX": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "sawbones-field-stitch",
+          "name": "Field Stitch",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "lowest-hp-ally",
+          "components": [
+            {
+              "type": "heal",
+              "base": 11,
+              "scaling": {
+                "FTH": 0.012,
+                "INT": 0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "sawbones-cruel-incision",
+          "name": "Cruel Incision",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 7,
+              "damageType": "Physical",
+              "scaling": {
+                "DEX": 0.009,
+                "INT": 0.006
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "cruel-incision",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "incomingHealingPct": -20
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "healer",
+        "healThresholdPct": 72,
+        "chargeBelowEnergy": 3
+      },
+      "materials": [
+        {
+          "id": "bandit-leather",
+          "name": "Blackbanner Leather",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "blackbanner-sawbones"
+        },
+        {
+          "id": "bog-iron-scrap",
+          "name": "Bog Iron Scrap",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "blackbanner-sawbones"
+        }
+      ],
+      "baseExpReward": 86,
+      "baseOnyxReward": 75,
+      "resistances": {},
+      "portrait": null
+    },
+    {
+      "id": "drowned-infantry",
+      "name": "Drowned Infantry",
+      "role": "Frontline",
+      "faction": "undead",
+      "minTier": 1,
+      "maxTier": 4,
+      "baseMaxHp": 38,
+      "stats": {
+        "STR": 13,
+        "DEX": 5,
+        "CON": 14,
+        "INT": 0,
+        "FTH": 4,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Waterlogged Blade",
+        "base": 7,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.012
+        }
+      },
+      "abilities": [
+        {
+          "id": "drowned-grave-march",
+          "name": "Grave March",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 9,
+              "damageType": "Cold",
+              "scaling": {
+                "STR": 0.009,
+                "CON": 0.005
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "grave-march",
+            "negative": true,
+            "durationTurns": 2,
+            "stacking": "refresh",
+            "modifiers": {
+              "initiativePct": -10,
+              "dodgeChancePct": -8
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "frontline",
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "spiritual-flesh",
+          "name": "Spiritual Flesh",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "drowned-infantry"
+        },
+        {
+          "id": "gravebone",
+          "name": "Gravebone",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "drowned-infantry"
+        }
+      ],
+      "baseExpReward": 69,
+      "baseOnyxReward": 60,
+      "resistances": {
+        "Poison": 35
+      },
+      "portrait": null
+    },
+    {
+      "id": "gravebound-pikeman",
+      "name": "Gravebound Pikeman",
+      "role": "Controller",
+      "faction": "undead",
+      "minTier": 2,
+      "maxTier": 6,
+      "baseMaxHp": 40,
+      "stats": {
+        "STR": 14,
+        "DEX": 8,
+        "CON": 13,
+        "INT": 0,
+        "FTH": 6,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Burial Pike",
+        "base": 7,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.013
+        }
+      },
+      "abilities": [
+        {
+          "id": "pikeman-pin-the-living",
+          "name": "Pin the Living",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 9,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.012
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "pinned-by-dead",
+            "negative": true,
+            "durationTurns": 2,
+            "stacking": "refresh",
+            "modifiers": {
+              "dodgeChancePct": -14
+            }
+          }
+        },
+        {
+          "id": "pikeman-rank-of-dead",
+          "name": "Rank of the Dead",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 8,
+              "damageType": "Dark",
+              "scaling": {
+                "STR": 0.008,
+                "FTH": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "controller",
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "gravebone",
+          "name": "Gravebone",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "gravebound-pikeman"
+        },
+        {
+          "id": "soul-ash",
+          "name": "Soul Ash",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "gravebound-pikeman"
+        }
+      ],
+      "baseExpReward": 80,
+      "baseOnyxReward": 70,
+      "resistances": {
+        "Poison": 50
+      },
+      "portrait": null
+    },
+    {
+      "id": "wailing-shade",
+      "name": "Wailing Shade",
+      "role": "Curser",
+      "faction": "undead",
+      "minTier": 1,
+      "maxTier": 6,
+      "baseMaxHp": 26,
+      "stats": {
+        "STR": 2,
+        "DEX": 12,
+        "CON": 5,
+        "INT": 15,
+        "FTH": 12,
+        "CHA": 0,
+        "LCK": 7
+      },
+      "basicAttack": {
+        "name": "Cold Hand",
+        "base": 5,
+        "damageType": "Dark",
+        "scaling": {
+          "INT": 0.012
+        }
+      },
+      "abilities": [
+        {
+          "id": "shade-soul-wail",
+          "name": "Soul Wail",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 7,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.012,
+                "FTH": 0.005
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "soul-wail",
+            "negative": true,
+            "durationTurns": 2,
+            "stacking": "refresh",
+            "modifiers": {
+              "finalDamagePct": -10,
+              "outgoingHealingPct": -12
+            }
+          }
+        },
+        {
+          "id": "shade-through-armor",
+          "name": "Through Armor",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 10,
+              "damageType": "Dark",
+              "scaling": {
+                "INT": 0.014
+              }
+            }
+          ],
+          "unblockable": true
+        }
+      ],
+      "ai": {
+        "style": "curser",
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "ectoplasm",
+          "name": "Ectoplasm",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "wailing-shade"
+        },
+        {
+          "id": "soul-ash",
+          "name": "Soul Ash",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "wailing-shade"
+        }
+      ],
+      "baseExpReward": 86,
+      "baseOnyxReward": 75,
+      "resistances": {
+        "Physical": 20
+      },
+      "portrait": null
+    },
+    {
+      "id": "ectoplasmic-knight",
+      "name": "Ectoplasmic Knight",
+      "role": "Elite Defender",
+      "faction": "undead",
+      "minTier": 4,
+      "maxTier": 6,
+      "baseMaxHp": 58,
+      "stats": {
+        "STR": 16,
+        "DEX": 8,
+        "CON": 18,
+        "INT": 10,
+        "FTH": 10,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Spectral Greatblade",
+        "base": 9,
+        "damageType": "Dark",
+        "scaling": {
+          "STR": 0.011,
+          "INT": 0.005
+        }
+      },
+      "abilities": [
+        {
+          "id": "knight-dead-mans-aegis",
+          "name": "Dead Man's Aegis",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "self",
+          "components": [
+            {
+              "type": "shield",
+              "base": 15,
+              "scaling": {
+                "CON": 0.01,
+                "FTH": 0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "knight-oath-beyond-death",
+          "name": "Oath Beyond Death",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 16,
+              "damageType": "Dark",
+              "scaling": {
+                "STR": 0.012,
+                "INT": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "tank",
+        "shieldThresholdPct": 75,
+        "chargeBelowEnergy": 5
+      },
+      "materials": [
+        {
+          "id": "ectoplasm",
+          "name": "Ectoplasm",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "ectoplasmic-knight"
+        },
+        {
+          "id": "spiritual-flesh",
+          "name": "Spiritual Flesh",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "ectoplasmic-knight"
+        }
+      ],
+      "baseExpReward": 103,
+      "baseOnyxReward": 90,
+      "resistances": {
+        "Physical": 15,
+        "Poison": 50
+      },
+      "portrait": null
+    },
+    {
+      "id": "venomjaw-crawler",
+      "name": "Venomjaw Crawler",
+      "role": "Poisoner",
+      "faction": "mutation",
+      "minTier": 1,
+      "maxTier": 4,
+      "baseMaxHp": 34,
+      "stats": {
+        "STR": 11,
+        "DEX": 12,
+        "CON": 10,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 6
+      },
+      "basicAttack": {
+        "name": "Fanged Lunge",
+        "base": 6,
+        "damageType": "Physical",
+        "scaling": {
+          "DEX": 0.01,
+          "STR": 0.005
+        }
+      },
+      "abilities": [
+        {
+          "id": "crawler-venom-bite",
+          "name": "Venom Bite",
+          "energyCost": 2,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 6,
+              "damageType": "Poison",
+              "scaling": {
+                "DEX": 0.01,
+                "STR": 0.004
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "venomjaw-poison",
+            "negative": true,
+            "durationTurns": 3,
+            "stacking": "stack-refresh",
+            "memory": {
+              "statusId": "Poison",
+              "statusKind": "Poison",
+              "tickPctMaxHp": 3,
+              "damageType": "Poison",
+              "canCrit": true
+            }
+          }
+        },
+        {
+          "id": "crawler-tail-crush",
+          "name": "Tail Crush",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 11,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.014
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "poisoner",
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "poisoned-monster-flesh",
+          "name": "Poisoned Monster Flesh",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "venomjaw-crawler"
+        },
+        {
+          "id": "venom-gland",
+          "name": "Venom Gland",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "venomjaw-crawler"
+        }
+      ],
+      "baseExpReward": 69,
+      "baseOnyxReward": 60,
+      "resistances": {},
+      "portrait": null
+    },
+    {
+      "id": "mire-hulk",
+      "name": "Mire Hulk",
+      "role": "Brute",
+      "faction": "mutation",
+      "minTier": 2,
+      "maxTier": 6,
+      "baseMaxHp": 55,
+      "stats": {
+        "STR": 19,
+        "DEX": 3,
+        "CON": 19,
+        "INT": 3,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Mud Fist",
+        "base": 9,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.014
+        }
+      },
+      "abilities": [
+        {
+          "id": "hulk-bog-crush",
+          "name": "Bog Crush",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 15,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.015,
+                "CON": 0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "hulk-body-slam",
+          "name": "Rotting Body Slam",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 12,
+              "damageType": "Poison",
+              "scaling": {
+                "STR": 0.011,
+                "CON": 0.006
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "hulk-filth",
+            "negative": true,
+            "durationTurns": 2,
+            "stacking": "stack-refresh",
+            "memory": {
+              "statusId": "Poison",
+              "statusKind": "Poison",
+              "tickPctMaxHp": 2,
+              "damageType": "Poison",
+              "canCrit": true
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "brute",
+        "chargeBelowEnergy": 4
+      },
+      "materials": [
+        {
+          "id": "mirehide",
+          "name": "Mirehide",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "mire-hulk"
+        },
+        {
+          "id": "poisoned-monster-flesh",
+          "name": "Poisoned Monster Flesh",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "mire-hulk"
+        }
+      ],
+      "baseExpReward": 86,
+      "baseOnyxReward": 75,
+      "resistances": {},
+      "portrait": null
+    },
+    {
+      "id": "stitched-bog-hound",
+      "name": "Stitched Bog Hound",
+      "role": "Hunter",
+      "faction": "mutation",
+      "minTier": 3,
+      "maxTier": 6,
+      "baseMaxHp": 38,
+      "stats": {
+        "STR": 13,
+        "DEX": 17,
+        "CON": 9,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 8
+      },
+      "basicAttack": {
+        "name": "Stitched Fangs",
+        "base": 7,
+        "damageType": "Physical",
+        "scaling": {
+          "DEX": 0.013
+        }
+      },
+      "abilities": [
+        {
+          "id": "hound-rip-and-drag",
+          "name": "Rip and Drag",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 10,
+              "damageType": "Physical",
+              "scaling": {
+                "DEX": 0.012,
+                "STR": 0.005
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "dragged-open",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "incomingDamagePct": 8
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "hunter",
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "poisoned-monster-flesh",
+          "name": "Poisoned Monster Flesh",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "stitched-bog-hound"
+        },
+        {
+          "id": "hex-thread",
+          "name": "Hex Thread",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "stitched-bog-hound"
+        }
+      ],
+      "baseExpReward": 86,
+      "baseOnyxReward": 75,
+      "resistances": {},
+      "portrait": null
+    },
+    {
+      "id": "blightback-toad",
+      "name": "Blightback Toad",
+      "role": "Poison Artillery",
+      "faction": "mutation",
+      "minTier": 4,
+      "maxTier": 6,
+      "baseMaxHp": 44,
+      "stats": {
+        "STR": 7,
+        "DEX": 8,
+        "CON": 14,
+        "INT": 13,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 8
+      },
+      "basicAttack": {
+        "name": "Bile Spit",
+        "base": 7,
+        "damageType": "Poison",
+        "scaling": {
+          "INT": 0.011
+        }
+      },
+      "abilities": [
+        {
+          "id": "toad-venom-rain",
+          "name": "Venom Rain",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 8,
+              "damageType": "Poison",
+              "scaling": {
+                "INT": 0.012,
+                "CON": 0.003
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "venom-rain",
+            "negative": true,
+            "durationTurns": 3,
+            "stacking": "stack-refresh",
+            "memory": {
+              "statusId": "Poison",
+              "statusKind": "Poison",
+              "tickPctMaxHp": 3,
+              "damageType": "Poison",
+              "canCrit": true
+            }
+          }
+        },
+        {
+          "id": "toad-swollen-hide",
+          "name": "Swollen Hide",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "self",
+          "components": [
+            {
+              "type": "shield",
+              "base": 10,
+              "scaling": {
+                "CON": 0.013
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "poison artillery",
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "venom-gland",
+          "name": "Venom Gland",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "blightback-toad"
+        },
+        {
+          "id": "mutagenic-bile",
+          "name": "Mutagenic Bile",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "blightback-toad"
+        }
+      ],
+      "baseExpReward": 98,
+      "baseOnyxReward": 85,
+      "resistances": {},
+      "portrait": null
+    },
+    {
+      "id": "fen-hexer",
+      "name": "Fen Hexer",
+      "role": "Witch",
+      "faction": "witch",
+      "minTier": 2,
+      "maxTier": 6,
+      "baseMaxHp": 30,
+      "stats": {
+        "STR": 3,
+        "DEX": 8,
+        "CON": 7,
+        "INT": 16,
+        "FTH": 13,
+        "CHA": 8,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Hex Bolt",
+        "base": 6,
+        "damageType": "Dark",
+        "scaling": {
+          "INT": 0.013
+        }
+      },
+      "abilities": [
+        {
+          "id": "hexer-crooked-word",
+          "name": "Crooked Word",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 7,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.011,
+                "CHA": 0.005
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "crooked-word",
+            "negative": true,
+            "durationTurns": 2,
+            "stacking": "refresh",
+            "modifiers": {
+              "finalDamagePct": -12,
+              "critChancePct": -8
+            }
+          }
+        },
+        {
+          "id": "hexer-black-water",
+          "name": "Black Water",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 9,
+              "damageType": "Poison",
+              "scaling": {
+                "INT": 0.012,
+                "FTH": 0.004
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "black-water-poison",
+            "negative": true,
+            "durationTurns": 3,
+            "stacking": "stack-refresh",
+            "memory": {
+              "statusId": "Poison",
+              "statusKind": "Poison",
+              "tickPctMaxHp": 2,
+              "damageType": "Poison",
+              "canCrit": true
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "witch",
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "witch-wax",
+          "name": "Witch Wax",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "fen-hexer"
+        },
+        {
+          "id": "hex-thread",
+          "name": "Hex Thread",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "fen-hexer"
+        }
+      ],
+      "baseExpReward": 92,
+      "baseOnyxReward": 80,
+      "resistances": {},
+      "portrait": null
+    },
+    {
+      "id": "corpse-lantern-witch",
+      "name": "Corpse-Lantern Witch",
+      "role": "Witch Support",
+      "faction": "witch",
+      "minTier": 4,
+      "maxTier": 6,
+      "baseMaxHp": 38,
+      "stats": {
+        "STR": 2,
+        "DEX": 7,
+        "CON": 9,
+        "INT": 17,
+        "FTH": 16,
+        "CHA": 10,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Lantern Spark",
+        "base": 6,
+        "damageType": "Dark",
+        "scaling": {
+          "INT": 0.012
+        }
+      },
+      "abilities": [
+        {
+          "id": "witch-stolen-vitality",
+          "name": "Stolen Vitality",
+          "energyCost": 3,
+          "cooldown": 3,
+          "targetMode": "lowest-hp-ally",
+          "components": [
+            {
+              "type": "heal",
+              "base": 10,
+              "scaling": {
+                "FTH": 0.01,
+                "INT": 0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "witch-lantern-curse",
+          "name": "Lantern Curse",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 9,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.012,
+                "FTH": 0.005
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "lantern-curse",
+            "negative": true,
+            "durationTurns": 2,
+            "stacking": "refresh",
+            "modifiers": {
+              "incomingDamagePct": 10
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "healer",
+        "healThresholdPct": 68,
+        "chargeBelowEnergy": 3
+      },
+      "materials": [
+        {
+          "id": "curseglass",
+          "name": "Curseglass",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "corpse-lantern-witch"
+        },
+        {
+          "id": "witch-wax",
+          "name": "Witch Wax",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "corpse-lantern-witch"
+        }
+      ],
+      "baseExpReward": 103,
+      "baseOnyxReward": 90,
+      "resistances": {},
+      "portrait": null
+    },
+    {
+      "id": "soulmire-leech",
+      "name": "Soulmire Leech",
+      "role": "Spirit Parasite",
+      "faction": "undead",
+      "minTier": 3,
+      "maxTier": 6,
+      "baseMaxHp": 31,
+      "stats": {
+        "STR": 4,
+        "DEX": 13,
+        "CON": 7,
+        "INT": 14,
+        "FTH": 8,
+        "CHA": 0,
+        "LCK": 10
+      },
+      "basicAttack": {
+        "name": "Soul Bite",
+        "base": 6,
+        "damageType": "Dark",
+        "scaling": {
+          "INT": 0.01,
+          "DEX": 0.005
+        }
+      },
+      "abilities": [
+        {
+          "id": "leech-gloam-siphon",
+          "name": "Gloam Siphon",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 8,
+              "damageType": "Dark",
+              "scaling": {
+                "INT": 0.013
+              }
+            }
+          ],
+          "lifestealPct": 60
+        },
+        {
+          "id": "leech-memory-rot",
+          "name": "Memory Rot",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 8,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.012,
+                "LCK": 0.004
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "memory-rot",
+            "negative": true,
+            "durationTurns": 2,
+            "stacking": "refresh",
+            "modifiers": {
+              "energyGainPct": -15
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "spirit parasite",
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "ectoplasm",
+          "name": "Ectoplasm",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "soulmire-leech"
+        },
+        {
+          "id": "spiritual-flesh",
+          "name": "Spiritual Flesh",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "soulmire-leech"
+        }
+      ],
+      "baseExpReward": 92,
+      "baseOnyxReward": 80,
+      "resistances": {},
+      "portrait": null
+    }
+  ],
+  "miniboss": {
+    "fixedDepth": 15,
+    "actors": [
+      {
+        "id": "mirebound-abomination",
+        "name": "Mira's Mirebound Abomination",
+        "role": "Miniboss \u00b7 Mutated Curse Brute",
+        "fixedDepth": 15,
+        "baseMaxHp": 115,
+        "maxEnergy": 8,
+        "stats": {
+          "STR": 24,
+          "DEX": 8,
+          "CON": 23,
+          "INT": 15,
+          "FTH": 8,
+          "CHA": 0,
+          "LCK": 5
+        },
+        "level": 9,
+        "basicAttack": {
+          "name": "Mirebound Claw",
+          "base": 10,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.014
+          }
+        },
+        "abilities": [
+          {
+            "id": "abom-venomous-maul",
+            "name": "Venomous Maul",
+            "energyCost": 3,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 12,
+                "damageType": "Poison",
+                "scaling": {
+                  "STR": 0.011,
+                  "CON": 0.004
+                }
+              }
+            ],
+            "targetEffect": {
+              "id": "abom-venom",
+              "negative": true,
+              "durationTurns": 3,
+              "stacking": "stack-refresh",
+              "memory": {
+                "statusId": "Poison",
+                "statusKind": "Poison",
+                "tickPctMaxHp": 4,
+                "damageType": "Poison",
+                "canCrit": true
+              }
+            }
+          },
+          {
+            "id": "abom-curse-roar",
+            "name": "Curse-Rotted Roar",
+            "energyCost": 4,
+            "cooldown": 2,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 9,
+                "damageType": "Psychic",
+                "scaling": {
+                  "INT": 0.011,
+                  "STR": 0.005
+                }
+              }
+            ],
+            "targetEffect": {
+              "id": "abom-roar-curse",
+              "negative": true,
+              "durationTurns": 2,
+              "stacking": "refresh",
+              "modifiers": {
+                "finalDamagePct": -12,
+                "dodgeChancePct": -10
+              }
+            }
+          },
+          {
+            "id": "abom-mirebreaker",
+            "name": "Mirebreaker",
+            "energyCost": 8,
+            "cooldown": 5,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 25,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.018,
+                  "CON": 0.006
+                }
+              }
+            ],
+            "critChanceBonus": 12
+          }
+        ],
+        "ai": {
+          "style": "miniboss-brute",
+          "chargeBelowEnergy": 8,
+          "chargeTowardHeavyChancePct": 58
+        },
+        "materials": [
+          {
+            "id": "mirebound-soulfirecore",
+            "name": "Mirebound SoulfireCore",
+            "materialKind": "soulfire-core",
+            "sourceId": "mirebound-abomination",
+            "deterministic": true
+          }
+        ],
+        "expReward": 180,
+        "onyxReward": 300,
+        "portrait": null
+      },
+      {
+        "id": "varris-blackbanner",
+        "name": "Varris, Blackbanner Right Hand",
+        "role": "Miniboss \u00b7 Keeper",
+        "fixedDepth": 15,
+        "baseMaxHp": 78,
+        "maxEnergy": 7,
+        "stats": {
+          "STR": 13,
+          "DEX": 13,
+          "CON": 15,
+          "INT": 12,
+          "FTH": 18,
+          "CHA": 15,
+          "LCK": 7
+        },
+        "level": 9,
+        "basicAttack": {
+          "name": "Blackbanner Sabre",
+          "base": 7,
+          "damageType": "Physical",
+          "scaling": {
+            "DEX": 0.01,
+            "STR": 0.005
+          }
+        },
+        "abilities": [
+          {
+            "id": "varris-keep-it-breathing",
+            "name": "Keep It Breathing",
+            "energyCost": 3,
+            "cooldown": 2,
+            "targetMode": "protected-ally",
+            "components": [
+              {
+                "type": "heal",
+                "base": 17,
+                "scaling": {
+                  "FTH": 0.014,
+                  "CHA": 0.005
+                }
+              }
+            ]
+          },
+          {
+            "id": "varris-darksteel-brace",
+            "name": "Darksteel Brace",
+            "energyCost": 3,
+            "cooldown": 3,
+            "targetMode": "protected-ally",
+            "components": [
+              {
+                "type": "shield",
+                "base": 16,
+                "scaling": {
+                  "CON": 0.009,
+                  "CHA": 0.006
+                }
+              }
+            ]
+          },
+          {
+            "id": "varris-punishing-cut",
+            "name": "Punishing Cut",
+            "energyCost": 4,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 12,
+                "damageType": "Physical",
+                "scaling": {
+                  "DEX": 0.011,
+                  "STR": 0.006
+                }
+              }
+            ],
+            "targetEffect": {
+              "id": "varris-opened",
+              "negative": true,
+              "durationTurns": 2,
+              "modifiers": {
+                "incomingHealingPct": -18
+              }
+            }
+          }
+        ],
+        "ai": {
+          "style": "keeper",
+          "protectedAllyTemplateId": "mirebound-abomination",
+          "healThresholdPct": 82,
+          "shieldThresholdPct": 75,
+          "chargeBelowEnergy": 3
+        },
+        "materials": [
+          {
+            "id": "varris-soulfirecore",
+            "name": "Varris SoulfireCore",
+            "materialKind": "soulfire-core",
+            "sourceId": "varris-blackbanner",
+            "deterministic": true
+          }
+        ],
+        "expReward": 140,
+        "onyxReward": 220,
+        "portrait": null
+      }
+    ],
+    "name": "Varris & Mira's Mirebound Abomination"
+  },
+  "boss": {
+    "fixedDepth": 30,
+    "actors": [
+      {
+        "id": "crazed-witch-mira",
+        "name": "Crazed Witch Mira",
+        "role": "Boss \u00b7 Witch Summoner",
+        "fixedDepth": 30,
+        "baseMaxHp": 145,
+        "maxEnergy": 9,
+        "stats": {
+          "STR": 4,
+          "DEX": 10,
+          "CON": 14,
+          "INT": 27,
+          "FTH": 20,
+          "CHA": 18,
+          "LCK": 13
+        },
+        "level": 13,
+        "basicAttack": {
+          "name": "Cackling Hex",
+          "base": 8,
+          "damageType": "Dark",
+          "scaling": {
+            "INT": 0.013
+          }
+        },
+        "abilities": [
+          {
+            "id": "mira-call-lesser-mirebound",
+            "name": "Call Lesser Mirebound",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "summon",
+            "summonTemplateId": "lesser-mirebound",
+            "summonCap": 2,
+            "components": []
+          },
+          {
+            "id": "mira-malediction",
+            "name": "Malediction",
+            "energyCost": 3,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 9,
+                "damageType": "Psychic",
+                "scaling": {
+                  "INT": 0.012,
+                  "FTH": 0.004
+                }
+              }
+            ],
+            "targetEffect": {
+              "id": "mira-malediction",
+              "negative": true,
+              "durationTurns": 3,
+              "stacking": "refresh",
+              "modifiers": {
+                "finalDamagePct": -15,
+                "outgoingHealingPct": -15
+              }
+            }
+          },
+          {
+            "id": "mira-venom-coven",
+            "name": "Venom Coven",
+            "energyCost": 5,
+            "cooldown": 2,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 10,
+                "damageType": "Poison",
+                "scaling": {
+                  "INT": 0.013,
+                  "FTH": 0.004
+                }
+              }
+            ],
+            "targetEffect": {
+              "id": "mira-venom",
+              "negative": true,
+              "durationTurns": 3,
+              "stacking": "stack-refresh",
+              "memory": {
+                "statusId": "Poison",
+                "statusKind": "Poison",
+                "tickPctMaxHp": 3,
+                "damageType": "Poison",
+                "canCrit": true
+              }
+            }
+          },
+          {
+            "id": "mira-unmake-the-living",
+            "name": "Unmake the Living",
+            "energyCost": 7,
+            "cooldown": 5,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 18,
+                "damageType": "Dark",
+                "scaling": {
+                  "INT": 0.016,
+                  "FTH": 0.006
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "style": "boss-summoner",
+          "chargeBelowEnergy": 4,
+          "summonCap": 2
+        },
+        "materials": [
+          {
+            "id": "mira-soulfirecore",
+            "name": "Mira SoulfireCore",
+            "materialKind": "soulfire-core",
+            "sourceId": "crazed-witch-mira",
+            "deterministic": true
+          }
+        ],
+        "expReward": 300,
+        "onyxReward": 520,
+        "portrait": null
+      },
+      {
+        "id": "bandit-king-jack",
+        "name": "Bandit King Jack",
+        "role": "Boss \u00b7 Charged Executioner",
+        "fixedDepth": 30,
+        "baseMaxHp": 175,
+        "maxEnergy": 10,
+        "stats": {
+          "STR": 28,
+          "DEX": 15,
+          "CON": 23,
+          "INT": 0,
+          "FTH": 0,
+          "CHA": 16,
+          "LCK": 10
+        },
+        "level": 13,
+        "basicAttack": {
+          "name": "King's Cleaver",
+          "base": 9,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.014
+          }
+        },
+        "abilities": [
+          {
+            "id": "jack-blackbanner-execution",
+            "name": "Blackbanner Execution",
+            "energyCost": 8,
+            "cooldown": 4,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 28,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.02,
+                  "CHA": 0.004
+                }
+              }
+            ],
+            "critChanceBonus": 15
+          },
+          {
+            "id": "jack-kings-ransom",
+            "name": "King\u2019s Ransom",
+            "energyCost": 10,
+            "cooldown": 6,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 36,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.022,
+                  "CHA": 0.005
+                }
+              }
+            ],
+            "critChanceBonus": 20,
+            "unblockable": true
+          }
+        ],
+        "ai": {
+          "style": "boss-charger",
+          "chargeBelowEnergy": 8
+        },
+        "materials": [
+          {
+            "id": "jack-soulfirecore",
+            "name": "Jack SoulfireCore",
+            "materialKind": "soulfire-core",
+            "sourceId": "bandit-king-jack",
+            "deterministic": true
+          }
+        ],
+        "expReward": 340,
+        "onyxReward": 600,
+        "portrait": null
+      }
+    ],
+    "summonTemplates": [
+      {
+        "id": "lesser-mirebound",
+        "name": "Lesser Mirebound",
+        "role": "Summoned Mutation",
+        "baseMaxHp": 38,
+        "maxEnergy": 5,
+        "stats": {
+          "STR": 14,
+          "DEX": 7,
+          "CON": 12,
+          "INT": 8,
+          "FTH": 0,
+          "CHA": 0,
+          "LCK": 4
+        },
+        "level": 11,
+        "real": false,
+        "basicAttack": {
+          "name": "Lesser Claw",
+          "base": 6,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.012
+          }
+        },
+        "abilities": [
+          {
+            "id": "lesser-venom-bite",
+            "name": "Lesser Venom Bite",
+            "energyCost": 2,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 7,
+                "damageType": "Poison",
+                "scaling": {
+                  "STR": 0.009,
+                  "CON": 0.003
+                }
+              }
+            ],
+            "targetEffect": {
+              "id": "lesser-mirebound-poison",
+              "negative": true,
+              "durationTurns": 2,
+              "stacking": "stack-refresh",
+              "memory": {
+                "statusId": "Poison",
+                "statusKind": "Poison",
+                "tickPctMaxHp": 2,
+                "damageType": "Poison",
+                "canCrit": true
+              }
+            }
+          },
+          {
+            "id": "lesser-heavy-lunge",
+            "name": "Heavy Lunge",
+            "energyCost": 4,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 11,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.014
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "style": "summon-brute",
+          "chargeBelowEnergy": 4
+        },
+        "expReward": 0,
+        "onyxReward": 0,
+        "materials": [],
+        "portrait": null
+      }
+    ],
+    "name": "Crazed Witch Mira & Bandit King Jack"
+  },
+  "rules": {
+    "enemiesUseConsumables": false,
+    "enemiesCanGuard": false,
+    "enemyActionsPerTurn": 1,
+    "enemyHasBasicAttack": true,
+    "enemyCanCharge": true,
+    "partySizeEnemyCount": {
+      "1": [
+        1,
+        2
+      ],
+      "2": [
+        2,
+        3
+      ],
+      "3": [
+        3,
+        4
+      ],
+      "4": [
+        4,
+        5
+      ]
+    },
+    "bossMinibossPartyScaling": {
+      "1": {
+        "maxHpMultiplier": 1.0,
+        "damageMultiplier": 1.0
+      },
+      "2": {
+        "maxHpMultiplier": 1.55,
+        "damageMultiplier": 1.15
+      },
+      "3": {
+        "maxHpMultiplier": 2.1,
+        "damageMultiplier": 1.3
+      },
+      "4": {
+        "maxHpMultiplier": 2.7,
+        "damageMultiplier": 1.45
+      }
+    },
+    "normalMaterialDropByRealPartySize": {
+      "1": [
+        2,
+        4
+      ],
+      "2": [
+        3,
+        5
+      ],
+      "3": [
+        4,
+        6
+      ],
+      "4": [
+        5,
+        7
+      ]
+    },
+    "soulfireCoreDropByRealPartySize": {
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4
+    },
+    "enemiesDropEquipment": false,
+    "specialSourcesDropOnlySoulfireCore": true,
+    "chronicleProgressFromRawOnyxDivisor": 25
+  }
+}
