@@ -1,4 +1,4 @@
-const CACHE_NAME = 'twbtd-production-shell-v3-2026-08-10-racial-ui';
+const CACHE_NAME = 'twbtd-production-shell-v4-2026-08-10-race-details';
 const ART_CACHE_NAME = 'twbtd-portrait-static-runtime-v3-adaptive-full';
 const THUMB_ART_CACHE_NAME = 'twbtd-portrait-static-runtime-v3-adaptive-thumbs';
 const CONTENT_ART_CACHE_NAME = 'twbtd-content-portrait-runtime-v1';

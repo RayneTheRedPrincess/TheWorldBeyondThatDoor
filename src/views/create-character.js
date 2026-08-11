@@ -1,7 +1,7 @@
 import { escapeHtml, shell } from './shared.js';
 import { CORE_STATS, BASE_STARTING_STAT_POINTS } from '../starting-stats.js';
 import { raceChoiceTokenBalance } from '../tutorial-controller.js';
-import { renderRacialConfigurationPanels } from './racial-configuration.js';
+import { renderRacialConfigurationPanels, renderSelectedRaceDetailsPanels } from './racial-configuration.js';
 
 function statAllocator({ values = {}, prefix = 'stat_' } = {}) {
   return `<div class="stat-allocation-grid">${CORE_STATS.map(stat => `<div class="stat-allocator-row">
@@ -47,6 +47,7 @@ export function renderCharacterCreation({ slotNumber, unlockedRaces, allRaces = 
       </section>
 
       ${raceChoicePanel(account, allRaces)}
+      ${renderSelectedRaceDetailsPanels(racialConfigurations,{selectedRace:''})}
       ${renderRacialConfigurationPanels(racialConfigurations,{prefix:'racial',selectedRace:'',legend:'Choose Racial Features'})}
 
       <section class="panel creation-wide">

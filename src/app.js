@@ -1131,6 +1131,9 @@ class App {
     if(!form)return;const selected=String(race||'');let shown=false;
     for(const panel of form.querySelectorAll('[data-racial-config-panel]')){const match=panel.dataset.racialConfigPanel===selected;panel.hidden=!match;if(match)shown=true;}
     const fixed=form.querySelector('[data-racial-fixed-message]');if(fixed)fixed.hidden=shown;
+    let detailShown=false;
+    for(const panel of form.querySelectorAll('[data-selected-race-details]')){const match=panel.dataset.selectedRaceDetails===selected;panel.hidden=!match;if(match)detailShown=true;}
+    const detailEmpty=form.querySelector('[data-selected-race-details-empty]');if(detailEmpty)detailEmpty.hidden=detailShown;
   }
 
   saveVesselRacialConfiguration(form) {
