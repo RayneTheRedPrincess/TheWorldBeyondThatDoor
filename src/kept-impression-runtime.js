@@ -23,7 +23,14 @@ function putEffect(actor,{id,sourceActorId=null,negative=false,removable=true,mo
 }
 function removeEffect(actor,id,sourceId=null){const i=(actor.effects||[]).findIndex(e=>e.id===id&&(sourceId==null||e.sourceActorId===sourceId));if(i<0)return null;return actor.effects.splice(i,1)[0];}
 function addShield(target,amount,{sourceActorId=null,abilityId='kept-impression',memory={}}={}){
- const value=Math.max(0,Math.round(n(amount))); if(!value)return 0; target.resources.shieldLayers=target.resources.shieldLayers||[];target.resources.shieldLayers.push({sourceActorId,abilityId,amount:value,originalAmount:value,memory:{...memory}});target.resources.shield=n(target.resources.shield)+value;return value;
+ const requested=Math.max(0,Math.round(n(amount))); if(!requested||!target?.resources)return 0;
+ target.resources.shieldLayers=Array.isArray(target.resources.shieldLayers)?target.resources.shieldLayers:[];
+ target.resources.shieldLayers=target.resources.shieldLayers.filter(l=>n(l.amount)>0);
+ const layerTotal=target.resources.shieldLayers.reduce((sum,l)=>sum+Math.max(0,n(l.amount)),0),scalar=Math.max(0,n(target.resources.shield));
+ if(scalar>layerTotal)target.resources.shieldLayers.push({sourceActorId:null,abilityId:'legacy-shield',amount:scalar-layerTotal,originalAmount:scalar-layerTotal,memory:{legacy:true}});
+ const cap=Math.max(0,Math.round(n(target.resources.maxHp))),current=Math.min(cap,target.resources.shieldLayers.reduce((sum,l)=>sum+Math.max(0,n(l.amount)),0)),room=Math.max(0,cap-current),value=Math.min(requested,room);
+ if(!value){target.resources.shield=current;return 0;}
+ target.resources.shieldLayers.push({sourceActorId,abilityId,amount:value,originalAmount:value,memory:{...memory}});target.resources.shield=current+value;return value;
 }
 function heal(target,amount){const before=n(target.resources.hp),mx=n(target.resources.maxHp);const actual=Math.min(Math.max(0,mx-before),Math.max(0,Math.round(n(amount))));target.resources.hp=before+actual;return actual;}
 function healPct(target,pct){return heal(target,n(target.resources.maxHp)*n(pct)/100);}

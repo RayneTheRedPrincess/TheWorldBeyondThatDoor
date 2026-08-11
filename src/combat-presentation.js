@@ -299,7 +299,8 @@ export function summarizeCombatLog(combat = {}, abilityNames = new Map(), itemNa
         const flags = result.critical ? ' (Critical Heal)' : '';
         clauses.push(`${actorName} → ${targetName}: ${label} restored ${healed} HP${flags}`);
       } else if (isShield) {
-        clauses.push(`${actorName} → ${targetName}: ${label} granted ${amount(result.amount)} Shield`);
+        const granted = amount(result.amount), requested = amount(result.requestedAmount);
+        clauses.push(`${actorName} → ${targetName}: ${label} granted ${granted} Shield${result.capped && requested > granted ? ` (100% Max HP cap; ${requested-granted} excess Shield prevented)` : ''}`);
       } else if (type === 'energy') {
         clauses.push(`${actorName}: ${label} restored ${amount(result.amount)} Energy`);
       } else if (type === 'cleanse') {
@@ -324,6 +325,9 @@ export function summarizeCombatLog(combat = {}, abilityNames = new Map(), itemNa
       push(entry, `${actorName} begins their turn${gain ? ` and gains ${gain} Energy${entry.bonusEnergy ? ` (${amount(entry.naturalEnergy)} natural + ${amount(entry.bonusEnergy)} bonus)` : ''}` : ''}.`);
     } else if (entry.type === 'turn-end') {
       push(entry, `${actorName} ends their turn.`);
+    } else if (entry.type === 'shield-decay') {
+      const reduction = amount(entry.reductionPct);
+      push(entry, `${actorName}'s Shield decays by ${amount(entry.amount)} (${amount(entry.before)} → ${amount(entry.after)})${reduction ? ` · decay reduced ${reduction}%` : ''}.`);
     } else if (entry.type === 'action-skipped') {
       push(entry, `${actorName}'s action is skipped.`);
     } else if (entry.type === 'action' && entry.action === 'charge') {

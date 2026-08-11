@@ -378,11 +378,11 @@ export function resolveShieldComponent(combat, source, target, ability, componen
   const keptPre=keptBeforeShield({combat,source,target,ability,component});
   const sourceStats = getActorDerivedCombatStats(source, { ability, target, componentType: 'shield', confluence, combat });
   const raw = scaledBaseAmount(component.base, keptScaling(source,ability,component.scaling||{}), effectiveKeptStats(source));
-  const amount = roundFinal(raw * Math.max(0, 1 + (sourceStats.shieldStrengthPct + Number(finalShieldPct || 0) + Number(keptPre.finalShieldPct||0)) / 100));
-  grantCombatShield(combat, target.id, amount, { sourceActorId: source.id, abilityId: ability.id });
+  const requestedAmount = roundFinal(raw * Math.max(0, 1 + (sourceStats.shieldStrengthPct + Number(finalShieldPct || 0) + Number(keptPre.finalShieldPct||0)) / 100));
+  const amount = grantCombatShield(combat, target.id, requestedAmount, { sourceActorId: source.id, abilityId: ability.id });
   syncCombatShield(target);
-  keptAfterShield({combat,source,target,ability,component,result:{amount}});
-  return { amount };
+  keptAfterShield({combat,source,target,ability,component,result:{amount,requestedAmount}});
+  return { amount, requestedAmount, capped: amount < requestedAmount };
 }
 
 export function hasNegativeEffect(actor) { return (actor?.effects || []).some(effect => effect.negative); }

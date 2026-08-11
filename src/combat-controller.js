@@ -9,6 +9,9 @@ import { resolveAllScriptedEnemyLethals, advanceSerevakhSin } from './enemy-spec
 const PLAYER_ACTIONS = new Set(['charge', 'ability', 'guard', 'consumable']);
 const SIDES = new Set(['party', 'enemy']);
 const CONTROLS = new Set(['player', 'ai']);
+export const GLOBAL_SHIELD_CAP_PCT_MAX_HP = 100;
+export const SHIELD_DECAY_PCT_CURRENT = 20;
+export const SHIELD_DECAY_PCT_MAX_HP = 5;
 const REGULAR_PARTY_ENEMY_SCALE = Object.freeze({
   1: Object.freeze({ hp: 1.00, damage: 1.00 }),
   2: Object.freeze({ hp: 1.08, damage: 1.03 }),
@@ -144,6 +147,8 @@ export function createCombatActor(spec = {}, { slotIndex = 1 } = {}) {
   const level = Math.max(0, asInt(spec.level, 1));
   const dex = Math.max(0, Number(spec.stats?.DEX ?? spec.dex ?? 0) || 0);
   const explicitInitiativeBonus = Number(spec.explicitInitiativeBonus || 0) || 0;
+  const requestedInitialShield = Math.max(0, Number(spec.shield || 0) || 0) + Math.max(0, Math.round(maxHp * Number(spec.startingShieldPctMax || 0) / 100));
+  const initialShield = Math.min(maxHp, requestedInitialShield);
   const actor = {
     id,
     name,
@@ -173,10 +178,10 @@ export function createCombatActor(spec = {}, { slotIndex = 1 } = {}) {
     resources: {
       hp,
       maxHp,
-      shield: Math.max(0, Number(spec.shield || 0) || 0) + Math.max(0, Math.round(maxHp * Number(spec.startingShieldPctMax || 0) / 100)),
+      shield: initialShield,
       energy: 0,
       maxEnergy: Math.max(1, Number.isFinite(Number(spec.maxEnergy)) ? Number(spec.maxEnergy) : BASE_MAX_ENERGY),
-      shieldLayers: []
+      shieldLayers: initialShield > 0 ? [{ id:`initial-shield-${id}`, amount:initialShield, sourceActorId:null, abilityId:'combat-start-shield', tags:['Starting Shield'] }] : []
     },
     race: spec.race || null,
     racialConfiguration: clone(spec.racialConfiguration || null),
@@ -450,6 +455,7 @@ function beginCurrentTurn(combat, { now = nowIso(), rng = Math.random } = {}) {
     const actorId = nextQueuedLivingActorId(combat);
     if (!actorId) return false;
     const actor = getActor(combat, actorId);
+    for (const combatant of combat.actors || []) syncCombatShield(combatant);
     actor.defense.guardActive = false;
     resetOwnTurnFlags(actor);
     resetBetweenTurnFlags(actor);
@@ -623,6 +629,8 @@ export function endCombatTurn(slot, { now = nowIso(), rng = Math.random } = {}) 
     keptEndTurn({ slot: next, combat, actor: endingActor });
     processTurnEndEffects(combat, endingActor, { rng });
     tickSubclassEndOwnTurn(endingActor);
+    const shieldDecay = decayCombatShield(combat, endingActor.id);
+    if (shieldDecay.decay > 0) appendCombatLog(combat, { type:'shield-decay', round:combat.round, actorId:endingActor.id, amount:shieldDecay.decay, before:shieldDecay.before, after:shieldDecay.after, maxHp:shieldDecay.maxHp, reductionPct:shieldDecay.reductionPct, at:now }, { presentation:true });
     if (endingActor.baseClass === 'Paladin') endingActor.combatMemory.enemyDamagedAllySinceLastOwnTurn = {};
     if (endingActor.enemyTemplateId === 'serevakh-sevenfold-regent' && actorAlive(endingActor)) advanceSerevakhSin(combat, endingActor, { rng });
   }
@@ -707,21 +715,71 @@ export function removeOneNegativeCombatEffect(combat, actorId) {
   return actor.effects.splice(index, 1)[0];
 }
 
+export function getCombatShieldCap(actor) {
+  const maxHp = Math.max(0, Number(actor?.resources?.maxHp || 0));
+  return Math.max(0, Math.round(maxHp * GLOBAL_SHIELD_CAP_PCT_MAX_HP / 100));
+}
+
+function normalizeShieldLayers(actor) {
+  if (!actor?.resources) return [];
+  actor.resources.shieldLayers = Array.isArray(actor.resources.shieldLayers) ? actor.resources.shieldLayers : [];
+  actor.resources.shieldLayers = actor.resources.shieldLayers.filter(layer => Number(layer?.amount || 0) > 0).map(layer => ({ ...layer, amount:Math.max(0, Number(layer.amount || 0)) }));
+  const layerTotal = actor.resources.shieldLayers.reduce((sum, layer) => sum + Math.max(0, Number(layer.amount || 0)), 0);
+  const scalarShield = Math.max(0, Number(actor.resources.shield || 0));
+  // Migrate legacy/scalar-only Shield into a real layer so it can decay and absorb damage correctly.
+  if (scalarShield > layerTotal + 0.000001) {
+    actor.resources.shieldLayers.push({ id:`legacy-shield-${actor.id || 'actor'}`, amount:scalarShield-layerTotal, sourceActorId:null, abilityId:'legacy-shield', tags:['Legacy Shield'] });
+  }
+  return actor.resources.shieldLayers;
+}
+
 export function syncCombatShield(actor) {
-  actor.resources.shieldLayers = (actor.resources.shieldLayers || []).filter(layer => Number(layer.amount || 0) > 0);
-  actor.resources.shield = actor.resources.shieldLayers.reduce((sum, layer) => sum + Math.max(0, Number(layer.amount || 0)), 0);
+  if (!actor?.resources) return 0;
+  const layers = normalizeShieldLayers(actor);
+  const cap = getCombatShieldCap(actor);
+  let total = layers.reduce((sum, layer) => sum + Math.max(0, Number(layer.amount || 0)), 0);
+  let excess = Math.max(0, total - cap);
+  // Preserve older Shield layers first; trim newest layers when a legacy save or direct effect exceeds the cap.
+  for (let i = layers.length - 1; i >= 0 && excess > 0; i -= 1) {
+    const take = Math.min(excess, Math.max(0, Number(layers[i].amount || 0)));
+    layers[i].amount -= take;
+    excess -= take;
+  }
+  actor.resources.shieldLayers = layers.filter(layer => Number(layer.amount || 0) > 0);
+  total = actor.resources.shieldLayers.reduce((sum, layer) => sum + Math.max(0, Number(layer.amount || 0)), 0);
+  actor.resources.shield = Math.min(cap, total);
   return actor.resources.shield;
 }
 
 export function grantCombatShield(combat, actorId, amount, metadata = {}) {
   const actor = getActor(combat, actorId);
   if (!actor) return 0;
-  const finalAmount = Math.max(0, Number(amount || 0));
+  const requested = Math.max(0, Number(amount || 0));
+  if (!requested) return 0;
+  syncCombatShield(actor);
+  const cap = getCombatShieldCap(actor);
+  const room = Math.max(0, cap - Math.max(0, Number(actor.resources.shield || 0)));
+  const finalAmount = Math.min(requested, room);
   if (!finalAmount) return 0;
-  actor.resources.shieldLayers = Array.isArray(actor.resources.shieldLayers) ? actor.resources.shieldLayers : [];
   actor.resources.shieldLayers.push({ id: metadata.layerId || `shield-${Date.now()}-${Math.random().toString(36).slice(2,7)}`, amount: finalAmount, sourceActorId: metadata.sourceActorId || null, abilityId: metadata.abilityId || null, tags: [...(metadata.tags || [])] });
   syncCombatShield(actor);
   return finalAmount;
+}
+
+export function decayCombatShield(combat, actorId) {
+  const actor = getActor(combat, actorId);
+  if (!actor) return { before:0, decay:0, after:0, maxHp:0, reductionPct:0 };
+  const before = syncCombatShield(actor);
+  const maxHp = Math.max(0, Number(actor.resources?.maxHp || 0));
+  if (!(before > 0) || !(maxHp > 0)) return { before, decay:0, after:before, maxHp, reductionPct:0 };
+  const baseDecay = Math.max(Math.ceil(maxHp * SHIELD_DECAY_PCT_MAX_HP / 100), Math.ceil(before * SHIELD_DECAY_PCT_CURRENT / 100));
+  const configuredReduction = Math.max(0, Number(actor.racialModifiers?.shieldDecayReductionPct || 0));
+  const racialReduction = actor.race === 'Silxered' ? 25 : 0;
+  const reductionPct = Math.min(100, Math.max(configuredReduction, racialReduction));
+  const decay = Math.min(before, Math.max(1, Math.ceil(baseDecay * (1 - reductionPct / 100))));
+  consumeCombatShield(combat, actor.id, decay);
+  const after = syncCombatShield(actor);
+  return { before, decay:before-after, after, maxHp, reductionPct };
 }
 
 export function consumeCombatShield(combat, actorId, incomingAmount) {
@@ -737,6 +795,8 @@ export function consumeCombatShield(combat, actorId, incomingAmount) {
     if (absorbed && layer.sourceActorId) bySource[layer.sourceActorId] = (bySource[layer.sourceActorId] || 0) + absorbed;
   }
   const before = Math.max(0, Number(incomingAmount || 0));
+  // Keep the scalar in sync before normalization so consumed layers are not mistaken for legacy scalar-only Shield.
+  actor.resources.shield = (actor.resources.shieldLayers || []).reduce((sum, layer) => sum + Math.max(0, Number(layer.amount || 0)), 0);
   syncCombatShield(actor);
   return { absorbed: before - remaining, remainingDamage: remaining, absorbedBySource: bySource };
 }

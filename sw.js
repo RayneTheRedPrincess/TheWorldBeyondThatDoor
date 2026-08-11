@@ -1,4 +1,4 @@
-const CACHE_NAME = 'twbtd-production-shell-v22-2026-08-11-chronicle-wording';
+const CACHE_NAME = 'twbtd-production-shell-v23-2026-08-11-shield-decay-cap';
 const ART_CACHE_NAME = 'twbtd-portrait-static-runtime-v3-adaptive-full';
 const THUMB_ART_CACHE_NAME = 'twbtd-portrait-static-runtime-v3-adaptive-thumbs';
 const CONTENT_ART_CACHE_NAME = 'twbtd-content-portrait-runtime-v1';

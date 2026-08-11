@@ -35,6 +35,14 @@
     "critBypassesDefense": false,
     "shieldAfterMitigationBeforeHp": true
   },
+  "shields": {
+    "totalCapPctMaxHp": 100,
+    "decayTiming": "end-of-owners-turn",
+    "decayGreaterOfPctMaxHp": 5,
+    "decayGreaterOfPctCurrentShield": 20,
+    "silxeredDecayReductionPct": 25,
+    "layersDisplayAsCombinedTotal": true
+  },
   "guard": {
     "blocksEveryIncomingHitUntilOwnNextTurn": true,
     "dodgeResolvesBeforeGuardBlock": true,

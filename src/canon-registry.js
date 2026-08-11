@@ -370,6 +370,9 @@ export class CanonRegistry {
     assert(this.combatRules?.guard?.dodgeResolvesBeforeGuardBlock === true, 'Dodge must resolve before Guard block');
     assert(this.combatRules?.energy?.maximumEnergy === 7, 'Base Maximum Energy must be 7');
     assert(this.combatRules?.defense?.dodgeChanceCapPct === 85 && this.combatRules?.defense?.blockChanceCapPct === 85, 'Dodge and Block caps must both be 85%');
+    assert(this.combatRules?.shields?.totalCapPctMaxHp === 100, 'total Shield must cap at 100% of Maximum HP');
+    assert(this.combatRules?.shields?.decayTiming === 'end-of-owners-turn' && this.combatRules?.shields?.decayGreaterOfPctMaxHp === 5 && this.combatRules?.shields?.decayGreaterOfPctCurrentShield === 20, 'Shield decay must use the greater of 5% Maximum HP or 20% current Shield at end of owner turn');
+    assert(this.combatRules?.shields?.silxeredDecayReductionPct === 25, 'Silxered Shield decay reduction must remain 25%');
     assert(this.combatRules?.cooldowns?.newCooldownTicksOnApplicationTurn === false, 'new cooldowns must not tick on their application turn');
     assert(this.baseAbilities?.count === 55 && this.baseAbilities?.abilities?.length === 55, 'expected 55 approved base-class abilities');
     assert(new Set(this.baseAbilities.abilities.map(a => a.id)).size === 55, 'base ability ids must be unique');

@@ -27,7 +27,7 @@
       },
       {
         "title": "Your First Kept Impressions",
-        "body": "Resolving this starter lesson\u2014by completing it or skipping it\u2014grants exactly two free Kept Impression tokens (3 slots or less) and exactly one free Race Choice token. The chosen race unlocks permanently for the whole account, not for one Vessel slot."
+        "body": "Resolving this starter lesson—by completing it or skipping it—grants exactly two free Kept Impression tokens (3 slots or less) and exactly one free Race Choice token. The chosen race unlocks permanently for the whole account, not for one Vessel slot."
       }
     ]
   },
@@ -280,7 +280,7 @@
     {
       "id": "shields",
       "title": "Shields",
-      "body": "Shields absorb damage after Dodge, Block/Guard, and other mitigation but before HP. Damage exceeding the remaining Shield carries into HP. Multiple internal Shield layers may exist even though combat presentation shows a combined amount."
+      "body": "Shields absorb damage after Dodge, Block/Guard, and other mitigation but before HP. Damage exceeding the remaining Shield carries into HP. Total Shield is capped at 100% of Maximum HP. At the end of a shielded combatant's own turn, Shield decays by the greater of 5% of Maximum HP or 20% of current Shield; Silxered reduce that decay by 25%. Multiple internal Shield layers may exist even though combat presentation shows one combined amount."
     },
     {
       "id": "healing",
@@ -325,7 +325,7 @@
     {
       "id": "chronicle",
       "title": "Chronicle of Paths",
-      "body": "The Chronicle is permanent meta progression separated from Character Level. Normal families rank to 30, gain 1 Chronicle Point per rank, and may allocate at most 30 active Chronicle Points in a 32-node tree. Classless has its separate Rank 0\u201312 unlock progression. The Chronicle opens after the first successful Forest return; progress earned beforehand is retained."
+      "body": "The Chronicle is permanent meta progression separated from Character Level. Normal families rank to 30, gain 1 Chronicle Point per rank, and may allocate at most 30 active Chronicle Points in a 32-node tree. Classless has its separate Rank 0–12 unlock progression. The Chronicle opens after the first successful Forest return; progress earned beforehand is retained."
     },
     {
       "id": "mantle",
@@ -355,12 +355,12 @@
     {
       "id": "initiative",
       "title": "Initiative",
-      "body": "Initiative uses a base 1\u20136 roll plus floor(Level/3), floor(DEX/9), and explicit Initiative bonuses. Ties randomize among tied combatants. Summons act after real combatants in summon order. Initiative does not silently reroll every round."
+      "body": "Initiative uses a base 1–6 roll plus floor(Level/3), floor(DEX/9), and explicit Initiative bonuses. Ties randomize among tied combatants. Summons act after real combatants in summon order. Initiative does not silently reroll every round."
     },
     {
       "id": "checks",
       "title": "Forest Stat Checks",
-      "body": "A noncombat check uses d20 + floor(relevant stat/2) + floor(8 \u00d7 relevant stat / total core stats) + explicit race, Kept Impression, or contextual bonuses against the event DC. The player chooses one living real party member. Natural 20 is Critical Success; natural 1 is a Critical Failure only if the modified total actually fails, so sufficiently specialized characters can reach true 100% success."
+      "body": "A noncombat check uses d20 + floor(relevant stat/2) + floor(8 × relevant stat / total core stats) + explicit race, Kept Impression, or contextual bonuses against the event DC. The player chooses one living real party member. Natural 20 is Critical Success; natural 1 is a Critical Failure only if the modified total actually fails, so sufficiently specialized characters can reach true 100% success."
     },
     {
       "id": "forest",
