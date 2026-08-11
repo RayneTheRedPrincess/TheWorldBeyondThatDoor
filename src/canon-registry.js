@@ -282,7 +282,7 @@ export class CanonRegistry {
     if(this.hellEnemies||this.hellEvents||this.hellCrafting){
       assert(this.hellEnemies&&this.hellEvents&&this.hellCrafting,'Caverns to Hell authority must load enemies, events, and crafting together');
       assert(this.hellEnemies?.regularEnemies?.length===22,'Caverns to Hell foundation requires 22 regular enemy types');
-      assert(this.hellEnemies?.miniboss?.fixedDepth===10&&this.hellEnemies?.miniboss?.actors?.[0]?.id==='kharvax-the-gatebound','Depth 10 must contain Kharvax, the Gatebound');
+      assert(this.hellEnemies?.miniboss?.fixedDepth===10&&this.hellEnemies?.miniboss?.actors?.[0]?.id==='kharvax-gatebound','Depth 10 must contain Kharvax, the Gatebound');
       const sevenfold=this.hellEnemies?.boss?.actors?.[0];
       assert(this.hellEnemies?.boss?.fixedDepth===30&&sevenfold?.id==='serevakh-sevenfold-regent','Depth 30 must contain Serevakh, the Sevenfold Regent');
       assert((sevenfold?.abilities||[]).filter(x=>x.sinForm).length===14,'Serevakh must have exactly fourteen Sin-form attacks');
