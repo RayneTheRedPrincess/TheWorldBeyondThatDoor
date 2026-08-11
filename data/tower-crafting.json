@@ -322,7 +322,7 @@
     {
       "id": "recipe-eq-tower-halo-helm",
       "name": "Halo-Forged Helm",
-      "category": "Holy Tower Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-tower-halo-helm",
@@ -345,7 +345,7 @@
     {
       "id": "recipe-eq-tower-halo-chest",
       "name": "Halo-Forged Chest",
-      "category": "Holy Tower Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-tower-halo-chest",
@@ -368,7 +368,7 @@
     {
       "id": "recipe-eq-tower-halo-gloves",
       "name": "Halo-Forged Gloves",
-      "category": "Holy Tower Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-tower-halo-gloves",
@@ -391,7 +391,7 @@
     {
       "id": "recipe-eq-tower-halo-boots",
       "name": "Halo-Forged Boots",
-      "category": "Holy Tower Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-tower-halo-boots",
@@ -414,7 +414,7 @@
     {
       "id": "recipe-eq-tower-rime-helm",
       "name": "Rimeglass Helm",
-      "category": "Cold Tower Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-tower-rime-helm",
@@ -437,7 +437,7 @@
     {
       "id": "recipe-eq-tower-rime-chest",
       "name": "Rimeglass Chest",
-      "category": "Cold Tower Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-tower-rime-chest",
@@ -460,7 +460,7 @@
     {
       "id": "recipe-eq-tower-rime-gloves",
       "name": "Rimeglass Gloves",
-      "category": "Cold Tower Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-tower-rime-gloves",
@@ -483,7 +483,7 @@
     {
       "id": "recipe-eq-tower-rime-boots",
       "name": "Rimeglass Boots",
-      "category": "Cold Tower Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-tower-rime-boots",
@@ -506,7 +506,7 @@
     {
       "id": "recipe-eq-tower-fire-helm",
       "name": "Whitefire Helm",
-      "category": "Fire Tower Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-tower-fire-helm",
@@ -529,7 +529,7 @@
     {
       "id": "recipe-eq-tower-fire-chest",
       "name": "Whitefire Chest",
-      "category": "Fire Tower Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-tower-fire-chest",
@@ -552,7 +552,7 @@
     {
       "id": "recipe-eq-tower-fire-gloves",
       "name": "Whitefire Gloves",
-      "category": "Fire Tower Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-tower-fire-gloves",
@@ -575,7 +575,7 @@
     {
       "id": "recipe-eq-tower-fire-boots",
       "name": "Whitefire Boots",
-      "category": "Fire Tower Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-tower-fire-boots",
@@ -598,7 +598,7 @@
     {
       "id": "recipe-eq-tower-psi-helm",
       "name": "Thoughtglass Helm",
-      "category": "Psychic Tower Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-tower-psi-helm",
@@ -621,7 +621,7 @@
     {
       "id": "recipe-eq-tower-psi-chest",
       "name": "Thoughtglass Chest",
-      "category": "Psychic Tower Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-tower-psi-chest",
@@ -644,7 +644,7 @@
     {
       "id": "recipe-eq-tower-psi-gloves",
       "name": "Thoughtglass Gloves",
-      "category": "Psychic Tower Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-tower-psi-gloves",
@@ -667,7 +667,7 @@
     {
       "id": "recipe-eq-tower-psi-boots",
       "name": "Thoughtglass Boots",
-      "category": "Psychic Tower Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-tower-psi-boots",
@@ -690,7 +690,7 @@
     {
       "id": "recipe-eq-tower-chorus-sword",
       "name": "Chorus-Edge",
-      "category": "Holy Tower Weapons",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-tower-chorus-sword",
@@ -717,7 +717,7 @@
     {
       "id": "recipe-eq-tower-halo-scepter",
       "name": "Halo Scepter",
-      "category": "Holy Tower Weapons",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-tower-halo-scepter",
@@ -744,7 +744,7 @@
     {
       "id": "recipe-eq-tower-sanctified-gauntlets",
       "name": "Sanctified Gauntlets",
-      "category": "Holy Tower Weapons",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-tower-sanctified-gauntlets",
@@ -771,7 +771,7 @@
     {
       "id": "recipe-eq-tower-rime-pike",
       "name": "Rimeglass Pike",
-      "category": "Cold Tower Weapons",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-tower-rime-pike",
@@ -798,7 +798,7 @@
     {
       "id": "recipe-eq-tower-preserver-rod",
       "name": "Preserver Rod",
-      "category": "Cold Tower Weapons",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-tower-preserver-rod",
@@ -825,7 +825,7 @@
     {
       "id": "recipe-eq-tower-cryo-gauntlets",
       "name": "Cryo Gauntlets",
-      "category": "Cold Tower Weapons",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-tower-cryo-gauntlets",
@@ -852,7 +852,7 @@
     {
       "id": "recipe-eq-tower-whitefire-blade",
       "name": "Whitefire Blade",
-      "category": "Fire Tower Weapons",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-tower-whitefire-blade",
@@ -879,7 +879,7 @@
     {
       "id": "recipe-eq-tower-crucible-staff",
       "name": "Crucible Staff",
-      "category": "Fire Tower Weapons",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-tower-crucible-staff",
@@ -906,7 +906,7 @@
     {
       "id": "recipe-eq-tower-furnace-gauntlets",
       "name": "Furnace Gauntlets",
-      "category": "Fire Tower Weapons",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-tower-furnace-gauntlets",
@@ -933,7 +933,7 @@
     {
       "id": "recipe-eq-tower-thought-needle",
       "name": "Thought Needle",
-      "category": "Psychic Tower Weapons",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-tower-thought-needle",
@@ -960,7 +960,7 @@
     {
       "id": "recipe-eq-tower-cognition-wand",
       "name": "Cognition Wand",
-      "category": "Psychic Tower Weapons",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-tower-cognition-wand",
@@ -987,7 +987,7 @@
     {
       "id": "recipe-eq-tower-mind-gauntlets",
       "name": "Mindframe Gauntlets",
-      "category": "Psychic Tower Weapons",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-tower-mind-gauntlets",
@@ -1014,7 +1014,7 @@
     {
       "id": "recipe-eq-tower-halo-vial",
       "name": "Halo Vial",
-      "category": "Holy Tower Relics",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-tower-halo-vial",
@@ -1037,7 +1037,7 @@
     {
       "id": "recipe-eq-tower-choir-band",
       "name": "Choir Band",
-      "category": "Holy Tower Relics",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-tower-choir-band",
@@ -1060,7 +1060,7 @@
     {
       "id": "recipe-eq-tower-rime-vial",
       "name": "Rime Vial",
-      "category": "Cold Tower Relics",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-tower-rime-vial",
@@ -1083,7 +1083,7 @@
     {
       "id": "recipe-eq-tower-preservation-band",
       "name": "Preservation Band",
-      "category": "Cold Tower Relics",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-tower-preservation-band",
@@ -1106,7 +1106,7 @@
     {
       "id": "recipe-eq-tower-cinder-vial",
       "name": "Whitefire Vial",
-      "category": "Fire Tower Relics",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-tower-cinder-vial",
@@ -1129,7 +1129,7 @@
     {
       "id": "recipe-eq-tower-crucible-band",
       "name": "Crucible Band",
-      "category": "Fire Tower Relics",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-tower-crucible-band",
@@ -1152,7 +1152,7 @@
     {
       "id": "recipe-eq-tower-thought-scroll",
       "name": "Thoughtglass Spell Slot",
-      "category": "Psychic Tower Relics",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-tower-thought-scroll",
@@ -1175,7 +1175,7 @@
     {
       "id": "recipe-eq-tower-memory-band",
       "name": "Memory Band",
-      "category": "Psychic Tower Relics",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-tower-memory-band",

@@ -312,7 +312,7 @@
     {
       "id": "recipe-eq-plains-red-cavalier-helmet",
       "name": "Red Helmet",
-      "category": "Physical Plains Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-plains-red-cavalier-helmet",
@@ -339,7 +339,7 @@
     {
       "id": "recipe-eq-plains-red-cavalier-chest",
       "name": "Red Chest",
-      "category": "Physical Plains Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-plains-red-cavalier-chest",
@@ -366,7 +366,7 @@
     {
       "id": "recipe-eq-plains-red-cavalier-gloves",
       "name": "Red Gloves",
-      "category": "Physical Plains Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-plains-red-cavalier-gloves",
@@ -393,7 +393,7 @@
     {
       "id": "recipe-eq-plains-red-cavalier-boots",
       "name": "Red Boots",
-      "category": "Physical Plains Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-plains-red-cavalier-boots",
@@ -420,7 +420,7 @@
     {
       "id": "recipe-eq-plains-veinforged-helmet",
       "name": "Veinforged Helmet",
-      "category": "Force Plains Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-plains-veinforged-helmet",
@@ -447,7 +447,7 @@
     {
       "id": "recipe-eq-plains-veinforged-chest",
       "name": "Veinforged Chest",
-      "category": "Force Plains Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-plains-veinforged-chest",
@@ -474,7 +474,7 @@
     {
       "id": "recipe-eq-plains-veinforged-gloves",
       "name": "Veinforged Gloves",
-      "category": "Force Plains Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-plains-veinforged-gloves",
@@ -501,7 +501,7 @@
     {
       "id": "recipe-eq-plains-veinforged-boots",
       "name": "Veinforged Boots",
-      "category": "Force Plains Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-plains-veinforged-boots",
@@ -528,7 +528,7 @@
     {
       "id": "recipe-eq-plains-gloamveil-helmet",
       "name": "Gloamveil Helmet",
-      "category": "Psychic Plains Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-plains-gloamveil-helmet",
@@ -555,7 +555,7 @@
     {
       "id": "recipe-eq-plains-gloamveil-chest",
       "name": "Gloamveil Chest",
-      "category": "Psychic Plains Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-plains-gloamveil-chest",
@@ -582,7 +582,7 @@
     {
       "id": "recipe-eq-plains-gloamveil-gloves",
       "name": "Gloamveil Gloves",
-      "category": "Psychic Plains Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-plains-gloamveil-gloves",
@@ -609,7 +609,7 @@
     {
       "id": "recipe-eq-plains-gloamveil-boots",
       "name": "Gloamveil Boots",
-      "category": "Psychic Plains Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-plains-gloamveil-boots",
@@ -636,7 +636,7 @@
     {
       "id": "recipe-eq-plains-bloodmoon-helmet",
       "name": "Bloodmoon Helmet",
-      "category": "Blood Plains Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-plains-bloodmoon-helmet",
@@ -663,7 +663,7 @@
     {
       "id": "recipe-eq-plains-bloodmoon-chest",
       "name": "Bloodmoon Chest",
-      "category": "Blood Plains Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-plains-bloodmoon-chest",
@@ -690,7 +690,7 @@
     {
       "id": "recipe-eq-plains-bloodmoon-gloves",
       "name": "Bloodmoon Gloves",
-      "category": "Blood Plains Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-plains-bloodmoon-gloves",
@@ -717,7 +717,7 @@
     {
       "id": "recipe-eq-plains-bloodmoon-boots",
       "name": "Bloodmoon Boots",
-      "category": "Blood Plains Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-plains-bloodmoon-boots",
@@ -744,7 +744,7 @@
     {
       "id": "recipe-eq-plains-bloodglass-charm",
       "name": "Bloodglass Charm",
-      "category": "Ruined Plains Gear",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-plains-bloodglass-charm",
@@ -767,7 +767,7 @@
     {
       "id": "recipe-eq-plains-sanguine-sabre",
       "name": "Sanguine Sabre",
-      "category": "Ruined Plains Gear",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-plains-sanguine-sabre",
@@ -790,7 +790,7 @@
     {
       "id": "recipe-eq-plains-redcourt-rapier",
       "name": "Redcourt Rapier",
-      "category": "Ruined Plains Gear",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-plains-redcourt-rapier",
@@ -813,7 +813,7 @@
     {
       "id": "recipe-eq-plains-veinbreaker-maul",
       "name": "Veinbreaker Maul",
-      "category": "Ruined Plains Gear",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-plains-veinbreaker-maul",
@@ -836,7 +836,7 @@
     {
       "id": "recipe-eq-plains-hemomancer-focus",
       "name": "Hemomancer Focus",
-      "category": "Ruined Plains Gear",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-plains-hemomancer-focus",
@@ -859,7 +859,7 @@
     {
       "id": "recipe-eq-plains-gloam-knife",
       "name": "Gloam Knife",
-      "category": "Ruined Plains Gear",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-plains-gloam-knife",
@@ -882,7 +882,7 @@
     {
       "id": "recipe-eq-plains-mindblood-staff",
       "name": "Mindblood Staff",
-      "category": "Ruined Plains Gear",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-plains-mindblood-staff",
@@ -905,7 +905,7 @@
     {
       "id": "recipe-eq-plains-bloodroot-shield",
       "name": "Bloodroot Shield",
-      "category": "Ruined Plains Gear",
+      "category": "Shields",
       "output": {
         "type": "equipment",
         "id": "eq-plains-bloodroot-shield",
@@ -928,7 +928,7 @@
     {
       "id": "recipe-eq-plains-smokeveil-cloak",
       "name": "Smokeveil Cloak",
-      "category": "Ruined Plains Gear",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-plains-smokeveil-cloak",
@@ -951,7 +951,7 @@
     {
       "id": "recipe-eq-plains-scarlet-signetring",
       "name": "Scarlet Signet Ring",
-      "category": "Ruined Plains Gear",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-plains-scarlet-signetring",
@@ -974,7 +974,7 @@
     {
       "id": "recipe-eq-plains-warfield-medallion",
       "name": "Warfield Medallion",
-      "category": "Ruined Plains Gear",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-plains-warfield-medallion",
@@ -997,7 +997,7 @@
     {
       "id": "recipe-eq-plains-veil-mirror",
       "name": "Veil Mirror",
-      "category": "Ruined Plains Gear",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-plains-veil-mirror",
@@ -1020,7 +1020,7 @@
     {
       "id": "recipe-eq-plains-red-marrow-vial",
       "name": "Red Marrow Blood Phial",
-      "category": "Ruined Plains Gear",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-plains-red-marrow-vial",
@@ -1043,7 +1043,7 @@
     {
       "id": "recipe-eq-plains-blood-script-slot",
       "name": "Blood Script Charm",
-      "category": "Ruined Plains Gear",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-plains-blood-script-slot",
@@ -1066,7 +1066,7 @@
     {
       "id": "recipe-eq-plains-gloam-script-slot",
       "name": "Gloam Script Charm",
-      "category": "Ruined Plains Gear",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-plains-gloam-script-slot",
@@ -1089,7 +1089,7 @@
     {
       "id": "recipe-eq-plains-nightfang-gauntlets",
       "name": "Nightfang Gauntlets",
-      "category": "Ruined Plains Gear",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-plains-nightfang-gauntlets",
@@ -1112,7 +1112,7 @@
     {
       "id": "recipe-eq-plains-smoke-thread-band",
       "name": "Smoke-Thread Band",
-      "category": "Ruined Plains Gear",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-plains-smoke-thread-band",
@@ -1135,7 +1135,7 @@
     {
       "id": "recipe-eq-plains-varrek-bloodlance",
       "name": "Varrek’s Bloodlance",
-      "category": "Ruined Plains SoulFire",
+      "category": "Plains SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-plains-varrek-bloodlance",
@@ -1158,7 +1158,7 @@
     {
       "id": "recipe-eq-plains-nightblood-barding",
       "name": "Nightblood Barding",
-      "category": "Ruined Plains SoulFire",
+      "category": "Plains SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-plains-nightblood-barding",
@@ -1181,7 +1181,7 @@
     {
       "id": "recipe-eq-plains-red-cavalier-spur",
       "name": "Red Cavalier Spur",
-      "category": "Ruined Plains SoulFire",
+      "category": "Plains SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-plains-red-cavalier-spur",
@@ -1204,7 +1204,7 @@
     {
       "id": "recipe-eq-plains-seer-mirrorstaff",
       "name": "Veiled Mirrorstaff",
-      "category": "Ruined Plains SoulFire",
+      "category": "Plains SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-plains-seer-mirrorstaff",
@@ -1227,7 +1227,7 @@
     {
       "id": "recipe-eq-plains-mirrorblood-veil",
       "name": "Mirrorblood Veil",
-      "category": "Ruined Plains SoulFire",
+      "category": "Plains SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-plains-mirrorblood-veil",
@@ -1250,7 +1250,7 @@
     {
       "id": "recipe-eq-plains-thought-drinker",
       "name": "Thought Drinker",
-      "category": "Ruined Plains SoulFire",
+      "category": "Plains SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-plains-thought-drinker",
@@ -1273,7 +1273,7 @@
     {
       "id": "recipe-eq-plains-tenairah-crownblade",
       "name": "Tenairah’s Crownblade",
-      "category": "Ruined Plains SoulFire",
+      "category": "Plains SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-plains-tenairah-crownblade",
@@ -1296,7 +1296,7 @@
     {
       "id": "recipe-eq-plains-sovereign-smoke-mantle",
       "name": "Sovereign Smoke Mantle",
-      "category": "Ruined Plains SoulFire",
+      "category": "Plains SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-plains-sovereign-smoke-mantle",
@@ -1319,7 +1319,7 @@
     {
       "id": "recipe-eq-plains-bloodroot-heart",
       "name": "Bloodroot Heart",
-      "category": "Ruined Plains SoulFire",
+      "category": "Plains SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-plains-bloodroot-heart",

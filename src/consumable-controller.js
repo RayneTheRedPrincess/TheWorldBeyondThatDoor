@@ -43,4 +43,15 @@ export function resolveTrailstockTurnStart(slot,{catalog,rng=Math.random}={}){
  const pseudo={id:'trailstock-echo',name:'Trailstock Echo',subtype:'Echo',primaryEffect:echo.primaryEffect,effects:[]};if(echo.primaryEffect==='healing'||echo.primaryEffect==='heal')pseudo.effects=[{type:'heal',base:n(echo.value)}];else if(echo.primaryEffect==='shield')pseudo.effects=[{type:'shield',base:n(echo.value)}];else if(echo.primaryEffect==='energy')pseudo.effects=[{type:'energy',base:n(echo.energy||echo.value)}];else if(echo.primaryEffect==='damage')pseudo.effects=[{type:'damage',base:n(echo.value),damageType:echo.damageType||'Physical'}];
  const resolved=resolveEffects(next,combat,actor,pseudo,echo.targetId,{numericalMultiplier:1},{rng,echoMultiplier:1});appendCombatLog(combat,{type:'trailstock-echo',actorId:actor.id,primaryEffect:echo.primaryEffect,results:clone(resolved.outcomes||[]),at:new Date().toISOString()},{presentation:true});finalizeCombatOutcome(combat);return {ok:true,slot:next,resolved};
 }
+export function discardRunConsumableAtCampsite(slot,{itemId,count=1}={}){
+ if(!slot?.campaign?.active||slot.campaign.state?.expedition?.state!=='campsite')return {ok:false,error:'Consumables can only be discarded at a Campsite.'};
+ const run=slot.campaign.state,current=Math.max(0,Math.trunc(n(run?.inventory?.consumables?.[itemId]?.quantity))),equipped=(run.configuration?.consumables||[]).filter(id=>id===itemId).length,requested=Math.max(1,Math.trunc(n(count)||1)),discardable=Math.max(0,current-equipped);
+ if(current<=0)return {ok:false,error:'That consumable is not in the carried inventory.'};
+ if(discardable<=0)return {ok:false,error:'The remaining copy is equipped. Unequip it before discarding it.'};
+ const removed=Math.min(requested,discardable),next=clone(slot),entry=next.campaign.state.inventory?.consumables?.[itemId];
+ if(!entry)return {ok:false,error:'That consumable is not in the carried inventory.'};
+ const remaining=Math.max(equipped,current-removed);
+ if(remaining<=0)delete next.campaign.state.inventory.consumables[itemId];else entry.quantity=remaining;
+ return {ok:true,slot:next,itemId,removed,remaining,equippedCount:equipped};
+}
 export function consumableInventoryEntries(run,catalog){const idx=index(catalog);return Object.entries(run?.inventory?.consumables||{}).filter(([,v])=>n(v?.quantity)>0).map(([id,v])=>({id,quantity:n(v.quantity),item:idx.get(id)||null})).filter(x=>x.item);}

@@ -56,6 +56,16 @@ function classPassiveModifiers(actor, { ability = null, target = null, component
   return out;
 }
 
+
+function enemyDodgeChance(actor, baseChance, bonusChance) {
+  if (actor?.side !== 'enemy') return capDodgeChance(baseChance + bonusChance);
+  const role = String(actor?.enemyBalanceRole || 'regular');
+  const statScaledBase = 5 + Math.max(0, Number(baseChance || 0) - 5) * 0.62;
+  const raw = statScaledBase + Number(bonusChance || 0);
+  const cap = role === 'boss' ? 70 : (role === 'miniboss' || role === 'trainer' ? 65 : 55);
+  return Math.max(0, Math.min(cap, raw));
+}
+
 export function getActorDerivedCombatStats(actor, context = {}) {
   const base = baseDerivedStats(effectiveKeptStats(actor));
   const passive = classPassiveModifiers(actor, context);
@@ -107,7 +117,7 @@ export function getActorDerivedCombatStats(actor, context = {}) {
     ...base,
     aggroMultiplier: Math.max(.15, (aggroMultiplier + sumEffect(actor, 'aggroMultiplierAdd') + Number(kept.aggroMultiplierAdd||0)) * Number(kept.aggroMultiplierFactor||1)),
     blockChancePct: capBlockChance(base.blockChancePct + contextualBlock + Number(actor?.defense?.explicitBlockChancePct || 0) + sumEffect(actor, 'blockChancePct') + passive.blockChancePct + sub.blockChancePct + Number(kept.blockChancePct||0) + Number(equipment.blockChancePct||0)),
-    dodgeChancePct: capDodgeChance(base.dodgeChancePct + Number(actor?.defense?.explicitDodgeChancePct || 0) + sumEffect(actor, 'dodgeChancePct') + sub.dodgeChancePct + contextualDodge + Number(kept.dodgeChancePct||0) + Number(equipment.dodgeChancePct||0)),
+    dodgeChancePct: enemyDodgeChance(actor, base.dodgeChancePct, Number(actor?.defense?.explicitDodgeChancePct || 0) + sumEffect(actor, 'dodgeChancePct') + sub.dodgeChancePct + contextualDodge + Number(kept.dodgeChancePct||0) + Number(equipment.dodgeChancePct||0)),
     blockedDamageReductionPct: Math.max(0, base.blockedDamageReductionPct + Number(actor?.defense?.explicitBlockedDamageReductionPct || 0) + sumEffect(actor, 'blockedDamageReductionPct') + Number(equipment.blockedDamageReductionPct||0)),
     damageCritChancePct: Math.max(0, base.damageCritChancePct + contextualCrit + sumEffect(actor, 'damageCritChancePct') + passive.critChancePct + sub.critChancePct + Number(kept.critChancePct||0) + Number(equipment.damageCritChancePct||0)),
     criticalDamagePct: Math.max(0, base.criticalDamagePct + sumEffect(actor, 'criticalDamagePct') + passive.critDamagePct + sub.critDamagePct + Number(kept.critDamagePct||0) + Number(equipment.criticalDamagePct||0)),
@@ -201,7 +211,7 @@ function keptReactionHelpers(slot, combat, rng = Math.random, context = {}) {
   return { rider:riderDamage, flatDamage, shieldOnly, get lastRiderDamage(){ return lastRiderDamage; } };
 }
 
-export function resolveDamageComponent(slot, combat, source, target, ability, component, { rng = Math.random, finalDamagePct = 0, postFinalMultiplier = 1, critChanceBonus = 0, critDamageBonus = 0, unblockable = false, ignoreShields = false, blockChanceMultiplier = 1, canCrit = true, confluence = false, reaction = false, skipDodge = false, forcedBlocked = null } = {}) {
+export function resolveDamageComponent(slot, combat, source, target, ability, component, { rng = Math.random, finalDamagePct = 0, postFinalMultiplier = 1, critChanceBonus = 0, critDamageBonus = 0, unblockable = false, ignoreShields = false, blockChanceMultiplier = 1, canCrit = true, confluence = false, reaction = false, skipDodge = false, forcedBlocked = null, forcedCritical = null, forcedRecursiveCritical = false, suppressDefenseProcs = false } = {}) {
   // Direct-hit redirection is resolved before the redirected target's own Dodge/Block/Shield sequence.
   let redirectReductionPct=0;
   if(!reaction && component?.indirect!==true){
@@ -222,16 +232,17 @@ export function resolveDamageComponent(slot, combat, source, target, ability, co
   const targetCritAgainstSource=sumEffect(target,'critChanceAgainstSource',effect=>effect.sourceActorId===source.id);
   const sightedBonus=(target.effects||[]).reduce((n,e)=>n+(e.sourceActorId===source.id?Number(e.memory?.critChanceAgainstSource||0):0),0);
   const racialTypedCritChancePct=Number(source?.racialModifiers?.damageTypeCritChancePct?.[component.damageType]||0);
-  const crit = canCrit ? resolveCritical(raw, { chancePct: sourceStats.damageCritChancePct + racialTypedCritChancePct + targetCritAgainstSource + sightedBonus + Number(component.critChanceBonus || 0) + Number(critChanceBonus || 0) + Number(keptPre.critChanceBonus||0), criticalDamagePct: sourceStats.criticalDamagePct + Number(component.critDamageBonus || 0) + Number(critDamageBonus || 0) + Number(keptPre.critDamageBonus||0), rng }) : { amount: raw, critical:false, recursive:false };
+  const criticalDamagePct = sourceStats.criticalDamagePct + Number(component.critDamageBonus || 0) + Number(critDamageBonus || 0) + Number(keptPre.critDamageBonus||0);
+  let crit;
+  if(forcedCritical!==null){const multiplier=Math.max(0,Number(criticalDamagePct||150))/100;let amount=raw;const critical=Boolean(forcedCritical),recursive=critical&&Boolean(forcedRecursiveCritical);if(critical)amount*=multiplier;if(recursive)amount*=multiplier;crit={amount,critical,recursive};}
+  else crit = canCrit ? resolveCritical(raw, { chancePct: sourceStats.damageCritChancePct + racialTypedCritChancePct + targetCritAgainstSource + sightedBonus + Number(component.critChanceBonus || 0) + Number(critChanceBonus || 0) + Number(keptPre.critChanceBonus||0), criticalDamagePct, rng }) : { amount: raw, critical:false, recursive:false };
   let wardSealOwner=null,wardSeal=null,wardReductionPct=0;
   if(!reaction&&component?.indirect!==true){for(const owner of combat.actors||[]){const seal=(owner.subclassState?.seals||[]).find(x=>x.targetId===target.id&&x.type==='Ward');if(seal){wardSealOwner=owner;wardSeal=seal;wardReductionPct=25*(seal.empowered?1.25:1);break;}}}
   const dodge = skipDodge ? false : rollPercent(Math.max(0,targetStats.dodgeChancePct+Number(keptPre.targetDodgeChanceDelta||0)), rng);
   if (dodge) {
-    basePassiveOnDefense(combat, target, 'dodge');
-    recordSubclassDefenseEvent(combat,target,'dodge',{actualHpRemoved:0,shieldAbsorbed:0});
-    keptOnDefense({slot,combat,source,target,ability,component,outcome:'dodge',targetAggroMultiplier:targetStats.aggroMultiplier,rng,reaction,helpers:keptReactionHelpers(slot,combat,rng,{blocked:false})});
+    if(!suppressDefenseProcs){basePassiveOnDefense(combat, target, 'dodge');recordSubclassDefenseEvent(combat,target,'dodge',{actualHpRemoved:0,shieldAbsorbed:0});keptOnDefense({slot,combat,source,target,ability,component,outcome:'dodge',targetAggroMultiplier:targetStats.aggroMultiplier,rng,reaction,helpers:keptReactionHelpers(slot,combat,rng,{blocked:false})});}
     keptAfterDamage({slot,combat,source,target,ability,component,result:{hit:false,dodged:true,blocked:false,critical:crit.critical,actualHpRemoved:0,shieldAbsorbed:0},rng,reaction,helpers:keptReactionHelpers(slot,combat,rng,{blocked:false})});
-    return { hit: false, dodged: true, blocked: false, critical: crit.critical, recursiveCritical: crit.recursive, actualHpRemoved: 0, shieldAbsorbed: 0, finalDamage: 0 };
+    return { hit: false, dodged: true, blocked: false, critical: crit.critical, recursiveCritical: crit.recursive, damageType: component.damageType, actualHpRemoved: 0, shieldAbsorbed: 0, finalDamage: 0 };
   }
   const isUnblockable = Boolean(unblockable || component.unblockable);
   let blocked = false;
@@ -241,7 +252,7 @@ export function resolveDamageComponent(slot, combat, source, target, ability, co
     else if (target.defense?.guardActive) { blocked = true; blockSource = 'guard'; }
     else if (rollPercent(Math.max(0,targetStats.blockChancePct*Math.max(0,Number(blockChanceMultiplier||0))*Math.max(0,Number(keptPre.blockChanceMultiplier??1))), rng)) { blocked = true; blockSource = 'normal'; }
   }
-  if (blocked) { basePassiveOnDefense(combat, target, 'block'); keptOnDefense({slot,combat,source,target,ability,component,outcome:'block',targetAggroMultiplier:targetStats.aggroMultiplier,rng,reaction,helpers:keptReactionHelpers(slot,combat,rng,{blocked:true})}); }
+  if (blocked&&!suppressDefenseProcs) { basePassiveOnDefense(combat, target, 'block'); keptOnDefense({slot,combat,source,target,ability,component,outcome:'block',targetAggroMultiplier:targetStats.aggroMultiplier,rng,reaction,helpers:keptReactionHelpers(slot,combat,rng,{blocked:true})}); }
   let mitigated = crit.amount * Math.max(0,1-wardReductionPct/100);
   if (blocked) mitigated = mitigateBlockedDamage(mitigated, targetStats.blockedDamageReductionPct);
   mitigated = applyDamageReduction(mitigated, -targetStats.incomingDamagePct);
@@ -261,7 +272,7 @@ export function resolveDamageComponent(slot, combat, source, target, ability, co
   let actualHpRemoved = Math.min(hpBefore, hpDamage);
   if(keptPre.preventLethal&&actualHpRemoved>=hpBefore&&hpBefore>0)actualHpRemoved=Math.max(0,hpBefore-1);
   target.resources.hp = Math.max(0, hpBefore - actualHpRemoved);
-  recordSubclassDefenseEvent(combat,target,blocked?'block':'hit',{actualHpRemoved,shieldAbsorbed:shieldResult.absorbed});
+  if(!suppressDefenseProcs)recordSubclassDefenseEvent(combat,target,blocked?'block':'hit',{actualHpRemoved,shieldAbsorbed:shieldResult.absorbed});
   recordSubclassShieldAbsorb(combat,shieldResult.absorbedBySource,actualHpRemoved);
   recordSubclassDamageDealt(combat,source,target,ability,{hit:true,blocked,critical:crit.critical,actualHpRemoved},{targetHpBeforePct:hpBeforePct,targetHadShieldBefore});
   if(target.resources.hp<=0){const scripted=resolveScriptedEnemyLethal(combat,target);if(!scripted.revived){recordSubclassEnemyDefeated(combat,target,source);keptOnActorDefeated({slot,combat,source,target,ability,component,overkill:Math.max(0,hpDamage-hpBefore),rng,reaction,helpers:keptReactionHelpers(slot,combat,rng,{blocked})});}}
@@ -326,7 +337,7 @@ export function resolveDamageComponent(slot, combat, source, target, ability, co
   keptAfterDamage({slot,combat,source,target,ability,component,result:{hit:true,dodged:false,blocked,critical:crit.critical,recursiveCritical:crit.recursive,damageBeforeDefense:crit.amount,damageAfterDefenseBeforeShield:preShield,shieldAbsorbed:roundFinal(shieldResult.absorbed),actualHpRemoved,overkill:Math.max(0,hpDamage-hpBefore),targetHadShieldBefore,sourceAggroMultiplier:sourceStats.aggroMultiplier,targetAggroMultiplier:targetStats.aggroMultiplier},rng,reaction,helpers:keptReactionHelpers(slot,combat,rng,{blocked})});
   // Belowcaller Whispers can grow when a debuffed enemy attack removes no HP because defenses stopped it.
   if(source.side==='enemy'&&actualHpRemoved===0){for(const owner of combat.actors||[]){if(owner.side===target.side&&isSubclassResourceActive(owner,'Belowcaller')&&(source.effects||[]).some(e=>e.sourceActorId===owner.id&&e.negative)&&!owner.subclassState?.betweenTurnFlags?.whisperPrevented){gainSubclassResource(owner,1);owner.subclassState.betweenTurnFlags.whisperPrevented=true;}}}
-  return { hit: true, dodged: false, blocked, blockSource, critical: crit.critical, recursiveCritical: crit.recursive, damageBeforeDefense: crit.amount, damageAfterDefenseBeforeShield: preShield, shieldAbsorbed: roundFinal(shieldResult.absorbed), actualHpRemoved, finalDamage: actualHpRemoved, redirected: redirectReductionPct>0, resolvedTargetId:target.id, targetHadShieldBefore, sourceAggroMultiplier:sourceStats.aggroMultiplier, targetAggroMultiplier:targetStats.aggroMultiplier };
+  return { hit: true, dodged: false, blocked, blockSource, critical: crit.critical, recursiveCritical: crit.recursive, damageType: component.damageType, damageBeforeDefense: crit.amount, damageAfterDefenseBeforeShield: preShield, shieldAbsorbed: roundFinal(shieldResult.absorbed), actualHpRemoved, finalDamage: actualHpRemoved, redirected: redirectReductionPct>0, resolvedTargetId:target.id, targetHadShieldBefore, sourceAggroMultiplier:sourceStats.aggroMultiplier, targetAggroMultiplier:targetStats.aggroMultiplier };
 }
 
 export function resolveHealComponent(slot, combat, source, target, ability, component, { rng = Math.random, finalHealingPct = 0, confluence = false, canCrit = true } = {}) {

@@ -1,3 +1,4 @@
+import { normalizeCampaignDifficulty } from './constants.js';
 import { isClasslessEquipped, getEquippedKeptIds, getKeptImpressionChoices } from './kept-impression-controller.js';
 import { CORE_STATS, getStartingStatPool, normalizeStartingStats, totalStartingStats } from './starting-stats.js';
 import { createForestExpedition } from './expedition-controller.js';
@@ -52,7 +53,7 @@ export function canStartCampaign(slot) {
   return { ok: true, reason: '' };
 }
 
-export function startCampaign(slot, { account = null, chronicleTrees = null, regionsData = null, forestEvents = null, forestTrainers = null, tavernAdventurers = null, progression = null, equipmentConsumablesStatus = null, forestCrafting = null, racialConfigurations = null, expeditionRng = Math.random, now = nowIso() } = {}) {
+export function startCampaign(slot, { account = null, chronicleTrees = null, regionsData = null, forestEvents = null, forestTrainers = null, tavernAdventurers = null, progression = null, equipmentConsumablesStatus = null, forestCrafting = null, racialConfigurations = null, difficulty = 'Normal', expeditionRng = Math.random, now = nowIso() } = {}) {
   const readiness = canStartCampaign(slot);
   if (!readiness.ok) return { ok: false, error: readiness.reason };
   const fullRacialValidation=validateRacialConfiguration(slot.character.race,slot.character.racialConfiguration,racialConfigurations);if(racialConfigurations&&!fullRacialValidation.ok)return {ok:false,error:fullRacialValidation.errors[0]};
@@ -84,6 +85,7 @@ export function startCampaign(slot, { account = null, chronicleTrees = null, reg
       unspentLevelStatPoints: initialLevelStatPoints(next.character.race, 1)
     },
     configuration: {
+      difficulty: normalizeCampaignDifficulty(difficulty),
       race: next.character.race,
       racialConfiguration: clone(fullRacialValidation.value ?? next.character.racialConfiguration ?? null),
       portraitId: next.character.appearance?.portraitId||null,

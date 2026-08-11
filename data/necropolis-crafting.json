@@ -240,7 +240,7 @@
     {
       "id": "recipe-eq-necro-graveguard-helmet",
       "name": "Graveguard Helm",
-      "category": "Necropolis Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-necro-graveguard-helmet",
@@ -263,7 +263,7 @@
     {
       "id": "recipe-eq-necro-graveguard-chest",
       "name": "Graveguard Cuirass",
-      "category": "Necropolis Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-necro-graveguard-chest",
@@ -286,7 +286,7 @@
     {
       "id": "recipe-eq-necro-graveguard-gloves",
       "name": "Graveguard Grips",
-      "category": "Necropolis Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-necro-graveguard-gloves",
@@ -309,7 +309,7 @@
     {
       "id": "recipe-eq-necro-graveguard-boots",
       "name": "Graveguard Greaves",
-      "category": "Necropolis Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-necro-graveguard-boots",
@@ -332,7 +332,7 @@
     {
       "id": "recipe-eq-necro-cultbreaker-helmet",
       "name": "Cultbreaker Helm",
-      "category": "Necropolis Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-necro-cultbreaker-helmet",
@@ -355,7 +355,7 @@
     {
       "id": "recipe-eq-necro-cultbreaker-chest",
       "name": "Cultbreaker Cuirass",
-      "category": "Necropolis Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-necro-cultbreaker-chest",
@@ -378,7 +378,7 @@
     {
       "id": "recipe-eq-necro-cultbreaker-gloves",
       "name": "Cultbreaker Grips",
-      "category": "Necropolis Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-necro-cultbreaker-gloves",
@@ -401,7 +401,7 @@
     {
       "id": "recipe-eq-necro-cultbreaker-boots",
       "name": "Cultbreaker Greaves",
-      "category": "Necropolis Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-necro-cultbreaker-boots",
@@ -424,7 +424,7 @@
     {
       "id": "recipe-eq-necro-soulwarden-helmet",
       "name": "Soulwarden Helm",
-      "category": "Necropolis Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-necro-soulwarden-helmet",
@@ -447,7 +447,7 @@
     {
       "id": "recipe-eq-necro-soulwarden-chest",
       "name": "Soulwarden Cuirass",
-      "category": "Necropolis Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-necro-soulwarden-chest",
@@ -470,7 +470,7 @@
     {
       "id": "recipe-eq-necro-soulwarden-gloves",
       "name": "Soulwarden Grips",
-      "category": "Necropolis Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-necro-soulwarden-gloves",
@@ -493,7 +493,7 @@
     {
       "id": "recipe-eq-necro-soulwarden-boots",
       "name": "Soulwarden Greaves",
-      "category": "Necropolis Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-necro-soulwarden-boots",
@@ -516,7 +516,7 @@
     {
       "id": "recipe-eq-necro-bonecourt-helmet",
       "name": "Bonecourt Helm",
-      "category": "Necropolis Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-necro-bonecourt-helmet",
@@ -539,7 +539,7 @@
     {
       "id": "recipe-eq-necro-bonecourt-chest",
       "name": "Bonecourt Cuirass",
-      "category": "Necropolis Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-necro-bonecourt-chest",
@@ -562,7 +562,7 @@
     {
       "id": "recipe-eq-necro-bonecourt-gloves",
       "name": "Bonecourt Grips",
-      "category": "Necropolis Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-necro-bonecourt-gloves",
@@ -585,7 +585,7 @@
     {
       "id": "recipe-eq-necro-bonecourt-boots",
       "name": "Bonecourt Greaves",
-      "category": "Necropolis Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-necro-bonecourt-boots",
@@ -608,7 +608,7 @@
     {
       "id": "recipe-eq-necro-grave-iron-blade",
       "name": "Grave-Iron Blade",
-      "category": "Necropolis Equipment",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-necro-grave-iron-blade",
@@ -631,7 +631,7 @@
     {
       "id": "recipe-eq-necro-funeral-pike",
       "name": "Funeral Pike",
-      "category": "Necropolis Equipment",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-necro-funeral-pike",
@@ -654,7 +654,7 @@
     {
       "id": "recipe-eq-necro-soulglass-wand",
       "name": "Soulglass Wand",
-      "category": "Necropolis Equipment",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-necro-soulglass-wand",
@@ -677,7 +677,7 @@
     {
       "id": "recipe-eq-necro-winter-ossuary-staff",
       "name": "Winter Ossuary Staff",
-      "category": "Necropolis Equipment",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-necro-winter-ossuary-staff",
@@ -700,7 +700,7 @@
     {
       "id": "recipe-eq-necro-graveforce-maul",
       "name": "Graveforce Maul",
-      "category": "Necropolis Equipment",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-necro-graveforce-maul",
@@ -723,7 +723,7 @@
     {
       "id": "recipe-eq-necro-cult-ritual-dagger",
       "name": "Cult Ritual Dagger",
-      "category": "Necropolis Equipment",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-necro-cult-ritual-dagger",
@@ -746,7 +746,7 @@
     {
       "id": "recipe-eq-necro-sepulcher-tome",
       "name": "Sepulcher Tome",
-      "category": "Necropolis Equipment",
+      "category": "Spell Books",
       "output": {
         "type": "equipment",
         "id": "eq-necro-sepulcher-tome",
@@ -769,7 +769,7 @@
     {
       "id": "recipe-eq-necro-bonewall-shield",
       "name": "Bonewall Shield",
-      "category": "Necropolis Equipment",
+      "category": "Shields",
       "output": {
         "type": "equipment",
         "id": "eq-necro-bonewall-shield",
@@ -792,7 +792,7 @@
     {
       "id": "recipe-eq-necro-grave-salt-charm",
       "name": "Grave-Salt Charm",
-      "category": "Necropolis Equipment",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-necro-grave-salt-charm",
@@ -815,7 +815,7 @@
     {
       "id": "recipe-eq-necro-funerary-glass-charm",
       "name": "Funerary Glass Charm",
-      "category": "Necropolis Equipment",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-necro-funerary-glass-charm",
@@ -838,7 +838,7 @@
     {
       "id": "recipe-eq-necro-soul-ash-medallion",
       "name": "Soul-Ash Medallion",
-      "category": "Necropolis Equipment",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-necro-soul-ash-medallion",
@@ -861,7 +861,7 @@
     {
       "id": "recipe-eq-necro-tomb-silk-band",
       "name": "Tomb-Silk Band",
-      "category": "Necropolis Equipment",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-necro-tomb-silk-band",
@@ -884,7 +884,7 @@
     {
       "id": "recipe-eq-necro-royal-bone-seal",
       "name": "Royal Bone Seal",
-      "category": "Necropolis Equipment",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-necro-royal-bone-seal",
@@ -907,7 +907,7 @@
     {
       "id": "recipe-eq-necro-mirror-residue-lens",
       "name": "Mirror-Residue Lens",
-      "category": "Necropolis Equipment",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-necro-mirror-residue-lens",
@@ -930,7 +930,7 @@
     {
       "id": "recipe-eq-necro-black-wax-censer",
       "name": "Black-Wax Censer",
-      "category": "Necropolis Equipment",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-necro-black-wax-censer",
@@ -953,7 +953,7 @@
     {
       "id": "recipe-eq-necro-procession-chain",
       "name": "Procession Chain",
-      "category": "Necropolis Equipment",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-necro-procession-chain",

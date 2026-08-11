@@ -6,6 +6,12 @@ function recipeIndex(crafting){return new Map((crafting?.recipes||[]).map(x=>[x.
 function materialIndex(crafting){return new Map((crafting?.materials||[]).map(x=>[x.id,x]));}
 function equipmentIndex(catalog){return new Map((catalog?.equipment||[]).map(x=>[x.id,x]));}
 function consumableIndex(catalog){return new Map((catalog?.consumables||[]).map(x=>[x.id,x]));}
+export function mergeCraftingCatalogs(catalogs=[]){
+ const list=(Array.isArray(catalogs)?catalogs:[catalogs]).filter(Boolean);if(!list.length)return {rules:{materialThreadEligibleKinds:['ordinary-enemy']},materials:[],sets:[],recipes:[],starterGear:{shared:[],byBaseClass:{}}};
+ const unique=(key)=>{const seen=new Map();for(const catalog of list)for(const entry of catalog?.[key]||[])if(entry?.id&&!seen.has(entry.id))seen.set(entry.id,clone(entry));return [...seen.values()];};
+ const rules=Object.assign({},...list.map(x=>clone(x?.rules||{})));rules.materialThreadEligibleKinds=[...new Set(list.flatMap(x=>x?.rules?.materialThreadEligibleKinds||[]))];if(!rules.materialThreadEligibleKinds.length)rules.materialThreadEligibleKinds=['ordinary-enemy'];
+ return {version:'runtime-cumulative',designStatus:'reached-region-cumulative-campsite-crafting',rules,materials:unique('materials'),sets:unique('sets'),recipes:unique('recipes'),starterGear:clone(list[0]?.starterGear||{shared:[],byBaseClass:{}}),catalogueSummary:{sourceCatalogs:list.length,materials:unique('materials').length,recipes:unique('recipes').length}};
+}
 export function starterGearForBaseClass(baseClass,crafting){const shared=[...(crafting?.starterGear?.shared||[])];const own=[...(crafting?.starterGear?.byBaseClass?.[baseClass]||[])];return [...new Set([...shared,...own])];}
 export function initializeCampaignCraftingInventory(baseClass,crafting,{borrowedItem=null}={}){
  const ids=starterGearForBaseClass(baseClass,crafting);const equipment={};for(const id of ids)equipment[id]={quantity:1,source:'starter'};

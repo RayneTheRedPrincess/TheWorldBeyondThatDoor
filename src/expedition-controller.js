@@ -304,8 +304,10 @@ export function resolveNoncombatWithoutCheckmark(slot, { note = null, details = 
 }
 
 export function continueAfterForestEventResult(slot){
-  const run=activeRun(slot);if(!run)return{ok:false,error:'No active campaign.'};if(run.expedition?.state!=='event-result'||!run.expedition?.pendingPostEventCombat)return{ok:false,error:'No Forest event result is awaiting combat.'};
-  const next=clone(slot),ex=next.campaign.state.expedition;ex.encounter=clone(ex.pendingPostEventCombat);ex.pendingPostEventCombat=null;ex.state='combat-pending';return{ok:true,slot:next,encounter:clone(ex.encounter)};
+  const run=activeRun(slot);if(!run)return{ok:false,error:'No active campaign.'};if(run.expedition?.state!=='event-result')return{ok:false,error:'No stat-check result is awaiting continuation.'};
+  // Backward-compatibility for saves created before stat checks stopped forcing a
+  // checkmark follow-up combat: discard that pending battle and continue normally.
+  const next=clone(slot),ex=next.campaign.state.expedition;ex.pendingPostEventCombat=null;ex.encounter=null;ex.state='awaiting-next-step';return{ok:true,slot:next,encounter:null};
 }
 
 export function attachSpecialCombat(slot, { boss = false, miniboss = false, rng = Math.random } = {}) {

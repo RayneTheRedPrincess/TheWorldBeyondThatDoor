@@ -444,7 +444,8 @@
       ],
       "resourceCost": null,
       "special": [
-        "veilcut"
+        "veilcut",
+        "veilblade-damage-split-60-dark-40-poison"
       ],
       "requirements": {},
       "hpCostPctCurrent": 0,
@@ -454,7 +455,7 @@
         "INT"
       ],
       "canonicalResource": null,
-      "canonicalText": "1. Veilcut\n- Level 3\n- Cost: 1 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Dark\n- Base Damage: 12\n- Scaling: DEX 0.009 + LCK 0.007 + INT 0.005"
+      "canonicalText": "1. Veilcut\n- Level 3\n- Cost: 1 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage types: 60% Dark / 40% Poison\n- Base Damage: 12 total\n- Scaling: DEX 0.009 + LCK 0.007 + INT 0.005\n- Damage Split: the ability's full calculated damage is divided into 60% Dark and 40% Poison. Both portions share the same hit, Crit, and Block result, then each portion is modified by its own damage-type bonuses and Resistance."
     },
     {
       "id": "rogue-veil-blade-fade-between",
@@ -505,7 +506,8 @@
       ],
       "resourceCost": null,
       "special": [
-        "shadow-through"
+        "shadow-through",
+        "veilblade-damage-split-60-dark-40-poison"
       ],
       "requirements": {},
       "hpCostPctCurrent": 0,
@@ -515,7 +517,7 @@
         "INT"
       ],
       "canonicalResource": null,
-      "canonicalText": "3. Shadow Through\n- Level 7\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Dark\n- Base Damage: 15\n- Scaling: DEX 0.009 + INT 0.007 + LCK 0.006\n- Ignores 50% of target's Block Chance.\n- At 3 Veil Imprints, becomes Unblockable."
+      "canonicalText": "3. Shadow Through\n- Level 7\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage types: 60% Dark / 40% Poison\n- Base Damage: 15 total\n- Scaling: DEX 0.009 + INT 0.007 + LCK 0.006\n- Ignores 50% of target's Block Chance.\n- At 3 Veil Imprints, becomes Unblockable.\n- Damage Split: the ability's full calculated damage is divided into 60% Dark and 40% Poison. Both portions share the same hit, Crit, and Block result, then each portion is modified by its own damage-type bonuses and Resistance."
     },
     {
       "id": "rogue-veil-blade-erase-the-mark",
@@ -544,7 +546,8 @@
         "amount": "all"
       },
       "special": [
-        "erase-the-mark"
+        "erase-the-mark",
+        "veilblade-damage-split-60-dark-40-poison"
       ],
       "requirements": {},
       "hpCostPctCurrent": 0,
@@ -554,7 +557,7 @@
         "INT"
       ],
       "canonicalResource": null,
-      "canonicalText": "4. Erase the Mark\n- Level 9\n- Cost: 3 Energy\n- Cooldown: 4 turns\n- Target: single enemy\n- Damage type: Dark\n- Base Damage: 23\n- Scaling: DEX 0.010 + LCK 0.009 + INT 0.009\n- Consume all Veil Imprints.\n- +12% final damage per Veil Imprint consumed.\n- Existing Veil Imprint damage bonuses apply before consumption."
+      "canonicalText": "4. Erase the Mark\n- Level 9\n- Cost: 3 Energy\n- Cooldown: 4 turns\n- Target: single enemy\n- Damage types: 60% Dark / 40% Poison\n- Base Damage: 23 total\n- Scaling: DEX 0.010 + LCK 0.009 + INT 0.009\n- Consume all Veil Imprints.\n- +12% final damage per Veil Imprint consumed.\n- Existing Veil Imprint damage bonuses apply before consumption.\n- Damage Split: the ability's full calculated damage is divided into 60% Dark and 40% Poison. Both portions share the same hit, Crit, and Block result, then each portion is modified by its own damage-type bonuses and Resistance."
     },
     {
       "id": "rogue-gunslinger-quickdraw",

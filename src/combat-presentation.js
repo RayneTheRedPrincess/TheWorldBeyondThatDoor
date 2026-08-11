@@ -260,31 +260,126 @@ export function initiativeView(combat = {}) {
   });
 }
 
-export function summarizeCombatLog(combat = {}, abilityNames = new Map()) {
-  const actors = new Map((combat.actors || []).map(actor => [actor.id, actor.name]));
-  const name = id => actors.get(id) || id || 'Unknown';
-  const logs = (combat.log || []).slice(-24).reverse();
+export function summarizeCombatLog(combat = {}, abilityNames = new Map(), itemNames = new Map()) {
+  const actorRecords = new Map((combat.actors || []).map(actor => [actor.id, actor]));
+  const name = id => actorRecords.get(id)?.name || id || 'Unknown';
+  const abilityLabel = entry => abilityNames.get(entry?.abilityId) || entry?.abilityName || entry?.abilityId || 'an ability';
+  const roundPrefix = entry => Number(entry?.round || 0) > 0 ? `R${Number(entry.round)} · ` : '';
+  const damageTypeText = result => String(result?.damageType || '').trim();
+  const amount = value => Math.max(0, Math.round(num(value)));
+  const logs = (combat.log || []).slice(-120).reverse();
   const lines = [];
+  const push = (entry, text) => { if (text) lines.push(`${roundPrefix(entry)}${text}`); };
+
+  const resultClauses = (entry, actorName, label) => {
+    const clauses = [];
+    for (const result of entry?.results || []) {
+      if (!result) continue;
+      const targetId = result.resolvedTargetId || result.targetId || entry.targetId || entry.actorId;
+      const targetName = name(targetId);
+      const type = String(result.type || '');
+      const isDamage = ['damage','bonus-damage','conduit-arc','hypha-transmission','glyph-echo'].includes(type);
+      const isHeal = ['heal','heal-from-damage','conditional-heal','answer-heal','lumen-heal','adaptation-heal','profane-exchange-heal','lifesteal','hypha-heal-transmission'].includes(type);
+      const isShield = ['shield','overheal-shield','hypha-shield-transmission'].includes(type);
+      if (isDamage) {
+        const dtype = damageTypeText(result);
+        if (result.dodged) {
+          clauses.push(`${actorName} → ${targetName}: ${label} was dodged`);
+          continue;
+        }
+        const hp = amount(result.actualHpRemoved ?? result.finalDamage);
+        const shield = amount(result.shieldAbsorbed);
+        const flags = [result.critical ? 'Critical' : '', result.blocked ? 'Blocked' : ''].filter(Boolean).join(', ');
+        const damageLabel = `${hp}${dtype ? ` ${dtype}` : ''} HP damage`;
+        const shieldLabel = shield > 0 ? ` + ${shield} Shield damage` : '';
+        const noLoss = hp === 0 && shield === 0 ? 'no damage penetrated defenses' : `${damageLabel}${shieldLabel}`;
+        clauses.push(`${actorName} → ${targetName}: ${label} dealt ${noLoss}${flags ? ` (${flags})` : ''}`);
+      } else if (isHeal) {
+        const healed = amount(result.actualRestored ?? result.amount);
+        const flags = result.critical ? ' (Critical Heal)' : '';
+        clauses.push(`${actorName} → ${targetName}: ${label} restored ${healed} HP${flags}`);
+      } else if (isShield) {
+        clauses.push(`${actorName} → ${targetName}: ${label} granted ${amount(result.amount)} Shield`);
+      } else if (type === 'energy') {
+        clauses.push(`${actorName}: ${label} restored ${amount(result.amount)} Energy`);
+      } else if (type === 'cleanse') {
+        const count = Array.isArray(result.removed) ? result.removed.length : 0;
+        clauses.push(`${actorName}: ${label} cleansed ${count} negative effect${count === 1 ? '' : 's'}`);
+      } else if (type === 'status') {
+        clauses.push(`${actorName}: ${label} applied ${result.statusId || 'a status effect'}`);
+      } else if (type === 'form') {
+        clauses.push(`${actorName}: ${label} changed form to ${result.form || 'a new form'}`);
+      } else if (type === 'woundshare' && result.targetId) {
+        clauses.push(`${actorName} → ${targetName}: ${label} applied Woundshare`);
+      }
+    }
+    return clauses;
+  };
+
   for (const entry of logs) {
     if (!entry) continue;
-    if (entry.type === 'turn-start') lines.push(`${name(entry.actorId)} begins their turn and gains ${entry.naturalEnergy || 0}${entry.bonusEnergy ? ` + ${entry.bonusEnergy}` : ''} Energy.`);
-    else if (entry.type === 'turn-end') lines.push(`${name(entry.actorId)} ends their turn.`);
-    else if (entry.type === 'action' && entry.action === 'charge') lines.push(`${name(entry.actorId)} Charges for +1 Energy.`);
-    else if (entry.type === 'action' && entry.action === 'guard') lines.push(`${name(entry.actorId)} Guards until their next turn.`);
-    else if (['ability','subclass-ability','equipment-ability'].includes(entry.type)) {
-      const label = abilityNames.get(entry.abilityId) || entry.abilityName || entry.abilityId || 'an ability';
-      const bits = [];
-      for (const result of entry.results || []) {
-        if (result.type === 'damage') {
-          if (result.dodged) bits.push(`${name(result.targetId)} Dodged`);
-          else bits.push(`${name(result.targetId)} ${result.blocked ? 'Blocked; ' : ''}${result.critical ? 'Crit; ' : ''}${Math.round(num(result.actualHpRemoved))} HP removed${num(result.shieldAbsorbed) ? `, ${Math.round(num(result.shieldAbsorbed))} Shield absorbed` : ''}`);
-        } else if (result.type === 'heal') bits.push(`${name(result.targetId)} healed ${Math.round(num(result.actualRestored))}${result.critical ? ' (Crit)' : ''}`);
-        else if (result.type === 'shield') bits.push(`${name(result.targetId)} gained ${Math.round(num(result.amount))} Shield`);
+    const actorName = name(entry.actorId || entry.sourceActorId);
+    if (entry.type === 'turn-start') {
+      const gain = amount(entry.naturalEnergy) + amount(entry.bonusEnergy);
+      push(entry, `${actorName} begins their turn${gain ? ` and gains ${gain} Energy${entry.bonusEnergy ? ` (${amount(entry.naturalEnergy)} natural + ${amount(entry.bonusEnergy)} bonus)` : ''}` : ''}.`);
+    } else if (entry.type === 'turn-end') {
+      push(entry, `${actorName} ends their turn.`);
+    } else if (entry.type === 'action-skipped') {
+      push(entry, `${actorName}'s action is skipped.`);
+    } else if (entry.type === 'action' && entry.action === 'charge') {
+      push(entry, `${actorName} Charges and gains +1 Energy.`);
+    } else if (entry.type === 'action' && entry.action === 'guard') {
+      push(entry, `${actorName} Guards, guaranteeing a Block until their next turn.`);
+    } else if (['ability','subclass-ability','equipment-ability','racial-ability'].includes(entry.type)) {
+      const label = abilityLabel(entry);
+      const costBits = [];
+      if (num(entry.energySpent) > 0) costBits.push(`${amount(entry.energySpent)} Energy`);
+      if (num(entry.hpPaid) > 0) costBits.push(`${amount(entry.hpPaid)} HP`);
+      const source = entry.sourceItemName ? ` from ${entry.sourceItemName}` : '';
+      const clauses = resultClauses(entry, actorName, label);
+      if (clauses.length) {
+        clauses.forEach((clause, index) => push(entry, `${clause}${index === 0 ? source : ''}${index === 0 && costBits.length ? ` · Cost: ${costBits.join(' + ')}` : ''}.`));
+      } else {
+        push(entry, `${actorName} uses ${label}${source}${costBits.length ? ` · Cost: ${costBits.join(' + ')}` : ''}.`);
       }
-      lines.push(`${name(entry.actorId)} uses ${label}${bits.length ? ` — ${bits.join(' · ')}` : ''}.`);
-    } else if (entry.type === 'status-damage') lines.push(`${name(entry.actorId)} takes ${Math.round(num(entry.amount))} ${entry.damageType || ''} damage from ${entry.status || 'a status'}${entry.critical ? ' (Crit)' : ''}${num(entry.shieldAbsorbed) ? `; ${Math.round(num(entry.shieldAbsorbed))} Shield absorbed` : ''}.`);
-    else if (entry.type === 'redirect') lines.push(`${name(entry.targetActorId)} intercepts the attack${entry.reductionPct ? ` with ${entry.reductionPct}% redirected-hit reduction` : ''}.`);
-    else if (entry.type === 'turn-start-defeat-by-status') lines.push(`${name(entry.actorId)} is defeated by a start-of-turn status before acting.`);
+    } else if (entry.type === 'consumable') {
+      const label = itemNames.get(entry.itemId) || entry.itemName || entry.itemId || 'a consumable';
+      const clauses = resultClauses(entry, actorName, label);
+      if (clauses.length) for (const clause of clauses) push(entry, `${clause}.`);
+      else push(entry, `${actorName} uses ${label}.`);
+    } else if (entry.type === 'trailstock-echo') {
+      const label = 'Trailstock Echo';
+      const clauses = resultClauses(entry, actorName, label);
+      if (clauses.length) for (const clause of clauses) push(entry, `${clause}.`);
+      else push(entry, `${actorName}'s ${label} resolves.`);
+    } else if (entry.type === 'status-damage') {
+      const source = entry.sourceActorId ? name(entry.sourceActorId) : (entry.status || 'A status effect');
+      const target = name(entry.actorId);
+      const hp = amount(entry.amount);
+      const shield = amount(entry.shieldAbsorbed);
+      const dtype = String(entry.damageType || '').trim();
+      const status = entry.status || 'status effect';
+      const ownerText = entry.sourceActorId ? `${source}'s ${status}` : status;
+      push(entry, `${ownerText} → ${target}: dealt ${hp}${dtype ? ` ${dtype}` : ''} HP damage${shield ? ` + ${shield} Shield damage` : ''}${entry.critical ? ' (Critical)' : ''}.`);
+    } else if (entry.type === 'ki-deferred-damage') {
+      push(entry, `${actorName} takes ${amount(entry.amount)} deferred HP damage from ${entry.kiId || 'a Kept Impression'}.`);
+    } else if (entry.type === 'kept-indirect-fallback') {
+      push(entry, `${name(entry.sourceActorId)} → ${name(entry.targetActorId)}: an indirect Kept Impression effect dealt ${amount(entry.amount)}${entry.damageType ? ` ${entry.damageType}` : ''} HP damage.`);
+    } else if (entry.type === 'redirect') {
+      push(entry, `${name(entry.targetActorId)} intercepts an attack from ${name(entry.sourceActorId)}${entry.reductionPct ? ` and reduces the redirected hit by ${amount(entry.reductionPct)}%` : ''}.`);
+    } else if (entry.type === 'summon') {
+      push(entry, `${entry.actorId ? `${name(entry.actorId)} summons` : 'Summoned'} ${entry.name || name(entry.summonId)}.`);
+    } else if (entry.type === 'turn-start-defeat-by-status') {
+      push(entry, `${actorName} is defeated by a start-of-turn status before acting.`);
+    } else if (entry.type === 'kept-combat-start-choice') {
+      push(entry, `${actorName} chooses ${entry.choice || 'a combat-start option'} for ${entry.kiId || 'a Kept Impression'}.`);
+    } else if (entry.type === 'kept-active') {
+      const target = entry.targetId ? ` targeting ${name(entry.targetId)}` : '';
+      push(entry, `${actorName} activates ${entry.abilityId || entry.kiId || 'a Kept Impression ability'}${target}.`);
+    } else if (entry.type === 'subclass-turn-start-events') {
+      const count = Array.isArray(entry.events) ? entry.events.length : 0;
+      if (count) push(entry, `${actorName} resolves ${count} subclass turn-start event${count === 1 ? '' : 's'}.`);
+    }
   }
-  return lines;
+  return lines.slice(0, 180);
 }

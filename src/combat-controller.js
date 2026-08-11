@@ -1,4 +1,4 @@
-import { MAX_PERSISTED_COMBAT_LOG_ENTRIES } from './constants.js';
+import { MAX_PERSISTED_COMBAT_LOG_ENTRIES, CAMPAIGN_DIFFICULTY_DETAILS, normalizeCampaignDifficulty } from './constants.js';
 import { BASE_MAX_ENERGY, baseDerivedStats, resolveCritical, applyDamageReduction } from './combat-math.js';
 import { createBaseClassState, resetOwnTurnFlags, resetBetweenTurnFlags, resourceValue } from './base-class-state.js';
 import { createSubclassState, resetSubclassTurnFlags, resetSubclassBetweenTurnFlags, subclassBaseClass, tickSubclassEndOwnTurn, subclassPassiveModifiers } from './subclass-state.js';
@@ -9,6 +9,53 @@ import { resolveAllScriptedEnemyLethals, advanceSerevakhSin } from './enemy-spec
 const PLAYER_ACTIONS = new Set(['charge', 'ability', 'guard', 'consumable']);
 const SIDES = new Set(['party', 'enemy']);
 const CONTROLS = new Set(['player', 'ai']);
+const REGULAR_PARTY_ENEMY_SCALE = Object.freeze({
+  1: Object.freeze({ hp: 1.00, damage: 1.00 }),
+  2: Object.freeze({ hp: 1.08, damage: 1.03 }),
+  3: Object.freeze({ hp: 1.16, damage: 1.05 }),
+  4: Object.freeze({ hp: 1.25, damage: 1.08 })
+});
+const SPECIAL_PARTY_ENEMY_SCALE = Object.freeze({
+  1: Object.freeze({ hp: 1.00, damage: 1.00 }),
+  2: Object.freeze({ hp: 1.04, damage: 1.02 }),
+  3: Object.freeze({ hp: 1.08, damage: 1.04 }),
+  4: Object.freeze({ hp: 1.12, damage: 1.06 })
+});
+
+function enemyEncounterRole(encounter = {}) {
+  const source = String(encounter?.source || '').toLowerCase();
+  if (encounter?.trainerId || source === 'trainer') return 'trainer';
+  if (encounter?.boss || source === 'boss') return 'boss';
+  if (encounter?.miniboss || source === 'miniboss') return 'miniboss';
+  return 'regular';
+}
+function scaleDamageComponents(components, multiplier) {
+  return (components || []).map(component => component?.type === 'damage'
+    ? { ...clone(component), base: Math.max(0, Number(component.base || 0) * multiplier) }
+    : clone(component));
+}
+function scaleEnemySpecForCampaign(spec, { hpMultiplier = 1, damageMultiplier = 1, role = 'regular', difficulty = 'Normal' } = {}) {
+  const out = clone(spec);
+  if (out.side !== 'enemy') return out;
+  out.maxHp = Math.max(1, Math.round(Number(out.maxHp || 1) * hpMultiplier));
+  if (Number.isFinite(Number(out.hp))) out.hp = Math.min(out.maxHp, Math.max(0, Math.round(Number(out.hp) * hpMultiplier)));
+  if (out.basicAttack) out.basicAttack = { ...clone(out.basicAttack), base: Math.max(0, Number(out.basicAttack.base || 0) * damageMultiplier) };
+  out.enemyAbilities = (out.enemyAbilities || []).map(ability => ({ ...clone(ability), components: scaleDamageComponents(ability.components, damageMultiplier) }));
+  if (Array.isArray(out.enemyAi?.summonTemplates)) {
+    out.enemyAi = clone(out.enemyAi);
+    out.enemyAi.summonTemplates = out.enemyAi.summonTemplates.map(template => {
+      const summon = clone(template);
+      summon.maxHp = Math.max(1, Math.round(Number(summon.maxHp || summon.baseMaxHp || 1) * hpMultiplier));
+      if (summon.basicAttack) summon.basicAttack = { ...clone(summon.basicAttack), base: Math.max(0, Number(summon.basicAttack.base || 0) * damageMultiplier) };
+      summon.enemyAbilities = (summon.enemyAbilities || []).map(ability => ({ ...clone(ability), components: scaleDamageComponents(ability.components, damageMultiplier) }));
+      return summon;
+    });
+  }
+  out.enemyBalanceRole = role;
+  out.campaignDifficulty = difficulty;
+  out.enemyBalanceMultipliers = { hp: hpMultiplier, damage: damageMultiplier };
+  return out;
+}
 
 function clone(value) {
   return typeof structuredClone === 'function' ? structuredClone(value) : JSON.parse(JSON.stringify(value));
@@ -145,6 +192,9 @@ export function createCombatActor(spec = {}, { slotIndex = 1 } = {}) {
     onyxReward: Math.max(0, Number(spec.onyxReward || 0)),
     enemyTemplateId: spec.enemyTemplateId || null,
     enemyAi: spec.enemyAi ? clone(spec.enemyAi) : null,
+    enemyBalanceRole: spec.enemyBalanceRole || null,
+    campaignDifficulty: spec.campaignDifficulty || null,
+    enemyBalanceMultipliers: clone(spec.enemyBalanceMultipliers || null),
     basicAttack: spec.basicAttack ? clone(spec.basicAttack) : null,
     enemyAbilities: Array.isArray(spec.enemyAbilities) ? clone(spec.enemyAbilities) : [],
     weaponType: spec.weaponType || null,
@@ -461,7 +511,18 @@ export function attachCombatToCampaign(slot, { actorSpecs, rng = Math.random, no
   if (slot.campaign.state.expedition?.state !== 'combat-pending' || !encounter?.combat) return { ok: false, error: 'No combat encounter is waiting for a roster.' };
   if (slot.campaign.state.combat) return { ok: false, error: 'A combat state is already attached.' };
   try {
-    const ready = createCombatState({ encounterId: encounter.id, actors: actorSpecs, rng, now });
+    const difficulty = normalizeCampaignDifficulty(slot.campaign.state.configuration?.difficulty || 'Normal');
+    const detail = CAMPAIGN_DIFFICULTY_DETAILS[difficulty] || CAMPAIGN_DIFFICULTY_DETAILS.Normal;
+    const role = enemyEncounterRole(encounter);
+    const partySize = Math.max(1, Math.min(4, (actorSpecs || []).filter(spec => spec?.side === 'party' && spec?.real !== false).length || 1));
+    const special = role !== 'regular';
+    const partyScale = (special ? SPECIAL_PARTY_ENEMY_SCALE : REGULAR_PARTY_ENEMY_SCALE)[partySize] || { hp: 1, damage: 1 };
+    const hpMultiplier = Number(special ? detail.specialHpMultiplier : detail.enemyHpMultiplier) * Number(partyScale.hp || 1);
+    const damageMultiplier = Number(special ? detail.specialDamageMultiplier : detail.enemyDamageMultiplier) * Number(partyScale.damage || 1);
+    const balancedSpecs = (actorSpecs || []).map(spec => scaleEnemySpecForCampaign(spec, { hpMultiplier, damageMultiplier, role, difficulty }));
+    const ready = createCombatState({ encounterId: encounter.id, actors: balancedSpecs, rng, now });
+    ready.difficulty = difficulty;
+    ready.enemyBalance = { role, partySize, hpMultiplier, damageMultiplier };
     const begun = beginCombat(ready, { now });
     if (!begun.ok) return begun;
     const next = clone(slot);

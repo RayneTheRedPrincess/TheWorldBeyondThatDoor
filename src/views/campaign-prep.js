@@ -1,6 +1,7 @@
 import { escapeHtml, shell } from './shared.js';
 import { getKeptSlotCost, KEPT_IMPRESSION_CAPACITY } from '../kept-impression-controller.js';
 import { CORE_STATS } from '../starting-stats.js';
+import { CAMPAIGN_DIFFICULTIES, CAMPAIGN_DIFFICULTY_DETAILS } from '../constants.js';
 
 export function renderCampaignPreparation({ summary, keptEntries }) {
   const kept = summary.keptImpressions || [];
@@ -25,6 +26,13 @@ export function renderCampaignPreparation({ summary, keptEntries }) {
         <h3>Kept Impressions</h3>
         ${kept.length ? `<div class="kept-summary-list">${kept.map(entry => `<div class="kept-summary"><strong>${escapeHtml(entry.name)}</strong><span>${entry.slots} slot${entry.slots === 1 ? '' : 's'}</span></div>`).join('')}</div>` : '<div class="empty-state">No Kept Impressions are equipped. An empty loadout does not prevent the Door from opening.</div>'}
       </div>
+      <fieldset class="section difficulty-fieldset">
+        <legend>Campaign Difficulty</legend>
+        <p class="muted">Choose before opening the Door. Difficulty is locked for the entire campaign. Enemy Dodge is intentionally kept below player-side extremes on every difficulty.</p>
+        <div class="difficulty-grid">
+          ${CAMPAIGN_DIFFICULTIES.map(name => { const detail=CAMPAIGN_DIFFICULTY_DETAILS[name]; return `<label class="difficulty-choice"><input type="radio" name="campaign_difficulty" data-campaign-difficulty value="${escapeHtml(name)}" ${name==='Normal'?'checked':''}/><span class="difficulty-choice-body"><strong>${escapeHtml(detail.label)}</strong><small>${escapeHtml(detail.summary)}</small></span></label>`; }).join('')}
+        </div>
+      </fieldset>
       <div class="notice section">Opening the Door snapshots this preparation into a separate campaign save. Tavern changes will not rewrite an active run.</div>
       <div class="section"><button class="primary large-button" data-action="start-campaign">Open the Door</button></div>
     </section>

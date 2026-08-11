@@ -400,7 +400,7 @@
     {
       "id": "recipe-eq-bog-darksteel-helm",
       "name": "Darksteel Sallet",
-      "category": "Bog Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-bog-darksteel-helm",
@@ -427,7 +427,7 @@
     {
       "id": "recipe-eq-bog-blackbanner-cuirass",
       "name": "Blackbanner Cuirass",
-      "category": "Bog Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-bog-blackbanner-cuirass",
@@ -454,7 +454,7 @@
     {
       "id": "recipe-eq-bog-darksteel-gauntlets",
       "name": "Darksteel Gauntlets",
-      "category": "Bog Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-bog-darksteel-gauntlets",
@@ -481,7 +481,7 @@
     {
       "id": "recipe-eq-bog-marcher-greaves",
       "name": "Blackbanner Marcher Greaves",
-      "category": "Bog Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-bog-marcher-greaves",
@@ -508,7 +508,7 @@
     {
       "id": "recipe-eq-bog-mourning-visor",
       "name": "Mourning Visor",
-      "category": "Bog Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-bog-mourning-visor",
@@ -535,7 +535,7 @@
     {
       "id": "recipe-eq-bog-spiritmail",
       "name": "Spiritmail Coat",
-      "category": "Bog Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-bog-spiritmail",
@@ -562,7 +562,7 @@
     {
       "id": "recipe-eq-bog-graveward-gloves",
       "name": "Graveward Gloves",
-      "category": "Bog Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-bog-graveward-gloves",
@@ -589,7 +589,7 @@
     {
       "id": "recipe-eq-bog-ghoststep-boots",
       "name": "Ghoststep Boots",
-      "category": "Bog Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-bog-ghoststep-boots",
@@ -616,7 +616,7 @@
     {
       "id": "recipe-eq-bog-venommire-mask",
       "name": "Venommire Mask",
-      "category": "Bog Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-bog-venommire-mask",
@@ -643,7 +643,7 @@
     {
       "id": "recipe-eq-bog-mirehide-jerkin",
       "name": "Mirehide Jerkin",
-      "category": "Bog Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-bog-mirehide-jerkin",
@@ -670,7 +670,7 @@
     {
       "id": "recipe-eq-bog-venomgrip-wraps",
       "name": "Venomgrip Wraps",
-      "category": "Bog Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-bog-venomgrip-wraps",
@@ -697,7 +697,7 @@
     {
       "id": "recipe-eq-bog-fenrunner-boots",
       "name": "Fenrunner Boots",
-      "category": "Bog Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-bog-fenrunner-boots",
@@ -724,7 +724,7 @@
     {
       "id": "recipe-eq-bog-darksteel-cleaver",
       "name": "Darksteel Mire Cleaver",
-      "category": "Bog Equipment",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-bog-darksteel-cleaver",
@@ -747,7 +747,7 @@
     {
       "id": "recipe-eq-bog-blackbanner-buckler",
       "name": "Blackbanner Buckler",
-      "category": "Bog Equipment",
+      "category": "Shields",
       "output": {
         "type": "equipment",
         "id": "eq-bog-blackbanner-buckler",
@@ -770,7 +770,7 @@
     {
       "id": "recipe-eq-bog-gravebone-pike",
       "name": "Gravebone Pike",
-      "category": "Bog Equipment",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-bog-gravebone-pike",
@@ -793,7 +793,7 @@
     {
       "id": "recipe-eq-bog-ectoplasm-codex",
       "name": "Ectoplasm Codex",
-      "category": "Bog Equipment",
+      "category": "Off-Hand Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-bog-ectoplasm-codex",
@@ -816,7 +816,7 @@
     {
       "id": "recipe-eq-bog-venomfang-knife",
       "name": "Venomfang Knife",
-      "category": "Bog Equipment",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-bog-venomfang-knife",
@@ -839,7 +839,7 @@
     {
       "id": "recipe-eq-bog-mirebone-knuckles",
       "name": "Mirebone Knuckles",
-      "category": "Bog Equipment",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-bog-mirebone-knuckles",
@@ -866,7 +866,7 @@
     {
       "id": "recipe-eq-bog-curseglass-focus",
       "name": "Curseglass Focus",
-      "category": "Bog Equipment",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-bog-curseglass-focus",
@@ -889,7 +889,7 @@
     {
       "id": "recipe-eq-bog-gravesalt-medallion",
       "name": "Gravesalt Medallion",
-      "category": "Bog Equipment",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-bog-gravesalt-medallion",
@@ -912,7 +912,7 @@
     {
       "id": "recipe-eq-bog-witchthread-sash",
       "name": "Witchthread Sash",
-      "category": "Bog Equipment",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-bog-witchthread-sash",
@@ -935,7 +935,7 @@
     {
       "id": "recipe-eq-bog-blackbanner-bandolier",
       "name": "Blackbanner Bandolier",
-      "category": "Bog Equipment",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-bog-blackbanner-bandolier",
@@ -958,7 +958,7 @@
     {
       "id": "recipe-eq-bog-soulash-censer",
       "name": "Soul-Ash Censer",
-      "category": "Bog Equipment",
+      "category": "Off-Hand Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-bog-soulash-censer",
@@ -981,7 +981,7 @@
     {
       "id": "recipe-eq-bog-mutagen-vial-charm",
       "name": "Sealed Mutagen Vial",
-      "category": "Bog Equipment",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-bog-mutagen-vial-charm",

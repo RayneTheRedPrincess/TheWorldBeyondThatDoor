@@ -343,7 +343,7 @@
     {
       "id": "recipe-eq-hell-gatebound-helmet",
       "name": "Gatebound Helmet",
-      "category": "Gatebound Warplate Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-hell-gatebound-helmet",
@@ -370,7 +370,7 @@
     {
       "id": "recipe-eq-hell-gatebound-chest",
       "name": "Gatebound Chest",
-      "category": "Gatebound Warplate Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-hell-gatebound-chest",
@@ -397,7 +397,7 @@
     {
       "id": "recipe-eq-hell-gatebound-gloves",
       "name": "Gatebound Gloves",
-      "category": "Gatebound Warplate Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-hell-gatebound-gloves",
@@ -424,7 +424,7 @@
     {
       "id": "recipe-eq-hell-gatebound-boots",
       "name": "Gatebound Boots",
-      "category": "Gatebound Warplate Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-hell-gatebound-boots",
@@ -451,7 +451,7 @@
     {
       "id": "recipe-eq-hell-cinderwrought-helmet",
       "name": "Cinderwrought Helmet",
-      "category": "Cinderwrought Harness Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-hell-cinderwrought-helmet",
@@ -478,7 +478,7 @@
     {
       "id": "recipe-eq-hell-cinderwrought-chest",
       "name": "Cinderwrought Chest",
-      "category": "Cinderwrought Harness Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-hell-cinderwrought-chest",
@@ -505,7 +505,7 @@
     {
       "id": "recipe-eq-hell-cinderwrought-gloves",
       "name": "Cinderwrought Gloves",
-      "category": "Cinderwrought Harness Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-hell-cinderwrought-gloves",
@@ -532,7 +532,7 @@
     {
       "id": "recipe-eq-hell-cinderwrought-boots",
       "name": "Cinderwrought Boots",
-      "category": "Cinderwrought Harness Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-hell-cinderwrought-boots",
@@ -559,7 +559,7 @@
     {
       "id": "recipe-eq-hell-whisperveil-helmet",
       "name": "Whisperveil Helmet",
-      "category": "Whisperveil Vestments Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-hell-whisperveil-helmet",
@@ -586,7 +586,7 @@
     {
       "id": "recipe-eq-hell-whisperveil-chest",
       "name": "Whisperveil Chest",
-      "category": "Whisperveil Vestments Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-hell-whisperveil-chest",
@@ -613,7 +613,7 @@
     {
       "id": "recipe-eq-hell-whisperveil-gloves",
       "name": "Whisperveil Gloves",
-      "category": "Whisperveil Vestments Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-hell-whisperveil-gloves",
@@ -640,7 +640,7 @@
     {
       "id": "recipe-eq-hell-whisperveil-boots",
       "name": "Whisperveil Boots",
-      "category": "Whisperveil Vestments Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-hell-whisperveil-boots",
@@ -667,7 +667,7 @@
     {
       "id": "recipe-eq-hell-sevenfold-pilgrim-helmet",
       "name": "Sevenfold Helmet",
-      "category": "Sevenfold Pilgrim Regalia Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-hell-sevenfold-pilgrim-helmet",
@@ -694,7 +694,7 @@
     {
       "id": "recipe-eq-hell-sevenfold-pilgrim-chest",
       "name": "Sevenfold Chest",
-      "category": "Sevenfold Pilgrim Regalia Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-hell-sevenfold-pilgrim-chest",
@@ -721,7 +721,7 @@
     {
       "id": "recipe-eq-hell-sevenfold-pilgrim-gloves",
       "name": "Sevenfold Gloves",
-      "category": "Sevenfold Pilgrim Regalia Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-hell-sevenfold-pilgrim-gloves",
@@ -748,7 +748,7 @@
     {
       "id": "recipe-eq-hell-sevenfold-pilgrim-boots",
       "name": "Sevenfold Boots",
-      "category": "Sevenfold Pilgrim Regalia Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-hell-sevenfold-pilgrim-boots",
@@ -775,7 +775,7 @@
     {
       "id": "recipe-eq-hell-blackstone-maul",
       "name": "Blackstone Maul",
-      "category": "Hell Weapon",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-hell-blackstone-maul",
@@ -802,7 +802,7 @@
     {
       "id": "recipe-eq-hell-gatechain-blade",
       "name": "Gatechain Blade",
-      "category": "Hell Weapon",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-hell-gatechain-blade",
@@ -829,7 +829,7 @@
     {
       "id": "recipe-eq-hell-cinder-scepter",
       "name": "Cinder Scepter",
-      "category": "Hell Weapon",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-hell-cinder-scepter",
@@ -856,7 +856,7 @@
     {
       "id": "recipe-eq-hell-soulglass-wand",
       "name": "Soulglass Wand",
-      "category": "Hell Weapon",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-hell-soulglass-wand",
@@ -883,7 +883,7 @@
     {
       "id": "recipe-eq-hell-hellfang-sabre",
       "name": "Hellfang Sabre",
-      "category": "Hell Weapon",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-hell-hellfang-sabre",
@@ -910,7 +910,7 @@
     {
       "id": "recipe-eq-hell-sinbound-glaive",
       "name": "Sinbound Glaive",
-      "category": "Hell Weapon",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-hell-sinbound-glaive",
@@ -937,7 +937,7 @@
     {
       "id": "recipe-eq-hell-venomstone-dirk",
       "name": "Venomstone Dirk",
-      "category": "Hell Weapon",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-hell-venomstone-dirk",
@@ -964,7 +964,7 @@
     {
       "id": "recipe-eq-hell-infernal-censer",
       "name": "Infernal Censer",
-      "category": "Hell Weapon",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-hell-infernal-censer",
@@ -991,7 +991,7 @@
     {
       "id": "recipe-eq-hell-writhing-gauntlets",
       "name": "Writhing Gauntlets",
-      "category": "Hell Weapon",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-hell-writhing-gauntlets",
@@ -1018,7 +1018,7 @@
     {
       "id": "recipe-eq-hell-lament-string",
       "name": "Lament String",
-      "category": "Hell Weapon",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-hell-lament-string",
@@ -1045,7 +1045,7 @@
     {
       "id": "recipe-eq-hell-blackstone-charm",
       "name": "Blackstone Charm",
-      "category": "Hell Accessory",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-hell-blackstone-charm",
@@ -1072,7 +1072,7 @@
     {
       "id": "recipe-eq-hell-ember-loop",
       "name": "Ember Loop",
-      "category": "Hell Accessory",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-hell-ember-loop",
@@ -1099,7 +1099,7 @@
     {
       "id": "recipe-eq-hell-soulglass-eye",
       "name": "Soulglass Eye",
-      "category": "Hell Accessory",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-hell-soulglass-eye",
@@ -1126,7 +1126,7 @@
     {
       "id": "recipe-eq-hell-chain-oath-ring",
       "name": "Chain-Oath Ring",
-      "category": "Hell Accessory",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-hell-chain-oath-ring",
@@ -1153,7 +1153,7 @@
     {
       "id": "recipe-eq-hell-hellhound-tooth",
       "name": "Hellhound Tooth",
-      "category": "Hell Accessory",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-hell-hellhound-tooth",
@@ -1180,7 +1180,7 @@
     {
       "id": "recipe-eq-hell-sevenfold-token",
       "name": "Sevenfold Token",
-      "category": "Hell Accessory",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-hell-sevenfold-token",
@@ -1207,7 +1207,7 @@
     {
       "id": "recipe-eq-hell-kharvax-gatebreaker",
       "name": "Kharvax Gatebreaker",
-      "category": "Kharvax SoulFire",
+      "category": "Hell SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-hell-kharvax-gatebreaker",
@@ -1234,7 +1234,7 @@
     {
       "id": "recipe-eq-hell-kharvax-chain-heart",
       "name": "Kharvax Chain-Heart",
-      "category": "Kharvax SoulFire",
+      "category": "Hell SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-hell-kharvax-chain-heart",
@@ -1261,7 +1261,7 @@
     {
       "id": "recipe-eq-hell-pride-mirror",
       "name": "Mirror of Pride",
-      "category": "Pride SoulFire",
+      "category": "Hell SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-hell-pride-mirror",
@@ -1288,7 +1288,7 @@
     {
       "id": "recipe-eq-hell-greed-hand",
       "name": "Hand of Greed",
-      "category": "Greed SoulFire",
+      "category": "Hell SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-hell-greed-hand",
@@ -1315,7 +1315,7 @@
     {
       "id": "recipe-eq-hell-lust-veil",
       "name": "Veil of Longing",
-      "category": "Lust SoulFire",
+      "category": "Hell SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-hell-lust-veil",
@@ -1342,7 +1342,7 @@
     {
       "id": "recipe-eq-hell-envy-glass",
       "name": "Covetous Glass",
-      "category": "Envy SoulFire",
+      "category": "Hell SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-hell-envy-glass",
@@ -1369,7 +1369,7 @@
     {
       "id": "recipe-eq-hell-gluttony-maw",
       "name": "Pendant of the Endless Maw",
-      "category": "Gluttony SoulFire",
+      "category": "Hell SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-hell-gluttony-maw",
@@ -1396,7 +1396,7 @@
     {
       "id": "recipe-eq-hell-wrath-ember",
       "name": "Wrathblood Emberblade",
-      "category": "Wrath SoulFire",
+      "category": "Hell SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-hell-wrath-ember",
@@ -1423,7 +1423,7 @@
     {
       "id": "recipe-eq-hell-sloth-hour",
       "name": "Stillborn Hourglass",
-      "category": "Sloth SoulFire",
+      "category": "Hell SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-hell-sloth-hour",
@@ -1450,7 +1450,7 @@
     {
       "id": "recipe-eq-hell-sevenfold-regalia",
       "name": "Sevenfold Regent Sigil",
-      "category": "Sevenfold SoulFire",
+      "category": "Hell SoulFire",
       "output": {
         "type": "equipment",
         "id": "eq-hell-sevenfold-regalia",

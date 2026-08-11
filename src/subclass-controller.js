@@ -184,6 +184,18 @@ function componentOverride(actor,ability,component){
   if(ability.name==="Oath's End"){const f=Number(actor.subclassState?.fractures||0);c.damageType=f===0?'Radiant':f===3?'Dark':'Force';}
   return c;
 }
+function veilBladeSplitComponent(component,factor,damageType,{indirect=false}={}){
+  const scaling={};
+  for(const [stat,value] of Object.entries(component?.scaling||{}))scaling[stat]=Number(value||0)*Number(factor||0);
+  return {...component,base:Number(component?.base||0)*Number(factor||0),damageType,scaling,indirect:Boolean(indirect)};
+}
+function isVeilBladeDamageSplit(ability){return ability?.subclass==='Veil Blade'&&ability?.special?.includes('veilblade-damage-split-60-dark-40-poison');}
+function resolveVeilBladePoisonSplit(slot,combat,actor,target,ability,component,parentResult,{rng=Math.random,finalDamagePct=0,critDamageBonus=0}={}){
+  if(!isVeilBladeDamageSplit(ability)||!parentResult?.hit||!alive(target))return null;
+  const poisonComponent=veilBladeSplitComponent(component,.40,'Poison',{indirect:true});
+  const packetAbility={id:`${ability.id}-poison-split`,name:`${ability.name} · Poison Split`,baseClass:ability.baseClass||'Rogue',subclass:null,components:[poisonComponent]};
+  return resolveDamageComponent(slot,combat,actor,target,packetAbility,poisonComponent,{rng,finalDamagePct,critDamageBonus,reaction:true,skipDodge:true,forcedBlocked:Boolean(parentResult.blocked),forcedCritical:Boolean(parentResult.critical),forcedRecursiveCritical:Boolean(parentResult.recursiveCritical),suppressDefenseProcs:true});
+}
 function applySeedmarshalPlanting(slot,combat,actor,target,type,ability,{rng=Math.random}={}){
   if(!actor?.subclassState||!target)return [];
   const planting={targetId:target.id,type,remaining:actor.keptImpressions?.includes('KI-264')?1:3,base:4,scaling:ability.components?.[0]?.scaling||{}};
@@ -340,9 +352,13 @@ export function executeSubclassAbility(slot,{abilityId,catalog,targets={},choice
           if(primaryResult?.critical)pre.finalDamagePct+=20;
           if(target.id===targets.primary)component.finalMultiplier=.60;
         }
-        const r=resolveDamageComponent(next,combat,actor,target,ability,component,{rng,...pre});
+        const veilSplit=isVeilBladeDamageSplit(ability);
+        const primaryComponent=veilSplit?veilBladeSplitComponent(component,.60,'Dark'):component;
+        const r=resolveDamageComponent(next,combat,actor,target,ability,primaryComponent,{rng,...pre});
         if(restoreFlux!==null)actor.subclassState.flux=restoreFlux;
-        results.push({type:'damage',targetId:target.id,hitIndex:h,...r});totalDamage+=Number(r.actualHpRemoved||0);triggerOnDamage(actor,target,ability,r);afterDamageSpecial(next,combat,actor,target,ability,r,totalDamage,h,{rng});
+        results.push({type:'damage',targetId:target.id,hitIndex:h,damageSplit:veilSplit?'60% Dark':null,...r});totalDamage+=Number(r.actualHpRemoved||0);triggerOnDamage(actor,target,ability,r);afterDamageSpecial(next,combat,actor,target,ability,r,totalDamage,h,{rng});
+        const poisonSplit=resolveVeilBladePoisonSplit(next,combat,actor,target,ability,component,r,{rng,finalDamagePct:pre.finalDamagePct+(ability.subclass==='Veil Blade'?4*Number(preResource||0):0),critDamageBonus:pre.critDamageBonus});
+        if(poisonSplit){results.push({type:'bonus-damage',packet:'veilblade-poison-split',damageSplit:'40% Poison',targetId:target.id,hitIndex:h,...poisonSplit});totalDamage+=Number(poisonSplit.actualHpRemoved||0);}
         if(actor.subclass==='Spellconductor'&&ability.subclass==='Spellconductor'&&hadConduitBefore&&Number(r.actualHpRemoved||0)>0&&!actor.subclassState.turnFlags.arcThisAbility){const other=livingEnemies(combat,actor).find(e=>e.id!==target.id&&(actor.subclassState.conduits||[]).some(x=>(x?.targetId||x)===e.id));if(other){const c={type:'damage',base:Number(r.actualHpRemoved)*.20,damageType:'Force',scaling:{}};const ar=resolveDamageComponent(next,combat,actor,other,{id:'spellconductor-arc',name:'Conduit Arc',baseClass:'Sorcerer',subclass:null,components:[c]},c,{rng,canCrit:false,reaction:true});results.push({type:'conduit-arc',targetId:other.id,...ar});actor.subclassState.turnFlags.arcThisAbility=true;}}
         if(actor.subclass==='Hyphaweaver'&&ability.subclass==='Hyphaweaver'&&hadNodeBefore&&Number(r.actualHpRemoved||0)>0){const other=livingEnemies(combat,actor).find(e=>e.id!==target.id&&(actor.subclassState.nodes||[]).includes(e.id));if(other){const c={type:'damage',base:Number(r.actualHpRemoved)*.25,damageType:'Poison',scaling:{}};const tr=resolveDamageComponent(next,combat,actor,other,{id:'hyphaweaver-network-damage',name:'Mycelial Transmission',baseClass:'Druid',subclass:null,components:[c]},c,{rng,canCrit:false,reaction:true});results.push({type:'hypha-transmission',targetId:other.id,...tr});}}
       }

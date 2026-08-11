@@ -351,7 +351,7 @@
     {
       "id": "recipe-eq-dragon-drakescale-vanguard-helmet",
       "name": "Drakescale Vanguard Helmet",
-      "category": "Drakescale Vanguard Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-drakescale-vanguard-helmet",
@@ -378,7 +378,7 @@
     {
       "id": "recipe-eq-dragon-drakescale-vanguard-chest",
       "name": "Drakescale Vanguard Chest",
-      "category": "Drakescale Vanguard Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-drakescale-vanguard-chest",
@@ -405,7 +405,7 @@
     {
       "id": "recipe-eq-dragon-drakescale-vanguard-gloves",
       "name": "Drakescale Vanguard Gloves",
-      "category": "Drakescale Vanguard Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-drakescale-vanguard-gloves",
@@ -432,7 +432,7 @@
     {
       "id": "recipe-eq-dragon-drakescale-vanguard-boots",
       "name": "Drakescale Vanguard Boots",
-      "category": "Drakescale Vanguard Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-drakescale-vanguard-boots",
@@ -459,7 +459,7 @@
     {
       "id": "recipe-eq-dragon-wyvernwind-raiment-helmet",
       "name": "Wyvernwind Raiment Helmet",
-      "category": "Wyvernwind Raiment Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-wyvernwind-raiment-helmet",
@@ -486,7 +486,7 @@
     {
       "id": "recipe-eq-dragon-wyvernwind-raiment-chest",
       "name": "Wyvernwind Raiment Chest",
-      "category": "Wyvernwind Raiment Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-wyvernwind-raiment-chest",
@@ -513,7 +513,7 @@
     {
       "id": "recipe-eq-dragon-wyvernwind-raiment-gloves",
       "name": "Wyvernwind Raiment Gloves",
-      "category": "Wyvernwind Raiment Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-wyvernwind-raiment-gloves",
@@ -540,7 +540,7 @@
     {
       "id": "recipe-eq-dragon-wyvernwind-raiment-boots",
       "name": "Wyvernwind Raiment Boots",
-      "category": "Wyvernwind Raiment Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-wyvernwind-raiment-boots",
@@ -567,7 +567,7 @@
     {
       "id": "recipe-eq-dragon-arcane-hoardweave-helmet",
       "name": "Arcane Hoardweave Helmet",
-      "category": "Arcane Hoardweave Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-arcane-hoardweave-helmet",
@@ -594,7 +594,7 @@
     {
       "id": "recipe-eq-dragon-arcane-hoardweave-chest",
       "name": "Arcane Hoardweave Chest",
-      "category": "Arcane Hoardweave Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-arcane-hoardweave-chest",
@@ -621,7 +621,7 @@
     {
       "id": "recipe-eq-dragon-arcane-hoardweave-gloves",
       "name": "Arcane Hoardweave Gloves",
-      "category": "Arcane Hoardweave Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-arcane-hoardweave-gloves",
@@ -648,7 +648,7 @@
     {
       "id": "recipe-eq-dragon-arcane-hoardweave-boots",
       "name": "Arcane Hoardweave Boots",
-      "category": "Arcane Hoardweave Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-arcane-hoardweave-boots",
@@ -675,7 +675,7 @@
     {
       "id": "recipe-eq-dragon-prismward-regalia-helmet",
       "name": "Prismward Regalia Helmet",
-      "category": "Prismward Regalia Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-prismward-regalia-helmet",
@@ -702,7 +702,7 @@
     {
       "id": "recipe-eq-dragon-prismward-regalia-chest",
       "name": "Prismward Regalia Chest",
-      "category": "Prismward Regalia Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-prismward-regalia-chest",
@@ -729,7 +729,7 @@
     {
       "id": "recipe-eq-dragon-prismward-regalia-gloves",
       "name": "Prismward Regalia Gloves",
-      "category": "Prismward Regalia Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-prismward-regalia-gloves",
@@ -756,7 +756,7 @@
     {
       "id": "recipe-eq-dragon-prismward-regalia-boots",
       "name": "Prismward Regalia Boots",
-      "category": "Prismward Regalia Armor",
+      "category": "Armor",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-prismward-regalia-boots",
@@ -783,7 +783,7 @@
     {
       "id": "recipe-eq-dragon-drakefang-sabre",
       "name": "Drakefang Sabre",
-      "category": "Dragon Dungeon Equipment",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-drakefang-sabre",
@@ -806,7 +806,7 @@
     {
       "id": "recipe-eq-dragon-rimecoil-spear",
       "name": "Rimecoil Spear",
-      "category": "Dragon Dungeon Equipment",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-rimecoil-spear",
@@ -829,7 +829,7 @@
     {
       "id": "recipe-eq-dragon-stormtalon-bow",
       "name": "Stormtalon Bow",
-      "category": "Dragon Dungeon Equipment",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-stormtalon-bow",
@@ -852,7 +852,7 @@
     {
       "id": "recipe-eq-dragon-mindgem-rod",
       "name": "Mindgem Rod",
-      "category": "Dragon Dungeon Equipment",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-mindgem-rod",
@@ -875,7 +875,7 @@
     {
       "id": "recipe-eq-dragon-halo-claw-scepter",
       "name": "Halo-Claw Scepter",
-      "category": "Dragon Dungeon Equipment",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-halo-claw-scepter",
@@ -898,7 +898,7 @@
     {
       "id": "recipe-eq-dragon-riftmaul",
       "name": "Riftmaul",
-      "category": "Dragon Dungeon Equipment",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-riftmaul",
@@ -921,7 +921,7 @@
     {
       "id": "recipe-eq-dragon-goldglass-dirk",
       "name": "Goldglass Dirk",
-      "category": "Dragon Dungeon Equipment",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-goldglass-dirk",
@@ -944,7 +944,7 @@
     {
       "id": "recipe-eq-dragon-prismcoil-staff",
       "name": "Prismcoil Staff",
-      "category": "Dragon Dungeon Equipment",
+      "category": "Weapons",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-prismcoil-staff",
@@ -967,7 +967,7 @@
     {
       "id": "recipe-eq-dragon-wingguard-buckler",
       "name": "Wingguard Buckler",
-      "category": "Dragon Dungeon Equipment",
+      "category": "Shields",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-wingguard-buckler",
@@ -990,7 +990,7 @@
     {
       "id": "recipe-eq-dragon-arcane-scale-tome",
       "name": "Arcane Scale Tome",
-      "category": "Dragon Dungeon Equipment",
+      "category": "Spell Books",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-arcane-scale-tome",
@@ -1013,7 +1013,7 @@
     {
       "id": "recipe-eq-dragon-hoardglass-charm",
       "name": "Hoardglass Charm",
-      "category": "Dragon Dungeon Equipment",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-hoardglass-charm",
@@ -1036,7 +1036,7 @@
     {
       "id": "recipe-eq-dragon-dragonheart-charm",
       "name": "Dragonheart Charm",
-      "category": "Dragon Dungeon Equipment",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-dragonheart-charm",
@@ -1059,7 +1059,7 @@
     {
       "id": "recipe-eq-dragon-wyvern-eye",
       "name": "Wyvern Eye",
-      "category": "Dragon Dungeon Equipment",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-wyvern-eye",
@@ -1082,7 +1082,7 @@
     {
       "id": "recipe-eq-dragon-prismatic-lens",
       "name": "Prismatic Lens",
-      "category": "Dragon Dungeon Equipment",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-prismatic-lens",
@@ -1105,7 +1105,7 @@
     {
       "id": "recipe-eq-dragon-hoardward-chain",
       "name": "Hoardward Chain",
-      "category": "Dragon Dungeon Equipment",
+      "category": "Accessories",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-hoardward-chain",
@@ -1128,7 +1128,7 @@
     {
       "id": "recipe-eq-dragon-sixfold-scale",
       "name": "Sixfold Scale",
-      "category": "Dragon Dungeon Equipment",
+      "category": "Charms",
       "output": {
         "type": "equipment",
         "id": "eq-dragon-sixfold-scale",

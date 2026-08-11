@@ -34,6 +34,27 @@ export function chooseEnemyAction(slot,{difficulty='Normal',rng=Math.random}={})
   const allAbilities=enemyAbilityList(actor);
   const abilities=allAbilities.filter(a=>abilityReady(actor,a));
   const profile=actor.enemyAi||{};
+  if(profile.style==='divine-lich'){
+    const currentEnergy=Math.max(0,Number(actor.resources?.energy||0));
+    const maxEnergy=Math.max(1,Number(actor.resources?.maxEnergy||BASE_MAX_ENERGY));
+    const partyCount=(combat.actors||[]).filter(a=>a.side==='party'&&alive(a)).length;
+    const readyOffense=abilities.filter(a=>(a.components||[]).some(c=>c.type==='damage')).sort((a,b)=>Number(b.unlockAfterRevivals||0)-Number(a.unlockAfterRevivals||0)||Number(b.energyCost||0)-Number(a.energyCost||0)||String(a.id).localeCompare(String(b.id)));
+    const unlockedOffense=allAbilities.filter(a=>(a.components||[]).some(c=>c.type==='damage')).sort((a,b)=>Number(b.unlockAfterRevivals||0)-Number(a.unlockAfterRevivals||0)||Number(b.energyCost||0)-Number(a.energyCost||0)||String(a.id).localeCompare(String(b.id)));
+    const highestUnlocked=unlockedOffense[0]||null;
+    const revelationChargeChance=Math.max(0,Math.min(100,Number(profile.revelationChargeChancePct??30)));
+    if(readyOffense.length){
+      const highestCost=Math.max(0,Number(highestUnlocked?.energyCost||0));
+      const buildingForHigher=highestUnlocked&&highestCost>currentEnergy&&currentEnergy<maxEnergy;
+      if(buildingForHigher&&unit(rng)*100<revelationChargeChance)return {type:'charge'};
+      const aoe=readyOffense.find(a=>a.targetMode==='all-enemies');
+      if(aoe&&partyCount>=2&&Number(aoe.energyCost||0)>=Number(readyOffense[0]?.energyCost||0)-1)return {type:'ability',ability:aoe};
+      return {type:'ability',ability:readyOffense[0]};
+    }
+    const cheapest=Math.min(...unlockedOffense.map(a=>Number(a.energyCost||0)).filter(Number.isFinite));
+    const chargeChance=Math.max(0,Math.min(100,Number(profile.chargeTowardHeavyChancePct??40)));
+    if(Number.isFinite(cheapest)&&currentEnergy<cheapest&&currentEnergy<maxEnergy&&unit(rng)*100<chargeChance)return {type:'charge'};
+    return {type:'basic-attack'};
+  }
   if(['necropolis-cult-sacrificer','necropolis-cult-executioner'].includes(profile.style)){
     const fodder=(combat.actors||[]).filter(a=>a.side==='enemy'&&alive(a)&&a.id!==actor.id&&a.enemyAi?.necropolisFodder===true);
     const chargeBelow=Math.max(0,Number(profile.chargeBelowEnergy??2));

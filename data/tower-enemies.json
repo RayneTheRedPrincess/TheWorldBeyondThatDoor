@@ -1,5 +1,5 @@
 {
-  "version": "HEAVENLY-TOWER-FOUNDATION-2026-08-10",
+  "version": "HEAVENLY-TOWER-DIVINE-LICH-AI-HARDENING-2026-08-11",
   "designStatus": "implemented-image-free",
   "depthTiers": [
     {
@@ -1998,7 +1998,7 @@
             "Psychic"
           ],
           "robot": false,
-          "chargeBelowEnergy": 6,
+          "chargeBelowEnergy": 3,
           "revival": {
             "kind": "divine-anchor",
             "charges": 3,
@@ -2017,8 +2017,10 @@
             ],
             "retainNegativeEffects": true
           },
-          "chargeTowardHeavyChancePct": 55,
-          "preferHighestUnlockedAbilityAtMaxEnergy": true
+          "chargeTowardHeavyChancePct": 40,
+          "preferHighestUnlockedAbilityAtMaxEnergy": true,
+          "revelationChargeChancePct": 30,
+          "attackWhileBuildingEnergy": true
         },
         "materials": [
           {
