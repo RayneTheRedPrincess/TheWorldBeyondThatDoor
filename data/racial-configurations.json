@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0.0",
+  "schemaVersion": "1.1.0",
   "rules": {
     "configurationLocation": "Tavern only",
     "lockedDuringActiveCampaign": true,
@@ -72,17 +72,17 @@
         {
           "id": "iron",
           "label": "Iron",
-          "summary": "+5 pp Block Chance; +5 pp Blocked Damage Reduction."
+          "summary": "+5% Block Chance; +5% Blocked Damage Reduction."
         },
         {
           "id": "quick",
           "label": "Quick",
-          "summary": "+2 Initiative; +3 pp Dodge Chance."
+          "summary": "+2 Initiative; +3% Dodge Chance."
         },
         {
           "id": "ember",
           "label": "Ember",
-          "summary": "+4 pp Damage Crit Chance; +8 pp Critical Damage."
+          "summary": "+4% Damage Crit Chance; +8% Critical Damage."
         },
         {
           "id": "mender",
@@ -92,7 +92,7 @@
         {
           "id": "arc",
           "label": "Arc",
-          "summary": "+8% Energy Gain; first Energy Gain calculation each combat gets +12 additional percentage points."
+          "summary": "+8% Energy Gain; first Energy Gain calculation each combat gets +12%."
         },
         {
           "id": "ward",
@@ -114,7 +114,7 @@
           "id": "prism",
           "label": "Prism",
           "requiresDamageType": true,
-          "summary": "Choose a damage type; +8% damage and +4 pp Damage Crit Chance with that type."
+          "summary": "Choose a damage type; +8% damage and +4% Damage Crit Chance with that type."
         },
         {
           "id": "echo",
@@ -132,12 +132,12 @@
         {
           "id": "hunter",
           "label": "Hunter",
-          "summary": "+12 pp Crit Chance vs enemies below 50% HP; +15% Physical damage against your most recently damaged enemy."
+          "summary": "+12% Crit Chance vs enemies below 50% HP; +15% Physical damage against your most recently damaged enemy."
         },
         {
           "id": "flight",
           "label": "Flight",
-          "summary": "+12 pp Dodge Chance; below 40% HP gain +6 Initiative until healed above 40%."
+          "summary": "+12% Dodge Chance; below 40% HP gain +6 Initiative until healed above 40%."
         },
         {
           "id": "pack",
@@ -147,7 +147,7 @@
         {
           "id": "territorial",
           "label": "Territorial",
-          "summary": "While position has not changed since the previous turn: +15 pp Block Chance and +15 pp Blocked Damage Reduction."
+          "summary": "While position has not changed since the previous turn: +15% Block Chance and +15% Blocked Damage Reduction."
         },
         {
           "id": "endurance",
@@ -165,22 +165,22 @@
         {
           "id": "spear",
           "label": "Spear",
-          "summary": "Against an enemy that has not acted: +15% Physical damage and +12 pp Crit Chance."
+          "summary": "Against an enemy that has not acted: +15% Physical damage and +12% Crit Chance."
         },
         {
           "id": "fan",
           "label": "Fan",
-          "summary": "+12 pp Dodge Chance; successful Dodge gives +3 Initiative on your next turn."
+          "summary": "+12% Dodge Chance; successful Dodge gives +3 Initiative on your next turn."
         },
         {
           "id": "hook",
           "label": "Hook",
-          "summary": "Against enemies below 50% HP: +15 pp Crit Chance and +24 pp Critical Damage."
+          "summary": "Against enemies below 50% HP: +15% Crit Chance and +24% Critical Damage."
         },
         {
           "id": "split",
           "label": "Split",
-          "summary": "+15 pp Dodge Chance against the first direct enemy attack each round."
+          "summary": "+15% Dodge Chance against the first direct enemy attack each round."
         },
         {
           "id": "crown",
@@ -190,7 +190,7 @@
         {
           "id": "flock",
           "label": "Flock",
-          "summary": "If another real ally damaged the target this round: +18% Physical damage and +9 pp Crit Chance."
+          "summary": "If another real ally damaged the target this round: +18% Physical damage and +9% Crit Chance."
         }
       ]
     },
@@ -210,7 +210,7 @@
           "id": "rime",
           "label": "Rime",
           "element": "Cold",
-          "summary": "+15% Cold Resistance; +12% Cold damage; +10 pp Crit Chance vs Slowed enemies."
+          "summary": "+15% Cold Resistance; +12% Cold damage; +10% Crit Chance vs Slowed enemies."
         },
         {
           "id": "storm",
@@ -234,7 +234,7 @@
           "id": "distortion",
           "label": "Distortion",
           "element": "Force",
-          "summary": "+15% Force Resistance; +12% Force damage; once/combat after being hit gain +12 pp Dodge until next turn end."
+          "summary": "+15% Force Resistance; +12% Force damage; once/combat after being hit gain +12% Dodge until next turn end."
         }
       ]
     },
@@ -260,7 +260,7 @@
             {
               "id": "stagnation",
               "label": "Stagnation",
-              "summary": "Once/combat reduce one negative numerical effect by 50% and its duration by 1; below 50% HP gain +10 pp Blocked Damage Reduction."
+              "summary": "Once/combat reduce one negative numerical effect by 50% and its duration by 1; below 50% HP gain +10% Blocked Damage Reduction."
             }
           ]
         },
@@ -271,7 +271,7 @@
             {
               "id": "pride",
               "label": "Pride",
-              "summary": "Above 75% HP: +15 pp Crit Chance and +15 pp Critical Damage; after receiving a Crit, +20% damage vs that attacker until next turn end."
+              "summary": "Above 75% HP: +15% Crit Chance and +15% Critical Damage; after receiving a Crit, +20% damage vs that attacker until next turn end."
             },
             {
               "id": "greed",
@@ -281,7 +281,7 @@
             {
               "id": "lust",
               "label": "Lust",
-              "summary": "Nonsexual fixation: Fixate one target for 2 turns; +12 pp Dodge vs it and +12% damage to it."
+              "summary": "Nonsexual fixation: Fixate one target for 2 turns; +12% Dodge vs it and +12% damage to it."
             },
             {
               "id": "envy",
@@ -301,10 +301,207 @@
             {
               "id": "sloth",
               "label": "Sloth",
-              "summary": "A no-damage turn builds Inertia (max 3): each stack +8 pp Block/+8 pp Blocked Damage Reduction; next damage consumes stacks for +15% damage each."
+              "summary": "A no-damage turn builds Inertia (max 3): each stack +8% Block/+8% Blocked Damage Reduction; next damage consumes stacks for +15% damage each."
             }
           ]
         }
+      ]
+    }
+  },
+  "raceDetails": {
+    "Veldrathi": {
+      "summary": "Debuff specialists who expose weaknesses and become more dangerous as enemies accumulate negative effects.",
+      "abilities": [
+        "Faultsense: deal +6% damage to enemies suffering a negative status.",
+        "The first non-control debuff you apply each combat lasts +1 turn.",
+        "Gain +4% Crit Chance against enemies below 50% HP.",
+        "Gain +2 on checks involving weakness, illness, injury, poison, or corruption.",
+        "Exposed Fault: applying a different non-control debuff to an already-debuffed target exposes it for 2 turns. Applicable numerical debuffs from that Veldrathi are +33% stronger; this never strengthens hard control."
+      ],
+      "drawbacks": [
+        "While suffering 3 or more negative effects, lose 1 Initiative."
+      ]
+    },
+    "Rhazekai": {
+      "summary": "Draconic Vessels whose chosen Organ grants an elemental resistance and a distinct racial combat action.",
+      "abilities": [
+        "Gain +5% Maximum HP and +5% Physical Resistance.",
+        "Your selected Draconic Organ grants its listed elemental resistance and a racial combat action costing 3 Energy with a 6-turn cooldown.",
+        "Organ attacks require no weapon and use your highest final core stat for racial scaling."
+      ],
+      "drawbacks": [
+        "Physical healing consumables restore 10% less HP to you."
+      ]
+    },
+    "Veyssryn": {
+      "summary": "SoulFire-centered beings who build their racial strengths from one Main Core and two different Auxiliary Cores.",
+      "abilities": [
+        "Choose 1 Main Core at 1.5× its listed benefit and exactly 2 different Auxiliary Cores at 0.5× benefit each.",
+        "All three selected Core types must be different.",
+        "Ward and Prism require a chosen damage type when either Core is selected."
+      ],
+      "drawbacks": [
+        "No separate universal racial drawback is currently listed; your racial package depends on the locked Core configuration."
+      ]
+    },
+    "Faervani": {
+      "summary": "Instinct-driven hunters whose chosen Instinct determines their strongest combat behavior.",
+      "abilities": [
+        "Choose exactly one Instinct: Hunter, Flight, Pack, Territorial, or Endurance. The selected Instinct provides the listed racial benefits."
+      ],
+      "drawbacks": [
+        "Fear and panic effects are +20% stronger against you and last +1 turn when they have a duration. This does not extend hard control unless that effect explicitly permits it."
+      ]
+    },
+    "Duvenari": {
+      "summary": "Dual-minded tacticians who use Waking Mind and Echo Mind to anticipate danger and prepare powerful follow-ups.",
+      "abilities": [
+        "Gain +10% Psychic Resistance. The first mental debuff applied to you each combat has its duration reduced by 1 turn, to a minimum of 1.",
+        "Second Thought: twice per combat, reroll an eligible failed check, Dodge, Block, or binary defense and keep the better result.",
+        "Gain +2 on checks involving deception, motives, contradictions, patterns, or prediction, and gain +1 Initiative at combat start.",
+        "Parallel Processing: once per round after a Dodge, Block, resisted debuff, or Second Thought, gain Prepared Insight until the end of your next turn: +15% Crit Chance, +15% healing Crit Chance when healing, +20% Energy Gain, and your next non-control debuff is +25% stronger. It does not stack; a new trigger refreshes it."
+      ],
+      "drawbacks": [
+        "Take +50% Psychic damage.",
+        "While suffering 2 or more mental/Psychic negative effects, Energy Gain is reduced by 75%."
+      ]
+    },
+    "Kyravari": {
+      "summary": "Mobile talon-fighters whose Crest Pattern rewards a specific targeting or defensive rhythm.",
+      "abilities": [
+        "Gain +1 Initiative and +2% Dodge Chance.",
+        "Gain exploration utility for jumps, controlled falls, and talon-assisted movement.",
+        "Choose exactly one Crest Pattern for its listed combat benefit."
+      ],
+      "drawbacks": [
+        "Kyravari do not have unrestricted combat flight.",
+        "If you voluntarily switch targets on your next turn, your offensive Crest bonus is lost for that attack."
+      ]
+    },
+    "Rifthari": {
+      "summary": "Elementally manifested Vessels who bind themselves to one Manifestation and can temporarily overcharge it with Scar Resonance.",
+      "abilities": [
+        "Choose exactly one Manifestation: Ember, Rime, Storm, Stone, Venom, or Distortion.",
+        "Scar Resonance: once per combat for 2 turns, multiply your normal Manifestation damage and resistance bonuses by 4."
+      ],
+      "drawbacks": [
+        "While Scar Resonance is active, take +25% damage from every damage type other than your Manifestation type."
+      ]
+    },
+    "Demon": {
+      "summary": "Demons combine one Origin with one Vice, creating a two-part racial package that rewards leaning into a specific behavior.",
+      "abilities": [
+        "Choose exactly 1 Origin and 1 Vice. Their selected effects are both active for the campaign."
+      ],
+      "drawbacks": [
+        "Overindulgence: after your Vice succeeds 3 times, suffer -25% Energy Gain and -10% Dodge Chance for 2 turns, then the Vice counter resets."
+      ]
+    },
+    "Halynari": {
+      "summary": "Crown-bearing holy Vessels with one Crown identity and the shared Ascendant Dive racial action.",
+      "abilities": [
+        "Ring Crown: +18% Outgoing Healing and +12% Incoming Healing; once per combat, healing an ally below 30% HP also grants a 15% Maximum-HP Shield.",
+        "Split Crown: +18% Holy damage and +12% Holy Crit Chance; a Holy Crit makes the target take +10% Holy damage for 2 turns.",
+        "Spire Crown: +24% Energy Gain; the first ability costing 3+ Energy each combat costs 1 less, minimum 1.",
+        "Orbit Crown: when you buff another real party member, gain 50% of that buff’s numerical effect for the same duration, once per unique buff.",
+        "Thorn Crown: direct-damage retaliation deals Holy damage equal to 15% of actual HP removed and grants +10% Block Chance; Crit and damage-over-time triggers do not activate it.",
+        "Veiled Crown: +15% Holy, Dark, and Psychic Resistance; once per combat below 25% HP, become immune to new non-control debuffs until the end of your next turn.",
+        "Ascendant Dive: 5 Energy, 8-turn cooldown. Become untargetable and invulnerable to direct attacks until your next turn while existing damage-over-time continues; then strike one living enemy for 25 effective Base Holy damage before stat scaling and ordinary modifiers."
+      ],
+      "drawbacks": [
+        "Crown Fracture: while suffering 3 or more negative effects, your Crown’s numerical bonuses are reduced by 50% until you drop below 3 negative effects."
+      ]
+    },
+    "Human": {
+      "summary": "Flexible generalists with extra starting growth, a chosen Aptitude, and emergency resilience.",
+      "abilities": [
+        "Gain +2 free starting stat points.",
+        "Choose one Aptitude core stat; gain +2 on noncombat checks using it.",
+        "Gain +1 unallocated stat point at every odd Character Level starting at Level 1.",
+        "Determination: once per combat when crossing below 35% HP, gain +1 Energy, +10% Damage Reduction for 2 turns, and +10% Status Resistance for 2 turns.",
+        "Resourceful: once per campaign area, reroll one failed noncombat check and keep the better result."
+      ],
+      "drawbacks": [
+        "Humans have no innate resistance, immunity, or specialized racial subsystem."
+      ]
+    },
+    "Elf": {
+      "summary": "Arcane-critical specialists who turn Intelligence and successful Crits into additional momentum.",
+      "abilities": [
+        "Gain +1% Damage Crit Chance per 2 INT, up to +15% racial Crit Chance.",
+        "After a Crit, gain +15% Energy Gain until the end of your next turn; your next eligible damaging action also gains +10% Crit Chance. This does not stack.",
+        "Once per combat, reroll one failed Crit check; only the Crit check is rerolled.",
+        "Gain +2 on magic analysis, enchantment, and artifact checks."
+      ],
+      "drawbacks": [
+        "No dedicated racial drawback is currently listed."
+      ]
+    },
+    "High Elf": {
+      "summary": "High-output arcane specialists with exceptional Energy, scroll, Spellbook, and eligible sword synergies.",
+      "abilities": [
+        "Gain +20% Energy Gain and start combat with +1 Energy.",
+        "Gain +15% Psychic Resistance and +15% Force Resistance.",
+        "Eligible Spell Scroll numerical effects are +25% stronger.",
+        "With a Spellbook Ability Item: +15% Energy Gain, +10% magical damage, and +10% healing.",
+        "With an eligible sword: +10% Crit Chance, +15% Critical Damage, and +1 Initiative. These benefits do not bypass class restrictions."
+      ],
+      "drawbacks": [
+        "Maximum HP is reduced by 8%.",
+        "Physical healing consumables restore 10% less HP."
+      ]
+    },
+    "Arbordyan": {
+      "summary": "Seasonal Vessels who choose Spring, Summer, Autumn, or Winter at the campsite and gain a matching passive and active package.",
+      "abilities": [
+        "Spring: +25% Incoming Healing, +20% Outgoing Healing, Poison/Toxin duration -1 turn, and after healing gain +10% Dodge Chance against the next attack. Burst Bloom once per combat heals self for 15% Maximum HP, allies for 8%, and removes one eligible Poison/Toxin.",
+        "Summer: +15% damage, +3 Initiative, +15% Energy Gain. Consecutive damaging turns build Growth for +5% damage per stack, max 3. Overgrowth once per combat for 2 turns grants +20% Energy Gain, +15% damage, and +1 immediate Energy, then removes Growth.",
+        "Autumn: +12% Crit Chance, +20% Critical Damage, and +25% ordinary materials excluding Onyx, boss-only, Unique, quest, and first-clear rewards. Harvest Fruit once per combat grants +2 Energy and +15% Crit Chance until the end of your next turn.",
+        "Winter: +15% Physical Resistance, +15% Block Chance, and +15% Blocked Damage Reduction. Rooted Shell once per combat grants a 25% Maximum-HP Shield, +20% Blocked Damage Reduction for 2 turns, and displacement resistance.",
+        "Shared racial features include the approved Rootsense, Greenblood, and Sunfeeding utilities."
+      ],
+      "drawbacks": [
+        "Withering: at 3 or more negative effects, seasonal passive numerical bonuses are reduced by 50% and the seasonal active is disabled until you drop below 3 negative effects."
+      ]
+    },
+    "Orc": {
+      "summary": "Durable front-line Vessels who build Resolve when injured and can refuse one lethal blow each combat.",
+      "abilities": [
+        "Gain +12% Maximum HP, +10% Status Resistance, and take 10% less Bleed damage.",
+        "Resolve: taking actual damage grants +6% damage per stack, up to 3 stacks, for 2 turns.",
+        "Once per combat, lethal damage leaves you at 1 HP and fills Energy to your normal maximum."
+      ],
+      "drawbacks": [
+        "-10% Energy Gain affects only bonus Energy Gain and never removes the guaranteed natural +1 Energy each turn.",
+        "Equipment-based Initiative bonuses are halved."
+      ]
+    },
+    "Goblin": {
+      "summary": "Fast scavengers who excel with consumables, Dirty Trick, material gathering, and specialized merchant bargains.",
+      "abilities": [
+        "Gain +2 Initiative and +3% Dodge Chance.",
+        "The first combat consumable you use is +25% stronger and action-free; you cannot use a second consumable that turn.",
+        "Gain +1 combat consumable slot.",
+        "Dirty Trick: 0 Energy, once per combat; apply Demoralized for 2 turns and Crippled for 1 turn, then gain Fleetfoot for 1 turn.",
+        "Gain +15% additional ordinary regional materials.",
+        "Field Appraisal: ordinary materials, consumables, and field supplies cost 10% less at specialized merchants; this never discounts Onyx."
+      ],
+      "drawbacks": [
+        "Maximum HP is reduced by 5%.",
+        "Heavy armor penalties are increased."
+      ]
+    },
+    "Silxered": {
+      "summary": "Adaptive alloy Vessels who turn recent incoming damage into resistance and are especially effective with Shields.",
+      "abilities": [
+        "Gain +20% Resistance to the last direct damage type that hit you until a different direct damage type hits you.",
+        "Gain +25% Bleed Resistance.",
+        "Incoming Crits deal 10% less Critical Damage.",
+        "Shields you receive are +15% stronger and Shield decay is 25% lower.",
+        "Molt: once per combat, consume your adaptive resistance to gain a Shield equal to 20% of Maximum HP."
+      ],
+      "drawbacks": [
+        "Take +20% Lightning damage; Lightning also removes your adaptive alloy resistance."
       ]
     }
   }

@@ -166,6 +166,9 @@ export class CanonRegistry {
       assert((rc?.races?.Faervani?.options||[]).length===5,'Faervani must expose five Instincts');
       assert((rc?.races?.Kyravari?.options||[]).length===6&&(rc?.races?.Rifthari?.options||[]).length===6,'Kyravari and Rifthari must each expose six choices');
       assert((rc?.races?.Demon?.groups||[]).map(g=>g.options?.length).join(',')==='3,7','Demon must expose three Origins and seven Vices');
+      const raceDetailNames=Object.keys(rc?.raceDetails||{}).sort();const authorityRaceNames=[...(this.authority?.races?.names||[])].sort();
+      assert(raceDetailNames.length===16&&raceDetailNames.join(',')===authorityRaceNames.join(','),'selected-race reference must cover all 16 canonical races');
+      assert(raceDetailNames.every(name=>Array.isArray(rc.raceDetails[name]?.abilities)&&Array.isArray(rc.raceDetails[name]?.drawbacks)),'each selected-race reference must include abilities and drawbacks');
     }
     const families = this.authority.class_families;
     assert(Array.isArray(families) && families.length === 11, 'expected 11 base class families');
