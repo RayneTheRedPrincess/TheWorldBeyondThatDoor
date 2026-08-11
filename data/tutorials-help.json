@@ -325,7 +325,7 @@
     {
       "id": "chronicle",
       "title": "Chronicle of Paths",
-      "body": "The Chronicle is permanent meta progression separated from Character Level. Normal families rank to 30, gain 1 Chronicle Point per rank, and may allocate at most 30 active CP in a 32-node tree. Classless has its separate Rank 0\u201312 unlock progression. The Chronicle opens after the first successful Forest return; progress earned beforehand is retained."
+      "body": "The Chronicle is permanent meta progression separated from Character Level. Normal families rank to 30, gain 1 Chronicle Point per rank, and may allocate at most 30 active Chronicle Points in a 32-node tree. Classless has its separate Rank 0\u201312 unlock progression. The Chronicle opens after the first successful Forest return; progress earned beforehand is retained."
     },
     {
       "id": "mantle",

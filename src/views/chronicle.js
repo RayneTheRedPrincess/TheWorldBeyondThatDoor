@@ -2,6 +2,11 @@ import { escapeHtml, shell } from './shared.js';
 import { getChronicleAllocation } from '../chronicle-controller.js';
 import { isProgressionFeatureUnlocked, PROGRESSION_FEATURES } from '../progression-features.js';
 
+function chroniclePointLabel(value) {
+  const amount = Number(value || 0);
+  return `${amount} Chronicle Point${amount === 1 ? '' : 's'}`;
+}
+
 function lockedChronicle() {
   return shell(`
     <section class="panel locked-feature">
@@ -25,10 +30,10 @@ function nodeCard(node, allocation) {
   const req = [];
   if (node.requirements?.rank) req.push(`Rank ${node.requirements.rank}`);
   if (node.requirements?.corePurchased) req.push(`${node.requirements.corePurchased} Core`);
-  if (node.requirements?.spentCP) req.push(`${node.requirements.spentCP} CP spent`);
+  if (node.requirements?.spentCP) req.push(`${chroniclePointLabel(node.requirements.spentCP)} spent`);
   if (node.previous) req.push('previous node');
   return `<article class="chronicle-node ${owned ? 'owned' : ''}">
-    <div class="chronicle-node-head"><strong>${escapeHtml(node.displayName || node.name)}</strong><span>${node.cost} CP</span></div>
+    <div class="chronicle-node-head"><strong>${escapeHtml(node.displayName || node.name)}</strong><span>${chroniclePointLabel(node.cost)}</span></div>
     <p>${escapeHtml(node.effect)}</p>
     ${req.length ? `<small>Requires: ${escapeHtml(req.join(' · '))}</small>` : '<small>Core foundation</small>'}
     <button class="${owned ? 'secondary' : 'primary'} node-buy" data-action="chronicle-buy" data-node="${node.id}" ${owned || !available ? 'disabled' : ''}>${owned ? 'Active' : 'Purchase'}</button>
@@ -46,7 +51,7 @@ function familyTree(selectedFamily, account, trees, message) {
   return `<section class="section">
     <div class="panel chronicle-tree-header">
       <div><div class="kicker">${escapeHtml(selectedFamily)}</div><h2>${escapeHtml(selectedFamily)} Chronicle</h2><p class="muted">${escapeHtml(allocation.tree.resource)} · ${escapeHtml(allocation.tree.scaling.join(' / '))}</p></div>
-      <div class="chronicle-budget"><strong>${allocation.availableCP}</strong><span>CP available</span><small>${allocation.spentCP} / 30 active</small></div>
+      <div class="chronicle-budget"><strong>${allocation.availableCP}</strong><span>Chronicle Points available</span><small>${allocation.spentCP} / 30 Chronicle Points active</small></div>
     </div>
     ${message ? `<div class="notice section">${escapeHtml(message)}</div>` : ''}
     <div class="section"><button class="secondary inline-button" data-action="chronicle-respec" data-family="${escapeHtml(selectedFamily)}" ${allocation.spentCP ? '' : 'disabled'}>Refund this path</button></div>

@@ -208,7 +208,7 @@ export class CanonRegistry {
     assert(chronicleNodes.length === 352, 'expected 352 normal Chronicle nodes');
     for (const family of this.chronicleTrees.families) {
       assert(family.nodes.length === 32, `${family.name} must have 32 Chronicle nodes`);
-      assert(family.nodes.reduce((sum, node) => sum + node.cost, 0) === 49, `${family.name} Chronicle full cost must be 49 CP`);
+      assert(family.nodes.reduce((sum, node) => sum + node.cost, 0) === 49, `${family.name} Chronicle full cost must be 49 Chronicle Points`);
     }
 
     const forest = this.regions?.regions?.find(region => region.id === 'forest');
