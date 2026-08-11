@@ -2,6 +2,7 @@ import { attachCombatToCampaign } from './combat-controller.js';
 import { combinedCharacterStats, maxHpFor } from './character-progression.js';
 import { applyKeptPreCombatStats, keptMaxHpMultiplier } from './kept-impression-state.js';
 import { aggregateEquipmentEffects, applyEquipmentCoreStats } from './equipment-controller.js';
+import { applyRacialConfigurationToCombatSpec } from './racial-configuration.js';
 const CORE_STATS = ['STR','DEX','CON','INT','FTH','CHA','LCK'];
 
 function clone(value) { return typeof structuredClone === 'function' ? structuredClone(value) : JSON.parse(JSON.stringify(value)); }
@@ -135,11 +136,12 @@ export function buildVesselCombatSpec(run, baseAbilities, subclassAbilities, pro
   const equippedStats=applyEquipmentCoreStats(rawStats,equipment);
   const stats=applyKeptPreCombatStats(equippedStats,subclass,keptImpressions,keptImpressionChoices);
   const unlockedSubclass=classless?[...new Set(selections.subclassAbilityIds||[])].filter(id=>(subclassAbilities?.abilities||[]).some(a=>a.id===id&&Number(a.level||1)<=level)):(subclassAbilities?.abilities||[]).filter(a=>a.subclass===subclass&&Number(a.level||1)<=level).map(a=>a.id);
-  return {
-    id:'vessel',name:run?.party?.find(p=>p.id==='vessel')?.name||'Otherworlder',side:'party',kind:'vessel',control:'player',real:true,
+  const spec={
+    id:'vessel',name:run?.party?.find(p=>p.id==='vessel')?.name||'Otherworlder',race:run?.configuration?.race||null,side:'party',kind:'vessel',control:'player',real:true,
     level,stats,maxHp:Math.max(1,Math.round(maxHpFor({level,con:stats.CON,progression})*keptMaxHpMultiplier(keptImpressions))),hp:Number.isFinite(Number(run?.character?.currentHp))?Math.max(0,Number(run.character.currentHp)):undefined,baseClass:baseClass||null,subclass,
     combatRole:classRole(baseClass),weaponType:equipment.mainHandWeaponType||null,equipment:equipment.equipment,equipmentModifiers:equipment.modifiers,resistances:equipment.resistances,explicitInitiativeBonus:Number(equipment.initiativeBonus||0),armorMitigationPct:Number(equipment.armorMitigationPct||0),armorCategory:equipment.armorCategory||null,startingShieldPctMax:Number(equipment.startingShieldPctMax||0),equipmentAbilities:clone(equipment.grantedAbilities||[]),consumableIds:[...(run?.configuration?.consumables||[])].filter(Boolean),abilityIds:unlocked,subclassAbilityIds:unlockedSubclass,classless,resourceImprint:classless?(selections.resourceImprint||null):null,keptImpressions,keptImpressionChoices,portraitAsset:run?.configuration?.portraitAsset||null
   };
+  return applyRacialConfigurationToCombatSpec(spec,spec.race,run?.configuration?.racialConfiguration||null);
 }
 export function buildTavernAdventurerCombatSpec(state, baseAbilities, subclassAbilities, progression, equipmentCatalog=null) {
   const rawStats=combinedCharacterStats(state||{}); const level=Math.max(1,Number(state?.level||1)); const baseClass=state?.baseClass||null;

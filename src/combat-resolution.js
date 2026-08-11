@@ -2,7 +2,8 @@ import { baseDerivedStats, scaledBaseAmount, resolveCritical, rollPercent, capDo
 import { getCombatActor, grantCombatShield, consumeCombatShield, addCombatEffect, syncCombatShield } from './combat-controller.js';
 import { gainResource, resourceValue } from './base-class-state.js';
 import { subclassPassiveModifiers, recordSubclassDefenseEvent, recordSubclassShieldAbsorb, recordSubclassDamageDealt, recordSubclassEnemyDefeated, recordSubclassHeal, gainSubclassResource, isSubclassResourceActive } from './subclass-state.js';
-import { effectiveKeptStats, keptGlobalModifiers, keptResistanceBonus, keptLifestealPct, keptDamageType, keptScaling } from './kept-impression-state.js';
+import { effectiveKeptStats, keptGlobalModifiers, keptResistanceBonus, keptLifestealPct, keptDamageType, keptScaling, keptDamageTypeFinalBonus } from './kept-impression-state.js';
+import { resolveScriptedEnemyLethal } from './enemy-special-mechanics.js';
 import { keptBeforeDamage, keptAfterDamage, keptBeforeHeal, keptAfterHeal, keptBeforeShield, keptAfterShield, keptOnDefense, keptOnShieldAbsorb, keptOnActorDefeated, keptOnStatusApplied, keptAfterLifesteal, keptAfterBloodknuckleTriggeredHeal } from './kept-impression-runtime.js';
 
 function alive(actor) { return Number(actor?.resources?.hp || 0) > 0; }
@@ -62,7 +63,37 @@ export function getActorDerivedCombatStats(actor, context = {}) {
   const kept = keptGlobalModifiers(actor, context);
   const equipment = actor?.equipmentModifiers || {};
   const aggroMultiplier = sub.aggroMultiplierOverride == null ? base.aggroMultiplier : Number(sub.aggroMultiplierOverride);
-  let contextualDodge=0, contextualIncomingDamage=0, contextualFinalDamage=0;
+  let contextualDodge=0, contextualBlock=0, contextualCrit=0, contextualIncomingDamage=0, contextualIncomingHealing=0, contextualFinalDamage=0, contextualShieldStrength=0, contextualEnergyGain=0;
+  if(actor?.enemyTemplateId==='kharvax-gatebound'){
+    const max=Math.max(1,Number(actor.resources?.maxHp||1)),pct=Math.max(0,Number(actor.resources?.hp||0))/max*100;
+    const chains=pct>75?3:pct>50?2:pct>25?1:0; actor.combatMemory=actor.combatMemory||{}; actor.combatMemory.hellchains=chains;
+    if(chains===3)contextualIncomingDamage-=30;
+    else if(chains===2){contextualIncomingDamage-=20;contextualFinalDamage+=10;}
+    else if(chains===1){contextualIncomingDamage-=10;contextualFinalDamage+=20;}
+    else {contextualFinalDamage+=30;contextualCrit+=15;}
+  }
+  if(actor?.enemyTemplateId==='serevakh-sevenfold-regent'){
+    const sin=String(actor.combatMemory?.currentSin||'Pride');
+    if(sin==='Pride'){contextualBlock+=15;contextualDodge+=15;contextualFinalDamage+=15;}
+    if(sin==='Greed'){contextualShieldStrength+=20;contextualEnergyGain+=25;}
+    if(sin==='Lust')contextualCrit+=20;
+    if(sin==='Gluttony')contextualIncomingHealing+=25;
+    if(sin==='Wrath'){contextualFinalDamage+=30;contextualCrit+=25;contextualBlock-=15;contextualDodge-=15;}
+    if(sin==='Sloth')contextualIncomingDamage-=25;
+  }
+  if(actor?.enemyTemplateId==='ossuary-king'){
+    const pct=100*Math.max(0,Number(actor.resources?.hp||0))/Math.max(1,Number(actor.resources?.maxHp||1));actor.combatMemory=actor.combatMemory||{};
+    if(pct>70){contextualIncomingDamage-=10;actor.combatMemory.ossuaryPhase='Crowned in Bone';}
+    else if(pct>35){contextualFinalDamage+=10;actor.combatMemory.ossuaryPhase='Royal Ossuary Unbound';}
+    else {contextualIncomingDamage+=15;contextualFinalDamage+=25;contextualCrit+=10;actor.combatMemory.ossuaryPhase='Exposed King-Soul';}
+  }
+  if(actor?.enemyTemplateId==='quentaliaus-devanpierus'){
+    const hpPct=100*Math.max(0,Number(actor.resources?.hp||0))/Math.max(1,Number(actor.resources?.maxHp||1));
+    if(hpPct>70){contextualIncomingDamage-=8;actor.combatMemory=actor.combatMemory||{};actor.combatMemory.prismaticPhase='Measured Amusement';}
+    else if(hpPct>35){contextualFinalDamage+=8;actor.combatMemory=actor.combatMemory||{};actor.combatMemory.prismaticPhase='Prismatic Interest';}
+    else {contextualIncomingDamage+=12;contextualFinalDamage+=18;contextualCrit+=10;actor.combatMemory=actor.combatMemory||{};actor.combatMemory.prismaticPhase='Arcane Exultation';}
+  }
+
   if(context?.combat){
     for(const owner of context.combat.actors||[]){
       if(owner.side===actor?.side&&owner.subclass==='Trailguard'&&Number(owner.resources?.hp||0)>0&&owner.subclassState?.trailmarks?.includes(actor.id)){contextualDodge+=4;contextualIncomingDamage-=5;}
@@ -75,19 +106,19 @@ export function getActorDerivedCombatStats(actor, context = {}) {
   return {
     ...base,
     aggroMultiplier: Math.max(.15, (aggroMultiplier + sumEffect(actor, 'aggroMultiplierAdd') + Number(kept.aggroMultiplierAdd||0)) * Number(kept.aggroMultiplierFactor||1)),
-    blockChancePct: capBlockChance(base.blockChancePct + Number(actor?.defense?.explicitBlockChancePct || 0) + sumEffect(actor, 'blockChancePct') + passive.blockChancePct + sub.blockChancePct + Number(kept.blockChancePct||0) + Number(equipment.blockChancePct||0)),
+    blockChancePct: capBlockChance(base.blockChancePct + contextualBlock + Number(actor?.defense?.explicitBlockChancePct || 0) + sumEffect(actor, 'blockChancePct') + passive.blockChancePct + sub.blockChancePct + Number(kept.blockChancePct||0) + Number(equipment.blockChancePct||0)),
     dodgeChancePct: capDodgeChance(base.dodgeChancePct + Number(actor?.defense?.explicitDodgeChancePct || 0) + sumEffect(actor, 'dodgeChancePct') + sub.dodgeChancePct + contextualDodge + Number(kept.dodgeChancePct||0) + Number(equipment.dodgeChancePct||0)),
     blockedDamageReductionPct: Math.max(0, base.blockedDamageReductionPct + Number(actor?.defense?.explicitBlockedDamageReductionPct || 0) + sumEffect(actor, 'blockedDamageReductionPct') + Number(equipment.blockedDamageReductionPct||0)),
-    damageCritChancePct: Math.max(0, base.damageCritChancePct + sumEffect(actor, 'damageCritChancePct') + passive.critChancePct + sub.critChancePct + Number(kept.critChancePct||0) + Number(equipment.damageCritChancePct||0)),
+    damageCritChancePct: Math.max(0, base.damageCritChancePct + contextualCrit + sumEffect(actor, 'damageCritChancePct') + passive.critChancePct + sub.critChancePct + Number(kept.critChancePct||0) + Number(equipment.damageCritChancePct||0)),
     criticalDamagePct: Math.max(0, base.criticalDamagePct + sumEffect(actor, 'criticalDamagePct') + passive.critDamagePct + sub.critDamagePct + Number(kept.critDamagePct||0) + Number(equipment.criticalDamagePct||0)),
     healingCritChancePct: Math.max(0, base.healingCritChancePct + sumEffect(actor, 'healingCritChancePct') + Number(equipment.healingCritChancePct||0)),
     healingCriticalDamagePct: Math.max(0, base.healingCriticalDamagePct + sumEffect(actor, 'healingCriticalDamagePct') + Number(equipment.healingCriticalDamagePct||0)),
-    incomingHealingPct: base.incomingHealingPct + sumEffect(actor, 'incomingHealingPct') + sub.incomingHealingPct + Number(kept.incomingHealingPct||0) + Number(equipment.incomingHealingPct||0),
+    incomingHealingPct: contextualIncomingHealing + base.incomingHealingPct + sumEffect(actor, 'incomingHealingPct') + sub.incomingHealingPct + Number(kept.incomingHealingPct||0) + Number(equipment.incomingHealingPct||0),
     outgoingHealingPct: base.outgoingHealingPct + sumEffect(actor, 'outgoingHealingPct') + passive.outgoingHealingPct + sub.outgoingHealingPct + Number(kept.outgoingHealingPct||0) + Number(equipment.outgoingHealingPct||0),
     finalDamagePct: sumEffect(actor, 'finalDamagePct') + passive.finalDamagePct + sub.finalDamagePct + contextualFinalDamage + Number(kept.finalDamagePct||0) + Number(equipment.finalDamagePct||0),
     incomingDamagePct: sumEffect(actor, 'incomingDamagePct') + sub.incomingDamagePct + contextualIncomingDamage + Number(kept.incomingDamagePct||0) + Number(equipment.incomingDamagePct||0),
-    shieldStrengthPct: sumEffect(actor, 'shieldStrengthPct') + passive.shieldStrengthPct + sub.shieldStrengthPct + Number(kept.shieldStrengthPct||0) + Number(equipment.shieldStrengthPct||0),
-    energyGainPct: Number(base.energyGainPct||0) + sumEffect(actor, 'energyGainPct') + Number(kept.energyGainPct||0) + Number(equipment.energyGainPct||0)
+    shieldStrengthPct: contextualShieldStrength + sumEffect(actor, 'shieldStrengthPct') + passive.shieldStrengthPct + sub.shieldStrengthPct + Number(kept.shieldStrengthPct||0) + Number(equipment.shieldStrengthPct||0),
+    energyGainPct: contextualEnergyGain + Number(base.energyGainPct||0) + sumEffect(actor, 'energyGainPct') + Number(kept.energyGainPct||0) + Number(equipment.energyGainPct||0)
   };
 }
 
@@ -170,7 +201,7 @@ function keptReactionHelpers(slot, combat, rng = Math.random, context = {}) {
   return { rider:riderDamage, flatDamage, shieldOnly, get lastRiderDamage(){ return lastRiderDamage; } };
 }
 
-export function resolveDamageComponent(slot, combat, source, target, ability, component, { rng = Math.random, finalDamagePct = 0, critChanceBonus = 0, critDamageBonus = 0, unblockable = false, ignoreShields = false, blockChanceMultiplier = 1, canCrit = true, confluence = false, reaction = false, skipDodge = false, forcedBlocked = null } = {}) {
+export function resolveDamageComponent(slot, combat, source, target, ability, component, { rng = Math.random, finalDamagePct = 0, postFinalMultiplier = 1, critChanceBonus = 0, critDamageBonus = 0, unblockable = false, ignoreShields = false, blockChanceMultiplier = 1, canCrit = true, confluence = false, reaction = false, skipDodge = false, forcedBlocked = null } = {}) {
   // Direct-hit redirection is resolved before the redirected target's own Dodge/Block/Shield sequence.
   let redirectReductionPct=0;
   if(!reaction && component?.indirect!==true){
@@ -184,11 +215,14 @@ export function resolveDamageComponent(slot, combat, source, target, ability, co
   const targetStats = getActorDerivedCombatStats(target, { componentType: 'defense', combat });
   let raw = scaledBaseAmount(component.base, component.scaling, effectiveKeptStats(source));
   const typedFinalPct=sumEffect(source,'damageTypeFinalPct',effect=>!effect?.memory?.damageType||effect.memory.damageType===component.damageType);
-  const sourceFinalPct = sourceStats.finalDamagePct + typedFinalPct + Number(finalDamagePct || 0) + Number(keptPre.finalDamagePct||0) - redirectReductionPct + (Number(component.finalMultiplier || 1) - 1) * 100;
+  const racialTypedFinalPct=Number(source?.racialModifiers?.damageTypeFinalPct?.[component.damageType]||0);
+  const sourceFinalPct = sourceStats.finalDamagePct + typedFinalPct + racialTypedFinalPct + keptDamageTypeFinalBonus(source,component.damageType,ability) + Number(finalDamagePct || 0) + Number(keptPre.finalDamagePct||0) - redirectReductionPct + (Number(component.finalMultiplier || 1) - 1) * 100;
   raw *= Math.max(0, 1 + sourceFinalPct / 100);
+  raw *= Math.max(0, Number(postFinalMultiplier||1));
   const targetCritAgainstSource=sumEffect(target,'critChanceAgainstSource',effect=>effect.sourceActorId===source.id);
   const sightedBonus=(target.effects||[]).reduce((n,e)=>n+(e.sourceActorId===source.id?Number(e.memory?.critChanceAgainstSource||0):0),0);
-  const crit = canCrit ? resolveCritical(raw, { chancePct: sourceStats.damageCritChancePct + targetCritAgainstSource + sightedBonus + Number(component.critChanceBonus || 0) + Number(critChanceBonus || 0) + Number(keptPre.critChanceBonus||0), criticalDamagePct: sourceStats.criticalDamagePct + Number(component.critDamageBonus || 0) + Number(critDamageBonus || 0) + Number(keptPre.critDamageBonus||0), rng }) : { amount: raw, critical:false, recursive:false };
+  const racialTypedCritChancePct=Number(source?.racialModifiers?.damageTypeCritChancePct?.[component.damageType]||0);
+  const crit = canCrit ? resolveCritical(raw, { chancePct: sourceStats.damageCritChancePct + racialTypedCritChancePct + targetCritAgainstSource + sightedBonus + Number(component.critChanceBonus || 0) + Number(critChanceBonus || 0) + Number(keptPre.critChanceBonus||0), criticalDamagePct: sourceStats.criticalDamagePct + Number(component.critDamageBonus || 0) + Number(critDamageBonus || 0) + Number(keptPre.critDamageBonus||0), rng }) : { amount: raw, critical:false, recursive:false };
   let wardSealOwner=null,wardSeal=null,wardReductionPct=0;
   if(!reaction&&component?.indirect!==true){for(const owner of combat.actors||[]){const seal=(owner.subclassState?.seals||[]).find(x=>x.targetId===target.id&&x.type==='Ward');if(seal){wardSealOwner=owner;wardSeal=seal;wardReductionPct=25*(seal.empowered?1.25:1);break;}}}
   const dodge = skipDodge ? false : rollPercent(Math.max(0,targetStats.dodgeChancePct+Number(keptPre.targetDodgeChanceDelta||0)), rng);
@@ -230,7 +264,7 @@ export function resolveDamageComponent(slot, combat, source, target, ability, co
   recordSubclassDefenseEvent(combat,target,blocked?'block':'hit',{actualHpRemoved,shieldAbsorbed:shieldResult.absorbed});
   recordSubclassShieldAbsorb(combat,shieldResult.absorbedBySource,actualHpRemoved);
   recordSubclassDamageDealt(combat,source,target,ability,{hit:true,blocked,critical:crit.critical,actualHpRemoved},{targetHpBeforePct:hpBeforePct,targetHadShieldBefore});
-  if(target.resources.hp<=0){recordSubclassEnemyDefeated(combat,target,source);keptOnActorDefeated({slot,combat,source,target,ability,component,overkill:Math.max(0,hpDamage-hpBefore),rng,reaction,helpers:keptReactionHelpers(slot,combat,rng,{blocked})});}
+  if(target.resources.hp<=0){const scripted=resolveScriptedEnemyLethal(combat,target);if(!scripted.revived){recordSubclassEnemyDefeated(combat,target,source);keptOnActorDefeated({slot,combat,source,target,ability,component,overkill:Math.max(0,hpDamage-hpBefore),rng,reaction,helpers:keptReactionHelpers(slot,combat,rng,{blocked})});}}
   markCampaignMetric(slot, source.id, 'damageDealt', actualHpRemoved);
   markCampaignMetric(slot, target.id, 'damageTaken', actualHpRemoved);
   markEnemyDamagedAlly(combat, source, target, actualHpRemoved);
@@ -287,7 +321,8 @@ export function resolveDamageComponent(slot, combat, source, target, ability, co
       else helpers.rider(source,target,ability,component,Number(bonus.pct||0),bonus.damageType||component.damageType,{canCrit:Boolean(bonus.canCrit),forcedBlocked:blocked});
     }
   }
-  const lifestealPct=keptLifestealPct(source,ability,component.damageType);if(actualHpRemoved>0&&lifestealPct>0){const ls=resolvePercentOfActualDamageHeal(slot,combat,source,source,actualHpRemoved,lifestealPct,{outgoingApplies:false,ability,healKind:'lifesteal'});if(source.keptState)source.keptState.lastLifesteal=ls.actualRestored;keptAfterLifesteal({actor:source,ability,actualRestored:ls.actualRestored});}
+  const lifestealPct=keptLifestealPct(source,ability,component.damageType)+Math.max(0,Number(source.equipmentModifiers?.lifestealPct||0))+Math.max(0,sumEffect(source,'lifestealPct'));if(actualHpRemoved>0&&lifestealPct>0){const ls=resolvePercentOfActualDamageHeal(slot,combat,source,source,actualHpRemoved,lifestealPct,{outgoingApplies:false,ability,healKind:'lifesteal',damageType:component.damageType});if(source.keptState)source.keptState.lastLifesteal=ls.actualRestored;keptAfterLifesteal({actor:source,ability,actualRestored:ls.actualRestored});}
+  if(combat&&source?.side==='party'&&target?.side==='enemy'){combat.metrics=combat.metrics||{};if(targetHadShieldBefore&&Number(target.resources?.shield||0)<=0&&actualHpRemoved>0)combat.metrics.plainsShieldBreakDamage=Number(combat.metrics.plainsShieldBreakDamage||0)+actualHpRemoved;if(Number(target.resources?.hp||0)<=0){const overkill=Math.max(0,hpDamage-hpBefore);if(overkill>0)combat.metrics.plainsOverkillDefeats=Number(combat.metrics.plainsOverkillDefeats||0)+1;}}
   keptAfterDamage({slot,combat,source,target,ability,component,result:{hit:true,dodged:false,blocked,critical:crit.critical,recursiveCritical:crit.recursive,damageBeforeDefense:crit.amount,damageAfterDefenseBeforeShield:preShield,shieldAbsorbed:roundFinal(shieldResult.absorbed),actualHpRemoved,overkill:Math.max(0,hpDamage-hpBefore),targetHadShieldBefore,sourceAggroMultiplier:sourceStats.aggroMultiplier,targetAggroMultiplier:targetStats.aggroMultiplier},rng,reaction,helpers:keptReactionHelpers(slot,combat,rng,{blocked})});
   // Belowcaller Whispers can grow when a debuffed enemy attack removes no HP because defenses stopped it.
   if(source.side==='enemy'&&actualHpRemoved===0){for(const owner of combat.actors||[]){if(owner.side===target.side&&isSubclassResourceActive(owner,'Belowcaller')&&(source.effects||[]).some(e=>e.sourceActorId===owner.id&&e.negative)&&!owner.subclassState?.betweenTurnFlags?.whisperPrevented){gainSubclassResource(owner,1);owner.subclassState.betweenTurnFlags.whisperPrevented=true;}}}
@@ -312,7 +347,7 @@ export function resolveHealComponent(slot, combat, source, target, ability, comp
   return { amount, actualRestored, overheal: Math.max(0, amount - actualRestored), critical: crit.critical, recursiveCritical: crit.recursive };
 }
 
-export function resolvePercentOfActualDamageHeal(slot, combat, source, target, actualHpRemoved, percent, { outgoingApplies = true, ability = null, healKind = null } = {}) {
+export function resolvePercentOfActualDamageHeal(slot, combat, source, target, actualHpRemoved, percent, { outgoingApplies = true, ability = null, healKind = null, damageType = null } = {}) {
   const sourceStats = getActorDerivedCombatStats(source, { componentType: 'heal', combat });
   const targetStats = getActorDerivedCombatStats(target, { componentType: 'heal-target', combat });
   let raw = Math.max(0, Number(actualHpRemoved || 0)) * Math.max(0, Number(percent || 0)) / 100;
@@ -324,6 +359,7 @@ export function resolvePercentOfActualDamageHeal(slot, combat, source, target, a
   target.resources.hp = Math.min(target.resources.maxHp, before + actualRestored);
   recordSubclassHeal(source,target,{hpBeforePct:Number(target.resources.maxHp||0)>0?before/Number(target.resources.maxHp)*100:0,actualRestored});
   markCampaignMetric(slot, source.id, 'healingDone', actualRestored);
+  if(healKind==='lifesteal'&&actualRestored>0&&source?.side==='party'&&slot?.campaign?.state?.expedition?.regionId==='ruined-vampiric-plains'){combat.metrics=combat.metrics||{};combat.metrics.plainsLifestealHealing=Number(combat.metrics.plainsLifestealHealing||0)+actualRestored;const type=String(damageType||'').toLowerCase();if(type==='fire')combat.metrics.plainsFireLifestealHealing=Number(combat.metrics.plainsFireLifestealHealing||0)+actualRestored;if(type==='poison')combat.metrics.plainsPoisonLifestealHealing=Number(combat.metrics.plainsPoisonLifestealHealing||0)+actualRestored;if(type==='dark')combat.metrics.plainsDarkLifestealHealing=Number(combat.metrics.plainsDarkLifestealHealing||0)+actualRestored;}
   return { amount, actualRestored };
 }
 
@@ -350,6 +386,6 @@ export function applyStatus(combat, actorId, { id, sourceActorId, negative = fal
   if(['Burn','Poison','Bleed'].includes(statusKind)&&periodic&&stacking==='refresh')stacking='stack-refresh';
   const effect={ id, sourceActorId, negative, removable, modifiers, duration, memory:enrichedMemory, stacking };
   const added=addCombatEffect(combat, actorId, effect);
-  if(added&&target){const actual=(target.effects||[]).filter(e=>e.id===id&&e.sourceActorId===sourceActorId).at(-1)||effect;keptOnStatusApplied({combat,source,target,effect:actual});if(combat){combat.metrics=combat.metrics||{};if(negative&&source?.side==='party'&&target.side==='enemy'){combat.metrics.negativeStatusesApplied=Number(combat.metrics.negativeStatusesApplied||0)+1;if(String(statusKind||id).toLowerCase().includes('poison'))combat.metrics.poisonStatusesApplied=Number(combat.metrics.poisonStatusesApplied||0)+1;}if(negative&&source?.side==='enemy'&&target.side==='party')combat.metrics.negativeEffectsSuffered=Number(combat.metrics.negativeEffectsSuffered||0)+1;}}
+  if(added&&target){const actual=(target.effects||[]).filter(e=>e.id===id&&e.sourceActorId===sourceActorId).at(-1)||effect;keptOnStatusApplied({combat,source,target,effect:actual});if(combat){combat.metrics=combat.metrics||{};if(negative&&source?.side==='party'&&target.side==='enemy'){combat.metrics.negativeStatusesApplied=Number(combat.metrics.negativeStatusesApplied||0)+1;const statusText=String(statusKind||id).toLowerCase();if(statusText.includes('poison'))combat.metrics.poisonStatusesApplied=Number(combat.metrics.poisonStatusesApplied||0)+1;if(statusText.includes('bleed'))combat.metrics.bleedsApplied=Number(combat.metrics.bleedsApplied||0)+1;}if(negative&&source?.side==='enemy'&&target.side==='party')combat.metrics.negativeEffectsSuffered=Number(combat.metrics.negativeEffectsSuffered||0)+1;}}
   return added;
 }

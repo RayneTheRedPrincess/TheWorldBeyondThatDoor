@@ -1,0 +1,1456 @@
+{
+  "version": "THAT-DRAGONS-DUNGEON-CRAFTING-2026-08-10",
+  "designStatus": "implemented",
+  "materials": [
+    {
+      "id": "drake-scale",
+      "name": "Drake Scale",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Scale",
+      "source": "Drakes"
+    },
+    {
+      "id": "ember-sac",
+      "name": "Ember Sac",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Fire",
+      "source": "Fire draconic creatures"
+    },
+    {
+      "id": "frost-gland",
+      "name": "Frost Gland",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Cold",
+      "source": "Cold draconic creatures"
+    },
+    {
+      "id": "storm-spine",
+      "name": "Storm Spine",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Lightning",
+      "source": "Lightning draconic creatures"
+    },
+    {
+      "id": "force-crystal",
+      "name": "Force Crystal",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Force",
+      "source": "Force draconic creatures"
+    },
+    {
+      "id": "holy-scale",
+      "name": "Holy Scale",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Holy",
+      "source": "Holy draconic creatures"
+    },
+    {
+      "id": "mindgem",
+      "name": "Mindgem",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Psychic",
+      "source": "Psychic draconic creatures"
+    },
+    {
+      "id": "dragonbone-chip",
+      "name": "Dragonbone Chip",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Physical",
+      "source": "Drakes and dungeon bones"
+    },
+    {
+      "id": "hoard-goldglass",
+      "name": "Hoard Goldglass",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Treasure",
+      "source": "Hoard-touched creatures"
+    },
+    {
+      "id": "wyvern-talon",
+      "name": "Wyvern Talon",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Physical",
+      "source": "Wyverns"
+    },
+    {
+      "id": "venom-barb",
+      "name": "Venom Barb",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Poison",
+      "source": "Venom wyverns"
+    },
+    {
+      "id": "wing-membrane",
+      "name": "Wing Membrane",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Agility",
+      "source": "Wyverns"
+    },
+    {
+      "id": "dragon-scale",
+      "name": "True Dragon Scale",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Scale",
+      "source": "True dragons"
+    },
+    {
+      "id": "dragonheart-ash",
+      "name": "Dragonheart Ash",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Fire",
+      "source": "True dragons"
+    },
+    {
+      "id": "prismatic-shard",
+      "name": "Prismatic Shard",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Prismatic",
+      "source": "Hybrid dragons"
+    },
+    {
+      "id": "living-hoard-heart",
+      "name": "Living Hoard Heart",
+      "kind": "boss-material",
+      "rarity": "Normal",
+      "theme": "Boss",
+      "source": "Hoard Sentinel"
+    },
+    {
+      "id": "hoard-sentinel-soulfirecore",
+      "name": "Hoard Sentinel SoulfireCore",
+      "kind": "soulfire-core",
+      "rarity": "SoulFire",
+      "theme": "SoulFire",
+      "source": "Hoard Sentinel"
+    },
+    {
+      "id": "fivefold-fang",
+      "name": "Fivefold Fang",
+      "kind": "boss-material",
+      "rarity": "Normal",
+      "theme": "Boss",
+      "source": "Leviathan Wyrm"
+    },
+    {
+      "id": "leviathan-soulfirecore",
+      "name": "Leviathan SoulfireCore",
+      "kind": "soulfire-core",
+      "rarity": "SoulFire",
+      "theme": "SoulFire",
+      "source": "Leviathan Wyrm"
+    },
+    {
+      "id": "prismatic-heartscale",
+      "name": "Prismatic Heartscale",
+      "kind": "boss-material",
+      "rarity": "Normal",
+      "theme": "Boss",
+      "source": "Quentaliaus Devanpierus"
+    },
+    {
+      "id": "quentaliaus-soulfirecore",
+      "name": "Quentaliaus SoulfireCore",
+      "kind": "soulfire-core",
+      "rarity": "SoulFire",
+      "theme": "SoulFire",
+      "source": "Quentaliaus Devanpierus"
+    }
+  ],
+  "sets": [
+    {
+      "id": "set-dragon-drakescale-vanguard",
+      "name": "Drakescale Vanguard",
+      "sourceId": "drakescale-vanguard",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-dragon-drakescale-vanguard-helmet",
+        "eq-dragon-drakescale-vanguard-chest",
+        "eq-dragon-drakescale-vanguard-gloves",
+        "eq-dragon-drakescale-vanguard-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "STR": 5,
+            "CON": 5
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "blockChancePct": 7
+          },
+          "resistances": {
+            "Physical": 10,
+            "Fire": 8
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "STR": 2,
+            "CON": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "dragonDungeonExpansion": true
+    },
+    {
+      "id": "set-dragon-wyvernwind-raiment",
+      "name": "Wyvernwind Raiment",
+      "sourceId": "wyvernwind-raiment",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-dragon-wyvernwind-raiment-helmet",
+        "eq-dragon-wyvernwind-raiment-chest",
+        "eq-dragon-wyvernwind-raiment-gloves",
+        "eq-dragon-wyvernwind-raiment-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "DEX": 6,
+            "LCK": 4
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "dodgeChancePct": 7
+          },
+          "resistances": {
+            "Lightning": 10,
+            "Poison": 8
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "DEX": 3,
+            "LCK": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "dragonDungeonExpansion": true
+    },
+    {
+      "id": "set-dragon-arcane-hoardweave",
+      "name": "Arcane Hoardweave",
+      "sourceId": "arcane-hoardweave",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-dragon-arcane-hoardweave-helmet",
+        "eq-dragon-arcane-hoardweave-chest",
+        "eq-dragon-arcane-hoardweave-gloves",
+        "eq-dragon-arcane-hoardweave-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "INT": 6,
+            "CHA": 4
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "energyGainPct": 8
+          },
+          "resistances": {
+            "Psychic": 10,
+            "Force": 8
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "INT": 3,
+            "CHA": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "dragonDungeonExpansion": true
+    },
+    {
+      "id": "set-dragon-prismward-regalia",
+      "name": "Prismward Regalia",
+      "sourceId": "prismward-regalia",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-dragon-prismward-regalia-helmet",
+        "eq-dragon-prismward-regalia-chest",
+        "eq-dragon-prismward-regalia-gloves",
+        "eq-dragon-prismward-regalia-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "FTH": 5,
+            "CON": 3,
+            "LCK": 2
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "shieldStrengthPct": 8
+          },
+          "resistances": {
+            "Holy": 10,
+            "Cold": 8
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "FTH": 2,
+            "CON": 1,
+            "LCK": 1
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "dragonDungeonExpansion": true
+    }
+  ],
+  "recipes": [
+    {
+      "id": "recipe-eq-dragon-drakescale-vanguard-helmet",
+      "name": "Drakescale Vanguard Helmet",
+      "category": "Drakescale Vanguard Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-drakescale-vanguard-helmet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "drake-scale",
+          "quantity": 3
+        },
+        {
+          "materialId": "dragonbone-chip",
+          "quantity": 2
+        },
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "drakescale-vanguard",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-drakescale-vanguard-chest",
+      "name": "Drakescale Vanguard Chest",
+      "category": "Drakescale Vanguard Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-drakescale-vanguard-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "drake-scale",
+          "quantity": 3
+        },
+        {
+          "materialId": "dragonbone-chip",
+          "quantity": 2
+        },
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "drakescale-vanguard",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-drakescale-vanguard-gloves",
+      "name": "Drakescale Vanguard Gloves",
+      "category": "Drakescale Vanguard Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-drakescale-vanguard-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "drake-scale",
+          "quantity": 3
+        },
+        {
+          "materialId": "dragonbone-chip",
+          "quantity": 2
+        },
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "drakescale-vanguard",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-drakescale-vanguard-boots",
+      "name": "Drakescale Vanguard Boots",
+      "category": "Drakescale Vanguard Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-drakescale-vanguard-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "drake-scale",
+          "quantity": 3
+        },
+        {
+          "materialId": "dragonbone-chip",
+          "quantity": 2
+        },
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "drakescale-vanguard",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-wyvernwind-raiment-helmet",
+      "name": "Wyvernwind Raiment Helmet",
+      "category": "Wyvernwind Raiment Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-wyvernwind-raiment-helmet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "wyvern-talon",
+          "quantity": 3
+        },
+        {
+          "materialId": "wing-membrane",
+          "quantity": 2
+        },
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "wyvernwind-raiment",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-wyvernwind-raiment-chest",
+      "name": "Wyvernwind Raiment Chest",
+      "category": "Wyvernwind Raiment Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-wyvernwind-raiment-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "wyvern-talon",
+          "quantity": 3
+        },
+        {
+          "materialId": "wing-membrane",
+          "quantity": 2
+        },
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "wyvernwind-raiment",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-wyvernwind-raiment-gloves",
+      "name": "Wyvernwind Raiment Gloves",
+      "category": "Wyvernwind Raiment Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-wyvernwind-raiment-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "wyvern-talon",
+          "quantity": 3
+        },
+        {
+          "materialId": "wing-membrane",
+          "quantity": 2
+        },
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "wyvernwind-raiment",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-wyvernwind-raiment-boots",
+      "name": "Wyvernwind Raiment Boots",
+      "category": "Wyvernwind Raiment Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-wyvernwind-raiment-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "wyvern-talon",
+          "quantity": 3
+        },
+        {
+          "materialId": "wing-membrane",
+          "quantity": 2
+        },
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "wyvernwind-raiment",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-arcane-hoardweave-helmet",
+      "name": "Arcane Hoardweave Helmet",
+      "category": "Arcane Hoardweave Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-arcane-hoardweave-helmet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mindgem",
+          "quantity": 3
+        },
+        {
+          "materialId": "force-crystal",
+          "quantity": 2
+        },
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "arcane-hoardweave",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-arcane-hoardweave-chest",
+      "name": "Arcane Hoardweave Chest",
+      "category": "Arcane Hoardweave Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-arcane-hoardweave-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mindgem",
+          "quantity": 3
+        },
+        {
+          "materialId": "force-crystal",
+          "quantity": 2
+        },
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "arcane-hoardweave",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-arcane-hoardweave-gloves",
+      "name": "Arcane Hoardweave Gloves",
+      "category": "Arcane Hoardweave Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-arcane-hoardweave-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mindgem",
+          "quantity": 3
+        },
+        {
+          "materialId": "force-crystal",
+          "quantity": 2
+        },
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "arcane-hoardweave",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-arcane-hoardweave-boots",
+      "name": "Arcane Hoardweave Boots",
+      "category": "Arcane Hoardweave Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-arcane-hoardweave-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mindgem",
+          "quantity": 3
+        },
+        {
+          "materialId": "force-crystal",
+          "quantity": 2
+        },
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "arcane-hoardweave",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-prismward-regalia-helmet",
+      "name": "Prismward Regalia Helmet",
+      "category": "Prismward Regalia Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-prismward-regalia-helmet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "holy-scale",
+          "quantity": 3
+        },
+        {
+          "materialId": "frost-gland",
+          "quantity": 2
+        },
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "prismward-regalia",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-prismward-regalia-chest",
+      "name": "Prismward Regalia Chest",
+      "category": "Prismward Regalia Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-prismward-regalia-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "holy-scale",
+          "quantity": 3
+        },
+        {
+          "materialId": "frost-gland",
+          "quantity": 2
+        },
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "prismward-regalia",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-prismward-regalia-gloves",
+      "name": "Prismward Regalia Gloves",
+      "category": "Prismward Regalia Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-prismward-regalia-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "holy-scale",
+          "quantity": 3
+        },
+        {
+          "materialId": "frost-gland",
+          "quantity": 2
+        },
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "prismward-regalia",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-prismward-regalia-boots",
+      "name": "Prismward Regalia Boots",
+      "category": "Prismward Regalia Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-prismward-regalia-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "holy-scale",
+          "quantity": 3
+        },
+        {
+          "materialId": "frost-gland",
+          "quantity": 2
+        },
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "prismward-regalia",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-drakefang-sabre",
+      "name": "Drakefang Sabre",
+      "category": "Dragon Dungeon Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-drakefang-sabre",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "drake-scale",
+          "quantity": 3
+        },
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "dragon-dungeon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-rimecoil-spear",
+      "name": "Rimecoil Spear",
+      "category": "Dragon Dungeon Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-rimecoil-spear",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "wyvern-talon",
+          "quantity": 3
+        },
+        {
+          "materialId": "force-crystal",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "dragon-dungeon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-stormtalon-bow",
+      "name": "Stormtalon Bow",
+      "category": "Dragon Dungeon Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-stormtalon-bow",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "dragon-scale",
+          "quantity": 3
+        },
+        {
+          "materialId": "mindgem",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "dragon-dungeon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-mindgem-rod",
+      "name": "Mindgem Rod",
+      "category": "Dragon Dungeon Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-mindgem-rod",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 3
+        },
+        {
+          "materialId": "holy-scale",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "dragon-dungeon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-halo-claw-scepter",
+      "name": "Halo-Claw Scepter",
+      "category": "Dragon Dungeon Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-halo-claw-scepter",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "force-crystal",
+          "quantity": 3
+        },
+        {
+          "materialId": "prismatic-shard",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "dragon-dungeon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-riftmaul",
+      "name": "Riftmaul",
+      "category": "Dragon Dungeon Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-riftmaul",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mindgem",
+          "quantity": 3
+        },
+        {
+          "materialId": "drake-scale",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "dragon-dungeon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-goldglass-dirk",
+      "name": "Goldglass Dirk",
+      "category": "Dragon Dungeon Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-goldglass-dirk",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "holy-scale",
+          "quantity": 3
+        },
+        {
+          "materialId": "wyvern-talon",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "dragon-dungeon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-prismcoil-staff",
+      "name": "Prismcoil Staff",
+      "category": "Dragon Dungeon Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-prismcoil-staff",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "prismatic-shard",
+          "quantity": 3
+        },
+        {
+          "materialId": "dragon-scale",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "dragon-dungeon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-wingguard-buckler",
+      "name": "Wingguard Buckler",
+      "category": "Dragon Dungeon Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-wingguard-buckler",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "drake-scale",
+          "quantity": 3
+        },
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "dragon-dungeon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-arcane-scale-tome",
+      "name": "Arcane Scale Tome",
+      "category": "Dragon Dungeon Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-arcane-scale-tome",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "wyvern-talon",
+          "quantity": 3
+        },
+        {
+          "materialId": "force-crystal",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "dragon-dungeon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-hoardglass-charm",
+      "name": "Hoardglass Charm",
+      "category": "Dragon Dungeon Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-hoardglass-charm",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "dragon-scale",
+          "quantity": 3
+        },
+        {
+          "materialId": "mindgem",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "dragon-dungeon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-dragonheart-charm",
+      "name": "Dragonheart Charm",
+      "category": "Dragon Dungeon Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-dragonheart-charm",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "hoard-goldglass",
+          "quantity": 3
+        },
+        {
+          "materialId": "holy-scale",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "dragon-dungeon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-wyvern-eye",
+      "name": "Wyvern Eye",
+      "category": "Dragon Dungeon Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-wyvern-eye",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "force-crystal",
+          "quantity": 3
+        },
+        {
+          "materialId": "prismatic-shard",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "dragon-dungeon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-prismatic-lens",
+      "name": "Prismatic Lens",
+      "category": "Dragon Dungeon Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-prismatic-lens",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mindgem",
+          "quantity": 3
+        },
+        {
+          "materialId": "drake-scale",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "dragon-dungeon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-hoardward-chain",
+      "name": "Hoardward Chain",
+      "category": "Dragon Dungeon Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-hoardward-chain",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "holy-scale",
+          "quantity": 3
+        },
+        {
+          "materialId": "wyvern-talon",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "dragon-dungeon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-sixfold-scale",
+      "name": "Sixfold Scale",
+      "category": "Dragon Dungeon Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-sixfold-scale",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "prismatic-shard",
+          "quantity": 3
+        },
+        {
+          "materialId": "dragon-scale",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "dragon-dungeon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-hoard-crown",
+      "name": "Hoard Sentinel Crown",
+      "category": "Dragon SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-hoard-crown",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "hoard-sentinel-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "living-hoard-heart",
+          "quantity": 1
+        },
+        {
+          "materialId": "prismatic-shard",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "hoard-sentinel",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-living-treasury",
+      "name": "Living Treasury",
+      "category": "Dragon SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-living-treasury",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "hoard-sentinel-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "living-hoard-heart",
+          "quantity": 1
+        },
+        {
+          "materialId": "prismatic-shard",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "hoard-sentinel",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-leviathan-maw",
+      "name": "Leviathan Mawblade",
+      "category": "Dragon SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-leviathan-maw",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "leviathan-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "fivefold-fang",
+          "quantity": 1
+        },
+        {
+          "materialId": "prismatic-shard",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "leviathan-wyrm",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-infinity-coil",
+      "name": "Infinity Coil",
+      "category": "Dragon SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-infinity-coil",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "leviathan-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "fivefold-fang",
+          "quantity": 1
+        },
+        {
+          "materialId": "prismatic-shard",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "leviathan-wyrm",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-fivefold-ward",
+      "name": "Fivefold Ward",
+      "category": "Dragon SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-fivefold-ward",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "leviathan-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "fivefold-fang",
+          "quantity": 1
+        },
+        {
+          "materialId": "prismatic-shard",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "leviathan-wyrm",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-devanpierus-prismfang",
+      "name": "Devanpierus Prismfang",
+      "category": "Dragon SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-devanpierus-prismfang",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "quentaliaus-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "prismatic-heartscale",
+          "quantity": 1
+        },
+        {
+          "materialId": "prismatic-shard",
+          "quantity": 3
+        }
+      ],
+      "sourceId": "quentaliaus-devanpierus",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-devanpierus-crownscale",
+      "name": "Devanpierus Crownscale",
+      "category": "Dragon SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-devanpierus-crownscale",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "quentaliaus-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "prismatic-heartscale",
+          "quantity": 1
+        },
+        {
+          "materialId": "prismatic-shard",
+          "quantity": 3
+        }
+      ],
+      "sourceId": "quentaliaus-devanpierus",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-arcane-breath-lens",
+      "name": "Arcane Breath Lens",
+      "category": "Dragon SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-arcane-breath-lens",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "quentaliaus-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "prismatic-heartscale",
+          "quantity": 1
+        },
+        {
+          "materialId": "prismatic-shard",
+          "quantity": 3
+        }
+      ],
+      "sourceId": "quentaliaus-devanpierus",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-sixflame-heart",
+      "name": "Sixflame Heart",
+      "category": "Dragon SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-sixflame-heart",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "quentaliaus-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "prismatic-heartscale",
+          "quantity": 1
+        },
+        {
+          "materialId": "prismatic-shard",
+          "quantity": 3
+        }
+      ],
+      "sourceId": "quentaliaus-devanpierus",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-dragon-prismatic-aegis",
+      "name": "Prismatic Aegis",
+      "category": "Dragon SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-dragon-prismatic-aegis",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "quentaliaus-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "prismatic-heartscale",
+          "quantity": 1
+        },
+        {
+          "materialId": "prismatic-shard",
+          "quantity": 3
+        }
+      ],
+      "sourceId": "quentaliaus-devanpierus",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    }
+  ],
+  "rules": {
+    "location": "Campsite",
+    "enemyEquipmentDrops": false,
+    "normalMaterialDropByRealPartySize": {
+      "1": [
+        4,
+        6
+      ],
+      "2": [
+        6,
+        8
+      ],
+      "3": [
+        8,
+        10
+      ],
+      "4": [
+        10,
+        12
+      ]
+    },
+    "soulfireCoreDeterministic": true,
+    "lateForestAndLaterGearHorizontal": true,
+    "treasureCursesExpireAtCampaignEnd": true
+  },
+  "catalogueSummary": {
+    "materials": 21,
+    "armorSets": 4,
+    "armorPieces": 16,
+    "normalRecipes": 32,
+    "soulfireRecipes": 10,
+    "recipes": 42
+  },
+  "balanceRevision": "2026-08-10-horizontal-crafting-balance"
+}

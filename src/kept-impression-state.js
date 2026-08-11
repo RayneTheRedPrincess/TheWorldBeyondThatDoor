@@ -318,12 +318,27 @@ export function keptGlobalModifiers(actor,{ability=null,target=null,componentTyp
  return out;
 }
 
+export function keptDamageTypeFinalBonus(actor,damageType,ability=null){
+ let bonus=0;
+ if(hasKept(actor,'KI-267')){
+   const chosen=keptChoice(actor,'KI-267','damageType','Fire');
+   if(chosen===damageType){
+     bonus+=5;
+     const tags=(ability?.tags||[]).map(x=>String(x).toLowerCase());
+     const organ=ability?.racialSource==='Rhazekai'||ability?.race==='Rhazekai'||tags.includes('draconic-organ')||tags.includes('rhazekai-organ');
+     if(actor?.race==='Rhazekai'&&organ)bonus+=50;
+   }
+ }
+ return bonus;
+}
+
 export function keptResistanceBonus(actor,damageType){
  let bonus=(actor?.effects||[]).reduce((sum,e)=>sum+n(e?.memory?.resistanceAllPct),0);
  if(hasKept(actor,'KI-192')&&damageType==='Cold')bonus-=20;
  if(hasKept(actor,'KI-193')&&damageType==='Poison')bonus-=15;
  const s87=hasKept(actor,'KI-087')?kiState(actor,'KI-087'):null;if(s87?.resistType===damageType)bonus+=15;
  const s178=hasKept(actor,'KI-178')?kiState(actor,'KI-178'):null;if(s178?.accord&&keptChoice(actor,'KI-178','damageType','Force')===damageType)bonus+=20;
+ if(hasKept(actor,'KI-267')&&keptChoice(actor,'KI-267','damageType','Fire')===damageType)bonus+=actor?.race==='Rhazekai'?10:5;
  return bonus;
 }
 

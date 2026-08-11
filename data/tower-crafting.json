@@ -1,0 +1,1344 @@
+{
+  "version": "HEAVENLY-TOWER-FOUNDATION-2026-08-10",
+  "designStatus": "implemented-image-free",
+  "rules": {
+    "location": "Campsite",
+    "merchants": false,
+    "normalGearUsesAffinityMaterialsOnly": true,
+    "soulfireCoresDeterministic": true
+  },
+  "materials": [
+    {
+      "id": "consecrated-alloy",
+      "name": "Consecrated Alloy",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "affinity": "Holy",
+      "source": "Heavenly Tower robots"
+    },
+    {
+      "id": "halo-filament",
+      "name": "Halo Filament",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "affinity": "Holy",
+      "source": "Heavenly Tower robots"
+    },
+    {
+      "id": "sanctified-lens",
+      "name": "Sanctified Lens",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "affinity": "Holy",
+      "source": "Heavenly Tower robots"
+    },
+    {
+      "id": "choir-gear",
+      "name": "Choir Gear",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "affinity": "Holy",
+      "source": "Heavenly Tower robots"
+    },
+    {
+      "id": "rimeglass-shard",
+      "name": "Rimeglass Shard",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "affinity": "Cold",
+      "source": "Heavenly Tower robots"
+    },
+    {
+      "id": "preservation-coil",
+      "name": "Preservation Coil",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "affinity": "Cold",
+      "source": "Heavenly Tower robots"
+    },
+    {
+      "id": "frosted-servo",
+      "name": "Frosted Servo",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "affinity": "Cold",
+      "source": "Heavenly Tower robots"
+    },
+    {
+      "id": "cryo-seal",
+      "name": "Cryo Seal",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "affinity": "Cold",
+      "source": "Heavenly Tower robots"
+    },
+    {
+      "id": "whitefire-ingot",
+      "name": "Whitefire Ingot",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "affinity": "Fire",
+      "source": "Heavenly Tower robots"
+    },
+    {
+      "id": "crucible-coil",
+      "name": "Crucible Coil",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "affinity": "Fire",
+      "source": "Heavenly Tower robots"
+    },
+    {
+      "id": "cinder-actuator",
+      "name": "Cinder Actuator",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "affinity": "Fire",
+      "source": "Heavenly Tower robots"
+    },
+    {
+      "id": "solar-fuse",
+      "name": "Solar Fuse",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "affinity": "Fire",
+      "source": "Heavenly Tower robots"
+    },
+    {
+      "id": "thoughtglass-prism",
+      "name": "Thoughtglass Prism",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "affinity": "Psychic",
+      "source": "Heavenly Tower robots"
+    },
+    {
+      "id": "memory-filament",
+      "name": "Memory Filament",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "affinity": "Psychic",
+      "source": "Heavenly Tower robots"
+    },
+    {
+      "id": "soul-circuit",
+      "name": "Soul Circuit",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "affinity": "Psychic",
+      "source": "Heavenly Tower robots"
+    },
+    {
+      "id": "cognition-core",
+      "name": "Cognition Core",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "affinity": "Psychic",
+      "source": "Heavenly Tower robots"
+    },
+    {
+      "id": "aureofrost-soulfirecore",
+      "name": "Aureofrost SoulfireCore",
+      "kind": "soulfire-core",
+      "rarity": "SoulFire",
+      "source": "Aureofrost Colossus"
+    },
+    {
+      "id": "divine-soulfirecore",
+      "name": "Divine SoulfireCore",
+      "kind": "soulfire-core",
+      "rarity": "SoulFire",
+      "source": "The Divine Lich"
+    }
+  ],
+  "sets": [
+    {
+      "id": "set-tower-halo-forged",
+      "name": "Halo-Forged Panoply",
+      "sourceId": "holy",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-tower-halo-helm",
+        "eq-tower-halo-chest",
+        "eq-tower-halo-gloves",
+        "eq-tower-halo-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "STR": 3,
+            "FTH": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "blockChancePct": 8
+          },
+          "resistances": {
+            "Holy": 15
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "CHA": 4
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "towerExpansion": true
+    },
+    {
+      "id": "set-tower-rimeglass",
+      "name": "Rimeglass Preservation",
+      "sourceId": "cold",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-tower-rime-helm",
+        "eq-tower-rime-chest",
+        "eq-tower-rime-gloves",
+        "eq-tower-rime-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "CON": 3,
+            "INT": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "blockedDamageReductionPct": 10
+          },
+          "resistances": {
+            "Cold": 15
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "DEX": 4
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "towerExpansion": true
+    },
+    {
+      "id": "set-tower-whitefire",
+      "name": "Whitefire Crucible",
+      "sourceId": "fire",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-tower-fire-helm",
+        "eq-tower-fire-chest",
+        "eq-tower-fire-gloves",
+        "eq-tower-fire-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "STR": 3,
+            "INT": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "criticalDamagePct": 12
+          },
+          "resistances": {
+            "Fire": 15
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "LCK": 4
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "towerExpansion": true
+    },
+    {
+      "id": "set-tower-thoughtglass",
+      "name": "Thoughtglass Cognition",
+      "sourceId": "psychic",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-tower-psi-helm",
+        "eq-tower-psi-chest",
+        "eq-tower-psi-gloves",
+        "eq-tower-psi-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "INT": 3,
+            "LCK": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "dodgeChancePct": 8,
+            "energyGainPct": 8
+          },
+          "resistances": {
+            "Psychic": 15
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "FTH": 4
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "towerExpansion": true
+    }
+  ],
+  "recipes": [
+    {
+      "id": "recipe-eq-tower-halo-helm",
+      "name": "Halo-Forged Helm",
+      "category": "Holy Tower Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-halo-helm",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "consecrated-alloy",
+          "quantity": 3
+        },
+        {
+          "materialId": "halo-filament",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "holy",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-halo-chest",
+      "name": "Halo-Forged Chest",
+      "category": "Holy Tower Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-halo-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "halo-filament",
+          "quantity": 3
+        },
+        {
+          "materialId": "sanctified-lens",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "holy",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-halo-gloves",
+      "name": "Halo-Forged Gloves",
+      "category": "Holy Tower Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-halo-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sanctified-lens",
+          "quantity": 3
+        },
+        {
+          "materialId": "consecrated-alloy",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "holy",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-halo-boots",
+      "name": "Halo-Forged Boots",
+      "category": "Holy Tower Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-halo-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "consecrated-alloy",
+          "quantity": 3
+        },
+        {
+          "materialId": "halo-filament",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "holy",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-rime-helm",
+      "name": "Rimeglass Helm",
+      "category": "Cold Tower Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-rime-helm",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "rimeglass-shard",
+          "quantity": 3
+        },
+        {
+          "materialId": "preservation-coil",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "cold",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-rime-chest",
+      "name": "Rimeglass Chest",
+      "category": "Cold Tower Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-rime-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "preservation-coil",
+          "quantity": 3
+        },
+        {
+          "materialId": "cryo-seal",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "cold",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-rime-gloves",
+      "name": "Rimeglass Gloves",
+      "category": "Cold Tower Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-rime-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "cryo-seal",
+          "quantity": 3
+        },
+        {
+          "materialId": "rimeglass-shard",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "cold",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-rime-boots",
+      "name": "Rimeglass Boots",
+      "category": "Cold Tower Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-rime-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "rimeglass-shard",
+          "quantity": 3
+        },
+        {
+          "materialId": "preservation-coil",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "cold",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-fire-helm",
+      "name": "Whitefire Helm",
+      "category": "Fire Tower Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-fire-helm",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "whitefire-ingot",
+          "quantity": 3
+        },
+        {
+          "materialId": "crucible-coil",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "fire",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-fire-chest",
+      "name": "Whitefire Chest",
+      "category": "Fire Tower Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-fire-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "crucible-coil",
+          "quantity": 3
+        },
+        {
+          "materialId": "solar-fuse",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "fire",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-fire-gloves",
+      "name": "Whitefire Gloves",
+      "category": "Fire Tower Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-fire-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "solar-fuse",
+          "quantity": 3
+        },
+        {
+          "materialId": "whitefire-ingot",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "fire",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-fire-boots",
+      "name": "Whitefire Boots",
+      "category": "Fire Tower Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-fire-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "whitefire-ingot",
+          "quantity": 3
+        },
+        {
+          "materialId": "crucible-coil",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "fire",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-psi-helm",
+      "name": "Thoughtglass Helm",
+      "category": "Psychic Tower Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-psi-helm",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "thoughtglass-prism",
+          "quantity": 3
+        },
+        {
+          "materialId": "memory-filament",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "psychic",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-psi-chest",
+      "name": "Thoughtglass Chest",
+      "category": "Psychic Tower Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-psi-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "memory-filament",
+          "quantity": 3
+        },
+        {
+          "materialId": "cognition-core",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "psychic",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-psi-gloves",
+      "name": "Thoughtglass Gloves",
+      "category": "Psychic Tower Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-psi-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "cognition-core",
+          "quantity": 3
+        },
+        {
+          "materialId": "thoughtglass-prism",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "psychic",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-psi-boots",
+      "name": "Thoughtglass Boots",
+      "category": "Psychic Tower Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-psi-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "thoughtglass-prism",
+          "quantity": 3
+        },
+        {
+          "materialId": "memory-filament",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "psychic",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-chorus-sword",
+      "name": "Chorus-Edge",
+      "category": "Holy Tower Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-chorus-sword",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "consecrated-alloy",
+          "quantity": 3
+        },
+        {
+          "materialId": "halo-filament",
+          "quantity": 2
+        },
+        {
+          "materialId": "sanctified-lens",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "holy",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-halo-scepter",
+      "name": "Halo Scepter",
+      "category": "Holy Tower Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-halo-scepter",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "consecrated-alloy",
+          "quantity": 3
+        },
+        {
+          "materialId": "halo-filament",
+          "quantity": 2
+        },
+        {
+          "materialId": "sanctified-lens",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "holy",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-sanctified-gauntlets",
+      "name": "Sanctified Gauntlets",
+      "category": "Holy Tower Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-sanctified-gauntlets",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "consecrated-alloy",
+          "quantity": 3
+        },
+        {
+          "materialId": "halo-filament",
+          "quantity": 2
+        },
+        {
+          "materialId": "sanctified-lens",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "holy",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-rime-pike",
+      "name": "Rimeglass Pike",
+      "category": "Cold Tower Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-rime-pike",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "rimeglass-shard",
+          "quantity": 3
+        },
+        {
+          "materialId": "preservation-coil",
+          "quantity": 2
+        },
+        {
+          "materialId": "cryo-seal",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "cold",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-preserver-rod",
+      "name": "Preserver Rod",
+      "category": "Cold Tower Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-preserver-rod",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "rimeglass-shard",
+          "quantity": 3
+        },
+        {
+          "materialId": "preservation-coil",
+          "quantity": 2
+        },
+        {
+          "materialId": "cryo-seal",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "cold",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-cryo-gauntlets",
+      "name": "Cryo Gauntlets",
+      "category": "Cold Tower Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-cryo-gauntlets",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "rimeglass-shard",
+          "quantity": 3
+        },
+        {
+          "materialId": "preservation-coil",
+          "quantity": 2
+        },
+        {
+          "materialId": "cryo-seal",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "cold",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-whitefire-blade",
+      "name": "Whitefire Blade",
+      "category": "Fire Tower Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-whitefire-blade",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "whitefire-ingot",
+          "quantity": 3
+        },
+        {
+          "materialId": "crucible-coil",
+          "quantity": 2
+        },
+        {
+          "materialId": "solar-fuse",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "fire",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-crucible-staff",
+      "name": "Crucible Staff",
+      "category": "Fire Tower Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-crucible-staff",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "whitefire-ingot",
+          "quantity": 3
+        },
+        {
+          "materialId": "crucible-coil",
+          "quantity": 2
+        },
+        {
+          "materialId": "solar-fuse",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "fire",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-furnace-gauntlets",
+      "name": "Furnace Gauntlets",
+      "category": "Fire Tower Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-furnace-gauntlets",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "whitefire-ingot",
+          "quantity": 3
+        },
+        {
+          "materialId": "crucible-coil",
+          "quantity": 2
+        },
+        {
+          "materialId": "solar-fuse",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "fire",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-thought-needle",
+      "name": "Thought Needle",
+      "category": "Psychic Tower Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-thought-needle",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "thoughtglass-prism",
+          "quantity": 3
+        },
+        {
+          "materialId": "memory-filament",
+          "quantity": 2
+        },
+        {
+          "materialId": "cognition-core",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "psychic",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-cognition-wand",
+      "name": "Cognition Wand",
+      "category": "Psychic Tower Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-cognition-wand",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "thoughtglass-prism",
+          "quantity": 3
+        },
+        {
+          "materialId": "memory-filament",
+          "quantity": 2
+        },
+        {
+          "materialId": "cognition-core",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "psychic",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-mind-gauntlets",
+      "name": "Mindframe Gauntlets",
+      "category": "Psychic Tower Weapons",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-mind-gauntlets",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "thoughtglass-prism",
+          "quantity": 3
+        },
+        {
+          "materialId": "memory-filament",
+          "quantity": 2
+        },
+        {
+          "materialId": "cognition-core",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "psychic",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-halo-vial",
+      "name": "Halo Vial",
+      "category": "Holy Tower Relics",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-halo-vial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "halo-filament",
+          "quantity": 3
+        },
+        {
+          "materialId": "sanctified-lens",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "holy",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-choir-band",
+      "name": "Choir Band",
+      "category": "Holy Tower Relics",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-choir-band",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "halo-filament",
+          "quantity": 3
+        },
+        {
+          "materialId": "sanctified-lens",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "holy",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-rime-vial",
+      "name": "Rime Vial",
+      "category": "Cold Tower Relics",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-rime-vial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "preservation-coil",
+          "quantity": 3
+        },
+        {
+          "materialId": "cryo-seal",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "cold",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-preservation-band",
+      "name": "Preservation Band",
+      "category": "Cold Tower Relics",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-preservation-band",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "preservation-coil",
+          "quantity": 3
+        },
+        {
+          "materialId": "cryo-seal",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "cold",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-cinder-vial",
+      "name": "Whitefire Vial",
+      "category": "Fire Tower Relics",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-cinder-vial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "crucible-coil",
+          "quantity": 3
+        },
+        {
+          "materialId": "solar-fuse",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "fire",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-crucible-band",
+      "name": "Crucible Band",
+      "category": "Fire Tower Relics",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-crucible-band",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "crucible-coil",
+          "quantity": 3
+        },
+        {
+          "materialId": "solar-fuse",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "fire",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-thought-scroll",
+      "name": "Thoughtglass Spell Slot",
+      "category": "Psychic Tower Relics",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-thought-scroll",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "memory-filament",
+          "quantity": 3
+        },
+        {
+          "materialId": "cognition-core",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "psychic",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-memory-band",
+      "name": "Memory Band",
+      "category": "Psychic Tower Relics",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-memory-band",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "memory-filament",
+          "quantity": 3
+        },
+        {
+          "materialId": "cognition-core",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "psychic",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-aureofrost-heartplate",
+      "name": "Aureofrost Heartplate",
+      "category": "Tower SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-aureofrost-heartplate",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "aureofrost-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "consecrated-alloy",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "aureofrost-colossus",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-aureofrost-command-arm",
+      "name": "Aureofrost Command Arm",
+      "category": "Tower SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-aureofrost-command-arm",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "aureofrost-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "consecrated-alloy",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "aureofrost-colossus",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-aureofrost-aegis",
+      "name": "Aureofrost Aegis",
+      "category": "Tower SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-aureofrost-aegis",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "aureofrost-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "consecrated-alloy",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "aureofrost-colossus",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-hierophant-ascension-staff",
+      "name": "Hierophant Ascension Staff",
+      "category": "Tower SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-hierophant-ascension-staff",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "divine-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "cognition-core",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "divine-lich",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-fourfold-halo",
+      "name": "Fourfold Halo",
+      "category": "Tower SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-fourfold-halo",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "divine-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "cognition-core",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "divine-lich",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-tower-anchorless-vestment",
+      "name": "Anchorless Vestment",
+      "category": "Tower SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-tower-anchorless-vestment",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "divine-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "cognition-core",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "divine-lich",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    }
+  ],
+  "starterGear": [],
+  "catalogueSummary": {
+    "materials": 18,
+    "recipes": 42,
+    "sets": 4,
+    "soulfireRecipes": 6
+  }
+}

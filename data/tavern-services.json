@@ -1,5 +1,5 @@
 {
-  "version": "Phase10-PreBog-2026-08-10",
+  "version": "2026-08-10",
   "mara": {
     "offersAtATime": 3,
     "activeQuestLimit": 1,
@@ -178,7 +178,23 @@
     "collectionScope": "per-vessel",
     "showFullEquipmentCatalogue": true,
     "uncollectedPresentation": "greyed-out",
-    "eligibleReturnRequirement": "item-was-equipped-at-least-once-and-is-still-carried-on-successful-return"
+    "eligibleReturnRequirement": "item-was-equipped-at-least-once-and-is-still-carried-on-successful-return",
+    "borrowedModifier": {
+      "name": "Legacy",
+      "exclusiveSource": "lender",
+      "statMultiplier": 1.5,
+      "appliesTo": [
+        "listedStats",
+        "resistances"
+      ],
+      "doesNotMultiply": [
+        "mechanics",
+        "grantedAbilities",
+        "passiveDescription",
+        "setBonuses"
+      ],
+      "instanceScope": "run-scoped-borrowed-copy"
+    }
   },
   "progressionUnlocks": {
     "mantle": "first-successful-forest-campaign",
@@ -270,245 +286,4457 @@
     "offers": [
       {
         "keptId": "KI-009",
-        "onyxCost": 35,
+        "onyxCost": 1625,
         "requirement": {
           "type": "highest-depth",
           "target": 3,
           "label": "Reach Forest Depth 3"
         },
-        "region": "forest"
+        "region": "forest",
+        "strengthScore": 57,
+        "priceTier": "Strong"
       },
       {
         "keptId": "KI-011",
-        "onyxCost": 40,
+        "onyxCost": 1950,
         "requirement": {
           "type": "battles-won",
           "target": 2,
           "label": "Win 2 Forest battles"
         },
-        "region": "forest"
+        "region": "forest",
+        "strengthScore": 64,
+        "priceTier": "Build-Defining"
       },
       {
         "keptId": "KI-014",
-        "onyxCost": 40,
+        "onyxCost": 1675,
         "requirement": {
           "type": "successful-checks",
           "target": 1,
           "label": "Succeed at 1 Forest stat check"
         },
-        "region": "forest"
+        "region": "forest",
+        "strengthScore": 58,
+        "priceTier": "Strong"
       },
       {
         "keptId": "KI-025",
-        "onyxCost": 45,
+        "onyxCost": 1550,
         "requirement": {
           "type": "crafted-items",
           "target": 1,
           "label": "Craft 1 item in the Forest"
         },
-        "region": "forest"
+        "region": "forest",
+        "strengthScore": 55,
+        "priceTier": "Strong"
       },
       {
         "keptId": "KI-029",
-        "onyxCost": 70,
+        "onyxCost": 1325,
         "requirement": {
           "type": "highest-depth",
           "target": 8,
           "label": "Reach Forest Depth 8"
         },
-        "region": "forest"
+        "region": "forest",
+        "strengthScore": 50,
+        "priceTier": "Strong"
       },
       {
         "keptId": "KI-043",
-        "onyxCost": 80,
+        "onyxCost": 1775,
         "requirement": {
           "type": "battles-won",
           "target": 6,
           "label": "Win 6 Forest battles total"
         },
-        "region": "forest"
+        "region": "forest",
+        "strengthScore": 60,
+        "priceTier": "Build-Defining"
       },
       {
         "keptId": "KI-065",
-        "onyxCost": 80,
+        "onyxCost": 1400,
         "requirement": {
           "type": "successful-checks",
           "target": 4,
           "label": "Succeed at 4 Forest stat checks total"
         },
-        "region": "forest"
+        "region": "forest",
+        "strengthScore": 52,
+        "priceTier": "Strong"
       },
       {
         "keptId": "KI-077",
-        "onyxCost": 75,
+        "onyxCost": 1325,
         "requirement": {
           "type": "ordinary-materials-collected",
           "target": 12,
           "label": "Collect 12 ordinary Forest materials total"
         },
-        "region": "forest"
+        "region": "forest",
+        "strengthScore": 50,
+        "priceTier": "Strong"
       },
       {
         "keptId": "KI-064",
-        "onyxCost": 90,
+        "onyxCost": 1725,
         "requirement": {
           "type": "trainers-fought",
           "target": 1,
           "label": "Fight 1 Forest Trainer"
         },
-        "region": "forest"
+        "region": "forest",
+        "strengthScore": 59,
+        "priceTier": "Strong"
       },
       {
         "keptId": "KI-004",
-        "onyxCost": 110,
+        "onyxCost": 2050,
         "requirement": {
           "type": "trainers-learned-from",
           "target": 1,
           "label": "Learn from 1 Forest Trainer"
         },
-        "region": "forest"
+        "region": "forest",
+        "strengthScore": 66,
+        "priceTier": "Build-Defining"
       },
       {
         "keptId": "KI-001",
-        "onyxCost": 120,
+        "onyxCost": 2000,
         "requirement": {
           "type": "minibosses-defeated",
           "target": 1,
           "label": "Defeat the Forest miniboss"
         },
-        "region": "forest"
+        "region": "forest",
+        "strengthScore": 65,
+        "priceTier": "Build-Defining"
       },
       {
         "keptId": "KI-007",
-        "onyxCost": 150,
+        "onyxCost": 1275,
         "requirement": {
           "type": "forests-cleared",
           "target": 1,
           "label": "Defeat the Forest boss and clear the Forest"
         },
-        "region": "forest"
+        "region": "forest",
+        "strengthScore": 49,
+        "priceTier": "Strong"
       },
       {
         "keptId": "KI-080",
-        "onyxCost": 160,
+        "onyxCost": 1450,
         "region": "bog-of-lost-souls",
         "requirement": {
           "type": "bog-negative-effects-suffered",
           "target": 5,
           "label": "Suffer 5 curse/debuff applications in the Bog"
-        }
+        },
+        "strengthScore": 53,
+        "priceTier": "Strong"
       },
       {
         "keptId": "KI-082",
-        "onyxCost": 175,
+        "onyxCost": 2000,
         "region": "bog-of-lost-souls",
         "requirement": {
           "type": "bog-negative-effects-expired",
           "target": 10,
           "label": "Have 10 Bog negative effects expire"
-        }
+        },
+        "strengthScore": 65,
+        "priceTier": "Build-Defining"
       },
       {
         "keptId": "KI-083",
-        "onyxCost": 190,
+        "onyxCost": 1325,
         "region": "bog-of-lost-souls",
         "requirement": {
           "type": "bog-two-status-defeats",
           "target": 10,
           "label": "Defeat 10 Bog enemies while they carry 2+ negative statuses"
-        }
+        },
+        "strengthScore": 50,
+        "priceTier": "Strong"
       },
       {
         "keptId": "KI-085",
-        "onyxCost": 200,
+        "onyxCost": 1325,
         "region": "bog-of-lost-souls",
         "requirement": {
           "type": "bog-negative-statuses-applied",
           "target": 20,
           "label": "Apply 20 negative statuses to Bog enemies"
-        }
+        },
+        "strengthScore": 50,
+        "priceTier": "Strong"
       },
       {
         "keptId": "KI-087",
-        "onyxCost": 210,
+        "onyxCost": 1375,
         "region": "bog-of-lost-souls",
         "requirement": {
           "type": "bog-undead-spirits-defeated",
           "target": 12,
           "label": "Defeat 12 Bog undead or spirits"
-        }
+        },
+        "strengthScore": 51,
+        "priceTier": "Strong"
       },
       {
         "keptId": "KI-103",
-        "onyxCost": 230,
+        "onyxCost": 1950,
         "region": "bog-of-lost-souls",
         "requirement": {
           "type": "bog-battles-won",
           "target": 8,
           "label": "Win 8 Bog combats"
-        }
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-lifesteal-healing",
+            "target": 45,
+            "label": "Restore 45 HP through Lifesteal in the Ruined Vampiric Plains"
+          }
+        ],
+        "strengthScore": 64,
+        "priceTier": "Build-Defining"
       },
       {
         "keptId": "KI-116",
-        "onyxCost": 250,
+        "onyxCost": 1075,
         "region": "bog-of-lost-souls",
         "requirement": {
           "type": "bog-three-status-defeats",
           "target": 5,
           "label": "Defeat 5 Bog enemies while they carry 3+ negative statuses"
-        }
+        },
+        "strengthScore": 44,
+        "priceTier": "Standard"
       },
       {
         "keptId": "KI-119",
-        "onyxCost": 275,
+        "onyxCost": 1075,
         "region": "bog-of-lost-souls",
         "requirement": {
           "type": "bog-bandit-camps-defeated",
           "target": 3,
           "label": "Defeat 3 Blackbanner Bandit Camps"
-        }
+        },
+        "strengthScore": 44,
+        "priceTier": "Standard"
       },
       {
         "keptId": "KI-186",
-        "onyxCost": 300,
+        "onyxCost": 1375,
         "region": "bog-of-lost-souls",
         "requirement": {
           "type": "bog-poison-statuses-applied",
           "target": 25,
           "label": "Apply Poison 25 times in the Bog"
-        }
+        },
+        "strengthScore": 51,
+        "priceTier": "Strong"
       },
       {
         "keptId": "KI-188",
-        "onyxCost": 350,
+        "onyxCost": 1050,
         "region": "bog-of-lost-souls",
         "requirement": {
           "type": "bog-minibosses-defeated",
           "target": 1,
           "label": "Defeat Varris and Mira's Mirebound Abomination"
-        }
+        },
+        "strengthScore": 43,
+        "priceTier": "Standard"
       },
       {
         "keptId": "KI-194",
-        "onyxCost": 375,
+        "onyxCost": 1550,
         "region": "bog-of-lost-souls",
         "requirement": {
           "type": "bog-lesser-witches-defeated",
           "target": 6,
           "label": "Defeat 6 Lesser Witches"
-        }
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-dark-lifesteal-healing",
+            "target": 30,
+            "label": "Restore 30 HP through Dark Lifesteal in the Ruined Vampiric Plains"
+          }
+        ],
+        "strengthScore": 55,
+        "priceTier": "Strong"
       },
       {
         "keptId": "KI-199",
-        "onyxCost": 450,
+        "onyxCost": 1200,
         "region": "bog-of-lost-souls",
         "requirement": {
           "type": "bogs-cleared",
           "target": 1,
           "label": "Defeat Mira and Bandit King Jack and clear the Bog"
+        },
+        "strengthScore": 47,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-099",
+        "onyxCost": 1825,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 4,
+          "label": "Reach Heavenly Tower Depth 4"
+        },
+        "strengthScore": 61,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-109",
+        "onyxCost": 1675,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-battles-won",
+          "target": 5,
+          "label": "Win 5 Heavenly Tower combats"
+        },
+        "strengthScore": 58,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-130",
+        "onyxCost": 1550,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-holy-robots-defeated",
+          "target": 12,
+          "label": "Defeat 12 Holy Tower robots"
+        },
+        "strengthScore": 55,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-185",
+        "onyxCost": 1150,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-cold-robots-defeated",
+          "target": 8,
+          "label": "Defeat 8 Cold Tower robots"
+        },
+        "strengthScore": 46,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-187",
+        "onyxCost": 1550,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-fire-robots-defeated",
+          "target": 6,
+          "label": "Defeat 6 Fire Tower robots"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-fire-lifesteal-healing",
+            "target": 30,
+            "label": "Restore 30 HP through Fire Lifesteal in the Ruined Vampiric Plains"
+          }
+        ],
+        "strengthScore": 55,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-137",
+        "onyxCost": 1375,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-psychic-robots-defeated",
+          "target": 3,
+          "label": "Defeat 3 Psychic Tower robots"
+        },
+        "strengthScore": 51,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-118",
+        "onyxCost": 1950,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-buffed-robots-defeated",
+          "target": 8,
+          "label": "Defeat 8 Tower robots while they have a positive buff"
+        },
+        "strengthScore": 64,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-144",
+        "onyxCost": 1775,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 20,
+          "label": "Reach Heavenly Tower Depth 20"
+        },
+        "strengthScore": 60,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-164",
+        "onyxCost": 1450,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-energy-spent",
+          "target": 60,
+          "label": "Spend 60 Energy during Heavenly Tower combats"
+        },
+        "strengthScore": 53,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-197",
+        "onyxCost": 1050,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-hybrid-robots-defeated",
+          "target": 8,
+          "label": "Defeat 8 hybrid-affinity Tower robots"
+        },
+        "strengthScore": 43,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-167",
+        "onyxCost": 1000,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-minibosses-defeated",
+          "target": 1,
+          "label": "Defeat the Aureofrost Colossus"
+        },
+        "strengthScore": 42,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-183",
+        "onyxCost": 1875,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "towers-cleared",
+          "target": 1,
+          "label": "Defeat the Divine Lich and clear Heavenly Tower"
+        },
+        "strengthScore": 62,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-008",
+        "onyxCost": 1325,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-highest-depth",
+          "target": 4,
+          "label": "Reach Ruined Vampiric Plains Depth 4"
+        },
+        "strengthScore": 50,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-032",
+        "onyxCost": 1400,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-battles-won",
+          "target": 4,
+          "label": "Win 4 Plains combats"
+        },
+        "strengthScore": 52,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-055",
+        "onyxCost": 1500,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-bleeds-applied",
+          "target": 12,
+          "label": "Apply Bleed 12 times in the Plains"
+        },
+        "strengthScore": 54,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-063",
+        "onyxCost": 1825,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-vampire-undead-defeated",
+          "target": 12,
+          "label": "Defeat 12 vampire or undead Plains enemies"
+        },
+        "strengthScore": 61,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-100",
+        "onyxCost": 1500,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-blood-moon-max",
+          "target": 40,
+          "label": "Reach Blood Moon 40"
+        },
+        "strengthScore": 54,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-101",
+        "onyxCost": 2225,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-shield-break-damage",
+          "target": 8,
+          "label": "Deal HP damage to Shielded enemies 8 times in the Plains"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-lifesteal-healing",
+            "target": 35,
+            "label": "Restore 35 HP through Lifesteal in the Ruined Vampiric Plains"
+          }
+        ],
+        "strengthScore": 69,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-141",
+        "onyxCost": 1125,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-hp-sacrifice-events",
+          "target": 3,
+          "label": "Resolve 3 blood-cost or high-risk Plains events"
+        },
+        "strengthScore": 45,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-170",
+        "onyxCost": 1500,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-lifesteal-healing",
+          "target": 50,
+          "label": "Restore 50 HP through Lifesteal in the Plains"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-lifesteal-healing",
+            "target": 50,
+            "label": "Restore 50 HP through Lifesteal in the Ruined Vampiric Plains"
+          }
+        ],
+        "strengthScore": 54,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-176",
+        "onyxCost": 1050,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-blood-moon-max",
+          "target": 60,
+          "label": "Reach Blood Moon 60"
+        },
+        "strengthScore": 43,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-191",
+        "onyxCost": 2150,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-overkill-defeats",
+          "target": 6,
+          "label": "Defeat 6 Plains enemies with overkill damage"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-lifesteal-healing",
+            "target": 60,
+            "label": "Restore 60 HP through Lifesteal in the Ruined Vampiric Plains"
+          }
+        ],
+        "strengthScore": 68,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-192",
+        "onyxCost": 1875,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-fire-lifesteal-healing",
+          "target": 30,
+          "label": "Restore 30 HP through Fire Lifesteal in the Plains"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-fire-lifesteal-healing",
+            "target": 30,
+            "label": "Restore 30 HP through Fire Lifesteal in the Ruined Vampiric Plains"
+          }
+        ],
+        "strengthScore": 62,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-193",
+        "onyxCost": 1950,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-poison-lifesteal-healing",
+          "target": 30,
+          "label": "Restore 30 HP through Poison Lifesteal in the Plains"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-poison-lifesteal-healing",
+            "target": 30,
+            "label": "Restore 30 HP through Poison Lifesteal in the Ruined Vampiric Plains"
+          }
+        ],
+        "strengthScore": 64,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-196",
+        "onyxCost": 1675,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-minibosses-defeated",
+          "target": 2,
+          "label": "Defeat both Ruined Vampiric Plains minibosses"
+        },
+        "strengthScore": 58,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-200",
+        "onyxCost": 2375,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-cleared",
+          "target": 1,
+          "label": "Defeat Tenairah and clear the Ruined Vampiric Plains"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-lifesteal-healing",
+            "target": 70,
+            "label": "Restore 70 HP through Lifesteal in the Ruined Vampiric Plains"
+          }
+        ],
+        "strengthScore": 72,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-006",
+        "onyxCost": 1625,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 4,
+          "label": "Reach Caverns to Hell Depth 4"
+        },
+        "strengthScore": 57,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-035",
+        "onyxCost": 1325,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-battles-won",
+          "target": 4,
+          "label": "Win 4 Caverns to Hell combats"
+        },
+        "strengthScore": 50,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-039",
+        "onyxCost": 1325,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-cavern-enemies-defeated",
+          "target": 10,
+          "label": "Defeat 10 cavern enemies"
+        },
+        "strengthScore": 50,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-078",
+        "onyxCost": 1325,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-gate-guardian-defeated",
+          "target": 1,
+          "label": "Defeat Kharvax, the Gatebound"
+        },
+        "strengthScore": 50,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-081",
+        "onyxCost": 1775,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-demons-defeated",
+          "target": 12,
+          "label": "Defeat 12 demons in Hell"
+        },
+        "strengthScore": 60,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-084",
+        "onyxCost": 1675,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-sinbound-defeated",
+          "target": 5,
+          "label": "Defeat 5 Sinbound enemies"
+        },
+        "strengthScore": 58,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-102",
+        "onyxCost": 1550,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-merchant-purchases",
+          "target": 1,
+          "label": "Purchase 1 item from an Infernal Broker"
+        },
+        "strengthScore": 55,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-105",
+        "onyxCost": 1725,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 20,
+          "label": "Reach Caverns to Hell Depth 20"
+        },
+        "strengthScore": 59,
+        "priceTier": "Strong",
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-lifesteal-healing",
+            "target": 100,
+            "label": "Restore 100 HP through Lifesteal in the Ruined Vampiric Plains"
+          }
+        ]
+      },
+      {
+        "keptId": "KI-132",
+        "onyxCost": 1250,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-battles-won",
+          "target": 15,
+          "label": "Win 15 Region 5 combats"
+        },
+        "strengthScore": 48,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-150",
+        "onyxCost": 1075,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 26,
+          "label": "Reach Caverns to Hell Depth 26"
+        },
+        "strengthScore": 44,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-174",
+        "onyxCost": 1125,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-sin-forms-witnessed",
+          "target": 7,
+          "label": "Witness all seven of Serevakh’s Sin forms"
+        },
+        "strengthScore": 45,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-190",
+        "onyxCost": 975,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hells-cleared",
+          "target": 1,
+          "label": "Defeat Serevakh and clear Caverns to Hell"
+        },
+        "strengthScore": 41,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-128",
+        "onyxCost": 1075,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 4,
+          "label": "Reach That Dragon’s Dungeon Depth 4"
+        },
+        "strengthScore": 44,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-106",
+        "onyxCost": 1775,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-drakes-defeated",
+          "target": 10,
+          "label": "Defeat 10 Drakes"
+        },
+        "strengthScore": 60,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-180",
+        "onyxCost": 1075,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-treasures-taken",
+          "target": 3,
+          "label": "Take 3 optional hoard treasures"
+        },
+        "strengthScore": 44,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-181",
+        "onyxCost": 1250,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-hoard-sentinel-defeated",
+          "target": 1,
+          "label": "Defeat the Hoard Sentinel"
+        },
+        "strengthScore": 48,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-110",
+        "onyxCost": 1625,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-wyverns-defeated",
+          "target": 10,
+          "label": "Defeat 10 Wyverns"
+        },
+        "strengthScore": 57,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-138",
+        "onyxCost": 1250,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-curses-survived",
+          "target": 2,
+          "label": "Carry 2 different hoard curses during dungeon expeditions"
+        },
+        "strengthScore": 48,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-146",
+        "onyxCost": 1875,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 20,
+          "label": "Reach That Dragon’s Dungeon Depth 20"
+        },
+        "strengthScore": 62,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-159",
+        "onyxCost": 1950,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-leviathan-heads-defeated",
+          "target": 4,
+          "label": "Destroy 4 peripheral Leviathan Wyrm heads"
+        },
+        "strengthScore": 64,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-189",
+        "onyxCost": 925,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-true-dragons-defeated",
+          "target": 6,
+          "label": "Defeat 6 true Dragons"
+        },
+        "strengthScore": 40,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-195",
+        "onyxCost": 1725,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-element-types-faced",
+          "target": 6,
+          "label": "Face all six of Quentaliaus’s dragonflame damage types"
+        },
+        "strengthScore": 59,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-056",
+        "onyxCost": 1550,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 28,
+          "label": "Reach That Dragon’s Dungeon Depth 28"
+        },
+        "strengthScore": 55,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-016",
+        "onyxCost": 2225,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragons-dungeon-cleared",
+          "target": 1,
+          "label": "Defeat Quentaliaus Devanpierus and clear That Dragon’s Dungeon"
+        },
+        "strengthScore": 69,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-154",
+        "onyxCost": 1575,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 4,
+          "label": "Reach Necropolis Depth 4"
+        },
+        "strengthScore": 56,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-173",
+        "onyxCost": 800,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-undead-defeated",
+          "target": 25,
+          "label": "Defeat 25 weak Skeletons or Zombies in Necropolis"
+        },
+        "strengthScore": 36,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-151",
+        "onyxCost": 850,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-cultists-defeated",
+          "target": 10,
+          "label": "Defeat 10 living cultists in Necropolis"
+        },
+        "strengthScore": 38,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-079",
+        "onyxCost": 1325,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-sacrifices-witnessed",
+          "target": 8,
+          "label": "Witness 8 cult undead sacrifices"
+        },
+        "strengthScore": 50,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-057",
+        "onyxCost": 1500,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-executioner-defeated",
+          "target": 1,
+          "label": "Defeat the Bone-Tithe Executioner"
+        },
+        "strengthScore": 54,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-020",
+        "onyxCost": 1675,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-mirror-glimpses",
+          "target": 3,
+          "label": "Witness 3 direct Mirror glimpses while pursuing the cult"
+        },
+        "strengthScore": 58,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-005",
+        "onyxCost": 1725,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 18,
+          "label": "Reach Necropolis Depth 18"
+        },
+        "strengthScore": 59,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-149",
+        "onyxCost": 850,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-grave-colossus-defeated",
+          "target": 1,
+          "label": "Defeat the Grave Colossus"
+        },
+        "strengthScore": 38,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-142",
+        "onyxCost": 1450,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-royal-ossuaries-destroyed",
+          "target": 3,
+          "label": "Destroy all 3 Royal Ossuaries in Ossuary King encounters"
+        },
+        "strengthScore": 53,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-168",
+        "onyxCost": 1150,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 27,
+          "label": "Reach Necropolis Depth 27"
+        },
+        "strengthScore": 46,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-121",
+        "onyxCost": 1550,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-bosses-defeated",
+          "target": 1,
+          "label": "Defeat the Ossuary King"
+        },
+        "strengthScore": 55,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-178",
+        "onyxCost": 800,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolises-cleared",
+          "target": 1,
+          "label": "Clear Necropolis while the cult leader escapes with the Mirror"
+        },
+        "strengthScore": 36,
+        "priceTier": "Standard"
+      }
+    ],
+    "catalogOffers": [
+      {
+        "keptId": "KI-001",
+        "onyxCost": 2000,
+        "requirement": {
+          "type": "minibosses-defeated",
+          "target": 1,
+          "label": "Defeat the Forest miniboss"
+        },
+        "region": "forest",
+        "strengthScore": 65,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-002",
+        "onyxCost": 1550,
+        "strengthScore": 55,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 18,
+          "label": "Reach Heavenly Tower Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-003",
+        "onyxCost": 1125,
+        "strengthScore": 45,
+        "priceTier": "Strong",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 12,
+          "label": "Reach Necropolis Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-004",
+        "onyxCost": 2050,
+        "requirement": {
+          "type": "trainers-learned-from",
+          "target": 1,
+          "label": "Learn from 1 Forest Trainer"
+        },
+        "region": "forest",
+        "strengthScore": 66,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-005",
+        "onyxCost": 1725,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 18,
+          "label": "Reach Necropolis Depth 18"
+        },
+        "strengthScore": 59,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-006",
+        "onyxCost": 1625,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 4,
+          "label": "Reach Caverns to Hell Depth 4"
+        },
+        "strengthScore": 57,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-007",
+        "onyxCost": 1275,
+        "requirement": {
+          "type": "forests-cleared",
+          "target": 1,
+          "label": "Defeat the Forest boss and clear the Forest"
+        },
+        "region": "forest",
+        "strengthScore": 49,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-008",
+        "onyxCost": 1325,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-highest-depth",
+          "target": 4,
+          "label": "Reach Ruined Vampiric Plains Depth 4"
+        },
+        "strengthScore": 50,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-009",
+        "onyxCost": 1625,
+        "requirement": {
+          "type": "highest-depth",
+          "target": 3,
+          "label": "Reach Forest Depth 3"
+        },
+        "region": "forest",
+        "strengthScore": 57,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-010",
+        "onyxCost": 1575,
+        "strengthScore": 56,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 18,
+          "label": "Reach Heavenly Tower Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-011",
+        "onyxCost": 1950,
+        "requirement": {
+          "type": "battles-won",
+          "target": 2,
+          "label": "Win 2 Forest battles"
+        },
+        "region": "forest",
+        "strengthScore": 64,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-012",
+        "onyxCost": 1575,
+        "strengthScore": 56,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-013",
+        "onyxCost": 1725,
+        "strengthScore": 59,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-014",
+        "onyxCost": 1675,
+        "requirement": {
+          "type": "successful-checks",
+          "target": 1,
+          "label": "Succeed at 1 Forest stat check"
+        },
+        "region": "forest",
+        "strengthScore": 58,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-015",
+        "onyxCost": 1775,
+        "strengthScore": 60,
+        "priceTier": "Build-Defining",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 24,
+          "label": "Reach Caverns to Hell Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-016",
+        "onyxCost": 2225,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragons-dungeon-cleared",
+          "target": 1,
+          "label": "Defeat Quentaliaus Devanpierus and clear That Dragon’s Dungeon"
+        },
+        "strengthScore": 69,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-017",
+        "onyxCost": 1775,
+        "strengthScore": 60,
+        "priceTier": "Build-Defining",
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 24,
+          "label": "Reach That Dragon’s Dungeon Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-018",
+        "onyxCost": 1575,
+        "strengthScore": 56,
+        "priceTier": "Strong",
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-highest-depth",
+          "target": 18,
+          "label": "Reach Ruined Vampiric Plains Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-019",
+        "onyxCost": 1900,
+        "strengthScore": 63,
+        "priceTier": "Build-Defining",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 24,
+          "label": "Reach Forest Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-020",
+        "onyxCost": 1675,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-mirror-glimpses",
+          "target": 3,
+          "label": "Witness 3 direct Mirror glimpses while pursuing the cult"
+        },
+        "strengthScore": 58,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-021",
+        "onyxCost": 1725,
+        "strengthScore": 59,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-022",
+        "onyxCost": 2050,
+        "strengthScore": 66,
+        "priceTier": "Build-Defining",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 24,
+          "label": "Reach Heavenly Tower Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-023",
+        "onyxCost": 2050,
+        "strengthScore": 66,
+        "priceTier": "Build-Defining",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 24,
+          "label": "Reach Forest Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-024",
+        "onyxCost": 2100,
+        "strengthScore": 67,
+        "priceTier": "Build-Defining",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 24,
+          "label": "Reach Forest Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-025",
+        "onyxCost": 1550,
+        "requirement": {
+          "type": "crafted-items",
+          "target": 1,
+          "label": "Craft 1 item in the Forest"
+        },
+        "region": "forest",
+        "strengthScore": 55,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-026",
+        "onyxCost": 1575,
+        "strengthScore": 56,
+        "priceTier": "Strong",
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-highest-depth",
+          "target": 18,
+          "label": "Reach Bog of Lost Souls Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-027",
+        "onyxCost": 2150,
+        "strengthScore": 68,
+        "priceTier": "Build-Defining",
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 24,
+          "label": "Reach That Dragon’s Dungeon Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-028",
+        "onyxCost": 1775,
+        "strengthScore": 60,
+        "priceTier": "Build-Defining",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 24,
+          "label": "Reach Forest Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-029",
+        "onyxCost": 1325,
+        "requirement": {
+          "type": "highest-depth",
+          "target": 8,
+          "label": "Reach Forest Depth 8"
+        },
+        "region": "forest",
+        "strengthScore": 50,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-030",
+        "onyxCost": 1450,
+        "strengthScore": 53,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-031",
+        "onyxCost": 1400,
+        "strengthScore": 52,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 18,
+          "label": "Reach Heavenly Tower Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-032",
+        "onyxCost": 1400,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-battles-won",
+          "target": 4,
+          "label": "Win 4 Plains combats"
+        },
+        "strengthScore": 52,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-033",
+        "onyxCost": 1675,
+        "strengthScore": 58,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-034",
+        "onyxCost": 1550,
+        "strengthScore": 55,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-035",
+        "onyxCost": 1325,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-battles-won",
+          "target": 4,
+          "label": "Win 4 Caverns to Hell combats"
+        },
+        "strengthScore": 50,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-036",
+        "onyxCost": 1450,
+        "strengthScore": 53,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-037",
+        "onyxCost": 1450,
+        "strengthScore": 53,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-038",
+        "onyxCost": 1450,
+        "strengthScore": 53,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-039",
+        "onyxCost": 1325,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-cavern-enemies-defeated",
+          "target": 10,
+          "label": "Defeat 10 cavern enemies"
+        },
+        "strengthScore": 50,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-040",
+        "onyxCost": 1325,
+        "strengthScore": 50,
+        "priceTier": "Strong",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 18,
+          "label": "Reach Caverns to Hell Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-041",
+        "onyxCost": 1625,
+        "strengthScore": 57,
+        "priceTier": "Strong",
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 18,
+          "label": "Reach That Dragon’s Dungeon Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-042",
+        "onyxCost": 1825,
+        "strengthScore": 61,
+        "priceTier": "Build-Defining",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 24,
+          "label": "Reach Forest Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-043",
+        "onyxCost": 1775,
+        "requirement": {
+          "type": "battles-won",
+          "target": 6,
+          "label": "Win 6 Forest battles total"
+        },
+        "region": "forest",
+        "strengthScore": 60,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-044",
+        "onyxCost": 1625,
+        "strengthScore": 57,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-045",
+        "onyxCost": 1550,
+        "strengthScore": 55,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-046",
+        "onyxCost": 1575,
+        "strengthScore": 56,
+        "priceTier": "Strong",
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-highest-depth",
+          "target": 18,
+          "label": "Reach Ruined Vampiric Plains Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-047",
+        "onyxCost": 1550,
+        "strengthScore": 55,
+        "priceTier": "Strong",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 18,
+          "label": "Reach Caverns to Hell Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-048",
+        "onyxCost": 1825,
+        "strengthScore": 61,
+        "priceTier": "Build-Defining",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 24,
+          "label": "Reach Heavenly Tower Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-049",
+        "onyxCost": 2000,
+        "strengthScore": 65,
+        "priceTier": "Build-Defining",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 24,
+          "label": "Reach Forest Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-050",
+        "onyxCost": 1875,
+        "strengthScore": 62,
+        "priceTier": "Build-Defining",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 24,
+          "label": "Reach Heavenly Tower Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-051",
+        "onyxCost": 1775,
+        "strengthScore": 60,
+        "priceTier": "Build-Defining",
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-highest-depth",
+          "target": 24,
+          "label": "Reach Bog of Lost Souls Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-052",
+        "onyxCost": 1950,
+        "strengthScore": 64,
+        "priceTier": "Build-Defining",
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 24,
+          "label": "Reach That Dragon’s Dungeon Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-053",
+        "onyxCost": 1675,
+        "strengthScore": 58,
+        "priceTier": "Strong",
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 18,
+          "label": "Reach That Dragon’s Dungeon Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-054",
+        "onyxCost": 2050,
+        "strengthScore": 66,
+        "priceTier": "Build-Defining",
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 24,
+          "label": "Reach That Dragon’s Dungeon Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-055",
+        "onyxCost": 1500,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-bleeds-applied",
+          "target": 12,
+          "label": "Apply Bleed 12 times in the Plains"
+        },
+        "strengthScore": 54,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-056",
+        "onyxCost": 1550,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 28,
+          "label": "Reach That Dragon’s Dungeon Depth 28"
+        },
+        "strengthScore": 55,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-057",
+        "onyxCost": 1500,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-executioner-defeated",
+          "target": 1,
+          "label": "Defeat the Bone-Tithe Executioner"
+        },
+        "strengthScore": 54,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-058",
+        "onyxCost": 1950,
+        "strengthScore": 64,
+        "priceTier": "Build-Defining",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 24,
+          "label": "Reach Heavenly Tower Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-059",
+        "onyxCost": 2000,
+        "strengthScore": 65,
+        "priceTier": "Build-Defining",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 24,
+          "label": "Reach Caverns to Hell Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-060",
+        "onyxCost": 1625,
+        "strengthScore": 57,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 18,
+          "label": "Reach Heavenly Tower Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-061",
+        "onyxCost": 1950,
+        "strengthScore": 64,
+        "priceTier": "Build-Defining",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 24,
+          "label": "Reach Heavenly Tower Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-062",
+        "onyxCost": 2225,
+        "strengthScore": 69,
+        "priceTier": "Build-Defining",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 24,
+          "label": "Reach Caverns to Hell Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-063",
+        "onyxCost": 1825,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-vampire-undead-defeated",
+          "target": 12,
+          "label": "Defeat 12 vampire or undead Plains enemies"
+        },
+        "strengthScore": 61,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-064",
+        "onyxCost": 1725,
+        "requirement": {
+          "type": "trainers-fought",
+          "target": 1,
+          "label": "Fight 1 Forest Trainer"
+        },
+        "region": "forest",
+        "strengthScore": 59,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-065",
+        "onyxCost": 1400,
+        "requirement": {
+          "type": "successful-checks",
+          "target": 4,
+          "label": "Succeed at 4 Forest stat checks total"
+        },
+        "region": "forest",
+        "strengthScore": 52,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-066",
+        "onyxCost": 1575,
+        "strengthScore": 56,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-067",
+        "onyxCost": 1875,
+        "strengthScore": 62,
+        "priceTier": "Build-Defining",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 24,
+          "label": "Reach Heavenly Tower Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-068",
+        "onyxCost": 1725,
+        "strengthScore": 59,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-069",
+        "onyxCost": 1725,
+        "strengthScore": 59,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-070",
+        "onyxCost": 1875,
+        "strengthScore": 62,
+        "priceTier": "Build-Defining",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 24,
+          "label": "Reach Caverns to Hell Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-071",
+        "onyxCost": 1500,
+        "strengthScore": 54,
+        "priceTier": "Strong",
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-highest-depth",
+          "target": 18,
+          "label": "Reach Bog of Lost Souls Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-072",
+        "onyxCost": 1950,
+        "strengthScore": 64,
+        "priceTier": "Build-Defining",
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 24,
+          "label": "Reach That Dragon’s Dungeon Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-073",
+        "onyxCost": 1550,
+        "strengthScore": 55,
+        "priceTier": "Strong",
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-highest-depth",
+          "target": 18,
+          "label": "Reach Ruined Vampiric Plains Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-074",
+        "onyxCost": 1825,
+        "strengthScore": 61,
+        "priceTier": "Build-Defining",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 24,
+          "label": "Reach Heavenly Tower Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-075",
+        "onyxCost": 1725,
+        "strengthScore": 59,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-076",
+        "onyxCost": 1625,
+        "strengthScore": 57,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 18,
+          "label": "Reach Heavenly Tower Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-077",
+        "onyxCost": 1325,
+        "requirement": {
+          "type": "ordinary-materials-collected",
+          "target": 12,
+          "label": "Collect 12 ordinary Forest materials total"
+        },
+        "region": "forest",
+        "strengthScore": 50,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-078",
+        "onyxCost": 1325,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-gate-guardian-defeated",
+          "target": 1,
+          "label": "Defeat Kharvax, the Gatebound"
+        },
+        "strengthScore": 50,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-079",
+        "onyxCost": 1325,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-sacrifices-witnessed",
+          "target": 8,
+          "label": "Witness 8 cult undead sacrifices"
+        },
+        "strengthScore": 50,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-080",
+        "onyxCost": 1450,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-negative-effects-suffered",
+          "target": 5,
+          "label": "Suffer 5 curse/debuff applications in the Bog"
+        },
+        "strengthScore": 53,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-081",
+        "onyxCost": 1775,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-demons-defeated",
+          "target": 12,
+          "label": "Defeat 12 demons in Hell"
+        },
+        "strengthScore": 60,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-082",
+        "onyxCost": 2000,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-negative-effects-expired",
+          "target": 10,
+          "label": "Have 10 Bog negative effects expire"
+        },
+        "strengthScore": 65,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-083",
+        "onyxCost": 1325,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-two-status-defeats",
+          "target": 10,
+          "label": "Defeat 10 Bog enemies while they carry 2+ negative statuses"
+        },
+        "strengthScore": 50,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-084",
+        "onyxCost": 1675,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-sinbound-defeated",
+          "target": 5,
+          "label": "Defeat 5 Sinbound enemies"
+        },
+        "strengthScore": 58,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-085",
+        "onyxCost": 1325,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-negative-statuses-applied",
+          "target": 20,
+          "label": "Apply 20 negative statuses to Bog enemies"
+        },
+        "strengthScore": 50,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-086",
+        "onyxCost": 1400,
+        "strengthScore": 52,
+        "priceTier": "Strong",
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-highest-depth",
+          "target": 18,
+          "label": "Reach Bog of Lost Souls Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-087",
+        "onyxCost": 1375,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-undead-spirits-defeated",
+          "target": 12,
+          "label": "Defeat 12 Bog undead or spirits"
+        },
+        "strengthScore": 51,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-088",
+        "onyxCost": 1450,
+        "strengthScore": 53,
+        "priceTier": "Strong",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 18,
+          "label": "Reach Caverns to Hell Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-089",
+        "onyxCost": 1400,
+        "strengthScore": 52,
+        "priceTier": "Strong",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 18,
+          "label": "Reach Necropolis Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-090",
+        "onyxCost": 1575,
+        "strengthScore": 56,
+        "priceTier": "Strong",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 18,
+          "label": "Reach Necropolis Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-091",
+        "onyxCost": 1825,
+        "strengthScore": 61,
+        "priceTier": "Build-Defining",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 24,
+          "label": "Reach Necropolis Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-092",
+        "onyxCost": 1825,
+        "strengthScore": 61,
+        "priceTier": "Build-Defining",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 24,
+          "label": "Reach Necropolis Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-093",
+        "onyxCost": 1550,
+        "strengthScore": 55,
+        "priceTier": "Strong",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 18,
+          "label": "Reach Necropolis Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-094",
+        "onyxCost": 1900,
+        "strengthScore": 63,
+        "priceTier": "Build-Defining",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 24,
+          "label": "Reach Necropolis Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-095",
+        "onyxCost": 1200,
+        "strengthScore": 47,
+        "priceTier": "Strong",
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-highest-depth",
+          "target": 12,
+          "label": "Reach Ruined Vampiric Plains Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-096",
+        "onyxCost": 1900,
+        "strengthScore": 63,
+        "priceTier": "Build-Defining",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 24,
+          "label": "Reach Forest Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-097",
+        "onyxCost": 1550,
+        "strengthScore": 55,
+        "priceTier": "Strong",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 18,
+          "label": "Reach Caverns to Hell Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-098",
+        "onyxCost": 1500,
+        "strengthScore": 54,
+        "priceTier": "Strong",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 18,
+          "label": "Reach Necropolis Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-099",
+        "onyxCost": 1825,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 4,
+          "label": "Reach Heavenly Tower Depth 4"
+        },
+        "strengthScore": 61,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-100",
+        "onyxCost": 1500,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-blood-moon-max",
+          "target": 40,
+          "label": "Reach Blood Moon 40"
+        },
+        "strengthScore": 54,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-101",
+        "onyxCost": 2225,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-shield-break-damage",
+          "target": 8,
+          "label": "Deal HP damage to Shielded enemies 8 times in the Plains"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-lifesteal-healing",
+            "target": 35,
+            "label": "Restore 35 HP through Lifesteal in the Ruined Vampiric Plains"
+          }
+        ],
+        "strengthScore": 69,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-102",
+        "onyxCost": 1550,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-merchant-purchases",
+          "target": 1,
+          "label": "Purchase 1 item from an Infernal Broker"
+        },
+        "strengthScore": 55,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-103",
+        "onyxCost": 1950,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-battles-won",
+          "target": 8,
+          "label": "Win 8 Bog combats"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-lifesteal-healing",
+            "target": 45,
+            "label": "Restore 45 HP through Lifesteal in the Ruined Vampiric Plains"
+          }
+        ],
+        "strengthScore": 64,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-104",
+        "onyxCost": 1125,
+        "strengthScore": 45,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 12,
+          "label": "Reach Heavenly Tower Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-105",
+        "onyxCost": 1725,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 20,
+          "label": "Reach Caverns to Hell Depth 20"
+        },
+        "strengthScore": 59,
+        "priceTier": "Strong",
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-lifesteal-healing",
+            "target": 100,
+            "label": "Restore 100 HP through Lifesteal in the Ruined Vampiric Plains"
+          }
+        ]
+      },
+      {
+        "keptId": "KI-106",
+        "onyxCost": 1775,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-drakes-defeated",
+          "target": 10,
+          "label": "Defeat 10 Drakes"
+        },
+        "strengthScore": 60,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-107",
+        "onyxCost": 1725,
+        "strengthScore": 59,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 18,
+          "label": "Reach Heavenly Tower Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-108",
+        "onyxCost": 1950,
+        "strengthScore": 64,
+        "priceTier": "Build-Defining",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 24,
+          "label": "Reach Heavenly Tower Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-109",
+        "onyxCost": 1675,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-battles-won",
+          "target": 5,
+          "label": "Win 5 Heavenly Tower combats"
+        },
+        "strengthScore": 58,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-110",
+        "onyxCost": 1625,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-wyverns-defeated",
+          "target": 10,
+          "label": "Defeat 10 Wyverns"
+        },
+        "strengthScore": 57,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-111",
+        "onyxCost": 1775,
+        "strengthScore": 60,
+        "priceTier": "Build-Defining",
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 24,
+          "label": "Reach That Dragon’s Dungeon Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-112",
+        "onyxCost": 1575,
+        "strengthScore": 56,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-113",
+        "onyxCost": 1200,
+        "strengthScore": 47,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 12,
+          "label": "Reach Forest Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-114",
+        "onyxCost": 1550,
+        "strengthScore": 55,
+        "priceTier": "Strong",
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 18,
+          "label": "Reach That Dragon’s Dungeon Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-115",
+        "onyxCost": 1725,
+        "strengthScore": 59,
+        "priceTier": "Strong",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 18,
+          "label": "Reach Caverns to Hell Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-116",
+        "onyxCost": 1075,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-three-status-defeats",
+          "target": 5,
+          "label": "Defeat 5 Bog enemies while they carry 3+ negative statuses"
+        },
+        "strengthScore": 44,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-117",
+        "onyxCost": 1200,
+        "strengthScore": 47,
+        "priceTier": "Strong",
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-highest-depth",
+          "target": 12,
+          "label": "Reach Bog of Lost Souls Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-118",
+        "onyxCost": 1950,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-buffed-robots-defeated",
+          "target": 8,
+          "label": "Defeat 8 Tower robots while they have a positive buff"
+        },
+        "strengthScore": 64,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-119",
+        "onyxCost": 1075,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-bandit-camps-defeated",
+          "target": 3,
+          "label": "Defeat 3 Blackbanner Bandit Camps"
+        },
+        "strengthScore": 44,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-120",
+        "onyxCost": 1375,
+        "strengthScore": 51,
+        "priceTier": "Strong",
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 18,
+          "label": "Reach That Dragon’s Dungeon Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-121",
+        "onyxCost": 1550,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-bosses-defeated",
+          "target": 1,
+          "label": "Defeat the Ossuary King"
+        },
+        "strengthScore": 55,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-122",
+        "onyxCost": 1275,
+        "strengthScore": 49,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 12,
+          "label": "Reach Forest Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-123",
+        "onyxCost": 1825,
+        "strengthScore": 61,
+        "priceTier": "Build-Defining",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 24,
+          "label": "Reach Forest Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-124",
+        "onyxCost": 1775,
+        "strengthScore": 60,
+        "priceTier": "Build-Defining",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 24,
+          "label": "Reach Necropolis Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-125",
+        "onyxCost": 1675,
+        "strengthScore": 58,
+        "priceTier": "Strong",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 18,
+          "label": "Reach Necropolis Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-126",
+        "onyxCost": 1575,
+        "strengthScore": 56,
+        "priceTier": "Strong",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 18,
+          "label": "Reach Necropolis Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-127",
+        "onyxCost": 1375,
+        "strengthScore": 51,
+        "priceTier": "Strong",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 18,
+          "label": "Reach Necropolis Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-128",
+        "onyxCost": 1075,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 4,
+          "label": "Reach That Dragon’s Dungeon Depth 4"
+        },
+        "strengthScore": 44,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-129",
+        "onyxCost": 1075,
+        "strengthScore": 44,
+        "priceTier": "Standard",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 12,
+          "label": "Reach Heavenly Tower Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-130",
+        "onyxCost": 1550,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-holy-robots-defeated",
+          "target": 12,
+          "label": "Defeat 12 Holy Tower robots"
+        },
+        "strengthScore": 55,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-131",
+        "onyxCost": 1775,
+        "strengthScore": 60,
+        "priceTier": "Build-Defining",
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 24,
+          "label": "Reach That Dragon’s Dungeon Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-132",
+        "onyxCost": 1250,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-battles-won",
+          "target": 15,
+          "label": "Win 15 Region 5 combats"
+        },
+        "strengthScore": 48,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-133",
+        "onyxCost": 1725,
+        "strengthScore": 59,
+        "priceTier": "Strong",
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-highest-depth",
+          "target": 18,
+          "label": "Reach Bog of Lost Souls Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-134",
+        "onyxCost": 1075,
+        "strengthScore": 44,
+        "priceTier": "Standard",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 12,
+          "label": "Reach Forest Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-135",
+        "onyxCost": 1200,
+        "strengthScore": 47,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 12,
+          "label": "Reach Forest Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-136",
+        "onyxCost": 1325,
+        "strengthScore": 50,
+        "priceTier": "Strong",
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-highest-depth",
+          "target": 18,
+          "label": "Reach Bog of Lost Souls Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-137",
+        "onyxCost": 1375,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-psychic-robots-defeated",
+          "target": 3,
+          "label": "Defeat 3 Psychic Tower robots"
+        },
+        "strengthScore": 51,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-138",
+        "onyxCost": 1250,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-curses-survived",
+          "target": 2,
+          "label": "Carry 2 different hoard curses during dungeon expeditions"
+        },
+        "strengthScore": 48,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-139",
+        "onyxCost": 1150,
+        "strengthScore": 46,
+        "priceTier": "Strong",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 12,
+          "label": "Reach Caverns to Hell Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-140",
+        "onyxCost": 1325,
+        "strengthScore": 50,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 18,
+          "label": "Reach Heavenly Tower Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-141",
+        "onyxCost": 1125,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-hp-sacrifice-events",
+          "target": 3,
+          "label": "Resolve 3 blood-cost or high-risk Plains events"
+        },
+        "strengthScore": 45,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-142",
+        "onyxCost": 1450,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-royal-ossuaries-destroyed",
+          "target": 3,
+          "label": "Destroy all 3 Royal Ossuaries in Ossuary King encounters"
+        },
+        "strengthScore": 53,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-143",
+        "onyxCost": 1825,
+        "strengthScore": 61,
+        "priceTier": "Build-Defining",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 24,
+          "label": "Reach Heavenly Tower Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-144",
+        "onyxCost": 1775,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 20,
+          "label": "Reach Heavenly Tower Depth 20"
+        },
+        "strengthScore": 60,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-145",
+        "onyxCost": 1150,
+        "strengthScore": 46,
+        "priceTier": "Strong",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 12,
+          "label": "Reach Caverns to Hell Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-146",
+        "onyxCost": 1875,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 20,
+          "label": "Reach That Dragon’s Dungeon Depth 20"
+        },
+        "strengthScore": 62,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-147",
+        "onyxCost": 1075,
+        "strengthScore": 44,
+        "priceTier": "Standard",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 12,
+          "label": "Reach Caverns to Hell Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-148",
+        "onyxCost": 1375,
+        "strengthScore": 51,
+        "priceTier": "Strong",
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-highest-depth",
+          "target": 18,
+          "label": "Reach Bog of Lost Souls Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-149",
+        "onyxCost": 850,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-grave-colossus-defeated",
+          "target": 1,
+          "label": "Defeat the Grave Colossus"
+        },
+        "strengthScore": 38,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-150",
+        "onyxCost": 1075,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 26,
+          "label": "Reach Caverns to Hell Depth 26"
+        },
+        "strengthScore": 44,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-151",
+        "onyxCost": 850,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-cultists-defeated",
+          "target": 10,
+          "label": "Defeat 10 living cultists in Necropolis"
+        },
+        "strengthScore": 38,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-152",
+        "onyxCost": 1375,
+        "strengthScore": 51,
+        "priceTier": "Strong",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 18,
+          "label": "Reach Necropolis Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-153",
+        "onyxCost": 1450,
+        "strengthScore": 53,
+        "priceTier": "Strong",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 18,
+          "label": "Reach Necropolis Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-154",
+        "onyxCost": 1575,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 4,
+          "label": "Reach Necropolis Depth 4"
+        },
+        "strengthScore": 56,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-155",
+        "onyxCost": 1450,
+        "strengthScore": 53,
+        "priceTier": "Strong",
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-highest-depth",
+          "target": 18,
+          "label": "Reach Bog of Lost Souls Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-156",
+        "onyxCost": 1325,
+        "strengthScore": 50,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 18,
+          "label": "Reach Heavenly Tower Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-157",
+        "onyxCost": 1325,
+        "strengthScore": 50,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-158",
+        "onyxCost": 850,
+        "strengthScore": 38,
+        "priceTier": "Standard",
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-highest-depth",
+          "target": 8,
+          "label": "Reach Ruined Vampiric Plains Depth 8"
+        }
+      },
+      {
+        "keptId": "KI-159",
+        "onyxCost": 1950,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-leviathan-heads-defeated",
+          "target": 4,
+          "label": "Destroy 4 peripheral Leviathan Wyrm heads"
+        },
+        "strengthScore": 64,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-160",
+        "onyxCost": 1200,
+        "strengthScore": 47,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 12,
+          "label": "Reach Heavenly Tower Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-161",
+        "onyxCost": 1075,
+        "strengthScore": 44,
+        "priceTier": "Standard",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 12,
+          "label": "Reach Heavenly Tower Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-162",
+        "onyxCost": 850,
+        "strengthScore": 38,
+        "priceTier": "Standard",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 8,
+          "label": "Reach Forest Depth 8"
+        }
+      },
+      {
+        "keptId": "KI-163",
+        "onyxCost": 1325,
+        "strengthScore": 50,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 18,
+          "label": "Reach Heavenly Tower Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-164",
+        "onyxCost": 1450,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-energy-spent",
+          "target": 60,
+          "label": "Spend 60 Energy during Heavenly Tower combats"
+        },
+        "strengthScore": 53,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-165",
+        "onyxCost": 1550,
+        "strengthScore": 55,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 18,
+          "label": "Reach Heavenly Tower Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-166",
+        "onyxCost": 1325,
+        "strengthScore": 50,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-167",
+        "onyxCost": 1000,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-minibosses-defeated",
+          "target": 1,
+          "label": "Defeat the Aureofrost Colossus"
+        },
+        "strengthScore": 42,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-168",
+        "onyxCost": 1150,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 27,
+          "label": "Reach Necropolis Depth 27"
+        },
+        "strengthScore": 46,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-169",
+        "onyxCost": 1500,
+        "strengthScore": 54,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 18,
+          "label": "Reach Heavenly Tower Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-170",
+        "onyxCost": 1500,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-lifesteal-healing",
+          "target": 50,
+          "label": "Restore 50 HP through Lifesteal in the Plains"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-lifesteal-healing",
+            "target": 50,
+            "label": "Restore 50 HP through Lifesteal in the Ruined Vampiric Plains"
+          }
+        ],
+        "strengthScore": 54,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-171",
+        "onyxCost": 1250,
+        "strengthScore": 48,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 12,
+          "label": "Reach Heavenly Tower Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-172",
+        "onyxCost": 1375,
+        "strengthScore": 51,
+        "priceTier": "Strong",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 18,
+          "label": "Reach Necropolis Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-173",
+        "onyxCost": 800,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-undead-defeated",
+          "target": 25,
+          "label": "Defeat 25 weak Skeletons or Zombies in Necropolis"
+        },
+        "strengthScore": 36,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-174",
+        "onyxCost": 1125,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-sin-forms-witnessed",
+          "target": 7,
+          "label": "Witness all seven of Serevakh’s Sin forms"
+        },
+        "strengthScore": 45,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-175",
+        "onyxCost": 1150,
+        "strengthScore": 46,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 12,
+          "label": "Reach Heavenly Tower Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-176",
+        "onyxCost": 1050,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-blood-moon-max",
+          "target": 60,
+          "label": "Reach Blood Moon 60"
+        },
+        "strengthScore": 43,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-177",
+        "onyxCost": 1400,
+        "strengthScore": 52,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 18,
+          "label": "Reach Heavenly Tower Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-178",
+        "onyxCost": 800,
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolises-cleared",
+          "target": 1,
+          "label": "Clear Necropolis while the cult leader escapes with the Mirror"
+        },
+        "strengthScore": 36,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-179",
+        "onyxCost": 1150,
+        "strengthScore": 46,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 12,
+          "label": "Reach Heavenly Tower Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-180",
+        "onyxCost": 1075,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-treasures-taken",
+          "target": 3,
+          "label": "Take 3 optional hoard treasures"
+        },
+        "strengthScore": 44,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-181",
+        "onyxCost": 1250,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-hoard-sentinel-defeated",
+          "target": 1,
+          "label": "Defeat the Hoard Sentinel"
+        },
+        "strengthScore": 48,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-182",
+        "onyxCost": 7500,
+        "strengthScore": 100,
+        "priceTier": "Transformative",
+        "region": "shadow-infused-dark-woods",
+        "requirement": {
+          "type": "final-region-cleared",
+          "target": 1,
+          "label": "Defeat the Broken Mirror and complete the full campaign once"
+        }
+      },
+      {
+        "keptId": "KI-183",
+        "onyxCost": 1875,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "towers-cleared",
+          "target": 1,
+          "label": "Defeat the Divine Lich and clear Heavenly Tower"
+        },
+        "strengthScore": 62,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-184",
+        "onyxCost": 1150,
+        "strengthScore": 46,
+        "priceTier": "Strong",
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-highest-depth",
+          "target": 12,
+          "label": "Reach Bog of Lost Souls Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-185",
+        "onyxCost": 1150,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-cold-robots-defeated",
+          "target": 8,
+          "label": "Defeat 8 Cold Tower robots"
+        },
+        "strengthScore": 46,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-186",
+        "onyxCost": 1375,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-poison-statuses-applied",
+          "target": 25,
+          "label": "Apply Poison 25 times in the Bog"
+        },
+        "strengthScore": 51,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-187",
+        "onyxCost": 1550,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-fire-robots-defeated",
+          "target": 6,
+          "label": "Defeat 6 Fire Tower robots"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-fire-lifesteal-healing",
+            "target": 30,
+            "label": "Restore 30 HP through Fire Lifesteal in the Ruined Vampiric Plains"
+          }
+        ],
+        "strengthScore": 55,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-188",
+        "onyxCost": 1050,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-minibosses-defeated",
+          "target": 1,
+          "label": "Defeat Varris and Mira's Mirebound Abomination"
+        },
+        "strengthScore": 43,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-189",
+        "onyxCost": 925,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-true-dragons-defeated",
+          "target": 6,
+          "label": "Defeat 6 true Dragons"
+        },
+        "strengthScore": 40,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-190",
+        "onyxCost": 975,
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hells-cleared",
+          "target": 1,
+          "label": "Defeat Serevakh and clear Caverns to Hell"
+        },
+        "strengthScore": 41,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-191",
+        "onyxCost": 2150,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-overkill-defeats",
+          "target": 6,
+          "label": "Defeat 6 Plains enemies with overkill damage"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-lifesteal-healing",
+            "target": 60,
+            "label": "Restore 60 HP through Lifesteal in the Ruined Vampiric Plains"
+          }
+        ],
+        "strengthScore": 68,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-192",
+        "onyxCost": 1875,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-fire-lifesteal-healing",
+          "target": 30,
+          "label": "Restore 30 HP through Fire Lifesteal in the Plains"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-fire-lifesteal-healing",
+            "target": 30,
+            "label": "Restore 30 HP through Fire Lifesteal in the Ruined Vampiric Plains"
+          }
+        ],
+        "strengthScore": 62,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-193",
+        "onyxCost": 1950,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-poison-lifesteal-healing",
+          "target": 30,
+          "label": "Restore 30 HP through Poison Lifesteal in the Plains"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-poison-lifesteal-healing",
+            "target": 30,
+            "label": "Restore 30 HP through Poison Lifesteal in the Ruined Vampiric Plains"
+          }
+        ],
+        "strengthScore": 64,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-194",
+        "onyxCost": 1550,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-lesser-witches-defeated",
+          "target": 6,
+          "label": "Defeat 6 Lesser Witches"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-dark-lifesteal-healing",
+            "target": 30,
+            "label": "Restore 30 HP through Dark Lifesteal in the Ruined Vampiric Plains"
+          }
+        ],
+        "strengthScore": 55,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-195",
+        "onyxCost": 1725,
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-element-types-faced",
+          "target": 6,
+          "label": "Face all six of Quentaliaus’s dragonflame damage types"
+        },
+        "strengthScore": 59,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-196",
+        "onyxCost": 1675,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-minibosses-defeated",
+          "target": 2,
+          "label": "Defeat both Ruined Vampiric Plains minibosses"
+        },
+        "strengthScore": 58,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-197",
+        "onyxCost": 1050,
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-hybrid-robots-defeated",
+          "target": 8,
+          "label": "Defeat 8 hybrid-affinity Tower robots"
+        },
+        "strengthScore": 43,
+        "priceTier": "Standard"
+      },
+      {
+        "keptId": "KI-198",
+        "onyxCost": 1125,
+        "strengthScore": 45,
+        "priceTier": "Strong",
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-highest-depth",
+          "target": 12,
+          "label": "Reach Bog of Lost Souls Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-199",
+        "onyxCost": 1200,
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bogs-cleared",
+          "target": 1,
+          "label": "Defeat Mira and Bandit King Jack and clear the Bog"
+        },
+        "strengthScore": 47,
+        "priceTier": "Strong"
+      },
+      {
+        "keptId": "KI-200",
+        "onyxCost": 2375,
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-cleared",
+          "target": 1,
+          "label": "Defeat Tenairah and clear the Ruined Vampiric Plains"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-lifesteal-healing",
+            "target": 70,
+            "label": "Restore 70 HP through Lifesteal in the Ruined Vampiric Plains"
+          }
+        ],
+        "strengthScore": 72,
+        "priceTier": "Build-Defining"
+      },
+      {
+        "keptId": "KI-201",
+        "onyxCost": 1125,
+        "strengthScore": 45,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 12,
+          "label": "Reach Forest Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-202",
+        "onyxCost": 1075,
+        "strengthScore": 44,
+        "priceTier": "Standard",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 12,
+          "label": "Reach Forest Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-203",
+        "onyxCost": 925,
+        "strengthScore": 40,
+        "priceTier": "Standard",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 12,
+          "label": "Reach Forest Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-204",
+        "onyxCost": 725,
+        "strengthScore": 34,
+        "priceTier": "Standard",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 8,
+          "label": "Reach Forest Depth 8"
+        }
+      },
+      {
+        "keptId": "KI-205",
+        "onyxCost": 1375,
+        "strengthScore": 51,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-206",
+        "onyxCost": 1325,
+        "strengthScore": 50,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 18,
+          "label": "Reach Forest Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-207",
+        "onyxCost": 1275,
+        "strengthScore": 49,
+        "priceTier": "Strong",
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-highest-depth",
+          "target": 12,
+          "label": "Reach Ruined Vampiric Plains Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-208",
+        "onyxCost": 1400,
+        "strengthScore": 52,
+        "priceTier": "Strong",
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-highest-depth",
+          "target": 18,
+          "label": "Reach Ruined Vampiric Plains Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-209",
+        "onyxCost": 1825,
+        "strengthScore": 61,
+        "priceTier": "Build-Defining",
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-highest-depth",
+          "target": 24,
+          "label": "Reach Ruined Vampiric Plains Depth 24"
+        }
+      },
+      {
+        "keptId": "KI-210",
+        "onyxCost": 1250,
+        "strengthScore": 48,
+        "priceTier": "Strong",
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-highest-depth",
+          "target": 12,
+          "label": "Reach Ruined Vampiric Plains Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-211",
+        "onyxCost": 2050,
+        "strengthScore": 66,
+        "priceTier": "Build-Defining",
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-highest-depth",
+          "target": 24,
+          "label": "Reach Ruined Vampiric Plains Depth 24"
+        },
+        "alternateRequirements": []
+      },
+      {
+        "keptId": "KI-212",
+        "onyxCost": 1500,
+        "strengthScore": 54,
+        "priceTier": "Strong",
+        "region": "ruined-vampiric-plains",
+        "requirement": {
+          "type": "plains-highest-depth",
+          "target": 18,
+          "label": "Reach Ruined Vampiric Plains Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-213",
+        "onyxCost": 1575,
+        "strengthScore": 56,
+        "priceTier": "Strong",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 18,
+          "label": "Reach Caverns to Hell Depth 18"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-lifesteal-healing",
+            "target": 100,
+            "label": "Restore 100 HP through Lifesteal in the Ruined Vampiric Plains"
+          }
+        ]
+      },
+      {
+        "keptId": "KI-214",
+        "onyxCost": 2050,
+        "strengthScore": 66,
+        "priceTier": "Build-Defining",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 24,
+          "label": "Reach Caverns to Hell Depth 24"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-lifesteal-healing",
+            "target": 150,
+            "label": "Restore 150 HP through Lifesteal in the Ruined Vampiric Plains"
+          }
+        ]
+      },
+      {
+        "keptId": "KI-215",
+        "onyxCost": 1725,
+        "strengthScore": 59,
+        "priceTier": "Strong",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 18,
+          "label": "Reach Caverns to Hell Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-216",
+        "onyxCost": 1575,
+        "strengthScore": 56,
+        "priceTier": "Strong",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 18,
+          "label": "Reach Caverns to Hell Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-217",
+        "onyxCost": 850,
+        "strengthScore": 38,
+        "priceTier": "Standard",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 8,
+          "label": "Reach Caverns to Hell Depth 8"
+        }
+      },
+      {
+        "keptId": "KI-218",
+        "onyxCost": 1150,
+        "strengthScore": 46,
+        "priceTier": "Strong",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 12,
+          "label": "Reach Caverns to Hell Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-219",
+        "onyxCost": 1125,
+        "strengthScore": 45,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 12,
+          "label": "Reach Heavenly Tower Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-220",
+        "onyxCost": 1150,
+        "strengthScore": 46,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 12,
+          "label": "Reach Heavenly Tower Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-221",
+        "onyxCost": 825,
+        "strengthScore": 37,
+        "priceTier": "Standard",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 8,
+          "label": "Reach Heavenly Tower Depth 8"
+        }
+      },
+      {
+        "keptId": "KI-222",
+        "onyxCost": 1125,
+        "strengthScore": 45,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 12,
+          "label": "Reach Heavenly Tower Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-223",
+        "onyxCost": 825,
+        "strengthScore": 37,
+        "priceTier": "Standard",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 8,
+          "label": "Reach Heavenly Tower Depth 8"
+        }
+      },
+      {
+        "keptId": "KI-224",
+        "onyxCost": 1200,
+        "strengthScore": 47,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 12,
+          "label": "Reach Heavenly Tower Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-225",
+        "onyxCost": 1250,
+        "strengthScore": 48,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 12,
+          "label": "Reach Heavenly Tower Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-226",
+        "onyxCost": 1000,
+        "strengthScore": 42,
+        "priceTier": "Standard",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 12,
+          "label": "Reach Heavenly Tower Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-227",
+        "onyxCost": 900,
+        "strengthScore": 39,
+        "priceTier": "Standard",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 8,
+          "label": "Reach Heavenly Tower Depth 8"
+        }
+      },
+      {
+        "keptId": "KI-228",
+        "onyxCost": 1325,
+        "strengthScore": 50,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 18,
+          "label": "Reach Heavenly Tower Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-229",
+        "onyxCost": 925,
+        "strengthScore": 40,
+        "priceTier": "Standard",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 12,
+          "label": "Reach Heavenly Tower Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-230",
+        "onyxCost": 1500,
+        "strengthScore": 54,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 18,
+          "label": "Reach Heavenly Tower Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-231",
+        "onyxCost": 1150,
+        "strengthScore": 46,
+        "priceTier": "Strong",
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 12,
+          "label": "Reach That Dragon’s Dungeon Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-232",
+        "onyxCost": 1275,
+        "strengthScore": 49,
+        "priceTier": "Strong",
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 12,
+          "label": "Reach That Dragon’s Dungeon Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-233",
+        "onyxCost": 1050,
+        "strengthScore": 43,
+        "priceTier": "Standard",
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 12,
+          "label": "Reach That Dragon’s Dungeon Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-234",
+        "onyxCost": 1150,
+        "strengthScore": 46,
+        "priceTier": "Strong",
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 12,
+          "label": "Reach That Dragon’s Dungeon Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-235",
+        "onyxCost": 825,
+        "strengthScore": 37,
+        "priceTier": "Standard",
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 8,
+          "label": "Reach That Dragon’s Dungeon Depth 8"
+        }
+      },
+      {
+        "keptId": "KI-236",
+        "onyxCost": 1250,
+        "strengthScore": 48,
+        "priceTier": "Strong",
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-highest-depth",
+          "target": 12,
+          "label": "Reach That Dragon’s Dungeon Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-237",
+        "onyxCost": 1075,
+        "strengthScore": 44,
+        "priceTier": "Standard",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 12,
+          "label": "Reach Forest Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-238",
+        "onyxCost": 1250,
+        "strengthScore": 48,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 12,
+          "label": "Reach Forest Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-239",
+        "onyxCost": 1150,
+        "strengthScore": 46,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 12,
+          "label": "Reach Forest Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-240",
+        "onyxCost": 925,
+        "strengthScore": 40,
+        "priceTier": "Standard",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 12,
+          "label": "Reach Forest Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-241",
+        "onyxCost": 1275,
+        "strengthScore": 49,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 12,
+          "label": "Reach Forest Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-242",
+        "onyxCost": 1125,
+        "strengthScore": 45,
+        "priceTier": "Strong",
+        "region": "forest",
+        "requirement": {
+          "type": "highest-depth",
+          "target": 12,
+          "label": "Reach Forest Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-243",
+        "onyxCost": 1150,
+        "strengthScore": 46,
+        "priceTier": "Strong",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 12,
+          "label": "Reach Caverns to Hell Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-244",
+        "onyxCost": 1125,
+        "strengthScore": 45,
+        "priceTier": "Strong",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 12,
+          "label": "Reach Caverns to Hell Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-245",
+        "onyxCost": 1500,
+        "strengthScore": 54,
+        "priceTier": "Strong",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 18,
+          "label": "Reach Caverns to Hell Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-246",
+        "onyxCost": 925,
+        "strengthScore": 40,
+        "priceTier": "Standard",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 12,
+          "label": "Reach Caverns to Hell Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-247",
+        "onyxCost": 850,
+        "strengthScore": 38,
+        "priceTier": "Standard",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 8,
+          "label": "Reach Caverns to Hell Depth 8"
+        }
+      },
+      {
+        "keptId": "KI-248",
+        "onyxCost": 850,
+        "strengthScore": 38,
+        "priceTier": "Standard",
+        "region": "caverns-to-hell",
+        "requirement": {
+          "type": "hell-highest-depth",
+          "target": 8,
+          "label": "Reach Caverns to Hell Depth 8"
+        }
+      },
+      {
+        "keptId": "KI-249",
+        "onyxCost": 900,
+        "strengthScore": 39,
+        "priceTier": "Standard",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 8,
+          "label": "Reach Necropolis Depth 8"
+        }
+      },
+      {
+        "keptId": "KI-250",
+        "onyxCost": 850,
+        "strengthScore": 38,
+        "priceTier": "Standard",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 8,
+          "label": "Reach Necropolis Depth 8"
+        }
+      },
+      {
+        "keptId": "KI-251",
+        "onyxCost": 1050,
+        "strengthScore": 43,
+        "priceTier": "Standard",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 12,
+          "label": "Reach Necropolis Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-252",
+        "onyxCost": 850,
+        "strengthScore": 38,
+        "priceTier": "Standard",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 8,
+          "label": "Reach Necropolis Depth 8"
+        }
+      },
+      {
+        "keptId": "KI-253",
+        "onyxCost": 1250,
+        "strengthScore": 48,
+        "priceTier": "Strong",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 12,
+          "label": "Reach Necropolis Depth 12"
+        },
+        "alternateRequirements": [
+          {
+            "region": "ruined-vampiric-plains",
+            "type": "plains-lifesteal-healing",
+            "target": 60,
+            "label": "Restore 60 HP through Lifesteal in the Ruined Vampiric Plains"
+          }
+        ]
+      },
+      {
+        "keptId": "KI-254",
+        "onyxCost": 1250,
+        "strengthScore": 48,
+        "priceTier": "Strong",
+        "region": "necropolis",
+        "requirement": {
+          "type": "necropolis-highest-depth",
+          "target": 12,
+          "label": "Reach Necropolis Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-255",
+        "onyxCost": 1200,
+        "strengthScore": 47,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 12,
+          "label": "Reach Heavenly Tower Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-256",
+        "onyxCost": 1375,
+        "strengthScore": 51,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 18,
+          "label": "Reach Heavenly Tower Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-257",
+        "onyxCost": 975,
+        "strengthScore": 41,
+        "priceTier": "Standard",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 12,
+          "label": "Reach Heavenly Tower Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-258",
+        "onyxCost": 850,
+        "strengthScore": 38,
+        "priceTier": "Standard",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 8,
+          "label": "Reach Heavenly Tower Depth 8"
+        }
+      },
+      {
+        "keptId": "KI-259",
+        "onyxCost": 1125,
+        "strengthScore": 45,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 12,
+          "label": "Reach Heavenly Tower Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-260",
+        "onyxCost": 1125,
+        "strengthScore": 45,
+        "priceTier": "Strong",
+        "region": "heavenly-tower",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 12,
+          "label": "Reach Heavenly Tower Depth 12"
+        }
+      },
+      {
+        "keptId": "KI-261",
+        "onyxCost": 1725,
+        "strengthScore": 59,
+        "priceTier": "Strong",
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-highest-depth",
+          "target": 18,
+          "label": "Reach Bog of Lost Souls Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-262",
+        "onyxCost": 1575,
+        "strengthScore": 56,
+        "priceTier": "Strong",
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-highest-depth",
+          "target": 18,
+          "label": "Reach Bog of Lost Souls Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-263",
+        "onyxCost": 825,
+        "strengthScore": 37,
+        "priceTier": "Standard",
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-highest-depth",
+          "target": 8,
+          "label": "Reach Bog of Lost Souls Depth 8"
+        }
+      },
+      {
+        "keptId": "KI-264",
+        "onyxCost": 725,
+        "strengthScore": 34,
+        "priceTier": "Standard",
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-highest-depth",
+          "target": 8,
+          "label": "Reach Bog of Lost Souls Depth 8"
+        }
+      },
+      {
+        "keptId": "KI-265",
+        "onyxCost": 1325,
+        "strengthScore": 50,
+        "priceTier": "Strong",
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-highest-depth",
+          "target": 18,
+          "label": "Reach Bog of Lost Souls Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-266",
+        "onyxCost": 1325,
+        "strengthScore": 50,
+        "priceTier": "Strong",
+        "region": "bog-of-lost-souls",
+        "requirement": {
+          "type": "bog-highest-depth",
+          "target": 18,
+          "label": "Reach Bog of Lost Souls Depth 18"
+        }
+      },
+      {
+        "keptId": "KI-267",
+        "onyxCost": 2275,
+        "strengthScore": 70,
+        "priceTier": "Build-Defining",
+        "region": "that-dragons-dungeon",
+        "requirement": {
+          "type": "dragon-true-dragons-defeated",
+          "target": 6,
+          "label": "Defeat 6 true Dragons in That Dragon’s Dungeon"
         }
       }
-    ]
+    ],
+    "catalogCount": 267,
+    "pricingAuthority": {
+      "model": "STRENGTH_SCORE_V1",
+      "principle": "Onyx price is based on mechanical strength/value, not KI number or unlock region.",
+      "scoreRange": [
+        15,
+        100
+      ],
+      "priceRounding": 25,
+      "formula": "round_to_25(50 + 2 * strengthScore^1.65); KI-182 Classless is manually set to 7,500 Onyx as the postgame transformative exception.",
+      "factors": [
+        "slot efficiency",
+        "global flexibility vs subclass restriction",
+        "damage/healing/shield/defense magnitude",
+        "Energy/Crit/resource leverage",
+        "Lifesteal and action-economy leverage",
+        "frequency/conditions",
+        "printed drawbacks"
+      ],
+      "tiers": [
+        "Niche",
+        "Standard",
+        "Strong",
+        "Build-Defining",
+        "Exceptional",
+        "Transformative"
+      ]
+    },
+    "catalogRequirementsScope": "every KI has at least one account-wide regional accomplishment requirement; KI-182 additionally requires full campaign victory"
   },
   "regionalRaceUnlocks": {
     "ownershipScope": "account-wide",
@@ -561,33 +4789,9 @@
           "target": 1,
           "label": "Encounter a Forest Trainer"
         }
-      },
-      {
-        "race": "Rhazekai",
-        "requirement": {
-          "type": "forests-cleared",
-          "target": 1,
-          "label": "Clear the Forest"
-        }
       }
     ],
     "bog-of-lost-souls": [
-      {
-        "race": "Veldrathi",
-        "requirement": {
-          "type": "bog-negative-effects-suffered",
-          "target": 5,
-          "label": "Suffer 5 Bog curse/debuff applications"
-        }
-      },
-      {
-        "race": "Duvenari",
-        "requirement": {
-          "type": "bog-undead-spirits-defeated",
-          "target": 8,
-          "label": "Defeat 8 Bog undead or spirits"
-        }
-      },
       {
         "race": "Veyssryn",
         "requirement": {
@@ -597,45 +4801,78 @@
         }
       },
       {
-        "race": "Rifthari",
-        "requirement": {
-          "type": "bog-poison-statuses-applied",
-          "target": 15,
-          "label": "Apply Poison 15 times in the Bog"
-        }
-      },
-      {
-        "race": "Halynari",
-        "requirement": {
-          "type": "bog-undead-spirits-defeated",
-          "target": 15,
-          "label": "Defeat 15 Bog undead or spirits"
-        }
-      },
-      {
-        "race": "High Elf",
-        "requirement": {
-          "type": "bog-lesser-witches-defeated",
-          "target": 6,
-          "label": "Defeat 6 Lesser Witches"
-        }
-      },
-      {
         "race": "Silxered",
         "requirement": {
           "type": "bog-darksteel-collected",
           "target": 10,
           "label": "Collect 10 Darksteel Shards in the Bog"
         }
+      }
+    ],
+    "heavenly-tower": [
+      {
+        "race": "Halynari",
+        "requirement": {
+          "type": "tower-holy-robots-defeated",
+          "target": 20,
+          "label": "Defeat 20 Holy Heavenly Tower robots"
+        }
       },
+      {
+        "race": "Rifthari",
+        "requirement": {
+          "type": "tower-psychic-robots-defeated",
+          "target": 5,
+          "label": "Defeat 5 Psychic Heavenly Tower robots"
+        }
+      },
+      {
+        "race": "High Elf",
+        "requirement": {
+          "type": "tower-highest-depth",
+          "target": 24,
+          "label": "Reach Heavenly Tower Depth 24"
+        }
+      }
+    ],
+    "ruined-vampiric-plains": [
+      {
+        "race": "Duvenari",
+        "requirement": {
+          "type": "plains-vampire-undead-defeated",
+          "target": 15,
+          "label": "Defeat 15 vampire or undead enemies in the Ruined Vampiric Plains"
+        }
+      },
+      {
+        "race": "Veldrathi",
+        "requirement": {
+          "type": "plains-high-blood-wins",
+          "target": 3,
+          "label": "Win 3 Plains combats while Blood Moon is 60 or higher"
+        }
+      }
+    ],
+    "caverns-to-hell": [
       {
         "race": "Demon",
         "requirement": {
-          "type": "bogs-cleared",
+          "type": "hell-gate-guardian-defeated",
           "target": 1,
-          "label": "Clear the Bog of Lost Souls"
+          "label": "Defeat Kharvax, the Gatebound, and enter Hell"
         }
       }
-    ]
+    ],
+    "that-dragons-dungeon": [
+      {
+        "race": "Rhazekai",
+        "requirement": {
+          "type": "dragon-true-dragons-defeated",
+          "target": 6,
+          "label": "Defeat 6 true Dragons in That Dragon’s Dungeon"
+        }
+      }
+    ],
+    "necropolis": []
   }
 }

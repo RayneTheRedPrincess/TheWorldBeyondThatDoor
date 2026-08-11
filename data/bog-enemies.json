@@ -1020,7 +1020,7 @@
           "components": [
             {
               "type": "damage",
-              "base": 15,
+              "base": 13,
               "damageType": "Physical",
               "scaling": {
                 "STR": 0.015,
@@ -1038,7 +1038,7 @@
           "components": [
             {
               "type": "damage",
-              "base": 12,
+              "base": 9,
               "damageType": "Poison",
               "scaling": {
                 "STR": 0.011,
@@ -1564,7 +1564,7 @@
       {
         "id": "mirebound-abomination",
         "name": "Mira's Mirebound Abomination",
-        "role": "Miniboss \u00b7 Mutated Curse Brute",
+        "role": "Miniboss · Mutated Curse Brute",
         "fixedDepth": 15,
         "baseMaxHp": 115,
         "maxEnergy": 8,
@@ -1655,7 +1655,7 @@
             "components": [
               {
                 "type": "damage",
-                "base": 25,
+                "base": 21,
                 "damageType": "Physical",
                 "scaling": {
                   "STR": 0.018,
@@ -1669,7 +1669,8 @@
         "ai": {
           "style": "miniboss-brute",
           "chargeBelowEnergy": 8,
-          "chargeTowardHeavyChancePct": 58
+          "chargeTowardHeavyChancePct": 58,
+          "maxEnergySignatureAbilityId": "abom-mirebreaker"
         },
         "materials": [
           {
@@ -1687,7 +1688,7 @@
       {
         "id": "varris-blackbanner",
         "name": "Varris, Blackbanner Right Hand",
-        "role": "Miniboss \u00b7 Keeper",
+        "role": "Miniboss · Keeper",
         "fixedDepth": 15,
         "baseMaxHp": 78,
         "maxEnergy": 7,
@@ -1801,7 +1802,7 @@
       {
         "id": "crazed-witch-mira",
         "name": "Crazed Witch Mira",
-        "role": "Boss \u00b7 Witch Summoner",
+        "role": "Boss · Witch Summoner",
         "fixedDepth": 30,
         "baseMaxHp": 145,
         "maxEnergy": 9,
@@ -1914,8 +1915,10 @@
         ],
         "ai": {
           "style": "boss-summoner",
-          "chargeBelowEnergy": 4,
-          "summonCap": 2
+          "chargeBelowEnergy": 7,
+          "summonCap": 2,
+          "chargeTowardHeavyChancePct": 45,
+          "maxEnergySignatureAbilityId": "mira-unmake-the-living"
         },
         "materials": [
           {
@@ -1933,7 +1936,7 @@
       {
         "id": "bandit-king-jack",
         "name": "Bandit King Jack",
-        "role": "Boss \u00b7 Charged Executioner",
+        "role": "Boss · Charged Executioner",
         "fixedDepth": 30,
         "baseMaxHp": 175,
         "maxEnergy": 10,
@@ -1965,7 +1968,7 @@
             "components": [
               {
                 "type": "damage",
-                "base": 28,
+                "base": 23,
                 "damageType": "Physical",
                 "scaling": {
                   "STR": 0.02,
@@ -1977,14 +1980,14 @@
           },
           {
             "id": "jack-kings-ransom",
-            "name": "King\u2019s Ransom",
+            "name": "King’s Ransom",
             "energyCost": 10,
             "cooldown": 6,
             "targetMode": "single-enemy",
             "components": [
               {
                 "type": "damage",
-                "base": 36,
+                "base": 25,
                 "damageType": "Physical",
                 "scaling": {
                   "STR": 0.022,
@@ -1998,7 +2001,9 @@
         ],
         "ai": {
           "style": "boss-charger",
-          "chargeBelowEnergy": 8
+          "chargeBelowEnergy": 10,
+          "chargeTowardHeavyChancePct": 45,
+          "maxEnergySignatureAbilityId": "jack-kings-ransom"
         },
         "materials": [
           {
@@ -2140,7 +2145,7 @@
         "damageMultiplier": 1.3
       },
       "4": {
-        "maxHpMultiplier": 2.7,
+        "maxHpMultiplier": 2.65,
         "damageMultiplier": 1.45
       }
     },
@@ -2171,5 +2176,6 @@
     "enemiesDropEquipment": false,
     "specialSourcesDropOnlySoulfireCore": true,
     "chronicleProgressFromRawOnyxDivisor": 25
-  }
+  },
+  "balanceRevision": "2026-08-10-enemy-difficulty-balance"
 }

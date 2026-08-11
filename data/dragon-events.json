@@ -1,0 +1,2865 @@
+{
+  "version": "THAT-DRAGONS-DUNGEON-EVENTS-2026-08-10",
+  "designStatus": "implemented",
+  "events": [
+    {
+      "id": "dragon-intro-001",
+      "kind": "discovery",
+      "label": "A Voice Through the Stone",
+      "description": "A deep, amused voice welcomes you without revealing where it comes from. Quentaliaus Devanpierus already knows you entered.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "CHA",
+        "dc": 18
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 180
+        },
+        "failure": {
+          "hpLossPct": 4
+        }
+      }
+    },
+    {
+      "id": "dragon-intro-002",
+      "kind": "treasure",
+      "label": "The First Unwatched Coin",
+      "description": "A single impossible coin waits in a spotless alcove. Taking it feels less like theft than accepting an invitation.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "LCK",
+        "dc": 18
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 240,
+          "dragonTreasureTaken": 1
+        },
+        "failure": {
+          "onyx": 120,
+          "dragonCurse": {
+            "id": "coin-mark",
+            "name": "Coin-Mark",
+            "modifiers": {
+              "incomingDamagePct": 5
+            }
+          },
+          "dragonTreasureTaken": 1
+        }
+      }
+    },
+    {
+      "id": "dragon-intro-003",
+      "kind": "combat",
+      "label": "Drakes in the Outer Hoardway",
+      "description": "Young drakes spill from a side gallery, testing the newest trespassers.",
+      "combat": true,
+      "combatProfile": "drake",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1
+    },
+    {
+      "id": "dragon-t1-01",
+      "kind": "trap",
+      "label": "Coin-Slick Causeway",
+      "description": "Coin-Slick Causeway offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 5,
+      "check": {
+        "stat": "CON",
+        "dc": 21
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 263,
+          "materialId": "drake-scale",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        },
+        "criticalSuccess": {
+          "onyx": 120
+        },
+        "criticalFailure": {
+          "hpLossPct": 4
+        }
+      }
+    },
+    {
+      "id": "dragon-t1-02",
+      "kind": "combat",
+      "label": "Ember Nest",
+      "description": "Ember Nest becomes a direct drake battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "drake",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t1-03",
+      "kind": "discovery",
+      "label": "Cold Vault Door",
+      "description": "Cold Vault Door offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 5,
+      "check": {
+        "stat": "FTH",
+        "dc": 20
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 269,
+          "materialId": "drake-scale",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 120
+        },
+        "criticalFailure": {
+          "hpLossPct": 4
+        }
+      }
+    },
+    {
+      "id": "dragon-t1-04",
+      "kind": "treasure",
+      "label": "Collapsed Trophy Hall",
+      "description": "Collapsed Trophy Hall offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 5,
+      "check": {
+        "stat": "CHA",
+        "dc": 21
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 492,
+          "materialId": "drake-scale",
+          "materialQuantity": 1,
+          "dragonTreasureTaken": 1
+        },
+        "failure": {
+          "hpLossPct": 5,
+          "dragonTreasureTaken": 1,
+          "onyx": 165,
+          "dragonCurse": {
+            "id": "curse-fail-t1-4",
+            "name": "Hoard-Touched",
+            "modifiers": {
+              "incomingDamagePct": 6
+            }
+          }
+        },
+        "criticalSuccess": {
+          "onyx": 120
+        },
+        "criticalFailure": {
+          "hpLossPct": 4
+        }
+      }
+    },
+    {
+      "id": "dragon-t1-05",
+      "kind": "combat",
+      "label": "Goldglass Chimes",
+      "description": "Goldglass Chimes becomes a direct drake battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "drake",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t1-06",
+      "kind": "menagerie",
+      "label": "Sleeping Drake Pile",
+      "description": "Sleeping Drake Pile offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 5,
+      "check": {
+        "stat": "STR",
+        "dc": 20
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 278,
+          "materialId": "drake-scale",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 120
+        },
+        "criticalFailure": {
+          "hpLossPct": 4
+        }
+      }
+    },
+    {
+      "id": "dragon-t1-07",
+      "kind": "discovery",
+      "label": "Arcane Keyhole",
+      "description": "Arcane Keyhole offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 5,
+      "check": {
+        "stat": "DEX",
+        "dc": 21
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 281,
+          "materialId": "drake-scale",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 120
+        },
+        "criticalFailure": {
+          "hpLossPct": 4
+        }
+      }
+    },
+    {
+      "id": "dragon-t1-08",
+      "kind": "combat",
+      "label": "Broken Menagerie Cage",
+      "description": "Broken Menagerie Cage becomes a direct drake battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "drake",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t1-09",
+      "kind": "trap",
+      "label": "Dragonbone Bridge",
+      "description": "Dragonbone Bridge offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 5,
+      "check": {
+        "stat": "INT",
+        "dc": 20
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 287,
+          "materialId": "drake-scale",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        },
+        "criticalSuccess": {
+          "onyx": 120
+        },
+        "criticalFailure": {
+          "hpLossPct": 4
+        }
+      }
+    },
+    {
+      "id": "dragon-t1-10",
+      "kind": "combat",
+      "label": "Hoard-Scented Air",
+      "description": "Hoard-Scented Air becomes a direct drake battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "drake",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t1-11",
+      "kind": "discovery",
+      "label": "False Treasure Chest",
+      "description": "False Treasure Chest offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 5,
+      "check": {
+        "stat": "CHA",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 293,
+          "materialId": "drake-scale",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 120
+        },
+        "criticalFailure": {
+          "hpLossPct": 4
+        }
+      }
+    },
+    {
+      "id": "dragon-t1-12",
+      "kind": "treasure",
+      "label": "Gilded Footprints",
+      "description": "Gilded Footprints offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 5,
+      "check": {
+        "stat": "LCK",
+        "dc": 20
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 516,
+          "materialId": "drake-scale",
+          "materialQuantity": 1,
+          "dragonTreasureTaken": 1,
+          "dragonCurse": {
+            "id": "curse-t1-12",
+            "name": "Hoard Fever",
+            "modifiers": {
+              "incomingDamagePct": 0,
+              "dodgeChancePct": -4,
+              "finalDamagePct": -2
+            }
+          }
+        },
+        "failure": {
+          "hpLossPct": 5,
+          "dragonTreasureTaken": 1,
+          "onyx": 165,
+          "dragonCurse": {
+            "id": "curse-fail-t1-12",
+            "name": "Hoard-Touched",
+            "modifiers": {
+              "incomingDamagePct": 6
+            }
+          }
+        },
+        "criticalSuccess": {
+          "onyx": 120
+        },
+        "criticalFailure": {
+          "hpLossPct": 4
+        }
+      }
+    },
+    {
+      "id": "dragon-t1-13",
+      "kind": "combat",
+      "label": "Scale-Scratched Wall",
+      "description": "Scale-Scratched Wall becomes a direct drake battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "drake",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t1-14",
+      "kind": "menagerie",
+      "label": "Warm Coin River",
+      "description": "Warm Coin River offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 5,
+      "check": {
+        "stat": "DEX",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 302,
+          "materialId": "drake-scale",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 120
+        },
+        "criticalFailure": {
+          "hpLossPct": 4
+        }
+      }
+    },
+    {
+      "id": "dragon-t1-15",
+      "kind": "discovery",
+      "label": "Hushed Collector’s Niche",
+      "description": "Hushed Collector’s Niche offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 5,
+      "check": {
+        "stat": "CON",
+        "dc": 20
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 305,
+          "materialId": "drake-scale",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 120
+        },
+        "criticalFailure": {
+          "hpLossPct": 4
+        }
+      }
+    },
+    {
+      "id": "dragon-t1-16",
+      "kind": "combat",
+      "label": "Tiny Halo Shrine",
+      "description": "Tiny Halo Shrine becomes a direct drake battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "drake",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t1-17",
+      "kind": "trap",
+      "label": "Stormglass Socket",
+      "description": "Stormglass Socket offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 5,
+      "check": {
+        "stat": "FTH",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 311,
+          "materialId": "drake-scale",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        },
+        "criticalSuccess": {
+          "onyx": 120
+        },
+        "criticalFailure": {
+          "hpLossPct": 4
+        }
+      }
+    },
+    {
+      "id": "dragon-t1-18",
+      "kind": "menagerie",
+      "label": "Rift-Carved Steps",
+      "description": "Rift-Carved Steps offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 5,
+      "check": {
+        "stat": "CHA",
+        "dc": 20
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 314,
+          "materialId": "drake-scale",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 120
+        },
+        "criticalFailure": {
+          "hpLossPct": 4
+        }
+      }
+    },
+    {
+      "id": "dragon-t1-19",
+      "kind": "combat",
+      "label": "Mindgem Mosaic",
+      "description": "Mindgem Mosaic becomes a direct drake battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "drake",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 4
+    },
+    {
+      "id": "dragon-t1-20",
+      "kind": "combat",
+      "label": "Young Drake Challenge",
+      "description": "Young Drake Challenge becomes a direct drake battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "drake",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 4
+    },
+    {
+      "id": "dragon-t2-01",
+      "kind": "trap",
+      "label": "Drake Warrens",
+      "description": "Drake Warrens offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 5,
+      "check": {
+        "stat": "INT",
+        "dc": 23
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 343,
+          "materialId": "hoard-goldglass",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 9
+        },
+        "criticalSuccess": {
+          "onyx": 150
+        },
+        "criticalFailure": {
+          "hpLossPct": 5
+        }
+      }
+    },
+    {
+      "id": "dragon-t2-02",
+      "kind": "combat",
+      "label": "Molten Lockbox",
+      "description": "Molten Lockbox becomes a direct drake battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "drake",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t2-03",
+      "kind": "discovery",
+      "label": "Frozen Offering Bowl",
+      "description": "Frozen Offering Bowl offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 5,
+      "check": {
+        "stat": "CHA",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 349,
+          "materialId": "hoard-goldglass",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 150
+        },
+        "criticalFailure": {
+          "hpLossPct": 5
+        }
+      }
+    },
+    {
+      "id": "dragon-t2-04",
+      "kind": "treasure",
+      "label": "Storm-Turned Hall",
+      "description": "Storm-Turned Hall offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 5,
+      "check": {
+        "stat": "LCK",
+        "dc": 23
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 612,
+          "materialId": "hoard-goldglass",
+          "materialQuantity": 1,
+          "dragonTreasureTaken": 1
+        },
+        "failure": {
+          "hpLossPct": 6,
+          "dragonTreasureTaken": 1,
+          "onyx": 210,
+          "dragonCurse": {
+            "id": "curse-fail-t2-4",
+            "name": "Hoard-Touched",
+            "modifiers": {
+              "incomingDamagePct": 7
+            }
+          }
+        },
+        "criticalSuccess": {
+          "onyx": 150
+        },
+        "criticalFailure": {
+          "hpLossPct": 5
+        }
+      }
+    },
+    {
+      "id": "dragon-t2-05",
+      "kind": "combat",
+      "label": "Pressure Seal",
+      "description": "Pressure Seal becomes a direct drake battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "drake",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t2-06",
+      "kind": "menagerie",
+      "label": "Halo Cache",
+      "description": "Halo Cache offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 5,
+      "check": {
+        "stat": "DEX",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 358,
+          "materialId": "hoard-goldglass",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 150
+        },
+        "criticalFailure": {
+          "hpLossPct": 5
+        }
+      }
+    },
+    {
+      "id": "dragon-t2-07",
+      "kind": "discovery",
+      "label": "Whispering Trophy",
+      "description": "Whispering Trophy offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 5,
+      "check": {
+        "stat": "CON",
+        "dc": 23
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 361,
+          "materialId": "hoard-goldglass",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 150
+        },
+        "criticalFailure": {
+          "hpLossPct": 5
+        }
+      }
+    },
+    {
+      "id": "dragon-t2-08",
+      "kind": "combat",
+      "label": "Ironjaw Nest",
+      "description": "Ironjaw Nest becomes a direct drake battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "drake",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t2-09",
+      "kind": "trap",
+      "label": "Giltback Gallery",
+      "description": "Giltback Gallery offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 5,
+      "check": {
+        "stat": "FTH",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 367,
+          "materialId": "hoard-goldglass",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 9
+        },
+        "criticalSuccess": {
+          "onyx": 150
+        },
+        "criticalFailure": {
+          "hpLossPct": 5
+        }
+      }
+    },
+    {
+      "id": "dragon-t2-10",
+      "kind": "combat",
+      "label": "Treasure-Sunk Stair",
+      "description": "Treasure-Sunk Stair becomes a direct drake battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "drake",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t2-11",
+      "kind": "discovery",
+      "label": "Mimic Carpet",
+      "description": "Mimic Carpet offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 5,
+      "check": {
+        "stat": "LCK",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 373,
+          "materialId": "hoard-goldglass",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 150
+        },
+        "criticalFailure": {
+          "hpLossPct": 5
+        }
+      }
+    },
+    {
+      "id": "dragon-t2-12",
+      "kind": "treasure",
+      "label": "Broken Collector Lift",
+      "description": "Broken Collector Lift offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 5,
+      "check": {
+        "stat": "STR",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 636,
+          "materialId": "hoard-goldglass",
+          "materialQuantity": 1,
+          "dragonTreasureTaken": 1,
+          "dragonCurse": {
+            "id": "curse-t2-12",
+            "name": "Hoard Fever",
+            "modifiers": {
+              "incomingDamagePct": 0,
+              "dodgeChancePct": -5,
+              "finalDamagePct": -3
+            }
+          }
+        },
+        "failure": {
+          "hpLossPct": 6,
+          "dragonTreasureTaken": 1,
+          "onyx": 210,
+          "dragonCurse": {
+            "id": "curse-fail-t2-12",
+            "name": "Hoard-Touched",
+            "modifiers": {
+              "incomingDamagePct": 7
+            }
+          }
+        },
+        "criticalSuccess": {
+          "onyx": 150
+        },
+        "criticalFailure": {
+          "hpLossPct": 5
+        }
+      }
+    },
+    {
+      "id": "dragon-t2-13",
+      "kind": "combat",
+      "label": "Drake Egg Vault",
+      "description": "Drake Egg Vault becomes a direct drake battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "drake",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t2-14",
+      "kind": "menagerie",
+      "label": "Claw-Test Door",
+      "description": "Claw-Test Door offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 5,
+      "check": {
+        "stat": "CON",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 382,
+          "materialId": "hoard-goldglass",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 150
+        },
+        "criticalFailure": {
+          "hpLossPct": 5
+        }
+      }
+    },
+    {
+      "id": "dragon-t2-15",
+      "kind": "discovery",
+      "label": "Coinfall Vent",
+      "description": "Coinfall Vent offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 5,
+      "check": {
+        "stat": "INT",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 385,
+          "materialId": "hoard-goldglass",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 150
+        },
+        "criticalFailure": {
+          "hpLossPct": 5
+        }
+      }
+    },
+    {
+      "id": "dragon-t2-16",
+      "kind": "combat",
+      "label": "Dragonbone Bell",
+      "description": "Dragonbone Bell becomes a direct drake battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "drake",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t2-17",
+      "kind": "trap",
+      "label": "Arcane Dice Table",
+      "description": "Arcane Dice Table offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 5,
+      "check": {
+        "stat": "CHA",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 391,
+          "materialId": "hoard-goldglass",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 9
+        },
+        "criticalSuccess": {
+          "onyx": 150
+        },
+        "criticalFailure": {
+          "hpLossPct": 5
+        }
+      }
+    },
+    {
+      "id": "dragon-t2-18",
+      "kind": "menagerie",
+      "label": "Hoardkeeper Riddle",
+      "description": "Hoardkeeper Riddle offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 5,
+      "check": {
+        "stat": "LCK",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 394,
+          "materialId": "hoard-goldglass",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 150
+        },
+        "criticalFailure": {
+          "hpLossPct": 5
+        }
+      }
+    },
+    {
+      "id": "dragon-t2-19",
+      "kind": "combat",
+      "label": "Six-Colored Brazier",
+      "description": "Six-Colored Brazier becomes a direct drake battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "drake",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 4
+    },
+    {
+      "id": "dragon-t2-20",
+      "kind": "combat",
+      "label": "Drake Feeding Court",
+      "description": "Drake Feeding Court becomes a direct drake battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "drake",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 4
+    },
+    {
+      "id": "dragon-t3-01",
+      "kind": "trap",
+      "label": "Wyvern Wingvault",
+      "description": "Wyvern Wingvault offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 5,
+      "check": {
+        "stat": "FTH",
+        "dc": 25
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 423,
+          "materialId": "wyvern-talon",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 10
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "dragon-t3-02",
+      "kind": "combat",
+      "label": "Cinderwing Roost",
+      "description": "Cinderwing Roost becomes a direct wyvern battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "wyvern",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t3-03",
+      "kind": "discovery",
+      "label": "Glacier Perch",
+      "description": "Glacier Perch offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 5,
+      "check": {
+        "stat": "LCK",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 429,
+          "materialId": "wyvern-talon",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "dragon-t3-04",
+      "kind": "treasure",
+      "label": "Thunderhook Chain",
+      "description": "Thunderhook Chain offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 5,
+      "check": {
+        "stat": "STR",
+        "dc": 25
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 732,
+          "materialId": "wyvern-talon",
+          "materialQuantity": 1,
+          "dragonTreasureTaken": 1
+        },
+        "failure": {
+          "hpLossPct": 7,
+          "dragonTreasureTaken": 1,
+          "onyx": 255,
+          "dragonCurse": {
+            "id": "curse-fail-t3-4",
+            "name": "Hoard-Touched",
+            "modifiers": {
+              "incomingDamagePct": 8
+            }
+          }
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "dragon-t3-05",
+      "kind": "combat",
+      "label": "Riftspur Pit",
+      "description": "Riftspur Pit becomes a direct wyvern battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "wyvern",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t3-06",
+      "kind": "menagerie",
+      "label": "Sunspike Gallery",
+      "description": "Sunspike Gallery offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 5,
+      "check": {
+        "stat": "CON",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 438,
+          "materialId": "wyvern-talon",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "dragon-t3-07",
+      "kind": "discovery",
+      "label": "Mindstinger Aviary",
+      "description": "Mindstinger Aviary offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 5,
+      "check": {
+        "stat": "INT",
+        "dc": 25
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 441,
+          "materialId": "wyvern-talon",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "dragon-t3-08",
+      "kind": "combat",
+      "label": "Venomtail Reservoir",
+      "description": "Venomtail Reservoir becomes a direct wyvern battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "wyvern",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t3-09",
+      "kind": "trap",
+      "label": "Hoardskewer Nest",
+      "description": "Hoardskewer Nest offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 5,
+      "check": {
+        "stat": "CHA",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 447,
+          "materialId": "wyvern-talon",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 10
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "dragon-t3-10",
+      "kind": "combat",
+      "label": "Collected Giant Ribcage",
+      "description": "Collected Giant Ribcage becomes a direct wyvern battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "wyvern",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t3-11",
+      "kind": "discovery",
+      "label": "Escaped Menagerie Beast",
+      "description": "Escaped Menagerie Beast offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 5,
+      "check": {
+        "stat": "STR",
+        "dc": 26
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 453,
+          "materialId": "wyvern-talon",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "dragon-t3-12",
+      "kind": "treasure",
+      "label": "Treasure-Locked Observatory",
+      "description": "Treasure-Locked Observatory offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 5,
+      "check": {
+        "stat": "DEX",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 756,
+          "materialId": "wyvern-talon",
+          "materialQuantity": 1,
+          "dragonTreasureTaken": 1,
+          "dragonCurse": {
+            "id": "curse-t3-12",
+            "name": "Hoard Fever",
+            "modifiers": {
+              "incomingDamagePct": 0,
+              "dodgeChancePct": -6,
+              "finalDamagePct": -3
+            }
+          }
+        },
+        "failure": {
+          "hpLossPct": 7,
+          "dragonTreasureTaken": 1,
+          "onyx": 255,
+          "dragonCurse": {
+            "id": "curse-fail-t3-12",
+            "name": "Hoard-Touched",
+            "modifiers": {
+              "incomingDamagePct": 8
+            }
+          }
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "dragon-t3-13",
+      "kind": "combat",
+      "label": "Wing Membrane Bridge",
+      "description": "Wing Membrane Bridge becomes a direct wyvern battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "wyvern",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t3-14",
+      "kind": "menagerie",
+      "label": "Arcane Feeding Mechanism",
+      "description": "Arcane Feeding Mechanism offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 5,
+      "check": {
+        "stat": "INT",
+        "dc": 26
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 462,
+          "materialId": "wyvern-talon",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "dragon-t3-15",
+      "kind": "discovery",
+      "label": "Wyvern Trial Ring",
+      "description": "Wyvern Trial Ring offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 5,
+      "check": {
+        "stat": "FTH",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 465,
+          "materialId": "wyvern-talon",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "dragon-t3-16",
+      "kind": "combat",
+      "label": "False Prisoner Cell",
+      "description": "False Prisoner Cell becomes a direct wyvern battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "wyvern",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t3-17",
+      "kind": "trap",
+      "label": "Prismatic Feather Cache",
+      "description": "Prismatic Feather Cache offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 5,
+      "check": {
+        "stat": "LCK",
+        "dc": 26
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 471,
+          "materialId": "wyvern-talon",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 10
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "dragon-t3-18",
+      "kind": "menagerie",
+      "label": "Dragon’s Laughing Mirror",
+      "description": "Dragon’s Laughing Mirror offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 5,
+      "check": {
+        "stat": "STR",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 474,
+          "materialId": "wyvern-talon",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "dragon-t3-19",
+      "kind": "combat",
+      "label": "Sealed Trophy Room",
+      "description": "Sealed Trophy Room becomes a direct wyvern battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "wyvern",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 4
+    },
+    {
+      "id": "dragon-t3-20",
+      "kind": "combat",
+      "label": "Wyvern Hunt",
+      "description": "Wyvern Hunt becomes a direct wyvern battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "wyvern",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 4
+    },
+    {
+      "id": "dragon-t4-01",
+      "kind": "trap",
+      "label": "Greater Menagerie",
+      "description": "Greater Menagerie offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 5,
+      "check": {
+        "stat": "CHA",
+        "dc": 27
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 503,
+          "materialId": "wing-membrane",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 11
+        },
+        "criticalSuccess": {
+          "onyx": 210
+        },
+        "criticalFailure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "dragon-t4-02",
+      "kind": "combat",
+      "label": "Crown of Talons",
+      "description": "Crown of Talons becomes a direct wyvern battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "wyvern",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t4-03",
+      "kind": "discovery",
+      "label": "Cursed Treasure Dais",
+      "description": "Cursed Treasure Dais offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 5,
+      "check": {
+        "stat": "STR",
+        "dc": 26
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 509,
+          "materialId": "wing-membrane",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        },
+        "criticalSuccess": {
+          "onyx": 210
+        },
+        "criticalFailure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "dragon-t4-04",
+      "kind": "treasure",
+      "label": "Wingstorm Corridor",
+      "description": "Wingstorm Corridor offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 5,
+      "check": {
+        "stat": "DEX",
+        "dc": 27
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 852,
+          "materialId": "wing-membrane",
+          "materialQuantity": 1,
+          "dragonTreasureTaken": 1
+        },
+        "failure": {
+          "hpLossPct": 8,
+          "dragonTreasureTaken": 1,
+          "onyx": 300,
+          "dragonCurse": {
+            "id": "curse-fail-t4-4",
+            "name": "Hoard-Touched",
+            "modifiers": {
+              "incomingDamagePct": 9
+            }
+          }
+        },
+        "criticalSuccess": {
+          "onyx": 210
+        },
+        "criticalFailure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "dragon-t4-05",
+      "kind": "combat",
+      "label": "Sixfold Lock",
+      "description": "Sixfold Lock becomes a direct wyvern battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "wyvern",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t4-06",
+      "kind": "menagerie",
+      "label": "Wyvern Bone Orchard",
+      "description": "Wyvern Bone Orchard offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 5,
+      "check": {
+        "stat": "INT",
+        "dc": 26
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 518,
+          "materialId": "wing-membrane",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        },
+        "criticalSuccess": {
+          "onyx": 210
+        },
+        "criticalFailure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "dragon-t4-07",
+      "kind": "discovery",
+      "label": "Hoardkeeper Automaton",
+      "description": "Hoardkeeper Automaton offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 5,
+      "check": {
+        "stat": "FTH",
+        "dc": 27
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 521,
+          "materialId": "wing-membrane",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        },
+        "criticalSuccess": {
+          "onyx": 210
+        },
+        "criticalFailure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "dragon-t4-08",
+      "kind": "combat",
+      "label": "Prismatic Trapwell",
+      "description": "Prismatic Trapwell becomes a direct wyvern battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "wyvern",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t4-09",
+      "kind": "trap",
+      "label": "Arcane Collector’s Desk",
+      "description": "Arcane Collector’s Desk offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 5,
+      "check": {
+        "stat": "LCK",
+        "dc": 26
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 527,
+          "materialId": "wing-membrane",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 11
+        },
+        "criticalSuccess": {
+          "onyx": 210
+        },
+        "criticalFailure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "dragon-t4-10",
+      "kind": "combat",
+      "label": "Sleeping Hoardskewer",
+      "description": "Sleeping Hoardskewer becomes a direct wyvern battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "wyvern",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t4-11",
+      "kind": "discovery",
+      "label": "Dragon-Tongue Contract",
+      "description": "Dragon-Tongue Contract offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 5,
+      "check": {
+        "stat": "DEX",
+        "dc": 28
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 533,
+          "materialId": "wing-membrane",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        },
+        "criticalSuccess": {
+          "onyx": 210
+        },
+        "criticalFailure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "dragon-t4-12",
+      "kind": "treasure",
+      "label": "Suspended Treasure Room",
+      "description": "Suspended Treasure Room offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 5,
+      "check": {
+        "stat": "CON",
+        "dc": 26
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 876,
+          "materialId": "wing-membrane",
+          "materialQuantity": 1,
+          "dragonTreasureTaken": 1,
+          "dragonCurse": {
+            "id": "curse-t4-12",
+            "name": "Hoard Fever",
+            "modifiers": {
+              "incomingDamagePct": 0,
+              "dodgeChancePct": -7,
+              "finalDamagePct": -4
+            }
+          }
+        },
+        "failure": {
+          "hpLossPct": 8,
+          "dragonTreasureTaken": 1,
+          "onyx": 300,
+          "dragonCurse": {
+            "id": "curse-fail-t4-12",
+            "name": "Hoard-Touched",
+            "modifiers": {
+              "incomingDamagePct": 9
+            }
+          }
+        },
+        "criticalSuccess": {
+          "onyx": 210
+        },
+        "criticalFailure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "dragon-t4-13",
+      "kind": "combat",
+      "label": "Mindgem Choir",
+      "description": "Mindgem Choir becomes a direct wyvern battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "wyvern",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t4-14",
+      "kind": "menagerie",
+      "label": "Rift Cage",
+      "description": "Rift Cage offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 5,
+      "check": {
+        "stat": "FTH",
+        "dc": 28
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 542,
+          "materialId": "wing-membrane",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        },
+        "criticalSuccess": {
+          "onyx": 210
+        },
+        "criticalFailure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "dragon-t4-15",
+      "kind": "discovery",
+      "label": "Holy Scale Reliquary",
+      "description": "Holy Scale Reliquary offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 5,
+      "check": {
+        "stat": "CHA",
+        "dc": 26
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 545,
+          "materialId": "wing-membrane",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        },
+        "criticalSuccess": {
+          "onyx": 210
+        },
+        "criticalFailure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "dragon-t4-16",
+      "kind": "combat",
+      "label": "Frost-Sunk Coinfield",
+      "description": "Frost-Sunk Coinfield becomes a direct wyvern battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "wyvern",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t4-17",
+      "kind": "trap",
+      "label": "Lightning Trophy Rack",
+      "description": "Lightning Trophy Rack offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 5,
+      "check": {
+        "stat": "STR",
+        "dc": 28
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 551,
+          "materialId": "wing-membrane",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 11
+        },
+        "criticalSuccess": {
+          "onyx": 210
+        },
+        "criticalFailure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "dragon-t4-18",
+      "kind": "menagerie",
+      "label": "Venom Gallery",
+      "description": "Venom Gallery offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 5,
+      "check": {
+        "stat": "DEX",
+        "dc": 26
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 554,
+          "materialId": "wing-membrane",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        },
+        "criticalSuccess": {
+          "onyx": 210
+        },
+        "criticalFailure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "dragon-t4-19",
+      "kind": "combat",
+      "label": "Leviathan Foreshadowing",
+      "description": "Leviathan Foreshadowing becomes a direct wyvern battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "wyvern",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 4
+    },
+    {
+      "id": "dragon-t4-20",
+      "kind": "combat",
+      "label": "Wyvern Gauntlet",
+      "description": "Wyvern Gauntlet becomes a direct wyvern battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "wyvern",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 4
+    },
+    {
+      "id": "dragon-t5-01",
+      "kind": "trap",
+      "label": "Elder Dragon Sanctum",
+      "description": "Elder Dragon Sanctum offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 5,
+      "check": {
+        "stat": "LCK",
+        "dc": 29
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 583,
+          "materialId": "dragon-scale",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 12
+        },
+        "criticalSuccess": {
+          "onyx": 240
+        },
+        "criticalFailure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "dragon-t5-02",
+      "kind": "combat",
+      "label": "Ruby Furnace Nest",
+      "description": "Ruby Furnace Nest becomes a direct dragon battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "dragon",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t5-03",
+      "kind": "discovery",
+      "label": "Sapphire Ice Court",
+      "description": "Sapphire Ice Court offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 5,
+      "check": {
+        "stat": "DEX",
+        "dc": 28
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 589,
+          "materialId": "dragon-scale",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 9
+        },
+        "criticalSuccess": {
+          "onyx": 240
+        },
+        "criticalFailure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "dragon-t5-04",
+      "kind": "treasure",
+      "label": "Citrine Storm Hall",
+      "description": "Citrine Storm Hall offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 5,
+      "check": {
+        "stat": "CON",
+        "dc": 29
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 972,
+          "materialId": "dragon-scale",
+          "materialQuantity": 2,
+          "dragonTreasureTaken": 1
+        },
+        "failure": {
+          "hpLossPct": 9,
+          "dragonTreasureTaken": 1,
+          "onyx": 345,
+          "dragonCurse": {
+            "id": "curse-fail-t5-4",
+            "name": "Hoard-Touched",
+            "modifiers": {
+              "incomingDamagePct": 10
+            }
+          }
+        },
+        "criticalSuccess": {
+          "onyx": 240
+        },
+        "criticalFailure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "dragon-t5-05",
+      "kind": "combat",
+      "label": "Ivory Halo Chapel",
+      "description": "Ivory Halo Chapel becomes a direct dragon battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "dragon",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t5-06",
+      "kind": "menagerie",
+      "label": "Amethyst Memory Vault",
+      "description": "Amethyst Memory Vault offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 5,
+      "check": {
+        "stat": "FTH",
+        "dc": 28
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 598,
+          "materialId": "dragon-scale",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 9
+        },
+        "criticalSuccess": {
+          "onyx": 240
+        },
+        "criticalFailure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "dragon-t5-07",
+      "kind": "discovery",
+      "label": "Onyx Gravity Well",
+      "description": "Onyx Gravity Well offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 5,
+      "check": {
+        "stat": "CHA",
+        "dc": 29
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 601,
+          "materialId": "dragon-scale",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 9
+        },
+        "criticalSuccess": {
+          "onyx": 240
+        },
+        "criticalFailure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "dragon-t5-08",
+      "kind": "combat",
+      "label": "Prismcoil Spiral",
+      "description": "Prismcoil Spiral becomes a direct dragon battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "dragon",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t5-09",
+      "kind": "trap",
+      "label": "Argent Treasury",
+      "description": "Argent Treasury offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 5,
+      "check": {
+        "stat": "STR",
+        "dc": 28
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 607,
+          "materialId": "dragon-scale",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 12
+        },
+        "criticalSuccess": {
+          "onyx": 240
+        },
+        "criticalFailure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "dragon-t5-10",
+      "kind": "combat",
+      "label": "Dragon Council Ruin",
+      "description": "Dragon Council Ruin becomes a direct dragon battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "dragon",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t5-11",
+      "kind": "discovery",
+      "label": "Collected Castle Tower",
+      "description": "Collected Castle Tower offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 5,
+      "check": {
+        "stat": "CON",
+        "dc": 30
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 613,
+          "materialId": "dragon-scale",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 9
+        },
+        "criticalSuccess": {
+          "onyx": 240
+        },
+        "criticalFailure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "dragon-t5-12",
+      "kind": "treasure",
+      "label": "Ancient Challenger’s Grave",
+      "description": "Ancient Challenger’s Grave offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 5,
+      "check": {
+        "stat": "INT",
+        "dc": 28
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 996,
+          "materialId": "dragon-scale",
+          "materialQuantity": 2,
+          "dragonTreasureTaken": 1,
+          "dragonCurse": {
+            "id": "curse-t5-12",
+            "name": "Hoard Fever",
+            "modifiers": {
+              "incomingDamagePct": 0,
+              "dodgeChancePct": -8,
+              "finalDamagePct": -4
+            }
+          }
+        },
+        "failure": {
+          "hpLossPct": 9,
+          "dragonTreasureTaken": 1,
+          "onyx": 345,
+          "dragonCurse": {
+            "id": "curse-fail-t5-12",
+            "name": "Hoard-Touched",
+            "modifiers": {
+              "incomingDamagePct": 10
+            }
+          }
+        },
+        "criticalSuccess": {
+          "onyx": 240
+        },
+        "criticalFailure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "dragon-t5-13",
+      "kind": "combat",
+      "label": "Hoard Oathstone",
+      "description": "Hoard Oathstone becomes a direct dragon battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "dragon",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t5-14",
+      "kind": "menagerie",
+      "label": "Prismatic Treasure Door",
+      "description": "Prismatic Treasure Door offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 5,
+      "check": {
+        "stat": "CHA",
+        "dc": 30
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 622,
+          "materialId": "dragon-scale",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 9
+        },
+        "criticalSuccess": {
+          "onyx": 240
+        },
+        "criticalFailure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "dragon-t5-15",
+      "kind": "discovery",
+      "label": "Dragonheart Reliquary",
+      "description": "Dragonheart Reliquary offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 5,
+      "check": {
+        "stat": "LCK",
+        "dc": 28
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 625,
+          "materialId": "dragon-scale",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 9
+        },
+        "criticalSuccess": {
+          "onyx": 240
+        },
+        "criticalFailure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "dragon-t5-16",
+      "kind": "combat",
+      "label": "Arcane Scale Library",
+      "description": "Arcane Scale Library becomes a direct dragon battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "dragon",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t5-17",
+      "kind": "trap",
+      "label": "Six-Breath Trial",
+      "description": "Six-Breath Trial offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 5,
+      "check": {
+        "stat": "DEX",
+        "dc": 30
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 631,
+          "materialId": "dragon-scale",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 12
+        },
+        "criticalSuccess": {
+          "onyx": 240
+        },
+        "criticalFailure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "dragon-t5-18",
+      "kind": "menagerie",
+      "label": "Elder Dragon Duel",
+      "description": "Elder Dragon Duel offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 5,
+      "check": {
+        "stat": "CON",
+        "dc": 28
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 634,
+          "materialId": "dragon-scale",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 9
+        },
+        "criticalSuccess": {
+          "onyx": 240
+        },
+        "criticalFailure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "dragon-t5-19",
+      "kind": "combat",
+      "label": "Crownway Treasure",
+      "description": "Crownway Treasure becomes a direct dragon battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "dragon",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 4
+    },
+    {
+      "id": "dragon-t5-20",
+      "kind": "combat",
+      "label": "True Dragon Challenge",
+      "description": "True Dragon Challenge becomes a direct dragon battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "dragon",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 4
+    },
+    {
+      "id": "dragon-t6-01",
+      "kind": "trap",
+      "label": "Prismatic Crownway",
+      "description": "Prismatic Crownway offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 5,
+      "check": {
+        "stat": "STR",
+        "dc": 31
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 663,
+          "materialId": "prismatic-shard",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 13
+        },
+        "criticalSuccess": {
+          "onyx": 270
+        },
+        "criticalFailure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "dragon-t6-02",
+      "kind": "combat",
+      "label": "Quentaliaus’s Viewing Hall",
+      "description": "Quentaliaus’s Viewing Hall becomes a direct dragon battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "dragon",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t6-03",
+      "kind": "discovery",
+      "label": "Sixfold Breath Gallery",
+      "description": "Sixfold Breath Gallery offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 5,
+      "check": {
+        "stat": "CON",
+        "dc": 30
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 669,
+          "materialId": "prismatic-shard",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        },
+        "criticalSuccess": {
+          "onyx": 270
+        },
+        "criticalFailure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "dragon-t6-04",
+      "kind": "treasure",
+      "label": "Arcane Hoard Ocean",
+      "description": "Arcane Hoard Ocean offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 5,
+      "check": {
+        "stat": "INT",
+        "dc": 31
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 1092,
+          "materialId": "prismatic-shard",
+          "materialQuantity": 2,
+          "dragonTreasureTaken": 1
+        },
+        "failure": {
+          "hpLossPct": 10,
+          "dragonTreasureTaken": 1,
+          "onyx": 390,
+          "dragonCurse": {
+            "id": "curse-fail-t6-4",
+            "name": "Hoard-Touched",
+            "modifiers": {
+              "incomingDamagePct": 11
+            }
+          }
+        },
+        "criticalSuccess": {
+          "onyx": 270
+        },
+        "criticalFailure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "dragon-t6-05",
+      "kind": "combat",
+      "label": "Dragon Throne Approach",
+      "description": "Dragon Throne Approach becomes a direct dragon battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "dragon",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t6-06",
+      "kind": "menagerie",
+      "label": "Prismcoil Crown Nest",
+      "description": "Prismcoil Crown Nest offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 5,
+      "check": {
+        "stat": "CHA",
+        "dc": 30
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 678,
+          "materialId": "prismatic-shard",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        },
+        "criticalSuccess": {
+          "onyx": 270
+        },
+        "criticalFailure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "dragon-t6-07",
+      "kind": "discovery",
+      "label": "Ruby-Sapphire Crossing",
+      "description": "Ruby-Sapphire Crossing offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 5,
+      "check": {
+        "stat": "LCK",
+        "dc": 31
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 681,
+          "materialId": "prismatic-shard",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        },
+        "criticalSuccess": {
+          "onyx": 270
+        },
+        "criticalFailure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "dragon-t6-08",
+      "kind": "combat",
+      "label": "Citrine-Ivory Vault",
+      "description": "Citrine-Ivory Vault becomes a direct dragon battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "dragon",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t6-09",
+      "kind": "trap",
+      "label": "Amethyst-Onyx Hall",
+      "description": "Amethyst-Onyx Hall offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 5,
+      "check": {
+        "stat": "DEX",
+        "dc": 30
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 687,
+          "materialId": "prismatic-shard",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 13
+        },
+        "criticalSuccess": {
+          "onyx": 270
+        },
+        "criticalFailure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "dragon-t6-10",
+      "kind": "combat",
+      "label": "Crownscale Reliquary",
+      "description": "Crownscale Reliquary becomes a direct dragon battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "dragon",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t6-11",
+      "kind": "discovery",
+      "label": "Final Treasure Temptation",
+      "description": "Final Treasure Temptation offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 5,
+      "check": {
+        "stat": "INT",
+        "dc": 32
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 693,
+          "materialId": "prismatic-shard",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        },
+        "criticalSuccess": {
+          "onyx": 270
+        },
+        "criticalFailure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "dragon-t6-12",
+      "kind": "treasure",
+      "label": "Impossible Trophy Planetarium",
+      "description": "Impossible Trophy Planetarium offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 5,
+      "check": {
+        "stat": "FTH",
+        "dc": 30
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 1116,
+          "materialId": "prismatic-shard",
+          "materialQuantity": 2,
+          "dragonTreasureTaken": 1,
+          "dragonCurse": {
+            "id": "curse-t6-12",
+            "name": "Hoard Fever",
+            "modifiers": {
+              "incomingDamagePct": 0,
+              "dodgeChancePct": -9,
+              "finalDamagePct": -5
+            }
+          }
+        },
+        "failure": {
+          "hpLossPct": 10,
+          "dragonTreasureTaken": 1,
+          "onyx": 390,
+          "dragonCurse": {
+            "id": "curse-fail-t6-12",
+            "name": "Hoard-Touched",
+            "modifiers": {
+              "incomingDamagePct": 11
+            }
+          }
+        },
+        "criticalSuccess": {
+          "onyx": 270
+        },
+        "criticalFailure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "dragon-t6-13",
+      "kind": "combat",
+      "label": "Dragonflame Font",
+      "description": "Dragonflame Font becomes a direct dragon battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "dragon",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t6-14",
+      "kind": "menagerie",
+      "label": "Arcane Namewall",
+      "description": "Arcane Namewall offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 5,
+      "check": {
+        "stat": "LCK",
+        "dc": 32
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 702,
+          "materialId": "prismatic-shard",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        },
+        "criticalSuccess": {
+          "onyx": 270
+        },
+        "criticalFailure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "dragon-t6-15",
+      "kind": "discovery",
+      "label": "Devanpierus Family Seal",
+      "description": "Devanpierus Family Seal offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 5,
+      "check": {
+        "stat": "STR",
+        "dc": 30
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 705,
+          "materialId": "prismatic-shard",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        },
+        "criticalSuccess": {
+          "onyx": 270
+        },
+        "criticalFailure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "dragon-t6-16",
+      "kind": "combat",
+      "label": "Sixfold Mirror",
+      "description": "Sixfold Mirror becomes a direct dragon battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "dragon",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 6
+    },
+    {
+      "id": "dragon-t6-17",
+      "kind": "trap",
+      "label": "Prismatic Stair",
+      "description": "Prismatic Stair offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 5,
+      "check": {
+        "stat": "CON",
+        "dc": 32
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 711,
+          "materialId": "prismatic-shard",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 13
+        },
+        "criticalSuccess": {
+          "onyx": 270
+        },
+        "criticalFailure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "dragon-t6-18",
+      "kind": "menagerie",
+      "label": "Elder Challenger Court",
+      "description": "Elder Challenger Court offers a risky choice inside the dragon’s enormous collection.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 5,
+      "check": {
+        "stat": "INT",
+        "dc": 30
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 714,
+          "materialId": "prismatic-shard",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        },
+        "criticalSuccess": {
+          "onyx": 270
+        },
+        "criticalFailure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "dragon-t6-19",
+      "kind": "combat",
+      "label": "Crownway Ambush",
+      "description": "Crownway Ambush becomes a direct dragon battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "dragon",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 4
+    },
+    {
+      "id": "dragon-t6-20",
+      "kind": "combat",
+      "label": "Last Dragon Before the Throne",
+      "description": "Last Dragon Before the Throne becomes a direct dragon battle inside Quentaliaus’s dungeon.",
+      "combat": true,
+      "combatProfile": "dragon",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 4
+    }
+  ],
+  "rules": {
+    "count": 123,
+    "cardsPerDepth": 3,
+    "noRepeatsWithinCampaign": true,
+    "treasureCurses": "expedition-only",
+    "images": "none-placeholders"
+  }
+}

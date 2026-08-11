@@ -1,0 +1,1543 @@
+{
+  "version": "CAVERNS-TO-HELL-FOUNDATION-2026-08-10",
+  "designStatus": "Implemented Region 5 crafting; horizontal endgame-equivalent equipment budget.",
+  "materials": [
+    {
+      "id": "blackstone-fragment",
+      "name": "Blackstone Fragment",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Stone",
+      "source": "Cavern creatures"
+    },
+    {
+      "id": "sulfur-chitin",
+      "name": "Sulfur Chitin",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Poison",
+      "source": "Sulfurback creatures"
+    },
+    {
+      "id": "ember-gland",
+      "name": "Ember Gland",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Fire",
+      "source": "Fire creatures and demons"
+    },
+    {
+      "id": "hellroot-fiber",
+      "name": "Hellroot Fiber",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Nature",
+      "source": "Cavern roots and beasts"
+    },
+    {
+      "id": "venom-crystal",
+      "name": "Venom Crystal",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Poison",
+      "source": "Venomstone creatures"
+    },
+    {
+      "id": "chain-iron",
+      "name": "Chain Iron",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Force",
+      "source": "Gate and chain demons"
+    },
+    {
+      "id": "demon-hide",
+      "name": "Demon Hide",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Physical",
+      "source": "Demons"
+    },
+    {
+      "id": "soul-ash",
+      "name": "Soul Ash",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Psychic",
+      "source": "Soul-bearing demons"
+    },
+    {
+      "id": "sin-touched-ichor",
+      "name": "Sin-Touched Ichor",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Sin",
+      "source": "Sinbound demons"
+    },
+    {
+      "id": "infernal-glass",
+      "name": "Infernal Glass",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Psychic",
+      "source": "Upper Hell demons"
+    },
+    {
+      "id": "gatebound-horn",
+      "name": "Gatebound Horn",
+      "kind": "boss-material",
+      "rarity": "SoulFire",
+      "theme": "Gate",
+      "source": "Kharvax"
+    },
+    {
+      "id": "kharvax-soulfirecore",
+      "name": "Kharvax SoulfireCore",
+      "kind": "soulfire-core",
+      "rarity": "SoulFire",
+      "theme": "Gate",
+      "source": "Kharvax"
+    },
+    {
+      "id": "sevenfold-soulfirecore",
+      "name": "Sevenfold SoulfireCore",
+      "kind": "soulfire-core",
+      "rarity": "SoulFire",
+      "theme": "Seven Sins",
+      "source": "Serevakh"
+    },
+    {
+      "id": "crest-of-pride",
+      "name": "Crest of Pride",
+      "kind": "boss-material",
+      "rarity": "SoulFire",
+      "theme": "Pride",
+      "source": "Serevakh death form"
+    },
+    {
+      "id": "gilded-hunger",
+      "name": "Gilded Hunger",
+      "kind": "boss-material",
+      "rarity": "SoulFire",
+      "theme": "Greed",
+      "source": "Serevakh death form"
+    },
+    {
+      "id": "heart-of-longing",
+      "name": "Heart of Longing",
+      "kind": "boss-material",
+      "rarity": "SoulFire",
+      "theme": "Lust",
+      "source": "Serevakh death form"
+    },
+    {
+      "id": "covetous-glass",
+      "name": "Covetous Glass",
+      "kind": "boss-material",
+      "rarity": "SoulFire",
+      "theme": "Envy",
+      "source": "Serevakh death form"
+    },
+    {
+      "id": "endless-maw",
+      "name": "Endless Maw",
+      "kind": "boss-material",
+      "rarity": "SoulFire",
+      "theme": "Gluttony",
+      "source": "Serevakh death form"
+    },
+    {
+      "id": "wrathblood-ember",
+      "name": "Wrathblood Ember",
+      "kind": "boss-material",
+      "rarity": "SoulFire",
+      "theme": "Wrath",
+      "source": "Serevakh death form"
+    },
+    {
+      "id": "stillborn-hour",
+      "name": "Stillborn Hour",
+      "kind": "boss-material",
+      "rarity": "SoulFire",
+      "theme": "Sloth",
+      "source": "Serevakh death form"
+    }
+  ],
+  "sets": [
+    {
+      "id": "set-hell-gatebound",
+      "name": "Gatebound Warplate",
+      "sourceId": "physical/force",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-hell-gatebound-helmet",
+        "eq-hell-gatebound-chest",
+        "eq-hell-gatebound-gloves",
+        "eq-hell-gatebound-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "STR": 3,
+            "CON": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "blockChancePct": 7
+          },
+          "resistances": {
+            "Physical": 12,
+            "Force": 12
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "STR": 2,
+            "CON": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "hellExpansion": true
+    },
+    {
+      "id": "set-hell-cinderwrought",
+      "name": "Cinderwrought Harness",
+      "sourceId": "fire",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-hell-cinderwrought-helmet",
+        "eq-hell-cinderwrought-chest",
+        "eq-hell-cinderwrought-gloves",
+        "eq-hell-cinderwrought-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "STR": 3,
+            "INT": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "finalDamagePct": 8
+          },
+          "resistances": {
+            "Fire": 16
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "STR": 2,
+            "INT": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "hellExpansion": true
+    },
+    {
+      "id": "set-hell-whisperveil",
+      "name": "Whisperveil Vestments",
+      "sourceId": "psychic",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-hell-whisperveil-helmet",
+        "eq-hell-whisperveil-chest",
+        "eq-hell-whisperveil-gloves",
+        "eq-hell-whisperveil-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "INT": 3,
+            "CHA": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "dodgeChancePct": 7,
+            "energyGainPct": 8
+          },
+          "resistances": {
+            "Psychic": 16
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "INT": 2,
+            "CHA": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "hellExpansion": true
+    },
+    {
+      "id": "set-hell-sevenfold-pilgrim",
+      "name": "Sevenfold Pilgrim Regalia",
+      "sourceId": "flexible",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-hell-sevenfold-pilgrim-helmet",
+        "eq-hell-sevenfold-pilgrim-chest",
+        "eq-hell-sevenfold-pilgrim-gloves",
+        "eq-hell-sevenfold-pilgrim-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "DEX": 3,
+            "LCK": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "damageCritChancePct": 7,
+            "criticalDamagePct": 10
+          },
+          "resistances": {
+            "Physical": 6,
+            "Force": 6,
+            "Fire": 6,
+            "Psychic": 6
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "DEX": 2,
+            "LCK": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "hellExpansion": true
+    }
+  ],
+  "recipes": [
+    {
+      "id": "recipe-eq-hell-gatebound-helmet",
+      "name": "Gatebound Helmet",
+      "category": "Gatebound Warplate Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-gatebound-helmet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "chain-iron",
+          "quantity": 3
+        },
+        {
+          "materialId": "demon-hide",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "gatebound",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-gatebound-chest",
+      "name": "Gatebound Chest",
+      "category": "Gatebound Warplate Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-gatebound-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "chain-iron",
+          "quantity": 3
+        },
+        {
+          "materialId": "demon-hide",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "gatebound",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-gatebound-gloves",
+      "name": "Gatebound Gloves",
+      "category": "Gatebound Warplate Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-gatebound-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "chain-iron",
+          "quantity": 3
+        },
+        {
+          "materialId": "demon-hide",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "gatebound",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-gatebound-boots",
+      "name": "Gatebound Boots",
+      "category": "Gatebound Warplate Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-gatebound-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "chain-iron",
+          "quantity": 3
+        },
+        {
+          "materialId": "demon-hide",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "gatebound",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-cinderwrought-helmet",
+      "name": "Cinderwrought Helmet",
+      "category": "Cinderwrought Harness Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-cinderwrought-helmet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ember-gland",
+          "quantity": 3
+        },
+        {
+          "materialId": "soul-ash",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "cinderwrought",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-cinderwrought-chest",
+      "name": "Cinderwrought Chest",
+      "category": "Cinderwrought Harness Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-cinderwrought-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ember-gland",
+          "quantity": 3
+        },
+        {
+          "materialId": "soul-ash",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "cinderwrought",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-cinderwrought-gloves",
+      "name": "Cinderwrought Gloves",
+      "category": "Cinderwrought Harness Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-cinderwrought-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ember-gland",
+          "quantity": 3
+        },
+        {
+          "materialId": "soul-ash",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "cinderwrought",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-cinderwrought-boots",
+      "name": "Cinderwrought Boots",
+      "category": "Cinderwrought Harness Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-cinderwrought-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ember-gland",
+          "quantity": 3
+        },
+        {
+          "materialId": "soul-ash",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "cinderwrought",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-whisperveil-helmet",
+      "name": "Whisperveil Helmet",
+      "category": "Whisperveil Vestments Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-whisperveil-helmet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "infernal-glass",
+          "quantity": 3
+        },
+        {
+          "materialId": "soul-ash",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "whisperveil",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-whisperveil-chest",
+      "name": "Whisperveil Chest",
+      "category": "Whisperveil Vestments Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-whisperveil-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "infernal-glass",
+          "quantity": 3
+        },
+        {
+          "materialId": "soul-ash",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "whisperveil",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-whisperveil-gloves",
+      "name": "Whisperveil Gloves",
+      "category": "Whisperveil Vestments Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-whisperveil-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "infernal-glass",
+          "quantity": 3
+        },
+        {
+          "materialId": "soul-ash",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "whisperveil",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-whisperveil-boots",
+      "name": "Whisperveil Boots",
+      "category": "Whisperveil Vestments Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-whisperveil-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "infernal-glass",
+          "quantity": 3
+        },
+        {
+          "materialId": "soul-ash",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "whisperveil",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-sevenfold-pilgrim-helmet",
+      "name": "Sevenfold Helmet",
+      "category": "Sevenfold Pilgrim Regalia Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-sevenfold-pilgrim-helmet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sin-touched-ichor",
+          "quantity": 3
+        },
+        {
+          "materialId": "infernal-glass",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "sevenfold-pilgrim",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-sevenfold-pilgrim-chest",
+      "name": "Sevenfold Chest",
+      "category": "Sevenfold Pilgrim Regalia Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-sevenfold-pilgrim-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sin-touched-ichor",
+          "quantity": 3
+        },
+        {
+          "materialId": "infernal-glass",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "sevenfold-pilgrim",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-sevenfold-pilgrim-gloves",
+      "name": "Sevenfold Gloves",
+      "category": "Sevenfold Pilgrim Regalia Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-sevenfold-pilgrim-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sin-touched-ichor",
+          "quantity": 3
+        },
+        {
+          "materialId": "infernal-glass",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "sevenfold-pilgrim",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-sevenfold-pilgrim-boots",
+      "name": "Sevenfold Boots",
+      "category": "Sevenfold Pilgrim Regalia Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-sevenfold-pilgrim-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sin-touched-ichor",
+          "quantity": 3
+        },
+        {
+          "materialId": "infernal-glass",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "sevenfold-pilgrim",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-blackstone-maul",
+      "name": "Blackstone Maul",
+      "category": "Hell Weapon",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-blackstone-maul",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "demon-hide",
+          "quantity": 2
+        },
+        {
+          "materialId": "infernal-glass",
+          "quantity": 2
+        },
+        {
+          "materialId": "chain-iron",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "blackstone-maul",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-gatechain-blade",
+      "name": "Gatechain Blade",
+      "category": "Hell Weapon",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-gatechain-blade",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "demon-hide",
+          "quantity": 2
+        },
+        {
+          "materialId": "infernal-glass",
+          "quantity": 2
+        },
+        {
+          "materialId": "chain-iron",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "gatechain-blade",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-cinder-scepter",
+      "name": "Cinder Scepter",
+      "category": "Hell Weapon",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-cinder-scepter",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "demon-hide",
+          "quantity": 2
+        },
+        {
+          "materialId": "infernal-glass",
+          "quantity": 2
+        },
+        {
+          "materialId": "chain-iron",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "cinder-scepter",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-soulglass-wand",
+      "name": "Soulglass Wand",
+      "category": "Hell Weapon",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-soulglass-wand",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "demon-hide",
+          "quantity": 2
+        },
+        {
+          "materialId": "infernal-glass",
+          "quantity": 2
+        },
+        {
+          "materialId": "chain-iron",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "soulglass-wand",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-hellfang-sabre",
+      "name": "Hellfang Sabre",
+      "category": "Hell Weapon",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-hellfang-sabre",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "demon-hide",
+          "quantity": 2
+        },
+        {
+          "materialId": "infernal-glass",
+          "quantity": 2
+        },
+        {
+          "materialId": "chain-iron",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "hellfang-sabre",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-sinbound-glaive",
+      "name": "Sinbound Glaive",
+      "category": "Hell Weapon",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-sinbound-glaive",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "demon-hide",
+          "quantity": 2
+        },
+        {
+          "materialId": "infernal-glass",
+          "quantity": 2
+        },
+        {
+          "materialId": "chain-iron",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "sinbound-glaive",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-venomstone-dirk",
+      "name": "Venomstone Dirk",
+      "category": "Hell Weapon",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-venomstone-dirk",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "demon-hide",
+          "quantity": 2
+        },
+        {
+          "materialId": "infernal-glass",
+          "quantity": 2
+        },
+        {
+          "materialId": "chain-iron",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "venomstone-dirk",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-infernal-censer",
+      "name": "Infernal Censer",
+      "category": "Hell Weapon",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-infernal-censer",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "demon-hide",
+          "quantity": 2
+        },
+        {
+          "materialId": "infernal-glass",
+          "quantity": 2
+        },
+        {
+          "materialId": "chain-iron",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "infernal-censer",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-writhing-gauntlets",
+      "name": "Writhing Gauntlets",
+      "category": "Hell Weapon",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-writhing-gauntlets",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "demon-hide",
+          "quantity": 2
+        },
+        {
+          "materialId": "infernal-glass",
+          "quantity": 2
+        },
+        {
+          "materialId": "chain-iron",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "writhing-gauntlets",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-lament-string",
+      "name": "Lament String",
+      "category": "Hell Weapon",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-lament-string",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "demon-hide",
+          "quantity": 2
+        },
+        {
+          "materialId": "infernal-glass",
+          "quantity": 2
+        },
+        {
+          "materialId": "chain-iron",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "lament-string",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-blackstone-charm",
+      "name": "Blackstone Charm",
+      "category": "Hell Accessory",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-blackstone-charm",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soul-ash",
+          "quantity": 2
+        },
+        {
+          "materialId": "sin-touched-ichor",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "blackstone-charm",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-ember-loop",
+      "name": "Ember Loop",
+      "category": "Hell Accessory",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-ember-loop",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soul-ash",
+          "quantity": 2
+        },
+        {
+          "materialId": "sin-touched-ichor",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "ember-loop",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-soulglass-eye",
+      "name": "Soulglass Eye",
+      "category": "Hell Accessory",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-soulglass-eye",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soul-ash",
+          "quantity": 2
+        },
+        {
+          "materialId": "sin-touched-ichor",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "soulglass-eye",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-chain-oath-ring",
+      "name": "Chain-Oath Ring",
+      "category": "Hell Accessory",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-chain-oath-ring",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soul-ash",
+          "quantity": 2
+        },
+        {
+          "materialId": "sin-touched-ichor",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "chain-oath-ring",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-hellhound-tooth",
+      "name": "Hellhound Tooth",
+      "category": "Hell Accessory",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-hellhound-tooth",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soul-ash",
+          "quantity": 2
+        },
+        {
+          "materialId": "sin-touched-ichor",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "hellhound-tooth",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-sevenfold-token",
+      "name": "Sevenfold Token",
+      "category": "Hell Accessory",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-sevenfold-token",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "soul-ash",
+          "quantity": 2
+        },
+        {
+          "materialId": "sin-touched-ichor",
+          "quantity": 2
+        },
+        {
+          "materialId": "blackstone-fragment",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "sevenfold-token",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-kharvax-gatebreaker",
+      "name": "Kharvax Gatebreaker",
+      "category": "Kharvax SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-kharvax-gatebreaker",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "kharvax-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "gatebound-horn",
+          "quantity": 1
+        },
+        {
+          "materialId": "chain-iron",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "kharvax-gatebound",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-kharvax-chain-heart",
+      "name": "Kharvax Chain-Heart",
+      "category": "Kharvax SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-kharvax-chain-heart",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "kharvax-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "gatebound-horn",
+          "quantity": 1
+        },
+        {
+          "materialId": "demon-hide",
+          "quantity": 4
+        }
+      ],
+      "sourceId": "kharvax-gatebound",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-pride-mirror",
+      "name": "Mirror of Pride",
+      "category": "Pride SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-pride-mirror",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sevenfold-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "crest-of-pride",
+          "quantity": 1
+        },
+        {
+          "materialId": "sin-touched-ichor",
+          "quantity": 3
+        }
+      ],
+      "sourceId": "serevakh-sevenfold-regent",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-greed-hand",
+      "name": "Hand of Greed",
+      "category": "Greed SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-greed-hand",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sevenfold-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "gilded-hunger",
+          "quantity": 1
+        },
+        {
+          "materialId": "sin-touched-ichor",
+          "quantity": 3
+        }
+      ],
+      "sourceId": "serevakh-sevenfold-regent",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-lust-veil",
+      "name": "Veil of Longing",
+      "category": "Lust SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-lust-veil",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sevenfold-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "heart-of-longing",
+          "quantity": 1
+        },
+        {
+          "materialId": "sin-touched-ichor",
+          "quantity": 3
+        }
+      ],
+      "sourceId": "serevakh-sevenfold-regent",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-envy-glass",
+      "name": "Covetous Glass",
+      "category": "Envy SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-envy-glass",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sevenfold-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "covetous-glass",
+          "quantity": 1
+        },
+        {
+          "materialId": "sin-touched-ichor",
+          "quantity": 3
+        }
+      ],
+      "sourceId": "serevakh-sevenfold-regent",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-gluttony-maw",
+      "name": "Pendant of the Endless Maw",
+      "category": "Gluttony SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-gluttony-maw",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sevenfold-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "endless-maw",
+          "quantity": 1
+        },
+        {
+          "materialId": "sin-touched-ichor",
+          "quantity": 3
+        }
+      ],
+      "sourceId": "serevakh-sevenfold-regent",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-wrath-ember",
+      "name": "Wrathblood Emberblade",
+      "category": "Wrath SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-wrath-ember",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sevenfold-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "wrathblood-ember",
+          "quantity": 1
+        },
+        {
+          "materialId": "sin-touched-ichor",
+          "quantity": 3
+        }
+      ],
+      "sourceId": "serevakh-sevenfold-regent",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-sloth-hour",
+      "name": "Stillborn Hourglass",
+      "category": "Sloth SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-sloth-hour",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sevenfold-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "stillborn-hour",
+          "quantity": 1
+        },
+        {
+          "materialId": "sin-touched-ichor",
+          "quantity": 3
+        }
+      ],
+      "sourceId": "serevakh-sevenfold-regent",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-hell-sevenfold-regalia",
+      "name": "Sevenfold Regent Sigil",
+      "category": "Sevenfold SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-hell-sevenfold-regalia",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "sevenfold-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "sin-touched-ichor",
+          "quantity": 7
+        },
+        {
+          "materialId": "infernal-glass",
+          "quantity": 5
+        }
+      ],
+      "sourceId": "serevakh-sevenfold-regent",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    }
+  ],
+  "merchant": {
+    "id": "infernal-broker",
+    "name": "Infernal Broker",
+    "region": "caverns-to-hell",
+    "warningText": null,
+    "items": [
+      {
+        "itemId": "eq-hell-broker-red-contract",
+        "onyxCost": 2100
+      },
+      {
+        "itemId": "eq-hell-broker-stolen-second",
+        "onyxCost": 2250
+      },
+      {
+        "itemId": "eq-hell-broker-black-mercy",
+        "onyxCost": 2400
+      },
+      {
+        "itemId": "eq-hell-broker-unearned-crown",
+        "onyxCost": 2600
+      },
+      {
+        "itemId": "eq-hell-broker-quiet-fortress",
+        "onyxCost": 2800
+      }
+    ],
+    "purchaseLimitPerItemPerExpedition": 1,
+    "hiddenConsequence": "greeds-debt"
+  },
+  "rules": {
+    "location": "Campsite",
+    "enemyEquipmentDrops": false,
+    "normalMaterialDropByRealPartySize": {
+      "1": [
+        4,
+        6
+      ],
+      "2": [
+        6,
+        8
+      ],
+      "3": [
+        8,
+        10
+      ],
+      "4": [
+        10,
+        12
+      ]
+    },
+    "soulfireCoreDeterministic": true,
+    "lateForestAndLaterGearHorizontal": true,
+    "merchantPurchaseWarning": false
+  },
+  "catalogueSummary": {
+    "materials": 20,
+    "armorSets": 4,
+    "armorPieces": 16,
+    "normalRecipes": 32,
+    "soulfireRecipes": 10,
+    "recipes": 42,
+    "merchantItems": 5
+  },
+  "balanceRevision": "2026-08-10-horizontal-crafting-balance"
+}

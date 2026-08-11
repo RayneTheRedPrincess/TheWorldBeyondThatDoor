@@ -1,13 +1,13 @@
 {
   "project": "The World Beyond the Door (TWBTD)",
-  "phase": "D3",
-  "status": "FINAL_CANON_INDEX",
+  "status": "KI_001_TO_KI_267_COMPLETE",
   "prepared": "2026-08-07",
-  "provenance_note": "KI-001..KI-200 are a faithful canonical materialization of the approved File Library authority, not a claim of byte-for-byte recovery. KI-201..KI-266 use D2-approved permanent IDs and their approved subclass source files.",
+  "provenance_note": "KI-001..KI-200 are a faithful canonical materialization of the approved File Library authority, not a claim of byte-for-byte recovery. KI-201..KI-266 use D2-approved permanent IDs and their approved subclass source files. KI-267 restores Dragonblooded as a new global Impression; Rhazekai inherit the old Dragonborn-only racial synergy role.",
   "counts": {
-    "total": 266,
+    "total": 267,
     "original": 200,
-    "subclass_specific": 66
+    "subclass_specific": 66,
+    "global": 201
   },
   "original_slot_distribution": {
     "1": 20,
@@ -17,7 +17,7 @@
     "5": 17,
     "6": 1
   },
-  "range": "KI-001..KI-266 contiguous",
+  "range": "KI-001..KI-267 contiguous",
   "entries": [
     {
       "id": "KI-001",
@@ -4172,6 +4172,27 @@
         "Support",
         "Druid",
         "Hyphaweaver"
+      ]
+    },
+    {
+      "id": "KI-267",
+      "name": "Dragonblooded",
+      "slots": 2,
+      "mechanic": "At the Tavern choose and permanently bind one element while this Impression is equipped: Fire, Cold, Lightning, Poison, Force, Dark, or Holy. You deal +5% final damage with the bound element and gain +5% Resistance to it. Rhazekai awaken Dragonblooded further: the bound-element Resistance bonus becomes +10% instead of +5%, and Rhazekai Draconic Organ damaging actions that deal the bound element gain +50% final damage. Special Radiant Crucible awakening: without Dragonblooded bound to Holy, Radiant Crucible provides only +5% racial Holy Resistance and Crucible Ray deals 50% of its normal racial damage. With Dragonblooded equipped and bound to Holy, Radiant Crucible is restored to its full +10% racial Holy Resistance and full Crucible Ray damage before Dragonblooded's own Rhazekai bonuses are applied. Changing the bound element is allowed only at Krass's Magical Library between campaigns.",
+      "scope": "global",
+      "source": "Kept Impression progression audit — restored Dragonblooded canon with Rhazekai succession",
+      "tags": [
+        "Damaging",
+        "Resistance",
+        "Fire",
+        "Cold",
+        "Lightning",
+        "Poison",
+        "Force",
+        "Dark",
+        "Holy",
+        "Rhazekai",
+        "Draconic"
       ]
     }
   ],

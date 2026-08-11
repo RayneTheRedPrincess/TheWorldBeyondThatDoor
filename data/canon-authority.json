@@ -2,8 +2,8 @@
   "project": "The World Beyond the Door",
   "shorthand": "TWBTD",
   "repository": "ThatWorldBeyondThatDoor",
-  "version": "2026-08-07-v24-D2",
-  "status": "D2_GAP_RESOLUTION_APPROVED_OVERLAY",
+  "version": "0.45.15",
+  "status": "production",
   "authority_rule": "Newer explicit user approval overrides older conflicting material; legacy runtime is never clean implementation authority.",
   "save_namespace": "TWBTD_V2_*",
   "universal_starting_combat_values": {
@@ -99,7 +99,7 @@
               "slot_number": 1,
               "name": "Driving Blow",
               "level": 1,
-              "canonical_text": "1. Driving Blow\n- Level 1\n- Cost: 0 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 7\n- Scaling: STR 0.012 + CON 0.006\n- Formula: 7 \u00d7 (1 + STR\u00d70.012 + CON\u00d70.006)"
+              "canonical_text": "1. Driving Blow\n- Level 1\n- Cost: 0 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 7\n- Scaling: STR 0.012 + CON 0.006\n- Formula: 7 × (1 + STR×0.012 + CON×0.006)"
             },
             {
               "slot_number": 2,
@@ -111,19 +111,19 @@
               "slot_number": 3,
               "name": "Break Line",
               "level": 4,
-              "canonical_text": "3. Break Line\n- Level 4\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 12\n- Scaling: STR 0.013 + CON 0.008\n- Formula: 12 \u00d7 (1 + STR\u00d70.013 + CON\u00d70.008)\n- Target loses 10% Block Chance and 10% Blocked Damage Reduction for 2 turns."
+              "canonical_text": "3. Break Line\n- Level 4\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 12\n- Scaling: STR 0.013 + CON 0.008\n- Formula: 12 × (1 + STR×0.013 + CON×0.008)\n- Target loses 10% Block Chance and 10% Blocked Damage Reduction for 2 turns."
             },
             {
               "slot_number": 4,
               "name": "Hold Fast",
               "level": 6,
-              "canonical_text": "4. Hold Fast\n- Level 6\n- Cost: 2 Energy\n- Cooldown: 3 turns\n- Target: self\n- Base Shield: 10\n- Scaling: CON 0.014 + STR 0.008\n- Formula: 10 \u00d7 (1 + CON\u00d70.014 + STR\u00d70.008)\n- While any of this Shield remains, gain +20% Aggro."
+              "canonical_text": "4. Hold Fast\n- Level 6\n- Cost: 2 Energy\n- Cooldown: 3 turns\n- Target: self\n- Base Shield: 10\n- Scaling: CON 0.014 + STR 0.008\n- Formula: 10 × (1 + CON×0.014 + STR×0.008)\n- While any of this Shield remains, gain +20% Aggro."
             },
             {
               "slot_number": 5,
               "name": "Pressure Break",
               "level": 8,
-              "canonical_text": "5. Pressure Break\n- Level 8\n- Cost: 1 Energy + 3 Pressure\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 18\n- Scaling: STR 0.016 + CON 0.009\n- Formula: 18 \u00d7 (1 + STR\u00d70.016 + CON\u00d70.009)\n- If cast at 5 Pressure, spend all 5 Pressure instead and deal +20% final damage."
+              "canonical_text": "5. Pressure Break\n- Level 8\n- Cost: 1 Energy + 3 Pressure\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 18\n- Scaling: STR 0.016 + CON 0.009\n- Formula: 18 × (1 + STR×0.016 + CON×0.009)\n- If cast at 5 Pressure, spend all 5 Pressure instead and deal +20% final damage."
             }
           ],
           "ability_count": 5
@@ -262,7 +262,7 @@
               "slot_number": 1,
               "name": "Quick Cut",
               "level": 1,
-              "canonical_text": "1. Quick Cut\n- Level 1\n- Cost: 0 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 7\n- Scaling: DEX 0.011 + LCK 0.007\n- Formula: 7 \u00d7 (1 + DEX\u00d70.011 + LCK\u00d70.007)"
+              "canonical_text": "1. Quick Cut\n- Level 1\n- Cost: 0 Energy\n- Cooldown: none\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 7\n- Scaling: DEX 0.011 + LCK 0.007\n- Formula: 7 × (1 + DEX×0.011 + LCK×0.007)"
             },
             {
               "slot_number": 2,
@@ -280,13 +280,13 @@
               "slot_number": 4,
               "name": "Exploit Weakness",
               "level": 6,
-              "canonical_text": "4. Exploit Weakness\n- Level 6\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 13\n- Scaling: DEX 0.013 + LCK 0.009\n- Formula: 13 \u00d7 (1 + DEX\u00d70.013 + LCK\u00d70.009)\n- Deals +20% final damage if target currently has a debuff."
+              "canonical_text": "4. Exploit Weakness\n- Level 6\n- Cost: 2 Energy\n- Cooldown: 2 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 13\n- Scaling: DEX 0.013 + LCK 0.009\n- Formula: 13 × (1 + DEX×0.013 + LCK×0.009)\n- Deals +20% final damage if target currently has a debuff."
             },
             {
               "slot_number": 5,
               "name": "Perfect Strike",
               "level": 8,
-              "canonical_text": "5. Perfect Strike\n- Level 8\n- Cost: 2 Energy + 3 Openings\n- Cooldown: 3 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 18\n- Scaling: DEX 0.014 + LCK 0.012\n- Formula: 18 \u00d7 (1 + DEX\u00d70.014 + LCK\u00d70.012)\n- Gains +20% Crit Chance for this attack."
+              "canonical_text": "5. Perfect Strike\n- Level 8\n- Cost: 2 Energy + 3 Openings\n- Cooldown: 3 turns\n- Target: single enemy\n- Damage type: Physical\n- Base Damage: 18\n- Scaling: DEX 0.014 + LCK 0.012\n- Formula: 18 × (1 + DEX×0.014 + LCK×0.012)\n- Gains +20% Crit Chance for this attack."
             }
           ],
           "ability_count": 5
@@ -1070,7 +1070,7 @@
             "CHA",
             "FTH"
           ],
-          "resource": "Resonance 0\u20134",
+          "resource": "Resonance 0–4",
           "role": "hybrid support/controller whose songs strengthen allies while disrupting enemies.",
           "abilities": [
             {
@@ -1114,7 +1114,7 @@
             "FTH",
             "CON"
           ],
-          "resource": "Harmony 0\u20133",
+          "resource": "Harmony 0–3",
           "role": "defensive ensemble support.",
           "abilities": [
             {
@@ -1152,7 +1152,7 @@
             "INT",
             "LCK"
           ],
-          "resource": "Discord 0\u20134",
+          "resource": "Discord 0–4",
           "role": "offensive/debuff Bard.",
           "abilities": [
             {
@@ -1190,7 +1190,7 @@
             "CHA",
             "LCK"
           ],
-          "resource": "Cadence 0\u20134",
+          "resource": "Cadence 0–4",
           "role": "melee Bard that maintains combat rhythm by varying attacks.",
           "abilities": [
             {
@@ -1233,7 +1233,7 @@
             "CHA",
             "INT"
           ],
-          "resource": "Redline 0\u20134",
+          "resource": "Redline 0–4",
           "role": "high-output caster that deliberately operates close to magical instability.",
           "abilities": [
             {
@@ -1277,7 +1277,7 @@
             "CON",
             "INT"
           ],
-          "resource": "Font 0\u20133",
+          "resource": "Font 0–3",
           "role": "durable Sorcerer whose body acts as a reservoir for magical power.",
           "abilities": [
             {
@@ -1353,7 +1353,7 @@
             "INT",
             "DEX"
           ],
-          "resource": "Conduits 0\u20133",
+          "resource": "Conduits 0–3",
           "role": "fast chaining caster that creates magical routes between enemies.",
           "abilities": [
             {
@@ -1396,7 +1396,7 @@
             "CHA",
             "FTH"
           ],
-          "resource": "Covenant Marks 0\u20134",
+          "resource": "Covenant Marks 0–4",
           "role": "Dark-damage support/caster that builds Covenant Marks through curses and draining life.",
           "abilities": [
             {
@@ -1440,7 +1440,7 @@
             "INT",
             "STR"
           ],
-          "resource": "Cinders 0\u20135",
+          "resource": "Cinders 0–5",
           "role": "Fire Warlock that feeds its covenant with its own vitality.",
           "abilities": [
             {
@@ -1478,7 +1478,7 @@
             "FTH",
             "LCK"
           ],
-          "resource": "Whispers 0\u20134",
+          "resource": "Whispers 0–4",
           "role": "control Warlock that lets hostile voices undermine enemy actions.",
           "abilities": [
             {
@@ -1516,7 +1516,7 @@
             "FTH",
             "LCK"
           ],
-          "resource": "Remains 0\u20134",
+          "resource": "Remains 0–4",
           "role": "attrition Warlock that turns approaching death and defeated enemies into survivability.",
           "abilities": [
             {
@@ -1559,7 +1559,7 @@
             "STR",
             "FTH"
           ],
-          "resource": "Conviction 0\u20135",
+          "resource": "Conviction 0–5",
           "role": "frontline holy hybrid that gains strength by protecting allies and striking enemies.",
           "abilities": [
             {
@@ -1603,7 +1603,7 @@
             "FTH",
             "CHA"
           ],
-          "resource": "Dawn 0\u20133",
+          "resource": "Dawn 0–3",
           "role": "defensive Paladin that prevents party members from being overwhelmed.",
           "abilities": [
             {
@@ -1641,7 +1641,7 @@
             "FTH",
             "CHA"
           ],
-          "resource": "Verdict 0\u20134",
+          "resource": "Verdict 0–4",
           "role": "offensive Paladin that identifies one enemy as guilty and builds toward sentencing it.",
           "abilities": [
             {
@@ -1704,7 +1704,7 @@
               "slot_number": 4,
               "name": "Oath's End",
               "level": 9,
-              "canonical_text": "4. Oath's End\n- Level 9; Cost 3 Energy; Cooldown 4 turns\n- Single enemy; Base Damage 24\n- Scaling: STR 0.010 + CHA 0.009 + LCK 0.009\n- Damage type:\n  0 Fractures: Radiant\n  1\u20132 Fractures: Force\n  3 Fractures: Dark\n- At 3 Fractures:\n  +30% final damage\n  +20% Crit Chance\n- After resolving, consume all Fractures and restore equal Oath.\n\nEND PALADIN FAMILY"
+              "canonical_text": "4. Oath's End\n- Level 9; Cost 3 Energy; Cooldown 4 turns\n- Single enemy; Base Damage 24\n- Scaling: STR 0.010 + CHA 0.009 + LCK 0.009\n- Damage type:\n  0 Fractures: Radiant\n  1–2 Fractures: Force\n  3 Fractures: Dark\n- At 3 Fractures:\n  +30% final damage\n  +20% Crit Chance\n- After resolving, consume all Fractures and restore equal Oath.\n\nEND PALADIN FAMILY"
             }
           ],
           "ability_count": 4
@@ -1723,7 +1723,7 @@
             "FTH",
             "INT"
           ],
-          "resource": "Cycle 0\u20133",
+          "resource": "Cycle 0–3",
           "role": null,
           "abilities": [
             {
@@ -1768,7 +1768,7 @@
             "INT",
             "FTH"
           ],
-          "resource": "Morphs 0\u20133",
+          "resource": "Morphs 0–3",
           "role": "self-modifying frontline Druid.",
           "abilities": [
             {
@@ -1807,7 +1807,7 @@
             "INT",
             "CHA"
           ],
-          "resource": "Growth 0\u20134",
+          "resource": "Growth 0–4",
           "role": "battlefield cultivator.",
           "abilities": [
             {
@@ -1846,7 +1846,7 @@
             "FTH",
             "CON"
           ],
-          "resource": "Hypha Nodes 0\u20134",
+          "resource": "Hypha Nodes 0–4",
           "role": "network Druid that connects combatants and transmits effects.",
           "abilities": [
             {
@@ -2614,7 +2614,7 @@
       "global_id_status": "APPROVED_D2_KI_201_TO_KI_266",
       "approved_range": "KI-201..KI-266"
     },
-    "final_mechanic_count": 266
+    "final_mechanic_count": 267
   },
   "races": {
     "authority_source": "prior_baseline/TWBTD_CUMULATIVE_APPROVED_BASELINE_2026-08-07.txt section 16, except where newer approvals supersede it",
@@ -2747,11 +2747,5 @@
       }
     }
   },
-  "implementation_approved_overlays": {
-    "I9_HP": {
-      "base_max_hp": 10,
-      "hp_per_CON": 2,
-      "hp_per_level_after_first": 3
-    }
-  }
+  "final_mechanic_count": 267
 }

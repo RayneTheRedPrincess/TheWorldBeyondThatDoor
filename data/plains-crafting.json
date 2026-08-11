@@ -1,0 +1,1357 @@
+{
+  "version": "RUINED-VAMPIRIC-PLAINS-FOUNDATION-2026-08-10",
+  "designStatus": "implemented-image-free",
+  "materials": [
+    {
+      "id": "bloodglass-shard",
+      "name": "Bloodglass Shard",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Blood",
+      "source": "Plains vampires and blood constructs"
+    },
+    {
+      "id": "dusk-iron",
+      "name": "Dusk Iron",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Physical",
+      "source": "Ruined soldiers and vampire wargear"
+    },
+    {
+      "id": "smokecloth",
+      "name": "Smokecloth",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Shadow",
+      "source": "Smoke-bound vampires"
+    },
+    {
+      "id": "red-marrow",
+      "name": "Red Marrow",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Blood",
+      "source": "Thralls and blood beasts"
+    },
+    {
+      "id": "nightfang",
+      "name": "Nightfang",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Physical",
+      "source": "Blood hounds and predators"
+    },
+    {
+      "id": "black-ichor",
+      "name": "Black Ichor",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Force",
+      "source": "Hemomancers and blood elementals"
+    },
+    {
+      "id": "veil-silk",
+      "name": "Veil Silk",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Psychic",
+      "source": "Veiled nobles and seers"
+    },
+    {
+      "id": "mindblood-pearl",
+      "name": "Mindblood Pearl",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Psychic",
+      "source": "Psychic vampires"
+    },
+    {
+      "id": "grave-silver",
+      "name": "Grave Silver",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Physical",
+      "source": "Corpse knights and old warfields"
+    },
+    {
+      "id": "root-fiber",
+      "name": "Blood Root Fiber",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Blood Root",
+      "source": "Tenairah’s underground feeding network"
+    },
+    {
+      "id": "sanguine-resin",
+      "name": "Sanguine Resin",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Force",
+      "source": "Blood Root growths"
+    },
+    {
+      "id": "gloam-ember",
+      "name": "Gloam Ember",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal",
+      "theme": "Shadow",
+      "source": "Smoke and shadow entities"
+    },
+    {
+      "id": "varrek-soulfirecore",
+      "name": "Varrek SoulfireCore",
+      "kind": "soulfire-core",
+      "rarity": "SoulFire",
+      "source": "Lord Varrek"
+    },
+    {
+      "id": "nightblood-heart",
+      "name": "Nightblood Heart",
+      "kind": "boss-material",
+      "rarity": "SoulFire",
+      "source": "Nightblood Charger"
+    },
+    {
+      "id": "seer-soulfirecore",
+      "name": "Veiled Seer SoulfireCore",
+      "kind": "soulfire-core",
+      "rarity": "SoulFire",
+      "source": "The Veiled Seer"
+    },
+    {
+      "id": "mirror-vein-lens",
+      "name": "Mirror-Vein Lens",
+      "kind": "boss-material",
+      "rarity": "SoulFire",
+      "source": "The Veiled Seer"
+    },
+    {
+      "id": "tenairah-soulfirecore",
+      "name": "Tenairah SoulfireCore",
+      "kind": "soulfire-core",
+      "rarity": "SoulFire",
+      "source": "Tenairah"
+    },
+    {
+      "id": "sovereign-bloodroot",
+      "name": "Sovereign Bloodroot",
+      "kind": "boss-material",
+      "rarity": "SoulFire",
+      "source": "Tenairah and her Blood Roots"
+    }
+  ],
+  "sets": [
+    {
+      "id": "set-plains-red-cavalier",
+      "name": "Red Cavalier Warplate",
+      "sourceId": "physical",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-plains-red-cavalier-helmet",
+        "eq-plains-red-cavalier-chest",
+        "eq-plains-red-cavalier-gloves",
+        "eq-plains-red-cavalier-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "STR": 4,
+            "DEX": 2
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "damageCritChancePct": 6
+          },
+          "resistances": {
+            "Physical": 12
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "CON": 4
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "plainsExpansion": true
+    },
+    {
+      "id": "set-plains-veinforged",
+      "name": "Veinforged Harness",
+      "sourceId": "force",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-plains-veinforged-helmet",
+        "eq-plains-veinforged-chest",
+        "eq-plains-veinforged-gloves",
+        "eq-plains-veinforged-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "STR": 3,
+            "CON": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "blockedDamageReductionPct": 8
+          },
+          "resistances": {
+            "Force": 12
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "FTH": 4
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "plainsExpansion": true
+    },
+    {
+      "id": "set-plains-gloamveil",
+      "name": "Gloamveil Raiment",
+      "sourceId": "psychic",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-plains-gloamveil-helmet",
+        "eq-plains-gloamveil-chest",
+        "eq-plains-gloamveil-gloves",
+        "eq-plains-gloamveil-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "INT": 3,
+            "LCK": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "dodgeChancePct": 7
+          },
+          "resistances": {
+            "Psychic": 12
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "DEX": 4
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "plainsExpansion": true
+    },
+    {
+      "id": "set-plains-bloodmoon",
+      "name": "Bloodmoon Vesture",
+      "sourceId": "blood",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-plains-bloodmoon-helmet",
+        "eq-plains-bloodmoon-chest",
+        "eq-plains-bloodmoon-gloves",
+        "eq-plains-bloodmoon-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "CON": 3,
+            "CHA": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "lifestealPct": 4
+          },
+          "resistances": {
+            "Physical": 7,
+            "Psychic": 7
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "STR": 4
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "plainsExpansion": true
+    }
+  ],
+  "recipes": [
+    {
+      "id": "recipe-eq-plains-red-cavalier-helmet",
+      "name": "Red Helmet",
+      "category": "Physical Plains Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-red-cavalier-helmet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "dusk-iron",
+          "quantity": 3
+        },
+        {
+          "materialId": "grave-silver",
+          "quantity": 2
+        },
+        {
+          "materialId": "nightfang",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "red-cavalier",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-red-cavalier-chest",
+      "name": "Red Chest",
+      "category": "Physical Plains Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-red-cavalier-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "dusk-iron",
+          "quantity": 3
+        },
+        {
+          "materialId": "grave-silver",
+          "quantity": 2
+        },
+        {
+          "materialId": "nightfang",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "red-cavalier",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-red-cavalier-gloves",
+      "name": "Red Gloves",
+      "category": "Physical Plains Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-red-cavalier-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "dusk-iron",
+          "quantity": 2
+        },
+        {
+          "materialId": "grave-silver",
+          "quantity": 2
+        },
+        {
+          "materialId": "nightfang",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "red-cavalier",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-red-cavalier-boots",
+      "name": "Red Boots",
+      "category": "Physical Plains Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-red-cavalier-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "dusk-iron",
+          "quantity": 2
+        },
+        {
+          "materialId": "grave-silver",
+          "quantity": 2
+        },
+        {
+          "materialId": "nightfang",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "red-cavalier",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-veinforged-helmet",
+      "name": "Veinforged Helmet",
+      "category": "Force Plains Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-veinforged-helmet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "black-ichor",
+          "quantity": 3
+        },
+        {
+          "materialId": "bloodglass-shard",
+          "quantity": 2
+        },
+        {
+          "materialId": "sanguine-resin",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "veinforged",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-veinforged-chest",
+      "name": "Veinforged Chest",
+      "category": "Force Plains Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-veinforged-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "black-ichor",
+          "quantity": 3
+        },
+        {
+          "materialId": "bloodglass-shard",
+          "quantity": 2
+        },
+        {
+          "materialId": "sanguine-resin",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "veinforged",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-veinforged-gloves",
+      "name": "Veinforged Gloves",
+      "category": "Force Plains Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-veinforged-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "black-ichor",
+          "quantity": 2
+        },
+        {
+          "materialId": "bloodglass-shard",
+          "quantity": 2
+        },
+        {
+          "materialId": "sanguine-resin",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "veinforged",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-veinforged-boots",
+      "name": "Veinforged Boots",
+      "category": "Force Plains Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-veinforged-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "black-ichor",
+          "quantity": 2
+        },
+        {
+          "materialId": "bloodglass-shard",
+          "quantity": 2
+        },
+        {
+          "materialId": "sanguine-resin",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "veinforged",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-gloamveil-helmet",
+      "name": "Gloamveil Helmet",
+      "category": "Psychic Plains Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-gloamveil-helmet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "veil-silk",
+          "quantity": 3
+        },
+        {
+          "materialId": "mindblood-pearl",
+          "quantity": 2
+        },
+        {
+          "materialId": "smokecloth",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "gloamveil",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-gloamveil-chest",
+      "name": "Gloamveil Chest",
+      "category": "Psychic Plains Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-gloamveil-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "veil-silk",
+          "quantity": 3
+        },
+        {
+          "materialId": "mindblood-pearl",
+          "quantity": 2
+        },
+        {
+          "materialId": "smokecloth",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "gloamveil",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-gloamveil-gloves",
+      "name": "Gloamveil Gloves",
+      "category": "Psychic Plains Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-gloamveil-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "veil-silk",
+          "quantity": 2
+        },
+        {
+          "materialId": "mindblood-pearl",
+          "quantity": 2
+        },
+        {
+          "materialId": "smokecloth",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "gloamveil",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-gloamveil-boots",
+      "name": "Gloamveil Boots",
+      "category": "Psychic Plains Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-gloamveil-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "veil-silk",
+          "quantity": 2
+        },
+        {
+          "materialId": "mindblood-pearl",
+          "quantity": 2
+        },
+        {
+          "materialId": "smokecloth",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "gloamveil",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-bloodmoon-helmet",
+      "name": "Bloodmoon Helmet",
+      "category": "Blood Plains Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-bloodmoon-helmet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bloodglass-shard",
+          "quantity": 3
+        },
+        {
+          "materialId": "red-marrow",
+          "quantity": 2
+        },
+        {
+          "materialId": "root-fiber",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "bloodmoon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-bloodmoon-chest",
+      "name": "Bloodmoon Chest",
+      "category": "Blood Plains Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-bloodmoon-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bloodglass-shard",
+          "quantity": 3
+        },
+        {
+          "materialId": "red-marrow",
+          "quantity": 2
+        },
+        {
+          "materialId": "root-fiber",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "bloodmoon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-bloodmoon-gloves",
+      "name": "Bloodmoon Gloves",
+      "category": "Blood Plains Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-bloodmoon-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bloodglass-shard",
+          "quantity": 2
+        },
+        {
+          "materialId": "red-marrow",
+          "quantity": 2
+        },
+        {
+          "materialId": "root-fiber",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "bloodmoon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-bloodmoon-boots",
+      "name": "Bloodmoon Boots",
+      "category": "Blood Plains Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-bloodmoon-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bloodglass-shard",
+          "quantity": 2
+        },
+        {
+          "materialId": "red-marrow",
+          "quantity": 2
+        },
+        {
+          "materialId": "root-fiber",
+          "quantity": 1
+        }
+      ],
+      "sourceId": "bloodmoon",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-bloodglass-charm",
+      "name": "Bloodglass Charm",
+      "category": "Ruined Plains Gear",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-bloodglass-charm",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bloodglass-shard",
+          "quantity": 3
+        },
+        {
+          "materialId": "red-marrow",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "plains",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-sanguine-sabre",
+      "name": "Sanguine Sabre",
+      "category": "Ruined Plains Gear",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-sanguine-sabre",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "dusk-iron",
+          "quantity": 3
+        },
+        {
+          "materialId": "bloodglass-shard",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "plains",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-redcourt-rapier",
+      "name": "Redcourt Rapier",
+      "category": "Ruined Plains Gear",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-redcourt-rapier",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "grave-silver",
+          "quantity": 3
+        },
+        {
+          "materialId": "veil-silk",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "plains",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-veinbreaker-maul",
+      "name": "Veinbreaker Maul",
+      "category": "Ruined Plains Gear",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-veinbreaker-maul",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "dusk-iron",
+          "quantity": 3
+        },
+        {
+          "materialId": "black-ichor",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "plains",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-hemomancer-focus",
+      "name": "Hemomancer Focus",
+      "category": "Ruined Plains Gear",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-hemomancer-focus",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "black-ichor",
+          "quantity": 3
+        },
+        {
+          "materialId": "bloodglass-shard",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "plains",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-gloam-knife",
+      "name": "Gloam Knife",
+      "category": "Ruined Plains Gear",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-gloam-knife",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "nightfang",
+          "quantity": 3
+        },
+        {
+          "materialId": "smokecloth",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "plains",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-mindblood-staff",
+      "name": "Mindblood Staff",
+      "category": "Ruined Plains Gear",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-mindblood-staff",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mindblood-pearl",
+          "quantity": 3
+        },
+        {
+          "materialId": "veil-silk",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "plains",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-bloodroot-shield",
+      "name": "Bloodroot Shield",
+      "category": "Ruined Plains Gear",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-bloodroot-shield",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "root-fiber",
+          "quantity": 3
+        },
+        {
+          "materialId": "dusk-iron",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "plains",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-smokeveil-cloak",
+      "name": "Smokeveil Cloak",
+      "category": "Ruined Plains Gear",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-smokeveil-cloak",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "smokecloth",
+          "quantity": 3
+        },
+        {
+          "materialId": "veil-silk",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "plains",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-scarlet-signetring",
+      "name": "Scarlet Signet Ring",
+      "category": "Ruined Plains Gear",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-scarlet-signetring",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "bloodglass-shard",
+          "quantity": 3
+        },
+        {
+          "materialId": "sanguine-resin",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "plains",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-warfield-medallion",
+      "name": "Warfield Medallion",
+      "category": "Ruined Plains Gear",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-warfield-medallion",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "grave-silver",
+          "quantity": 3
+        },
+        {
+          "materialId": "dusk-iron",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "plains",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-veil-mirror",
+      "name": "Veil Mirror",
+      "category": "Ruined Plains Gear",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-veil-mirror",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "mindblood-pearl",
+          "quantity": 3
+        },
+        {
+          "materialId": "bloodglass-shard",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "plains",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-red-marrow-vial",
+      "name": "Red Marrow Blood Phial",
+      "category": "Ruined Plains Gear",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-red-marrow-vial",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "red-marrow",
+          "quantity": 3
+        },
+        {
+          "materialId": "bloodglass-shard",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "plains",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-blood-script-slot",
+      "name": "Blood Script Charm",
+      "category": "Ruined Plains Gear",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-blood-script-slot",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "black-ichor",
+          "quantity": 3
+        },
+        {
+          "materialId": "root-fiber",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "plains",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-gloam-script-slot",
+      "name": "Gloam Script Charm",
+      "category": "Ruined Plains Gear",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-gloam-script-slot",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "gloam-ember",
+          "quantity": 3
+        },
+        {
+          "materialId": "mindblood-pearl",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "plains",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-nightfang-gauntlets",
+      "name": "Nightfang Gauntlets",
+      "category": "Ruined Plains Gear",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-nightfang-gauntlets",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "nightfang",
+          "quantity": 3
+        },
+        {
+          "materialId": "dusk-iron",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "plains",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-smoke-thread-band",
+      "name": "Smoke-Thread Band",
+      "category": "Ruined Plains Gear",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-smoke-thread-band",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "smokecloth",
+          "quantity": 3
+        },
+        {
+          "materialId": "gloam-ember",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "plains",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-varrek-bloodlance",
+      "name": "Varrek’s Bloodlance",
+      "category": "Ruined Plains SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-varrek-bloodlance",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "varrek-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "nightblood-heart",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "varrek-soulfirecore",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-nightblood-barding",
+      "name": "Nightblood Barding",
+      "category": "Ruined Plains SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-nightblood-barding",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "varrek-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "nightblood-heart",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "varrek-soulfirecore",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-red-cavalier-spur",
+      "name": "Red Cavalier Spur",
+      "category": "Ruined Plains SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-red-cavalier-spur",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "varrek-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "nightblood-heart",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "varrek-soulfirecore",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-seer-mirrorstaff",
+      "name": "Veiled Mirrorstaff",
+      "category": "Ruined Plains SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-seer-mirrorstaff",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "seer-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "mirror-vein-lens",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "seer-soulfirecore",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-mirrorblood-veil",
+      "name": "Mirrorblood Veil",
+      "category": "Ruined Plains SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-mirrorblood-veil",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "seer-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "mirror-vein-lens",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "seer-soulfirecore",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-thought-drinker",
+      "name": "Thought Drinker",
+      "category": "Ruined Plains SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-thought-drinker",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "seer-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "mirror-vein-lens",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "seer-soulfirecore",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-tenairah-crownblade",
+      "name": "Tenairah’s Crownblade",
+      "category": "Ruined Plains SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-tenairah-crownblade",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "tenairah-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "sovereign-bloodroot",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "tenairah-soulfirecore",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-sovereign-smoke-mantle",
+      "name": "Sovereign Smoke Mantle",
+      "category": "Ruined Plains SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-sovereign-smoke-mantle",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "tenairah-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "sovereign-bloodroot",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "tenairah-soulfirecore",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-plains-bloodroot-heart",
+      "name": "Bloodroot Heart",
+      "category": "Ruined Plains SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-plains-bloodroot-heart",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "tenairah-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "sovereign-bloodroot",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "tenairah-soulfirecore",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    }
+  ],
+  "starterGear": [],
+  "rules": {
+    "equipmentDropsFromEnemies": false,
+    "craftingLocation": "Campsite",
+    "soulfireCoreCrafting": "special-only",
+    "bloodglassCharmGuaranteesRegionalLifestealAccess": true
+  },
+  "catalogueSummary": {
+    "materials": 18,
+    "sets": 4,
+    "recipes": 42,
+    "normalEquipment": 33,
+    "soulFireEquipment": 9
+  }
+}

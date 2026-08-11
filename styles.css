@@ -518,7 +518,7 @@ html[data-reduced-motion="true"] .tutorial-arrow{animation:none}
 .route-art picture{display:block;width:100%;height:100%}.route-art picture img{width:100%;height:100%;object-fit:cover}
 .expedition-card{min-height:22rem}.expedition-card p{margin-top:.2rem}
 .combat-foundation{min-width:0;max-width:100%;overflow-x:hidden}
-.combat-head{min-width:0;gap:.7rem;flex-wrap:wrap}.combat-speed-control{display:grid;gap:.25rem;min-width:8.5rem;color:var(--muted);font-size:.74rem}
+.combat-head{min-width:0;gap:.7rem;flex-wrap:wrap}.combat-speed-control{display:grid;gap:.25rem;min-width:8.5rem;color:var(--muted);font-size:.74rem}.combat-efficiency-controls{display:flex;align-items:end;gap:.55rem;flex-wrap:wrap}.combat-auto-end-control{display:grid;gap:.25rem;justify-items:center;color:var(--muted);font-size:.74rem}.combat-auto-end-control input{width:1.15rem;height:1.15rem;accent-color:#c99d56;margin:.55rem .35rem}
 .initiative-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(5.4rem,1fr));gap:.45rem;overflow:visible;min-width:0;max-width:100%;padding:.45rem .15rem .7rem}
 .initiative-token{min-width:0;width:auto;max-width:100%}.initiative-token strong{min-width:0;max-width:100%;overflow:hidden;text-overflow:ellipsis}
 .battle-scene{width:100%;max-width:100%;min-width:0;grid-template-columns:minmax(0,1fr) 2.7rem minmax(0,1fr);overflow:hidden}
@@ -649,6 +649,12 @@ html[data-reduced-motion="true"] .tutorial-arrow{animation:none}
 .tag-filter-panel{border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:.7rem;margin:.7rem 0}.tag-filter-panel legend{color:var(--gold);padding:0 .35rem}.tag-filter-grid{display:flex;gap:.35rem;flex-wrap:wrap;max-height:13rem;overflow:auto}.tag-filter-chip{position:relative}.tag-filter-chip input{position:absolute;opacity:0;pointer-events:none}.tag-filter-chip span{display:block;padding:.32rem .52rem;border:1px solid rgba(255,255,255,.1);border-radius:999px;background:rgba(255,255,255,.025);font-size:.72rem;cursor:pointer}.tag-filter-chip input:checked+span{border-color:rgba(255,213,138,.7);background:rgba(222,184,109,.14);color:#fff1cf}
 .ki-tag-row{display:flex;gap:.28rem;flex-wrap:wrap}.ki-tag,.mechanic-tag{display:inline-flex;padding:.18rem .38rem;border-radius:999px;border:1px solid rgba(255,255,255,.08);font-size:.65rem;color:#d8c9ad;background:rgba(255,255,255,.025)}
 .portrait-choice-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:.6rem}.portrait-choice{min-width:0;display:grid;gap:.3rem;text-align:left;padding:.45rem;border:1px solid rgba(255,255,255,.08);border-radius:.8rem;background:rgba(255,255,255,.025);color:var(--text)}.portrait-choice.selected{border-color:rgba(255,213,138,.72);box-shadow:0 0 0 2px rgba(255,213,138,.1)}.portrait-choice img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:.55rem;background:#111}.portrait-choice span{font-weight:700}.portrait-choice small{color:var(--muted)}.adventurer-portrait{width:100%;max-height:15rem;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:.7rem;margin-bottom:.55rem;background:#111}
+.adventurer-portrait{overflow:hidden}
+.adventurer-portrait>.content-portrait-picture,.adventurer-portrait>.vessel-portrait-picture{display:block;width:100%;height:100%}
+.adventurer-portrait>.content-portrait-picture>img,.adventurer-portrait>.vessel-portrait-picture>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:inherit}
+.actor-portrait>.content-portrait-picture,.actor-portrait>.vessel-portrait-picture{display:block;width:100%;height:100%;border-radius:inherit;overflow:hidden}
+.adventurer-sheet-portrait>.content-portrait-picture,.adventurer-sheet-portrait>.vessel-portrait-picture{display:block;width:100%;height:100%;border-radius:inherit;overflow:hidden}
+.adventurer-sheet-portrait>.content-portrait-picture>img,.adventurer-sheet-portrait>.vessel-portrait-picture>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:inherit}
 @media (max-width:980px){.combat-layout{grid-template-columns:minmax(13rem,17rem) minmax(0,1fr)}.combat-right-sidebar{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);max-height:none}.combat-right-sidebar .initiative-strip{grid-template-columns:repeat(auto-fit,minmax(8rem,1fr))}.combat-right-sidebar .combat-log-panel[open] .combat-log-lines{max-height:13rem}.combat-left-sidebar{max-height:none}.combat-center-stage .battle-scene{min-height:36rem}.craft-filter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:720px){html,body{max-width:100%;overflow-x:hidden}.combat-layout{display:flex;flex-direction:column}.combat-center-stage{order:1}.combat-left-sidebar{order:2}.combat-right-sidebar{order:3;display:flex}.combat-left-sidebar,.combat-right-sidebar{max-height:none;overflow:visible}.combat-right-sidebar .initiative-strip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));overflow:visible}.combat-center-stage .battle-scene{height:auto;min-height:34rem}.combat-left-sidebar .ability-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.craft-filter-grid{grid-template-columns:1fr}.craft-filter-grid .craft-search{grid-column:auto}.portrait-choice-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:430px){.combat-right-sidebar .initiative-strip{grid-template-columns:1fr}.combat-left-sidebar .ability-grid{grid-template-columns:1fr}.portrait-choice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.semantic-action-badge{font-size:.46rem}}
@@ -914,10 +920,101 @@ html[data-display-mode="desktop"] .combat-right-sidebar .initiative-strip{displa
 @media (max-width:520px){.portrait-carousel{grid-template-columns:2.25rem minmax(0,1fr) 2.25rem;gap:.35rem}.portrait-carousel-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:.4rem}.portrait-carousel-arrow{width:2.25rem;min-width:2.25rem;height:7rem;font-size:1.65rem}}
 
 
-/* Phase 10 pre-Bog account rewards / Forest boon shop */
+/* Account rewards / Forest boon shop */
 .race-token-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px;margin-top:12px}
 .boon-shop-panel{border:1px solid rgba(219,187,126,.24);border-radius:16px;padding:16px;background:rgba(219,187,126,.035)}
 .shop-requirement{display:grid;gap:3px;margin:10px 0;padding:9px 10px;border-radius:10px;border:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.025)}
 .shop-requirement.met{border-color:rgba(126,202,151,.32)}
 .shop-requirement.locked{opacity:.82}
 .shop-requirement span,.shop-requirement small{color:var(--muted,#a9a7a0)}
+
+/* Heavenly Tower — CSS-only combat backdrops. No Tower image assets are required. */
+.scene-tower-divine-foundry .scene-backdrop{background-image:radial-gradient(circle at 50% 14%,rgba(248,238,184,.24),transparent 27%),linear-gradient(180deg,#383a36 0%,#202522 48%,#0c1211 100%)}
+.scene-tower-preservation-gallery .scene-backdrop{background-image:radial-gradient(circle at 50% 18%,rgba(209,239,255,.24),transparent 30%),linear-gradient(180deg,#27343a 0%,#17272d 48%,#0a1216 100%)}
+.scene-tower-crucible .scene-backdrop{background-image:radial-gradient(circle at 50% 21%,rgba(255,220,150,.30),transparent 28%),linear-gradient(180deg,#4a372c 0%,#2b201b 50%,#110d0b 100%)}
+.scene-tower-aureofrost-vault .scene-backdrop{background-image:radial-gradient(circle at 50% 16%,rgba(246,241,199,.23),transparent 24%),radial-gradient(circle at 70% 42%,rgba(191,230,255,.18),transparent 27%),linear-gradient(180deg,#333d41 0%,#1b272c 55%,#090f12 100%)}
+.scene-tower-synthesis-height .scene-backdrop{background-image:radial-gradient(circle at 30% 20%,rgba(252,222,153,.18),transparent 25%),radial-gradient(circle at 72% 24%,rgba(189,226,249,.17),transparent 26%),linear-gradient(180deg,#33363a 0%,#1b2024 48%,#0a0e11 100%)}
+.scene-tower-cognition-sanctum .scene-backdrop{background-image:radial-gradient(circle at 50% 16%,rgba(227,207,255,.25),transparent 28%),linear-gradient(180deg,#302d3b 0%,#1c1927 52%,#0b0a10 100%)}
+.scene-tower-ascension-chamber .scene-backdrop{background-image:radial-gradient(circle at 50% 14%,rgba(255,248,204,.31),transparent 24%),radial-gradient(circle at 50% 40%,rgba(221,196,255,.13),transparent 34%),linear-gradient(180deg,#3d3a39 0%,#211f26 48%,#0b0b0e 100%)}
+.scene-tower-divine-foundry .scene-atmosphere,.scene-tower-preservation-gallery .scene-atmosphere,.scene-tower-crucible .scene-atmosphere,.scene-tower-aureofrost-vault .scene-atmosphere,.scene-tower-synthesis-height .scene-atmosphere,.scene-tower-cognition-sanctum .scene-atmosphere,.scene-tower-ascension-chamber .scene-atmosphere{background:repeating-linear-gradient(90deg,transparent 0 12%,rgba(236,226,184,.035) 12.5% 13%,transparent 13.5% 25%),linear-gradient(180deg,rgba(255,255,255,.035),transparent 35%)}
+/* 0.41.0 Ruined Vampiric Plains — CSS-only battle atmosphere; enemy art intentionally deferred. */
+.scene-plains-ashen-border .scene-backdrop{background-image:radial-gradient(circle at 48% 14%,rgba(116,33,42,.16),transparent 28%),linear-gradient(180deg,#252526 0%,#181719 48%,#0d0b0c 100%)}
+.scene-plains-broken-homestead .scene-backdrop{background-image:linear-gradient(178deg,rgba(34,33,35,.96),rgba(22,17,19,.98) 52%,#0b090a),radial-gradient(circle at 72% 28%,rgba(128,45,51,.18),transparent 25%)}
+.scene-plains-red-warfield .scene-backdrop{background-image:radial-gradient(circle at 52% 16%,rgba(160,40,52,.22),transparent 31%),linear-gradient(180deg,#292629 0%,#211719 50%,#0c090a 100%)}
+.scene-plains-noble-hunting-ground .scene-backdrop{background-image:radial-gradient(circle at 34% 22%,rgba(117,48,70,.18),transparent 30%),linear-gradient(180deg,#272528 0%,#171316 52%,#090809 100%)}
+.scene-plains-veiled-estates .scene-backdrop,.scene-plains-veiled-estate .scene-backdrop{background-image:radial-gradient(circle at 50% 20%,rgba(139,64,89,.21),transparent 27%),linear-gradient(180deg,#28242a 0%,#171217 48%,#090709 100%)}
+.scene-plains-sovereign-heartland .scene-backdrop{background-image:radial-gradient(circle at 50% 16%,rgba(168,38,55,.27),transparent 30%),linear-gradient(180deg,#2a2428 0%,#1b1115 50%,#090708 100%)}
+.scene-plains-red-cavalry-field .scene-backdrop{background-image:radial-gradient(circle at 46% 17%,rgba(165,46,48,.25),transparent 28%),linear-gradient(180deg,#2c292a 0%,#211719 48%,#0b0809 100%)}
+.scene-plains-tenairah-bloodcourt .scene-backdrop{background-image:radial-gradient(circle at 50% 15%,rgba(178,28,51,.34),transparent 32%),linear-gradient(180deg,#29242a 0%,#1c1015 46%,#070607 100%)}
+.scene-plains-ashen-border .scene-atmosphere,.scene-plains-broken-homestead .scene-atmosphere,.scene-plains-red-warfield .scene-atmosphere,.scene-plains-noble-hunting-ground .scene-atmosphere,.scene-plains-veiled-estates .scene-atmosphere,.scene-plains-veiled-estate .scene-atmosphere,.scene-plains-sovereign-heartland .scene-atmosphere,.scene-plains-red-cavalry-field .scene-atmosphere,.scene-plains-tenairah-bloodcourt .scene-atmosphere{background:linear-gradient(180deg,rgba(25,23,27,.72),rgba(45,31,35,.23) 32%,transparent 58%),radial-gradient(ellipse at 50% 12%,rgba(65,62,66,.36),transparent 40%);filter:blur(.45px)}
+
+/* Region 5: Caverns to Hell — CSS-only combat scenery; no image assets. */
+.scene-hell-blackstone-descent .scene-backdrop{background-image:radial-gradient(circle at 50% 18%,rgba(119,63,42,.16),transparent 28%),linear-gradient(180deg,#201c1b 0%,#141110 50%,#070606 100%)}
+.scene-hell-gateward-caverns .scene-backdrop{background-image:radial-gradient(circle at 50% 23%,rgba(168,66,34,.22),transparent 30%),linear-gradient(180deg,#271d1a 0%,#17100e 50%,#080504 100%)}
+.scene-hell-gatebound-threshold .scene-backdrop{background-image:radial-gradient(circle at 50% 18%,rgba(210,73,32,.30),transparent 28%),linear-gradient(180deg,#2d211e 0%,#1b100d 48%,#080504 100%)}
+.scene-hell-outer-plane .scene-backdrop{background-image:radial-gradient(circle at 50% 14%,rgba(178,51,35,.24),transparent 32%),linear-gradient(180deg,#2b1c1d 0%,#190d10 50%,#090506 100%)}
+.scene-hell-infernal-dominions .scene-backdrop{background-image:radial-gradient(circle at 35% 19%,rgba(188,52,27,.25),transparent 25%),radial-gradient(circle at 72% 24%,rgba(101,40,95,.15),transparent 27%),linear-gradient(180deg,#301d1b 0%,#1c0d0f 52%,#090405 100%)}
+.scene-hell-sinbound-marches .scene-backdrop{background-image:radial-gradient(circle at 50% 16%,rgba(144,51,105,.22),transparent 29%),linear-gradient(180deg,#2d1c24 0%,#180c13 50%,#080408 100%)}
+.scene-hell-sevenfold-approach .scene-backdrop{background-image:radial-gradient(circle at 50% 15%,rgba(214,79,37,.25),transparent 25%),radial-gradient(circle at 50% 38%,rgba(115,52,126,.18),transparent 34%),linear-gradient(180deg,#322026 0%,#1a0c13 50%,#080407 100%)}
+.scene-hell-sevenfold-court .scene-backdrop{background-image:radial-gradient(circle at 50% 13%,rgba(229,87,37,.31),transparent 24%),radial-gradient(circle at 50% 42%,rgba(118,57,132,.22),transparent 35%),linear-gradient(180deg,#351f24 0%,#1b0b12 48%,#070306 100%)}
+.scene-hell-blackstone-descent .scene-atmosphere,.scene-hell-gateward-caverns .scene-atmosphere,.scene-hell-gatebound-threshold .scene-atmosphere,.scene-hell-outer-plane .scene-atmosphere,.scene-hell-infernal-dominions .scene-atmosphere,.scene-hell-sinbound-marches .scene-atmosphere,.scene-hell-sevenfold-approach .scene-atmosphere,.scene-hell-sevenfold-court .scene-atmosphere{background:linear-gradient(180deg,rgba(20,11,10,.30),transparent 38%),repeating-linear-gradient(105deg,transparent 0 16%,rgba(175,54,28,.035) 16.5% 17%,transparent 17.5% 30%)}
+
+/* Region 6: That Dragon’s Dungeon — CSS-only combat scenery; all enemy art intentionally deferred. */
+.scene-dragon-outer-hoardways .scene-backdrop{background-image:radial-gradient(circle at 48% 18%,rgba(211,173,74,.18),transparent 30%),linear-gradient(180deg,#2c2921 0%,#19170f 52%,#090806 100%)}
+.scene-dragon-drake-warrens .scene-backdrop{background-image:radial-gradient(circle at 34% 22%,rgba(184,80,38,.18),transparent 27%),radial-gradient(circle at 72% 25%,rgba(207,173,68,.15),transparent 27%),linear-gradient(180deg,#30291f 0%,#1b1510 50%,#090705 100%)}
+.scene-dragon-hoard-sentinel-hall .scene-backdrop{background-image:radial-gradient(circle at 50% 18%,rgba(236,195,78,.29),transparent 27%),linear-gradient(180deg,#342d20 0%,#1e1710 50%,#0a0704 100%)}
+.scene-dragon-wingvault-gallery .scene-backdrop{background-image:radial-gradient(circle at 50% 15%,rgba(113,149,190,.17),transparent 30%),linear-gradient(180deg,#292c32 0%,#171a1f 52%,#08090c 100%)}
+.scene-dragon-wyvern-menagerie .scene-backdrop{background-image:radial-gradient(circle at 35% 21%,rgba(175,79,52,.16),transparent 26%),radial-gradient(circle at 71% 20%,rgba(97,139,185,.16),transparent 29%),linear-gradient(180deg,#2d2a2d 0%,#19161b 52%,#09080b 100%)}
+.scene-dragon-leviathan-vault .scene-backdrop{background-image:radial-gradient(ellipse at 50% 20%,rgba(88,120,177,.22),transparent 32%),radial-gradient(circle at 50% 45%,rgba(198,158,61,.15),transparent 35%),linear-gradient(180deg,#252b34 0%,#151821 50%,#07090d 100%)}
+.scene-dragon-elder-hoard-sanctum .scene-backdrop{background-image:radial-gradient(circle at 50% 15%,rgba(224,174,61,.21),transparent 24%),linear-gradient(180deg,#322b28 0%,#1c1719 49%,#090708 100%)}
+.scene-dragon-prismatic-crownways .scene-backdrop{background-image:radial-gradient(circle at 30% 17%,rgba(197,72,66,.17),transparent 25%),radial-gradient(circle at 50% 15%,rgba(222,193,88,.19),transparent 25%),radial-gradient(circle at 70% 18%,rgba(96,135,205,.17),transparent 25%),linear-gradient(180deg,#302b35 0%,#191723 50%,#08070c 100%)}
+.scene-dragon-prismatic-throne .scene-backdrop{background-image:radial-gradient(circle at 50% 13%,rgba(242,218,126,.28),transparent 23%),radial-gradient(circle at 25% 35%,rgba(194,70,71,.18),transparent 28%),radial-gradient(circle at 75% 35%,rgba(83,127,209,.18),transparent 28%),linear-gradient(180deg,#342f3a 0%,#1c1826 48%,#08070d 100%)}
+.scene-dragon-outer-hoardways .scene-atmosphere,.scene-dragon-drake-warrens .scene-atmosphere,.scene-dragon-hoard-sentinel-hall .scene-atmosphere,.scene-dragon-wingvault-gallery .scene-atmosphere,.scene-dragon-wyvern-menagerie .scene-atmosphere,.scene-dragon-leviathan-vault .scene-atmosphere,.scene-dragon-elder-hoard-sanctum .scene-atmosphere,.scene-dragon-prismatic-crownways .scene-atmosphere,.scene-dragon-prismatic-throne .scene-atmosphere{background:repeating-linear-gradient(116deg,transparent 0 15%,rgba(234,196,92,.035) 15.5% 16%,transparent 16.5% 30%),linear-gradient(180deg,rgba(255,255,255,.025),transparent 42%)}
+
+
+/* Region 7: Necropolis — CSS-only combat scenery; weak undead/cult art intentionally deferred. */
+.scene-necro-outer-procession .scene-backdrop{background-image:radial-gradient(circle at 50% 18%,rgba(144,154,163,.13),transparent 28%),linear-gradient(180deg,#252729 0%,#17191a 50%,#090a0a 100%)}
+.scene-necro-broken-tombways .scene-backdrop{background-image:radial-gradient(circle at 35% 22%,rgba(131,139,151,.14),transparent 27%),linear-gradient(180deg,#292a2b 0%,#181819 52%,#090909 100%)}
+.scene-necro-execution-yard .scene-backdrop{background-image:radial-gradient(circle at 50% 19%,rgba(115,76,92,.17),transparent 28%),linear-gradient(180deg,#2b2729 0%,#181416 50%,#090708 100%)}
+.scene-necro-tithe-streets .scene-backdrop{background-image:radial-gradient(circle at 50% 16%,rgba(109,74,91,.16),transparent 30%),linear-gradient(180deg,#292528 0%,#171416 52%,#080708 100%)}
+.scene-necro-black-liturgies .scene-backdrop{background-image:radial-gradient(circle at 50% 15%,rgba(118,76,116,.20),transparent 29%),linear-gradient(180deg,#29242b 0%,#161319 50%,#080608 100%)}
+.scene-necro-grave-colossus-vault .scene-backdrop{background-image:radial-gradient(circle at 50% 18%,rgba(123,128,137,.17),transparent 27%),linear-gradient(180deg,#2b2b2c 0%,#171719 50%,#080809 100%)}
+.scene-necro-royal-catacombs .scene-backdrop{background-image:radial-gradient(circle at 34% 17%,rgba(127,112,91,.15),transparent 25%),linear-gradient(180deg,#2c2927 0%,#181513 50%,#090807 100%)}
+.scene-necro-crown-ossuary .scene-backdrop{background-image:radial-gradient(circle at 50% 14%,rgba(150,138,110,.18),transparent 27%),linear-gradient(180deg,#2e2a29 0%,#181516 49%,#080708 100%)}
+.scene-necro-ossuary-throne .scene-backdrop{background-image:radial-gradient(circle at 50% 13%,rgba(172,159,123,.23),transparent 24%),radial-gradient(circle at 50% 42%,rgba(93,72,111,.15),transparent 34%),linear-gradient(180deg,#302c2d 0%,#191519 48%,#070607 100%)}
+.scene-necro-outer-procession .scene-atmosphere,.scene-necro-broken-tombways .scene-atmosphere,.scene-necro-execution-yard .scene-atmosphere,.scene-necro-tithe-streets .scene-atmosphere,.scene-necro-black-liturgies .scene-atmosphere,.scene-necro-grave-colossus-vault .scene-atmosphere,.scene-necro-royal-catacombs .scene-atmosphere,.scene-necro-crown-ossuary .scene-atmosphere,.scene-necro-ossuary-throne .scene-atmosphere{background:linear-gradient(180deg,rgba(182,187,191,.035),transparent 38%),repeating-linear-gradient(90deg,transparent 0 17%,rgba(183,174,157,.025) 17.5% 18%,transparent 18.5% 31%)}
+
+/* Region 8 — Shadow Infused Dark Woods: CSS-only final-campaign scenery. */
+.scene-shadow-woods-cult-altar .scene-backdrop{background-image:radial-gradient(circle at 50% 24%,rgba(124,94,151,.24),transparent 23%),radial-gradient(circle at 20% 52%,rgba(41,67,50,.22),transparent 34%),radial-gradient(circle at 80% 52%,rgba(41,67,50,.22),transparent 34%),linear-gradient(180deg,#17151d 0%,#0d1110 52%,#050607 100%)}
+.scene-shadow-woods-broken-mirror .scene-backdrop{background-image:radial-gradient(circle at 50% 25%,rgba(208,207,222,.18),transparent 16%),conic-gradient(from 12deg at 50% 32%,rgba(112,81,139,.13),transparent 9%,rgba(183,184,199,.08) 14%,transparent 23%,rgba(75,48,91,.14) 32%,transparent 45%,rgba(184,184,197,.09) 53%,transparent 68%),linear-gradient(180deg,#15131a 0%,#080b0b 54%,#030405 100%)}
+.scene-shadow-woods-cult-altar .scene-atmosphere,.scene-shadow-woods-broken-mirror .scene-atmosphere{background:repeating-linear-gradient(103deg,transparent 0 12%,rgba(146,127,167,.035) 12.5% 13%,transparent 13.5% 27%),radial-gradient(ellipse at 50% 78%,rgba(28,41,31,.18),transparent 48%)}
+
+/* Krass Library filtering + collapsible reward sections */
+.collapsible-library-section{overflow:hidden}
+.library-section-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem}
+.library-section-header>div:first-child{min-width:0;flex:1}
+.library-section-header h3{margin:.15rem 0 .35rem}
+.library-section-actions{display:flex;align-items:center;justify-content:flex-end;gap:.65rem;flex-wrap:wrap}
+.library-collapse-toggle{min-width:7.25rem;display:inline-flex;align-items:center;justify-content:space-between;gap:.65rem}
+.library-collapse-toggle b{font-size:1.15rem;line-height:1}
+.library-result-count{display:block;color:var(--muted);margin-top:.35rem}
+.library-collapsible-body{margin-top:.8rem;border-top:1px solid rgba(255,255,255,.07);padding-top:.3rem}
+.library-subcontrols{margin-top:.8rem}
+.shop-library-controls{grid-template-columns:repeat(auto-fit,minmax(145px,1fr))}
+.library-filter-actions{display:flex;justify-content:flex-end;margin:.45rem 0 .2rem}
+.library-filter-actions button{min-height:2.4rem;padding:.45rem .75rem}
+.library-tag-panel{margin-top:.8rem}
+.shop-card-meta{display:flex;gap:.35rem;flex-wrap:wrap;margin:.15rem 0 .5rem}
+.collapsible-library-section.is-collapsed{padding-bottom:12px}
+.collapsible-library-section.is-collapsed .library-section-header p{margin-bottom:0}
+@media (max-width:720px){
+  .library-section-header{flex-direction:column}
+  .library-section-actions{width:100%;justify-content:space-between}
+  .library-section-actions .library-capacity{margin:0}
+  .library-collapse-toggle{min-width:6.5rem}
+  .library-tag-panel .tag-filter-grid{max-height:10rem}
+}
+.library-region-quick-filters{display:flex;align-items:center;gap:.35rem;flex-wrap:wrap;margin:.15rem 0 .7rem}.library-region-quick-filters>span{font-size:.72rem;color:var(--muted);margin-right:.2rem}.library-region-quick-filters button{min-height:2.15rem;padding:.35rem .55rem;font-size:.7rem;border-radius:999px}.library-region-quick-filters button.active{border-color:rgba(255,213,138,.7);background:rgba(222,184,109,.14);color:#fff1cf}
+
+/* Lender-exclusive Legacy modifier */
+.legacy-modifier-badge{display:inline-flex;align-items:center;gap:.25rem;margin-left:.4rem;padding:.12rem .42rem;border:1px solid currentColor;border-radius:999px;font-size:.72rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;vertical-align:middle}.lender-item-card .legacy-modifier-badge,.lender-item .legacy-modifier-badge{margin-left:.25rem}

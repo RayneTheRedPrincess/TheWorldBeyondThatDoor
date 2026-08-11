@@ -1,5 +1,5 @@
 {
-  "version": "BOG-FOUNDATION-2026-08-10",
+  "version": "SHADOW-INFUSED-DARK-WOODS-FOUNDATION-2026-08-10",
   "regions": [
     {
       "id": "forest",
@@ -276,7 +276,8 @@
         "chronicleProgress": 20
       },
       "boundaryChoices": [
-        "return-to-tavern"
+        "return-to-tavern",
+        "continue-beyond-the-door"
       ],
       "recommendedLevel": {
         "entry": [
@@ -285,7 +286,868 @@
         ],
         "targetEndLevel": 12
       },
-      "merchants": false
+      "merchants": false,
+      "nextRegion": {
+        "id": "heavenly-tower",
+        "name": "Heavenly Tower",
+        "expectedEntryLevel": [
+          11,
+          12
+        ],
+        "targetEndLevel": 18
+      }
+    },
+    {
+      "id": "heavenly-tower",
+      "name": "Heavenly Tower",
+      "depthCount": 30,
+      "introductoryBand": {
+        "start": 1,
+        "end": 5
+      },
+      "cardsPerStep": 3,
+      "eventKinds": [
+        {
+          "id": "combat",
+          "label": "Construct Combat",
+          "combat": true
+        },
+        {
+          "id": "landmark",
+          "label": "Ascension Landmark",
+          "noncombat": true
+        },
+        {
+          "id": "discovery",
+          "label": "Tower Discovery",
+          "noncombat": true
+        },
+        {
+          "id": "other-noncombat",
+          "label": "Unstable Passage",
+          "noncombat": true
+        }
+      ],
+      "combatStructure": {
+        "depthTiers": [
+          {
+            "id": "tier-1",
+            "name": "The Consecrated Foundries",
+            "start": 1,
+            "end": 5
+          },
+          {
+            "id": "tier-2",
+            "name": "Preservation Galleries",
+            "start": 6,
+            "end": 10
+          },
+          {
+            "id": "tier-3",
+            "name": "The Whitefire Crucibles",
+            "start": 11,
+            "end": 14
+          },
+          {
+            "id": "tier-4",
+            "name": "Synthesis Causeways",
+            "start": 16,
+            "end": 20
+          },
+          {
+            "id": "tier-5",
+            "name": "Cognition Sanctum",
+            "start": 21,
+            "end": 25
+          },
+          {
+            "id": "tier-6",
+            "name": "The Broken Ascension",
+            "start": 26,
+            "end": 29
+          }
+        ],
+        "minibossDepth": 15,
+        "bossDepth": 30,
+        "enemyCountByRealPartySize": {
+          "1": [
+            1,
+            2
+          ],
+          "2": [
+            2,
+            3
+          ],
+          "3": [
+            3,
+            4
+          ],
+          "4": [
+            4,
+            5
+          ]
+        },
+        "scalingBasis": "tower-enemy-type-and-depth-tier",
+        "playerLevelScaling": false
+      },
+      "eventStructure": {
+        "authority": "data/tower-events.json",
+        "noRepeatsWithinCampaign": true,
+        "trainers": false,
+        "hybridsBecomeCommonInUpperTower": true
+      },
+      "regionalMechanic": {
+        "id": "tower-fall",
+        "name": "Falling",
+        "depthLoss": 3,
+        "partyMaxHpLossPct": 35,
+        "nonlethal": true,
+        "description": "Failed fall hazards send the expedition down 3 Depths and every living real party member loses 35% of Maximum HP. The loss cannot reduce a living member below 1 HP."
+      },
+      "completionReward": {
+        "onyx": 900,
+        "chronicleProgress": 36
+      },
+      "nextRegion": {
+        "id": "ruined-vampiric-plains",
+        "name": "Ruined Vampiric Plains",
+        "expectedEntryLevel": [
+          17,
+          18
+        ],
+        "targetEndLevel": 24
+      },
+      "boundaryChoices": [
+        "return-to-tavern",
+        "continue-beyond-the-door"
+      ],
+      "recommendedLevel": {
+        "entry": [
+          11,
+          12
+        ],
+        "targetEndLevel": 18
+      },
+      "merchants": false,
+      "lore": {
+        "identity": "Ascension Engine",
+        "purpose": "Ancient artificial-divinity laboratory and guardian foundry",
+        "energyLineage": [
+          "Holy",
+          "Cold",
+          "Fire",
+          "Psychic"
+        ],
+        "lastCandidate": "The Divine Lich, once the Hierophant-Engineer who designed the Ascension project"
+      }
+    },
+    {
+      "id": "ruined-vampiric-plains",
+      "name": "Ruined Vampiric Plains",
+      "depthCount": 30,
+      "introductoryBand": {
+        "start": 1,
+        "end": 5
+      },
+      "cardsPerStep": 3,
+      "eventKinds": [
+        {
+          "id": "combat",
+          "label": "Vampiric Combat",
+          "combat": true
+        },
+        {
+          "id": "landmark",
+          "label": "Ruined Landmark",
+          "noncombat": true
+        },
+        {
+          "id": "helpful-person",
+          "label": "Rare Survivor",
+          "noncombat": true
+        },
+        {
+          "id": "discovery",
+          "label": "Plains Discovery",
+          "noncombat": true
+        },
+        {
+          "id": "other-noncombat",
+          "label": "Blood-Clouded Path",
+          "noncombat": true
+        }
+      ],
+      "combatStructure": {
+        "depthTiers": [
+          {
+            "id": "tier-1",
+            "name": "The Ashen Border",
+            "start": 1,
+            "end": 5
+          },
+          {
+            "id": "tier-2",
+            "name": "Broken Homesteads",
+            "start": 6,
+            "end": 9
+          },
+          {
+            "id": "tier-3",
+            "name": "The Red Warfields",
+            "start": 11,
+            "end": 14
+          },
+          {
+            "id": "tier-4",
+            "name": "Noble Hunting Grounds",
+            "start": 15,
+            "end": 19
+          },
+          {
+            "id": "tier-5",
+            "name": "The Veiled Estates",
+            "start": 21,
+            "end": 25
+          },
+          {
+            "id": "tier-6",
+            "name": "Tenairah’s Heartland",
+            "start": 26,
+            "end": 29
+          }
+        ],
+        "minibossDepths": [
+          10,
+          20
+        ],
+        "bossDepth": 30,
+        "enemyCountByRealPartySize": {
+          "1": [
+            1,
+            2
+          ],
+          "2": [
+            2,
+            3
+          ],
+          "3": [
+            3,
+            4
+          ],
+          "4": [
+            4,
+            5
+          ]
+        },
+        "scalingBasis": "plains-enemy-type-depth-tier-and-blood-moon",
+        "playerLevelScaling": false
+      },
+      "eventStructure": {
+        "authority": "data/plains-events.json",
+        "noRepeatsWithinCampaign": true,
+        "trainers": false,
+        "rareLivingHumans": true
+      },
+      "regionalMechanic": {
+        "id": "blood-moon",
+        "name": "Blood Moon",
+        "minimum": 0,
+        "maximum": 100,
+        "starting": 0,
+        "travelGain": 3,
+        "description": "Tenairah’s smoke canopy blocks direct sunlight. Blood Moon pressure rises through travel and choices; higher tiers strengthen vampiric enemies while increasing Onyx, materials, and rare-event odds.",
+        "tiers": [
+          {
+            "min": 0,
+            "max": 19,
+            "name": "Smoldering",
+            "enemyFinalDamagePct": 0,
+            "enemyLifestealPct": 0,
+            "rewardBonusPct": 0,
+            "rareEventWeightBonusPct": 0
+          },
+          {
+            "min": 20,
+            "max": 39,
+            "name": "Red Rise",
+            "enemyFinalDamagePct": 5,
+            "enemyLifestealPct": 0,
+            "rewardBonusPct": 8,
+            "rareEventWeightBonusPct": 10
+          },
+          {
+            "min": 40,
+            "max": 59,
+            "name": "Crimson Sky",
+            "enemyFinalDamagePct": 10,
+            "enemyLifestealPct": 2,
+            "rewardBonusPct": 16,
+            "rareEventWeightBonusPct": 20
+          },
+          {
+            "min": 60,
+            "max": 79,
+            "name": "High Blood",
+            "enemyFinalDamagePct": 15,
+            "enemyLifestealPct": 4,
+            "rewardBonusPct": 24,
+            "rareEventWeightBonusPct": 35
+          },
+          {
+            "min": 80,
+            "max": 100,
+            "name": "Blood Zenith",
+            "enemyFinalDamagePct": 20,
+            "enemyLifestealPct": 6,
+            "rewardBonusPct": 32,
+            "rareEventWeightBonusPct": 55
+          }
+        ]
+      },
+      "completionReward": {
+        "onyx": 1600,
+        "chronicleProgress": 64
+      },
+      "nextRegion": {
+        "id": "caverns-to-hell",
+        "name": "Caverns to Hell",
+        "expectedEntryLevel": [
+          23,
+          24
+        ],
+        "targetEndLevel": 30
+      },
+      "boundaryChoices": [
+        "return-to-tavern",
+        "continue-beyond-the-door"
+      ],
+      "recommendedLevel": {
+        "entry": [
+          17,
+          18
+        ],
+        "targetEndLevel": 24
+      },
+      "merchants": false,
+      "lore": {
+        "identity": "A kingdom that lost its war against its vampire nobility and survived only as a ruined feeding ground.",
+        "sky": "Tenairah continuously produces supernatural smoke dense enough to block direct sunlight across the Plains.",
+        "ruler": "Tenairah, a Black human-looking vampire woman who won the ancient war and feeds through an underground Blood Root network.",
+        "damageIdentities": [
+          "Physical",
+          "Force",
+          "Psychic"
+        ],
+        "mechanicalThemes": [
+          "Blood",
+          "Lifesteal",
+          "Bleed",
+          "HP sacrifice",
+          "Shadow",
+          "Missing HP"
+        ]
+      }
+    },
+    {
+      "id": "caverns-to-hell",
+      "name": "Caverns to Hell",
+      "depthCount": 30,
+      "introductoryBand": {
+        "start": 1,
+        "end": 5
+      },
+      "cardsPerStep": 3,
+      "eventKinds": [
+        {
+          "id": "combat",
+          "label": "Infernal Combat",
+          "combat": true
+        },
+        {
+          "id": "landmark",
+          "label": "Cavern Landmark",
+          "noncombat": true
+        },
+        {
+          "id": "helpful-person",
+          "label": "Hell Inhabitant",
+          "noncombat": true
+        },
+        {
+          "id": "discovery",
+          "label": "Infernal Discovery",
+          "noncombat": true
+        },
+        {
+          "id": "other-noncombat",
+          "label": "Uncertain Descent",
+          "noncombat": true
+        }
+      ],
+      "combatStructure": {
+        "depthTiers": [
+          {
+            "id": "tier-1",
+            "name": "Blackstone Descent",
+            "start": 1,
+            "end": 5
+          },
+          {
+            "id": "tier-2",
+            "name": "The Gateward Caverns",
+            "start": 6,
+            "end": 9
+          },
+          {
+            "id": "tier-3",
+            "name": "Outer Hell",
+            "start": 11,
+            "end": 15
+          },
+          {
+            "id": "tier-4",
+            "name": "Infernal Dominions",
+            "start": 16,
+            "end": 20
+          },
+          {
+            "id": "tier-5",
+            "name": "Sinbound Marches",
+            "start": 21,
+            "end": 25
+          },
+          {
+            "id": "tier-6",
+            "name": "Sevenfold Approach",
+            "start": 26,
+            "end": 29
+          }
+        ],
+        "minibossDepth": 10,
+        "bossDepth": 30,
+        "enemyCountByRealPartySize": {
+          "1": [
+            1,
+            2
+          ],
+          "2": [
+            2,
+            3
+          ],
+          "3": [
+            3,
+            4
+          ],
+          "4": [
+            4,
+            5
+          ]
+        },
+        "scalingBasis": "hell-enemy-type-and-depth-tier",
+        "playerLevelScaling": false
+      },
+      "eventStructure": {
+        "authority": "data/hell-events.json",
+        "noRepeatsWithinCampaign": true,
+        "trainers": false,
+        "rareNeutralDemons": true,
+        "merchant": "infernal-broker"
+      },
+      "completionReward": {
+        "onyx": 2500,
+        "chronicleProgress": 100
+      },
+      "nextRegion": {
+        "id": "that-dragons-dungeon",
+        "name": "That Dragon’s Dungeon",
+        "expectedEntryLevel": [
+          29,
+          30
+        ],
+        "targetEndLevel": 36
+      },
+      "boundaryChoices": [
+        "return-to-tavern",
+        "continue-beyond-the-door"
+      ],
+      "recommendedLevel": {
+        "entry": [
+          23,
+          24
+        ],
+        "targetEndLevel": 30
+      },
+      "regionalMechanic": null,
+      "lore": {
+        "identity": "Depths 1–10 are the cavern descent to Hell; Depths 11–30 are Hell itself. Hell is the plane inhabited by demons, the Seven Sins, and the Three Origins of Evil.",
+        "threeOrigins": "Lore-only in this region; relevant to Demon Vessel ancestry.",
+        "damageIdentities": [
+          "Physical",
+          "Force",
+          "Fire",
+          "Psychic",
+          "Poison"
+        ],
+        "globalMeter": false
+      }
+    },
+    {
+      "id": "that-dragons-dungeon",
+      "name": "That Dragon’s Dungeon",
+      "depthCount": 30,
+      "introductoryBand": {
+        "start": 1,
+        "end": 5
+      },
+      "cardsPerStep": 3,
+      "trainerEligibility": null,
+      "eventKinds": [
+        {
+          "id": "combat",
+          "label": "Draconic Combat",
+          "combat": true
+        },
+        {
+          "id": "treasure",
+          "label": "Hoard Temptation",
+          "noncombat": true
+        },
+        {
+          "id": "trap",
+          "label": "Dungeon Trap",
+          "noncombat": true
+        },
+        {
+          "id": "menagerie",
+          "label": "Collected Curiosity",
+          "noncombat": true
+        },
+        {
+          "id": "discovery",
+          "label": "Dragon’s Discovery",
+          "noncombat": true
+        }
+      ],
+      "combatStructure": {
+        "depthTiers": [
+          {
+            "id": "tier-1",
+            "name": "Outer Hoardways",
+            "start": 1,
+            "end": 5,
+            "family": "Drake"
+          },
+          {
+            "id": "tier-2",
+            "name": "Drake Warrens",
+            "start": 6,
+            "end": 9,
+            "family": "Drake"
+          },
+          {
+            "id": "tier-3",
+            "name": "Wingvault Galleries",
+            "start": 11,
+            "end": 15,
+            "family": "Wyvern"
+          },
+          {
+            "id": "tier-4",
+            "name": "Wyvern Menagerie",
+            "start": 16,
+            "end": 19,
+            "family": "Wyvern"
+          },
+          {
+            "id": "tier-5",
+            "name": "Elder Hoard Sanctums",
+            "start": 21,
+            "end": 25,
+            "family": "Dragon"
+          },
+          {
+            "id": "tier-6",
+            "name": "Prismatic Crownways",
+            "start": 26,
+            "end": 29,
+            "family": "Dragon"
+          }
+        ],
+        "minibossDepths": [
+          10,
+          20
+        ],
+        "bossDepth": 30,
+        "enemyCountByRealPartySize": {
+          "1": [
+            1,
+            2
+          ],
+          "2": [
+            2,
+            3
+          ],
+          "3": [
+            3,
+            4
+          ],
+          "4": [
+            4,
+            5
+          ]
+        },
+        "scalingBasis": "dragon-species-and-depth-tier",
+        "playerLevelScaling": false
+      },
+      "eventStructure": {
+        "authority": "data/dragon-events.json",
+        "noRepeatsWithinCampaign": true,
+        "trainers": false,
+        "treasureTemptations": true,
+        "curseDuration": "current-expedition-only"
+      },
+      "regionalIdentity": {
+        "globalMeter": false,
+        "early": "Drakes, hoard traps, lesser collected creatures",
+        "middle": "Wyverns, menagerie vaults, dangerous treasure rooms",
+        "late": "True Dragons and elite hoard sanctums",
+        "owner": "Quentaliaus Devanpierus"
+      },
+      "completionReward": {
+        "onyx": 3600,
+        "chronicleProgress": 144
+      },
+      "boundaryChoices": [
+        "return-to-tavern",
+        "continue-beyond-the-door"
+      ],
+      "recommendedLevel": {
+        "entry": [
+          29,
+          30
+        ],
+        "targetEndLevel": 36
+      },
+      "merchants": false,
+      "nextRegion": {
+        "id": "necropolis",
+        "name": "Necropolis",
+        "expectedEntryLevel": [
+          35,
+          36
+        ],
+        "targetEndLevel": 42
+      },
+      "regionalMechanic": null
+    },
+    {
+      "id": "necropolis",
+      "name": "Necropolis",
+      "depthCount": 30,
+      "introductoryBand": {
+        "start": 1,
+        "end": 5
+      },
+      "cardsPerStep": 3,
+      "trainerEligibility": null,
+      "eventKinds": [
+        {
+          "id": "combat",
+          "label": "Necropolis Combat",
+          "combat": true
+        },
+        {
+          "id": "cult-sign",
+          "label": "Cult Pursuit",
+          "noncombat": true
+        },
+        {
+          "id": "tomb",
+          "label": "Funerary Ruin",
+          "noncombat": true
+        },
+        {
+          "id": "mirror-glimpse",
+          "label": "Mirror Glimpse",
+          "noncombat": true
+        },
+        {
+          "id": "discovery",
+          "label": "Grave Discovery",
+          "noncombat": true
+        }
+      ],
+      "combatStructure": {
+        "depthTiers": [
+          {
+            "id": "tier-1",
+            "name": "Outer Grave Procession",
+            "start": 1,
+            "end": 5
+          },
+          {
+            "id": "tier-2",
+            "name": "Broken Tombways",
+            "start": 6,
+            "end": 9
+          },
+          {
+            "id": "tier-3",
+            "name": "Tithe Streets",
+            "start": 11,
+            "end": 15
+          },
+          {
+            "id": "tier-4",
+            "name": "Black Liturgies",
+            "start": 16,
+            "end": 19
+          },
+          {
+            "id": "tier-5",
+            "name": "Royal Catacombs",
+            "start": 21,
+            "end": 25
+          },
+          {
+            "id": "tier-6",
+            "name": "Crown Ossuary",
+            "start": 26,
+            "end": 29
+          }
+        ],
+        "minibossDepths": [
+          10,
+          20
+        ],
+        "bossDepth": 30,
+        "enemyCountByRealPartySize": {
+          "1": [
+            2,
+            3
+          ],
+          "2": [
+            3,
+            4
+          ],
+          "3": [
+            4,
+            5
+          ],
+          "4": [
+            5,
+            6
+          ]
+        },
+        "scalingBasis": "weak-undead-plus-cult-sacrifice-and-necropolis-elites",
+        "playerLevelScaling": false
+      },
+      "eventStructure": {
+        "authority": "data/necropolis-events.json",
+        "noRepeatsWithinCampaign": true,
+        "trainers": false,
+        "mirrorRemainsWithCultLeader": true
+      },
+      "regionalMechanic": null,
+      "regionalIdentity": {
+        "globalMeter": false,
+        "story": "Pursue a living cult carrying a Mirror through a city of the dead before its leader can use the Mirror to ascend to godhood.",
+        "ordinaryUndead": "Skeletons and zombies remain intentionally very weak throughout the region.",
+        "midRegionThreat": "Living cultists sacrifice allied skeletons and zombies to fuel heavy ritual attacks.",
+        "ending": "The cult leader escapes into the Final Region with the Mirror while the party fights the awakened Ossuary King."
+      },
+      "completionReward": {
+        "onyx": 5000,
+        "chronicleProgress": 200
+      },
+      "boundaryChoices": [
+        "return-to-tavern",
+        "continue-beyond-the-door"
+      ],
+      "recommendedLevel": {
+        "entry": [
+          35,
+          36
+        ],
+        "targetEndLevel": 42
+      },
+      "merchants": false,
+      "nextRegion": {
+        "id": "shadow-infused-dark-woods",
+        "name": "Shadow Infused Dark Woods",
+        "expectedEntryLevel": [
+          41,
+          42
+        ],
+        "targetEndLevel": 44
+      }
+    },
+    {
+      "id": "shadow-infused-dark-woods",
+      "name": "Shadow Infused Dark Woods",
+      "depthCount": 3,
+      "introductoryBand": {
+        "start": 1,
+        "end": 1
+      },
+      "cardsPerStep": 0,
+      "trainerEligibility": null,
+      "eventKinds": [],
+      "combatStructure": {
+        "depthTiers": [],
+        "minibossDepths": [
+          2
+        ],
+        "bossDepth": 3,
+        "enemyCountByRealPartySize": {
+          "1": [
+            1,
+            1
+          ],
+          "2": [
+            1,
+            1
+          ],
+          "3": [
+            1,
+            1
+          ],
+          "4": [
+            1,
+            1
+          ]
+        },
+        "scalingBasis": "fixed-final-gauntlet",
+        "playerLevelScaling": false
+      },
+      "eventStructure": {
+        "authority": null,
+        "noRepeatsWithinCampaign": true,
+        "trainers": false,
+        "depth1FullHealCampsite": true
+      },
+      "regionalMechanic": null,
+      "regionalIdentity": {
+        "globalMeter": false,
+        "story": "A three-Depth final pursuit through woods saturated by shadow from the damaged Mirror.",
+        "depth1": "Full-heal Campsite. No combat.",
+        "depth2": "Cult leader confrontation before ascension can be completed.",
+        "depth3": "Broken Mirror true final boss."
+      },
+      "completionReward": {
+        "onyx": 7500,
+        "chronicleProgress": 300
+      },
+      "boundaryChoices": [],
+      "recommendedLevel": {
+        "entry": [
+          41,
+          42
+        ],
+        "targetEndLevel": 44
+      },
+      "merchants": false,
+      "nextRegion": null
     }
   ]
 }

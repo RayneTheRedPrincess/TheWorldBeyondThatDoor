@@ -1,0 +1,2518 @@
+{
+  "version": "CAVERNS-TO-HELL-FOUNDATION-2026-08-10",
+  "designStatus": "123 no-repeat Region 5 events; rare neutral demons and recurring Infernal Broker in Hell proper.",
+  "events": [
+    {
+      "id": "hell-intro-01",
+      "kind": "discovery",
+      "label": "The Last Natural Stone",
+      "description": "The cavern still feels like the mortal world, but every tunnel descends toward something that does not.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "DEX",
+        "dc": 9
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 40,
+          "materials": [
+            {
+              "id": "blackstone-fragment",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 5
+        }
+      }
+    },
+    {
+      "id": "hell-intro-02",
+      "kind": "discovery",
+      "label": "A Red Light Below",
+      "description": "A glow far beneath the party is not sunlight and does not flicker like an ordinary flame.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "CON",
+        "dc": 10
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 45,
+          "materials": [
+            {
+              "id": "blackstone-fragment",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 5
+        }
+      }
+    },
+    {
+      "id": "hell-intro-03",
+      "kind": "discovery",
+      "label": "The Long Descent",
+      "description": "Carved warnings insist the gate below was built to keep things in and travelers out.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "INT",
+        "dc": 11
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 50,
+          "materials": [
+            {
+              "id": "blackstone-fragment",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 5
+        }
+      }
+    },
+    {
+      "id": "hell-t1-combat-01",
+      "kind": "combat",
+      "label": "Cavern Threat 1",
+      "description": "Something in the deep stone closes on the route.",
+      "combat": true,
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 10,
+      "combatProfile": "cavern"
+    },
+    {
+      "id": "hell-t1-combat-02",
+      "kind": "combat",
+      "label": "Cavern Threat 2",
+      "description": "Something in the deep stone closes on the route.",
+      "combat": true,
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 10,
+      "combatProfile": "fire"
+    },
+    {
+      "id": "hell-t1-combat-03",
+      "kind": "combat",
+      "label": "Cavern Threat 3",
+      "description": "Something in the deep stone closes on the route.",
+      "combat": true,
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 10,
+      "combatProfile": "force"
+    },
+    {
+      "id": "hell-t1-combat-04",
+      "kind": "combat",
+      "label": "Cavern Threat 4",
+      "description": "Something in the deep stone closes on the route.",
+      "combat": true,
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 10,
+      "combatProfile": "psychic"
+    },
+    {
+      "id": "hell-t1-combat-05",
+      "kind": "combat",
+      "label": "Cavern Threat 5",
+      "description": "Something in the deep stone closes on the route.",
+      "combat": true,
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 10,
+      "combatProfile": "sinbound"
+    },
+    {
+      "id": "hell-t1-combat-06",
+      "kind": "combat",
+      "label": "Cavern Threat 6",
+      "description": "Something in the deep stone closes on the route.",
+      "combat": true,
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 10,
+      "combatProfile": "mixed"
+    },
+    {
+      "id": "hell-t1-combat-07",
+      "kind": "combat",
+      "label": "Cavern Threat 7",
+      "description": "Something in the deep stone closes on the route.",
+      "combat": true,
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 10,
+      "combatProfile": "cavern"
+    },
+    {
+      "id": "hell-t1-combat-08",
+      "kind": "combat",
+      "label": "Cavern Threat 8",
+      "description": "Something in the deep stone closes on the route.",
+      "combat": true,
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 10,
+      "combatProfile": "fire"
+    },
+    {
+      "id": "hell-t1-event-01",
+      "kind": "landmark",
+      "label": "Cavern Discovery 1",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 7,
+      "check": {
+        "stat": "INT",
+        "dc": 14
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "materials": [
+            {
+              "id": "soul-ash",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "hell-t1-event-02",
+      "kind": "discovery",
+      "label": "Cavern Discovery 2",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 7,
+      "check": {
+        "stat": "CHA",
+        "dc": 12
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "materials": [
+            {
+              "id": "infernal-glass",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "hell-t1-event-03",
+      "kind": "other-noncombat",
+      "label": "Cavern Discovery 3",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 7,
+      "check": {
+        "stat": "STR",
+        "dc": 13
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "materials": [
+            {
+              "id": "sulfur-chitin",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "hell-t1-event-04",
+      "kind": "landmark",
+      "label": "Cavern Discovery 4",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 7,
+      "check": {
+        "stat": "CON",
+        "dc": 14
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "materials": [
+            {
+              "id": "hellroot-fiber",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "hell-t1-event-05",
+      "kind": "discovery",
+      "label": "Cavern Discovery 5",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 7,
+      "check": {
+        "stat": "FTH",
+        "dc": 12
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "materials": [
+            {
+              "id": "chain-iron",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "hell-t1-event-06",
+      "kind": "other-noncombat",
+      "label": "Cavern Discovery 6",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 7,
+      "check": {
+        "stat": "LCK",
+        "dc": 13
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "materials": [
+            {
+              "id": "soul-ash",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "hell-t1-event-07",
+      "kind": "landmark",
+      "label": "Cavern Discovery 7",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 7,
+      "check": {
+        "stat": "DEX",
+        "dc": 14
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "materials": [
+            {
+              "id": "infernal-glass",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "hell-t1-event-08",
+      "kind": "discovery",
+      "label": "Cavern Discovery 8",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 7,
+      "check": {
+        "stat": "INT",
+        "dc": 12
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "materials": [
+            {
+              "id": "sulfur-chitin",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "hell-t1-event-09",
+      "kind": "other-noncombat",
+      "label": "Cavern Discovery 9",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 7,
+      "check": {
+        "stat": "CHA",
+        "dc": 13
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "materials": [
+            {
+              "id": "hellroot-fiber",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "hell-t1-event-10",
+      "kind": "landmark",
+      "label": "Cavern Discovery 10",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 7,
+      "check": {
+        "stat": "STR",
+        "dc": 14
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "materials": [
+            {
+              "id": "chain-iron",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "hell-t1-event-11",
+      "kind": "discovery",
+      "label": "Cavern Discovery 11",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 7,
+      "check": {
+        "stat": "CON",
+        "dc": 12
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "materials": [
+            {
+              "id": "soul-ash",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "hell-t1-event-12",
+      "kind": "other-noncombat",
+      "label": "Cavern Discovery 12",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 7,
+      "check": {
+        "stat": "FTH",
+        "dc": 13
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "materials": [
+            {
+              "id": "infernal-glass",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 6
+        }
+      }
+    },
+    {
+      "id": "hell-t2-combat-01",
+      "kind": "combat",
+      "label": "Cavern Threat 1",
+      "description": "Something in the deep stone closes on the route.",
+      "combat": true,
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 10,
+      "combatProfile": "fire"
+    },
+    {
+      "id": "hell-t2-combat-02",
+      "kind": "combat",
+      "label": "Cavern Threat 2",
+      "description": "Something in the deep stone closes on the route.",
+      "combat": true,
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 10,
+      "combatProfile": "force"
+    },
+    {
+      "id": "hell-t2-combat-03",
+      "kind": "combat",
+      "label": "Cavern Threat 3",
+      "description": "Something in the deep stone closes on the route.",
+      "combat": true,
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 10,
+      "combatProfile": "psychic"
+    },
+    {
+      "id": "hell-t2-combat-04",
+      "kind": "combat",
+      "label": "Cavern Threat 4",
+      "description": "Something in the deep stone closes on the route.",
+      "combat": true,
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 10,
+      "combatProfile": "sinbound"
+    },
+    {
+      "id": "hell-t2-combat-05",
+      "kind": "combat",
+      "label": "Cavern Threat 5",
+      "description": "Something in the deep stone closes on the route.",
+      "combat": true,
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 10,
+      "combatProfile": "mixed"
+    },
+    {
+      "id": "hell-t2-combat-06",
+      "kind": "combat",
+      "label": "Cavern Threat 6",
+      "description": "Something in the deep stone closes on the route.",
+      "combat": true,
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 10,
+      "combatProfile": "cavern"
+    },
+    {
+      "id": "hell-t2-combat-07",
+      "kind": "combat",
+      "label": "Cavern Threat 7",
+      "description": "Something in the deep stone closes on the route.",
+      "combat": true,
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 10,
+      "combatProfile": "fire"
+    },
+    {
+      "id": "hell-t2-combat-08",
+      "kind": "combat",
+      "label": "Cavern Threat 8",
+      "description": "Something in the deep stone closes on the route.",
+      "combat": true,
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 10,
+      "combatProfile": "force"
+    },
+    {
+      "id": "hell-t2-event-01",
+      "kind": "discovery",
+      "label": "Cavern Discovery 1",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 7,
+      "check": {
+        "stat": "CON",
+        "dc": 16
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 85,
+          "materials": [
+            {
+              "id": "soul-ash",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "hell-t2-event-02",
+      "kind": "other-noncombat",
+      "label": "Cavern Discovery 2",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 7,
+      "check": {
+        "stat": "FTH",
+        "dc": 14
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 85,
+          "materials": [
+            {
+              "id": "infernal-glass",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "hell-t2-event-03",
+      "kind": "landmark",
+      "label": "Cavern Discovery 3",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 7,
+      "check": {
+        "stat": "LCK",
+        "dc": 15
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 85,
+          "materials": [
+            {
+              "id": "sulfur-chitin",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "hell-t2-event-04",
+      "kind": "discovery",
+      "label": "Cavern Discovery 4",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 7,
+      "check": {
+        "stat": "DEX",
+        "dc": 16
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 85,
+          "materials": [
+            {
+              "id": "hellroot-fiber",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "hell-t2-event-05",
+      "kind": "other-noncombat",
+      "label": "Cavern Discovery 5",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 7,
+      "check": {
+        "stat": "INT",
+        "dc": 14
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 85,
+          "materials": [
+            {
+              "id": "chain-iron",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "hell-t2-event-06",
+      "kind": "landmark",
+      "label": "Cavern Discovery 6",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 7,
+      "check": {
+        "stat": "CHA",
+        "dc": 15
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 85,
+          "materials": [
+            {
+              "id": "soul-ash",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "hell-t2-event-07",
+      "kind": "discovery",
+      "label": "Cavern Discovery 7",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 7,
+      "check": {
+        "stat": "STR",
+        "dc": 16
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 85,
+          "materials": [
+            {
+              "id": "infernal-glass",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "hell-t2-event-08",
+      "kind": "other-noncombat",
+      "label": "Cavern Discovery 8",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 7,
+      "check": {
+        "stat": "CON",
+        "dc": 14
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 85,
+          "materials": [
+            {
+              "id": "sulfur-chitin",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "hell-t2-event-09",
+      "kind": "landmark",
+      "label": "Cavern Discovery 9",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 7,
+      "check": {
+        "stat": "FTH",
+        "dc": 15
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 85,
+          "materials": [
+            {
+              "id": "hellroot-fiber",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "hell-t2-event-10",
+      "kind": "discovery",
+      "label": "Cavern Discovery 10",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 7,
+      "check": {
+        "stat": "LCK",
+        "dc": 16
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 85,
+          "materials": [
+            {
+              "id": "chain-iron",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "hell-t2-event-11",
+      "kind": "other-noncombat",
+      "label": "Cavern Discovery 11",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 7,
+      "check": {
+        "stat": "DEX",
+        "dc": 14
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 85,
+          "materials": [
+            {
+              "id": "soul-ash",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "hell-t2-event-12",
+      "kind": "landmark",
+      "label": "Cavern Discovery 12",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 7,
+      "check": {
+        "stat": "INT",
+        "dc": 15
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 85,
+          "materials": [
+            {
+              "id": "infernal-glass",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "hell-t3-combat-01",
+      "kind": "combat",
+      "label": "Hell Threat 1",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 10,
+      "combatProfile": "force"
+    },
+    {
+      "id": "hell-t3-combat-02",
+      "kind": "combat",
+      "label": "Hell Threat 2",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 10,
+      "combatProfile": "psychic"
+    },
+    {
+      "id": "hell-t3-combat-03",
+      "kind": "combat",
+      "label": "Hell Threat 3",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 10,
+      "combatProfile": "sinbound"
+    },
+    {
+      "id": "hell-t3-combat-04",
+      "kind": "combat",
+      "label": "Hell Threat 4",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 10,
+      "combatProfile": "mixed"
+    },
+    {
+      "id": "hell-t3-combat-05",
+      "kind": "combat",
+      "label": "Hell Threat 5",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 10,
+      "combatProfile": "cavern"
+    },
+    {
+      "id": "hell-t3-combat-06",
+      "kind": "combat",
+      "label": "Hell Threat 6",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 10,
+      "combatProfile": "fire"
+    },
+    {
+      "id": "hell-t3-combat-07",
+      "kind": "combat",
+      "label": "Hell Threat 7",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 10,
+      "combatProfile": "force"
+    },
+    {
+      "id": "hell-t3-combat-08",
+      "kind": "combat",
+      "label": "Hell Threat 8",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 10,
+      "combatProfile": "psychic"
+    },
+    {
+      "id": "hell-t3-event-01",
+      "kind": "other-noncombat",
+      "label": "Hell Discovery 1",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 7,
+      "check": {
+        "stat": "DEX",
+        "dc": 18
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 100,
+          "materials": [
+            {
+              "id": "soul-ash",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "hell-t3-event-02",
+      "kind": "landmark",
+      "label": "Hell Discovery 2",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 7,
+      "check": {
+        "stat": "INT",
+        "dc": 16
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 100,
+          "materials": [
+            {
+              "id": "infernal-glass",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "hell-t3-event-03",
+      "kind": "discovery",
+      "label": "Hell Discovery 3",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 7,
+      "check": {
+        "stat": "CHA",
+        "dc": 17
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 100,
+          "materials": [
+            {
+              "id": "sulfur-chitin",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "hell-t3-event-04",
+      "kind": "other-noncombat",
+      "label": "Hell Discovery 4",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 7,
+      "check": {
+        "stat": "STR",
+        "dc": 18
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 100,
+          "materials": [
+            {
+              "id": "hellroot-fiber",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "hell-t3-event-05",
+      "kind": "landmark",
+      "label": "Hell Discovery 5",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 7,
+      "check": {
+        "stat": "CON",
+        "dc": 16
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 100,
+          "materials": [
+            {
+              "id": "chain-iron",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "hell-t3-event-06",
+      "kind": "discovery",
+      "label": "Hell Discovery 6",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 7,
+      "check": {
+        "stat": "FTH",
+        "dc": 17
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 100,
+          "materials": [
+            {
+              "id": "soul-ash",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "hell-t3-event-07",
+      "kind": "other-noncombat",
+      "label": "Hell Discovery 7",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 7,
+      "check": {
+        "stat": "LCK",
+        "dc": 18
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 100,
+          "materials": [
+            {
+              "id": "infernal-glass",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "hell-t3-event-08",
+      "kind": "landmark",
+      "label": "Hell Discovery 8",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 7,
+      "check": {
+        "stat": "DEX",
+        "dc": 16
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 100,
+          "materials": [
+            {
+              "id": "sulfur-chitin",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "hell-t3-event-09",
+      "kind": "discovery",
+      "label": "Hell Discovery 9",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 7,
+      "check": {
+        "stat": "INT",
+        "dc": 17
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 100,
+          "materials": [
+            {
+              "id": "hellroot-fiber",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "hell-t3-event-10",
+      "kind": "helpful-person",
+      "label": "Neutral Demon",
+      "description": "A demon watches the party without immediately reaching for a weapon.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 7,
+      "check": {
+        "stat": "CHA",
+        "dc": 18
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 100,
+          "materials": [
+            {
+              "id": "chain-iron",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "hell-t3-event-11",
+      "kind": "helpful-person",
+      "label": "Neutral Demon",
+      "description": "A demon watches the party without immediately reaching for a weapon.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 7,
+      "check": {
+        "stat": "STR",
+        "dc": 16
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 100,
+          "materials": [
+            {
+              "id": "soul-ash",
+              "quantity": 1
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "hell-t3-event-12",
+      "kind": "helpful-person",
+      "label": "Infernal Broker",
+      "description": "A neutral demon merchant displays objects whose weak workmanship hides impossible passive power.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 4,
+      "eventPayload": {
+        "success": {},
+        "failure": {}
+      },
+      "hellMerchant": true,
+      "merchantId": "infernal-broker"
+    },
+    {
+      "id": "hell-t4-combat-01",
+      "kind": "combat",
+      "label": "Hell Threat 1",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 10,
+      "combatProfile": "psychic"
+    },
+    {
+      "id": "hell-t4-combat-02",
+      "kind": "combat",
+      "label": "Hell Threat 2",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 10,
+      "combatProfile": "sinbound"
+    },
+    {
+      "id": "hell-t4-combat-03",
+      "kind": "combat",
+      "label": "Hell Threat 3",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 10,
+      "combatProfile": "mixed"
+    },
+    {
+      "id": "hell-t4-combat-04",
+      "kind": "combat",
+      "label": "Hell Threat 4",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 10,
+      "combatProfile": "cavern"
+    },
+    {
+      "id": "hell-t4-combat-05",
+      "kind": "combat",
+      "label": "Hell Threat 5",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 10,
+      "combatProfile": "fire"
+    },
+    {
+      "id": "hell-t4-combat-06",
+      "kind": "combat",
+      "label": "Hell Threat 6",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 10,
+      "combatProfile": "force"
+    },
+    {
+      "id": "hell-t4-combat-07",
+      "kind": "combat",
+      "label": "Hell Threat 7",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 10,
+      "combatProfile": "psychic"
+    },
+    {
+      "id": "hell-t4-combat-08",
+      "kind": "combat",
+      "label": "Hell Threat 8",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 10,
+      "combatProfile": "sinbound"
+    },
+    {
+      "id": "hell-t4-event-01",
+      "kind": "landmark",
+      "label": "Hell Discovery 1",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 7,
+      "check": {
+        "stat": "STR",
+        "dc": 20
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 115,
+          "materials": [
+            {
+              "id": "soul-ash",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "hell-t4-event-02",
+      "kind": "discovery",
+      "label": "Hell Discovery 2",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 7,
+      "check": {
+        "stat": "CON",
+        "dc": 18
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 115,
+          "materials": [
+            {
+              "id": "infernal-glass",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "hell-t4-event-03",
+      "kind": "other-noncombat",
+      "label": "Hell Discovery 3",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 7,
+      "check": {
+        "stat": "FTH",
+        "dc": 19
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 115,
+          "materials": [
+            {
+              "id": "sulfur-chitin",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "hell-t4-event-04",
+      "kind": "landmark",
+      "label": "Hell Discovery 4",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 7,
+      "check": {
+        "stat": "LCK",
+        "dc": 20
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 115,
+          "materials": [
+            {
+              "id": "hellroot-fiber",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "hell-t4-event-05",
+      "kind": "discovery",
+      "label": "Hell Discovery 5",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 7,
+      "check": {
+        "stat": "DEX",
+        "dc": 18
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 115,
+          "materials": [
+            {
+              "id": "chain-iron",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "hell-t4-event-06",
+      "kind": "other-noncombat",
+      "label": "Hell Discovery 6",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 7,
+      "check": {
+        "stat": "INT",
+        "dc": 19
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 115,
+          "materials": [
+            {
+              "id": "soul-ash",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "hell-t4-event-07",
+      "kind": "landmark",
+      "label": "Hell Discovery 7",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 7,
+      "check": {
+        "stat": "CHA",
+        "dc": 20
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 115,
+          "materials": [
+            {
+              "id": "infernal-glass",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "hell-t4-event-08",
+      "kind": "discovery",
+      "label": "Hell Discovery 8",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 7,
+      "check": {
+        "stat": "STR",
+        "dc": 18
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 115,
+          "materials": [
+            {
+              "id": "sulfur-chitin",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "hell-t4-event-09",
+      "kind": "other-noncombat",
+      "label": "Hell Discovery 9",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 7,
+      "check": {
+        "stat": "CON",
+        "dc": 19
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 115,
+          "materials": [
+            {
+              "id": "hellroot-fiber",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "hell-t4-event-10",
+      "kind": "helpful-person",
+      "label": "Neutral Demon",
+      "description": "A demon watches the party without immediately reaching for a weapon.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 7,
+      "check": {
+        "stat": "FTH",
+        "dc": 20
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 115,
+          "materials": [
+            {
+              "id": "chain-iron",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "hell-t4-event-11",
+      "kind": "helpful-person",
+      "label": "Neutral Demon",
+      "description": "A demon watches the party without immediately reaching for a weapon.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 7,
+      "check": {
+        "stat": "LCK",
+        "dc": 18
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 115,
+          "materials": [
+            {
+              "id": "soul-ash",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "hell-t4-event-12",
+      "kind": "helpful-person",
+      "label": "Infernal Broker",
+      "description": "A neutral demon merchant displays objects whose weak workmanship hides impossible passive power.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 4,
+      "eventPayload": {
+        "success": {},
+        "failure": {}
+      },
+      "hellMerchant": true,
+      "merchantId": "infernal-broker"
+    },
+    {
+      "id": "hell-t5-combat-01",
+      "kind": "combat",
+      "label": "Hell Threat 1",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 10,
+      "combatProfile": "sinbound"
+    },
+    {
+      "id": "hell-t5-combat-02",
+      "kind": "combat",
+      "label": "Hell Threat 2",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 10,
+      "combatProfile": "mixed"
+    },
+    {
+      "id": "hell-t5-combat-03",
+      "kind": "combat",
+      "label": "Hell Threat 3",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 10,
+      "combatProfile": "cavern"
+    },
+    {
+      "id": "hell-t5-combat-04",
+      "kind": "combat",
+      "label": "Hell Threat 4",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 10,
+      "combatProfile": "fire"
+    },
+    {
+      "id": "hell-t5-combat-05",
+      "kind": "combat",
+      "label": "Hell Threat 5",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 10,
+      "combatProfile": "force"
+    },
+    {
+      "id": "hell-t5-combat-06",
+      "kind": "combat",
+      "label": "Hell Threat 6",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 10,
+      "combatProfile": "psychic"
+    },
+    {
+      "id": "hell-t5-combat-07",
+      "kind": "combat",
+      "label": "Hell Threat 7",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 10,
+      "combatProfile": "sinbound"
+    },
+    {
+      "id": "hell-t5-combat-08",
+      "kind": "combat",
+      "label": "Hell Threat 8",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 10,
+      "combatProfile": "mixed"
+    },
+    {
+      "id": "hell-t5-event-01",
+      "kind": "discovery",
+      "label": "Hell Discovery 1",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 7,
+      "check": {
+        "stat": "LCK",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 130,
+          "materials": [
+            {
+              "id": "soul-ash",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "hell-t5-event-02",
+      "kind": "other-noncombat",
+      "label": "Hell Discovery 2",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 7,
+      "check": {
+        "stat": "DEX",
+        "dc": 20
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 130,
+          "materials": [
+            {
+              "id": "infernal-glass",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "hell-t5-event-03",
+      "kind": "landmark",
+      "label": "Hell Discovery 3",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 7,
+      "check": {
+        "stat": "INT",
+        "dc": 21
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 130,
+          "materials": [
+            {
+              "id": "sulfur-chitin",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "hell-t5-event-04",
+      "kind": "discovery",
+      "label": "Hell Discovery 4",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 7,
+      "check": {
+        "stat": "CHA",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 130,
+          "materials": [
+            {
+              "id": "hellroot-fiber",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "hell-t5-event-05",
+      "kind": "other-noncombat",
+      "label": "Hell Discovery 5",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 7,
+      "check": {
+        "stat": "STR",
+        "dc": 20
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 130,
+          "materials": [
+            {
+              "id": "chain-iron",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "hell-t5-event-06",
+      "kind": "landmark",
+      "label": "Hell Discovery 6",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 7,
+      "check": {
+        "stat": "CON",
+        "dc": 21
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 130,
+          "materials": [
+            {
+              "id": "soul-ash",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "hell-t5-event-07",
+      "kind": "discovery",
+      "label": "Hell Discovery 7",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 7,
+      "check": {
+        "stat": "FTH",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 130,
+          "materials": [
+            {
+              "id": "infernal-glass",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "hell-t5-event-08",
+      "kind": "other-noncombat",
+      "label": "Hell Discovery 8",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 7,
+      "check": {
+        "stat": "LCK",
+        "dc": 20
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 130,
+          "materials": [
+            {
+              "id": "sulfur-chitin",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "hell-t5-event-09",
+      "kind": "landmark",
+      "label": "Hell Discovery 9",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 7,
+      "check": {
+        "stat": "DEX",
+        "dc": 21
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 130,
+          "materials": [
+            {
+              "id": "hellroot-fiber",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "hell-t5-event-10",
+      "kind": "helpful-person",
+      "label": "Neutral Demon",
+      "description": "A demon watches the party without immediately reaching for a weapon.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 7,
+      "check": {
+        "stat": "INT",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 130,
+          "materials": [
+            {
+              "id": "chain-iron",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "hell-t5-event-11",
+      "kind": "helpful-person",
+      "label": "Neutral Demon",
+      "description": "A demon watches the party without immediately reaching for a weapon.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 7,
+      "check": {
+        "stat": "CHA",
+        "dc": 20
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 130,
+          "materials": [
+            {
+              "id": "soul-ash",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "hell-t5-event-12",
+      "kind": "helpful-person",
+      "label": "Infernal Broker",
+      "description": "A neutral demon merchant displays objects whose weak workmanship hides impossible passive power.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 4,
+      "eventPayload": {
+        "success": {},
+        "failure": {}
+      },
+      "hellMerchant": true,
+      "merchantId": "infernal-broker"
+    },
+    {
+      "id": "hell-t6-combat-01",
+      "kind": "combat",
+      "label": "Hell Threat 1",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 10,
+      "combatProfile": "mixed"
+    },
+    {
+      "id": "hell-t6-combat-02",
+      "kind": "combat",
+      "label": "Hell Threat 2",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 10,
+      "combatProfile": "cavern"
+    },
+    {
+      "id": "hell-t6-combat-03",
+      "kind": "combat",
+      "label": "Hell Threat 3",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 10,
+      "combatProfile": "fire"
+    },
+    {
+      "id": "hell-t6-combat-04",
+      "kind": "combat",
+      "label": "Hell Threat 4",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 10,
+      "combatProfile": "force"
+    },
+    {
+      "id": "hell-t6-combat-05",
+      "kind": "combat",
+      "label": "Hell Threat 5",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 10,
+      "combatProfile": "psychic"
+    },
+    {
+      "id": "hell-t6-combat-06",
+      "kind": "combat",
+      "label": "Hell Threat 6",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 10,
+      "combatProfile": "sinbound"
+    },
+    {
+      "id": "hell-t6-combat-07",
+      "kind": "combat",
+      "label": "Hell Threat 7",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 10,
+      "combatProfile": "mixed"
+    },
+    {
+      "id": "hell-t6-combat-08",
+      "kind": "combat",
+      "label": "Hell Threat 8",
+      "description": "An infernal patrol claims the road through Hell.",
+      "combat": true,
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 10,
+      "combatProfile": "cavern"
+    },
+    {
+      "id": "hell-t6-event-01",
+      "kind": "other-noncombat",
+      "label": "Hell Discovery 1",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 7,
+      "check": {
+        "stat": "CHA",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 145,
+          "materials": [
+            {
+              "id": "soul-ash",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "hell-t6-event-02",
+      "kind": "landmark",
+      "label": "Hell Discovery 2",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 7,
+      "check": {
+        "stat": "STR",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 145,
+          "materials": [
+            {
+              "id": "infernal-glass",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "hell-t6-event-03",
+      "kind": "discovery",
+      "label": "Hell Discovery 3",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 7,
+      "check": {
+        "stat": "CON",
+        "dc": 23
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 145,
+          "materials": [
+            {
+              "id": "sulfur-chitin",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "hell-t6-event-04",
+      "kind": "other-noncombat",
+      "label": "Hell Discovery 4",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 7,
+      "check": {
+        "stat": "FTH",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 145,
+          "materials": [
+            {
+              "id": "hellroot-fiber",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "hell-t6-event-05",
+      "kind": "landmark",
+      "label": "Hell Discovery 5",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 7,
+      "check": {
+        "stat": "LCK",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 145,
+          "materials": [
+            {
+              "id": "chain-iron",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "hell-t6-event-06",
+      "kind": "discovery",
+      "label": "Hell Discovery 6",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 7,
+      "check": {
+        "stat": "DEX",
+        "dc": 23
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 145,
+          "materials": [
+            {
+              "id": "soul-ash",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "hell-t6-event-07",
+      "kind": "other-noncombat",
+      "label": "Hell Discovery 7",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 7,
+      "check": {
+        "stat": "INT",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 145,
+          "materials": [
+            {
+              "id": "infernal-glass",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "hell-t6-event-08",
+      "kind": "landmark",
+      "label": "Hell Discovery 8",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 7,
+      "check": {
+        "stat": "CHA",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 145,
+          "materials": [
+            {
+              "id": "sulfur-chitin",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "hell-t6-event-09",
+      "kind": "discovery",
+      "label": "Hell Discovery 9",
+      "description": "The route offers a dangerous opportunity instead of a fight.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 7,
+      "check": {
+        "stat": "STR",
+        "dc": 23
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 145,
+          "materials": [
+            {
+              "id": "hellroot-fiber",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "hell-t6-event-10",
+      "kind": "helpful-person",
+      "label": "Neutral Demon",
+      "description": "A demon watches the party without immediately reaching for a weapon.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 7,
+      "check": {
+        "stat": "CON",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 145,
+          "materials": [
+            {
+              "id": "chain-iron",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "hell-t6-event-11",
+      "kind": "helpful-person",
+      "label": "Neutral Demon",
+      "description": "A demon watches the party without immediately reaching for a weapon.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 7,
+      "check": {
+        "stat": "FTH",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 145,
+          "materials": [
+            {
+              "id": "soul-ash",
+              "quantity": 2
+            }
+          ]
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "hell-t6-event-12",
+      "kind": "helpful-person",
+      "label": "Infernal Broker",
+      "description": "A neutral demon merchant displays objects whose weak workmanship hides impossible passive power.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 4,
+      "eventPayload": {
+        "success": {},
+        "failure": {}
+      },
+      "hellMerchant": true,
+      "merchantId": "infernal-broker"
+    }
+  ],
+  "rules": {
+    "count": 123,
+    "noRepeatsWithinCampaign": true,
+    "introCount": 3,
+    "merchantWarning": false,
+    "merchantMinDepth": 11
+  }
+}

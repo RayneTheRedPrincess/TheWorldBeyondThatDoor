@@ -1,0 +1,2807 @@
+{
+  "version": "NECROPOLIS-ENEMIES-2026-08-10",
+  "designStatus": "implemented",
+  "depthTiers": [
+    {
+      "id": "tier-1",
+      "name": "Outer Grave Procession",
+      "start": 1,
+      "end": 5,
+      "hpMultiplier": 1,
+      "damageMultiplier": 1,
+      "statAdd": 0,
+      "level": 36,
+      "expAdd": 0,
+      "onyxAdd": 0
+    },
+    {
+      "id": "tier-2",
+      "name": "Broken Tombways",
+      "start": 6,
+      "end": 9,
+      "hpMultiplier": 1.04,
+      "damageMultiplier": 1.03,
+      "statAdd": 1,
+      "level": 37,
+      "expAdd": 25,
+      "onyxAdd": 25
+    },
+    {
+      "id": "tier-3",
+      "name": "Tithe Streets",
+      "start": 11,
+      "end": 15,
+      "hpMultiplier": 1.06,
+      "damageMultiplier": 1.06,
+      "statAdd": 2,
+      "level": 38,
+      "expAdd": 50,
+      "onyxAdd": 45
+    },
+    {
+      "id": "tier-4",
+      "name": "Black Liturgies",
+      "start": 16,
+      "end": 19,
+      "hpMultiplier": 1.08,
+      "damageMultiplier": 1.08,
+      "statAdd": 3,
+      "level": 39,
+      "expAdd": 75,
+      "onyxAdd": 70
+    },
+    {
+      "id": "tier-5",
+      "name": "Royal Catacombs",
+      "start": 21,
+      "end": 25,
+      "hpMultiplier": 1.12,
+      "damageMultiplier": 1.12,
+      "statAdd": 4,
+      "level": 40,
+      "expAdd": 100,
+      "onyxAdd": 95
+    },
+    {
+      "id": "tier-6",
+      "name": "Crown Ossuary",
+      "start": 26,
+      "end": 29,
+      "hpMultiplier": 1.16,
+      "damageMultiplier": 1.15,
+      "statAdd": 5,
+      "level": 41,
+      "expAdd": 125,
+      "onyxAdd": 120
+    }
+  ],
+  "regularEnemies": [
+    {
+      "id": "cracked-skeleton",
+      "name": "Cracked Skeleton",
+      "role": "Undead Fodder",
+      "faction": "necropolis",
+      "necropolisFamily": "Undead Fodder",
+      "minTier": 1,
+      "maxTier": 6,
+      "encounterWeight": 18,
+      "baseMaxHp": 46,
+      "stats": {
+        "STR": 12,
+        "DEX": 8,
+        "CON": 9,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Brittle Slash",
+        "base": 7,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.002
+        }
+      },
+      "abilities": [],
+      "ai": {
+        "style": "aggressive",
+        "affinities": [
+          "Physical"
+        ],
+        "necropolisFodder": true,
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "brittle-bone",
+          "name": "Brittle Bone",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "cracked-skeleton"
+        },
+        {
+          "id": "grave-dust",
+          "name": "Grave Dust",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "cracked-skeleton"
+        }
+      ],
+      "baseExpReward": 280,
+      "baseOnyxReward": 375,
+      "resistances": {},
+      "portrait": null,
+      "undeadFodder": true,
+      "cultist": false,
+      "necropolisElite": false
+    },
+    {
+      "id": "rusted-skeleton",
+      "name": "Rusted Skeleton",
+      "role": "Undead Fodder",
+      "faction": "necropolis",
+      "necropolisFamily": "Undead Fodder",
+      "minTier": 1,
+      "maxTier": 6,
+      "encounterWeight": 18,
+      "baseMaxHp": 50,
+      "stats": {
+        "STR": 14,
+        "DEX": 7,
+        "CON": 10,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Brittle Slash",
+        "base": 8,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.002
+        }
+      },
+      "abilities": [],
+      "ai": {
+        "style": "aggressive",
+        "affinities": [
+          "Physical"
+        ],
+        "necropolisFodder": true,
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "brittle-bone",
+          "name": "Brittle Bone",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "rusted-skeleton"
+        },
+        {
+          "id": "grave-dust",
+          "name": "Grave Dust",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "rusted-skeleton"
+        }
+      ],
+      "baseExpReward": 280,
+      "baseOnyxReward": 375,
+      "resistances": {},
+      "portrait": null,
+      "undeadFodder": true,
+      "cultist": false,
+      "necropolisElite": false
+    },
+    {
+      "id": "bent-spine-skeleton",
+      "name": "Bent-Spine Skeleton",
+      "role": "Undead Fodder",
+      "faction": "necropolis",
+      "necropolisFamily": "Undead Fodder",
+      "minTier": 1,
+      "maxTier": 6,
+      "encounterWeight": 18,
+      "baseMaxHp": 44,
+      "stats": {
+        "STR": 10,
+        "DEX": 12,
+        "CON": 8,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Brittle Slash",
+        "base": 7,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.002
+        }
+      },
+      "abilities": [],
+      "ai": {
+        "style": "aggressive",
+        "affinities": [
+          "Physical"
+        ],
+        "necropolisFodder": true,
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "brittle-bone",
+          "name": "Brittle Bone",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "bent-spine-skeleton"
+        },
+        {
+          "id": "grave-dust",
+          "name": "Grave Dust",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "bent-spine-skeleton"
+        }
+      ],
+      "baseExpReward": 280,
+      "baseOnyxReward": 375,
+      "resistances": {},
+      "portrait": null,
+      "undeadFodder": true,
+      "cultist": false,
+      "necropolisElite": false
+    },
+    {
+      "id": "gravebow-skeleton",
+      "name": "Gravebow Skeleton",
+      "role": "Undead Fodder",
+      "faction": "necropolis",
+      "necropolisFamily": "Undead Fodder",
+      "minTier": 1,
+      "maxTier": 6,
+      "encounterWeight": 18,
+      "baseMaxHp": 42,
+      "stats": {
+        "STR": 8,
+        "DEX": 16,
+        "CON": 7,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Brittle Slash",
+        "base": 8,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.002
+        }
+      },
+      "abilities": [
+        {
+          "id": "gravebow-loose",
+          "name": "Loose Arrow",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 11,
+              "damageType": "Physical",
+              "scaling": {
+                "DEX": 0.006
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "affinities": [
+          "Physical"
+        ],
+        "necropolisFodder": true,
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "brittle-bone",
+          "name": "Brittle Bone",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "gravebow-skeleton"
+        },
+        {
+          "id": "grave-dust",
+          "name": "Grave Dust",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "gravebow-skeleton"
+        }
+      ],
+      "baseExpReward": 280,
+      "baseOnyxReward": 375,
+      "resistances": {},
+      "portrait": null,
+      "undeadFodder": true,
+      "cultist": false,
+      "necropolisElite": false
+    },
+    {
+      "id": "bone-porter",
+      "name": "Bone Porter",
+      "role": "Undead Fodder",
+      "faction": "necropolis",
+      "necropolisFamily": "Undead Fodder",
+      "minTier": 1,
+      "maxTier": 6,
+      "encounterWeight": 18,
+      "baseMaxHp": 54,
+      "stats": {
+        "STR": 16,
+        "DEX": 5,
+        "CON": 13,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Brittle Slash",
+        "base": 8,
+        "damageType": "Force",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.002
+        }
+      },
+      "abilities": [],
+      "ai": {
+        "style": "aggressive",
+        "affinities": [
+          "Force"
+        ],
+        "necropolisFodder": true,
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "brittle-bone",
+          "name": "Brittle Bone",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "bone-porter"
+        },
+        {
+          "id": "grave-dust",
+          "name": "Grave Dust",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "bone-porter"
+        }
+      ],
+      "baseExpReward": 280,
+      "baseOnyxReward": 375,
+      "resistances": {},
+      "portrait": null,
+      "undeadFodder": true,
+      "cultist": false,
+      "necropolisElite": false
+    },
+    {
+      "id": "ossuary-rattler",
+      "name": "Ossuary Rattler",
+      "role": "Undead Fodder",
+      "faction": "necropolis",
+      "necropolisFamily": "Undead Fodder",
+      "minTier": 1,
+      "maxTier": 6,
+      "encounterWeight": 18,
+      "baseMaxHp": 48,
+      "stats": {
+        "STR": 10,
+        "DEX": 11,
+        "CON": 9,
+        "INT": 7,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Brittle Slash",
+        "base": 7,
+        "damageType": "Cold",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.002
+        }
+      },
+      "abilities": [
+        {
+          "id": "rattler-chill",
+          "name": "Rattlechill",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 10,
+              "damageType": "Cold",
+              "scaling": {
+                "INT": 0.006,
+                "CON": 0.002
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "affinities": [
+          "Cold"
+        ],
+        "necropolisFodder": true,
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "brittle-bone",
+          "name": "Brittle Bone",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "ossuary-rattler"
+        },
+        {
+          "id": "grave-dust",
+          "name": "Grave Dust",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "ossuary-rattler"
+        }
+      ],
+      "baseExpReward": 280,
+      "baseOnyxReward": 375,
+      "resistances": {},
+      "portrait": null,
+      "undeadFodder": true,
+      "cultist": false,
+      "necropolisElite": false
+    },
+    {
+      "id": "ash-zombie",
+      "name": "Ash Zombie",
+      "role": "Undead Fodder",
+      "faction": "necropolis",
+      "necropolisFamily": "Undead Fodder",
+      "minTier": 1,
+      "maxTier": 6,
+      "encounterWeight": 18,
+      "baseMaxHp": 58,
+      "stats": {
+        "STR": 15,
+        "DEX": 4,
+        "CON": 16,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Weak Swing",
+        "base": 8,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.002
+        }
+      },
+      "abilities": [],
+      "ai": {
+        "style": "aggressive",
+        "affinities": [
+          "Physical"
+        ],
+        "necropolisFodder": true,
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "corpse-fiber",
+          "name": "Corpse Fiber",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "ash-zombie"
+        },
+        {
+          "id": "grave-dust",
+          "name": "Grave Dust",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "ash-zombie"
+        }
+      ],
+      "baseExpReward": 280,
+      "baseOnyxReward": 375,
+      "resistances": {},
+      "portrait": null,
+      "undeadFodder": true,
+      "cultist": false,
+      "necropolisElite": false
+    },
+    {
+      "id": "mud-caked-zombie",
+      "name": "Mud-Caked Zombie",
+      "role": "Undead Fodder",
+      "faction": "necropolis",
+      "necropolisFamily": "Undead Fodder",
+      "minTier": 1,
+      "maxTier": 6,
+      "encounterWeight": 18,
+      "baseMaxHp": 63,
+      "stats": {
+        "STR": 16,
+        "DEX": 3,
+        "CON": 18,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Weak Swing",
+        "base": 8,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.002
+        }
+      },
+      "abilities": [],
+      "ai": {
+        "style": "aggressive",
+        "affinities": [
+          "Physical"
+        ],
+        "necropolisFodder": true,
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "corpse-fiber",
+          "name": "Corpse Fiber",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "mud-caked-zombie"
+        },
+        {
+          "id": "grave-dust",
+          "name": "Grave Dust",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "mud-caked-zombie"
+        }
+      ],
+      "baseExpReward": 280,
+      "baseOnyxReward": 375,
+      "resistances": {},
+      "portrait": null,
+      "undeadFodder": true,
+      "cultist": false,
+      "necropolisElite": false
+    },
+    {
+      "id": "shroud-zombie",
+      "name": "Shroud Zombie",
+      "role": "Undead Fodder",
+      "faction": "necropolis",
+      "necropolisFamily": "Undead Fodder",
+      "minTier": 1,
+      "maxTier": 6,
+      "encounterWeight": 18,
+      "baseMaxHp": 56,
+      "stats": {
+        "STR": 12,
+        "DEX": 5,
+        "CON": 15,
+        "INT": 6,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Weak Swing",
+        "base": 7,
+        "damageType": "Cold",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.002
+        }
+      },
+      "abilities": [],
+      "ai": {
+        "style": "aggressive",
+        "affinities": [
+          "Cold"
+        ],
+        "necropolisFodder": true,
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "corpse-fiber",
+          "name": "Corpse Fiber",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "shroud-zombie"
+        },
+        {
+          "id": "grave-dust",
+          "name": "Grave Dust",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "shroud-zombie"
+        }
+      ],
+      "baseExpReward": 280,
+      "baseOnyxReward": 375,
+      "resistances": {},
+      "portrait": null,
+      "undeadFodder": true,
+      "cultist": false,
+      "necropolisElite": false
+    },
+    {
+      "id": "headless-zombie",
+      "name": "Headless Zombie",
+      "role": "Undead Fodder",
+      "faction": "necropolis",
+      "necropolisFamily": "Undead Fodder",
+      "minTier": 1,
+      "maxTier": 6,
+      "encounterWeight": 18,
+      "baseMaxHp": 61,
+      "stats": {
+        "STR": 18,
+        "DEX": 2,
+        "CON": 17,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Weak Swing",
+        "base": 9,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.002
+        }
+      },
+      "abilities": [],
+      "ai": {
+        "style": "aggressive",
+        "affinities": [
+          "Physical"
+        ],
+        "necropolisFodder": true,
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "corpse-fiber",
+          "name": "Corpse Fiber",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "headless-zombie"
+        },
+        {
+          "id": "grave-dust",
+          "name": "Grave Dust",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "headless-zombie"
+        }
+      ],
+      "baseExpReward": 280,
+      "baseOnyxReward": 375,
+      "resistances": {},
+      "portrait": null,
+      "undeadFodder": true,
+      "cultist": false,
+      "necropolisElite": false
+    },
+    {
+      "id": "crypt-laborer",
+      "name": "Crypt Laborer",
+      "role": "Undead Fodder",
+      "faction": "necropolis",
+      "necropolisFamily": "Undead Fodder",
+      "minTier": 1,
+      "maxTier": 6,
+      "encounterWeight": 18,
+      "baseMaxHp": 65,
+      "stats": {
+        "STR": 19,
+        "DEX": 3,
+        "CON": 18,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Weak Swing",
+        "base": 9,
+        "damageType": "Force",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.002
+        }
+      },
+      "abilities": [],
+      "ai": {
+        "style": "aggressive",
+        "affinities": [
+          "Force"
+        ],
+        "necropolisFodder": true,
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "corpse-fiber",
+          "name": "Corpse Fiber",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "crypt-laborer"
+        },
+        {
+          "id": "grave-dust",
+          "name": "Grave Dust",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "crypt-laborer"
+        }
+      ],
+      "baseExpReward": 280,
+      "baseOnyxReward": 375,
+      "resistances": {},
+      "portrait": null,
+      "undeadFodder": true,
+      "cultist": false,
+      "necropolisElite": false
+    },
+    {
+      "id": "procession-corpse",
+      "name": "Procession Corpse",
+      "role": "Undead Fodder",
+      "faction": "necropolis",
+      "necropolisFamily": "Undead Fodder",
+      "minTier": 1,
+      "maxTier": 6,
+      "encounterWeight": 18,
+      "baseMaxHp": 52,
+      "stats": {
+        "STR": 9,
+        "DEX": 6,
+        "CON": 14,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 8,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Weak Swing",
+        "base": 7,
+        "damageType": "Psychic",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.002
+        }
+      },
+      "abilities": [],
+      "ai": {
+        "style": "aggressive",
+        "affinities": [
+          "Psychic"
+        ],
+        "necropolisFodder": true,
+        "chargeBelowEnergy": 2
+      },
+      "materials": [
+        {
+          "id": "corpse-fiber",
+          "name": "Corpse Fiber",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "procession-corpse"
+        },
+        {
+          "id": "grave-dust",
+          "name": "Grave Dust",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "procession-corpse"
+        }
+      ],
+      "baseExpReward": 280,
+      "baseOnyxReward": 375,
+      "resistances": {},
+      "portrait": null,
+      "undeadFodder": true,
+      "cultist": false,
+      "necropolisElite": false
+    },
+    {
+      "id": "mirror-acolyte",
+      "name": "Mirror Acolyte",
+      "role": "Cult",
+      "faction": "necropolis",
+      "necropolisFamily": "Cult",
+      "minTier": 2,
+      "maxTier": 6,
+      "encounterWeight": 10,
+      "baseMaxHp": 86,
+      "stats": {
+        "STR": 0,
+        "DEX": 17,
+        "CON": 18,
+        "INT": 32,
+        "FTH": 0,
+        "CHA": 28,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Cult Weapon",
+        "base": 11,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.004
+        }
+      },
+      "abilities": [
+        {
+          "id": "mirror-acolyte-sacrifice",
+          "name": "Reflection Tithe",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 19,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.005,
+                "CHA": 0.004,
+                "STR": 0.003
+              }
+            }
+          ],
+          "sacrificeUndeadCount": 1,
+          "sacrificeRitual": true,
+          "targetEffect": {
+            "id": "mirror-acolyte-ritual-mark",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "incomingHealingPct": -8
+            },
+            "memory": {
+              "statusKind": "Cult Sacrifice Wound"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "necropolis-cult-sacrificer",
+        "affinities": [
+          "Psychic",
+          "Physical"
+        ],
+        "canSacrificeUndead": true,
+        "chargeBelowEnergy": 4
+      },
+      "materials": [
+        {
+          "id": "cult-sigil-thread",
+          "name": "Cult Sigil Thread",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "mirror-acolyte"
+        },
+        {
+          "id": "black-wax",
+          "name": "Black Wax",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "mirror-acolyte"
+        }
+      ],
+      "baseExpReward": 310,
+      "baseOnyxReward": 490,
+      "resistances": {
+        "Psychic": 8
+      },
+      "portrait": null,
+      "undeadFodder": false,
+      "cultist": true,
+      "necropolisElite": false
+    },
+    {
+      "id": "bone-tithe-priest",
+      "name": "Bone Tithe Priest",
+      "role": "Cult",
+      "faction": "necropolis",
+      "necropolisFamily": "Cult",
+      "minTier": 2,
+      "maxTier": 6,
+      "encounterWeight": 10,
+      "baseMaxHp": 92,
+      "stats": {
+        "STR": 0,
+        "DEX": 0,
+        "CON": 22,
+        "INT": 18,
+        "FTH": 31,
+        "CHA": 26,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Cult Weapon",
+        "base": 11,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.004
+        }
+      },
+      "abilities": [
+        {
+          "id": "bone-tithe-priest-sacrifice",
+          "name": "Bone Tithe",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 20,
+              "damageType": "Force",
+              "scaling": {
+                "INT": 0.005,
+                "CHA": 0.004,
+                "STR": 0.003
+              }
+            }
+          ],
+          "sacrificeUndeadCount": 1,
+          "sacrificeRitual": true,
+          "targetEffect": {
+            "id": "bone-tithe-priest-ritual-mark",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {},
+            "memory": {
+              "statusKind": "Cult Sacrifice Wound"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "necropolis-cult-sacrificer",
+        "affinities": [
+          "Force",
+          "Physical"
+        ],
+        "canSacrificeUndead": true,
+        "chargeBelowEnergy": 4
+      },
+      "materials": [
+        {
+          "id": "cult-sigil-thread",
+          "name": "Cult Sigil Thread",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "bone-tithe-priest"
+        },
+        {
+          "id": "black-wax",
+          "name": "Black Wax",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "bone-tithe-priest"
+        }
+      ],
+      "baseExpReward": 310,
+      "baseOnyxReward": 490,
+      "resistances": {},
+      "portrait": null,
+      "undeadFodder": false,
+      "cultist": true,
+      "necropolisElite": false
+    },
+    {
+      "id": "procession-knifer",
+      "name": "Procession Knifer",
+      "role": "Cult",
+      "faction": "necropolis",
+      "necropolisFamily": "Cult",
+      "minTier": 1,
+      "maxTier": 6,
+      "encounterWeight": 10,
+      "baseMaxHp": 84,
+      "stats": {
+        "STR": 28,
+        "DEX": 31,
+        "CON": 19,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 14
+      },
+      "basicAttack": {
+        "name": "Cult Weapon",
+        "base": 11,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.004
+        }
+      },
+      "abilities": [
+        {
+          "id": "procession-knifer-sacrifice",
+          "name": "Procession Cut",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 22,
+              "damageType": "Physical",
+              "scaling": {
+                "INT": 0.005,
+                "CHA": 0.004,
+                "STR": 0.003
+              }
+            }
+          ],
+          "sacrificeUndeadCount": 1,
+          "sacrificeRitual": true,
+          "targetEffect": {
+            "id": "procession-knifer-ritual-mark",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {},
+            "memory": {
+              "statusKind": "Cult Sacrifice Wound"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "necropolis-cult-sacrificer",
+        "affinities": [
+          "Physical",
+          "Physical"
+        ],
+        "canSacrificeUndead": true,
+        "chargeBelowEnergy": 4
+      },
+      "materials": [
+        {
+          "id": "cult-sigil-thread",
+          "name": "Cult Sigil Thread",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "procession-knifer"
+        },
+        {
+          "id": "black-wax",
+          "name": "Black Wax",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "procession-knifer"
+        }
+      ],
+      "baseExpReward": 280,
+      "baseOnyxReward": 445,
+      "resistances": {},
+      "portrait": null,
+      "undeadFodder": false,
+      "cultist": true,
+      "necropolisElite": false
+    },
+    {
+      "id": "grave-cantor",
+      "name": "Grave Cantor",
+      "role": "Cult",
+      "faction": "necropolis",
+      "necropolisFamily": "Cult",
+      "minTier": 2,
+      "maxTier": 6,
+      "encounterWeight": 10,
+      "baseMaxHp": 82,
+      "stats": {
+        "STR": 0,
+        "DEX": 0,
+        "CON": 18,
+        "INT": 25,
+        "FTH": 18,
+        "CHA": 33,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Cult Weapon",
+        "base": 11,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.004
+        }
+      },
+      "abilities": [
+        {
+          "id": "grave-cantor-sacrifice",
+          "name": "Funeral Chorus",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 18,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.005,
+                "CHA": 0.004,
+                "STR": 0.003
+              }
+            }
+          ],
+          "sacrificeUndeadCount": 1,
+          "sacrificeRitual": true,
+          "targetEffect": {
+            "id": "grave-cantor-ritual-mark",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "incomingHealingPct": -8
+            },
+            "memory": {
+              "statusKind": "Cult Sacrifice Wound"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "necropolis-cult-sacrificer",
+        "affinities": [
+          "Psychic",
+          "Physical"
+        ],
+        "canSacrificeUndead": true,
+        "chargeBelowEnergy": 4
+      },
+      "materials": [
+        {
+          "id": "cult-sigil-thread",
+          "name": "Cult Sigil Thread",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "grave-cantor"
+        },
+        {
+          "id": "black-wax",
+          "name": "Black Wax",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "grave-cantor"
+        }
+      ],
+      "baseExpReward": 310,
+      "baseOnyxReward": 490,
+      "resistances": {
+        "Psychic": 8
+      },
+      "portrait": null,
+      "undeadFodder": false,
+      "cultist": true,
+      "necropolisElite": false
+    },
+    {
+      "id": "sepulcher-hexer",
+      "name": "Sepulcher Hexer",
+      "role": "Cult",
+      "faction": "necropolis",
+      "necropolisFamily": "Cult",
+      "minTier": 3,
+      "maxTier": 6,
+      "encounterWeight": 10,
+      "baseMaxHp": 80,
+      "stats": {
+        "STR": 0,
+        "DEX": 0,
+        "CON": 18,
+        "INT": 36,
+        "FTH": 0,
+        "CHA": 31,
+        "LCK": 14
+      },
+      "basicAttack": {
+        "name": "Cult Weapon",
+        "base": 11,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.004
+        }
+      },
+      "abilities": [
+        {
+          "id": "sepulcher-hexer-sacrifice",
+          "name": "Sepulcher Hex",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 21,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.005,
+                "CHA": 0.004,
+                "STR": 0.003
+              }
+            }
+          ],
+          "sacrificeUndeadCount": 1,
+          "sacrificeRitual": true,
+          "targetEffect": {
+            "id": "sepulcher-hexer-ritual-mark",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "incomingHealingPct": -8
+            },
+            "memory": {
+              "statusKind": "Cult Sacrifice Wound"
+            }
+          }
+        },
+        {
+          "id": "sepulcher-hexer-grand-sacrifice",
+          "name": "Grand Sepulcher Hex",
+          "energyCost": 6,
+          "cooldown": 4,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 31,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.006,
+                "CHA": 0.005,
+                "STR": 0.004
+              }
+            }
+          ],
+          "sacrificeUndeadCount": 2,
+          "sacrificeRitual": true
+        }
+      ],
+      "ai": {
+        "style": "necropolis-cult-sacrificer",
+        "affinities": [
+          "Psychic",
+          "Physical"
+        ],
+        "canSacrificeUndead": true,
+        "chargeBelowEnergy": 4
+      },
+      "materials": [
+        {
+          "id": "cult-sigil-thread",
+          "name": "Cult Sigil Thread",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "sepulcher-hexer"
+        },
+        {
+          "id": "black-wax",
+          "name": "Black Wax",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "sepulcher-hexer"
+        }
+      ],
+      "baseExpReward": 340,
+      "baseOnyxReward": 535,
+      "resistances": {
+        "Psychic": 8
+      },
+      "portrait": null,
+      "undeadFodder": false,
+      "cultist": true,
+      "necropolisElite": false
+    },
+    {
+      "id": "black-censer-bearer",
+      "name": "Black-Censer Bearer",
+      "role": "Cult",
+      "faction": "necropolis",
+      "necropolisFamily": "Cult",
+      "minTier": 3,
+      "maxTier": 6,
+      "encounterWeight": 10,
+      "baseMaxHp": 104,
+      "stats": {
+        "STR": 20,
+        "DEX": 0,
+        "CON": 29,
+        "INT": 0,
+        "FTH": 25,
+        "CHA": 23,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Cult Weapon",
+        "base": 11,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.004
+        }
+      },
+      "abilities": [
+        {
+          "id": "black-censer-bearer-sacrifice",
+          "name": "Censer Burst",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 20,
+              "damageType": "Force",
+              "scaling": {
+                "INT": 0.005,
+                "CHA": 0.004,
+                "STR": 0.003
+              }
+            }
+          ],
+          "sacrificeUndeadCount": 1,
+          "sacrificeRitual": true,
+          "targetEffect": {
+            "id": "black-censer-bearer-ritual-mark",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {},
+            "memory": {
+              "statusKind": "Cult Sacrifice Wound"
+            }
+          }
+        },
+        {
+          "id": "black-censer-bearer-grand-sacrifice",
+          "name": "Grand Censer Burst",
+          "energyCost": 6,
+          "cooldown": 4,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 30,
+              "damageType": "Force",
+              "scaling": {
+                "INT": 0.006,
+                "CHA": 0.005,
+                "STR": 0.004
+              }
+            }
+          ],
+          "sacrificeUndeadCount": 2,
+          "sacrificeRitual": true
+        }
+      ],
+      "ai": {
+        "style": "necropolis-cult-sacrificer",
+        "affinities": [
+          "Force",
+          "Physical"
+        ],
+        "canSacrificeUndead": true,
+        "chargeBelowEnergy": 4
+      },
+      "materials": [
+        {
+          "id": "cult-sigil-thread",
+          "name": "Cult Sigil Thread",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "black-censer-bearer"
+        },
+        {
+          "id": "black-wax",
+          "name": "Black Wax",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "black-censer-bearer"
+        }
+      ],
+      "baseExpReward": 340,
+      "baseOnyxReward": 535,
+      "resistances": {},
+      "portrait": null,
+      "undeadFodder": false,
+      "cultist": true,
+      "necropolisElite": false
+    },
+    {
+      "id": "reliquary-warden",
+      "name": "Reliquary Warden",
+      "role": "Cult",
+      "faction": "necropolis",
+      "necropolisFamily": "Cult",
+      "minTier": 4,
+      "maxTier": 6,
+      "encounterWeight": 10,
+      "baseMaxHp": 118,
+      "stats": {
+        "STR": 32,
+        "DEX": 16,
+        "CON": 34,
+        "INT": 0,
+        "FTH": 20,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Cult Weapon",
+        "base": 11,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.004
+        }
+      },
+      "abilities": [
+        {
+          "id": "reliquary-warden-sacrifice",
+          "name": "Reliquary Cleave",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 23,
+              "damageType": "Physical",
+              "scaling": {
+                "INT": 0.005,
+                "CHA": 0.004,
+                "STR": 0.003
+              }
+            }
+          ],
+          "sacrificeUndeadCount": 1,
+          "sacrificeRitual": true,
+          "targetEffect": {
+            "id": "reliquary-warden-ritual-mark",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {},
+            "memory": {
+              "statusKind": "Cult Sacrifice Wound"
+            }
+          }
+        },
+        {
+          "id": "reliquary-warden-grand-sacrifice",
+          "name": "Grand Reliquary Cleave",
+          "energyCost": 6,
+          "cooldown": 4,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 33,
+              "damageType": "Physical",
+              "scaling": {
+                "INT": 0.006,
+                "CHA": 0.005,
+                "STR": 0.004
+              }
+            }
+          ],
+          "sacrificeUndeadCount": 2,
+          "sacrificeRitual": true
+        }
+      ],
+      "ai": {
+        "style": "necropolis-cult-sacrificer",
+        "affinities": [
+          "Physical",
+          "Physical"
+        ],
+        "canSacrificeUndead": true,
+        "chargeBelowEnergy": 4
+      },
+      "materials": [
+        {
+          "id": "cult-sigil-thread",
+          "name": "Cult Sigil Thread",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "reliquary-warden"
+        },
+        {
+          "id": "black-wax",
+          "name": "Black Wax",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "reliquary-warden"
+        }
+      ],
+      "baseExpReward": 370,
+      "baseOnyxReward": 580,
+      "resistances": {},
+      "portrait": null,
+      "undeadFodder": false,
+      "cultist": true,
+      "necropolisElite": false
+    },
+    {
+      "id": "cult-harrower",
+      "name": "Cult Harrower",
+      "role": "Cult",
+      "faction": "necropolis",
+      "necropolisFamily": "Cult",
+      "minTier": 4,
+      "maxTier": 6,
+      "encounterWeight": 10,
+      "baseMaxHp": 101,
+      "stats": {
+        "STR": 30,
+        "DEX": 24,
+        "CON": 22,
+        "INT": 28,
+        "FTH": 0,
+        "CHA": 26,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Cult Weapon",
+        "base": 11,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.004,
+          "DEX": 0.004
+        }
+      },
+      "abilities": [
+        {
+          "id": "cult-harrower-sacrifice",
+          "name": "Harrowing Rite",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 24,
+              "damageType": "Force",
+              "scaling": {
+                "INT": 0.005,
+                "CHA": 0.004,
+                "STR": 0.003
+              }
+            }
+          ],
+          "sacrificeUndeadCount": 1,
+          "sacrificeRitual": true,
+          "targetEffect": {
+            "id": "cult-harrower-ritual-mark",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {},
+            "memory": {
+              "statusKind": "Cult Sacrifice Wound"
+            }
+          }
+        },
+        {
+          "id": "cult-harrower-grand-sacrifice",
+          "name": "Grand Harrowing Rite",
+          "energyCost": 6,
+          "cooldown": 4,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 34,
+              "damageType": "Force",
+              "scaling": {
+                "INT": 0.006,
+                "CHA": 0.005,
+                "STR": 0.004
+              }
+            }
+          ],
+          "sacrificeUndeadCount": 2,
+          "sacrificeRitual": true
+        }
+      ],
+      "ai": {
+        "style": "necropolis-cult-sacrificer",
+        "affinities": [
+          "Force",
+          "Physical"
+        ],
+        "canSacrificeUndead": true,
+        "chargeBelowEnergy": 4
+      },
+      "materials": [
+        {
+          "id": "cult-sigil-thread",
+          "name": "Cult Sigil Thread",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "cult-harrower"
+        },
+        {
+          "id": "black-wax",
+          "name": "Black Wax",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "cult-harrower"
+        }
+      ],
+      "baseExpReward": 370,
+      "baseOnyxReward": 580,
+      "resistances": {},
+      "portrait": null,
+      "undeadFodder": false,
+      "cultist": true,
+      "necropolisElite": false
+    },
+    {
+      "id": "grave-knight",
+      "name": "Grave Knight",
+      "role": "Guardian",
+      "faction": "necropolis",
+      "necropolisFamily": "Guardian",
+      "minTier": 5,
+      "maxTier": 6,
+      "encounterWeight": 7,
+      "baseMaxHp": 174,
+      "stats": {
+        "STR": 39,
+        "DEX": 15,
+        "CON": 39,
+        "INT": 0,
+        "FTH": 16,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Graveblade",
+        "base": 17,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.008
+        }
+      },
+      "abilities": [
+        {
+          "id": "grave-knight-press",
+          "name": "Sepulcher Press",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 27,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.009,
+                "CON": 0.002
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "affinities": [
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "rusted-funerary-iron",
+          "name": "Rusted Funerary Iron",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "grave-knight"
+        },
+        {
+          "id": "grave-salt",
+          "name": "Grave Salt",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "grave-knight"
+        }
+      ],
+      "baseExpReward": 400,
+      "baseOnyxReward": 625,
+      "resistances": {
+        "Physical": 18,
+        "Cold": 10
+      },
+      "portrait": null,
+      "undeadFodder": false,
+      "cultist": false,
+      "necropolisElite": true
+    },
+    {
+      "id": "mourning-wraith",
+      "name": "Mourning Wraith",
+      "role": "Guardian",
+      "faction": "necropolis",
+      "necropolisFamily": "Guardian",
+      "minTier": 5,
+      "maxTier": 6,
+      "encounterWeight": 6,
+      "baseMaxHp": 128,
+      "stats": {
+        "STR": 0,
+        "DEX": 24,
+        "CON": 16,
+        "INT": 39,
+        "FTH": 0,
+        "CHA": 38,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Mourning Touch",
+        "base": 15,
+        "damageType": "Psychic",
+        "scaling": {
+          "INT": 0.007,
+          "CHA": 0.004
+        }
+      },
+      "abilities": [
+        {
+          "id": "wraith-lament",
+          "name": "Mourning Lament",
+          "energyCost": 5,
+          "cooldown": 3,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 20,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.007,
+                "CHA": 0.005
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "mourning-dread",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "damageCritChancePct": -8
+            },
+            "memory": {
+              "statusKind": "Mourning Dread"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "affinities": [
+          "Psychic",
+          "Cold"
+        ]
+      },
+      "materials": [
+        {
+          "id": "cold-ectoplasm",
+          "name": "Cold Ectoplasm",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "mourning-wraith"
+        },
+        {
+          "id": "soul-ash",
+          "name": "Soul Ash",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "mourning-wraith"
+        }
+      ],
+      "baseExpReward": 400,
+      "baseOnyxReward": 625,
+      "resistances": {
+        "Psychic": 20,
+        "Cold": 15
+      },
+      "portrait": null,
+      "undeadFodder": false,
+      "cultist": false,
+      "necropolisElite": true
+    },
+    {
+      "id": "bone-gargoyle",
+      "name": "Bone Gargoyle",
+      "role": "Guardian",
+      "faction": "necropolis",
+      "necropolisFamily": "Guardian",
+      "minTier": 5,
+      "maxTier": 6,
+      "encounterWeight": 6,
+      "baseMaxHp": 188,
+      "stats": {
+        "STR": 42,
+        "DEX": 20,
+        "CON": 43,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Bone Talon",
+        "base": 17,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.008
+        }
+      },
+      "abilities": [
+        {
+          "id": "gargoyle-drop",
+          "name": "Tombstone Drop",
+          "energyCost": 6,
+          "cooldown": 3,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 30,
+              "damageType": "Force",
+              "scaling": {
+                "STR": 0.008,
+                "CON": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "affinities": [
+          "Physical",
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "ossuary-clay",
+          "name": "Ossuary Clay",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "bone-gargoyle"
+        },
+        {
+          "id": "brittle-bone",
+          "name": "Brittle Bone",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "bone-gargoyle"
+        }
+      ],
+      "baseExpReward": 400,
+      "baseOnyxReward": 625,
+      "resistances": {
+        "Physical": 16,
+        "Force": 14
+      },
+      "portrait": null,
+      "undeadFodder": false,
+      "cultist": false,
+      "necropolisElite": true
+    },
+    {
+      "id": "tomb-sentinel",
+      "name": "Tomb Sentinel",
+      "role": "Guardian",
+      "faction": "necropolis",
+      "necropolisFamily": "Guardian",
+      "minTier": 5,
+      "maxTier": 6,
+      "encounterWeight": 5,
+      "baseMaxHp": 201,
+      "stats": {
+        "STR": 36,
+        "DEX": 0,
+        "CON": 46,
+        "INT": 20,
+        "FTH": 20,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Sentinel Maul",
+        "base": 16,
+        "damageType": "Force",
+        "scaling": {
+          "STR": 0.006,
+          "CON": 0.004
+        }
+      },
+      "abilities": [
+        {
+          "id": "sentinel-bulwark",
+          "name": "Funerary Bulwark",
+          "energyCost": 4,
+          "cooldown": 3,
+          "targetMode": "self",
+          "components": [
+            {
+              "type": "shield",
+              "base": 32,
+              "scaling": {
+                "CON": 0.008,
+                "FTH": 0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "sentinel-crush",
+          "name": "Crypt Crush",
+          "energyCost": 6,
+          "cooldown": 3,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 28,
+              "damageType": "Force",
+              "scaling": {
+                "STR": 0.007,
+                "CON": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "defensive",
+        "affinities": [
+          "Force"
+        ],
+        "shieldThresholdPct": 85,
+        "chargeBelowEnergy": 4
+      },
+      "materials": [
+        {
+          "id": "rusted-funerary-iron",
+          "name": "Rusted Funerary Iron",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "tomb-sentinel"
+        },
+        {
+          "id": "ossuary-clay",
+          "name": "Ossuary Clay",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "tomb-sentinel"
+        }
+      ],
+      "baseExpReward": 400,
+      "baseOnyxReward": 625,
+      "resistances": {
+        "Force": 20
+      },
+      "portrait": null,
+      "undeadFodder": false,
+      "cultist": false,
+      "necropolisElite": true
+    }
+  ],
+  "minibosses": [
+    {
+      "name": "Vicar Malrec, Bone-Tithe Executioner",
+      "fixedDepth": 10,
+      "actors": [
+        {
+          "id": "vicar-malrec-bone-tithe",
+          "name": "Vicar Malrec, Bone-Tithe Executioner",
+          "role": "Miniboss · Cult Executioner",
+          "baseMaxHp": 430,
+          "maxEnergy": 8,
+          "level": 38,
+          "stats": {
+            "STR": 45,
+            "DEX": 32,
+            "CON": 38,
+            "INT": 25,
+            "FTH": 19,
+            "CHA": 37,
+            "LCK": 16
+          },
+          "basicAttack": {
+            "name": "Black Tithe Blade",
+            "base": 18,
+            "damageType": "Physical",
+            "scaling": {
+              "STR": 0.008,
+              "DEX": 0.003
+            }
+          },
+          "abilities": [
+            {
+              "id": "malrec-tithe-edge",
+              "name": "Tithe Edge",
+              "energyCost": 4,
+              "cooldown": 2,
+              "targetMode": "single-enemy",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 36,
+                  "damageType": "Physical",
+                  "scaling": {
+                    "STR": 0.009,
+                    "DEX": 0.003
+                  }
+                }
+              ],
+              "sacrificeUndeadCount": 1,
+              "sacrificeRitual": true,
+              "selfEffect": {
+                "id": "malrec-bloodless-focus",
+                "negative": false,
+                "durationTurns": 2,
+                "modifiers": {
+                  "finalDamagePct": 10
+                },
+                "memory": {
+                  "statusKind": "Bloodless Focus"
+                }
+              }
+            },
+            {
+              "id": "malrec-black-edict",
+              "name": "Black Edict",
+              "energyCost": 5,
+              "cooldown": 3,
+              "targetMode": "self",
+              "components": [],
+              "sacrificeUndeadCount": 1,
+              "sacrificeRitual": true,
+              "selfEffect": {
+                "id": "malrec-black-edict-buff",
+                "negative": false,
+                "durationTurns": 3,
+                "modifiers": {
+                  "finalDamagePct": 15,
+                  "damageCritChancePct": 12
+                },
+                "memory": {
+                  "statusKind": "Black Edict"
+                }
+              }
+            },
+            {
+              "id": "malrec-final-claim",
+              "name": "Final Claim",
+              "energyCost": 7,
+              "cooldown": 4,
+              "targetMode": "single-enemy",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 52,
+                  "damageType": "Force",
+                  "scaling": {
+                    "STR": 0.008,
+                    "CHA": 0.005
+                  }
+                }
+              ],
+              "sacrificeUndeadCount": 2,
+              "sacrificeRitual": true
+            }
+          ],
+          "ai": {
+            "style": "necropolis-cult-executioner",
+            "affinities": [
+              "Physical",
+              "Force"
+            ],
+            "canSacrificeUndead": true,
+            "chargeBelowEnergy": 7,
+            "chargeTowardHeavyChancePct": 55,
+            "maxEnergySignatureAbilityId": "malrec-final-claim"
+          },
+          "materials": [
+            {
+              "id": "tithe-knife-edge",
+              "name": "Tithe Knife Edge",
+              "materialKind": "boss-material",
+              "sourceId": "vicar-malrec-bone-tithe",
+              "deterministic": true
+            },
+            {
+              "id": "executioner-soulfirecore",
+              "name": "Executioner SoulfireCore",
+              "materialKind": "soulfire-core",
+              "sourceId": "vicar-malrec-bone-tithe",
+              "deterministic": true
+            }
+          ],
+          "expReward": 1800,
+          "onyxReward": 3500,
+          "resistances": {
+            "Physical": 15,
+            "Force": 12
+          },
+          "portrait": null
+        },
+        {
+          "id": "executioner-tithe-skeleton-1",
+          "name": "Tithe Skeleton 1",
+          "role": "Miniboss Fodder · Weak Skeleton",
+          "baseMaxHp": 58,
+          "maxEnergy": 7,
+          "level": 38,
+          "stats": {
+            "STR": 13,
+            "DEX": 8,
+            "CON": 10,
+            "INT": 0,
+            "FTH": 0,
+            "CHA": 0,
+            "LCK": 0
+          },
+          "basicAttack": {
+            "name": "Brittle Knife",
+            "base": 7,
+            "damageType": "Physical",
+            "scaling": {
+              "STR": 0.004
+            }
+          },
+          "abilities": [],
+          "ai": {
+            "style": "aggressive",
+            "affinities": [
+              "Physical"
+            ],
+            "necropolisFodder": true
+          },
+          "materials": [],
+          "expReward": 0,
+          "onyxReward": 0,
+          "resistances": {},
+          "portrait": null,
+          "undeadFodder": true
+        },
+        {
+          "id": "executioner-tithe-skeleton-2",
+          "name": "Tithe Skeleton 2",
+          "role": "Miniboss Fodder · Weak Skeleton",
+          "baseMaxHp": 58,
+          "maxEnergy": 7,
+          "level": 38,
+          "stats": {
+            "STR": 13,
+            "DEX": 8,
+            "CON": 10,
+            "INT": 0,
+            "FTH": 0,
+            "CHA": 0,
+            "LCK": 0
+          },
+          "basicAttack": {
+            "name": "Brittle Knife",
+            "base": 7,
+            "damageType": "Physical",
+            "scaling": {
+              "STR": 0.004
+            }
+          },
+          "abilities": [],
+          "ai": {
+            "style": "aggressive",
+            "affinities": [
+              "Physical"
+            ],
+            "necropolisFodder": true
+          },
+          "materials": [],
+          "expReward": 0,
+          "onyxReward": 0,
+          "resistances": {},
+          "portrait": null,
+          "undeadFodder": true
+        },
+        {
+          "id": "executioner-tithe-skeleton-3",
+          "name": "Tithe Skeleton 3",
+          "role": "Miniboss Fodder · Weak Skeleton",
+          "baseMaxHp": 58,
+          "maxEnergy": 7,
+          "level": 38,
+          "stats": {
+            "STR": 13,
+            "DEX": 8,
+            "CON": 10,
+            "INT": 0,
+            "FTH": 0,
+            "CHA": 0,
+            "LCK": 0
+          },
+          "basicAttack": {
+            "name": "Brittle Knife",
+            "base": 7,
+            "damageType": "Physical",
+            "scaling": {
+              "STR": 0.004
+            }
+          },
+          "abilities": [],
+          "ai": {
+            "style": "aggressive",
+            "affinities": [
+              "Physical"
+            ],
+            "necropolisFodder": true
+          },
+          "materials": [],
+          "expReward": 0,
+          "onyxReward": 0,
+          "resistances": {},
+          "portrait": null,
+          "undeadFodder": true
+        }
+      ]
+    },
+    {
+      "name": "Grave Colossus",
+      "fixedDepth": 20,
+      "actors": [
+        {
+          "id": "grave-colossus",
+          "name": "Grave Colossus",
+          "role": "Miniboss · Stitched Grave Engine",
+          "baseMaxHp": 680,
+          "maxEnergy": 8,
+          "level": 40,
+          "stats": {
+            "STR": 55,
+            "DEX": 8,
+            "CON": 58,
+            "INT": 18,
+            "FTH": 0,
+            "CHA": 12,
+            "LCK": 0
+          },
+          "basicAttack": {
+            "name": "Monument Fist",
+            "base": 20,
+            "damageType": "Physical",
+            "scaling": {
+              "STR": 0.008,
+              "CON": 0.003
+            }
+          },
+          "abilities": [
+            {
+              "id": "colossus-double-maul",
+              "name": "Double Mausoleum Fist",
+              "energyCost": 5,
+              "cooldown": 2,
+              "targetMode": "single-enemy",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 24,
+                  "damageType": "Physical",
+                  "scaling": {
+                    "STR": 0.009,
+                    "CON": 0.002
+                  }
+                }
+              ],
+              "hits": 2
+            },
+            {
+              "id": "colossus-tombquake",
+              "name": "Tombquake Pair",
+              "energyCost": 6,
+              "cooldown": 3,
+              "targetMode": "all-enemies",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 27,
+                  "damageType": "Force",
+                  "scaling": {
+                    "STR": 0.007,
+                    "CON": 0.005
+                  }
+                }
+              ]
+            },
+            {
+              "id": "colossus-sepulcher-crash",
+              "name": "Sepulcher Crash",
+              "energyCost": 7,
+              "cooldown": 4,
+              "targetMode": "all-enemies",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 34,
+                  "damageType": "Cold",
+                  "scaling": {
+                    "CON": 0.006,
+                    "STR": 0.004
+                  }
+                }
+              ]
+            },
+            {
+              "id": "colossus-grave-compression",
+              "name": "Grave Compression",
+              "energyCost": 8,
+              "cooldown": 5,
+              "targetMode": "single-enemy",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 48,
+                  "damageType": "Force",
+                  "scaling": {
+                    "STR": 0.009,
+                    "CON": 0.006
+                  }
+                }
+              ],
+              "shieldBonusPct": 20
+            }
+          ],
+          "ai": {
+            "style": "necropolis-grave-colossus",
+            "affinities": [
+              "Physical",
+              "Force",
+              "Cold"
+            ],
+            "chargeBelowEnergy": 8,
+            "chargeTowardHeavyChancePct": 55,
+            "maxEnergySignatureAbilityId": "colossus-grave-compression",
+            "maxEnergySignatureChancePct": 45
+          },
+          "materials": [
+            {
+              "id": "grave-colossus-core",
+              "name": "Grave Colossus Core",
+              "materialKind": "boss-material",
+              "sourceId": "grave-colossus",
+              "deterministic": true
+            },
+            {
+              "id": "grave-colossus-soulfirecore",
+              "name": "Grave Colossus SoulfireCore",
+              "materialKind": "soulfire-core",
+              "sourceId": "grave-colossus",
+              "deterministic": true
+            }
+          ],
+          "expReward": 2400,
+          "onyxReward": 4300,
+          "resistances": {
+            "Physical": 20,
+            "Force": 18,
+            "Cold": 18
+          },
+          "portrait": null
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "name": "The Ossuary King",
+    "fixedDepth": 30,
+    "actors": [
+      {
+        "id": "ossuary-king",
+        "name": "The Ossuary King",
+        "role": "Boss · Ancient Necropolis Monarch",
+        "baseMaxHp": 900,
+        "maxEnergy": 8,
+        "level": 43,
+        "stats": {
+          "STR": 58,
+          "DEX": 24,
+          "CON": 55,
+          "INT": 44,
+          "FTH": 18,
+          "CHA": 50,
+          "LCK": 15
+        },
+        "basicAttack": {
+          "name": "Crownbone Cleaver",
+          "base": 21,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.008,
+            "CHA": 0.002
+          }
+        },
+        "abilities": [
+          {
+            "id": "king-crown-cleaver",
+            "name": "Crownbone Cleaver",
+            "energyCost": 4,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 30,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.009,
+                  "CHA": 0.002
+                }
+              }
+            ],
+            "royalWeaponAttack": true
+          },
+          {
+            "id": "king-graveforce-edict",
+            "name": "Graveforce Edict",
+            "energyCost": 5,
+            "cooldown": 2,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 23,
+                "damageType": "Force",
+                "scaling": {
+                  "STR": 0.005,
+                  "CHA": 0.005
+                }
+              }
+            ]
+          },
+          {
+            "id": "king-winter-sepulcher",
+            "name": "Winter Sepulcher",
+            "energyCost": 5,
+            "cooldown": 3,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 22,
+                "damageType": "Cold",
+                "scaling": {
+                  "INT": 0.007,
+                  "CON": 0.003
+                }
+              }
+            ],
+            "maxHpPct": 70
+          },
+          {
+            "id": "king-soul-decree",
+            "name": "Royal Soul Decree",
+            "energyCost": 6,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 35,
+                "damageType": "Psychic",
+                "scaling": {
+                  "INT": 0.006,
+                  "CHA": 0.006
+                }
+              }
+            ],
+            "maxHpPct": 70,
+            "targetEffect": {
+              "id": "royal-dread",
+              "negative": true,
+              "durationTurns": 2,
+              "modifiers": {
+                "incomingHealingPct": -12
+              },
+              "memory": {
+                "statusKind": "Royal Dread"
+              }
+            }
+          },
+          {
+            "id": "king-many-armed-procession",
+            "name": "Many-Armed Procession",
+            "energyCost": 6,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 20,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.007,
+                  "CON": 0.002
+                }
+              }
+            ],
+            "ossuaryLimbAttack": true,
+            "royalWeaponAttack": true,
+            "maxHpPct": 70
+          },
+          {
+            "id": "king-crown-collapse",
+            "name": "Crown of the Dead",
+            "energyCost": 8,
+            "cooldown": 4,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 18,
+                "damageType": "Force",
+                "scaling": {
+                  "CHA": 0.005,
+                  "STR": 0.003
+                }
+              },
+              {
+                "type": "damage",
+                "base": 18,
+                "damageType": "Psychic",
+                "scaling": {
+                  "INT": 0.005,
+                  "CHA": 0.004
+                }
+              }
+            ],
+            "maxHpPct": 35
+          }
+        ],
+        "ai": {
+          "style": "necropolis-ossuary-king",
+          "affinities": [
+            "Physical",
+            "Cold",
+            "Force",
+            "Psychic"
+          ],
+          "chargeBelowEnergy": 8,
+          "chargeTowardHeavyChancePct": 45,
+          "maxEnergySignatureAbilityId": "king-crown-collapse"
+        },
+        "materials": [
+          {
+            "id": "ossuary-kings-crown",
+            "name": "Ossuary King’s Crown",
+            "materialKind": "boss-material",
+            "sourceId": "ossuary-king",
+            "deterministic": true
+          },
+          {
+            "id": "ossuary-king-soulfirecore",
+            "name": "Ossuary King SoulfireCore",
+            "materialKind": "soulfire-core",
+            "sourceId": "ossuary-king",
+            "deterministic": true
+          }
+        ],
+        "expReward": 4200,
+        "onyxReward": 6200,
+        "resistances": {
+          "Physical": 18,
+          "Cold": 20,
+          "Force": 18,
+          "Psychic": 18
+        },
+        "portrait": null
+      },
+      {
+        "id": "royal-ossuary-bone-armor",
+        "name": "Royal Ossuary — Bone Armor",
+        "role": "Boss Support · Bone Armor/Shield",
+        "baseMaxHp": 240,
+        "maxEnergy": 7,
+        "level": 43,
+        "stats": {
+          "STR": 0,
+          "DEX": 0,
+          "CON": 50,
+          "INT": 16,
+          "FTH": 26,
+          "CHA": 0,
+          "LCK": 0
+        },
+        "basicAttack": {
+          "name": "Bone Shard",
+          "base": 8,
+          "damageType": "Physical",
+          "scaling": {
+            "CON": 0.003
+          }
+        },
+        "abilities": [
+          {
+            "id": "royal-boneguard",
+            "name": "Royal Boneguard",
+            "energyCost": 3,
+            "cooldown": 1,
+            "targetMode": "protected-ally",
+            "components": [
+              {
+                "type": "shield",
+                "base": 45,
+                "scaling": {
+                  "CON": 0.008,
+                  "FTH": 0.004
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "style": "necropolis-ossuary-bone-armor",
+          "affinities": [
+            "Physical"
+          ],
+          "protectedAllyTemplateId": "ossuary-king",
+          "shieldThresholdPct": 100
+        },
+        "materials": [],
+        "expReward": 0,
+        "onyxReward": 0,
+        "resistances": {
+          "Physical": 20
+        },
+        "portrait": null
+      },
+      {
+        "id": "royal-ossuary-many-limbs",
+        "name": "Royal Ossuary — Many Limbs",
+        "role": "Boss Support · Extra Limbs",
+        "baseMaxHp": 220,
+        "maxEnergy": 7,
+        "level": 43,
+        "stats": {
+          "STR": 35,
+          "DEX": 0,
+          "CON": 36,
+          "INT": 0,
+          "FTH": 0,
+          "CHA": 22,
+          "LCK": 0
+        },
+        "basicAttack": {
+          "name": "Limb Lash",
+          "base": 9,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.004
+          }
+        },
+        "abilities": [],
+        "ai": {
+          "style": "necropolis-ossuary-limbs",
+          "affinities": [
+            "Physical"
+          ],
+          "protectedAllyTemplateId": "ossuary-king"
+        },
+        "materials": [],
+        "expReward": 0,
+        "onyxReward": 0,
+        "resistances": {
+          "Physical": 15
+        },
+        "portrait": null
+      },
+      {
+        "id": "royal-ossuary-arsenal",
+        "name": "Royal Ossuary — Royal Arsenal",
+        "role": "Boss Support · Enlarged Weapons",
+        "baseMaxHp": 225,
+        "maxEnergy": 7,
+        "level": 43,
+        "stats": {
+          "STR": 40,
+          "DEX": 0,
+          "CON": 34,
+          "INT": 22,
+          "FTH": 0,
+          "CHA": 0,
+          "LCK": 0
+        },
+        "basicAttack": {
+          "name": "Weapon Shard",
+          "base": 10,
+          "damageType": "Force",
+          "scaling": {
+            "STR": 0.004,
+            "INT": 0.002
+          }
+        },
+        "abilities": [],
+        "ai": {
+          "style": "necropolis-ossuary-arsenal",
+          "affinities": [
+            "Force"
+          ],
+          "protectedAllyTemplateId": "ossuary-king"
+        },
+        "materials": [],
+        "expReward": 0,
+        "onyxReward": 0,
+        "resistances": {
+          "Force": 15
+        },
+        "portrait": null
+      }
+    ]
+  },
+  "rules": {
+    "partySizeEnemyCount": {
+      "1": [
+        2,
+        3
+      ],
+      "2": [
+        3,
+        4
+      ],
+      "3": [
+        4,
+        5
+      ],
+      "4": [
+        5,
+        6
+      ]
+    },
+    "sacrificeTierMinimum": 3,
+    "midTierComposition": "At least one living cult sacrificer plus weak skeleton/zombie fodder whenever possible.",
+    "normalMaterialDropByRealPartySize": {
+      "1": [
+        4,
+        6
+      ],
+      "2": [
+        6,
+        8
+      ],
+      "3": [
+        8,
+        10
+      ],
+      "4": [
+        10,
+        12
+      ]
+    },
+    "bossMinibossPartyScaling": {
+      "1": {
+        "maxHpMultiplier": 1,
+        "damageMultiplier": 1
+      },
+      "2": {
+        "maxHpMultiplier": 1.55,
+        "damageMultiplier": 1.15
+      },
+      "3": {
+        "maxHpMultiplier": 2.1,
+        "damageMultiplier": 1.3
+      },
+      "4": {
+        "maxHpMultiplier": 2.65,
+        "damageMultiplier": 1.45
+      }
+    },
+    "portraits": "null-initials-fallback",
+    "trainers": false,
+    "regionalMeter": false,
+    "ordinaryUndeadRemainWeak": true
+  },
+  "balanceRevision": "2026-08-10-enemy-difficulty-balance"
+}

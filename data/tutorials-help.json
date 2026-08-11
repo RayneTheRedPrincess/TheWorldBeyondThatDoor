@@ -340,7 +340,7 @@
     {
       "id": "lender",
       "title": "Mara's Lender",
-      "body": "There is no permanent equipment inventory. On a successful alive return, a Vessel may register exactly one eligible item brought home from that campaign into its permanent lender catalogue. Before a future campaign, one registered item may be borrowed for free as a run-scoped copy."
+      "body": "There is no permanent equipment inventory. On a successful alive return, a Vessel may register exactly one eligible item brought home from that campaign into its permanent lender catalogue. Before a future campaign, one registered item may be borrowed for free as a run-scoped Legacy copy. Legacy exists only through Mara's Lender and gives that borrowed copy +50% listed stats and Resistances while leaving bespoke passives, granted abilities, and set bonuses unchanged."
     },
     {
       "id": "onyx",

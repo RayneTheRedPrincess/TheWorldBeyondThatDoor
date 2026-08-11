@@ -1,7 +1,7 @@
 {
-  "version": "I11-2026-08-08",
-  "status": "ALL_266_REGISTERED",
-  "count": 266,
+  "version": "2026-08-10",
+  "status": "ALL_267_REGISTERED",
+  "count": 267,
   "rules": {
     "capacity": 7,
     "duplicatesAllowed": false,
@@ -55,7 +55,7 @@
       "scope": "global",
       "family": null,
       "subclass": null,
-      "canonicalText": "The first time one of your summons acts each round, it leaves a Kin Echo on you until the end of your next turn. Your next direct damage consumes the Echo to add 25% Base Damage as Force; your next direct heal instead consumes it to echo 20% of the actual healing to the summon with the lowest HP. The first time you act each round, active summons gain a matching Echo that adds 20% of their normal action as bonus Force damage or bonus healing, depending on that summon\u2019s action.",
+      "canonicalText": "The first time one of your summons acts each round, it leaves a Kin Echo on you until the end of your next turn. Your next direct damage consumes the Echo to add 25% Base Damage as Force; your next direct heal instead consumes it to echo 20% of the actual healing to the summon with the lowest HP. The first time you act each round, active summons gain a matching Echo that adds 20% of their normal action as bonus Force damage or bonus healing, depending on that summon’s action.",
       "tags": [
         "damage",
         "healing",
@@ -825,7 +825,7 @@
       "scope": "global",
       "family": null,
       "subclass": null,
-      "canonicalText": "After a successful Block, gain Slip. If you Dodge before the end of your next turn, consume Slip to gain a Shield equal to 6% Max HP and apply -2 Initiative to the attacker\u2019s next calculation.",
+      "canonicalText": "After a successful Block, gain Slip. If you Dodge before the end of your next turn, consume Slip to gain a Shield equal to 6% Max HP and apply -2 Initiative to the attacker’s next calculation.",
       "tags": [
         "shield",
         "defense"
@@ -1252,7 +1252,7 @@
       "scope": "global",
       "family": null,
       "subclass": null,
-      "canonicalText": "Directly healing a Shielded target stores 20% of actual HP restored inside the Shield. When the Shield breaks or expires, the stored healing is released, capped at 5% of the target\u2019s Max HP.",
+      "canonicalText": "Directly healing a Shielded target stores 20% of actual HP restored inside the Shield. When the Shield breaks or expires, the stored healing is released, capped at 5% of the target’s Max HP.",
       "tags": [
         "healing",
         "shield"
@@ -1494,7 +1494,7 @@
       "scope": "global",
       "family": null,
       "subclass": null,
-      "canonicalText": "The first time one of your summons deals direct damage each round, it leaves a Wake. Your next direct damaging ability consumes the Wake to add 15% Base Damage matching the summon\u2019s damage type; if it has no damage type, use Force.",
+      "canonicalText": "The first time one of your summons deals direct damage each round, it leaves a Wake. Your next direct damaging ability consumes the Wake to add 15% Base Damage matching the summon’s damage type; if it has no damage type, use Force.",
       "tags": [
         "damage",
         "summon"
@@ -1857,7 +1857,7 @@
       "scope": "global",
       "family": null,
       "subclass": null,
-      "canonicalText": "The first direct heal you receive each turn grants a Shield equal to 20% of actual HP restored, capped at 8% Max HP. While that Shield remains, your direct damaging Crits restore 10% of the Shield\u2019s original value, once per turn.",
+      "canonicalText": "The first direct heal you receive each turn grants a Shield equal to 20% of actual HP restored, capped at 8% Max HP. While that Shield remains, your direct damaging Crits restore 10% of the Shield’s original value, once per turn.",
       "tags": [
         "damage",
         "healing",
@@ -1940,7 +1940,7 @@
       "scope": "global",
       "family": null,
       "subclass": null,
-      "canonicalText": "Applying a different eligible non-control debuff to an enemy that already has one creates a Weave Link for 2 turns. While linked, the older debuff is 15% stronger and the newer debuff deals 10% Base Damage as Psychic at the start of the target\u2019s turn. Maximum one Link per enemy.",
+      "canonicalText": "Applying a different eligible non-control debuff to an enemy that already has one creates a Weave Link for 2 turns. While linked, the older debuff is 15% stronger and the newer debuff deals 10% Base Damage as Psychic at the start of the target’s turn. Maximum one Link per enemy.",
       "tags": [
         "damage",
         "status"
@@ -2091,7 +2091,7 @@
       "scope": "global",
       "family": null,
       "subclass": null,
-      "canonicalText": "The first time one of your summons is defeated each combat, gain Borrowed Body for 2 turns: 15% Max HP Shield, +1 bonus Energy, and your next direct damaging ability gains a 25% Base Damage rider matching that summon\u2019s primary damage type.",
+      "canonicalText": "The first time one of your summons is defeated each combat, gain Borrowed Body for 2 turns: 15% Max HP Shield, +1 bonus Energy, and your next direct damaging ability gains a 25% Base Damage rider matching that summon’s primary damage type.",
       "tags": [
         "damage",
         "shield",
@@ -2127,7 +2127,7 @@
       "scope": "global",
       "family": null,
       "subclass": null,
-      "canonicalText": "When you grant a Shield to one of your summons, gain 30% of that Shield amount on yourself, capped at 8% Max HP per turn. If both Shields survive until the summon\u2019s next action, its action gains +20% numerical strength.",
+      "canonicalText": "When you grant a Shield to one of your summons, gain 30% of that Shield amount on yourself, capped at 8% Max HP per turn. If both Shields survive until the summon’s next action, its action gains +20% numerical strength.",
       "tags": [
         "shield",
         "summon"
@@ -2206,7 +2206,7 @@
       "scope": "global",
       "family": null,
       "subclass": null,
-      "canonicalText": "The first healing Crit you perform each turn grants the healed target an 8% Max HP Shield. If that Shield is broken by enemy damage, the target\u2019s next direct heal received gains +20% strength.",
+      "canonicalText": "The first healing Crit you perform each turn grants the healed target an 8% Max HP Shield. If that Shield is broken by enemy damage, the target’s next direct heal received gains +20% strength.",
       "tags": [
         "damage",
         "healing",
@@ -2223,7 +2223,7 @@
       "scope": "global",
       "family": null,
       "subclass": null,
-      "canonicalText": "The first time during a campaign that you consume each distinct eligible food, its healing and all other positive numerical effects are increased by +125% (2.25\u00d7 normal), and it removes 1 eligible removable Burn, Poison, Bleed, or other damage-over-time effect from you when applicable. After consuming 4 different eligible foods during that campaign, gain 12 unallocated Stat Points for the current campaign. The 12 Stat Points are granted only once per campaign and disappear when that campaign ends.",
+      "canonicalText": "The first time during a campaign that you consume each distinct eligible food, its healing and all other positive numerical effects are increased by +125% (2.25× normal), and it removes 1 eligible removable Burn, Poison, Bleed, or other damage-over-time effect from you when applicable. After consuming 4 different eligible foods during that campaign, gain 12 unallocated Stat Points for the current campaign. The 12 Stat Points are granted only once per campaign and disappear when that campaign ends.",
       "tags": [
         "damage",
         "healing",
@@ -2602,7 +2602,7 @@
       "scope": "global",
       "family": null,
       "subclass": null,
-      "canonicalText": "The first summon defeated each round leaves a Fallen Echo for 2 turns. Your next direct damaging ability consumes it to add 35% Base Damage matching the fallen summon\u2019s primary damage type; your next heal instead consumes it to revive 20% of the summon\u2019s Max HP as a temporary Shield on yourself. It does not revive the summon.",
+      "canonicalText": "The first summon defeated each round leaves a Fallen Echo for 2 turns. Your next direct damaging ability consumes it to add 35% Base Damage matching the fallen summon’s primary damage type; your next heal instead consumes it to revive 20% of the summon’s Max HP as a temporary Shield on yourself. It does not revive the summon.",
       "tags": [
         "damage",
         "healing",
@@ -2805,7 +2805,7 @@
       "scope": "global",
       "family": null,
       "subclass": null,
-      "canonicalText": "When you begin an action at exactly 1 Energy, invoke Empty Hand once per turn. The action gains one rider based on category: Damage adds 25% Base Damage as Lightning; Heal grants +1 bonus Energy to the target after healing; Shield grants +20% Shield strength and +1 Initiative on the target\u2019s next calculation.",
+      "canonicalText": "When you begin an action at exactly 1 Energy, invoke Empty Hand once per turn. The action gains one rider based on category: Damage adds 25% Base Damage as Lightning; Heal grants +1 bonus Energy to the target after healing; Shield grants +20% Shield strength and +1 Initiative on the target’s next calculation.",
       "tags": [
         "damage",
         "healing",
@@ -2855,7 +2855,7 @@
       "scope": "global",
       "family": null,
       "subclass": null,
-      "canonicalText": "Whenever you Block, gain one Wall Note, maximum 3. Each Wall Note reduces your outgoing direct damage by 5% while held. At 3 Notes, your next Block consumes them to create a party-wide Shield equal to 8% of each real ally\u2019s Max HP and deal 40% Base Damage as Force to the attacker.",
+      "canonicalText": "Whenever you Block, gain one Wall Note, maximum 3. Each Wall Note reduces your outgoing direct damage by 5% while held. At 3 Notes, your next Block consumes them to create a party-wide Shield equal to 8% of each real ally’s Max HP and deal 40% Base Damage as Force to the attacker.",
       "tags": [
         "damage",
         "shield",
@@ -2958,7 +2958,7 @@
       "scope": "global",
       "family": null,
       "subclass": null,
-      "canonicalText": "Damaging Crits advance a four-step Spiral: Force \u2192 Lightning \u2192 Psychic \u2192 Dark. Your next direct damaging ability adds 25% Base Damage of the current Spiral type. If that ability Crits, advance to the next type and keep the Spiral; if it does not Crit, the Spiral collapses and you gain a 10% Max HP Shield instead.",
+      "canonicalText": "Damaging Crits advance a four-step Spiral: Force → Lightning → Psychic → Dark. Your next direct damaging ability adds 25% Base Damage of the current Spiral type. If that ability Crits, advance to the next type and keep the Spiral; if it does not Crit, the Spiral collapses and you gain a 10% Max HP Shield instead.",
       "tags": [
         "damage",
         "shield"
@@ -3074,7 +3074,7 @@
       "scope": "global",
       "family": null,
       "subclass": null,
-      "canonicalText": "Each turn you directly damage the same enemy as the previous turn, advance Continuance through four stages: I: add 20% Base Damage Poison; II: add 20% Cold and -2 Initiative next calculation; III: add 25% Force and -10% Blocked Damage Reduction; IV: add 30% Dark and heal for 20% of that rider\u2019s actual HP damage. Then return to I. Hitting another enemy resets the sequence.",
+      "canonicalText": "Each turn you directly damage the same enemy as the previous turn, advance Continuance through four stages: I: add 20% Base Damage Poison; II: add 20% Cold and -2 Initiative next calculation; III: add 25% Force and -10% Blocked Damage Reduction; IV: add 30% Dark and heal for 20% of that rider’s actual HP damage. Then return to I. Hitting another enemy resets the sequence.",
       "tags": [
         "damage",
         "healing",
@@ -3221,7 +3221,7 @@
       "scope": "global",
       "family": null,
       "subclass": null,
-      "canonicalText": "Grants active ability \u2014 Venomburst. Cost: 1 Energy. Cooldown: 4 turns. Choose a Poisoned enemy and consume up to 3 remaining Poison turns from one Poison effect you applied. For each turn consumed, deal 35% Base Damage as Poison immediately. Every other enemy receives a new 2-turn Poison dealing 10% Base Damage per turn. Boss/protected Poison duration is never extended by this effect. Venomburst damage cannot recursively trigger itself.",
+      "canonicalText": "Grants active ability — Venomburst. Cost: 1 Energy. Cooldown: 4 turns. Choose a Poisoned enemy and consume up to 3 remaining Poison turns from one Poison effect you applied. For each turn consumed, deal 35% Base Damage as Poison immediately. Every other enemy receives a new 2-turn Poison dealing 10% Base Damage per turn. Boss/protected Poison duration is never extended by this effect. Venomburst damage cannot recursively trigger itself.",
       "tags": [
         "active",
         "damage",
@@ -3256,7 +3256,7 @@
       "scope": "global",
       "family": null,
       "subclass": null,
-      "canonicalText": "Grants active ability \u2014 Cascade Detonation. Cost: 3 Energy. Cooldown: 6 turns. Choose an enemy with at least 3 different eligible negative statuses that you applied. Consume 1 remaining turn from up to 4 eligible non-control statuses and create one explosion for each consumed status: Burn = 35% Base Damage Fire; Poison = 35% Poison; Cold/Chill = 30% Cold and -2 Initiative next calculation; defense reduction = 30% Force; mental/Psychic debuff = 30% Psychic; Holy/Dark vulnerability = 30% matching damage type; any other eligible numerical debuff = 25% Psychic. The chosen target takes every explosion. Other enemies take 40% of the total explosion damage. Hard-control duration is never consumed, copied, or extended.",
+      "canonicalText": "Grants active ability — Cascade Detonation. Cost: 3 Energy. Cooldown: 6 turns. Choose an enemy with at least 3 different eligible negative statuses that you applied. Consume 1 remaining turn from up to 4 eligible non-control statuses and create one explosion for each consumed status: Burn = 35% Base Damage Fire; Poison = 35% Poison; Cold/Chill = 30% Cold and -2 Initiative next calculation; defense reduction = 30% Force; mental/Psychic debuff = 30% Psychic; Holy/Dark vulnerability = 30% matching damage type; any other eligible numerical debuff = 25% Psychic. The chosen target takes every explosion. Other enemies take 40% of the total explosion damage. Hard-control duration is never consumed, copied, or extended.",
       "tags": [
         "active",
         "damage",
@@ -3361,7 +3361,7 @@
       "scope": "global",
       "family": null,
       "subclass": null,
-      "canonicalText": "Grants active ability \u2014 Borrow Tomorrow. Cost: 1 Energy. Cooldown: 5 turns. Until the start of your next turn, after Dodge, Block, resistance, Shield absorption, and all other normal mitigation resolve, defer 40% of the incoming HP damage you would actually take instead of taking it immediately. Store all deferred damage in Tomorrow's Wound. At the start of your next turn, before the natural +1 Energy gain, take the entire stored amount as one damage packet. Deferred damage cannot be Dodged, Blocked, Shielded, redirected, reduced, deferred again, or trigger Borrow Tomorrow a second time. It may reduce you to 0 HP. Self-inflicted damage and already-deferred damage cannot be deferred.",
+      "canonicalText": "Grants active ability — Borrow Tomorrow. Cost: 1 Energy. Cooldown: 5 turns. Until the start of your next turn, after Dodge, Block, resistance, Shield absorption, and all other normal mitigation resolve, defer 40% of the incoming HP damage you would actually take instead of taking it immediately. Store all deferred damage in Tomorrow's Wound. At the start of your next turn, before the natural +1 Energy gain, take the entire stored amount as one damage packet. Deferred damage cannot be Dodged, Blocked, Shielded, redirected, reduced, deferred again, or trigger Borrow Tomorrow a second time. It may reduce you to 0 HP. Self-inflicted damage and already-deferred damage cannot be deferred.",
       "tags": [
         "active",
         "damage",
@@ -3450,7 +3450,7 @@
       "scope": "subclass_specific",
       "family": "Warrior",
       "subclass": "Ruinhewer",
-      "canonicalText": "Overpressure Engine \u2014 3 slots\nRequirement: Ruinhewer\n- Overpressure maximum becomes 5 instead of 3.\n- Each Overpressure gives:\n  +5% Ruinhewer final damage\n  +8% Ruinhewer Critical Damage\n- Break the Limit gains +20% final damage per Overpressure consumed instead of +12%.\n- Drawback: each current Overpressure gives +5% incoming damage instead of the normal +3%.",
+      "canonicalText": "Overpressure Engine — 3 slots\nRequirement: Ruinhewer\n- Overpressure maximum becomes 5 instead of 3.\n- Each Overpressure gives:\n  +5% Ruinhewer final damage\n  +8% Ruinhewer Critical Damage\n- Break the Limit gains +20% final damage per Overpressure consumed instead of +12%.\n- Drawback: each current Overpressure gives +5% incoming damage instead of the normal +3%.",
       "tags": [
         "damage",
         "defense",
@@ -3467,7 +3467,7 @@
       "scope": "subclass_specific",
       "family": "Warrior",
       "subclass": "Ruinhewer",
-      "canonicalText": "Controlled Ruin \u2014 3 slots\nRequirement: Ruinhewer\n- Overpressure no longer increases incoming damage.\n- At 5 Pressure, excess Pressure can still create Overpressure.\n- Reckless Advance no longer gives -10% Block Chance.\n- Break the Limit consumes only Overpressure, leaving Pressure unchanged.\n- Drawback:\n  Overpressure gives only +2% final damage per stack instead of +4%.\n  Maximum Overpressure becomes 2.",
+      "canonicalText": "Controlled Ruin — 3 slots\nRequirement: Ruinhewer\n- Overpressure no longer increases incoming damage.\n- At 5 Pressure, excess Pressure can still create Overpressure.\n- Reckless Advance no longer gives -10% Block Chance.\n- Break the Limit consumes only Overpressure, leaving Pressure unchanged.\n- Drawback:\n  Overpressure gives only +2% final damage per stack instead of +4%.\n  Maximum Overpressure becomes 2.",
       "tags": [
         "damage",
         "defense",
@@ -3484,7 +3484,7 @@
       "scope": "subclass_specific",
       "family": "Warrior",
       "subclass": "SteelBearer",
-      "canonicalText": "Unmoving Bastion \u2014 3 slots\nRequirement: SteelBearer\n- Multiply CON by 1.5\u00d7.\n- Bearing maximum becomes 4.\n- Tempered Wall gains +25% Shield strength.\n- At maximum Bearing:\n  +10% Block Chance\n  -10% incoming damage\n- Drawback:\n  after all other STR multipliers are applied, halve resulting STR;\n  after all other CHA multipliers are applied, halve resulting CHA.\n- No final-damage penalty.",
+      "canonicalText": "Unmoving Bastion — 3 slots\nRequirement: SteelBearer\n- Multiply CON by 1.5×.\n- Bearing maximum becomes 4.\n- Tempered Wall gains +25% Shield strength.\n- At maximum Bearing:\n  +10% Block Chance\n  -10% incoming damage\n- Drawback:\n  after all other STR multipliers are applied, halve resulting STR;\n  after all other CHA multipliers are applied, halve resulting CHA.\n- No final-damage penalty.",
       "tags": [
         "damage",
         "shield",
@@ -3502,7 +3502,7 @@
       "scope": "subclass_specific",
       "family": "Warrior",
       "subclass": "SteelBearer",
-      "canonicalText": "Take Me Instead \u2014 3 slots\nRequirement: SteelBearer\n- Interpose lasts 2 turns instead of until your next turn.\n- Interpose can redirect up to 2 direct hits against the protected ally.\n- Each redirected hit deals 75% less damage to you instead of 30%.\n- Each redirected hit can generate Bearing, still respecting normal Bearing-generation limits.\n- Hold the Line grants +90% Aggro instead of +50%.\n- Drawback:\n  while Interpose is active on an ally, attacks that originally target you deal +15% incoming damage to you.",
+      "canonicalText": "Take Me Instead — 3 slots\nRequirement: SteelBearer\n- Interpose lasts 2 turns instead of until your next turn.\n- Interpose can redirect up to 2 direct hits against the protected ally.\n- Each redirected hit deals 75% less damage to you instead of 30%.\n- Each redirected hit can generate Bearing, still respecting normal Bearing-generation limits.\n- Hold the Line grants +90% Aggro instead of +50%.\n- Drawback:\n  while Interpose is active on an ally, attacks that originally target you deal +15% incoming damage to you.",
       "tags": [
         "damage",
         "defense",
@@ -3519,7 +3519,7 @@
       "scope": "subclass_specific",
       "family": "Warrior",
       "subclass": "BrandBlade",
-      "canonicalText": "Arcane Temper \u2014 3 slots\nRequirement: BrandBlade\n- Multiply INT by 1.5\u00d7.\n- All BrandBlade abilities lose all STR scaling while equipped.\n- Heat maximum becomes 6.\n- White-Hot begins at 5 Heat as normal.\n- At 6 Heat gain Blue-White:\n  +25% BrandBlade final damage\n  +15% BrandBlade Crit Chance\n- Drawback:\n  after all other STR multipliers are applied, halve resulting STR;\n  Blue-White abilities cost +2 Energy instead of White-Hot's normal +1.",
+      "canonicalText": "Arcane Temper — 3 slots\nRequirement: BrandBlade\n- Multiply INT by 1.5×.\n- All BrandBlade abilities lose all STR scaling while equipped.\n- Heat maximum becomes 6.\n- White-Hot begins at 5 Heat as normal.\n- At 6 Heat gain Blue-White:\n  +25% BrandBlade final damage\n  +15% BrandBlade Crit Chance\n- Drawback:\n  after all other STR multipliers are applied, halve resulting STR;\n  Blue-White abilities cost +2 Energy instead of White-Hot's normal +1.",
       "tags": [
         "damage",
         "energy",
@@ -3536,7 +3536,7 @@
       "scope": "subclass_specific",
       "family": "Warrior",
       "subclass": "BrandBlade",
-      "canonicalText": "Flashforge \u2014 3 slots\nRequirement: BrandBlade\n- BrandBlade damaging abilities generate 2 Heat instead of 1.\n- Flash Temper generates 2 Heat.\n- White-Hot no longer increases the next ability's Energy cost.\n- When White-Hot is consumed, that attack gains +15% Critical Damage.\n- Drawback:\n  Heat maximum becomes 4;\n  White-Hot activates at 4 Heat;\n  after a White-Hot ability resolves, gain Overcooled until the end of your next turn:\n    -20% BrandBlade final damage\n    cannot generate Heat.",
+      "canonicalText": "Flashforge — 3 slots\nRequirement: BrandBlade\n- BrandBlade damaging abilities generate 2 Heat instead of 1.\n- Flash Temper generates 2 Heat.\n- White-Hot no longer increases the next ability's Energy cost.\n- When White-Hot is consumed, that attack gains +15% Critical Damage.\n- Drawback:\n  Heat maximum becomes 4;\n  White-Hot activates at 4 Heat;\n  after a White-Hot ability resolves, gain Overcooled until the end of your next turn:\n    -20% BrandBlade final damage\n    cannot generate Heat.",
       "tags": [
         "damage",
         "energy",
@@ -3553,7 +3553,7 @@
       "scope": "subclass_specific",
       "family": "Rogue",
       "subclass": "Veil Blade",
-      "canonicalText": "Perfect Erasure \u2014 3 slots\nRequirement: Veil Blade\n- Veil Imprint maximum becomes 5 per enemy.\n- Veil Imprints no longer grant increased final damage through this Impression.\n- Instead, each Veil Imprint gives a 5% chance for damage dealt by you to that marked enemy\n  to echo once again as Force damage.\n- Echo chance is additive by Imprint:\n  1 Imprint = 5%\n  2 Imprints = 10%\n  3 Imprints = 15%\n  4 Imprints = 20%\n  5 Imprints = 25%\n- An echo repeats the damage packet once as Force damage.\n- Echo damage cannot recursively echo itself.\n- Erase the Mark gains +20% final damage per Veil Imprint consumed instead of +12%.\n- At 5 Veil Imprints, Erase the Mark gains +33% Crit Chance.\n- Drawback:\n  applying a Veil Imprint to a different enemy removes all Veil Imprints from every other enemy.",
+      "canonicalText": "Perfect Erasure — 3 slots\nRequirement: Veil Blade\n- Veil Imprint maximum becomes 5 per enemy.\n- Veil Imprints no longer grant increased final damage through this Impression.\n- Instead, each Veil Imprint gives a 5% chance for damage dealt by you to that marked enemy\n  to echo once again as Force damage.\n- Echo chance is additive by Imprint:\n  1 Imprint = 5%\n  2 Imprints = 10%\n  3 Imprints = 15%\n  4 Imprints = 20%\n  5 Imprints = 25%\n- An echo repeats the damage packet once as Force damage.\n- Echo damage cannot recursively echo itself.\n- Erase the Mark gains +20% final damage per Veil Imprint consumed instead of +12%.\n- At 5 Veil Imprints, Erase the Mark gains +33% Crit Chance.\n- Drawback:\n  applying a Veil Imprint to a different enemy removes all Veil Imprints from every other enemy.",
       "tags": [
         "damage",
         "resource"
@@ -3569,7 +3569,7 @@
       "scope": "subclass_specific",
       "family": "Rogue",
       "subclass": "Veil Blade",
-      "canonicalText": "Half-Seen \u2014 3 slots\nRequirement: Veil Blade\n- After using Fade Between, gain Half-Seen until your next damaging Veil Blade ability resolves.\n- While Half-Seen:\n  +25% Dodge Chance\n  +20% Crit Chance\n  -77% Aggro\n  next damaging Veil Blade ability applies 2 additional Veil Imprints if it hits\n- Shadow Through becomes Unblockable at 2+ Veil Imprints instead of 3.\n- Drawback:\n  while not Half-Seen, Veil Blade damaging abilities deal -15% final damage.",
+      "canonicalText": "Half-Seen — 3 slots\nRequirement: Veil Blade\n- After using Fade Between, gain Half-Seen until your next damaging Veil Blade ability resolves.\n- While Half-Seen:\n  +25% Dodge Chance\n  +20% Crit Chance\n  -77% Aggro\n  next damaging Veil Blade ability applies 2 additional Veil Imprints if it hits\n- Shadow Through becomes Unblockable at 2+ Veil Imprints instead of 3.\n- Drawback:\n  while not Half-Seen, Veil Blade damaging abilities deal -15% final damage.",
       "tags": [
         "damage",
         "defense",
@@ -3586,7 +3586,7 @@
       "scope": "subclass_specific",
       "family": "Rogue",
       "subclass": "Gunslinger",
-      "canonicalText": "One Bullet Left \u2014 3 slots\nRequirement: Gunslinger\n- Redline maximum becomes 5.\n- Each Redline gives +6% Gunslinger Critical Damage instead of +3%.\n- Redline Execution receives NO extra final damage per Redline from this Impression.\n- Redline Execution receives NO extra Crit Chance at 5 Redline from this Impression.\n- The first time you reach 5 Redline in a combat:\n  * immediately set your Energy to your Maximum Energy\n  * empower your next damaging ability to deal 3\u00d7 final damage\n  * after this trigger occurs once, you can no longer gain Redline for the rest of that combat\n- When the empowered 3\u00d7-damage ability is used:\n  * after it resolves, lose all current Energy\n  * gain 1 stack of Exhaustion\n- The one-time empowerment cannot trigger again during that combat.",
+      "canonicalText": "One Bullet Left — 3 slots\nRequirement: Gunslinger\n- Redline maximum becomes 5.\n- Each Redline gives +6% Gunslinger Critical Damage instead of +3%.\n- Redline Execution receives NO extra final damage per Redline from this Impression.\n- Redline Execution receives NO extra Crit Chance at 5 Redline from this Impression.\n- The first time you reach 5 Redline in a combat:\n  * immediately set your Energy to your Maximum Energy\n  * empower your next damaging ability to deal 3× final damage\n  * after this trigger occurs once, you can no longer gain Redline for the rest of that combat\n- When the empowered 3×-damage ability is used:\n  * after it resolves, lose all current Energy\n  * gain 1 stack of Exhaustion\n- The one-time empowerment cannot trigger again during that combat.",
       "tags": [
         "damage",
         "energy",
@@ -3603,7 +3603,7 @@
       "scope": "subclass_specific",
       "family": "Rogue",
       "subclass": "Gunslinger",
-      "canonicalText": "Close Quarters Shooter \u2014 3 slots\nRequirement: Gunslinger\n- Multiply CHA by 1.5\u00d7.\n- All Gunslinger abilities lose all LCK scaling.\n- Quickdraw and Called Shot gain +15% final damage.\n- Ricochet's second shot deals 100% of normal value when rebounding into the same remaining enemy instead of 70%.\n- Gain +10% Dodge Chance while at 2+ Redline.\n- Drawback:\n  after all other LCK multipliers are applied, halve resulting LCK;\n  Redline no longer grants Critical Damage, though Deadeye still activates at maximum Redline.",
+      "canonicalText": "Close Quarters Shooter — 3 slots\nRequirement: Gunslinger\n- Multiply CHA by 1.5×.\n- All Gunslinger abilities lose all LCK scaling.\n- Quickdraw and Called Shot gain +15% final damage.\n- Ricochet's second shot deals 100% of normal value when rebounding into the same remaining enemy instead of 70%.\n- Gain +10% Dodge Chance while at 2+ Redline.\n- Drawback:\n  after all other LCK multipliers are applied, halve resulting LCK;\n  Redline no longer grants Critical Damage, though Deadeye still activates at maximum Redline.",
       "tags": [
         "damage",
         "defense",
@@ -3620,7 +3620,7 @@
       "scope": "subclass_specific",
       "family": "Rogue",
       "subclass": "Duelist",
-      "canonicalText": "Single Opponent \u2014 3 slots\nRequirement: Duelist\n- Measured target remains Measured until it dies or you deliberately Measure another enemy.\n- Tempo maximum becomes 5.\n- Each Tempo gives:\n  +5% Crit Chance\n  +3% Dodge Chance\n- Final Measure gains 3% Lifesteal per Tempo consumed instead of bonus final damage per Tempo.\n- At 5 Tempo, Final Measure gains +30% Critical Damage.\n- Drawback:\n  while your Measured enemy is alive, Duelist damaging abilities deal -30% final damage to every other enemy.",
+      "canonicalText": "Single Opponent — 3 slots\nRequirement: Duelist\n- Measured target remains Measured until it dies or you deliberately Measure another enemy.\n- Tempo maximum becomes 5.\n- Each Tempo gives:\n  +5% Crit Chance\n  +3% Dodge Chance\n- Final Measure gains 3% Lifesteal per Tempo consumed instead of bonus final damage per Tempo.\n- At 5 Tempo, Final Measure gains +30% Critical Damage.\n- Drawback:\n  while your Measured enemy is alive, Duelist damaging abilities deal -30% final damage to every other enemy.",
       "tags": [
         "damage",
         "defense",
@@ -3637,7 +3637,7 @@
       "scope": "subclass_specific",
       "family": "Rogue",
       "subclass": "Duelist",
-      "canonicalText": "Perfect Riposte \u2014 3 slots\nRequirement: Duelist\n- Parrying Measure can trigger a Riposte from the first direct attack and a second Riposte from\n  one additional direct attack before your next turn.\n- Riposte Base Damage increases from 8 to 11.\n- Riposte gains +20% Crit Chance.\n- A Riposte against your Measured enemy generates 1 Tempo, maximum once between your turns.\n- Drawback:\n  Testing Thrust, Turn the Blade, and Final Measure deal -12% final damage;\n  Parrying Measure costs 2 Energy instead of 1.",
+      "canonicalText": "Perfect Riposte — 3 slots\nRequirement: Duelist\n- Parrying Measure can trigger a Riposte from the first direct attack and a second Riposte from\n  one additional direct attack before your next turn.\n- Riposte Base Damage increases from 8 to 11.\n- Riposte gains +20% Crit Chance.\n- A Riposte against your Measured enemy generates 1 Tempo, maximum once between your turns.\n- Drawback:\n  Testing Thrust, Turn the Blade, and Final Measure deal -12% final damage;\n  Parrying Measure costs 2 Energy instead of 1.",
       "tags": [
         "damage",
         "energy",
@@ -3654,7 +3654,7 @@
       "scope": "subclass_specific",
       "family": "Brawler",
       "subclass": "Bloodknuckle",
-      "canonicalText": "Redline Anatomy \u2014 3 slots\nRequirement: Bloodknuckle\n- For every 10% of Maximum HP currently missing:\n  +3% STR\n  +4% Bloodknuckle Lifesteal\n- Benefits cap at 50% HP or lower:\n  +15% STR\n  +20% Bloodknuckle Lifesteal\n- Heartbreaker gains another +20% final damage while below 30% HP.\n- Crimson Reprisal heals for 40% of actual HP removed instead of 30% while below 30% HP.\n- Drawback while above 70% HP:\n  Bloodknuckle damaging abilities deal -15% final damage;\n  the subclass's innate 8% Lifesteal is reduced to 4%.",
+      "canonicalText": "Redline Anatomy — 3 slots\nRequirement: Bloodknuckle\n- For every 10% of Maximum HP currently missing:\n  +3% STR\n  +4% Bloodknuckle Lifesteal\n- Benefits cap at 50% HP or lower:\n  +15% STR\n  +20% Bloodknuckle Lifesteal\n- Heartbreaker gains another +20% final damage while below 30% HP.\n- Crimson Reprisal heals for 40% of actual HP removed instead of 30% while below 30% HP.\n- Drawback while above 70% HP:\n  Bloodknuckle damaging abilities deal -15% final damage;\n  the subclass's innate 8% Lifesteal is reduced to 4%.",
       "tags": [
         "damage",
         "healing",
@@ -3671,7 +3671,7 @@
       "scope": "subclass_specific",
       "family": "Brawler",
       "subclass": "Bloodknuckle",
-      "canonicalText": "Blood Keeps Blood \u2014 3 slots\nRequirement: Bloodknuckle\n- Whenever Bloodknuckle Lifesteal restores actual HP, 30% of that final healing becomes a Blood Shield.\n- Blood Shields stack up to exactly 44.44% of Maximum HP.\n- Blood Shield lasts until destroyed or combat ends.\n- Red Guard's triggered healing grants an equal-value Blood Shield.\n- Crimson Reprisal healing can create Blood Shield normally.\n- Drawback:\n  all Bloodknuckle Lifesteal is -25% final healing;\n  Heartbreaker loses its +20% final damage bonus below 50% HP.",
+      "canonicalText": "Blood Keeps Blood — 3 slots\nRequirement: Bloodknuckle\n- Whenever Bloodknuckle Lifesteal restores actual HP, 30% of that final healing becomes a Blood Shield.\n- Blood Shields stack up to exactly 44.44% of Maximum HP.\n- Blood Shield lasts until destroyed or combat ends.\n- Red Guard's triggered healing grants an equal-value Blood Shield.\n- Crimson Reprisal healing can create Blood Shield normally.\n- Drawback:\n  all Bloodknuckle Lifesteal is -25% final healing;\n  Heartbreaker loses its +20% final damage bonus below 50% HP.",
       "tags": [
         "damage",
         "healing",
@@ -3688,7 +3688,7 @@
       "scope": "subclass_specific",
       "family": "Brawler",
       "subclass": "Prismatic Palm",
-      "canonicalText": "Fixed Spectrum \u2014 3 slots\nRequirement: Prismatic Palm\n- When equipped, choose Ember, Storm, or Lumen.\n- Remain permanently attuned to that Facet while equipped.\n- Ember:\n  applicable Prismatic Palm attacks deal Fire damage and gain +12% final damage.\n- Storm:\n  applicable Prismatic Palm attacks deal Lightning damage and gain +15% Crit Chance.\n- Lumen:\n  applicable Prismatic Palm attacks deal Radiant damage and heal you for 10% of actual HP removed.\n- Prismatic Cycle no longer advances.\n- Refract Stance cannot change your Facet, though it still grants +10% Dodge Chance.\n- White Palm receives only the chosen Facet's effect instead of all three Facet effects.",
+      "canonicalText": "Fixed Spectrum — 3 slots\nRequirement: Prismatic Palm\n- When equipped, choose Ember, Storm, or Lumen.\n- Remain permanently attuned to that Facet while equipped.\n- Ember:\n  applicable Prismatic Palm attacks deal Fire damage and gain +12% final damage.\n- Storm:\n  applicable Prismatic Palm attacks deal Lightning damage and gain +15% Crit Chance.\n- Lumen:\n  applicable Prismatic Palm attacks deal Radiant damage and heal you for 10% of actual HP removed.\n- Prismatic Cycle no longer advances.\n- Refract Stance cannot change your Facet, though it still grants +10% Dodge Chance.\n- White Palm receives only the chosen Facet's effect instead of all three Facet effects.",
       "tags": [
         "damage",
         "healing",
@@ -3714,7 +3714,7 @@
       "scope": "subclass_specific",
       "family": "Brawler",
       "subclass": "Prismatic Palm",
-      "canonicalText": "Spectrum in Motion \u2014 3 slots\nRequirement: Prismatic Palm\n- Each time Prismatic Cycle advances, gain one Afterimage of the Facet just left.\n- Hold up to 2 Afterimages.\n- Next damaging Prismatic Palm ability receives its normal current Facet plus 50% of each stored Afterimage's normal Facet effect, then consumes all Afterimages.\n- Ember Afterimage: +6% final damage.\n- Storm Afterimage: +7.5% Crit Chance.\n- Lumen Afterimage: heal for 5% of actual HP removed.\n- White Palm does not consume Afterimages.\n- Instead, each stored Afterimage increases White Palm's matching Facet effect by 50%.\n- Drawback:\n  using Refract Stance removes all current Afterimages;\n  Refract Stance costs 2 Energy instead of 1.",
+      "canonicalText": "Spectrum in Motion — 3 slots\nRequirement: Prismatic Palm\n- Each time Prismatic Cycle advances, gain one Afterimage of the Facet just left.\n- Hold up to 2 Afterimages.\n- Next damaging Prismatic Palm ability receives its normal current Facet plus 50% of each stored Afterimage's normal Facet effect, then consumes all Afterimages.\n- Ember Afterimage: +6% final damage.\n- Storm Afterimage: +7.5% Crit Chance.\n- Lumen Afterimage: heal for 5% of actual HP removed.\n- White Palm does not consume Afterimages.\n- Instead, each stored Afterimage increases White Palm's matching Facet effect by 50%.\n- Drawback:\n  using Refract Stance removes all current Afterimages;\n  Refract Stance costs 2 Energy instead of 1.",
       "tags": [
         "damage",
         "healing",
@@ -3731,7 +3731,7 @@
       "scope": "subclass_specific",
       "family": "Brawler",
       "subclass": "AdaptedFist",
-      "canonicalText": "Long Memory \u2014 3 slots\nRequirement: AdaptedFist\n- Hold 2 different Adaptations simultaneously instead of only one.\n- Cannot hold duplicate Adaptations.\n- If a third different Adaptation is gained, choose which existing Adaptation it replaces.\n- Answering Strike may consume one or both stored Adaptations; if two are consumed, both normal effects apply.\n- Counterform may consume both; both enhanced Counterform effects apply.\n- Drawback:\n  for each Adaptation currently stored, AdaptedFist damaging abilities deal -5% final damage.",
+      "canonicalText": "Long Memory — 3 slots\nRequirement: AdaptedFist\n- Hold 2 different Adaptations simultaneously instead of only one.\n- Cannot hold duplicate Adaptations.\n- If a third different Adaptation is gained, choose which existing Adaptation it replaces.\n- Answering Strike may consume one or both stored Adaptations; if two are consumed, both normal effects apply.\n- Counterform may consume both; both enhanced Counterform effects apply.\n- Drawback:\n  for each Adaptation currently stored, AdaptedFist damaging abilities deal -5% final damage.",
       "tags": [
         "damage"
       ],
@@ -3746,7 +3746,7 @@
       "scope": "subclass_specific",
       "family": "Brawler",
       "subclass": "AdaptedFist",
-      "canonicalText": "Instinct Before Impact \u2014 3 slots\nRequirement: AdaptedFist\n- Read the Exchange immediately lets you choose Flow, Guard, or Grit and gain it rather than waiting for the matching defensive event.\n- While holding the chosen Adaptation:\n  Flow: +10% Dodge Chance\n  Guard: +10% Block Chance\n  Grit: +10% final damage\n- Read the Exchange still grants its normal +15% Block and +15% Dodge until your next turn.\n- Drawback:\n  Dodge, Block, and taking unblocked HP damage no longer generate Adaptations naturally;\n  Read the Exchange becomes your only normal way to establish an Adaptation;\n  Read the Exchange cooldown becomes 3 turns instead of 2.\n- Perfect Adaptation still works normally because it explicitly applies all three.",
+      "canonicalText": "Instinct Before Impact — 3 slots\nRequirement: AdaptedFist\n- Read the Exchange immediately lets you choose Flow, Guard, or Grit and gain it rather than waiting for the matching defensive event.\n- While holding the chosen Adaptation:\n  Flow: +10% Dodge Chance\n  Guard: +10% Block Chance\n  Grit: +10% final damage\n- Read the Exchange still grants its normal +15% Block and +15% Dodge until your next turn.\n- Drawback:\n  Dodge, Block, and taking unblocked HP damage no longer generate Adaptations naturally;\n  Read the Exchange becomes your only normal way to establish an Adaptation;\n  Read the Exchange cooldown becomes 3 turns instead of 2.\n- Perfect Adaptation still works normally because it explicitly applies all three.",
       "tags": [
         "damage",
         "defense"
@@ -3880,7 +3880,7 @@
       "scope": "subclass_specific",
       "family": "Cleric",
       "subclass": "Solaceweaver",
-      "canonicalText": "No Wound Wasted \u2014 3 slots\n- Gentle Stitch converts 70% of overhealing into Shield instead of 30%.\n- Other Solaceweaver heals may convert up to 40% of overhealing into Shield.\n- Drawback: Solaceweaver damaging abilities deal -25% final damage.",
+      "canonicalText": "No Wound Wasted — 3 slots\n- Gentle Stitch converts 70% of overhealing into Shield instead of 30%.\n- Other Solaceweaver heals may convert up to 40% of overhealing into Shield.\n- Drawback: Solaceweaver damaging abilities deal -25% final damage.",
       "tags": [
         "damage",
         "healing",
@@ -3898,7 +3898,7 @@
       "scope": "subclass_specific",
       "family": "Cleric",
       "subclass": "Solaceweaver",
-      "canonicalText": "Shared Pulse \u2014 2 slots\n- Single-target Solaceweaver heals also heal the lowest-% HP other ally for 35% of the final healing\n  actually received by the primary target.\n- Drawback: primary-target healing from those abilities is -15%.\n\nLUMENWRATH",
+      "canonicalText": "Shared Pulse — 2 slots\n- Single-target Solaceweaver heals also heal the lowest-% HP other ally for 35% of the final healing\n  actually received by the primary target.\n- Drawback: primary-target healing from those abilities is -15%.\n\nLUMENWRATH",
       "tags": [
         "healing",
         "resource"
@@ -3914,7 +3914,7 @@
       "scope": "subclass_specific",
       "family": "Cleric",
       "subclass": "Lumenwrath",
-      "canonicalText": "Zenith Doctrine \u2014 3 slots\n- Fervor maximum becomes 6.\n- Each Fervor gives +5% Radiant damage and +6% Critical Damage.\n- Zenith begins at 4 Fervor as normal.\n- Drawback: take +3% incoming damage per current Fervor.",
+      "canonicalText": "Zenith Doctrine — 3 slots\n- Fervor maximum becomes 6.\n- Each Fervor gives +5% Radiant damage and +6% Critical Damage.\n- Zenith begins at 4 Fervor as normal.\n- Drawback: take +3% incoming damage per current Fervor.",
       "tags": [
         "damage",
         "defense",
@@ -3931,7 +3931,7 @@
       "scope": "subclass_specific",
       "family": "Cleric",
       "subclass": "Lumenwrath",
-      "canonicalText": "Merciless Halo \u2014 2 slots\n- When a Lumenwrath Radiant ability Crits, deal bonus Radiant damage equal to 20% of actual HP removed\n  to every other enemy.\n- Bonus damage cannot Crit or generate resources.\n- Drawback: Lumenwrath healing is -35%.\n\nMALISUNDER",
+      "canonicalText": "Merciless Halo — 2 slots\n- When a Lumenwrath Radiant ability Crits, deal bonus Radiant damage equal to 20% of actual HP removed\n  to every other enemy.\n- Bonus damage cannot Crit or generate resources.\n- Drawback: Lumenwrath healing is -35%.\n\nMALISUNDER",
       "tags": [
         "damage",
         "healing",
@@ -3948,7 +3948,7 @@
       "scope": "subclass_specific",
       "family": "Cleric",
       "subclass": "Malisunder",
-      "canonicalText": "Singular Heresy \u2014 3 slots\n- Only one enemy may have your Fractures.\n- That enemy can have up to 5 Fractures.\n- Each Fracture instead gives +6% Malisunder damage taken and -4% damage dealt.\n- Applying a Fracture to another enemy removes all Fractures from previous target.",
+      "canonicalText": "Singular Heresy — 3 slots\n- Only one enemy may have your Fractures.\n- That enemy can have up to 5 Fractures.\n- Each Fracture instead gives +6% Malisunder damage taken and -4% damage dealt.\n- Applying a Fracture to another enemy removes all Fractures from previous target.",
       "tags": [
         "damage",
         "resource"
@@ -3964,7 +3964,7 @@
       "scope": "subclass_specific",
       "family": "Cleric",
       "subclass": "Malisunder",
-      "canonicalText": "Sympathetic Ruin \u2014 2 slots\n- When another real ally damages one of your Fractured enemies, heal the lowest-% HP real ally\n  for 3% of actual HP removed per Fracture.\n- Can trigger only once per Fractured enemy per turn.\n- Drawback: your own Malisunder damaging abilities deal -12% final damage.",
+      "canonicalText": "Sympathetic Ruin — 2 slots\n- When another real ally damages one of your Fractured enemies, heal the lowest-% HP real ally\n  for 3% of actual HP removed per Fracture.\n- Can trigger only once per Fractured enemy per turn.\n- Drawback: your own Malisunder damaging abilities deal -12% final damage.",
       "tags": [
         "damage",
         "healing",
@@ -3981,7 +3981,7 @@
       "scope": "subclass_specific",
       "family": "Ranger",
       "subclass": "Breachstrider",
-      "canonicalText": "Nothing Between Us \u2014 3 slots\nRequirement: Breachstrider\n- All Breachstrider abilities lose all DEX scaling while this Impression is equipped.\n- Multiply the user's final STR by 1.5\u00d7 for purposes of the character's stats and Breachstrider scaling.\n- Breachstrider attacks always ignore 50% of enemy Block Chance.\n- This Impression provides no extra damage specifically against Shielded enemies.\n- Drawback: your attacks cannot Crit against enemies with neither Block nor Shield.",
+      "canonicalText": "Nothing Between Us — 3 slots\nRequirement: Breachstrider\n- All Breachstrider abilities lose all DEX scaling while this Impression is equipped.\n- Multiply the user's final STR by 1.5× for purposes of the character's stats and Breachstrider scaling.\n- Breachstrider attacks always ignore 50% of enemy Block Chance.\n- This Impression provides no extra damage specifically against Shielded enemies.\n- Drawback: your attacks cannot Crit against enemies with neither Block nor Shield.",
       "tags": [
         "damage",
         "shield",
@@ -3999,7 +3999,7 @@
       "scope": "subclass_specific",
       "family": "Ranger",
       "subclass": "Breachstrider",
-      "canonicalText": "Structural Collapse \u2014 3 slots\nRequirement: Breachstrider\n- Multiply the user's final INT by 1.5\u00d7.\n- After every other STR multiplier is applied, halve the user's resulting STR.\n- When you completely destroy an enemy Shield with a Breachstrider ability:\n  * deal bonus Physical damage equal to 30% of the Shield amount actually removed\n  * apply -10% Blocked Damage Reduction for 2 turns\n- Bonus damage cannot Crit or generate resources.\n- Drawback retained: Breachstrider damage against enemies with an active Shield is -10%\n  until that Shield is destroyed.",
+      "canonicalText": "Structural Collapse — 3 slots\nRequirement: Breachstrider\n- Multiply the user's final INT by 1.5×.\n- After every other STR multiplier is applied, halve the user's resulting STR.\n- When you completely destroy an enemy Shield with a Breachstrider ability:\n  * deal bonus Physical damage equal to 30% of the Shield amount actually removed\n  * apply -10% Blocked Damage Reduction for 2 turns\n- Bonus damage cannot Crit or generate resources.\n- Drawback retained: Breachstrider damage against enemies with an active Shield is -10%\n  until that Shield is destroyed.",
       "tags": [
         "damage",
         "shield",
@@ -4017,7 +4017,7 @@
       "scope": "subclass_specific",
       "family": "Ranger",
       "subclass": "Longwatch",
-      "canonicalText": "Patient Horizon \u2014 3 slots\nRequirement: Longwatch\n- Aim maximum becomes 6.\n- Each Aim instead grants:\n  +5% Crit Chance\n  +4% Critical Damage\n- Dead Still still activates at 4 Aim.\n- Drawback: after changing Quarry, you cannot gain Aim until the end of your next turn.",
+      "canonicalText": "Patient Horizon — 3 slots\nRequirement: Longwatch\n- Aim maximum becomes 6.\n- Each Aim instead grants:\n  +5% Crit Chance\n  +4% Critical Damage\n- Dead Still still activates at 4 Aim.\n- Drawback: after changing Quarry, you cannot gain Aim until the end of your next turn.",
       "tags": [
         "damage",
         "resource"
@@ -4033,7 +4033,7 @@
       "scope": "subclass_specific",
       "family": "Ranger",
       "subclass": "Longwatch",
-      "canonicalText": "Snap Sight \u2014 2 slots\nRequirement: Longwatch\n- Start combat with 2 Aim.\n- Changing Quarry removes only 1 Aim instead of 2.\n- Measured Shot gets +10% final damage while at 0\u20132 Aim.\n- Drawback: Aim maximum becomes 3, so you cannot naturally activate Dead Still\n  or cast One Perfect Shot.",
+      "canonicalText": "Snap Sight — 2 slots\nRequirement: Longwatch\n- Start combat with 2 Aim.\n- Changing Quarry removes only 1 Aim instead of 2.\n- Measured Shot gets +10% final damage while at 0–2 Aim.\n- Drawback: Aim maximum becomes 3, so you cannot naturally activate Dead Still\n  or cast One Perfect Shot.",
       "tags": [
         "damage",
         "resource"
@@ -4049,7 +4049,7 @@
       "scope": "subclass_specific",
       "family": "Ranger",
       "subclass": "Trailguard",
-      "canonicalText": "One Road Home \u2014 3 slots\nRequirement: Trailguard\n- When equipped, choose one real ally other than yourself as your Protected Traveler.\n- Protected Traveler permanently counts as Trailmarked while alive.\n- Their Trailmark gives:\n  +10% Dodge Chance instead of +4%\n  -24% incoming damage instead of -5%\n- Protected Traveler does not count against normal 3-Trailmark maximum.\n- Drawback: all other Trailmarks provide only +2% Dodge Chance and -3% incoming damage.",
+      "canonicalText": "One Road Home — 3 slots\nRequirement: Trailguard\n- When equipped, choose one real ally other than yourself as your Protected Traveler.\n- Protected Traveler permanently counts as Trailmarked while alive.\n- Their Trailmark gives:\n  +10% Dodge Chance instead of +4%\n  -24% incoming damage instead of -5%\n- Protected Traveler does not count against normal 3-Trailmark maximum.\n- Drawback: all other Trailmarks provide only +2% Dodge Chance and -3% incoming damage.",
       "tags": [
         "damage",
         "defense",
@@ -4070,7 +4070,7 @@
       "scope": "subclass_specific",
       "family": "Ranger",
       "subclass": "Trailguard",
-      "canonicalText": "Every Path Watched \u2014 3 slots\nRequirement: Trailguard\n- Trailmark maximum becomes equal to the number of deployed real party members.\n- Trailmarked allies gain +5% Crit Chance in addition to normal benefits.\n- Hold the Route affects every Trailmarked ally.\n- Drawback: your Trailguard damaging abilities deal -20% final damage.",
+      "canonicalText": "Every Path Watched — 3 slots\nRequirement: Trailguard\n- Trailmark maximum becomes equal to the number of deployed real party members.\n- Trailmarked allies gain +5% Crit Chance in addition to normal benefits.\n- Hold the Route affects every Trailmarked ally.\n- Drawback: your Trailguard damaging abilities deal -20% final damage.",
       "tags": [
         "damage",
         "resource"
@@ -4086,7 +4086,7 @@
       "scope": "subclass_specific",
       "family": "Bard",
       "subclass": "Choruswarden",
-      "canonicalText": "Lead Voice \u2014 3 slots\n- Choose one other real ally as Lead Voice.\n- Effects you create on Lead Voice receive +50% final healing and +50% Shield strength.\n- Hold the Chorus gives Lead Voice -18% incoming damage instead of -10%.\n- Drawback: healing and Shields applied to every other ally are -20%.",
+      "canonicalText": "Lead Voice — 3 slots\n- Choose one other real ally as Lead Voice.\n- Effects you create on Lead Voice receive +50% final healing and +50% Shield strength.\n- Hold the Chorus gives Lead Voice -18% incoming damage instead of -10%.\n- Drawback: healing and Shields applied to every other ally are -20%.",
       "tags": [
         "damage",
         "healing",
@@ -4108,7 +4108,7 @@
       "scope": "subclass_specific",
       "family": "Bard",
       "subclass": "Choruswarden",
-      "canonicalText": "Endless Refrain \u2014 3 slots\n- Harmony maximum becomes 5.\n- Each Harmony instead gives +5% Outgoing Healing and +5% Shield strength.\n- After spending Harmony, regain 1 Harmony after the ability fully resolves.\n- Drawback: Choruswarden damaging abilities deal -30% final damage.\n\nDREADCANTOR",
+      "canonicalText": "Endless Refrain — 3 slots\n- Harmony maximum becomes 5.\n- Each Harmony instead gives +5% Outgoing Healing and +5% Shield strength.\n- After spending Harmony, regain 1 Harmony after the ability fully resolves.\n- Drawback: Choruswarden damaging abilities deal -30% final damage.\n\nDREADCANTOR",
       "tags": [
         "damage",
         "healing",
@@ -4126,7 +4126,7 @@
       "scope": "subclass_specific",
       "family": "Bard",
       "subclass": "Dreadcantor",
-      "canonicalText": "One Note of Terror \u2014 3 slots\n- Choose Psychic or Dark when equipped.\n- All Dreadcantor damaging abilities become the chosen type.\n- Chosen-type Dreadcantor damage gains +20% final damage.\n- Discord maximum becomes 5.\n- Drawback: Dreadcantor abilities can no longer restore HP or grant Shields through their own subclass effects.",
+      "canonicalText": "One Note of Terror — 3 slots\n- Choose Psychic or Dark when equipped.\n- All Dreadcantor damaging abilities become the chosen type.\n- Chosen-type Dreadcantor damage gains +20% final damage.\n- Discord maximum becomes 5.\n- Drawback: Dreadcantor abilities can no longer restore HP or grant Shields through their own subclass effects.",
       "tags": [
         "damage",
         "shield",
@@ -4150,7 +4150,7 @@
       "scope": "subclass_specific",
       "family": "Bard",
       "subclass": "Dreadcantor",
-      "canonicalText": "Lingering Dissonance \u2014 3 slots\n- When one of your Dreadcantor debuffs expires naturally, reapply it at 50% of its original numerical strength for 2 more turns.\n- It can extend only once.\n- Enemies carrying one of your extended debuffs take +10% Psychic and Dark damage from you.\n- Drawback: Dreadcantor damaging abilities deal -12% final damage on their initial hit.\n\nCADENCEBLADE",
+      "canonicalText": "Lingering Dissonance — 3 slots\n- When one of your Dreadcantor debuffs expires naturally, reapply it at 50% of its original numerical strength for 2 more turns.\n- It can extend only once.\n- Enemies carrying one of your extended debuffs take +10% Psychic and Dark damage from you.\n- Drawback: Dreadcantor damaging abilities deal -12% final damage on their initial hit.\n\nCADENCEBLADE",
       "tags": [
         "damage",
         "resource",
@@ -4167,7 +4167,7 @@
       "scope": "subclass_specific",
       "family": "Bard",
       "subclass": "Cadenceblade",
-      "canonicalText": "Accelerando \u2014 3 slots\n- Cadence maximum becomes 6.\n- Each Cadence instead gives +4% Crit Chance and +3% Dodge Chance.\n- Perfect Rhythm still begins at 4.\n- At 6 Cadence, Cadenceblade final damage gains another +15%.\n- Drawback: if a Cadenceblade damaging ability is Dodged, all Cadence is immediately lost.",
+      "canonicalText": "Accelerando — 3 slots\n- Cadence maximum becomes 6.\n- Each Cadence instead gives +4% Crit Chance and +3% Dodge Chance.\n- Perfect Rhythm still begins at 4.\n- At 6 Cadence, Cadenceblade final damage gains another +15%.\n- Drawback: if a Cadenceblade damaging ability is Dodged, all Cadence is immediately lost.",
       "tags": [
         "damage",
         "defense",
@@ -4184,7 +4184,7 @@
       "scope": "subclass_specific",
       "family": "Bard",
       "subclass": "Cadenceblade",
-      "canonicalText": "Resonant Edge \u2014 3 slots\n- Multiply CHA by 1.5\u00d7.\n- After all other DEX multipliers are applied, halve resulting DEX.\n- All Cadenceblade ability damage becomes Force.\n- Cadenceblade abilities gain +10% final damage while you have 2+ Resonance.\n- Drawback: Cadence no longer grants Dodge Chance; it grants only its Crit bonus and Perfect Rhythm effects.",
+      "canonicalText": "Resonant Edge — 3 slots\n- Multiply CHA by 1.5×.\n- After all other DEX multipliers are applied, halve resulting DEX.\n- All Cadenceblade ability damage becomes Force.\n- Cadenceblade abilities gain +10% final damage while you have 2+ Resonance.\n- Drawback: Cadence no longer grants Dodge Chance; it grants only its Crit bonus and Perfect Rhythm effects.",
       "tags": [
         "damage",
         "defense",
@@ -4201,7 +4201,7 @@
       "scope": "subclass_specific",
       "family": "Sorcerer",
       "subclass": "Fontborn",
-      "canonicalText": "Bottomless Vessel \u2014 3 slots\n- Font maximum becomes 5.\n- Each Font instead grants +5% Fontborn final damage and +5% Shield strength.\n- Overflowing Vessel still activates at 3 Font.\n- Drawback: each current Font gives -4% Dodge Chance.",
+      "canonicalText": "Bottomless Vessel — 3 slots\n- Font maximum becomes 5.\n- Each Font instead grants +5% Fontborn final damage and +5% Shield strength.\n- Overflowing Vessel still activates at 3 Font.\n- Drawback: each current Font gives -4% Dodge Chance.",
       "tags": [
         "damage",
         "shield",
@@ -4219,7 +4219,7 @@
       "scope": "subclass_specific",
       "family": "Sorcerer",
       "subclass": "Fontborn",
-      "canonicalText": "Glass Reservoir \u2014 3 slots\n- Multiply INT by 1.5\u00d7.\n- Fontborn damaging abilities gain +10% Crit Chance.\n- Generating Font from spending 2+ Energy grants 2 Font instead of 1.\n- Drawback: after all other CON multipliers are applied, halve resulting CON.\n\nFLUXWROUGHT",
+      "canonicalText": "Glass Reservoir — 3 slots\n- Multiply INT by 1.5×.\n- Fontborn damaging abilities gain +10% Crit Chance.\n- Generating Font from spending 2+ Energy grants 2 Font instead of 1.\n- Drawback: after all other CON multipliers are applied, halve resulting CON.\n\nFLUXWROUGHT",
       "tags": [
         "damage",
         "energy",
@@ -4236,7 +4236,7 @@
       "scope": "subclass_specific",
       "family": "Sorcerer",
       "subclass": "Fluxwrought",
-      "canonicalText": "Loaded Reality \u2014 3 slots\n- When equipped, choose Surge, Twist, or Collapse.\n- Permanently remain in chosen Flux state.\n- Chosen state is enhanced:\n  Surge: +20% final damage instead of +12%\n  Twist: +28% Crit Chance instead of +18%\n  Collapse: +40% Critical Damage and -1 Energy cost\n- Drawback: Impossible Outcome receives only chosen state, not all three.",
+      "canonicalText": "Loaded Reality — 3 slots\n- When equipped, choose Surge, Twist, or Collapse.\n- Permanently remain in chosen Flux state.\n- Chosen state is enhanced:\n  Surge: +20% final damage instead of +12%\n  Twist: +28% Crit Chance instead of +18%\n  Collapse: +40% Critical Damage and -1 Energy cost\n- Drawback: Impossible Outcome receives only chosen state, not all three.",
       "tags": [
         "damage",
         "energy",
@@ -4261,7 +4261,7 @@
       "scope": "subclass_specific",
       "family": "Sorcerer",
       "subclass": "Fluxwrought",
-      "canonicalText": "Unstable Constant \u2014 3 slots\n- Whenever Flux advances:\n  50% chance advance normally\n  25% chance remain in current state\n  25% chance skip directly to state after next\n- Whenever either non-normal result occurs, gain +15% final damage on next Fluxwrought damaging ability.\n- Drawback: Probability Shear can no longer directly choose state; instead it forces one immediate random Flux transition.\n\nSPELLCONDUCTOR",
+      "canonicalText": "Unstable Constant — 3 slots\n- Whenever Flux advances:\n  50% chance advance normally\n  25% chance remain in current state\n  25% chance skip directly to state after next\n- Whenever either non-normal result occurs, gain +15% final damage on next Fluxwrought damaging ability.\n- Drawback: Probability Shear can no longer directly choose state; instead it forces one immediate random Flux transition.\n\nSPELLCONDUCTOR",
       "tags": [
         "damage",
         "resource"
@@ -4277,7 +4277,7 @@
       "scope": "subclass_specific",
       "family": "Sorcerer",
       "subclass": "Spellconductor",
-      "canonicalText": "Single Circuit \u2014 3 slots\n- May maintain only 1 Conduit.\n- That Conduit gives its enemy +15% Spellconductor final damage taken.\n- Arc effects against that target loop back into it, dealing bonus damage to same enemy.\n- Closed Circuit requires only 1 Conduit and gains +25% final damage.\n- Drawback: cannot create or damage secondary targets through normal Conduit Arcs.",
+      "canonicalText": "Single Circuit — 3 slots\n- May maintain only 1 Conduit.\n- That Conduit gives its enemy +15% Spellconductor final damage taken.\n- Arc effects against that target loop back into it, dealing bonus damage to same enemy.\n- Closed Circuit requires only 1 Conduit and gains +25% final damage.\n- Drawback: cannot create or damage secondary targets through normal Conduit Arcs.",
       "tags": [
         "damage",
         "resource"
@@ -4293,7 +4293,7 @@
       "scope": "subclass_specific",
       "family": "Sorcerer",
       "subclass": "Spellconductor",
-      "canonicalText": "Parallel Wiring \u2014 3 slots\n- Conduit maximum becomes 5.\n- Arc damage increases from 20% to 30% of actual HP removed.\n- Crosscurrent can jump through up to 2 additional Conducted enemies,\n  each after the first secondary hit at 70% of previous hit's value.\n- Drawback: direct Spellconductor ability damage is -15% final damage.",
+      "canonicalText": "Parallel Wiring — 3 slots\n- Conduit maximum becomes 5.\n- Arc damage increases from 20% to 30% of actual HP removed.\n- Crosscurrent can jump through up to 2 additional Conducted enemies,\n  each after the first secondary hit at 70% of previous hit's value.\n- Drawback: direct Spellconductor ability damage is -15% final damage.",
       "tags": [
         "damage",
         "resource"
@@ -4309,7 +4309,7 @@
       "scope": "subclass_specific",
       "family": "Warlock",
       "subclass": "Pyrecovenant",
-      "canonicalText": "Unextinguished Covenant \u2014 3 slots\n- Cinder maximum becomes 3.\n- Cinders are no longer consumed by Pyre Due.\n- Pyre Due requires 3 Cinders and leaves them intact.\n- Each Cinder instead grants +5% Fire damage and +4% Critical Damage.\n- Drawback: each current Cinder gives +5% incoming damage.",
+      "canonicalText": "Unextinguished Covenant — 3 slots\n- Cinder maximum becomes 3.\n- Cinders are no longer consumed by Pyre Due.\n- Pyre Due requires 3 Cinders and leaves them intact.\n- Each Cinder instead grants +5% Fire damage and +4% Critical Damage.\n- Drawback: each current Cinder gives +5% incoming damage.",
       "tags": [
         "damage",
         "defense",
@@ -4326,7 +4326,7 @@
       "scope": "subclass_specific",
       "family": "Warlock",
       "subclass": "Pyrecovenant",
-      "canonicalText": "Ironbound Pyre \u2014 3 slots\n- All Pyrecovenant abilities lose all INT scaling.\n- Multiply user's STR by 1.5\u00d7.\n- Pyrecovenant Fire damage gains +10% final damage.\n- Drawback: all explicit HP costs from Pyrecovenant abilities are doubled.\n\nBELOWCALLER",
+      "canonicalText": "Ironbound Pyre — 3 slots\n- All Pyrecovenant abilities lose all INT scaling.\n- Multiply user's STR by 1.5×.\n- Pyrecovenant Fire damage gains +10% final damage.\n- Drawback: all explicit HP costs from Pyrecovenant abilities are doubled.\n\nBELOWCALLER",
       "tags": [
         "damage"
       ],
@@ -4341,7 +4341,7 @@
       "scope": "subclass_specific",
       "family": "Warlock",
       "subclass": "Belowcaller",
-      "canonicalText": "Whispered Fate \u2014 3 slots\n- Once per enemy per turn, when an enemy carrying one of your Belowcaller debuffs is targeted by a direct attack:\n  * that attack is guaranteed +15% Crit Chance against that enemy\n  * that enemy is guaranteed -15% Dodge Chance against that attack\n  * if the attack deals actual HP damage, gain 1 Whisper after it resolves\n- At 4 Whispers, those attack modifiers become +20% Crit Chance and -20% Dodge Chance.\n- Drawback: whenever Whispered Fate triggers, that enemy's Belowcaller debuffs lose 1 turn of remaining duration\n  after the attack resolves.\n- No core-stat multiply/halve effect.",
+      "canonicalText": "Whispered Fate — 3 slots\n- Once per enemy per turn, when an enemy carrying one of your Belowcaller debuffs is targeted by a direct attack:\n  * that attack is guaranteed +15% Crit Chance against that enemy\n  * that enemy is guaranteed -15% Dodge Chance against that attack\n  * if the attack deals actual HP damage, gain 1 Whisper after it resolves\n- At 4 Whispers, those attack modifiers become +20% Crit Chance and -20% Dodge Chance.\n- Drawback: whenever Whispered Fate triggers, that enemy's Belowcaller debuffs lose 1 turn of remaining duration\n  after the attack resolves.\n- No core-stat multiply/halve effect.",
       "tags": [
         "damage",
         "defense",
@@ -4359,7 +4359,7 @@
       "scope": "subclass_specific",
       "family": "Warlock",
       "subclass": "Belowcaller",
-      "canonicalText": "Devotional Descent \u2014 3 slots\n- Multiply FTH by 1.5\u00d7.\n- After all other LCK multipliers, halve resulting LCK.\n- Numerical enemy penalties from Belowcaller debuffs are 50% stronger.\n- Drawback: Belowcaller damaging abilities deal -15% final damage.\n\nMORTISWORN",
+      "canonicalText": "Devotional Descent — 3 slots\n- Multiply FTH by 1.5×.\n- After all other LCK multipliers, halve resulting LCK.\n- Numerical enemy penalties from Belowcaller debuffs are 50% stronger.\n- Drawback: Belowcaller damaging abilities deal -15% final damage.\n\nMORTISWORN",
       "tags": [
         "damage",
         "status"
@@ -4375,7 +4375,7 @@
       "scope": "subclass_specific",
       "family": "Warlock",
       "subclass": "Mortisworn",
-      "canonicalText": "Mausoleum Heart \u2014 3 slots\n- Multiply CON by 1.5\u00d7.\n- After all other LCK multipliers, halve resulting LCK.\n- Each Remain grants +5% Mortisworn Lifesteal instead of +3%.\n- Each Remain also grants +4% Mortisworn Shield strength.\n- Drawback: -15% final Mortisworn damage.",
+      "canonicalText": "Mausoleum Heart — 3 slots\n- Multiply CON by 1.5×.\n- After all other LCK multipliers, halve resulting LCK.\n- Each Remain grants +5% Mortisworn Lifesteal instead of +3%.\n- Each Remain also grants +4% Mortisworn Shield strength.\n- Drawback: -15% final Mortisworn damage.",
       "tags": [
         "damage",
         "shield",
@@ -4392,7 +4392,7 @@
       "scope": "subclass_specific",
       "family": "Warlock",
       "subclass": "Mortisworn",
-      "canonicalText": "Grinning Remains \u2014 3 slots\n- Multiply LCK by 1.5\u00d7.\n- After all other CON multipliers, halve resulting CON.\n- Each Remain grants +5% Mortisworn Critical Damage instead of +2%.\n- Mortal Reckoning gains +5% Crit Chance per Remain consumed.\n- Drawback: -20% Incoming Healing.",
+      "canonicalText": "Grinning Remains — 3 slots\n- Multiply LCK by 1.5×.\n- After all other CON multipliers, halve resulting CON.\n- Each Remain grants +5% Mortisworn Critical Damage instead of +2%.\n- Mortal Reckoning gains +5% Crit Chance per Remain consumed.\n- Drawback: -20% Incoming Healing.",
       "tags": [
         "damage",
         "healing",
@@ -4409,7 +4409,7 @@
       "scope": "subclass_specific",
       "family": "Paladin",
       "subclass": "Dawnwarden",
-      "canonicalText": "One Dawn Above You \u2014 3 slots\n- Choose one other real ally as Dawncharge.\n- Dawncharge receives +60% Shield strength from your Dawnwarden abilities.\n- Dawncharge receives +40% final healing from your Dawnwarden abilities.\n- Stand Before the Sun reduces redirected damage by 50% instead of 35%.\n- Drawback: Dawnwarden Shields and healing applied to everyone else are -20%.",
+      "canonicalText": "One Dawn Above You — 3 slots\n- Choose one other real ally as Dawncharge.\n- Dawncharge receives +60% Shield strength from your Dawnwarden abilities.\n- Dawncharge receives +40% final healing from your Dawnwarden abilities.\n- Stand Before the Sun reduces redirected damage by 50% instead of 35%.\n- Drawback: Dawnwarden Shields and healing applied to everyone else are -20%.",
       "tags": [
         "damage",
         "healing",
@@ -4431,7 +4431,7 @@
       "scope": "subclass_specific",
       "family": "Paladin",
       "subclass": "Dawnwarden",
-      "canonicalText": "Sun That Will Not Set \u2014 3 slots\n- Dawn maximum becomes 4.\n- Dawn is not consumed by First Light.\n- Each Dawn instead grants +5% Shield strength and +4% Outgoing Healing.\n- Daybreak still activates at 3 Dawn.\n- Drawback: while at maximum Dawn, Dawnwarden damaging abilities deal -40% final damage\n  and you have -10% Dodge Chance.\n\nVERDICTBEARER",
+      "canonicalText": "Sun That Will Not Set — 3 slots\n- Dawn maximum becomes 4.\n- Dawn is not consumed by First Light.\n- Each Dawn instead grants +5% Shield strength and +4% Outgoing Healing.\n- Daybreak still activates at 3 Dawn.\n- Drawback: while at maximum Dawn, Dawnwarden damaging abilities deal -40% final damage\n  and you have -10% Dodge Chance.\n\nVERDICTBEARER",
       "tags": [
         "damage",
         "healing",
@@ -4450,7 +4450,7 @@
       "scope": "subclass_specific",
       "family": "Paladin",
       "subclass": "Verdictbearer",
-      "canonicalText": "Presumed Guilty \u2014 3 slots\n- Every enemy begins combat Judged.\n- Changing targets no longer removes Verdict.\n- Verdict becomes a global resource rather than attached to one enemy.\n- At 4 Verdict, all enemies count as Condemned.\n- Drawback: each Verdict grants only +1% final damage instead of +3%.\n- Final Verdict loses Unblockable.",
+      "canonicalText": "Presumed Guilty — 3 slots\n- Every enemy begins combat Judged.\n- Changing targets no longer removes Verdict.\n- Verdict becomes a global resource rather than attached to one enemy.\n- At 4 Verdict, all enemies count as Condemned.\n- Drawback: each Verdict grants only +1% final damage instead of +3%.\n- Final Verdict loses Unblockable.",
       "tags": [
         "damage",
         "defense",
@@ -4467,7 +4467,7 @@
       "scope": "subclass_specific",
       "family": "Paladin",
       "subclass": "Verdictbearer",
-      "canonicalText": "No Appeal \u2014 3 slots\n- Against current Judged enemy, Verdict maximum becomes 5.\n- Each Verdict grants +5% final damage instead of +3%.\n- Final Verdict consumes all Verdict and gains +16% final damage per Verdict consumed.\n- Drawback: while a living Judged enemy exists, Verdictbearer damaging abilities deal\n  -25% final damage to every other enemy.\n\nVOWSCARRED",
+      "canonicalText": "No Appeal — 3 slots\n- Against current Judged enemy, Verdict maximum becomes 5.\n- Each Verdict grants +5% final damage instead of +3%.\n- Final Verdict consumes all Verdict and gains +16% final damage per Verdict consumed.\n- Drawback: while a living Judged enemy exists, Verdictbearer damaging abilities deal\n  -25% final damage to every other enemy.\n\nVOWSCARRED",
       "tags": [
         "damage",
         "resource"
@@ -4483,7 +4483,7 @@
       "scope": "subclass_specific",
       "family": "Paladin",
       "subclass": "Vowscarred",
-      "canonicalText": "Broken Before Battle \u2014 3 slots\n- Begin every combat at 0 Oath / 3 Fractures.\n- Fractures can no longer be converted back into Oath.\n- Oath's End no longer restores Oath.\n- Vow Broken's Critical Damage bonus becomes +25% instead of +15%.\n- Drawback: permanent +12% incoming damage from the 3 Fractures and permanent\n  Vow Broken -10% Block Chance.",
+      "canonicalText": "Broken Before Battle — 3 slots\n- Begin every combat at 0 Oath / 3 Fractures.\n- Fractures can no longer be converted back into Oath.\n- Oath's End no longer restores Oath.\n- Vow Broken's Critical Damage bonus becomes +25% instead of +15%.\n- Drawback: permanent +12% incoming damage from the 3 Fractures and permanent\n  Vow Broken -10% Block Chance.",
       "tags": [
         "damage",
         "defense",
@@ -4500,7 +4500,7 @@
       "scope": "subclass_specific",
       "family": "Paladin",
       "subclass": "Vowscarred",
-      "canonicalText": "Promise Unscarred \u2014 3 slots\n- Permanently remain at 3 Oath / 0 Fractures.\n- Oath bonuses become +5% Block Chance per Oath and +5% Critical Damage per Oath.\n- Vowscarred Radiant damage gains +15%.\n- Drawback:\n  Scar the Promise cannot be used.\n  Perjurer's Blade loses its Fracture bonus.\n  Oath's End can never gain Force/Dark forms or Fracture bonuses.",
+      "canonicalText": "Promise Unscarred — 3 slots\n- Permanently remain at 3 Oath / 0 Fractures.\n- Oath bonuses become +5% Block Chance per Oath and +5% Critical Damage per Oath.\n- Vowscarred Radiant damage gains +15%.\n- Drawback:\n  Scar the Promise cannot be used.\n  Perjurer's Blade loses its Fracture bonus.\n  Oath's End can never gain Force/Dark forms or Fracture bonuses.",
       "tags": [
         "damage",
         "defense",
@@ -4517,7 +4517,7 @@
       "scope": "subclass_specific",
       "family": "Druid",
       "subclass": "Barkmorph",
-      "canonicalText": "Single Shape Doctrine \u2014 3 slots\n- Choose Claw, Hide, or Heartwood.\n- Can only generate chosen Morph, but may hold 3 stacks.\n- Each stack:\n  Claw: +10% Barkmorph final damage\n  Hide: +10% Barkmorph Shield strength and +5% Block Chance\n  Heartwood: +10% Incoming Healing and +10% healing from Barkmorph abilities\n- At 3 stacks, Many-Limbed Form specializes:\n  Claw: damage only, +30% final damage\n  Hide: Shield only, +50% Shield strength\n  Heartwood: heal only, +50% final healing\n- Lose access to other two Morphs.",
+      "canonicalText": "Single Shape Doctrine — 3 slots\n- Choose Claw, Hide, or Heartwood.\n- Can only generate chosen Morph, but may hold 3 stacks.\n- Each stack:\n  Claw: +10% Barkmorph final damage\n  Hide: +10% Barkmorph Shield strength and +5% Block Chance\n  Heartwood: +10% Incoming Healing and +10% healing from Barkmorph abilities\n- At 3 stacks, Many-Limbed Form specializes:\n  Claw: damage only, +30% final damage\n  Hide: Shield only, +50% Shield strength\n  Heartwood: heal only, +50% final healing\n- Lose access to other two Morphs.",
       "tags": [
         "damage",
         "healing",
@@ -4544,7 +4544,7 @@
       "scope": "subclass_specific",
       "family": "Druid",
       "subclass": "Barkmorph",
-      "canonicalText": "Chimeric Overgrowth \u2014 3 slots\n- Morph maximum becomes 4.\n- After Claw, Hide, Heartwood, fourth Morph may duplicate one.\n- At 4 Morphs:\n  +15% Barkmorph final damage\n  -10% incoming damage\n- Many-Limbed Form requires and consumes all 4 Morphs.\n- Each damage/Shield/heal component gets +10% final value.\n- Drawback: while holding 4 Morphs, every Barkmorph ability costs +1 Energy.\n\nSEEDMARSHAL",
+      "canonicalText": "Chimeric Overgrowth — 3 slots\n- Morph maximum becomes 4.\n- After Claw, Hide, Heartwood, fourth Morph may duplicate one.\n- At 4 Morphs:\n  +15% Barkmorph final damage\n  -10% incoming damage\n- Many-Limbed Form requires and consumes all 4 Morphs.\n- Each damage/Shield/heal component gets +10% final value.\n- Drawback: while holding 4 Morphs, every Barkmorph ability costs +1 Energy.\n\nSEEDMARSHAL",
       "tags": [
         "damage",
         "healing",
@@ -4564,7 +4564,7 @@
       "scope": "subclass_specific",
       "family": "Druid",
       "subclass": "Seedmarshal",
-      "canonicalText": "Monoculture \u2014 3 slots\n- Choose Thornseed, Shelterseed, or Lifeseed.\n- Every Seedmarshal ability that creates a Planting instead creates chosen type.\n- Original immediate portion remains unchanged.\n- Planting maximum becomes 4.\n- Chosen Planting periodic value +40%.\n- Cannot create other two Planting types.",
+      "canonicalText": "Monoculture — 3 slots\n- Choose Thornseed, Shelterseed, or Lifeseed.\n- Every Seedmarshal ability that creates a Planting instead creates chosen type.\n- Original immediate portion remains unchanged.\n- Planting maximum becomes 4.\n- Chosen Planting periodic value +40%.\n- Cannot create other two Planting types.",
       "tags": [
         "resource"
       ],
@@ -4587,7 +4587,7 @@
       "scope": "subclass_specific",
       "family": "Druid",
       "subclass": "Seedmarshal",
-      "canonicalText": "Wild Germination \u2014 3 slots\n- Whenever applying a Planting:\n  1) immediately trigger it at 120% normal periodic value\n  2) it triggers normally at start of target's next turn\n  3) then immediately expires\n- Each immediate trigger can generate Growth, subject to normal once-per-turn limit.\n- Drawback: Plantings can no longer persist beyond first target turn.\n\nHYPHAWEAVER",
+      "canonicalText": "Wild Germination — 3 slots\n- Whenever applying a Planting:\n  1) immediately trigger it at 120% normal periodic value\n  2) it triggers normally at start of target's next turn\n  3) then immediately expires\n- Each immediate trigger can generate Growth, subject to normal once-per-turn limit.\n- Drawback: Plantings can no longer persist beyond first target turn.\n\nHYPHAWEAVER",
       "tags": [
         "resource"
       ],
@@ -4602,7 +4602,7 @@
       "scope": "subclass_specific",
       "family": "Druid",
       "subclass": "Hyphaweaver",
-      "canonicalText": "Predatory Mycelium \u2014 3 slots\n- May place Hypha Nodes only on enemies.\n- Node maximum becomes 5.\n- Damage transmission rises from 25% to 40% of actual HP removed.\n- Fruiting Network deals +20% final damage.\n- Drawback:\n  cannot place ally Nodes\n  Hyphaweaver healing and Shields are -30%.",
+      "canonicalText": "Predatory Mycelium — 3 slots\n- May place Hypha Nodes only on enemies.\n- Node maximum becomes 5.\n- Damage transmission rises from 25% to 40% of actual HP removed.\n- Fruiting Network deals +20% final damage.\n- Drawback:\n  cannot place ally Nodes\n  Hyphaweaver healing and Shields are -30%.",
       "tags": [
         "damage",
         "healing",
@@ -4620,7 +4620,7 @@
       "scope": "subclass_specific",
       "family": "Druid",
       "subclass": "Hyphaweaver",
-      "canonicalText": "Mutualist Colony \u2014 3 slots\n- May place Hypha Nodes only on allies.\n- Node maximum becomes 5.\n- Healing and Shield transmission rises from 25% to 50%.\n- Ally carrying your Node takes -5% incoming damage.\n- Drawback:\n  cannot place enemy Nodes\n  Hyphaweaver damaging abilities deal -25% final damage.",
+      "canonicalText": "Mutualist Colony — 3 slots\n- May place Hypha Nodes only on allies.\n- Node maximum becomes 5.\n- Healing and Shield transmission rises from 25% to 50%.\n- Ally carrying your Node takes -5% incoming damage.\n- Drawback:\n  cannot place enemy Nodes\n  Hyphaweaver damaging abilities deal -25% final damage.",
       "tags": [
         "damage",
         "healing",
@@ -4631,6 +4631,37 @@
       "choice": null,
       "owner": "subclass-state/controller + kept-impression-runtime",
       "battleStateReset": "reset-to-zero-or-nonexistence-unless-explicitly-persistent"
+    },
+    {
+      "id": "KI-267",
+      "name": "Dragonblooded",
+      "slots": 2,
+      "scope": "global",
+      "family": null,
+      "subclass": null,
+      "canonicalText": "At the Tavern choose and permanently bind one element while this Impression is equipped: Fire, Cold, Lightning, Poison, Force, Dark, or Holy. You deal +5% final damage with the bound element and gain +5% Resistance to it. Rhazekai awaken Dragonblooded further: the bound-element Resistance bonus becomes +10% instead of +5%, and Rhazekai Draconic Organ damaging actions that deal the bound element gain +50% final damage. Special Radiant Crucible awakening: without Dragonblooded bound to Holy, Radiant Crucible provides only +5% racial Holy Resistance and Crucible Ray deals 50% of its normal racial damage. With Dragonblooded equipped and bound to Holy, Radiant Crucible is restored to its full +10% racial Holy Resistance and full Crucible Ray damage before Dragonblooded's own Rhazekai bonuses are applied. Changing the bound element is allowed only at Krass's Magical Library between campaigns.",
+      "tags": [
+        "damage",
+        "defense",
+        "resistance",
+        "draconic",
+        "race"
+      ],
+      "choice": {
+        "type": "single",
+        "key": "damageType",
+        "options": [
+          "Fire",
+          "Cold",
+          "Lightning",
+          "Poison",
+          "Force",
+          "Dark",
+          "Holy"
+        ]
+      },
+      "owner": "kept-impression-state",
+      "battleStateReset": "no-combat-state; Tavern-bound element persists in Vessel loadout choice"
     }
   ]
 }

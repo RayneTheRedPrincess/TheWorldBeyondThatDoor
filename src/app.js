@@ -3,7 +3,7 @@ import { CanonRegistry } from './canon-registry.js';
 import { Router } from './router.js';
 import { applyAccountBootstrap, migrateMantleUnlocksFromTrainerHistory } from './account-bootstrap.js';
 import { createVesselSlotState, validateVesselDraft } from './character-creator.js';
-import { rebindVessel } from './vessel-controller.js';
+import { rebindVessel, setVesselRacialConfiguration } from './vessel-controller.js';
 import { selectVesselPortrait, selectStaticVesselPortrait } from './portrait-controller.js';
 import { SaveController } from './save-controller.js';
 import { TavernController } from './tavern-controller.js';
@@ -12,13 +12,21 @@ import { selectMantle } from './mantle-controller.js';
 import { purchaseChronicleNode, respecChronicleFamily } from './chronicle-controller.js';
 import { getCampaignDoorState, getCampaignPreparationSummary } from './campaign-door.js';
 import { startCampaign, getCampaignRunView, applyCampaignSettlement, endCampaign, allocatePlayerRunStat, setTavernAdventurerParty } from './campaign-controller.js';
-import { selectExpeditionCard, leaveCampsite, advanceAfterResolvedNoncombat, resolveCombatVictory, continueBeyondForest, continueAfterForestEventResult, enterBogRegion } from './expedition-controller.js';
+import { selectExpeditionCard, leaveCampsite, advanceAfterResolvedNoncombat, resolveCombatVictory, continueBeyondForest, continueAfterForestEventResult, enterBogRegion, enterTowerRegion, enterPlainsRegion, enterHellRegion, enterDragonRegion, enterNecropolisRegion, enterFinalRegion } from './expedition-controller.js';
 import { resolveForestEventCheck, chooseTrainerFight, learnFromTrainer } from './forest-event-controller.js';
 import { takePlayerTurnAction, endCombatTurn } from './combat-controller.js';
-import { combatPresentationDelayMsForSpeed } from './combat-presentation.js';
+import { combatPresentationDelayMsForSpeed, combatCompletionDelayMsForSpeed } from './combat-presentation.js';
+import { autoEndPlayerTurn } from './gameplay-efficiency.js';
 import { predecodeUpcomingCombatPortraits } from './portrait-preload.js';
 import { attachForestCombat, awardCurrentForestMaterialCache } from './forest-encounter-builder.js';
 import { attachBogCombat, awardCurrentBogMaterialCache } from './bog-encounter-builder.js';
+import { attachTowerCombat, awardCurrentTowerMaterialCache } from './tower-encounter-builder.js';
+import { attachPlainsCombat, awardCurrentPlainsMaterialCache } from './plains-encounter-builder.js';
+import { attachHellCombat, awardCurrentHellMaterialCache } from './hell-encounter-builder.js';
+import { attachDragonCombat, awardCurrentDragonMaterialCache } from './dragon-encounter-builder.js';
+import { attachNecropolisCombat, awardCurrentNecropolisMaterialCache } from './necropolis-encounter-builder.js';
+import { attachFinalRegionCombat, awardCurrentFinalRegionMaterialCache } from './final-region-encounter-builder.js';
+import { purchaseHellMerchantItem, leaveHellMerchant } from './hell-merchant-controller.js';
 import { resolveEnemyTurn } from './enemy-ai.js';
 import { resolveTavernAdventurerTurn } from './ally-ai.js';
 import { awardCurrentForestCombatRewards } from './forest-reward-controller.js';
@@ -27,11 +35,14 @@ import { executeSubclassAbility, resolveSubclassTurnStartEvents } from './subcla
 import { executeKeptActiveAbility, setKeptCombatStartChoice } from './kept-impression-runtime.js';
 import { executeEquippedConsumable, resolveTrailstockTurnStart, equipConsumableAtCampsite, unequipConsumableAtCampsite } from './consumable-controller.js';
 import { executeEquipmentAbility } from './equipment-ability-controller.js';
+import { executeRacialAbility } from './racial-ability-controller.js';
 import { equipRunEquipmentAtCampsite, unequipRunEquipmentAtCampsite } from './equipment-controller.js';
 import { craftAtCampsite } from './crafting-controller.js';
 import { updateClasslessConfig, classlessLimits } from './classless-controller.js';
 import { ensureMaraQuestOffers, acceptMaraQuest, abandonMaraQuest, selectBorrowedLenderItem, selectReturnedLenderItem, evaluateMaraQuest, purchaseKeptImpressionBoon } from './tavern-services-controller.js';
 import { getStartingStatPool, readStartingStatsFromForm, redistributeStartingStats, CORE_STATS } from './starting-stats.js';
+import { readRacialConfigurationFromForm } from './racial-configuration.js';
+import { readKrassLibraryUi, writeKrassLibraryUi, DEFAULT_KRASS_LIBRARY_UI } from './library-ui.js';
 import { renderHome } from './views/home.js';
 import { renderSlots } from './views/slots.js';
 import { renderCharacterCreation } from './views/create-character.js';
@@ -90,6 +101,7 @@ class App {
     this.libraryFamily = 'all';
     this.libraryTags = [];
     this.librarySort = 'id';
+    this.krassLibraryUi = readKrassLibraryUi();
     this.lenderQuery = '';
     this.lenderSlot = 'all';
     this.lenderWeaponType = 'all';
@@ -147,7 +159,7 @@ class App {
     let next = applyAccountBootstrap(account, this.canon.getAccountBootstrap());
     next = migrateMantleUnlocksFromTrainerHistory(next, {entries:[...(this.canon.getForestTrainers()?.entries||[]),...(this.canon.getBogTrainers()?.entries||[])]});
     next.currencies = { ...(next.currencies || {}), onyx: Number(next.currencies?.onyx || 0) };
-    next.settings = { combatSpeed: 1, reducedMotion: false, combatNumbers: true, screenFlash: 'standard', ...(next.settings || {}) };
+    next.settings = { combatSpeed: 1, autoEndTurn: true, reducedMotion: false, combatNumbers: true, screenFlash: 'standard', ...(next.settings || {}) };
     const withTutorials = normalizeTutorialState(next);
     next.tutorials = withTutorials.tutorials;
     next.history = { ...(next.history || {}), settledCampaignIds: Array.isArray(next.history?.settledCampaignIds) ? next.history.settledCampaignIds : [] };
@@ -179,6 +191,24 @@ class App {
     const next = this.applyDisplayMode(mode);
     try { localStorage.setItem('twbtd-display-mode', next); } catch {}
     this.render(this.router.routeFromLocation());
+  }
+
+  updateKrassLibraryUi(patch = {}) {
+    this.krassLibraryUi = writeKrassLibraryUi({ ...(this.krassLibraryUi || {}), ...patch });
+    return this.krassLibraryUi;
+  }
+
+  clearKrassLibraryFilters(section) {
+    const d = DEFAULT_KRASS_LIBRARY_UI;
+    if (section === 'tokens') this.updateKrassLibraryUi({ tokenQuery:d.tokenQuery, tokenSlot:d.tokenSlot, tokenStatus:d.tokenStatus, tokenTags:[], tokenSort:d.tokenSort });
+    else if (section === 'shop') this.updateKrassLibraryUi({ shopQuery:d.shopQuery, shopSlot:d.shopSlot, shopRegion:d.shopRegion, shopPrice:d.shopPrice, shopRequirement:d.shopRequirement, shopOwnership:d.shopOwnership, shopTags:[], shopSort:d.shopSort });
+    return this.render(ROUTES.TAVERN);
+  }
+
+  toggleKrassLibrarySection(section) {
+    if (section === 'tokens') this.updateKrassLibraryUi({ tokenOpen:!this.krassLibraryUi?.tokenOpen });
+    else if (section === 'shop') this.updateKrassLibraryUi({ shopOpen:!this.krassLibraryUi?.shopOpen });
+    return this.render(ROUTES.TAVERN);
   }
 
   mountDisplayModeSwitch(route) {
@@ -214,13 +244,13 @@ class App {
   scheduleCombatPlayback(run){
     this.clearCombatPlaybackTimer(); const combat=run?.combat;if(!combat)return;
     const current=(combat.actors||[]).find(a=>a.id===combat.currentActorId);const needsStep=combat.state==='complete'||(combat.state==='active'&&current?.control==='ai');if(!needsStep)return;
-    const delay=combat.state==='complete'?650:this.combatPresentationDelayMs();
+    const delay=combat.state==='complete'?combatCompletionDelayMsForSpeed(this.account?.settings?.combatSpeed||1):this.combatPresentationDelayMs();
     this.combatPlaybackTimer=setTimeout(()=>{this.combatPlaybackTimer=null;if(this.router.routeFromLocation()===ROUTES.CAMPAIGN_RUN)this.render(ROUTES.CAMPAIGN_RUN);},delay);
   }
 
   normalizeActiveCampaignCombat() {
     const slotNumber=this.activeSlotNumber();let slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active||!slot.campaign.state)return{ok:true,slot};let changed=false;const run=()=>slot?.campaign?.state;
-    if(run()?.expedition?.state==='combat-pending'&&run()?.expedition?.encounter?.combat&&!run()?.combat){const bog=run()?.expedition?.regionId==='bog-of-lost-souls';const attached=bog?attachBogCombat(slot,{bogEnemies:this.canon.getBogEnemies(),bogTrainers:this.canon.getBogTrainers(),baseAbilities:this.canon.getBaseAbilities(),subclassAbilities:this.canon.getSubclassAbilities(),progression:this.canon.getCharacterProgression(),equipmentCatalog:this.canon.getEquipmentConsumablesStatus()}):attachForestCombat(slot,{forestEnemies:this.canon.getForestEnemies(),forestTrainers:this.canon.getForestTrainers(),baseAbilities:this.canon.getBaseAbilities(),subclassAbilities:this.canon.getSubclassAbilities(),progression:this.canon.getCharacterProgression(),equipmentCatalog:this.canon.getEquipmentConsumablesStatus()});if(!attached.ok)return attached;slot=attached.slot;changed=true;if(changed)this.save.saveSlot(slotNumber,slot);return{ok:true,slot,changed};}
+    if(run()?.expedition?.state==='combat-pending'&&run()?.expedition?.encounter?.combat&&!run()?.combat){const region=run()?.expedition?.regionId;const attached=region==='shadow-infused-dark-woods'?attachFinalRegionCombat(slot,{finalRegionEnemies:this.canon.getFinalRegionEnemies(),baseAbilities:this.canon.getBaseAbilities(),subclassAbilities:this.canon.getSubclassAbilities(),progression:this.canon.getCharacterProgression(),equipmentCatalog:this.canon.getEquipmentConsumablesStatus()}):region==='necropolis'?attachNecropolisCombat(slot,{necropolisEnemies:this.canon.getNecropolisEnemies(),baseAbilities:this.canon.getBaseAbilities(),subclassAbilities:this.canon.getSubclassAbilities(),progression:this.canon.getCharacterProgression(),equipmentCatalog:this.canon.getEquipmentConsumablesStatus()}):region==='that-dragons-dungeon'?attachDragonCombat(slot,{dragonEnemies:this.canon.getDragonEnemies(),baseAbilities:this.canon.getBaseAbilities(),subclassAbilities:this.canon.getSubclassAbilities(),progression:this.canon.getCharacterProgression(),equipmentCatalog:this.canon.getEquipmentConsumablesStatus()}):region==='caverns-to-hell'?attachHellCombat(slot,{hellEnemies:this.canon.getHellEnemies(),baseAbilities:this.canon.getBaseAbilities(),subclassAbilities:this.canon.getSubclassAbilities(),progression:this.canon.getCharacterProgression(),equipmentCatalog:this.canon.getEquipmentConsumablesStatus()}):region==='ruined-vampiric-plains'?attachPlainsCombat(slot,{plainsEnemies:this.canon.getPlainsEnemies(),baseAbilities:this.canon.getBaseAbilities(),subclassAbilities:this.canon.getSubclassAbilities(),progression:this.canon.getCharacterProgression(),equipmentCatalog:this.canon.getEquipmentConsumablesStatus()}):region==='heavenly-tower'?attachTowerCombat(slot,{towerEnemies:this.canon.getTowerEnemies(),baseAbilities:this.canon.getBaseAbilities(),subclassAbilities:this.canon.getSubclassAbilities(),progression:this.canon.getCharacterProgression(),equipmentCatalog:this.canon.getEquipmentConsumablesStatus()}):region==='bog-of-lost-souls'?attachBogCombat(slot,{bogEnemies:this.canon.getBogEnemies(),bogTrainers:this.canon.getBogTrainers(),baseAbilities:this.canon.getBaseAbilities(),subclassAbilities:this.canon.getSubclassAbilities(),progression:this.canon.getCharacterProgression(),equipmentCatalog:this.canon.getEquipmentConsumablesStatus()}):attachForestCombat(slot,{forestEnemies:this.canon.getForestEnemies(),forestTrainers:this.canon.getForestTrainers(),baseAbilities:this.canon.getBaseAbilities(),subclassAbilities:this.canon.getSubclassAbilities(),progression:this.canon.getCharacterProgression(),equipmentCatalog:this.canon.getEquipmentConsumablesStatus()});if(!attached.ok)return attached;slot=attached.slot;changed=true;if(changed)this.save.saveSlot(slotNumber,slot);return{ok:true,slot,changed};}
     let combat=run()?.combat;
     if(combat?.state==='active'){
       if(!combat.turn?.subclassStartResolved){const ev=resolveSubclassTurnStartEvents(slot);if(!ev.ok)return ev;slot=ev.slot;changed=true;this.save.saveSlot(slotNumber,slot);return{ok:true,slot,changed};}
@@ -239,8 +269,8 @@ class App {
       this.combatCompletionHoldEncounterId=null;
       if(!run()?.expedition?.encounter?.rewardsAwarded){const rewards=awardCurrentForestCombatRewards(slot,{progression:this.canon.getCharacterProgression()});if(!rewards.ok)return rewards;slot=rewards.slot;changed=true;}
       if(combat.outcome==='victory'){
-        if(!run()?.expedition?.encounter?.materialsAwarded){const awarded=run()?.expedition?.regionId==='bog-of-lost-souls'?awardCurrentBogMaterialCache(slot):awardCurrentForestMaterialCache(slot);if(!awarded.ok)return awarded;slot=awarded.slot;if((awarded.materials||[]).some(item=>item.materialKind==='soulfire-core'))this.contextLessonId='first-soulfire';}
-        const resolved=resolveCombatVictory(slot);if(!resolved.ok)return resolved;slot=resolved.slot;if(resolved.forestClearedNow||resolved.bogClearedNow){const account=structuredClone(this.account);account.history=account.history||{};if(resolved.forestClearedNow){account.history.forestCleared=true;if(!account.history.firstForestClearAt)account.history.firstForestClearAt=new Date().toISOString();}if(resolved.bogClearedNow){account.history.bogCleared=true;if(!account.history.firstBogClearAt)account.history.firstBogClearAt=new Date().toISOString();}this.account=this.save.saveAccount(account);}changed=true;
+        if(!run()?.expedition?.encounter?.materialsAwarded){const rid=run()?.expedition?.regionId;const awarded=rid==='shadow-infused-dark-woods'?awardCurrentFinalRegionMaterialCache(slot):rid==='necropolis'?awardCurrentNecropolisMaterialCache(slot):rid==='that-dragons-dungeon'?awardCurrentDragonMaterialCache(slot):rid==='caverns-to-hell'?awardCurrentHellMaterialCache(slot):rid==='ruined-vampiric-plains'?awardCurrentPlainsMaterialCache(slot):rid==='heavenly-tower'?awardCurrentTowerMaterialCache(slot):rid==='bog-of-lost-souls'?awardCurrentBogMaterialCache(slot):awardCurrentForestMaterialCache(slot);if(!awarded.ok)return awarded;slot=awarded.slot;if((awarded.materials||[]).some(item=>item.materialKind==='soulfire-core'))this.contextLessonId='first-soulfire';}
+        const resolved=resolveCombatVictory(slot);if(!resolved.ok)return resolved;slot=resolved.slot;if(resolved.finalClearedNow){const ended=endCampaign(slot,this.account,'victory');if(!ended.ok)return ended;slot=ended.slot;changed=true;}if(resolved.forestClearedNow||resolved.bogClearedNow||resolved.towerClearedNow||resolved.plainsClearedNow||resolved.hellClearedNow){const account=structuredClone(this.account);account.history=account.history||{};if(resolved.forestClearedNow){account.history.forestCleared=true;if(!account.history.firstForestClearAt)account.history.firstForestClearAt=new Date().toISOString();}if(resolved.bogClearedNow){account.history.bogCleared=true;if(!account.history.firstBogClearAt)account.history.firstBogClearAt=new Date().toISOString();}if(resolved.towerClearedNow){account.history.towerCleared=true;if(!account.history.firstTowerClearAt)account.history.firstTowerClearAt=new Date().toISOString();}if(resolved.plainsClearedNow){account.history.plainsCleared=true;if(!account.history.firstPlainsClearAt)account.history.firstPlainsClearAt=new Date().toISOString();}if(resolved.hellClearedNow){account.history.hellCleared=true;if(!account.history.firstHellClearAt)account.history.firstHellClearAt=new Date().toISOString();}this.account=this.save.saveAccount(account);}changed=true;
       }else if(combat.outcome==='defeat'){const ended=endCampaign(slot,this.account,'defeat');if(!ended.ok)return ended;slot=ended.slot;changed=true;}
     }
     if(changed)this.save.saveSlot(slotNumber,slot);return{ok:true,slot,changed};
@@ -270,7 +300,7 @@ class App {
       if (!this.pendingCreationSlot || this.save.loadSlot(this.pendingCreationSlot)) {
         this.pendingCreationSlot = null; this.creationErrors = []; this.router.replace(ROUTES.NEW_GAME); return;
       }
-      this.root.innerHTML = renderCharacterCreation({ slotNumber: this.pendingCreationSlot, unlockedRaces: this.account.unlocks?.races || [], allRaces: this.canon.getRaces(), account: this.account, classDetails: this.canon.getBaseClassDetails(), errors: this.creationErrors, message: this.creationMessage });
+      this.root.innerHTML = renderCharacterCreation({ slotNumber: this.pendingCreationSlot, unlockedRaces: this.account.unlocks?.races || [], allRaces: this.canon.getRaces(), account: this.account, classDetails: this.canon.getBaseClassDetails(), racialConfigurations:this.canon.getRacialConfigurations(), errors: this.creationErrors, message: this.creationMessage });
       this.refreshStatAllocator(this.root.querySelector('#vessel-form'));
       this.offerTutorialForContext('character-creation',ROUTES.CREATE);
       return;
@@ -287,8 +317,8 @@ class App {
         room: this.tavern.currentRoom(), slot, account: this.account,
         subclassesForBase: this.canon.getSubclassesForBase(slot.character.baseClass),
         keptEntries: this.canon.getKeptImpressions(), keptRuntimeEntries: this.canon.getKeptImpressionRuntime().entries, tavernAdventurers: this.canon.getTavernAdventurers(), tavernServices:this.canon.getTavernServices(), equipmentCatalog:this.canon.getEquipmentConsumablesStatus(),
-        baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), portraitSystem:this.canon.getPortraitSystem(), unlockedRaces:this.account.unlocks?.races||[], allRaces:this.canon.getRaces(), baseClasses:this.canon.getBaseClasses(), message: this.tavernMessage,
-        ux: { libraryQuery:this.libraryQuery, librarySlotCost:this.librarySlotCost, libraryType:this.libraryType, libraryFamily:this.libraryFamily, libraryTags:this.libraryTags, librarySort:this.librarySort, lenderQuery:this.lenderQuery, lenderSlot:this.lenderSlot, lenderWeaponType:this.lenderWeaponType, lenderSort:this.lenderSort, portraitCarouselOffset:this.portraitCarouselOffset }
+        baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), portraitSystem:this.canon.getPortraitSystem(), racialConfigurations:this.canon.getRacialConfigurations(), unlockedRaces:this.account.unlocks?.races||[], allRaces:this.canon.getRaces(), baseClasses:this.canon.getBaseClasses(), message: this.tavernMessage,
+        ux: { libraryQuery:this.libraryQuery, librarySlotCost:this.librarySlotCost, libraryType:this.libraryType, libraryFamily:this.libraryFamily, libraryTags:this.libraryTags, librarySort:this.librarySort, krassLibraryUi:this.krassLibraryUi, lenderQuery:this.lenderQuery, lenderSlot:this.lenderSlot, lenderWeaponType:this.lenderWeaponType, lenderSort:this.lenderSort, portraitCarouselOffset:this.portraitCarouselOffset }
       });
       this.mountDisplayModeSwitch(ROUTES.TAVERN);
       this.tavernMessage = '';
@@ -306,7 +336,7 @@ class App {
       if (slot.campaign?.active) { this.router.replace(ROUTES.CAMPAIGN_RUN); return; }
       const door = getCampaignDoorState(slot);
       if (!door.available) { this.tavernMessage = door.reason; this.tavern.go('main-hall'); this.router.replace(ROUTES.TAVERN); return; }
-      this.root.innerHTML = renderCampaignPreparation({ summary: getCampaignPreparationSummary(slot, this.canon.getKeptImpressions()), keptEntries: this.canon.getKeptImpressions() });
+      this.root.innerHTML = renderCampaignPreparation({ summary: getCampaignPreparationSummary(slot, this.canon.getKeptImpressions(), this.canon.getRacialConfigurations()), keptEntries: this.canon.getKeptImpressions() });
       this.offerTutorialForContext('starting-campaign',ROUTES.CAMPAIGN_PREP);
       return;
     }
@@ -330,7 +360,7 @@ class App {
         return;
       }
       if(!combatIdentity)this.ensureCombatPortraitsPredecoded(run);
-      const bogRegion=run.expedition?.regionId==='bog-of-lost-souls';this.root.innerHTML = renderCampaignRun({ run, baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), progression: this.canon.getCharacterProgression(), equipmentCatalog: this.canon.getEquipmentConsumablesStatus(), forestCrafting: bogRegion?this.canon.getBogCrafting():this.canon.getForestCrafting(), forestTrainers: bogRegion?this.canon.getBogTrainers():this.canon.getForestTrainers(), contentPortraits: this.canon.getContentPortraits(), maraQuestStatus:activeQuest?{...activeQuest,...questEval,status:questEval?.complete?'Completed — Pending Return':'In Progress'}:null, craftingUi: { onlyCraftable:this.craftingOnlyCraftable, sortStat:this.craftingSortStat, direction:this.craftingSortDirection, query:this.craftingQuery, slot:this.craftingSlot, itemType:this.craftingType, subtype:this.craftingSubtype, weaponType:this.craftingWeaponType, armorWeight:this.craftingArmorWeight, message:this.craftingMessage }, presentationUi: { actionPanel:this.combatActionPanel, settings:this.account.settings || {}, equipmentOwnerId:this.campsiteEquipmentOwnerId, consumedPresentationId:this.consumedCombatPresentationId } });
+      const regionId=run.expedition?.regionId,finalRegion=regionId==='shadow-infused-dark-woods',necropolisRegion=regionId==='necropolis',dragonRegion=regionId==='that-dragons-dungeon',hellRegion=regionId==='caverns-to-hell',plainsRegion=regionId==='ruined-vampiric-plains',towerRegion=regionId==='heavenly-tower',bogRegion=regionId==='bog-of-lost-souls';this.root.innerHTML = renderCampaignRun({ run, baseAbilities: this.canon.getBaseAbilities(), subclassAbilities: this.canon.getSubclassAbilities(), progression: this.canon.getCharacterProgression(), equipmentCatalog: this.canon.getEquipmentConsumablesStatus(), forestCrafting: finalRegion?this.canon.getNecropolisCrafting():necropolisRegion?this.canon.getNecropolisCrafting():dragonRegion?this.canon.getDragonCrafting():hellRegion?this.canon.getHellCrafting():plainsRegion?this.canon.getPlainsCrafting():towerRegion?this.canon.getTowerCrafting():bogRegion?this.canon.getBogCrafting():this.canon.getForestCrafting(), forestTrainers: (towerRegion||plainsRegion||hellRegion||dragonRegion||necropolisRegion||finalRegion)?null:(bogRegion?this.canon.getBogTrainers():this.canon.getForestTrainers()), contentPortraits: this.canon.getContentPortraits(), maraQuestStatus:activeQuest?{...activeQuest,...questEval,status:questEval?.complete?'Completed — Pending Return':'In Progress'}:null, craftingUi: { onlyCraftable:this.craftingOnlyCraftable, sortStat:this.craftingSortStat, direction:this.craftingSortDirection, query:this.craftingQuery, slot:this.craftingSlot, itemType:this.craftingType, subtype:this.craftingSubtype, weaponType:this.craftingWeaponType, armorWeight:this.craftingArmorWeight, message:this.craftingMessage }, presentationUi: { actionPanel:this.combatActionPanel, settings:this.account.settings || {}, equipmentOwnerId:this.campsiteEquipmentOwnerId, consumedPresentationId:this.consumedCombatPresentationId } });
       this.mountDisplayModeSwitch(ROUTES.CAMPAIGN_RUN);
       const renderedPresentationId=this.root.querySelector('.combat-presentation')?.dataset?.presentationId||null;
       if(renderedPresentationId)this.consumedCombatPresentationId=renderedPresentationId;
@@ -364,7 +394,7 @@ class App {
       this.root.innerHTML=renderTutorial({tutorial,stepIndex:this.activeTutorialStep,replay:true,status:tutorialStatus(this.account,tutorial.id)});return;
     }
     if (route === ROUTES.CREDITS) { this.root.innerHTML = renderCredits(); return; }
-    if (route === ROUTES.SETTINGS) { this.root.innerHTML = renderSettings({ combatSpeed: this.account.settings?.combatSpeed ?? 1, reducedMotion:Boolean(this.account.settings?.reducedMotion), combatNumbers:this.account.settings?.combatNumbers !== false, screenFlash:this.account.settings?.screenFlash || 'standard' }); return; }
+    if (route === ROUTES.SETTINGS) { this.root.innerHTML = renderSettings({ combatSpeed: this.account.settings?.combatSpeed ?? 1, autoEndTurn:this.account.settings?.autoEndTurn !== false, reducedMotion:Boolean(this.account.settings?.reducedMotion), combatNumbers:this.account.settings?.combatNumbers !== false, screenFlash:this.account.settings?.screenFlash || 'standard' }); return; }
     this.root.innerHTML = renderHome({ hasContinuableSlot: this.slots().some(s => s?.character) });
     this.mountDisplayModeSwitch(ROUTES.HOME);
   }
@@ -394,6 +424,10 @@ class App {
     if (action === 'help') { this.helpQuery=''; return this.router.go(ROUTES.HELP); }
     if (action === 'credits') return this.router.go(ROUTES.CREDITS);
     if (action === 'contextual-dismiss') return this.dismissContextualLesson(button.dataset.lesson);
+    if (action === 'library-section-toggle') return this.toggleKrassLibrarySection(button.dataset.section);
+    if (action === 'library-token-clear') return this.clearKrassLibraryFilters('tokens');
+    if (action === 'library-shop-clear') return this.clearKrassLibraryFilters('shop');
+    if (action === 'library-shop-region-quick') { this.updateKrassLibraryUi({shopRegion:button.dataset.region||'all'}); return this.render(ROUTES.TAVERN); }
     if (action === 'tutorial-token-redeem') return this.redeemStarterToken(button.dataset.ki);
     if (action === 'race-token-redeem') return this.redeemRaceToken(button.dataset.race);
     if (action === 'kept-shop-buy') return this.buyKeptBoon(button.dataset.ki);
@@ -416,12 +450,15 @@ class App {
     if (action === 'campaign-lender-select') return this.selectCampaignLenderItem(button.dataset.item);
     if (action === 'campaign-return-tavern') return this.returnFromForest();
     if (action === 'campaign-continue-beyond') return this.continueBeyondForest();
+    if (action === 'hell-merchant-buy') return this.buyHellMerchantItem(button.dataset.item);
+    if (action === 'hell-merchant-leave') return this.leaveHellMerchantEncounter();
     if (action === 'combat-panel') { this.combatActionPanel = button.dataset.panel === 'consumable' ? 'consumable' : 'abilities'; return this.render(ROUTES.CAMPAIGN_RUN); }
     if (action === 'combat-select-actor') return this.selectBattlefieldActor(button);
     if (action === 'combat-charge') return this.performCombatAction('charge');
     if (action === 'combat-guard') return this.performCombatAction('guard');
     if (action === 'combat-use-consumable') return this.performConsumable(button);
     if (action === 'combat-use-equipment-ability') return this.performEquipmentAbility(button);
+    if (action === 'combat-use-racial-ability') return this.performRacialAbility(button);
     if (action === 'campsite-equipment-owner') { this.campsiteEquipmentOwnerId=button.dataset.owner||'vessel'; return this.render(ROUTES.CAMPAIGN_RUN); }
     if (action === 'campsite-equip-consumable') return this.equipCampConsumable(button);
     if (action === 'campsite-unequip-consumable') return this.unequipCampConsumable(button);
@@ -477,6 +514,8 @@ class App {
     if (vesselForm) { event.preventDefault(); this.completeCreation(vesselForm); return; }
     const rebindForm = event.target.closest('#vessel-rebind-form');
     if (rebindForm) { event.preventDefault(); this.saveVesselRebind(rebindForm); return; }
+    const racialForm = event.target.closest('#racial-config-form');
+    if (racialForm) { event.preventDefault(); this.saveVesselRacialConfiguration(racialForm); return; }
     const statForm = event.target.closest('#starting-stat-form');
     if (statForm) { event.preventDefault(); this.saveStartingStatRedistribution(statForm); return; }
     const classlessForm = event.target.closest('#classless-config-form');
@@ -487,6 +526,8 @@ class App {
     if (event.target.matches('[data-stat-input]')) this.refreshStatAllocator(event.target.closest('form'));
     if (event.target.matches('[data-help-search]')) { this.helpQuery=event.target.value||''; this.render(ROUTES.HELP); const input=this.root.querySelector('[data-help-search]'); if(input){input.focus();input.setSelectionRange(input.value.length,input.value.length);} }
     if (event.target.matches('[data-library-search]')) { this.libraryQuery=event.target.value||''; this.render(ROUTES.TAVERN); const input=this.root.querySelector('[data-library-search]'); if(input){input.focus();input.setSelectionRange(input.value.length,input.value.length);} }
+    if (event.target.matches('[data-token-library-search]')) { this.updateKrassLibraryUi({tokenQuery:event.target.value||''}); this.render(ROUTES.TAVERN); const input=this.root.querySelector('[data-token-library-search]'); if(input){input.focus();input.setSelectionRange(input.value.length,input.value.length);} }
+    if (event.target.matches('[data-shop-library-search]')) { this.updateKrassLibraryUi({shopQuery:event.target.value||''}); this.render(ROUTES.TAVERN); const input=this.root.querySelector('[data-shop-library-search]'); if(input){input.focus();input.setSelectionRange(input.value.length,input.value.length);} }
     if (event.target.matches('[data-lender-search]')) { this.lenderQuery=event.target.value||''; this.render(ROUTES.TAVERN); const input=this.root.querySelector('[data-lender-search]'); if(input){input.focus();input.setSelectionRange(input.value.length,input.value.length);} }
     if (event.target.matches('[data-crafting-search]')) { this.craftingQuery=event.target.value||''; this.render(ROUTES.CAMPAIGN_RUN); const input=this.root.querySelector('[data-crafting-search]'); if(input){input.focus();input.setSelectionRange(input.value.length,input.value.length);} }
   }
@@ -497,6 +538,17 @@ class App {
     if (event.target.matches('[data-library-family]')) { this.libraryFamily=event.target.value||'all'; this.render(ROUTES.TAVERN); return; }
     if (event.target.matches('[data-library-sort]')) { this.librarySort=event.target.value||'id'; this.render(ROUTES.TAVERN); return; }
     if (event.target.matches('[data-library-tag]')) { const value=event.target.value;const set=new Set(this.libraryTags||[]);event.target.checked?set.add(value):set.delete(value);this.libraryTags=[...set];this.render(ROUTES.TAVERN);return; }
+    if (event.target.matches('[data-token-library-slot]')) { this.updateKrassLibraryUi({tokenSlot:event.target.value||'all'}); this.render(ROUTES.TAVERN); return; }
+    if (event.target.matches('[data-token-library-status]')) { this.updateKrassLibraryUi({tokenStatus:event.target.value||'eligible'}); this.render(ROUTES.TAVERN); return; }
+    if (event.target.matches('[data-token-library-sort]')) { this.updateKrassLibraryUi({tokenSort:event.target.value||'id'}); this.render(ROUTES.TAVERN); return; }
+    if (event.target.matches('[data-token-library-tag]')) { const value=event.target.value;const set=new Set(this.krassLibraryUi?.tokenTags||[]);event.target.checked?set.add(value):set.delete(value);this.updateKrassLibraryUi({tokenTags:[...set]});this.render(ROUTES.TAVERN);return; }
+    if (event.target.matches('[data-shop-library-slot]')) { this.updateKrassLibraryUi({shopSlot:event.target.value||'all'}); this.render(ROUTES.TAVERN); return; }
+    if (event.target.matches('[data-shop-library-region]')) { this.updateKrassLibraryUi({shopRegion:event.target.value||'all'}); this.render(ROUTES.TAVERN); return; }
+    if (event.target.matches('[data-shop-library-price]')) { this.updateKrassLibraryUi({shopPrice:event.target.value||'all'}); this.render(ROUTES.TAVERN); return; }
+    if (event.target.matches('[data-shop-library-requirement]')) { this.updateKrassLibraryUi({shopRequirement:event.target.value||'all'}); this.render(ROUTES.TAVERN); return; }
+    if (event.target.matches('[data-shop-library-ownership]')) { this.updateKrassLibraryUi({shopOwnership:event.target.value||'all'}); this.render(ROUTES.TAVERN); return; }
+    if (event.target.matches('[data-shop-library-sort]')) { this.updateKrassLibraryUi({shopSort:event.target.value||'id'}); this.render(ROUTES.TAVERN); return; }
+    if (event.target.matches('[data-shop-library-tag]')) { const value=event.target.value;const set=new Set(this.krassLibraryUi?.shopTags||[]);event.target.checked?set.add(value):set.delete(value);this.updateKrassLibraryUi({shopTags:[...set]});this.render(ROUTES.TAVERN);return; }
     if (event.target.matches('[data-lender-slot]')) { this.lenderSlot=event.target.value||'all'; this.render(ROUTES.TAVERN); return; }
     if (event.target.matches('[data-lender-weapon-type]')) { this.lenderWeaponType=event.target.value||'all'; this.render(ROUTES.TAVERN); return; }
     if (event.target.matches('[data-lender-sort]')) { this.lenderSort=event.target.value||'name'; this.render(ROUTES.TAVERN); return; }
@@ -509,6 +561,7 @@ class App {
     if (event.target.matches('[data-crafting-subtype]')) { this.craftingSubtype=event.target.value||'all'; this.render(ROUTES.CAMPAIGN_RUN); return; }
     if (event.target.matches('[data-crafting-weapon-type]')) { this.craftingWeaponType=event.target.value||'all'; this.render(ROUTES.CAMPAIGN_RUN); return; }
     if (event.target.matches('[data-crafting-armor-weight]')) { this.craftingArmorWeight=event.target.value||'all'; this.render(ROUTES.CAMPAIGN_RUN); return; }
+    if (event.target.matches('[data-race-config-select]')) { const form=event.target.closest('form');this.updateRacialConfigurationPanels(form,event.target.value);if(event.target.matches('[data-starting-race]'))this.refreshStatAllocator(form);return; }
     if (event.target.matches('[data-starting-race]')) { this.refreshStatAllocator(event.target.closest('form')); return; }
     const keptChoice = event.target.closest('[data-kept-choice]');
     if (keptChoice) { this.changeKeptChoice(keptChoice); return; }
@@ -516,7 +569,9 @@ class App {
     if (!select) return;
     if (select.dataset.setting === 'combatSpeed') {
       const value = Number(select.value);
-      if (value >= 0.1 && value <= 2) this.account.settings = { ...(this.account.settings || {}), combatSpeed: value };
+      if (value >= 0.1 && value <= 4) this.account.settings = { ...(this.account.settings || {}), combatSpeed: value };
+    } else if (select.dataset.setting === 'autoEndTurn') {
+      this.account.settings = { ...(this.account.settings || {}), autoEndTurn: Boolean(select.checked) };
     } else if (select.dataset.setting === 'reducedMotion') {
       this.account.settings = { ...(this.account.settings || {}), reducedMotion: Boolean(select.checked) };
     } else if (select.dataset.setting === 'combatNumbers') {
@@ -748,7 +803,7 @@ class App {
     const slotNumber = this.activeSlotNumber();
     const slot = this.activeSlot();
     if (!slotNumber || !slot) return;
-    const result = startCampaign(slot, { account: this.account, chronicleTrees: this.canon.getChronicleTrees(), regionsData: this.canon.getRegions(), forestEvents: this.canon.getForestEvents(), forestTrainers: this.canon.getForestTrainers(), tavernAdventurers: this.canon.getTavernAdventurers(), progression: this.canon.getCharacterProgression(), equipmentConsumablesStatus: this.canon.getEquipmentConsumablesStatus(), forestCrafting: this.canon.getForestCrafting() });
+    const result = startCampaign(slot, { account: this.account, chronicleTrees: this.canon.getChronicleTrees(), regionsData: this.canon.getRegions(), forestEvents: this.canon.getForestEvents(), forestTrainers: this.canon.getForestTrainers(), tavernAdventurers: this.canon.getTavernAdventurers(), progression: this.canon.getCharacterProgression(), equipmentConsumablesStatus: this.canon.getEquipmentConsumablesStatus(), forestCrafting: this.canon.getForestCrafting(), racialConfigurations: this.canon.getRacialConfigurations() });
     if (!result.ok) { this.tavernMessage = result.error; this.tavern.enter(slotNumber, 'main-hall'); this.router.replace(ROUTES.TAVERN); return; }
     this.save.saveSlot(slotNumber, result.slot);
     if (result.run?.expedition?.firstEverIntro && !this.account.history?.forestIntroSeen) {
@@ -773,7 +828,7 @@ class App {
   rollForestEvent(button) {
     const slotNumber=this.activeSlotNumber(),slot=this.activeSlot(); if(!slotNumber||!slot?.campaign?.active)return;
     const participantId=this.root.querySelector('[data-forest-check-participant]')?.value||'vessel';
-    const crafting=slot.campaign.state.expedition?.regionId==='bog-of-lost-souls'?this.canon.getBogCrafting():this.canon.getForestCrafting();const result=resolveForestEventCheck(slot,{participantId,equipmentCatalog:this.canon.getEquipmentConsumablesStatus(),forestCrafting:crafting,progression:this.canon.getCharacterProgression()});
+    const rid=slot.campaign.state.expedition?.regionId;const crafting=rid==='shadow-infused-dark-woods'?this.canon.getNecropolisCrafting():rid==='necropolis'?this.canon.getNecropolisCrafting():rid==='that-dragons-dungeon'?this.canon.getDragonCrafting():rid==='caverns-to-hell'?this.canon.getHellCrafting():rid==='ruined-vampiric-plains'?this.canon.getPlainsCrafting():rid==='heavenly-tower'?this.canon.getTowerCrafting():rid==='bog-of-lost-souls'?this.canon.getBogCrafting():this.canon.getForestCrafting();const result=resolveForestEventCheck(slot,{participantId,equipmentCatalog:this.canon.getEquipmentConsumablesStatus(),forestCrafting:crafting,progression:this.canon.getCharacterProgression()});
     if(!result.ok)return; this.save.saveSlot(slotNumber,result.slot); this.render(ROUTES.CAMPAIGN_RUN);
   }
 
@@ -792,7 +847,7 @@ class App {
     const slotNumber = this.activeSlotNumber();
     const slot = this.activeSlot();
     if (!slotNumber || !slot?.campaign?.active) return;
-    const result = leaveCampsite(slot, { regionsData: this.canon.getRegions(), forestEvents: this.canon.getForestEvents(), forestTrainers: this.canon.getForestTrainers(), bogEvents:this.canon.getBogEvents(), bogTrainers:this.canon.getBogTrainers() });
+    const result = leaveCampsite(slot, { regionsData: this.canon.getRegions(), forestEvents: this.canon.getForestEvents(), forestTrainers: this.canon.getForestTrainers(), bogEvents:this.canon.getBogEvents(), bogTrainers:this.canon.getBogTrainers(), towerEvents:this.canon.getTowerEvents(), plainsEvents:this.canon.getPlainsEvents(), hellEvents:this.canon.getHellEvents(), dragonEvents:this.canon.getDragonEvents(), necropolisEvents:this.canon.getNecropolisEvents() });
     if (!result.ok) return;
     this.save.saveSlot(slotNumber, result.slot);
     this.render(ROUTES.CAMPAIGN_RUN);
@@ -802,7 +857,7 @@ class App {
     const slotNumber = this.activeSlotNumber();
     const slot = this.activeSlot();
     if (!slotNumber || !slot?.campaign?.active) return;
-    const result = advanceAfterResolvedNoncombat(slot, { regionsData: this.canon.getRegions(), forestEvents: this.canon.getForestEvents(), forestTrainers: this.canon.getForestTrainers(), bogEvents:this.canon.getBogEvents(), bogTrainers:this.canon.getBogTrainers() });
+    const result = advanceAfterResolvedNoncombat(slot, { regionsData: this.canon.getRegions(), forestEvents: this.canon.getForestEvents(), forestTrainers: this.canon.getForestTrainers(), bogEvents:this.canon.getBogEvents(), bogTrainers:this.canon.getBogTrainers(), towerEvents:this.canon.getTowerEvents(), plainsEvents:this.canon.getPlainsEvents(), hellEvents:this.canon.getHellEvents(), dragonEvents:this.canon.getDragonEvents(), necropolisEvents:this.canon.getNecropolisEvents() });
     if (!result.ok) return;
     this.save.saveSlot(slotNumber, result.slot);
     this.render(ROUTES.CAMPAIGN_RUN);
@@ -810,28 +865,48 @@ class App {
 
   continueForestEventCombat(){const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active)return;const result=continueAfterForestEventResult(slot);if(!result.ok)return;this.save.saveSlot(slotNumber,result.slot);this.render(ROUTES.CAMPAIGN_RUN);}
 
+  commitPlayerActionResult(slotNumber,result) {
+    if(!result?.ok)return result;
+    let nextSlot=result.slot;
+    const auto=autoEndPlayerTurn(nextSlot,{enabled:this.account?.settings?.autoEndTurn!==false});
+    if(!auto.ok)return auto;
+    nextSlot=auto.slot;
+    this.save.saveSlot(slotNumber,nextSlot);
+    if(auto.ended){this.combatActionPanel='abilities';this.deferNextAiAction=true;}
+    this.render(ROUTES.CAMPAIGN_RUN);
+    return{ok:true,slot:nextSlot,autoEnded:Boolean(auto.ended)};
+  }
+
   performCombatAction(type) {
     const slotNumber = this.activeSlotNumber();
     const slot = this.activeSlot();
     if (!slotNumber || !slot?.campaign?.active) return;
     const result = takePlayerTurnAction(slot, { type });
     if (!result.ok) return;
-    this.save.saveSlot(slotNumber, result.slot);
-    this.render(ROUTES.CAMPAIGN_RUN);
+    return this.commitPlayerActionResult(slotNumber,result);
   }
 
   performEquipmentAbility(button) {
     const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active)return;
     const abilityId=button.dataset.equipmentAbility||null;const targetId=abilityId?this.root.querySelector(`[data-equipment-ability-target="${CSS.escape(abilityId)}"]`)?.value||null:null;
     const result=executeEquipmentAbility(slot,{abilityId,targetId});if(!result.ok)return;
-    this.save.saveSlot(slotNumber,result.slot);this.render(ROUTES.CAMPAIGN_RUN);
+    return this.commitPlayerActionResult(slotNumber,result);
+  }
+
+  performRacialAbility(button) {
+    const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active)return;
+    const abilityId=button.dataset.racialAbility||null;
+    const targetId=abilityId?this.root.querySelector(`[data-racial-ability-target="${CSS.escape(abilityId)}"]`)?.value||null:null;
+    const secondaryTargetId=abilityId?this.root.querySelector(`[data-racial-ability-secondary="${CSS.escape(abilityId)}"]`)?.value||null:null;
+    const result=executeRacialAbility(slot,{abilityId,targetId,secondaryTargetId});if(!result.ok)return;
+    return this.commitPlayerActionResult(slotNumber,result);
   }
 
   performConsumable(button) {
     const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active)return;
     const itemId=button.dataset.consumable||null;const targetId=itemId?this.root.querySelector(`[data-consumable-target="${CSS.escape(itemId)}"]`)?.value||null:null;
     const result=executeEquippedConsumable(slot,{itemId,targetId,catalog:this.canon.getEquipmentConsumablesStatus()});if(!result.ok)return;
-    this.save.saveSlot(slotNumber,result.slot);this.render(ROUTES.CAMPAIGN_RUN);
+    return this.commitPlayerActionResult(slotNumber,result);
   }
 
   equipCampConsumable(button) {
@@ -860,7 +935,7 @@ class App {
 
   craftCampRecipe(button) {
     const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active)return;
-    const result=craftAtCampsite(slot,{recipeId:button.dataset.recipe,crafting:this.canon.getForestCrafting(),catalog:this.canon.getEquipmentConsumablesStatus()});
+    const rid=slot.campaign.state.expedition?.regionId,crafting=rid==='shadow-infused-dark-woods'?this.canon.getNecropolisCrafting():rid==='necropolis'?this.canon.getNecropolisCrafting():rid==='that-dragons-dungeon'?this.canon.getDragonCrafting():rid==='caverns-to-hell'?this.canon.getHellCrafting():rid==='ruined-vampiric-plains'?this.canon.getPlainsCrafting():rid==='heavenly-tower'?this.canon.getTowerCrafting():rid==='bog-of-lost-souls'?this.canon.getBogCrafting():this.canon.getForestCrafting();const result=craftAtCampsite(slot,{recipeId:button.dataset.recipe,crafting,catalog:this.canon.getEquipmentConsumablesStatus()});
     if(!result.ok){this.craftingMessage=result.error||'That recipe cannot be crafted.';this.render(ROUTES.CAMPAIGN_RUN);return;}
     this.craftingMessage=`Crafted ${result.recipe.name}.`;this.save.saveSlot(slotNumber,result.slot);this.render(ROUTES.CAMPAIGN_RUN);
   }
@@ -876,8 +951,7 @@ class App {
     const form = this.root.querySelector(`[data-ability-form="${CSS.escape(abilityId)}"]`)?.value || null;
     const result = executeBaseAbility(slot, { abilityId, catalog: this.canon.getBaseAbilities(), targets: { primary, shield, heal }, form });
     if (!result.ok) return;
-    this.save.saveSlot(slotNumber, result.slot);
-    this.render(ROUTES.CAMPAIGN_RUN);
+    return this.commitPlayerActionResult(slotNumber,result);
   }
 
   performSubclassAbility(button) {
@@ -901,8 +975,7 @@ class App {
     const consumeResource = choice('consumeResource'); if (consumeResource) choices.consumeResource = Boolean(consumeResource.checked);
     const result = executeSubclassAbility(slot, { abilityId, catalog: this.canon.getSubclassAbilities(), targets: { primary, shield, heal }, choices });
     if (!result.ok) return;
-    this.save.saveSlot(slotNumber, result.slot);
-    this.render(ROUTES.CAMPAIGN_RUN);
+    return this.commitPlayerActionResult(slotNumber,result);
   }
 
   performKeptActive(button) {
@@ -910,7 +983,7 @@ class App {
     const kiAbilityId=button.dataset.kiAbility;
     const targetId=this.root.querySelector(`[data-kept-active-target="${CSS.escape(kiAbilityId)}"]`)?.value||null;
     const result=executeKeptActiveAbility(slot,{kiAbilityId,targetId});if(!result.ok)return;
-    this.save.saveSlot(slotNumber,result.slot);this.render(ROUTES.CAMPAIGN_RUN);
+    return this.commitPlayerActionResult(slotNumber,result);
   }
 
   chooseKeptCombatStart(button) {
@@ -971,13 +1044,35 @@ class App {
 
   returnFromForest() {
     const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active)return;
-    if(slot.campaign.state?.expedition?.state!=='region-boundary')return;
+    if(!['region-boundary','awaiting-next-region'].includes(slot.campaign.state?.expedition?.state))return;
     const result=endCampaign(slot,this.account,'return');if(!result.ok)return;this.save.saveSlot(slotNumber,result.slot);this.router.go(ROUTES.CAMPAIGN_RESULTS);
   }
 
   continueBeyondForest() {
     const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active)return;
-    const result=continueBeyondForest(slot);if(!result.ok)return;const entered=enterBogRegion(result.slot,{regionsData:this.canon.getRegions(),bogEvents:this.canon.getBogEvents(),bogTrainers:this.canon.getBogTrainers(),unlockedSubclasses:this.account.unlocks?.subclasses||[]});if(!entered.ok)return;this.save.saveSlot(slotNumber,entered.slot);this.render(ROUTES.CAMPAIGN_RUN);
+    const from=slot.campaign.state?.expedition?.regionId,result=continueBeyondForest(slot);if(!result.ok)return;
+    if(from==='forest'){const entered=enterBogRegion(result.slot,{regionsData:this.canon.getRegions(),bogEvents:this.canon.getBogEvents(),bogTrainers:this.canon.getBogTrainers(),unlockedSubclasses:this.account.unlocks?.subclasses||[]});if(!entered.ok)return;this.save.saveSlot(slotNumber,entered.slot);}
+    else if(from==='bog-of-lost-souls'){const entered=enterTowerRegion(result.slot,{regionsData:this.canon.getRegions(),towerEvents:this.canon.getTowerEvents()});if(!entered.ok)return;this.save.saveSlot(slotNumber,entered.slot);}
+    else if(from==='heavenly-tower'){const entered=enterPlainsRegion(result.slot,{regionsData:this.canon.getRegions(),plainsEvents:this.canon.getPlainsEvents()});if(!entered.ok)return;this.save.saveSlot(slotNumber,entered.slot);}
+    else if(from==='ruined-vampiric-plains'){const entered=enterHellRegion(result.slot,{regionsData:this.canon.getRegions(),hellEvents:this.canon.getHellEvents()});if(!entered.ok)return;this.save.saveSlot(slotNumber,entered.slot);}
+    else if(from==='caverns-to-hell'){const entered=enterDragonRegion(result.slot,{regionsData:this.canon.getRegions(),dragonEvents:this.canon.getDragonEvents()});if(!entered.ok)return;this.save.saveSlot(slotNumber,entered.slot);}
+    else if(from==='that-dragons-dungeon'){const entered=enterNecropolisRegion(result.slot,{regionsData:this.canon.getRegions(),necropolisEvents:this.canon.getNecropolisEvents()});if(!entered.ok)return;this.save.saveSlot(slotNumber,entered.slot);}
+    else if(from==='necropolis'){const entered=enterFinalRegion(result.slot,{regionsData:this.canon.getRegions(),baseAbilities:this.canon.getBaseAbilities(),subclassAbilities:this.canon.getSubclassAbilities(),progression:this.canon.getCharacterProgression(),equipmentCatalog:this.canon.getEquipmentConsumablesStatus()});if(!entered.ok)return;this.save.saveSlot(slotNumber,entered.slot);}
+    else this.save.saveSlot(slotNumber,result.slot);
+    this.render(ROUTES.CAMPAIGN_RUN);
+  }
+
+  buyHellMerchantItem(itemId) {
+    const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active)return;
+    const result=purchaseHellMerchantItem(slot,{itemId,hellCrafting:this.canon.getHellCrafting(),equipmentCatalog:this.canon.getEquipmentConsumablesStatus()});
+    this.craftingMessage=result.ok?`Purchased ${result.item?.name||'infernal bargain'}.`:result.error;
+    if(result.ok)this.save.saveSlot(slotNumber,result.slot);
+    this.render(ROUTES.CAMPAIGN_RUN);
+  }
+
+  leaveHellMerchantEncounter() {
+    const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active)return;
+    const result=leaveHellMerchant(slot);if(!result.ok)return;this.save.saveSlot(slotNumber,result.slot);this.render(ROUTES.CAMPAIGN_RUN);
   }
 
   acceptMaraQuestOffer(questId) {
@@ -1032,10 +1127,22 @@ class App {
     this.render(ROUTES.TAVERN);
   }
 
+  updateRacialConfigurationPanels(form, race) {
+    if(!form)return;const selected=String(race||'');let shown=false;
+    for(const panel of form.querySelectorAll('[data-racial-config-panel]')){const match=panel.dataset.racialConfigPanel===selected;panel.hidden=!match;if(match)shown=true;}
+    const fixed=form.querySelector('[data-racial-fixed-message]');if(fixed)fixed.hidden=shown;
+  }
+
+  saveVesselRacialConfiguration(form) {
+    const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.character)return;const fd=new FormData(form),data=this.canon.getRacialConfigurations();
+    const cfg=readRacialConfigurationFromForm(fd,slot.character.race,data,'racial_current');const result=setVesselRacialConfiguration(slot,cfg,{racialConfigurations:data});
+    this.tavernMessage=result.ok?'Racial configuration saved for future campaigns.':result.error;if(result.ok)this.save.saveSlot(slotNumber,result.slot);this.render(ROUTES.TAVERN);
+  }
+
   saveVesselRebind(form) {
     const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.character)return;
     const fd=new FormData(form);
-    const result=rebindVessel(slot,{race:fd.get('rebind_race'),baseClass:fd.get('rebind_base_class'),confirmed:Boolean(fd.get('rebind_confirmed'))},{unlockedRaces:this.account.unlocks?.races||[],baseClasses:this.canon.getBaseClasses()});
+    const race=String(fd.get('rebind_race')||''),racialConfigurations=this.canon.getRacialConfigurations(),racialConfiguration=readRacialConfigurationFromForm(fd,race,racialConfigurations,'rebind_racial');const result=rebindVessel(slot,{race,baseClass:fd.get('rebind_base_class'),confirmed:Boolean(fd.get('rebind_confirmed')),racialConfiguration},{unlockedRaces:this.account.unlocks?.races||[],baseClasses:this.canon.getBaseClasses(),racialConfigurations});
     this.tavernMessage=result.ok?`Vessel rebound to ${result.current.race} ${result.current.baseClass}. Existing records and account unlocks were preserved.`:result.error;
     if(result.ok){this.portraitCarouselOffset=0;this.save.saveSlot(slotNumber,result.slot);}
     this.render(ROUTES.TAVERN);
@@ -1084,7 +1191,7 @@ class App {
     const slotNumber = this.pendingCreationSlot;
     if (!slotNumber || this.save.loadSlot(slotNumber)) { this.creationErrors = ['That Vessel slot is no longer empty.']; this.render(ROUTES.CREATE); return; }
     const values = new FormData(form);
-    const validation = validateVesselDraft({ name: values.get('name'), race: values.get('race'), baseClass: values.get('baseClass'), startingStats: readStartingStatsFromForm(values) }, { unlockedRaces: this.account.unlocks?.races || [], baseClasses: this.canon.getBaseClasses() });
+    const race=String(values.get('race')||''),racialConfigurations=this.canon.getRacialConfigurations();const validation = validateVesselDraft({ name: values.get('name'), race, baseClass: values.get('baseClass'), startingStats: readStartingStatsFromForm(values), racialConfiguration:readRacialConfigurationFromForm(values,race,racialConfigurations,'racial') }, { unlockedRaces: this.account.unlocks?.races || [], baseClasses: this.canon.getBaseClasses(), racialConfigurations });
     if (!values.get('bindingConfirmed')) validation.errors.push('Confirm this initial Vessel setup before continuing.');
     validation.ok = validation.errors.length === 0;
     if (!validation.ok) { this.creationErrors = validation.errors; this.render(ROUTES.CREATE); return; }

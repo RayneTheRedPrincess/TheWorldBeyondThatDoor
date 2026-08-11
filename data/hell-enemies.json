@@ -1,0 +1,2650 @@
+{
+  "version": "CAVERNS-TO-HELL-FOUNDATION-2026-08-10",
+  "designStatus": "Implemented Region 5 enemy authority; no image assets.",
+  "depthTiers": [
+    {
+      "id": "tier-1",
+      "name": "Blackstone Descent",
+      "start": 1,
+      "end": 5,
+      "level": 25,
+      "hpMultiplier": 1,
+      "damageMultiplier": 1,
+      "statAdd": 0,
+      "expAdd": 0,
+      "onyxAdd": 0
+    },
+    {
+      "id": "tier-2",
+      "name": "The Gateward Caverns",
+      "start": 6,
+      "end": 9,
+      "level": 26,
+      "hpMultiplier": 1.1,
+      "damageMultiplier": 1.08,
+      "statAdd": 1,
+      "expAdd": 18,
+      "onyxAdd": 20
+    },
+    {
+      "id": "tier-3",
+      "name": "Outer Hell",
+      "start": 11,
+      "end": 15,
+      "level": 27,
+      "hpMultiplier": 1.2,
+      "damageMultiplier": 1.15,
+      "statAdd": 2,
+      "expAdd": 35,
+      "onyxAdd": 35
+    },
+    {
+      "id": "tier-4",
+      "name": "Infernal Dominions",
+      "start": 16,
+      "end": 20,
+      "level": 28,
+      "hpMultiplier": 1.32,
+      "damageMultiplier": 1.23,
+      "statAdd": 3,
+      "expAdd": 55,
+      "onyxAdd": 55
+    },
+    {
+      "id": "tier-5",
+      "name": "Sinbound Marches",
+      "start": 21,
+      "end": 25,
+      "level": 29,
+      "hpMultiplier": 1.45,
+      "damageMultiplier": 1.31,
+      "statAdd": 4,
+      "expAdd": 75,
+      "onyxAdd": 75
+    },
+    {
+      "id": "tier-6",
+      "name": "Sevenfold Approach",
+      "start": 26,
+      "end": 29,
+      "level": 30,
+      "hpMultiplier": 1.58,
+      "damageMultiplier": 1.4,
+      "statAdd": 5,
+      "expAdd": 95,
+      "onyxAdd": 95
+    }
+  ],
+  "regularEnemies": [
+    {
+      "id": "ashblind-crawler",
+      "name": "Ashblind Crawler",
+      "role": "Cavern Predator",
+      "faction": "hell",
+      "minTier": 1,
+      "maxTier": 2,
+      "encounterWeight": 12,
+      "affinities": [
+        "Physical"
+      ],
+      "demon": false,
+      "cavern": true,
+      "sinbound": false,
+      "baseMaxHp": 78,
+      "stats": {
+        "STR": 24,
+        "DEX": 17,
+        "CON": 19,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Blind Claw",
+        "base": 11,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "crawler-rend",
+          "name": "Blind Rend",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 15,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.011
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "crawler-bleed",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {},
+            "memory": {
+              "statusKind": "Bleed",
+              "tickBase": 4,
+              "tickTiming": "owner-turn-end"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "sulfur-chitin",
+          "name": "Sulfur Chitin",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "ashblind-crawler"
+        }
+      ],
+      "baseExpReward": 170,
+      "baseOnyxReward": 150,
+      "resistances": {
+        "Physical": 8
+      },
+      "portrait": null
+    },
+    {
+      "id": "sulfurback-beetle",
+      "name": "Sulfurback Beetle",
+      "role": "Armored Cavern Beast",
+      "faction": "hell",
+      "minTier": 1,
+      "maxTier": 2,
+      "encounterWeight": 10,
+      "affinities": [
+        "Physical",
+        "Poison"
+      ],
+      "demon": false,
+      "cavern": true,
+      "sinbound": false,
+      "baseMaxHp": 92,
+      "stats": {
+        "STR": 20,
+        "DEX": 9,
+        "CON": 27,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Stone Mandible",
+        "base": 10,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "beetle-acid",
+          "name": "Sulfur Spit",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 14,
+              "damageType": "Poison",
+              "scaling": {
+                "CON": 0.006,
+                "STR": 0.005
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "sulfur-poison",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {},
+            "memory": {
+              "statusKind": "Poison",
+              "tickBase": 5,
+              "tickTiming": "owner-turn-end"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "defensive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical",
+          "Poison"
+        ]
+      },
+      "materials": [
+        {
+          "id": "sulfur-chitin",
+          "name": "Sulfur Chitin",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "sulfurback-beetle"
+        },
+        {
+          "id": "venom-crystal",
+          "name": "Venom Crystal",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "sulfurback-beetle"
+        }
+      ],
+      "baseExpReward": 175,
+      "baseOnyxReward": 155,
+      "resistances": {
+        "Poison": 16,
+        "Physical": 10
+      },
+      "portrait": null
+    },
+    {
+      "id": "blackstone-burrower",
+      "name": "Blackstone Burrower",
+      "role": "Force Burrower",
+      "faction": "hell",
+      "minTier": 1,
+      "maxTier": 2,
+      "encounterWeight": 9,
+      "affinities": [
+        "Physical",
+        "Force"
+      ],
+      "demon": false,
+      "cavern": true,
+      "sinbound": false,
+      "baseMaxHp": 86,
+      "stats": {
+        "STR": 25,
+        "DEX": 13,
+        "CON": 22,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Tunnel Ram",
+        "base": 11,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "burrower-eruption",
+          "name": "Blackstone Eruption",
+          "energyCost": 4,
+          "cooldown": 3,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 12,
+              "damageType": "Force",
+              "scaling": {
+                "STR": 0.007,
+                "CON": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical",
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "blackstone-fragment",
+          "name": "Blackstone Fragment",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "blackstone-burrower"
+        }
+      ],
+      "baseExpReward": 180,
+      "baseOnyxReward": 160,
+      "resistances": {
+        "Force": 12
+      },
+      "portrait": null
+    },
+    {
+      "id": "hellroot-maw",
+      "name": "Hellroot Maw",
+      "role": "Subterranean Devourer",
+      "faction": "hell",
+      "minTier": 1,
+      "maxTier": 2,
+      "encounterWeight": 8,
+      "affinities": [
+        "Physical",
+        "Poison"
+      ],
+      "demon": false,
+      "cavern": true,
+      "sinbound": false,
+      "baseMaxHp": 96,
+      "stats": {
+        "STR": 27,
+        "DEX": 8,
+        "CON": 25,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Root Bite",
+        "base": 12,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "maw-venom",
+          "name": "Venom Root",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 16,
+              "damageType": "Poison",
+              "scaling": {
+                "STR": 0.008,
+                "CON": 0.004
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "hellroot-poison",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {},
+            "memory": {
+              "statusKind": "Poison",
+              "tickBase": 5,
+              "tickTiming": "owner-turn-end"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical",
+          "Poison"
+        ]
+      },
+      "materials": [
+        {
+          "id": "hellroot-fiber",
+          "name": "Hellroot Fiber",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "hellroot-maw"
+        },
+        {
+          "id": "venom-crystal",
+          "name": "Venom Crystal",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "hellroot-maw"
+        }
+      ],
+      "baseExpReward": 185,
+      "baseOnyxReward": 165,
+      "resistances": {
+        "Poison": 18
+      },
+      "portrait": null
+    },
+    {
+      "id": "rift-scavenger",
+      "name": "Rift Scavenger",
+      "role": "Escaped Lesser Demon",
+      "faction": "hell",
+      "minTier": 2,
+      "maxTier": 4,
+      "encounterWeight": 10,
+      "affinities": [
+        "Physical",
+        "Force"
+      ],
+      "demon": true,
+      "cavern": true,
+      "sinbound": false,
+      "baseMaxHp": 90,
+      "stats": {
+        "STR": 23,
+        "DEX": 22,
+        "CON": 18,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 12,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Rift Hook",
+        "base": 12,
+        "damageType": "Force",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "scavenger-drag",
+          "name": "Rift Drag",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 16,
+              "damageType": "Force",
+              "scaling": {
+                "STR": 0.006,
+                "DEX": 0.005
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "rift-dragged",
+            "negative": true,
+            "durationTurns": 1,
+            "modifiers": {
+              "dodgeChancePct": -7
+            },
+            "memory": {
+              "statusKind": "Dragged"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical",
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "chain-iron",
+          "name": "Chain Iron",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "rift-scavenger"
+        }
+      ],
+      "baseExpReward": 190,
+      "baseOnyxReward": 170,
+      "resistances": {
+        "Force": 10
+      },
+      "portrait": null
+    },
+    {
+      "id": "magma-burrower",
+      "name": "Magma Burrower",
+      "role": "Cavern Fire Beast",
+      "faction": "hell",
+      "minTier": 2,
+      "maxTier": 3,
+      "encounterWeight": 8,
+      "affinities": [
+        "Physical",
+        "Fire"
+      ],
+      "demon": false,
+      "cavern": true,
+      "sinbound": false,
+      "baseMaxHp": 98,
+      "stats": {
+        "STR": 26,
+        "DEX": 10,
+        "CON": 24,
+        "INT": 12,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Magma Horn",
+        "base": 12,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "magma-burst",
+          "name": "Magma Burst",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 13,
+              "damageType": "Fire",
+              "scaling": {
+                "STR": 0.006,
+                "CON": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical",
+          "Fire"
+        ]
+      },
+      "materials": [
+        {
+          "id": "ember-gland",
+          "name": "Ember Gland",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "magma-burrower"
+        },
+        {
+          "id": "blackstone-fragment",
+          "name": "Blackstone Fragment",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "magma-burrower"
+        }
+      ],
+      "baseExpReward": 195,
+      "baseOnyxReward": 175,
+      "resistances": {
+        "Fire": 20
+      },
+      "portrait": null
+    },
+    {
+      "id": "cinder-imp",
+      "name": "Cinder Imp",
+      "role": "Lesser Demon Harrier",
+      "faction": "hell",
+      "minTier": 3,
+      "maxTier": 6,
+      "encounterWeight": 12,
+      "affinities": [
+        "Fire"
+      ],
+      "demon": true,
+      "cavern": false,
+      "sinbound": false,
+      "baseMaxHp": 84,
+      "stats": {
+        "STR": 8,
+        "DEX": 25,
+        "CON": 14,
+        "INT": 26,
+        "FTH": 0,
+        "CHA": 15,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Cinder Bolt",
+        "base": 12,
+        "damageType": "Fire",
+        "scaling": {
+          "INT": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "imp-flare",
+          "name": "Cinder Flare",
+          "energyCost": 3,
+          "cooldown": 1,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 11,
+              "damageType": "Fire",
+              "scaling": {
+                "INT": 0.009
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "caster",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Fire"
+        ]
+      },
+      "materials": [
+        {
+          "id": "soul-ash",
+          "name": "Soul Ash",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "cinder-imp"
+        },
+        {
+          "id": "ember-gland",
+          "name": "Ember Gland",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "cinder-imp"
+        }
+      ],
+      "baseExpReward": 205,
+      "baseOnyxReward": 185,
+      "resistances": {
+        "Fire": 22
+      },
+      "portrait": null
+    },
+    {
+      "id": "hellhound",
+      "name": "Hellhound",
+      "role": "Infernal Predator",
+      "faction": "hell",
+      "minTier": 3,
+      "maxTier": 6,
+      "encounterWeight": 11,
+      "affinities": [
+        "Physical",
+        "Fire"
+      ],
+      "demon": true,
+      "cavern": false,
+      "sinbound": false,
+      "baseMaxHp": 102,
+      "stats": {
+        "STR": 29,
+        "DEX": 24,
+        "CON": 22,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Hellfang",
+        "base": 13,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "hellhound-maul",
+          "name": "Burning Maul",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 18,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.011
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "hellhound-bleed",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {},
+            "memory": {
+              "statusKind": "Bleed",
+              "tickBase": 6,
+              "tickTiming": "owner-turn-end"
+            }
+          },
+          "lifestealPct": 6
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical",
+          "Fire"
+        ]
+      },
+      "materials": [
+        {
+          "id": "demon-hide",
+          "name": "Demon Hide",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "hellhound"
+        },
+        {
+          "id": "ember-gland",
+          "name": "Ember Gland",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "hellhound"
+        }
+      ],
+      "baseExpReward": 215,
+      "baseOnyxReward": 190,
+      "resistances": {
+        "Fire": 14
+      },
+      "portrait": null
+    },
+    {
+      "id": "chainbound-tormentor",
+      "name": "Chainbound Tormentor",
+      "role": "Force Controller",
+      "faction": "hell",
+      "minTier": 3,
+      "maxTier": 6,
+      "encounterWeight": 9,
+      "affinities": [
+        "Force",
+        "Physical"
+      ],
+      "demon": true,
+      "cavern": false,
+      "sinbound": false,
+      "baseMaxHp": 110,
+      "stats": {
+        "STR": 27,
+        "DEX": 15,
+        "CON": 26,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 20,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Barbed Chain",
+        "base": 13,
+        "damageType": "Force",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "tormentor-bind",
+          "name": "Tormentor Bind",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 17,
+              "damageType": "Force",
+              "scaling": {
+                "STR": 0.006,
+                "CHA": 0.006
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "tormentor-bound",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "dodgeChancePct": -10,
+              "finalDamagePct": -6
+            },
+            "memory": {
+              "statusKind": "Bound"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Force",
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "chain-iron",
+          "name": "Chain Iron",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "chainbound-tormentor"
+        },
+        {
+          "id": "demon-hide",
+          "name": "Demon Hide",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "chainbound-tormentor"
+        }
+      ],
+      "baseExpReward": 220,
+      "baseOnyxReward": 195,
+      "resistances": {
+        "Force": 18
+      },
+      "portrait": null
+    },
+    {
+      "id": "ashwing-demon",
+      "name": "Ashwing Demon",
+      "role": "Evasive Fire Demon",
+      "faction": "hell",
+      "minTier": 3,
+      "maxTier": 6,
+      "encounterWeight": 8,
+      "affinities": [
+        "Fire",
+        "Physical"
+      ],
+      "demon": true,
+      "cavern": false,
+      "sinbound": false,
+      "baseMaxHp": 91,
+      "stats": {
+        "STR": 18,
+        "DEX": 31,
+        "CON": 18,
+        "INT": 22,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Ashwing Talon",
+        "base": 12,
+        "damageType": "Physical",
+        "scaling": {
+          "DEX": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "ashwing-dive",
+          "name": "Ashwing Dive",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 18,
+              "damageType": "Fire",
+              "scaling": {
+                "DEX": 0.008,
+                "INT": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "skirmisher",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Fire",
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "demon-hide",
+          "name": "Demon Hide",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "ashwing-demon"
+        },
+        {
+          "id": "soul-ash",
+          "name": "Soul Ash",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "ashwing-demon"
+        }
+      ],
+      "baseExpReward": 215,
+      "baseOnyxReward": 195,
+      "resistances": {
+        "Fire": 18
+      },
+      "portrait": null
+    },
+    {
+      "id": "soul-gouger",
+      "name": "Soul Gouger",
+      "role": "Psychic Demon",
+      "faction": "hell",
+      "minTier": 3,
+      "maxTier": 6,
+      "encounterWeight": 8,
+      "affinities": [
+        "Psychic"
+      ],
+      "demon": true,
+      "cavern": false,
+      "sinbound": false,
+      "baseMaxHp": 96,
+      "stats": {
+        "STR": 8,
+        "DEX": 18,
+        "CON": 20,
+        "INT": 30,
+        "FTH": 0,
+        "CHA": 27,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Soul Needle",
+        "base": 13,
+        "damageType": "Psychic",
+        "scaling": {
+          "INT": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "gouger-memory",
+          "name": "Memory Gouge",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 18,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.009,
+                "CHA": 0.004
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "gouged-memory",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "outgoingHealingPct": -12,
+              "energyGainPct": -10
+            },
+            "memory": {
+              "statusKind": "Gouged Memory"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "caster",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Psychic"
+        ]
+      },
+      "materials": [
+        {
+          "id": "soul-ash",
+          "name": "Soul Ash",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "soul-gouger"
+        },
+        {
+          "id": "infernal-glass",
+          "name": "Infernal Glass",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "soul-gouger"
+        }
+      ],
+      "baseExpReward": 225,
+      "baseOnyxReward": 200,
+      "resistances": {
+        "Psychic": 20
+      },
+      "portrait": null
+    },
+    {
+      "id": "infernal-brute",
+      "name": "Infernal Brute",
+      "role": "Heavy Demon",
+      "faction": "hell",
+      "minTier": 3,
+      "maxTier": 6,
+      "encounterWeight": 10,
+      "affinities": [
+        "Physical",
+        "Force"
+      ],
+      "demon": true,
+      "cavern": false,
+      "sinbound": false,
+      "baseMaxHp": 126,
+      "stats": {
+        "STR": 34,
+        "DEX": 9,
+        "CON": 30,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Brute Fist",
+        "base": 14,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "brute-crush",
+          "name": "Infernal Crush",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 21,
+              "damageType": "Force",
+              "scaling": {
+                "STR": 0.012
+              }
+            }
+          ],
+          "shieldBonusPct": 20
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical",
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "demon-hide",
+          "name": "Demon Hide",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "infernal-brute"
+        },
+        {
+          "id": "chain-iron",
+          "name": "Chain Iron",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "infernal-brute"
+        }
+      ],
+      "baseExpReward": 230,
+      "baseOnyxReward": 205,
+      "resistances": {
+        "Physical": 15,
+        "Force": 12
+      },
+      "portrait": null
+    },
+    {
+      "id": "pridebound-duelist",
+      "name": "Pridebound Duelist",
+      "role": "Sinbound · Pride",
+      "faction": "hell",
+      "minTier": 4,
+      "maxTier": 6,
+      "encounterWeight": 7,
+      "affinities": [
+        "Physical",
+        "Force"
+      ],
+      "demon": true,
+      "cavern": false,
+      "sinbound": true,
+      "baseMaxHp": 112,
+      "stats": {
+        "STR": 29,
+        "DEX": 27,
+        "CON": 23,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 25,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Regal Cut",
+        "base": 13,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "pridebound-duelist-skill",
+          "name": "Crested Challenge",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 18,
+              "damageType": "Force",
+              "scaling": {
+                "STR": 0.009
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "pridebound-duelist-mark",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "blockChancePct": -8
+            },
+            "memory": {
+              "statusKind": "Pride-Touched"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical",
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "sin-touched-ichor",
+          "name": "Sin Touched Ichor",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "pridebound-duelist"
+        },
+        {
+          "id": "infernal-glass",
+          "name": "Infernal Glass",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "pridebound-duelist"
+        }
+      ],
+      "baseExpReward": 240,
+      "baseOnyxReward": 215,
+      "resistances": {
+        "Force": 14
+      },
+      "portrait": null
+    },
+    {
+      "id": "greedbound-taker",
+      "name": "Greedbound Taker",
+      "role": "Sinbound · Greed",
+      "faction": "hell",
+      "minTier": 4,
+      "maxTier": 6,
+      "encounterWeight": 7,
+      "affinities": [
+        "Force"
+      ],
+      "demon": true,
+      "cavern": false,
+      "sinbound": true,
+      "baseMaxHp": 115,
+      "stats": {
+        "STR": 18,
+        "DEX": 23,
+        "CON": 21,
+        "INT": 22,
+        "FTH": 0,
+        "CHA": 30,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Taking Hand",
+        "base": 13,
+        "damageType": "Force",
+        "scaling": {
+          "CHA": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "greedbound-taker-skill",
+          "name": "Possessive Crush",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 19,
+              "damageType": "Force",
+              "scaling": {
+                "CHA": 0.009
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "greedbound-taker-mark",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "energyGainPct": -12
+            },
+            "memory": {
+              "statusKind": "Greed-Touched"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "sin-touched-ichor",
+          "name": "Sin Touched Ichor",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "greedbound-taker"
+        },
+        {
+          "id": "infernal-glass",
+          "name": "Infernal Glass",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "greedbound-taker"
+        }
+      ],
+      "baseExpReward": 243,
+      "baseOnyxReward": 219,
+      "resistances": {
+        "Force": 14
+      },
+      "portrait": null
+    },
+    {
+      "id": "lustbound-whisperer",
+      "name": "Lustbound Whisperer",
+      "role": "Sinbound · Lust",
+      "faction": "hell",
+      "minTier": 4,
+      "maxTier": 6,
+      "encounterWeight": 7,
+      "affinities": [
+        "Psychic"
+      ],
+      "demon": true,
+      "cavern": false,
+      "sinbound": true,
+      "baseMaxHp": 118,
+      "stats": {
+        "STR": 0,
+        "DEX": 22,
+        "CON": 18,
+        "INT": 31,
+        "FTH": 0,
+        "CHA": 32,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Velvet Thought",
+        "base": 13,
+        "damageType": "Psychic",
+        "scaling": {
+          "CHA": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "lustbound-whisperer-skill",
+          "name": "Compelling Whisper",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 20,
+              "damageType": "Psychic",
+              "scaling": {
+                "CHA": 0.009
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "lustbound-whisperer-mark",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "finalDamagePct": -10
+            },
+            "memory": {
+              "statusKind": "Lust-Touched"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Psychic"
+        ]
+      },
+      "materials": [
+        {
+          "id": "sin-touched-ichor",
+          "name": "Sin Touched Ichor",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "lustbound-whisperer"
+        },
+        {
+          "id": "infernal-glass",
+          "name": "Infernal Glass",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "lustbound-whisperer"
+        }
+      ],
+      "baseExpReward": 246,
+      "baseOnyxReward": 223,
+      "resistances": {
+        "Psychic": 14
+      },
+      "portrait": null
+    },
+    {
+      "id": "envybound-mimic",
+      "name": "Envybound Mimic",
+      "role": "Sinbound · Envy",
+      "faction": "hell",
+      "minTier": 4,
+      "maxTier": 6,
+      "encounterWeight": 7,
+      "affinities": [
+        "Psychic",
+        "Physical"
+      ],
+      "demon": true,
+      "cavern": false,
+      "sinbound": true,
+      "baseMaxHp": 121,
+      "stats": {
+        "STR": 24,
+        "DEX": 24,
+        "CON": 22,
+        "INT": 24,
+        "FTH": 0,
+        "CHA": 24,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Borrowed Edge",
+        "base": 13,
+        "damageType": "Psychic",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "envybound-mimic-skill",
+          "name": "Covetous Reflection",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 18,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.009
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "envybound-mimic-mark",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "damageCritChancePct": -8
+            },
+            "memory": {
+              "statusKind": "Envy-Touched"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Psychic",
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "sin-touched-ichor",
+          "name": "Sin Touched Ichor",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "envybound-mimic"
+        },
+        {
+          "id": "infernal-glass",
+          "name": "Infernal Glass",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "envybound-mimic"
+        }
+      ],
+      "baseExpReward": 249,
+      "baseOnyxReward": 227,
+      "resistances": {
+        "Physical": 14
+      },
+      "portrait": null
+    },
+    {
+      "id": "gluttonous-maw",
+      "name": "Gluttonous Maw",
+      "role": "Sinbound · Gluttony",
+      "faction": "hell",
+      "minTier": 4,
+      "maxTier": 6,
+      "encounterWeight": 7,
+      "affinities": [
+        "Physical",
+        "Force"
+      ],
+      "demon": true,
+      "cavern": false,
+      "sinbound": true,
+      "baseMaxHp": 124,
+      "stats": {
+        "STR": 32,
+        "DEX": 10,
+        "CON": 34,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 16,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Feasting Bite",
+        "base": 13,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "gluttonous-maw-skill",
+          "name": "Devouring Pull",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 19,
+              "damageType": "Force",
+              "scaling": {
+                "CON": 0.009
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "gluttonous-maw-mark",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "incomingHealingPct": -10
+            },
+            "memory": {
+              "statusKind": "Gluttony-Touched"
+            }
+          },
+          "lifestealPct": 18
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical",
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "sin-touched-ichor",
+          "name": "Sin Touched Ichor",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "gluttonous-maw"
+        },
+        {
+          "id": "infernal-glass",
+          "name": "Infernal Glass",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "gluttonous-maw"
+        }
+      ],
+      "baseExpReward": 252,
+      "baseOnyxReward": 231,
+      "resistances": {
+        "Force": 14
+      },
+      "portrait": null
+    },
+    {
+      "id": "wrathbound-ravager",
+      "name": "Wrathbound Ravager",
+      "role": "Sinbound · Wrath",
+      "faction": "hell",
+      "minTier": 4,
+      "maxTier": 6,
+      "encounterWeight": 7,
+      "affinities": [
+        "Physical",
+        "Force"
+      ],
+      "demon": true,
+      "cavern": false,
+      "sinbound": true,
+      "baseMaxHp": 127,
+      "stats": {
+        "STR": 37,
+        "DEX": 23,
+        "CON": 23,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 18
+      },
+      "basicAttack": {
+        "name": "Wrath Cleaver",
+        "base": 13,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "wrathbound-ravager-skill",
+          "name": "Ragequake",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 20,
+              "damageType": "Force",
+              "scaling": {
+                "STR": 0.009
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "wrathbound-ravager-mark",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "blockChancePct": -8
+            },
+            "memory": {
+              "statusKind": "Wrath-Touched"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical",
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "sin-touched-ichor",
+          "name": "Sin Touched Ichor",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "wrathbound-ravager"
+        },
+        {
+          "id": "infernal-glass",
+          "name": "Infernal Glass",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "wrathbound-ravager"
+        }
+      ],
+      "baseExpReward": 255,
+      "baseOnyxReward": 235,
+      "resistances": {
+        "Force": 14
+      },
+      "portrait": null
+    },
+    {
+      "id": "slothbound-colossus",
+      "name": "Slothbound Colossus",
+      "role": "Sinbound · Sloth",
+      "faction": "hell",
+      "minTier": 4,
+      "maxTier": 6,
+      "encounterWeight": 7,
+      "affinities": [
+        "Force"
+      ],
+      "demon": true,
+      "cavern": false,
+      "sinbound": true,
+      "baseMaxHp": 130,
+      "stats": {
+        "STR": 28,
+        "DEX": 5,
+        "CON": 39,
+        "INT": 20,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Idle Hammer",
+        "base": 13,
+        "damageType": "Force",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "slothbound-colossus-skill",
+          "name": "Delayed Collapse",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 18,
+              "damageType": "Force",
+              "scaling": {
+                "CON": 0.009
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "slothbound-colossus-mark",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "dodgeChancePct": -8
+            },
+            "memory": {
+              "statusKind": "Sloth-Touched"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "sin-touched-ichor",
+          "name": "Sin Touched Ichor",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "slothbound-colossus"
+        },
+        {
+          "id": "infernal-glass",
+          "name": "Infernal Glass",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "slothbound-colossus"
+        }
+      ],
+      "baseExpReward": 258,
+      "baseOnyxReward": 239,
+      "resistances": {
+        "Force": 14
+      },
+      "portrait": null
+    },
+    {
+      "id": "hellshade",
+      "name": "Hellshade",
+      "role": "Psychic Shade Demon",
+      "faction": "hell",
+      "minTier": 5,
+      "maxTier": 6,
+      "encounterWeight": 7,
+      "affinities": [
+        "Psychic",
+        "Force"
+      ],
+      "demon": true,
+      "cavern": false,
+      "sinbound": false,
+      "baseMaxHp": 104,
+      "stats": {
+        "STR": 0,
+        "DEX": 30,
+        "CON": 18,
+        "INT": 33,
+        "FTH": 0,
+        "CHA": 28,
+        "LCK": 16
+      },
+      "basicAttack": {
+        "name": "Shade Tear",
+        "base": 14,
+        "damageType": "Psychic",
+        "scaling": {
+          "INT": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "hellshade-fold",
+          "name": "Shadow Fold",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 15,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.008,
+                "DEX": 0.003
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "hellshade-blur",
+            "negative": true,
+            "durationTurns": 1,
+            "modifiers": {
+              "damageCritChancePct": -10
+            },
+            "memory": {
+              "statusKind": "Shadowed"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "skirmisher",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Psychic",
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "soul-ash",
+          "name": "Soul Ash",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "hellshade"
+        },
+        {
+          "id": "infernal-glass",
+          "name": "Infernal Glass",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "hellshade"
+        }
+      ],
+      "baseExpReward": 255,
+      "baseOnyxReward": 230,
+      "resistances": {
+        "Psychic": 22
+      },
+      "portrait": null
+    },
+    {
+      "id": "furnace-tyrant",
+      "name": "Furnace Tyrant",
+      "role": "Elite Fire/Force Demon",
+      "faction": "hell",
+      "minTier": 5,
+      "maxTier": 6,
+      "encounterWeight": 6,
+      "affinities": [
+        "Fire",
+        "Force"
+      ],
+      "demon": true,
+      "cavern": false,
+      "sinbound": false,
+      "baseMaxHp": 142,
+      "stats": {
+        "STR": 33,
+        "DEX": 12,
+        "CON": 32,
+        "INT": 28,
+        "FTH": 0,
+        "CHA": 20,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Furnace Fist",
+        "base": 15,
+        "damageType": "Fire",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "tyrant-furnace",
+          "name": "Furnace Dominion",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 19,
+              "damageType": "Fire",
+              "scaling": {
+                "STR": 0.005,
+                "INT": 0.006
+              }
+            }
+          ]
+        },
+        {
+          "id": "tyrant-force",
+          "name": "Hellpress",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 22,
+              "damageType": "Force",
+              "scaling": {
+                "STR": 0.009,
+                "CON": 0.003
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Fire",
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "ember-gland",
+          "name": "Ember Gland",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "furnace-tyrant"
+        },
+        {
+          "id": "infernal-glass",
+          "name": "Infernal Glass",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "furnace-tyrant"
+        },
+        {
+          "id": "demon-hide",
+          "name": "Demon Hide",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "furnace-tyrant"
+        }
+      ],
+      "baseExpReward": 270,
+      "baseOnyxReward": 245,
+      "resistances": {
+        "Fire": 24,
+        "Force": 16
+      },
+      "portrait": null
+    },
+    {
+      "id": "sevenfold-disciple",
+      "name": "Sevenfold Disciple",
+      "role": "Elite Sin Hybrid",
+      "faction": "hell",
+      "minTier": 6,
+      "maxTier": 6,
+      "encounterWeight": 5,
+      "affinities": [
+        "Physical",
+        "Force",
+        "Psychic"
+      ],
+      "demon": true,
+      "cavern": false,
+      "sinbound": true,
+      "baseMaxHp": 136,
+      "stats": {
+        "STR": 30,
+        "DEX": 28,
+        "CON": 27,
+        "INT": 30,
+        "FTH": 0,
+        "CHA": 30,
+        "LCK": 20
+      },
+      "basicAttack": {
+        "name": "Sevenfold Edge",
+        "base": 15,
+        "damageType": "Force",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "disciple-vice",
+          "name": "Vice Convergence",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 18,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.006,
+                "CHA": 0.005
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "disciple-vice-mark",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "incomingHealingPct": -10,
+              "dodgeChancePct": -6
+            },
+            "memory": {
+              "statusKind": "Vice Mark"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "caster",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical",
+          "Force",
+          "Psychic"
+        ]
+      },
+      "materials": [
+        {
+          "id": "sin-touched-ichor",
+          "name": "Sin Touched Ichor",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "sevenfold-disciple"
+        },
+        {
+          "id": "infernal-glass",
+          "name": "Infernal Glass",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "sevenfold-disciple"
+        },
+        {
+          "id": "soul-ash",
+          "name": "Soul Ash",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "sevenfold-disciple"
+        }
+      ],
+      "baseExpReward": 285,
+      "baseOnyxReward": 260,
+      "resistances": {
+        "Physical": 12,
+        "Force": 16,
+        "Psychic": 16
+      },
+      "portrait": null
+    }
+  ],
+  "miniboss": {
+    "name": "Kharvax, the Gatebound",
+    "fixedDepth": 10,
+    "actors": [
+      {
+        "id": "kharvax-gatebound",
+        "name": "Kharvax, the Gatebound",
+        "role": "Miniboss · Guardian of Hell",
+        "baseMaxHp": 390,
+        "maxEnergy": 8,
+        "level": 27,
+        "stats": {
+          "STR": 38,
+          "DEX": 12,
+          "CON": 37,
+          "INT": 22,
+          "FTH": 0,
+          "CHA": 27,
+          "LCK": 12
+        },
+        "basicAttack": {
+          "name": "Gatebound Fist",
+          "base": 16,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.01
+          }
+        },
+        "abilities": [
+          {
+            "id": "kharvax-hellchain-lash",
+            "name": "Hellchain Lash",
+            "energyCost": 3,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 20,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.01
+                }
+              }
+            ],
+            "targetEffect": {
+              "id": "hellchain-bleed",
+              "negative": true,
+              "durationTurns": 2,
+              "modifiers": {},
+              "memory": {
+                "statusKind": "Bleed",
+                "tickBase": 7,
+                "tickTiming": "owner-turn-end"
+              }
+            }
+          },
+          {
+            "id": "kharvax-gate-ram",
+            "name": "Gate Ram",
+            "energyCost": 4,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 23,
+                "damageType": "Force",
+                "scaling": {
+                  "STR": 0.009,
+                  "CON": 0.003
+                }
+              }
+            ],
+            "shieldBonusPct": 25
+          },
+          {
+            "id": "kharvax-cinder-breath",
+            "name": "Cinder Breath",
+            "energyCost": 5,
+            "cooldown": 3,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 17,
+                "damageType": "Fire",
+                "scaling": {
+                  "STR": 0.004,
+                  "INT": 0.006
+                }
+              }
+            ]
+          },
+          {
+            "id": "kharvax-unbar-gate",
+            "name": "Unbar the Gate",
+            "energyCost": 7,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 27,
+                "damageType": "Force",
+                "scaling": {
+                  "STR": 0.011,
+                  "CON": 0.004
+                }
+              }
+            ],
+            "kharvaxBrokenChainBonusPct": 12
+          }
+        ],
+        "ai": {
+          "style": "hell-kharvax",
+          "affinities": [
+            "Physical",
+            "Force",
+            "Fire"
+          ],
+          "demon": true,
+          "hellchains": 3,
+          "chargeBelowEnergy": 7,
+          "chargeTowardHeavyChancePct": 55,
+          "maxEnergySignatureAbilityId": "kharvax-unbar-gate"
+        },
+        "materials": [
+          {
+            "id": "gatebound-horn",
+            "name": "Gatebound Horn",
+            "materialKind": "boss-material",
+            "sourceId": "kharvax-gatebound",
+            "deterministic": true
+          },
+          {
+            "id": "kharvax-soulfirecore",
+            "name": "Kharvax SoulfireCore",
+            "materialKind": "soulfire-core",
+            "sourceId": "kharvax-gatebound",
+            "deterministic": true
+          }
+        ],
+        "expReward": 1000,
+        "onyxReward": 1800,
+        "resistances": {
+          "Physical": 18,
+          "Force": 18,
+          "Fire": 20
+        },
+        "portrait": null
+      }
+    ]
+  },
+  "boss": {
+    "name": "Serevakh, the Sevenfold Regent",
+    "fixedDepth": 30,
+    "actors": [
+      {
+        "id": "serevakh-sevenfold-regent",
+        "name": "Serevakh, the Sevenfold Regent",
+        "role": "Boss · Sevenfold Regent",
+        "baseMaxHp": 650,
+        "maxEnergy": 8,
+        "level": 31,
+        "stats": {
+          "STR": 40,
+          "DEX": 34,
+          "CON": 38,
+          "INT": 37,
+          "FTH": 0,
+          "CHA": 41,
+          "LCK": 25
+        },
+        "basicAttack": {
+          "name": "Regent’s Hand",
+          "base": 17,
+          "damageType": "Force",
+          "scaling": {
+            "STR": 0.006,
+            "CHA": 0.006
+          }
+        },
+        "abilities": [
+          {
+            "id": "serevakh-pride-edict",
+            "name": "Sovereign Edict",
+            "energyCost": 4,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 23,
+                "damageType": "Force",
+                "scaling": {
+                  "CHA": 0.009,
+                  "STR": 0.004
+                }
+              }
+            ],
+            "sinForm": "Pride",
+            "targetEffect": {
+              "id": "pride-humbled",
+              "negative": true,
+              "durationTurns": 2,
+              "modifiers": {
+                "finalDamagePct": -10
+              },
+              "memory": {
+                "statusKind": "Humbled"
+              }
+            }
+          },
+          {
+            "id": "serevakh-pride-apex",
+            "name": "Apex Rebuke",
+            "energyCost": 6,
+            "cooldown": 2,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 18,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.008,
+                  "CHA": 0.004
+                }
+              }
+            ],
+            "sinForm": "Pride",
+            "pridePunishBuffs": true
+          },
+          {
+            "id": "serevakh-greed-seizure",
+            "name": "Claim What Is Yours",
+            "energyCost": 4,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 20,
+                "damageType": "Force",
+                "scaling": {
+                  "CHA": 0.008,
+                  "INT": 0.004
+                }
+              }
+            ],
+            "sinForm": "Greed",
+            "greedStealEnergy": 2,
+            "greedStealBuff": true
+          },
+          {
+            "id": "serevakh-greed-levy",
+            "name": "Infernal Levy",
+            "energyCost": 6,
+            "cooldown": 2,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 16,
+                "damageType": "Force",
+                "scaling": {
+                  "CHA": 0.007,
+                  "INT": 0.004
+                }
+              }
+            ],
+            "sinForm": "Greed",
+            "greedStealShieldPct": 35
+          },
+          {
+            "id": "serevakh-lust-whisper",
+            "name": "Compelling Whisper",
+            "energyCost": 4,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 22,
+                "damageType": "Psychic",
+                "scaling": {
+                  "CHA": 0.009,
+                  "INT": 0.004
+                }
+              }
+            ],
+            "sinForm": "Lust",
+            "targetEffect": {
+              "id": "lust-compelled",
+              "negative": true,
+              "durationTurns": 2,
+              "modifiers": {
+                "aggroMultiplierAdd": 0.35,
+                "dodgeChancePct": -8
+              },
+              "memory": {
+                "statusKind": "Compelled"
+              }
+            }
+          },
+          {
+            "id": "serevakh-lust-rapture",
+            "name": "Rapturous Ruin",
+            "energyCost": 6,
+            "cooldown": 2,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 18,
+                "damageType": "Psychic",
+                "scaling": {
+                  "CHA": 0.008,
+                  "INT": 0.005
+                }
+              }
+            ],
+            "sinForm": "Lust",
+            "targetEffect": {
+              "id": "lust-opened",
+              "negative": true,
+              "durationTurns": 1,
+              "modifiers": {
+                "incomingDamagePct": 10
+              },
+              "memory": {
+                "statusKind": "Opened"
+              }
+            }
+          },
+          {
+            "id": "serevakh-envy-reflection",
+            "name": "Covetous Reflection",
+            "energyCost": 4,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 21,
+                "damageType": "Psychic",
+                "scaling": {
+                  "INT": 0.007,
+                  "CHA": 0.006
+                }
+              }
+            ],
+            "sinForm": "Envy",
+            "envyCopyBuff": true
+          },
+          {
+            "id": "serevakh-envy-better",
+            "name": "Anything You Can Do",
+            "energyCost": 6,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 26,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.007,
+                  "DEX": 0.006
+                }
+              }
+            ],
+            "sinForm": "Envy",
+            "envyStatStrike": true
+          },
+          {
+            "id": "serevakh-gluttony-feast",
+            "name": "Feast on Wounds",
+            "energyCost": 4,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 23,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.009,
+                  "CON": 0.004
+                }
+              }
+            ],
+            "sinForm": "Gluttony",
+            "lifestealPct": 28,
+            "gluttonyConsumeNegative": true
+          },
+          {
+            "id": "serevakh-gluttony-banquet",
+            "name": "Bottomless Banquet",
+            "energyCost": 6,
+            "cooldown": 2,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 17,
+                "damageType": "Force",
+                "scaling": {
+                  "CON": 0.006,
+                  "CHA": 0.004
+                }
+              }
+            ],
+            "sinForm": "Gluttony",
+            "lifestealPct": 22
+          },
+          {
+            "id": "serevakh-wrath-cleave",
+            "name": "Wrath Without Measure",
+            "energyCost": 4,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 28,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.012
+                }
+              }
+            ],
+            "sinForm": "Wrath",
+            "critChanceBonus": 15
+          },
+          {
+            "id": "serevakh-wrath-quake",
+            "name": "Ragequake",
+            "energyCost": 6,
+            "cooldown": 2,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 21,
+                "damageType": "Force",
+                "scaling": {
+                  "STR": 0.009,
+                  "CON": 0.003
+                }
+              }
+            ],
+            "sinForm": "Wrath",
+            "critChanceBonus": 10
+          },
+          {
+            "id": "serevakh-sloth-wait",
+            "name": "Not Yet",
+            "energyCost": 3,
+            "cooldown": 2,
+            "targetMode": "self",
+            "components": [],
+            "sinForm": "Sloth",
+            "slothBank": true
+          },
+          {
+            "id": "serevakh-sloth-collapse",
+            "name": "Delayed Collapse",
+            "energyCost": 7,
+            "cooldown": 2,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 25,
+                "damageType": "Force",
+                "scaling": {
+                  "CON": 0.006,
+                  "STR": 0.007
+                }
+              }
+            ],
+            "sinForm": "Sloth",
+            "slothConsumeBank": true
+          }
+        ],
+        "ai": {
+          "style": "hell-serevakh",
+          "affinities": [
+            "Physical",
+            "Force",
+            "Psychic"
+          ],
+          "demon": true,
+          "sinCycle": [
+            "Pride",
+            "Greed",
+            "Lust",
+            "Envy",
+            "Gluttony",
+            "Wrath",
+            "Sloth"
+          ],
+          "startsIn": "Pride",
+          "slothUsesWaitBeforeCollapse": true
+        },
+        "materials": [
+          {
+            "id": "sevenfold-soulfirecore",
+            "name": "Sevenfold SoulfireCore",
+            "materialKind": "soulfire-core",
+            "sourceId": "serevakh-sevenfold-regent",
+            "deterministic": true
+          }
+        ],
+        "expReward": 2200,
+        "onyxReward": 3000,
+        "resistances": {
+          "Physical": 18,
+          "Force": 20,
+          "Psychic": 20,
+          "Fire": 12
+        },
+        "portrait": null
+      }
+    ]
+  },
+  "rules": {
+    "partySizeEnemyCount": {
+      "1": [
+        1,
+        2
+      ],
+      "2": [
+        2,
+        3
+      ],
+      "3": [
+        3,
+        4
+      ],
+      "4": [
+        4,
+        5
+      ]
+    },
+    "normalMaterialDropByRealPartySize": {
+      "1": [
+        4,
+        6
+      ],
+      "2": [
+        6,
+        8
+      ],
+      "3": [
+        8,
+        10
+      ],
+      "4": [
+        10,
+        12
+      ]
+    },
+    "bossMinibossPartyScaling": {
+      "1": {
+        "maxHpMultiplier": 1,
+        "damageMultiplier": 1
+      },
+      "2": {
+        "maxHpMultiplier": 1.55,
+        "damageMultiplier": 1.15
+      },
+      "3": {
+        "maxHpMultiplier": 2.1,
+        "damageMultiplier": 1.3
+      },
+      "4": {
+        "maxHpMultiplier": 2.65,
+        "damageMultiplier": 1.45
+      }
+    },
+    "portraits": "null-initials-fallback",
+    "trainers": false,
+    "regionalMeter": false
+  },
+  "balanceRevision": "2026-08-10-enemy-difficulty-balance"
+}

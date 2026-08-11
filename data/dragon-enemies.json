@@ -1,0 +1,3345 @@
+{
+  "version": "THAT-DRAGONS-DUNGEON-ENEMIES-2026-08-10",
+  "designStatus": "implemented",
+  "depthTiers": [
+    {
+      "id": "tier-1",
+      "name": "Outer Hoardways",
+      "start": 1,
+      "end": 5,
+      "family": "Drake"
+    },
+    {
+      "id": "tier-2",
+      "name": "Drake Warrens",
+      "start": 6,
+      "end": 9,
+      "family": "Drake"
+    },
+    {
+      "id": "tier-3",
+      "name": "Wingvault Galleries",
+      "start": 11,
+      "end": 15,
+      "family": "Wyvern"
+    },
+    {
+      "id": "tier-4",
+      "name": "Wyvern Menagerie",
+      "start": 16,
+      "end": 19,
+      "family": "Wyvern"
+    },
+    {
+      "id": "tier-5",
+      "name": "Elder Hoard Sanctums",
+      "start": 21,
+      "end": 25,
+      "family": "Dragon"
+    },
+    {
+      "id": "tier-6",
+      "name": "Prismatic Crownways",
+      "start": 26,
+      "end": 29,
+      "family": "Dragon"
+    }
+  ],
+  "regularEnemies": [
+    {
+      "id": "embermaw-drake",
+      "name": "Embermaw Drake",
+      "role": "Fire Drake",
+      "faction": "dragon-dungeon",
+      "minTier": 1,
+      "maxTier": 2,
+      "encounterWeight": 13,
+      "affinities": [
+        "Fire"
+      ],
+      "dragonFamily": "Drake",
+      "baseMaxHp": 92,
+      "stats": {
+        "STR": 28,
+        "DEX": 20,
+        "CON": 22,
+        "INT": 13,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 7
+      },
+      "basicAttack": {
+        "name": "Searing Bite",
+        "base": 13,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "embermaw-breath",
+          "name": "Young Flame Breath",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 15,
+              "damageType": "Fire",
+              "scaling": {
+                "STR": 0.004,
+                "INT": 0.007
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "embermaw-burn",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {},
+            "memory": {
+              "statusKind": "Burn",
+              "tickBase": 5,
+              "tickTiming": "owner-turn-end"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Fire"
+        ]
+      },
+      "materials": [
+        {
+          "id": "drake-scale",
+          "name": "Drake Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "embermaw-drake"
+        },
+        {
+          "id": "ember-sac",
+          "name": "Ember Sac",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "embermaw-drake"
+        }
+      ],
+      "baseExpReward": 226,
+      "baseOnyxReward": 255,
+      "resistances": {
+        "Fire": 18
+      },
+      "portrait": null
+    },
+    {
+      "id": "rimejaw-drake",
+      "name": "Rimejaw Drake",
+      "role": "Cold Drake",
+      "faction": "dragon-dungeon",
+      "minTier": 1,
+      "maxTier": 2,
+      "encounterWeight": 12,
+      "affinities": [
+        "Cold"
+      ],
+      "dragonFamily": "Drake",
+      "baseMaxHp": 98,
+      "stats": {
+        "STR": 25,
+        "DEX": 16,
+        "CON": 27,
+        "INT": 14,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 6
+      },
+      "basicAttack": {
+        "name": "Frosted Fang",
+        "base": 12,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "rimejaw-breath",
+          "name": "Rime Breath",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 14,
+              "damageType": "Cold",
+              "scaling": {
+                "CON": 0.004,
+                "INT": 0.007
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "rimejaw-slow",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "dodgeChancePct": -7
+            },
+            "memory": {
+              "statusKind": "Rimebound"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Cold"
+        ]
+      },
+      "materials": [
+        {
+          "id": "drake-scale",
+          "name": "Drake Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "rimejaw-drake"
+        },
+        {
+          "id": "frost-gland",
+          "name": "Frost Gland",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "rimejaw-drake"
+        }
+      ],
+      "baseExpReward": 226,
+      "baseOnyxReward": 255,
+      "resistances": {
+        "Cold": 20
+      },
+      "portrait": null
+    },
+    {
+      "id": "stormcrest-drake",
+      "name": "Stormcrest Drake",
+      "role": "Lightning Drake",
+      "faction": "dragon-dungeon",
+      "minTier": 1,
+      "maxTier": 2,
+      "encounterWeight": 12,
+      "affinities": [
+        "Lightning"
+      ],
+      "dragonFamily": "Drake",
+      "baseMaxHp": 84,
+      "stats": {
+        "STR": 22,
+        "DEX": 30,
+        "CON": 18,
+        "INT": 17,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 11
+      },
+      "basicAttack": {
+        "name": "Static Talon",
+        "base": 12,
+        "damageType": "Physical",
+        "scaling": {
+          "DEX": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "stormcrest-breath",
+          "name": "Stormspark Breath",
+          "energyCost": 3,
+          "cooldown": 1,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 17,
+              "damageType": "Lightning",
+              "scaling": {
+                "DEX": 0.006,
+                "INT": 0.006
+              }
+            }
+          ],
+          "critChanceBonus": 8
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Lightning"
+        ]
+      },
+      "materials": [
+        {
+          "id": "drake-scale",
+          "name": "Drake Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "stormcrest-drake"
+        },
+        {
+          "id": "storm-spine",
+          "name": "Storm Spine",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "stormcrest-drake"
+        }
+      ],
+      "baseExpReward": 226,
+      "baseOnyxReward": 255,
+      "resistances": {
+        "Lightning": 18
+      },
+      "portrait": null
+    },
+    {
+      "id": "riftjaw-drake",
+      "name": "Riftjaw Drake",
+      "role": "Force Drake",
+      "faction": "dragon-dungeon",
+      "minTier": 1,
+      "maxTier": 2,
+      "encounterWeight": 10,
+      "affinities": [
+        "Force"
+      ],
+      "dragonFamily": "Drake",
+      "baseMaxHp": 103,
+      "stats": {
+        "STR": 31,
+        "DEX": 12,
+        "CON": 28,
+        "INT": 11,
+        "FTH": 0,
+        "CHA": 13,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Rift Bite",
+        "base": 14,
+        "damageType": "Force",
+        "scaling": {
+          "STR": 0.008,
+          "CON": 0.003
+        }
+      },
+      "abilities": [
+        {
+          "id": "riftjaw-crash",
+          "name": "Crushing Rift",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 20,
+              "damageType": "Force",
+              "scaling": {
+                "STR": 0.009,
+                "CON": 0.004
+              }
+            }
+          ],
+          "shieldBonusPct": 20
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "drake-scale",
+          "name": "Drake Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "riftjaw-drake"
+        },
+        {
+          "id": "force-crystal",
+          "name": "Force Crystal",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "riftjaw-drake"
+        }
+      ],
+      "baseExpReward": 226,
+      "baseOnyxReward": 255,
+      "resistances": {
+        "Force": 20
+      },
+      "portrait": null
+    },
+    {
+      "id": "haloscale-drake",
+      "name": "Haloscale Drake",
+      "role": "Holy Drake",
+      "faction": "dragon-dungeon",
+      "minTier": 1,
+      "maxTier": 2,
+      "encounterWeight": 9,
+      "affinities": [
+        "Holy"
+      ],
+      "dragonFamily": "Drake",
+      "baseMaxHp": 89,
+      "stats": {
+        "STR": 19,
+        "DEX": 18,
+        "CON": 22,
+        "INT": 14,
+        "FTH": 25,
+        "CHA": 0,
+        "LCK": 8
+      },
+      "basicAttack": {
+        "name": "Radiant Claw",
+        "base": 12,
+        "damageType": "Holy",
+        "scaling": {
+          "FTH": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "haloscale-flare",
+          "name": "Halo Flare",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 14,
+              "damageType": "Holy",
+              "scaling": {
+                "FTH": 0.009
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Holy"
+        ]
+      },
+      "materials": [
+        {
+          "id": "drake-scale",
+          "name": "Drake Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "haloscale-drake"
+        },
+        {
+          "id": "holy-scale",
+          "name": "Holy Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "haloscale-drake"
+        }
+      ],
+      "baseExpReward": 226,
+      "baseOnyxReward": 255,
+      "resistances": {
+        "Holy": 20
+      },
+      "portrait": null
+    },
+    {
+      "id": "whisperhide-drake",
+      "name": "Whisperhide Drake",
+      "role": "Psychic Drake",
+      "faction": "dragon-dungeon",
+      "minTier": 1,
+      "maxTier": 2,
+      "encounterWeight": 8,
+      "affinities": [
+        "Psychic"
+      ],
+      "dragonFamily": "Drake",
+      "baseMaxHp": 82,
+      "stats": {
+        "STR": 15,
+        "DEX": 24,
+        "CON": 17,
+        "INT": 28,
+        "FTH": 0,
+        "CHA": 21,
+        "LCK": 10
+      },
+      "basicAttack": {
+        "name": "Mind-Nip",
+        "base": 12,
+        "damageType": "Psychic",
+        "scaling": {
+          "INT": 0.008,
+          "CHA": 0.003
+        }
+      },
+      "abilities": [
+        {
+          "id": "whisperhide-breath",
+          "name": "Thoughtsmoke Breath",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 13,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.009,
+                "CHA": 0.003
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "thoughtsmoke",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "damageCritChancePct": -7
+            },
+            "memory": {
+              "statusKind": "Thoughtsmoke"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Psychic"
+        ]
+      },
+      "materials": [
+        {
+          "id": "drake-scale",
+          "name": "Drake Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "whisperhide-drake"
+        },
+        {
+          "id": "mindgem",
+          "name": "Mindgem",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "whisperhide-drake"
+        }
+      ],
+      "baseExpReward": 226,
+      "baseOnyxReward": 255,
+      "resistances": {
+        "Psychic": 18
+      },
+      "portrait": null
+    },
+    {
+      "id": "ironjaw-drake",
+      "name": "Ironjaw Drake",
+      "role": "Physical Drake",
+      "faction": "dragon-dungeon",
+      "minTier": 1,
+      "maxTier": 2,
+      "encounterWeight": 11,
+      "affinities": [
+        "Physical"
+      ],
+      "dragonFamily": "Drake",
+      "baseMaxHp": 111,
+      "stats": {
+        "STR": 34,
+        "DEX": 12,
+        "CON": 31,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 6
+      },
+      "basicAttack": {
+        "name": "Ironjaw Bite",
+        "base": 15,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.01
+        }
+      },
+      "abilities": [
+        {
+          "id": "ironjaw-maul",
+          "name": "Hoardbreaker Maul",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 21,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.011
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "drake-scale",
+          "name": "Drake Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "ironjaw-drake"
+        },
+        {
+          "id": "dragonbone-chip",
+          "name": "Dragonbone Chip",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "ironjaw-drake"
+        }
+      ],
+      "baseExpReward": 226,
+      "baseOnyxReward": 255,
+      "resistances": {
+        "Physical": 18
+      },
+      "portrait": null
+    },
+    {
+      "id": "giltback-drake",
+      "name": "Giltback Drake",
+      "role": "Hoard Drake",
+      "faction": "dragon-dungeon",
+      "minTier": 1,
+      "maxTier": 2,
+      "encounterWeight": 8,
+      "affinities": [
+        "Physical",
+        "Holy"
+      ],
+      "dragonFamily": "Drake",
+      "baseMaxHp": 96,
+      "stats": {
+        "STR": 24,
+        "DEX": 17,
+        "CON": 25,
+        "INT": 0,
+        "FTH": 17,
+        "CHA": 0,
+        "LCK": 15
+      },
+      "basicAttack": {
+        "name": "Coinplate Swipe",
+        "base": 13,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.008
+        }
+      },
+      "abilities": [
+        {
+          "id": "giltback-ward",
+          "name": "Gilded Ward",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "self",
+          "components": [
+            {
+              "type": "shield",
+              "base": 18,
+              "scaling": {
+                "CON": 0.006,
+                "FTH": 0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "giltback-glare",
+          "name": "Covetous Glare",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 17,
+              "damageType": "Holy",
+              "scaling": {
+                "FTH": 0.006,
+                "LCK": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "defensive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical",
+          "Holy"
+        ],
+        "shieldThresholdPct": 80
+      },
+      "materials": [
+        {
+          "id": "drake-scale",
+          "name": "Drake Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "giltback-drake"
+        },
+        {
+          "id": "hoard-goldglass",
+          "name": "Hoard Goldglass",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "giltback-drake"
+        }
+      ],
+      "baseExpReward": 226,
+      "baseOnyxReward": 255,
+      "resistances": {
+        "Physical": 12,
+        "Holy": 10
+      },
+      "portrait": null
+    },
+    {
+      "id": "cinderwing-wyvern",
+      "name": "Cinderwing Wyvern",
+      "role": "Fire Wyvern",
+      "faction": "dragon-dungeon",
+      "minTier": 3,
+      "maxTier": 4,
+      "encounterWeight": 13,
+      "affinities": [
+        "Fire",
+        "Physical"
+      ],
+      "dragonFamily": "Wyvern",
+      "baseMaxHp": 126,
+      "stats": {
+        "STR": 35,
+        "DEX": 34,
+        "CON": 25,
+        "INT": 20,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 10
+      },
+      "basicAttack": {
+        "name": "Cinder Talon",
+        "base": 15,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.006,
+          "DEX": 0.005
+        }
+      },
+      "abilities": [
+        {
+          "id": "cinderwing-dive",
+          "name": "Cinder Dive",
+          "energyCost": 4,
+          "cooldown": 1,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 22,
+              "damageType": "Fire",
+              "scaling": {
+                "STR": 0.005,
+                "DEX": 0.007
+              }
+            }
+          ]
+        },
+        {
+          "id": "cinderwing-sweep",
+          "name": "Ashwing Sweep",
+          "energyCost": 5,
+          "cooldown": 3,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 17,
+              "damageType": "Fire",
+              "scaling": {
+                "DEX": 0.007,
+                "INT": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Fire",
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "wyvern-talon",
+          "name": "Wyvern Talon",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "cinderwing-wyvern"
+        },
+        {
+          "id": "ember-sac",
+          "name": "Ember Sac",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "cinderwing-wyvern"
+        }
+      ],
+      "baseExpReward": 278,
+      "baseOnyxReward": 325,
+      "resistances": {
+        "Fire": 20
+      },
+      "portrait": null
+    },
+    {
+      "id": "glacierwing-wyvern",
+      "name": "Glacierwing Wyvern",
+      "role": "Cold Wyvern",
+      "faction": "dragon-dungeon",
+      "minTier": 3,
+      "maxTier": 4,
+      "encounterWeight": 12,
+      "affinities": [
+        "Cold",
+        "Physical"
+      ],
+      "dragonFamily": "Wyvern",
+      "baseMaxHp": 136,
+      "stats": {
+        "STR": 30,
+        "DEX": 27,
+        "CON": 35,
+        "INT": 22,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Glacier Talon",
+        "base": 15,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.007,
+          "DEX": 0.004
+        }
+      },
+      "abilities": [
+        {
+          "id": "glacierwing-shear",
+          "name": "Glacier Shear",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 17,
+              "damageType": "Cold",
+              "scaling": {
+                "CON": 0.004,
+                "INT": 0.007
+              }
+            }
+          ]
+        },
+        {
+          "id": "glacierwing-hide",
+          "name": "Icehide",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "self",
+          "components": [
+            {
+              "type": "shield",
+              "base": 22,
+              "scaling": {
+                "CON": 0.007,
+                "INT": 0.003
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "defensive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Cold",
+          "Physical"
+        ],
+        "shieldThresholdPct": 85
+      },
+      "materials": [
+        {
+          "id": "wyvern-talon",
+          "name": "Wyvern Talon",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "glacierwing-wyvern"
+        },
+        {
+          "id": "frost-gland",
+          "name": "Frost Gland",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "glacierwing-wyvern"
+        }
+      ],
+      "baseExpReward": 278,
+      "baseOnyxReward": 325,
+      "resistances": {
+        "Cold": 22
+      },
+      "portrait": null
+    },
+    {
+      "id": "thunderhook-wyvern",
+      "name": "Thunderhook Wyvern",
+      "role": "Lightning Wyvern",
+      "faction": "dragon-dungeon",
+      "minTier": 3,
+      "maxTier": 4,
+      "encounterWeight": 12,
+      "affinities": [
+        "Lightning",
+        "Physical"
+      ],
+      "dragonFamily": "Wyvern",
+      "baseMaxHp": 118,
+      "stats": {
+        "STR": 27,
+        "DEX": 40,
+        "CON": 22,
+        "INT": 23,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 15
+      },
+      "basicAttack": {
+        "name": "Hookclaw",
+        "base": 14,
+        "damageType": "Physical",
+        "scaling": {
+          "DEX": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "thunderhook-sting",
+          "name": "Thunderhook Sting",
+          "energyCost": 3,
+          "cooldown": 1,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 21,
+              "damageType": "Lightning",
+              "scaling": {
+                "DEX": 0.009,
+                "LCK": 0.003
+              }
+            }
+          ],
+          "critChanceBonus": 12
+        },
+        {
+          "id": "thunderhook-chain",
+          "name": "Chainflash",
+          "energyCost": 5,
+          "cooldown": 3,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 16,
+              "damageType": "Lightning",
+              "scaling": {
+                "DEX": 0.006,
+                "INT": 0.005
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Lightning",
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "wyvern-talon",
+          "name": "Wyvern Talon",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "thunderhook-wyvern"
+        },
+        {
+          "id": "storm-spine",
+          "name": "Storm Spine",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "thunderhook-wyvern"
+        }
+      ],
+      "baseExpReward": 278,
+      "baseOnyxReward": 325,
+      "resistances": {
+        "Lightning": 22
+      },
+      "portrait": null
+    },
+    {
+      "id": "riftspur-wyvern",
+      "name": "Riftspur Wyvern",
+      "role": "Force Wyvern",
+      "faction": "dragon-dungeon",
+      "minTier": 3,
+      "maxTier": 4,
+      "encounterWeight": 10,
+      "affinities": [
+        "Force",
+        "Physical"
+      ],
+      "dragonFamily": "Wyvern",
+      "baseMaxHp": 142,
+      "stats": {
+        "STR": 38,
+        "DEX": 24,
+        "CON": 34,
+        "INT": 18,
+        "FTH": 0,
+        "CHA": 16,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Riftspur",
+        "base": 16,
+        "damageType": "Force",
+        "scaling": {
+          "STR": 0.008,
+          "CON": 0.003
+        }
+      },
+      "abilities": [
+        {
+          "id": "riftspur-launch",
+          "name": "Rift Launch",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 23,
+              "damageType": "Force",
+              "scaling": {
+                "STR": 0.009,
+                "CHA": 0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "riftspur-wave",
+          "name": "Wingpressure",
+          "energyCost": 5,
+          "cooldown": 3,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 17,
+              "damageType": "Force",
+              "scaling": {
+                "STR": 0.006,
+                "CON": 0.003
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Force",
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "wyvern-talon",
+          "name": "Wyvern Talon",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "riftspur-wyvern"
+        },
+        {
+          "id": "force-crystal",
+          "name": "Force Crystal",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "riftspur-wyvern"
+        }
+      ],
+      "baseExpReward": 278,
+      "baseOnyxReward": 325,
+      "resistances": {
+        "Force": 24
+      },
+      "portrait": null
+    },
+    {
+      "id": "sunspike-wyvern",
+      "name": "Sunspike Wyvern",
+      "role": "Holy Wyvern",
+      "faction": "dragon-dungeon",
+      "minTier": 3,
+      "maxTier": 4,
+      "encounterWeight": 9,
+      "affinities": [
+        "Holy",
+        "Physical"
+      ],
+      "dragonFamily": "Wyvern",
+      "baseMaxHp": 124,
+      "stats": {
+        "STR": 25,
+        "DEX": 31,
+        "CON": 25,
+        "INT": 0,
+        "FTH": 37,
+        "CHA": 0,
+        "LCK": 8
+      },
+      "basicAttack": {
+        "name": "Sunspike Talon",
+        "base": 14,
+        "damageType": "Holy",
+        "scaling": {
+          "FTH": 0.008,
+          "DEX": 0.003
+        }
+      },
+      "abilities": [
+        {
+          "id": "sunspike-barrage",
+          "name": "Sunspike Barrage",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 17,
+              "damageType": "Holy",
+              "scaling": {
+                "FTH": 0.009
+              }
+            }
+          ]
+        },
+        {
+          "id": "sunspike-mend",
+          "name": "Radiant Molt",
+          "energyCost": 4,
+          "cooldown": 3,
+          "targetMode": "self",
+          "components": [
+            {
+              "type": "heal",
+              "base": 20,
+              "scaling": {
+                "FTH": 0.008,
+                "CON": 0.003
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "defensive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Holy",
+          "Physical"
+        ],
+        "healThresholdPct": 65
+      },
+      "materials": [
+        {
+          "id": "wyvern-talon",
+          "name": "Wyvern Talon",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "sunspike-wyvern"
+        },
+        {
+          "id": "holy-scale",
+          "name": "Holy Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "sunspike-wyvern"
+        }
+      ],
+      "baseExpReward": 278,
+      "baseOnyxReward": 325,
+      "resistances": {
+        "Holy": 24
+      },
+      "portrait": null
+    },
+    {
+      "id": "mindstinger-wyvern",
+      "name": "Mindstinger Wyvern",
+      "role": "Psychic Wyvern",
+      "faction": "dragon-dungeon",
+      "minTier": 3,
+      "maxTier": 4,
+      "encounterWeight": 9,
+      "affinities": [
+        "Psychic",
+        "Physical"
+      ],
+      "dragonFamily": "Wyvern",
+      "baseMaxHp": 116,
+      "stats": {
+        "STR": 23,
+        "DEX": 35,
+        "CON": 22,
+        "INT": 38,
+        "FTH": 0,
+        "CHA": 28,
+        "LCK": 12
+      },
+      "basicAttack": {
+        "name": "Mindsting",
+        "base": 14,
+        "damageType": "Psychic",
+        "scaling": {
+          "INT": 0.008,
+          "DEX": 0.003
+        }
+      },
+      "abilities": [
+        {
+          "id": "mindstinger-needle",
+          "name": "Thought Needle",
+          "energyCost": 4,
+          "cooldown": 1,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 22,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.009,
+                "CHA": 0.003
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "mindstung",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "finalDamagePct": -10
+            },
+            "memory": {
+              "statusKind": "Mindstung"
+            }
+          }
+        },
+        {
+          "id": "mindstinger-howl",
+          "name": "Mnemonic Howl",
+          "energyCost": 5,
+          "cooldown": 3,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 16,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.007,
+                "CHA": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Psychic",
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "wyvern-talon",
+          "name": "Wyvern Talon",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "mindstinger-wyvern"
+        },
+        {
+          "id": "mindgem",
+          "name": "Mindgem",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "mindstinger-wyvern"
+        }
+      ],
+      "baseExpReward": 278,
+      "baseOnyxReward": 325,
+      "resistances": {
+        "Psychic": 24
+      },
+      "portrait": null
+    },
+    {
+      "id": "venomtail-wyvern",
+      "name": "Venomtail Wyvern",
+      "role": "Venom Wyvern",
+      "faction": "dragon-dungeon",
+      "minTier": 3,
+      "maxTier": 4,
+      "encounterWeight": 8,
+      "affinities": [
+        "Poison",
+        "Physical"
+      ],
+      "dragonFamily": "Wyvern",
+      "baseMaxHp": 129,
+      "stats": {
+        "STR": 28,
+        "DEX": 34,
+        "CON": 29,
+        "INT": 16,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 13
+      },
+      "basicAttack": {
+        "name": "Venom Barb",
+        "base": 14,
+        "damageType": "Physical",
+        "scaling": {
+          "DEX": 0.007,
+          "STR": 0.003
+        }
+      },
+      "abilities": [
+        {
+          "id": "venomtail-stab",
+          "name": "Venomtail Stab",
+          "energyCost": 3,
+          "cooldown": 1,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 19,
+              "damageType": "Poison",
+              "scaling": {
+                "DEX": 0.007,
+                "CON": 0.003
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "wyvern-poison",
+            "negative": true,
+            "durationTurns": 3,
+            "modifiers": {},
+            "memory": {
+              "statusKind": "Poison",
+              "tickBase": 7,
+              "tickTiming": "owner-turn-end"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Poison",
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "wyvern-talon",
+          "name": "Wyvern Talon",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "venomtail-wyvern"
+        },
+        {
+          "id": "venom-barb",
+          "name": "Venom Barb",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "venomtail-wyvern"
+        }
+      ],
+      "baseExpReward": 278,
+      "baseOnyxReward": 325,
+      "resistances": {
+        "Poison": 25
+      },
+      "portrait": null
+    },
+    {
+      "id": "hoardskewer-wyvern",
+      "name": "Hoardskewer Wyvern",
+      "role": "Hoard Wyvern",
+      "faction": "dragon-dungeon",
+      "minTier": 3,
+      "maxTier": 4,
+      "encounterWeight": 8,
+      "affinities": [
+        "Force",
+        "Holy"
+      ],
+      "dragonFamily": "Wyvern",
+      "baseMaxHp": 138,
+      "stats": {
+        "STR": 31,
+        "DEX": 29,
+        "CON": 31,
+        "INT": 0,
+        "FTH": 23,
+        "CHA": 0,
+        "LCK": 21
+      },
+      "basicAttack": {
+        "name": "Gilded Skewer",
+        "base": 15,
+        "damageType": "Force",
+        "scaling": {
+          "STR": 0.006,
+          "DEX": 0.004
+        }
+      },
+      "abilities": [
+        {
+          "id": "hoardskewer-crash",
+          "name": "Treasurefall",
+          "energyCost": 5,
+          "cooldown": 3,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 18,
+              "damageType": "Force",
+              "scaling": {
+                "STR": 0.006,
+                "CON": 0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "hoardskewer-ward",
+          "name": "Hoard Ward",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "self",
+          "components": [
+            {
+              "type": "shield",
+              "base": 24,
+              "scaling": {
+                "CON": 0.006,
+                "FTH": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "defensive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Force",
+          "Holy"
+        ],
+        "shieldThresholdPct": 85
+      },
+      "materials": [
+        {
+          "id": "wyvern-talon",
+          "name": "Wyvern Talon",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "hoardskewer-wyvern"
+        },
+        {
+          "id": "hoard-goldglass",
+          "name": "Hoard Goldglass",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "hoardskewer-wyvern"
+        }
+      ],
+      "baseExpReward": 278,
+      "baseOnyxReward": 325,
+      "resistances": {
+        "Force": 18,
+        "Holy": 14
+      },
+      "portrait": null
+    },
+    {
+      "id": "ruby-flame-dragon",
+      "name": "Ruby Flame Dragon",
+      "role": "True Fire Dragon",
+      "faction": "dragon-dungeon",
+      "minTier": 5,
+      "maxTier": 6,
+      "encounterWeight": 11,
+      "affinities": [
+        "Fire",
+        "Physical"
+      ],
+      "dragonFamily": "Dragon",
+      "baseMaxHp": 178,
+      "stats": {
+        "STR": 42,
+        "DEX": 30,
+        "CON": 38,
+        "INT": 34,
+        "FTH": 0,
+        "CHA": 28,
+        "LCK": 14
+      },
+      "basicAttack": {
+        "name": "Ruby Claw",
+        "base": 17,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "ruby-breath",
+          "name": "Ruby Dragonflame",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 20,
+              "damageType": "Fire",
+              "scaling": {
+                "STR": 0.004,
+                "INT": 0.008
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "ruby-burn",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {},
+            "memory": {
+              "statusKind": "Burn",
+              "tickBase": 9,
+              "tickTiming": "owner-turn-end"
+            }
+          }
+        },
+        {
+          "id": "ruby-crush",
+          "name": "Ruby Crush",
+          "energyCost": 4,
+          "cooldown": 1,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 24,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.01
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Fire",
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "dragon-scale",
+          "name": "Dragon Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "ruby-flame-dragon"
+        },
+        {
+          "id": "dragonheart-ash",
+          "name": "Dragonheart Ash",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "ruby-flame-dragon"
+        }
+      ],
+      "baseExpReward": 330,
+      "baseOnyxReward": 395,
+      "resistances": {
+        "Fire": 28,
+        "Physical": 12
+      },
+      "portrait": null
+    },
+    {
+      "id": "sapphire-frost-dragon",
+      "name": "Sapphire Frost Dragon",
+      "role": "True Cold Dragon",
+      "faction": "dragon-dungeon",
+      "minTier": 5,
+      "maxTier": 6,
+      "encounterWeight": 10,
+      "affinities": [
+        "Cold",
+        "Physical"
+      ],
+      "dragonFamily": "Dragon",
+      "baseMaxHp": 190,
+      "stats": {
+        "STR": 36,
+        "DEX": 25,
+        "CON": 46,
+        "INT": 35,
+        "FTH": 0,
+        "CHA": 23,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Sapphire Claw",
+        "base": 17,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.008,
+          "CON": 0.002
+        }
+      },
+      "abilities": [
+        {
+          "id": "sapphire-breath",
+          "name": "Sapphire Dragonfrost",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 19,
+              "damageType": "Cold",
+              "scaling": {
+                "CON": 0.004,
+                "INT": 0.008
+              }
+            }
+          ]
+        },
+        {
+          "id": "sapphire-aegis",
+          "name": "Sapphire Scale Aegis",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "self",
+          "components": [
+            {
+              "type": "shield",
+              "base": 30,
+              "scaling": {
+                "CON": 0.008,
+                "INT": 0.003
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "defensive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Cold",
+          "Physical"
+        ],
+        "shieldThresholdPct": 85
+      },
+      "materials": [
+        {
+          "id": "dragon-scale",
+          "name": "Dragon Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "sapphire-frost-dragon"
+        },
+        {
+          "id": "frost-gland",
+          "name": "Frost Gland",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "sapphire-frost-dragon"
+        }
+      ],
+      "baseExpReward": 330,
+      "baseOnyxReward": 395,
+      "resistances": {
+        "Cold": 30
+      },
+      "portrait": null
+    },
+    {
+      "id": "citrine-storm-dragon",
+      "name": "Citrine Storm Dragon",
+      "role": "True Lightning Dragon",
+      "faction": "dragon-dungeon",
+      "minTier": 5,
+      "maxTier": 6,
+      "encounterWeight": 10,
+      "affinities": [
+        "Lightning",
+        "Physical"
+      ],
+      "dragonFamily": "Dragon",
+      "baseMaxHp": 166,
+      "stats": {
+        "STR": 32,
+        "DEX": 48,
+        "CON": 30,
+        "INT": 36,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 24
+      },
+      "basicAttack": {
+        "name": "Citrine Claw",
+        "base": 16,
+        "damageType": "Physical",
+        "scaling": {
+          "DEX": 0.008,
+          "STR": 0.003
+        }
+      },
+      "abilities": [
+        {
+          "id": "citrine-breath",
+          "name": "Citrine Stormflame",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 19,
+              "damageType": "Lightning",
+              "scaling": {
+                "DEX": 0.006,
+                "INT": 0.006
+              }
+            }
+          ],
+          "critChanceBonus": 10
+        },
+        {
+          "id": "citrine-lance",
+          "name": "Skybolt Fang",
+          "energyCost": 4,
+          "cooldown": 1,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 25,
+              "damageType": "Lightning",
+              "scaling": {
+                "DEX": 0.008,
+                "LCK": 0.004
+              }
+            }
+          ],
+          "critChanceBonus": 14
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Lightning",
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "dragon-scale",
+          "name": "Dragon Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "citrine-storm-dragon"
+        },
+        {
+          "id": "storm-spine",
+          "name": "Storm Spine",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "citrine-storm-dragon"
+        }
+      ],
+      "baseExpReward": 330,
+      "baseOnyxReward": 395,
+      "resistances": {
+        "Lightning": 30
+      },
+      "portrait": null
+    },
+    {
+      "id": "ivory-halo-dragon",
+      "name": "Ivory Halo Dragon",
+      "role": "True Holy Dragon",
+      "faction": "dragon-dungeon",
+      "minTier": 5,
+      "maxTier": 6,
+      "encounterWeight": 9,
+      "affinities": [
+        "Holy",
+        "Physical"
+      ],
+      "dragonFamily": "Dragon",
+      "baseMaxHp": 181,
+      "stats": {
+        "STR": 31,
+        "DEX": 29,
+        "CON": 38,
+        "INT": 0,
+        "FTH": 47,
+        "CHA": 27,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Ivory Claw",
+        "base": 16,
+        "damageType": "Holy",
+        "scaling": {
+          "FTH": 0.007,
+          "STR": 0.003
+        }
+      },
+      "abilities": [
+        {
+          "id": "ivory-breath",
+          "name": "Ivory Sunbreath",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 19,
+              "damageType": "Holy",
+              "scaling": {
+                "FTH": 0.009
+              }
+            }
+          ]
+        },
+        {
+          "id": "ivory-restoration",
+          "name": "Sovereign Molt",
+          "energyCost": 5,
+          "cooldown": 3,
+          "targetMode": "self",
+          "components": [
+            {
+              "type": "heal",
+              "base": 28,
+              "scaling": {
+                "FTH": 0.008,
+                "CON": 0.003
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "defensive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Holy",
+          "Physical"
+        ],
+        "healThresholdPct": 60
+      },
+      "materials": [
+        {
+          "id": "dragon-scale",
+          "name": "Dragon Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "ivory-halo-dragon"
+        },
+        {
+          "id": "holy-scale",
+          "name": "Holy Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "ivory-halo-dragon"
+        }
+      ],
+      "baseExpReward": 330,
+      "baseOnyxReward": 395,
+      "resistances": {
+        "Holy": 30
+      },
+      "portrait": null
+    },
+    {
+      "id": "amethyst-mind-dragon",
+      "name": "Amethyst Mind Dragon",
+      "role": "True Psychic Dragon",
+      "faction": "dragon-dungeon",
+      "minTier": 5,
+      "maxTier": 6,
+      "encounterWeight": 9,
+      "affinities": [
+        "Psychic",
+        "Physical"
+      ],
+      "dragonFamily": "Dragon",
+      "baseMaxHp": 164,
+      "stats": {
+        "STR": 26,
+        "DEX": 35,
+        "CON": 29,
+        "INT": 49,
+        "FTH": 0,
+        "CHA": 42,
+        "LCK": 18
+      },
+      "basicAttack": {
+        "name": "Amethyst Glare",
+        "base": 16,
+        "damageType": "Psychic",
+        "scaling": {
+          "INT": 0.008,
+          "CHA": 0.003
+        }
+      },
+      "abilities": [
+        {
+          "id": "amethyst-breath",
+          "name": "Amethyst Thoughtflame",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 19,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.009,
+                "CHA": 0.003
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "amethyst-haze",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "damageCritChancePct": -10,
+              "finalDamagePct": -5
+            },
+            "memory": {
+              "statusKind": "Amethyst Haze"
+            }
+          }
+        },
+        {
+          "id": "amethyst-break",
+          "name": "Memory Bite",
+          "energyCost": 4,
+          "cooldown": 1,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 25,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.008,
+                "CHA": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Psychic",
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "dragon-scale",
+          "name": "Dragon Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "amethyst-mind-dragon"
+        },
+        {
+          "id": "mindgem",
+          "name": "Mindgem",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "amethyst-mind-dragon"
+        }
+      ],
+      "baseExpReward": 330,
+      "baseOnyxReward": 395,
+      "resistances": {
+        "Psychic": 30
+      },
+      "portrait": null
+    },
+    {
+      "id": "onyx-force-dragon",
+      "name": "Onyx Force Dragon",
+      "role": "True Force Dragon",
+      "faction": "dragon-dungeon",
+      "minTier": 5,
+      "maxTier": 6,
+      "encounterWeight": 9,
+      "affinities": [
+        "Force",
+        "Physical"
+      ],
+      "dragonFamily": "Dragon",
+      "baseMaxHp": 198,
+      "stats": {
+        "STR": 46,
+        "DEX": 21,
+        "CON": 48,
+        "INT": 25,
+        "FTH": 0,
+        "CHA": 35,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Onyx Ram",
+        "base": 18,
+        "damageType": "Force",
+        "scaling": {
+          "STR": 0.008,
+          "CON": 0.003
+        }
+      },
+      "abilities": [
+        {
+          "id": "onyx-breath",
+          "name": "Onyx Pressure Breath",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 20,
+              "damageType": "Force",
+              "scaling": {
+                "STR": 0.006,
+                "CON": 0.004
+              }
+            }
+          ]
+        },
+        {
+          "id": "onyx-breaker",
+          "name": "Gravity Fang",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 28,
+              "damageType": "Force",
+              "scaling": {
+                "STR": 0.009,
+                "CHA": 0.003
+              }
+            }
+          ],
+          "shieldBonusPct": 30
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Force",
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "dragon-scale",
+          "name": "Dragon Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "onyx-force-dragon"
+        },
+        {
+          "id": "force-crystal",
+          "name": "Force Crystal",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "onyx-force-dragon"
+        }
+      ],
+      "baseExpReward": 330,
+      "baseOnyxReward": 395,
+      "resistances": {
+        "Force": 32
+      },
+      "portrait": null
+    },
+    {
+      "id": "prismcoil-dragon",
+      "name": "Prismcoil Dragon",
+      "role": "Hybrid True Dragon",
+      "faction": "dragon-dungeon",
+      "minTier": 5,
+      "maxTier": 6,
+      "encounterWeight": 7,
+      "affinities": [
+        "Fire",
+        "Cold",
+        "Lightning"
+      ],
+      "dragonFamily": "Dragon",
+      "baseMaxHp": 176,
+      "stats": {
+        "STR": 34,
+        "DEX": 38,
+        "CON": 34,
+        "INT": 45,
+        "FTH": 18,
+        "CHA": 0,
+        "LCK": 23
+      },
+      "basicAttack": {
+        "name": "Prismcoil Talon",
+        "base": 16,
+        "damageType": "Physical",
+        "scaling": {
+          "DEX": 0.006,
+          "STR": 0.004
+        }
+      },
+      "abilities": [
+        {
+          "id": "prismcoil-breath",
+          "name": "Threefold Dragonflame",
+          "energyCost": 6,
+          "cooldown": 3,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 8,
+              "damageType": "Fire",
+              "scaling": {
+                "INT": 0.004
+              }
+            },
+            {
+              "type": "damage",
+              "base": 8,
+              "damageType": "Cold",
+              "scaling": {
+                "INT": 0.004
+              }
+            },
+            {
+              "type": "damage",
+              "base": 8,
+              "damageType": "Lightning",
+              "scaling": {
+                "INT": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "aggressive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Fire",
+          "Cold",
+          "Lightning"
+        ]
+      },
+      "materials": [
+        {
+          "id": "dragon-scale",
+          "name": "Dragon Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "prismcoil-dragon"
+        },
+        {
+          "id": "prismatic-shard",
+          "name": "Prismatic Shard",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "prismcoil-dragon"
+        }
+      ],
+      "baseExpReward": 330,
+      "baseOnyxReward": 395,
+      "resistances": {
+        "Fire": 18,
+        "Cold": 18,
+        "Lightning": 18
+      },
+      "portrait": null
+    },
+    {
+      "id": "argent-hoard-dragon",
+      "name": "Argent Hoard Dragon",
+      "role": "Treasure True Dragon",
+      "faction": "dragon-dungeon",
+      "minTier": 5,
+      "maxTier": 6,
+      "encounterWeight": 7,
+      "affinities": [
+        "Holy",
+        "Force"
+      ],
+      "dragonFamily": "Dragon",
+      "baseMaxHp": 205,
+      "stats": {
+        "STR": 37,
+        "DEX": 24,
+        "CON": 45,
+        "INT": 0,
+        "FTH": 34,
+        "CHA": 38,
+        "LCK": 26
+      },
+      "basicAttack": {
+        "name": "Argent Talon",
+        "base": 17,
+        "damageType": "Force",
+        "scaling": {
+          "STR": 0.006,
+          "CHA": 0.003
+        }
+      },
+      "abilities": [
+        {
+          "id": "argent-hoardfall",
+          "name": "Hoardfall",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 20,
+              "damageType": "Force",
+              "scaling": {
+                "STR": 0.005,
+                "CON": 0.003,
+                "CHA": 0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "argent-gild",
+          "name": "Argent Guard",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "self",
+          "components": [
+            {
+              "type": "shield",
+              "base": 34,
+              "scaling": {
+                "CON": 0.006,
+                "FTH": 0.004
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "defensive",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Holy",
+          "Force"
+        ],
+        "shieldThresholdPct": 90
+      },
+      "materials": [
+        {
+          "id": "dragon-scale",
+          "name": "Dragon Scale",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "argent-hoard-dragon"
+        },
+        {
+          "id": "hoard-goldglass",
+          "name": "Hoard Goldglass",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "argent-hoard-dragon"
+        }
+      ],
+      "baseExpReward": 330,
+      "baseOnyxReward": 395,
+      "resistances": {
+        "Holy": 18,
+        "Force": 24
+      },
+      "portrait": null
+    }
+  ],
+  "minibosses": [
+    {
+      "name": "Hoard Sentinel",
+      "fixedDepth": 10,
+      "actors": [
+        {
+          "id": "hoard-sentinel",
+          "name": "Hoard Sentinel",
+          "role": "Miniboss · Living Hoard Guardian",
+          "baseMaxHp": 450,
+          "maxEnergy": 8,
+          "level": 33,
+          "stats": {
+            "STR": 43,
+            "DEX": 20,
+            "CON": 48,
+            "INT": 32,
+            "FTH": 22,
+            "CHA": 18,
+            "LCK": 26
+          },
+          "basicAttack": {
+            "name": "Gilded Hammerfist",
+            "base": 18,
+            "damageType": "Force",
+            "scaling": {
+              "STR": 0.007,
+              "CON": 0.003
+            }
+          },
+          "abilities": [
+            {
+              "id": "sentinel-coinburst",
+              "name": "Coinburst Barrage",
+              "energyCost": 4,
+              "cooldown": 1,
+              "targetMode": "all-enemies",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 18,
+                  "damageType": "Physical",
+                  "scaling": {
+                    "STR": 0.005,
+                    "LCK": 0.004
+                  }
+                }
+              ],
+              "hits": 2
+            },
+            {
+              "id": "sentinel-goldward",
+              "name": "Living Hoard Ward",
+              "energyCost": 4,
+              "cooldown": 2,
+              "targetMode": "self",
+              "components": [
+                {
+                  "type": "shield",
+                  "base": 38,
+                  "scaling": {
+                    "CON": 0.008,
+                    "FTH": 0.003
+                  }
+                }
+              ]
+            },
+            {
+              "id": "sentinel-prism-cannon",
+              "name": "Prism Cannon",
+              "energyCost": 6,
+              "cooldown": 3,
+              "targetMode": "single-enemy",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 12,
+                  "damageType": "Fire",
+                  "scaling": {
+                    "INT": 0.004
+                  }
+                },
+                {
+                  "type": "damage",
+                  "base": 12,
+                  "damageType": "Cold",
+                  "scaling": {
+                    "INT": 0.004
+                  }
+                },
+                {
+                  "type": "damage",
+                  "base": 12,
+                  "damageType": "Lightning",
+                  "scaling": {
+                    "INT": 0.004
+                  }
+                }
+              ]
+            },
+            {
+              "id": "sentinel-avalanche",
+              "name": "Hoard Avalanche",
+              "energyCost": 7,
+              "cooldown": 3,
+              "targetMode": "all-enemies",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 25,
+                  "damageType": "Force",
+                  "scaling": {
+                    "STR": 0.006,
+                    "CON": 0.004
+                  }
+                }
+              ],
+              "shieldBonusPct": 18
+            }
+          ],
+          "ai": {
+            "style": "dragon-hoard-sentinel",
+            "affinities": [
+              "Physical",
+              "Force",
+              "Fire",
+              "Cold",
+              "Lightning"
+            ],
+            "shieldThresholdPct": 85,
+            "chargeBelowEnergy": 7,
+            "chargeTowardHeavyChancePct": 50,
+            "maxEnergySignatureAbilityId": "sentinel-avalanche"
+          },
+          "materials": [
+            {
+              "id": "living-hoard-heart",
+              "name": "Living Hoard Heart",
+              "materialKind": "boss-material",
+              "sourceId": "hoard-sentinel",
+              "deterministic": true
+            },
+            {
+              "id": "hoard-sentinel-soulfirecore",
+              "name": "Hoard Sentinel SoulfireCore",
+              "materialKind": "soulfire-core",
+              "sourceId": "hoard-sentinel",
+              "deterministic": true
+            }
+          ],
+          "expReward": 1400,
+          "onyxReward": 2600,
+          "resistances": {
+            "Physical": 20,
+            "Force": 24,
+            "Fire": 12,
+            "Cold": 12,
+            "Lightning": 12
+          },
+          "portrait": null
+        }
+      ]
+    },
+    {
+      "name": "Leviathan Wyrm",
+      "fixedDepth": 20,
+      "actors": [
+        {
+          "id": "leviathan-central-head",
+          "name": "Leviathan Wyrm — Crown Head",
+          "role": "Miniboss · Central Head",
+          "baseMaxHp": 390,
+          "maxEnergy": 8,
+          "level": 35,
+          "stats": {
+            "STR": 48,
+            "DEX": 24,
+            "CON": 45,
+            "INT": 28,
+            "FTH": 0,
+            "CHA": 31,
+            "LCK": 0
+          },
+          "basicAttack": {
+            "name": "Leviathan Bite",
+            "base": 20,
+            "damageType": "Physical",
+            "scaling": {
+              "STR": 0.01
+            }
+          },
+          "abilities": [
+            {
+              "id": "leviathan-crown-bite",
+              "name": "Worldcoil Bite",
+              "energyCost": 5,
+              "cooldown": 1,
+              "targetMode": "single-enemy",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 31,
+                  "damageType": "Physical",
+                  "scaling": {
+                    "STR": 0.011,
+                    "CON": 0.003
+                  }
+                }
+              ]
+            },
+            {
+              "id": "leviathan-crown-crush",
+              "name": "Infinity Crush",
+              "energyCost": 7,
+              "cooldown": 3,
+              "targetMode": "all-enemies",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 23,
+                  "damageType": "Force",
+                  "scaling": {
+                    "STR": 0.007,
+                    "CON": 0.004
+                  }
+                }
+              ]
+            }
+          ],
+          "ai": {
+            "style": "dragon-leviathan-head",
+            "affinities": [
+              "Physical",
+              "Force"
+            ],
+            "chargeBelowEnergy": 7,
+            "leviathanHead": true,
+            "chargeTowardHeavyChancePct": 45,
+            "maxEnergySignatureAbilityId": "leviathan-crown-crush"
+          },
+          "materials": [
+            {
+              "id": "fivefold-fang",
+              "name": "Fivefold Fang",
+              "materialKind": "boss-material",
+              "sourceId": "leviathan-central-head",
+              "deterministic": true
+            },
+            {
+              "id": "leviathan-soulfirecore",
+              "name": "Leviathan SoulfireCore",
+              "materialKind": "soulfire-core",
+              "sourceId": "leviathan-central-head",
+              "deterministic": true
+            }
+          ],
+          "expReward": 450,
+          "onyxReward": 1000,
+          "resistances": {
+            "Physical": 20,
+            "Force": 20
+          },
+          "portrait": null
+        },
+        {
+          "id": "leviathan-left-arm-head",
+          "name": "Leviathan Wyrm — Ember Arm",
+          "role": "Miniboss · Side Head",
+          "baseMaxHp": 190,
+          "maxEnergy": 8,
+          "level": 35,
+          "stats": {
+            "STR": 34,
+            "DEX": 32,
+            "CON": 28,
+            "INT": 40,
+            "FTH": 0,
+            "CHA": 0,
+            "LCK": 0
+          },
+          "basicAttack": {
+            "name": "Ember Snap",
+            "base": 16,
+            "damageType": "Fire",
+            "scaling": {
+              "INT": 0.007,
+              "STR": 0.003
+            }
+          },
+          "abilities": [
+            {
+              "id": "leviathan-ember-breath",
+              "name": "Coiling Ember Breath",
+              "energyCost": 5,
+              "cooldown": 2,
+              "targetMode": "all-enemies",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 20,
+                  "damageType": "Fire",
+                  "scaling": {
+                    "INT": 0.008,
+                    "STR": 0.003
+                  }
+                }
+              ]
+            }
+          ],
+          "ai": {
+            "style": "dragon-leviathan-head",
+            "affinities": [
+              "Fire"
+            ],
+            "chargeBelowEnergy": 2,
+            "leviathanHead": true
+          },
+          "materials": [],
+          "expReward": 450,
+          "onyxReward": 500,
+          "resistances": {
+            "Fire": 20
+          },
+          "portrait": null
+        },
+        {
+          "id": "leviathan-right-arm-head",
+          "name": "Leviathan Wyrm — Rime Arm",
+          "role": "Miniboss · Side Head",
+          "baseMaxHp": 205,
+          "maxEnergy": 8,
+          "level": 35,
+          "stats": {
+            "STR": 31,
+            "DEX": 27,
+            "CON": 38,
+            "INT": 39,
+            "FTH": 0,
+            "CHA": 0,
+            "LCK": 0
+          },
+          "basicAttack": {
+            "name": "Rime Snap",
+            "base": 16,
+            "damageType": "Cold",
+            "scaling": {
+              "INT": 0.007,
+              "CON": 0.002
+            }
+          },
+          "abilities": [
+            {
+              "id": "leviathan-rime-breath",
+              "name": "Coiling Rime Breath",
+              "energyCost": 5,
+              "cooldown": 2,
+              "targetMode": "all-enemies",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 19,
+                  "damageType": "Cold",
+                  "scaling": {
+                    "INT": 0.008,
+                    "CON": 0.003
+                  }
+                }
+              ],
+              "targetEffect": {
+                "id": "leviathan-rime",
+                "negative": true,
+                "durationTurns": 2,
+                "modifiers": {
+                  "dodgeChancePct": -8
+                },
+                "memory": {
+                  "statusKind": "Rimecoil"
+                }
+              }
+            }
+          ],
+          "ai": {
+            "style": "dragon-leviathan-head",
+            "affinities": [
+              "Cold"
+            ],
+            "chargeBelowEnergy": 2,
+            "leviathanHead": true
+          },
+          "materials": [],
+          "expReward": 450,
+          "onyxReward": 500,
+          "resistances": {
+            "Cold": 20
+          },
+          "portrait": null
+        },
+        {
+          "id": "leviathan-lower-left-head",
+          "name": "Leviathan Wyrm — Storm Loop",
+          "role": "Miniboss · Lower Head",
+          "baseMaxHp": 175,
+          "maxEnergy": 8,
+          "level": 35,
+          "stats": {
+            "STR": 27,
+            "DEX": 45,
+            "CON": 25,
+            "INT": 34,
+            "FTH": 0,
+            "CHA": 0,
+            "LCK": 18
+          },
+          "basicAttack": {
+            "name": "Storm Snap",
+            "base": 16,
+            "damageType": "Lightning",
+            "scaling": {
+              "DEX": 0.007,
+              "INT": 0.003
+            }
+          },
+          "abilities": [
+            {
+              "id": "leviathan-storm-breath",
+              "name": "Infinity Storm",
+              "energyCost": 4,
+              "cooldown": 1,
+              "targetMode": "single-enemy",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 25,
+                  "damageType": "Lightning",
+                  "scaling": {
+                    "DEX": 0.008,
+                    "INT": 0.004
+                  }
+                }
+              ],
+              "critChanceBonus": 12
+            }
+          ],
+          "ai": {
+            "style": "dragon-leviathan-head",
+            "affinities": [
+              "Lightning"
+            ],
+            "chargeBelowEnergy": 2,
+            "leviathanHead": true
+          },
+          "materials": [],
+          "expReward": 450,
+          "onyxReward": 450,
+          "resistances": {
+            "Lightning": 20
+          },
+          "portrait": null
+        },
+        {
+          "id": "leviathan-lower-right-head",
+          "name": "Leviathan Wyrm — Mind Loop",
+          "role": "Miniboss · Lower Head",
+          "baseMaxHp": 175,
+          "maxEnergy": 8,
+          "level": 35,
+          "stats": {
+            "STR": 23,
+            "DEX": 34,
+            "CON": 25,
+            "INT": 45,
+            "FTH": 0,
+            "CHA": 39,
+            "LCK": 0
+          },
+          "basicAttack": {
+            "name": "Mind Snap",
+            "base": 16,
+            "damageType": "Psychic",
+            "scaling": {
+              "INT": 0.007,
+              "CHA": 0.003
+            }
+          },
+          "abilities": [
+            {
+              "id": "leviathan-mind-breath",
+              "name": "Infinity Thought",
+              "energyCost": 4,
+              "cooldown": 1,
+              "targetMode": "single-enemy",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 25,
+                  "damageType": "Psychic",
+                  "scaling": {
+                    "INT": 0.008,
+                    "CHA": 0.004
+                  }
+                }
+              ],
+              "targetEffect": {
+                "id": "leviathan-dread",
+                "negative": true,
+                "durationTurns": 2,
+                "modifiers": {
+                  "finalDamagePct": -8
+                },
+                "memory": {
+                  "statusKind": "Coiling Dread"
+                }
+              }
+            }
+          ],
+          "ai": {
+            "style": "dragon-leviathan-head",
+            "affinities": [
+              "Psychic"
+            ],
+            "chargeBelowEnergy": 2,
+            "leviathanHead": true
+          },
+          "materials": [],
+          "expReward": 450,
+          "onyxReward": 450,
+          "resistances": {
+            "Psychic": 20
+          },
+          "portrait": null
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "name": "Quentaliaus Devanpierus",
+    "fixedDepth": 30,
+    "actors": [
+      {
+        "id": "quentaliaus-devanpierus",
+        "name": "Quentaliaus Devanpierus",
+        "role": "Boss · Prismatic/Arcane Dragon",
+        "baseMaxHp": 780,
+        "maxEnergy": 8,
+        "level": 37,
+        "stats": {
+          "STR": 49,
+          "DEX": 42,
+          "CON": 46,
+          "INT": 55,
+          "FTH": 37,
+          "CHA": 48,
+          "LCK": 31
+        },
+        "basicAttack": {
+          "name": "Arcane Crownclaw",
+          "base": 19,
+          "damageType": "Force",
+          "scaling": {
+            "STR": 0.005,
+            "INT": 0.004,
+            "CHA": 0.003
+          }
+        },
+        "abilities": [
+          {
+            "id": "q-fire-breath",
+            "name": "Scarlet Dragonflame",
+            "energyCost": 4,
+            "cooldown": 1,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 18,
+                "damageType": "Fire",
+                "scaling": {
+                  "STR": 0.003,
+                  "INT": 0.007
+                }
+              }
+            ],
+            "minHpPct": 70,
+            "targetEffect": {
+              "id": "q-burn",
+              "negative": true,
+              "durationTurns": 2,
+              "modifiers": {},
+              "memory": {
+                "statusKind": "Burn",
+                "tickBase": 8,
+                "tickTiming": "owner-turn-end"
+              }
+            }
+          },
+          {
+            "id": "q-cold-breath",
+            "name": "Azure Dragonfrost",
+            "energyCost": 4,
+            "cooldown": 1,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 18,
+                "damageType": "Cold",
+                "scaling": {
+                  "CON": 0.002,
+                  "INT": 0.008
+                }
+              }
+            ],
+            "minHpPct": 70,
+            "targetEffect": {
+              "id": "q-rime",
+              "negative": true,
+              "durationTurns": 2,
+              "modifiers": {
+                "dodgeChancePct": -6
+              },
+              "memory": {
+                "statusKind": "Prismatic Rime"
+              }
+            }
+          },
+          {
+            "id": "q-lightning-breath",
+            "name": "Golden Stormflame",
+            "energyCost": 4,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 25,
+                "damageType": "Lightning",
+                "scaling": {
+                  "DEX": 0.004,
+                  "INT": 0.007
+                }
+              }
+            ],
+            "minHpPct": 70,
+            "critChanceBonus": 10
+          },
+          {
+            "id": "q-halo-force",
+            "name": "Ivory Riftflame",
+            "energyCost": 5,
+            "cooldown": 2,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 12,
+                "damageType": "Holy",
+                "scaling": {
+                  "FTH": 0.006,
+                  "INT": 0.003
+                }
+              },
+              {
+                "type": "damage",
+                "base": 12,
+                "damageType": "Force",
+                "scaling": {
+                  "STR": 0.003,
+                  "CHA": 0.004
+                }
+              }
+            ],
+            "maxHpPct": 70,
+            "minHpPct": 35
+          },
+          {
+            "id": "q-mind-fire",
+            "name": "Amethyst Cinderthought",
+            "energyCost": 5,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 14,
+                "damageType": "Psychic",
+                "scaling": {
+                  "INT": 0.006,
+                  "CHA": 0.004
+                }
+              },
+              {
+                "type": "damage",
+                "base": 14,
+                "damageType": "Fire",
+                "scaling": {
+                  "INT": 0.005,
+                  "STR": 0.002
+                }
+              }
+            ],
+            "maxHpPct": 70,
+            "minHpPct": 35,
+            "targetEffect": {
+              "id": "q-thoughtburn",
+              "negative": true,
+              "durationTurns": 2,
+              "modifiers": {
+                "damageCritChancePct": -8
+              },
+              "memory": {
+                "statusKind": "Thoughtburn"
+              }
+            }
+          },
+          {
+            "id": "q-prism-break",
+            "name": "Prismatic Refraction",
+            "energyCost": 6,
+            "cooldown": 3,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Fire",
+                "scaling": {
+                  "INT": 0.003
+                }
+              },
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Cold",
+                "scaling": {
+                  "INT": 0.003
+                }
+              },
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Lightning",
+                "scaling": {
+                  "INT": 0.003
+                }
+              },
+              {
+                "type": "damage",
+                "base": 8,
+                "damageType": "Holy",
+                "scaling": {
+                  "FTH": 0.003
+                }
+              }
+            ],
+            "maxHpPct": 70,
+            "minHpPct": 35
+          },
+          {
+            "id": "q-sixfold-breath",
+            "name": "Sixfold Dragonflame",
+            "energyCost": 7,
+            "cooldown": 3,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 6,
+                "damageType": "Fire",
+                "scaling": {
+                  "INT": 0.002
+                }
+              },
+              {
+                "type": "damage",
+                "base": 6,
+                "damageType": "Cold",
+                "scaling": {
+                  "INT": 0.002
+                }
+              },
+              {
+                "type": "damage",
+                "base": 6,
+                "damageType": "Lightning",
+                "scaling": {
+                  "INT": 0.002
+                }
+              },
+              {
+                "type": "damage",
+                "base": 6,
+                "damageType": "Holy",
+                "scaling": {
+                  "FTH": 0.002
+                }
+              },
+              {
+                "type": "damage",
+                "base": 6,
+                "damageType": "Psychic",
+                "scaling": {
+                  "CHA": 0.002,
+                  "INT": 0.002
+                }
+              },
+              {
+                "type": "damage",
+                "base": 6,
+                "damageType": "Force",
+                "scaling": {
+                  "STR": 0.002,
+                  "CHA": 0.002
+                }
+              }
+            ],
+            "maxHpPct": 35
+          },
+          {
+            "id": "q-arcane-fang",
+            "name": "Arcane Devourer",
+            "energyCost": 5,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 29,
+                "damageType": "Force",
+                "scaling": {
+                  "STR": 0.006,
+                  "INT": 0.004,
+                  "CHA": 0.003
+                }
+              }
+            ],
+            "maxHpPct": 35,
+            "critChanceBonus": 12
+          },
+          {
+            "id": "q-prism-collapse",
+            "name": "Prismatic Collapse",
+            "energyCost": 8,
+            "cooldown": 4,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 10,
+                "damageType": "Holy",
+                "scaling": {
+                  "FTH": 0.003,
+                  "INT": 0.002
+                }
+              },
+              {
+                "type": "damage",
+                "base": 10,
+                "damageType": "Psychic",
+                "scaling": {
+                  "CHA": 0.003,
+                  "INT": 0.002
+                }
+              },
+              {
+                "type": "damage",
+                "base": 10,
+                "damageType": "Force",
+                "scaling": {
+                  "STR": 0.003,
+                  "INT": 0.002
+                }
+              }
+            ],
+            "maxHpPct": 35
+          }
+        ],
+        "ai": {
+          "style": "dragon-quentaliaus",
+          "affinities": [
+            "Fire",
+            "Cold",
+            "Lightning",
+            "Holy",
+            "Psychic",
+            "Force"
+          ],
+          "chargeBelowEnergy": 8,
+          "chargeTowardHeavyChancePct": 35,
+          "prismaticPhases": [
+            {
+              "minExclusive": 70,
+              "name": "Measured Amusement"
+            },
+            {
+              "minExclusive": 35,
+              "name": "Prismatic Interest"
+            },
+            {
+              "maxInclusive": 35,
+              "name": "Arcane Exultation"
+            }
+          ],
+          "maxEnergySignatureAbilityId": "q-prism-collapse"
+        },
+        "materials": [
+          {
+            "id": "prismatic-heartscale",
+            "name": "Prismatic Heartscale",
+            "materialKind": "boss-material",
+            "sourceId": "quentaliaus-devanpierus",
+            "deterministic": true
+          },
+          {
+            "id": "quentaliaus-soulfirecore",
+            "name": "Quentaliaus SoulfireCore",
+            "materialKind": "soulfire-core",
+            "sourceId": "quentaliaus-devanpierus",
+            "deterministic": true
+          }
+        ],
+        "expReward": 2600,
+        "onyxReward": 4200,
+        "resistances": {
+          "Fire": 22,
+          "Cold": 22,
+          "Lightning": 22,
+          "Holy": 22,
+          "Psychic": 22,
+          "Force": 22,
+          "Physical": 14
+        },
+        "portrait": null
+      }
+    ]
+  },
+  "rules": {
+    "partySizeEnemyCount": {
+      "1": [
+        1,
+        2
+      ],
+      "2": [
+        2,
+        3
+      ],
+      "3": [
+        3,
+        4
+      ],
+      "4": [
+        4,
+        5
+      ]
+    },
+    "normalMaterialDropByRealPartySize": {
+      "1": [
+        4,
+        6
+      ],
+      "2": [
+        6,
+        8
+      ],
+      "3": [
+        8,
+        10
+      ],
+      "4": [
+        10,
+        12
+      ]
+    },
+    "bossMinibossPartyScaling": {
+      "1": {
+        "maxHpMultiplier": 1,
+        "damageMultiplier": 1
+      },
+      "2": {
+        "maxHpMultiplier": 1.55,
+        "damageMultiplier": 1.15
+      },
+      "3": {
+        "maxHpMultiplier": 2.1,
+        "damageMultiplier": 1.3
+      },
+      "4": {
+        "maxHpMultiplier": 2.65,
+        "damageMultiplier": 1.45
+      }
+    },
+    "portraits": "null-initials-fallback",
+    "trainers": false,
+    "regionalMeter": false,
+    "familyByDepth": {
+      "1-9": "Drake",
+      "11-19": "Wyvern",
+      "21-29": "Dragon"
+    }
+  },
+  "balanceRevision": "2026-08-10-enemy-difficulty-balance"
+}

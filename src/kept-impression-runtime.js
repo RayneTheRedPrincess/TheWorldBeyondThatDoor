@@ -97,6 +97,7 @@ const SUMMON_KEPT_IDS=new Set(['KI-089','KI-090','KI-091','KI-092','KI-093','KI-
 const CONSUMABLE_KEPT_IDS=new Set(['KI-096','KI-097','KI-132','KI-133']);
 function keptRuntimeOwner(id){
  if(id==='KI-182')return 'classless-controller';
+ if(id==='KI-267')return 'kept-impression-state';
  if(CONSUMABLE_KEPT_IDS.has(id))return 'consumable-event-hooks';
  if(id==='KI-095')return 'forest-reward-hook';
  if(['KI-098','KI-136','KI-195'].includes(id))return 'post-combat-recovery-hook';

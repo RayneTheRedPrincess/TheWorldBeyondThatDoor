@@ -1,0 +1,2554 @@
+{
+  "version": "RUINED-VAMPIRIC-PLAINS-FOUNDATION-2026-08-10",
+  "rules": {
+    "eventCount": 123,
+    "cardsPerDepth": 3,
+    "noRepeatsWithinCampaign": true,
+    "rareLivingHumans": true,
+    "bloodMoonAffectsRareEventWeight": true,
+    "sanguineFontLifestealPct": 8
+  },
+  "events": [
+    {
+      "id": "plains-intro-001",
+      "kind": "discovery",
+      "label": "Under Tenairah’s Smoke",
+      "description": "The Door opens onto a dead plain beneath a ceiling of black smoke. No direct sunlight reaches the road, though the hour should be day. Far away, ruined towers rise from red grass.",
+      "check": {
+        "stat": "FTH",
+        "dc": 16
+      },
+      "checkmark": false,
+      "eventPayload": {
+        "success": {
+          "onyx": 45,
+          "bloodMoonDelta": -2
+        },
+        "failure": {
+          "hpLossPct": 8,
+          "bloodMoonDelta": 4
+        }
+      }
+    },
+    {
+      "id": "plains-intro-002",
+      "kind": "helpful-person",
+      "label": "The First Living Voice",
+      "description": "A terrified scavenger emerges from beneath a collapsed grain cellar, one of the vanishingly few living humans still hiding in Tenairah’s kingdom.",
+      "check": {
+        "stat": "CHA",
+        "dc": 16
+      },
+      "checkmark": false,
+      "rareEvent": true,
+      "eventPayload": {
+        "success": {
+          "materialId": "bloodglass-shard",
+          "materialQuantity": 2,
+          "bloodMoonDelta": -3
+        },
+        "failure": {
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-intro-003",
+      "kind": "combat",
+      "label": "Levy at the Broken Mile",
+      "description": "A patrol of pale soldiers and vampire levy troops notices fresh blood on the road.",
+      "combat": true,
+      "combatProfile": "mixed"
+    },
+    {
+      "id": "plains-combat-t1-01",
+      "kind": "combat",
+      "label": "Ashen Hunt 1-1",
+      "description": "Tenairah’s hunters close across the The Ashen Border.",
+      "combat": true,
+      "combatProfile": "physical",
+      "minTier": 1,
+      "maxTier": 1
+    },
+    {
+      "id": "plains-combat-t1-02",
+      "kind": "combat",
+      "label": "Ashen Hunt 1-2",
+      "description": "Tenairah’s hunters close across the The Ashen Border.",
+      "combat": true,
+      "combatProfile": "force",
+      "minTier": 1,
+      "maxTier": 1
+    },
+    {
+      "id": "plains-combat-t1-03",
+      "kind": "combat",
+      "label": "Ashen Hunt 1-3",
+      "description": "Tenairah’s hunters close across the The Ashen Border.",
+      "combat": true,
+      "combatProfile": "mixed",
+      "minTier": 1,
+      "maxTier": 1
+    },
+    {
+      "id": "plains-combat-t1-04",
+      "kind": "combat",
+      "label": "Ashen Hunt 1-4",
+      "description": "Tenairah’s hunters close across the The Ashen Border.",
+      "combat": true,
+      "combatProfile": "vampire",
+      "minTier": 1,
+      "maxTier": 1
+    },
+    {
+      "id": "plains-combat-t1-05",
+      "kind": "combat",
+      "label": "Ashen Hunt 1-5",
+      "description": "Tenairah’s hunters close across the The Ashen Border.",
+      "combat": true,
+      "combatProfile": "psychic",
+      "minTier": 1,
+      "maxTier": 1
+    },
+    {
+      "id": "plains-combat-t1-06",
+      "kind": "combat",
+      "label": "Ashen Hunt 1-6",
+      "description": "Tenairah’s hunters close across the The Ashen Border.",
+      "combat": true,
+      "combatProfile": "blood",
+      "minTier": 1,
+      "maxTier": 1
+    },
+    {
+      "id": "plains-combat-t2-01",
+      "kind": "combat",
+      "label": "Broken Hunt 2-1",
+      "description": "Tenairah’s hunters close across the Broken Homesteads.",
+      "combat": true,
+      "combatProfile": "physical",
+      "minTier": 2,
+      "maxTier": 2
+    },
+    {
+      "id": "plains-combat-t2-02",
+      "kind": "combat",
+      "label": "Broken Hunt 2-2",
+      "description": "Tenairah’s hunters close across the Broken Homesteads.",
+      "combat": true,
+      "combatProfile": "force",
+      "minTier": 2,
+      "maxTier": 2
+    },
+    {
+      "id": "plains-combat-t2-03",
+      "kind": "combat",
+      "label": "Broken Hunt 2-3",
+      "description": "Tenairah’s hunters close across the Broken Homesteads.",
+      "combat": true,
+      "combatProfile": "mixed",
+      "minTier": 2,
+      "maxTier": 2
+    },
+    {
+      "id": "plains-combat-t2-04",
+      "kind": "combat",
+      "label": "Broken Hunt 2-4",
+      "description": "Tenairah’s hunters close across the Broken Homesteads.",
+      "combat": true,
+      "combatProfile": "vampire",
+      "minTier": 2,
+      "maxTier": 2
+    },
+    {
+      "id": "plains-combat-t2-05",
+      "kind": "combat",
+      "label": "Broken Hunt 2-5",
+      "description": "Tenairah’s hunters close across the Broken Homesteads.",
+      "combat": true,
+      "combatProfile": "psychic",
+      "minTier": 2,
+      "maxTier": 2
+    },
+    {
+      "id": "plains-combat-t2-06",
+      "kind": "combat",
+      "label": "Broken Hunt 2-6",
+      "description": "Tenairah’s hunters close across the Broken Homesteads.",
+      "combat": true,
+      "combatProfile": "blood",
+      "minTier": 2,
+      "maxTier": 2
+    },
+    {
+      "id": "plains-combat-t3-01",
+      "kind": "combat",
+      "label": "Red Hunt 3-1",
+      "description": "Tenairah’s hunters close across the The Red Warfields.",
+      "combat": true,
+      "combatProfile": "physical",
+      "minTier": 3,
+      "maxTier": 3
+    },
+    {
+      "id": "plains-combat-t3-02",
+      "kind": "combat",
+      "label": "Red Hunt 3-2",
+      "description": "Tenairah’s hunters close across the The Red Warfields.",
+      "combat": true,
+      "combatProfile": "force",
+      "minTier": 3,
+      "maxTier": 3
+    },
+    {
+      "id": "plains-combat-t3-03",
+      "kind": "combat",
+      "label": "Red Hunt 3-3",
+      "description": "Tenairah’s hunters close across the The Red Warfields.",
+      "combat": true,
+      "combatProfile": "mixed",
+      "minTier": 3,
+      "maxTier": 3
+    },
+    {
+      "id": "plains-combat-t3-04",
+      "kind": "combat",
+      "label": "Red Hunt 3-4",
+      "description": "Tenairah’s hunters close across the The Red Warfields.",
+      "combat": true,
+      "combatProfile": "vampire",
+      "minTier": 3,
+      "maxTier": 3
+    },
+    {
+      "id": "plains-combat-t3-05",
+      "kind": "combat",
+      "label": "Red Hunt 3-5",
+      "description": "Tenairah’s hunters close across the The Red Warfields.",
+      "combat": true,
+      "combatProfile": "psychic",
+      "minTier": 3,
+      "maxTier": 3
+    },
+    {
+      "id": "plains-combat-t3-06",
+      "kind": "combat",
+      "label": "Red Hunt 3-6",
+      "description": "Tenairah’s hunters close across the The Red Warfields.",
+      "combat": true,
+      "combatProfile": "blood",
+      "minTier": 3,
+      "maxTier": 3
+    },
+    {
+      "id": "plains-combat-t4-01",
+      "kind": "combat",
+      "label": "Noble Hunt 4-1",
+      "description": "Tenairah’s hunters close across the Noble Hunting Grounds.",
+      "combat": true,
+      "combatProfile": "physical",
+      "minTier": 4,
+      "maxTier": 4
+    },
+    {
+      "id": "plains-combat-t4-02",
+      "kind": "combat",
+      "label": "Noble Hunt 4-2",
+      "description": "Tenairah’s hunters close across the Noble Hunting Grounds.",
+      "combat": true,
+      "combatProfile": "force",
+      "minTier": 4,
+      "maxTier": 4
+    },
+    {
+      "id": "plains-combat-t4-03",
+      "kind": "combat",
+      "label": "Noble Hunt 4-3",
+      "description": "Tenairah’s hunters close across the Noble Hunting Grounds.",
+      "combat": true,
+      "combatProfile": "mixed",
+      "minTier": 4,
+      "maxTier": 4
+    },
+    {
+      "id": "plains-combat-t4-04",
+      "kind": "combat",
+      "label": "Noble Hunt 4-4",
+      "description": "Tenairah’s hunters close across the Noble Hunting Grounds.",
+      "combat": true,
+      "combatProfile": "vampire",
+      "minTier": 4,
+      "maxTier": 4
+    },
+    {
+      "id": "plains-combat-t4-05",
+      "kind": "combat",
+      "label": "Noble Hunt 4-5",
+      "description": "Tenairah’s hunters close across the Noble Hunting Grounds.",
+      "combat": true,
+      "combatProfile": "psychic",
+      "minTier": 4,
+      "maxTier": 4
+    },
+    {
+      "id": "plains-combat-t4-06",
+      "kind": "combat",
+      "label": "Noble Hunt 4-6",
+      "description": "Tenairah’s hunters close across the Noble Hunting Grounds.",
+      "combat": true,
+      "combatProfile": "blood",
+      "minTier": 4,
+      "maxTier": 4
+    },
+    {
+      "id": "plains-combat-t5-01",
+      "kind": "combat",
+      "label": "Veiled Hunt 5-1",
+      "description": "Tenairah’s hunters close across the The Veiled Estates.",
+      "combat": true,
+      "combatProfile": "physical",
+      "minTier": 5,
+      "maxTier": 5
+    },
+    {
+      "id": "plains-combat-t5-02",
+      "kind": "combat",
+      "label": "Veiled Hunt 5-2",
+      "description": "Tenairah’s hunters close across the The Veiled Estates.",
+      "combat": true,
+      "combatProfile": "force",
+      "minTier": 5,
+      "maxTier": 5
+    },
+    {
+      "id": "plains-combat-t5-03",
+      "kind": "combat",
+      "label": "Veiled Hunt 5-3",
+      "description": "Tenairah’s hunters close across the The Veiled Estates.",
+      "combat": true,
+      "combatProfile": "mixed",
+      "minTier": 5,
+      "maxTier": 5
+    },
+    {
+      "id": "plains-combat-t5-04",
+      "kind": "combat",
+      "label": "Veiled Hunt 5-4",
+      "description": "Tenairah’s hunters close across the The Veiled Estates.",
+      "combat": true,
+      "combatProfile": "vampire",
+      "minTier": 5,
+      "maxTier": 5
+    },
+    {
+      "id": "plains-combat-t5-05",
+      "kind": "combat",
+      "label": "Veiled Hunt 5-5",
+      "description": "Tenairah’s hunters close across the The Veiled Estates.",
+      "combat": true,
+      "combatProfile": "psychic",
+      "minTier": 5,
+      "maxTier": 5
+    },
+    {
+      "id": "plains-combat-t5-06",
+      "kind": "combat",
+      "label": "Veiled Hunt 5-6",
+      "description": "Tenairah’s hunters close across the The Veiled Estates.",
+      "combat": true,
+      "combatProfile": "blood",
+      "minTier": 5,
+      "maxTier": 5
+    },
+    {
+      "id": "plains-combat-t6-01",
+      "kind": "combat",
+      "label": "Sovereign Hunt 6-1",
+      "description": "Tenairah’s hunters close across the Tenairah’s Heartland.",
+      "combat": true,
+      "combatProfile": "physical",
+      "minTier": 6,
+      "maxTier": 6
+    },
+    {
+      "id": "plains-combat-t6-02",
+      "kind": "combat",
+      "label": "Sovereign Hunt 6-2",
+      "description": "Tenairah’s hunters close across the Tenairah’s Heartland.",
+      "combat": true,
+      "combatProfile": "force",
+      "minTier": 6,
+      "maxTier": 6
+    },
+    {
+      "id": "plains-combat-t6-03",
+      "kind": "combat",
+      "label": "Sovereign Hunt 6-3",
+      "description": "Tenairah’s hunters close across the Tenairah’s Heartland.",
+      "combat": true,
+      "combatProfile": "mixed",
+      "minTier": 6,
+      "maxTier": 6
+    },
+    {
+      "id": "plains-combat-t6-04",
+      "kind": "combat",
+      "label": "Sovereign Hunt 6-4",
+      "description": "Tenairah’s hunters close across the Tenairah’s Heartland.",
+      "combat": true,
+      "combatProfile": "vampire",
+      "minTier": 6,
+      "maxTier": 6
+    },
+    {
+      "id": "plains-combat-t6-05",
+      "kind": "combat",
+      "label": "Sovereign Hunt 6-5",
+      "description": "Tenairah’s hunters close across the Tenairah’s Heartland.",
+      "combat": true,
+      "combatProfile": "psychic",
+      "minTier": 6,
+      "maxTier": 6
+    },
+    {
+      "id": "plains-combat-t6-06",
+      "kind": "combat",
+      "label": "Sovereign Hunt 6-6",
+      "description": "Tenairah’s hunters close across the Tenairah’s Heartland.",
+      "combat": true,
+      "combatProfile": "blood",
+      "minTier": 6,
+      "maxTier": 6
+    },
+    {
+      "id": "plains-event-t1-01",
+      "kind": "landmark",
+      "label": "Burned Chapel",
+      "description": "Burned Chapel interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CON",
+        "dc": 16
+      },
+      "checkmark": false,
+      "minTier": 1,
+      "maxTier": 1,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 38,
+          "bloodMoonDelta": -2
+        },
+        "failure": {
+          "hpLossPct": 7,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t1-02",
+      "kind": "landmark",
+      "label": "Blood Irrigation Gate",
+      "description": "Blood Irrigation Gate interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "INT",
+        "dc": 16
+      },
+      "checkmark": false,
+      "minTier": 1,
+      "maxTier": 1,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 38,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 7,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t1-03",
+      "kind": "landmark",
+      "label": "Collapsed Manor",
+      "description": "Collapsed Manor interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "FTH",
+        "dc": 16
+      },
+      "checkmark": false,
+      "minTier": 1,
+      "maxTier": 1,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 38,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 7,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t1-04",
+      "kind": "landmark",
+      "label": "Mass Grave Road",
+      "description": "Mass Grave Road interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CHA",
+        "dc": 16
+      },
+      "checkmark": false,
+      "minTier": 1,
+      "maxTier": 1,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 38,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 7,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t1-05",
+      "kind": "landmark",
+      "label": "Smoke Bell Tower",
+      "description": "Smoke Bell Tower interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "LCK",
+        "dc": 16
+      },
+      "checkmark": false,
+      "minTier": 1,
+      "maxTier": 1,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 38,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 7,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t1-06",
+      "kind": "landmark",
+      "label": "Abandoned Windmill",
+      "description": "Abandoned Windmill interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "STR",
+        "dc": 16
+      },
+      "checkmark": false,
+      "minTier": 1,
+      "maxTier": 1,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 38,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 7,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t1-07",
+      "kind": "landmark",
+      "label": "War Banner Field",
+      "description": "War Banner Field interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "DEX",
+        "dc": 16
+      },
+      "checkmark": false,
+      "minTier": 1,
+      "maxTier": 1,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 38,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 7,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t1-08",
+      "kind": "discovery",
+      "label": "Sanguine Font",
+      "description": "Sanguine Font interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CON",
+        "dc": 16
+      },
+      "checkmark": false,
+      "minTier": 1,
+      "maxTier": 1,
+      "rareEvent": true,
+      "weight": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 26,
+          "sanguineFontLifestealPct": 8,
+          "bloodMoonDelta": 6
+        },
+        "failure": {
+          "hpLossPct": 7,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t1-09",
+      "kind": "helpful-person",
+      "label": "Hidden Survivor Cellar",
+      "description": "Hidden Survivor Cellar interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "INT",
+        "dc": 16
+      },
+      "checkmark": false,
+      "minTier": 1,
+      "maxTier": 1,
+      "rareEvent": true,
+      "weight": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 38,
+          "bloodMoonDelta": -2
+        },
+        "failure": {
+          "hpLossPct": 7,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t1-10",
+      "kind": "discovery",
+      "label": "Root Vein Crossing",
+      "description": "Root Vein Crossing interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "FTH",
+        "dc": 16
+      },
+      "checkmark": false,
+      "minTier": 1,
+      "maxTier": 1,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "materialId": "root-fiber",
+          "materialQuantity": 2,
+          "bloodMoonDelta": 3
+        },
+        "failure": {
+          "hpLossPct": 7,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t1-11",
+      "kind": "discovery",
+      "label": "Shattered Bloodglass Cart",
+      "description": "Shattered Bloodglass Cart interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CHA",
+        "dc": 16
+      },
+      "checkmark": false,
+      "minTier": 1,
+      "maxTier": 1,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "materialId": "bloodglass-shard",
+          "materialQuantity": 2,
+          "bloodMoonDelta": 2
+        },
+        "failure": {
+          "hpLossPct": 7,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t1-12",
+      "kind": "discovery",
+      "label": "Forgotten Armory",
+      "description": "Forgotten Armory interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "LCK",
+        "dc": 16
+      },
+      "checkmark": false,
+      "minTier": 1,
+      "maxTier": 1,
+      "rareEvent": true,
+      "weight": 3,
+      "eventPayload": {
+        "success": {
+          "materialId": "dusk-iron",
+          "materialQuantity": 3,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 7,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t1-13",
+      "kind": "discovery",
+      "label": "Black Smoke Vent",
+      "description": "Black Smoke Vent interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "STR",
+        "dc": 16
+      },
+      "checkmark": false,
+      "minTier": 1,
+      "maxTier": 1,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "materialId": "smokecloth",
+          "materialQuantity": 2,
+          "bloodMoonDelta": -3
+        },
+        "failure": {
+          "hpLossPct": 7,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t1-14",
+      "kind": "discovery",
+      "label": "Vampire Duel Ground",
+      "description": "Vampire Duel Ground interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "DEX",
+        "dc": 16
+      },
+      "checkmark": false,
+      "minTier": 1,
+      "maxTier": 1,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 65,
+          "bloodMoonDelta": 5
+        },
+        "failure": {
+          "hpLossPct": 7,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t2-01",
+      "kind": "landmark",
+      "label": "Burned Chapel",
+      "description": "Burned Chapel interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "INT",
+        "dc": 17
+      },
+      "checkmark": false,
+      "minTier": 2,
+      "maxTier": 2,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 46,
+          "bloodMoonDelta": -2
+        },
+        "failure": {
+          "hpLossPct": 8,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t2-02",
+      "kind": "landmark",
+      "label": "Blood Irrigation Gate",
+      "description": "Blood Irrigation Gate interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "FTH",
+        "dc": 17
+      },
+      "checkmark": false,
+      "minTier": 2,
+      "maxTier": 2,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 46,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 8,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t2-03",
+      "kind": "landmark",
+      "label": "Collapsed Manor",
+      "description": "Collapsed Manor interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CHA",
+        "dc": 17
+      },
+      "checkmark": false,
+      "minTier": 2,
+      "maxTier": 2,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 46,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 8,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t2-04",
+      "kind": "landmark",
+      "label": "Mass Grave Road",
+      "description": "Mass Grave Road interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "LCK",
+        "dc": 17
+      },
+      "checkmark": false,
+      "minTier": 2,
+      "maxTier": 2,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 46,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 8,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t2-05",
+      "kind": "landmark",
+      "label": "Smoke Bell Tower",
+      "description": "Smoke Bell Tower interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "STR",
+        "dc": 17
+      },
+      "checkmark": false,
+      "minTier": 2,
+      "maxTier": 2,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 46,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 8,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t2-06",
+      "kind": "landmark",
+      "label": "Abandoned Windmill",
+      "description": "Abandoned Windmill interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "DEX",
+        "dc": 17
+      },
+      "checkmark": false,
+      "minTier": 2,
+      "maxTier": 2,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 46,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 8,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t2-07",
+      "kind": "landmark",
+      "label": "War Banner Field",
+      "description": "War Banner Field interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CON",
+        "dc": 17
+      },
+      "checkmark": false,
+      "minTier": 2,
+      "maxTier": 2,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 46,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 8,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t2-08",
+      "kind": "discovery",
+      "label": "Sanguine Font",
+      "description": "Sanguine Font interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "INT",
+        "dc": 17
+      },
+      "checkmark": false,
+      "minTier": 2,
+      "maxTier": 2,
+      "rareEvent": true,
+      "weight": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 32,
+          "sanguineFontLifestealPct": 8,
+          "bloodMoonDelta": 6
+        },
+        "failure": {
+          "hpLossPct": 8,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t2-09",
+      "kind": "helpful-person",
+      "label": "Hidden Survivor Cellar",
+      "description": "Hidden Survivor Cellar interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "FTH",
+        "dc": 17
+      },
+      "checkmark": false,
+      "minTier": 2,
+      "maxTier": 2,
+      "rareEvent": true,
+      "weight": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 46,
+          "bloodMoonDelta": -2
+        },
+        "failure": {
+          "hpLossPct": 8,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t2-10",
+      "kind": "discovery",
+      "label": "Root Vein Crossing",
+      "description": "Root Vein Crossing interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CHA",
+        "dc": 17
+      },
+      "checkmark": false,
+      "minTier": 2,
+      "maxTier": 2,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "materialId": "root-fiber",
+          "materialQuantity": 2,
+          "bloodMoonDelta": 3
+        },
+        "failure": {
+          "hpLossPct": 8,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t2-11",
+      "kind": "discovery",
+      "label": "Shattered Bloodglass Cart",
+      "description": "Shattered Bloodglass Cart interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "LCK",
+        "dc": 17
+      },
+      "checkmark": false,
+      "minTier": 2,
+      "maxTier": 2,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "materialId": "bloodglass-shard",
+          "materialQuantity": 2,
+          "bloodMoonDelta": 2
+        },
+        "failure": {
+          "hpLossPct": 8,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t2-12",
+      "kind": "discovery",
+      "label": "Forgotten Armory",
+      "description": "Forgotten Armory interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "STR",
+        "dc": 17
+      },
+      "checkmark": false,
+      "minTier": 2,
+      "maxTier": 2,
+      "rareEvent": true,
+      "weight": 3,
+      "eventPayload": {
+        "success": {
+          "materialId": "dusk-iron",
+          "materialQuantity": 3,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 8,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t2-13",
+      "kind": "discovery",
+      "label": "Black Smoke Vent",
+      "description": "Black Smoke Vent interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "DEX",
+        "dc": 17
+      },
+      "checkmark": false,
+      "minTier": 2,
+      "maxTier": 2,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "materialId": "smokecloth",
+          "materialQuantity": 2,
+          "bloodMoonDelta": -3
+        },
+        "failure": {
+          "hpLossPct": 8,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t2-14",
+      "kind": "discovery",
+      "label": "Vampire Duel Ground",
+      "description": "Vampire Duel Ground interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CON",
+        "dc": 17
+      },
+      "checkmark": false,
+      "minTier": 2,
+      "maxTier": 2,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 75,
+          "bloodMoonDelta": 5
+        },
+        "failure": {
+          "hpLossPct": 8,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t3-01",
+      "kind": "landmark",
+      "label": "Burned Chapel",
+      "description": "Burned Chapel interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "FTH",
+        "dc": 18
+      },
+      "checkmark": false,
+      "minTier": 3,
+      "maxTier": 3,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 54,
+          "bloodMoonDelta": -2
+        },
+        "failure": {
+          "hpLossPct": 9,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t3-02",
+      "kind": "landmark",
+      "label": "Blood Irrigation Gate",
+      "description": "Blood Irrigation Gate interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CHA",
+        "dc": 18
+      },
+      "checkmark": false,
+      "minTier": 3,
+      "maxTier": 3,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 54,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 9,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t3-03",
+      "kind": "landmark",
+      "label": "Collapsed Manor",
+      "description": "Collapsed Manor interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "LCK",
+        "dc": 18
+      },
+      "checkmark": false,
+      "minTier": 3,
+      "maxTier": 3,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 54,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 9,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t3-04",
+      "kind": "landmark",
+      "label": "Mass Grave Road",
+      "description": "Mass Grave Road interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "STR",
+        "dc": 18
+      },
+      "checkmark": false,
+      "minTier": 3,
+      "maxTier": 3,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 54,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 9,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t3-05",
+      "kind": "landmark",
+      "label": "Smoke Bell Tower",
+      "description": "Smoke Bell Tower interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "DEX",
+        "dc": 18
+      },
+      "checkmark": false,
+      "minTier": 3,
+      "maxTier": 3,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 54,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 9,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t3-06",
+      "kind": "landmark",
+      "label": "Abandoned Windmill",
+      "description": "Abandoned Windmill interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CON",
+        "dc": 18
+      },
+      "checkmark": false,
+      "minTier": 3,
+      "maxTier": 3,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 54,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 9,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t3-07",
+      "kind": "landmark",
+      "label": "War Banner Field",
+      "description": "War Banner Field interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "INT",
+        "dc": 18
+      },
+      "checkmark": false,
+      "minTier": 3,
+      "maxTier": 3,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 54,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 9,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t3-08",
+      "kind": "discovery",
+      "label": "Sanguine Font",
+      "description": "Sanguine Font interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "FTH",
+        "dc": 18
+      },
+      "checkmark": false,
+      "minTier": 3,
+      "maxTier": 3,
+      "rareEvent": true,
+      "weight": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 38,
+          "sanguineFontLifestealPct": 8,
+          "bloodMoonDelta": 6
+        },
+        "failure": {
+          "hpLossPct": 9,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t3-09",
+      "kind": "helpful-person",
+      "label": "Hidden Survivor Cellar",
+      "description": "Hidden Survivor Cellar interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CHA",
+        "dc": 18
+      },
+      "checkmark": false,
+      "minTier": 3,
+      "maxTier": 3,
+      "rareEvent": true,
+      "weight": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 54,
+          "bloodMoonDelta": -2
+        },
+        "failure": {
+          "hpLossPct": 9,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t3-10",
+      "kind": "discovery",
+      "label": "Root Vein Crossing",
+      "description": "Root Vein Crossing interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "LCK",
+        "dc": 18
+      },
+      "checkmark": false,
+      "minTier": 3,
+      "maxTier": 3,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "materialId": "root-fiber",
+          "materialQuantity": 2,
+          "bloodMoonDelta": 3
+        },
+        "failure": {
+          "hpLossPct": 9,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t3-11",
+      "kind": "discovery",
+      "label": "Shattered Bloodglass Cart",
+      "description": "Shattered Bloodglass Cart interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "STR",
+        "dc": 18
+      },
+      "checkmark": false,
+      "minTier": 3,
+      "maxTier": 3,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "materialId": "bloodglass-shard",
+          "materialQuantity": 2,
+          "bloodMoonDelta": 2
+        },
+        "failure": {
+          "hpLossPct": 9,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t3-12",
+      "kind": "discovery",
+      "label": "Forgotten Armory",
+      "description": "Forgotten Armory interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "DEX",
+        "dc": 18
+      },
+      "checkmark": false,
+      "minTier": 3,
+      "maxTier": 3,
+      "rareEvent": true,
+      "weight": 3,
+      "eventPayload": {
+        "success": {
+          "materialId": "dusk-iron",
+          "materialQuantity": 3,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 9,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t3-13",
+      "kind": "discovery",
+      "label": "Black Smoke Vent",
+      "description": "Black Smoke Vent interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CON",
+        "dc": 18
+      },
+      "checkmark": false,
+      "minTier": 3,
+      "maxTier": 3,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "materialId": "smokecloth",
+          "materialQuantity": 2,
+          "bloodMoonDelta": -3
+        },
+        "failure": {
+          "hpLossPct": 9,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t3-14",
+      "kind": "discovery",
+      "label": "Vampire Duel Ground",
+      "description": "Vampire Duel Ground interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "INT",
+        "dc": 18
+      },
+      "checkmark": false,
+      "minTier": 3,
+      "maxTier": 3,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 85,
+          "bloodMoonDelta": 5
+        },
+        "failure": {
+          "hpLossPct": 9,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t4-01",
+      "kind": "landmark",
+      "label": "Burned Chapel",
+      "description": "Burned Chapel interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CHA",
+        "dc": 19
+      },
+      "checkmark": false,
+      "minTier": 4,
+      "maxTier": 4,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "bloodMoonDelta": -2
+        },
+        "failure": {
+          "hpLossPct": 10,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t4-02",
+      "kind": "landmark",
+      "label": "Blood Irrigation Gate",
+      "description": "Blood Irrigation Gate interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "LCK",
+        "dc": 19
+      },
+      "checkmark": false,
+      "minTier": 4,
+      "maxTier": 4,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 10,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t4-03",
+      "kind": "landmark",
+      "label": "Collapsed Manor",
+      "description": "Collapsed Manor interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "STR",
+        "dc": 19
+      },
+      "checkmark": false,
+      "minTier": 4,
+      "maxTier": 4,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 10,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t4-04",
+      "kind": "landmark",
+      "label": "Mass Grave Road",
+      "description": "Mass Grave Road interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "DEX",
+        "dc": 19
+      },
+      "checkmark": false,
+      "minTier": 4,
+      "maxTier": 4,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 10,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t4-05",
+      "kind": "landmark",
+      "label": "Smoke Bell Tower",
+      "description": "Smoke Bell Tower interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CON",
+        "dc": 19
+      },
+      "checkmark": false,
+      "minTier": 4,
+      "maxTier": 4,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 10,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t4-06",
+      "kind": "landmark",
+      "label": "Abandoned Windmill",
+      "description": "Abandoned Windmill interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "INT",
+        "dc": 19
+      },
+      "checkmark": false,
+      "minTier": 4,
+      "maxTier": 4,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 10,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t4-07",
+      "kind": "landmark",
+      "label": "War Banner Field",
+      "description": "War Banner Field interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "FTH",
+        "dc": 19
+      },
+      "checkmark": false,
+      "minTier": 4,
+      "maxTier": 4,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 10,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t4-08",
+      "kind": "discovery",
+      "label": "Sanguine Font",
+      "description": "Sanguine Font interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CHA",
+        "dc": 19
+      },
+      "checkmark": false,
+      "minTier": 4,
+      "maxTier": 4,
+      "rareEvent": true,
+      "weight": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 44,
+          "sanguineFontLifestealPct": 8,
+          "bloodMoonDelta": 6
+        },
+        "failure": {
+          "hpLossPct": 10,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t4-09",
+      "kind": "helpful-person",
+      "label": "Hidden Survivor Cellar",
+      "description": "Hidden Survivor Cellar interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "LCK",
+        "dc": 19
+      },
+      "checkmark": false,
+      "minTier": 4,
+      "maxTier": 4,
+      "rareEvent": true,
+      "weight": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "bloodMoonDelta": -2
+        },
+        "failure": {
+          "hpLossPct": 10,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t4-10",
+      "kind": "discovery",
+      "label": "Root Vein Crossing",
+      "description": "Root Vein Crossing interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "STR",
+        "dc": 19
+      },
+      "checkmark": false,
+      "minTier": 4,
+      "maxTier": 4,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "materialId": "root-fiber",
+          "materialQuantity": 2,
+          "bloodMoonDelta": 3
+        },
+        "failure": {
+          "hpLossPct": 10,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t4-11",
+      "kind": "discovery",
+      "label": "Shattered Bloodglass Cart",
+      "description": "Shattered Bloodglass Cart interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "DEX",
+        "dc": 19
+      },
+      "checkmark": false,
+      "minTier": 4,
+      "maxTier": 4,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "materialId": "bloodglass-shard",
+          "materialQuantity": 2,
+          "bloodMoonDelta": 2
+        },
+        "failure": {
+          "hpLossPct": 10,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t4-12",
+      "kind": "discovery",
+      "label": "Forgotten Armory",
+      "description": "Forgotten Armory interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CON",
+        "dc": 19
+      },
+      "checkmark": false,
+      "minTier": 4,
+      "maxTier": 4,
+      "rareEvent": true,
+      "weight": 3,
+      "eventPayload": {
+        "success": {
+          "materialId": "dusk-iron",
+          "materialQuantity": 3,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 10,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t4-13",
+      "kind": "discovery",
+      "label": "Black Smoke Vent",
+      "description": "Black Smoke Vent interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "INT",
+        "dc": 19
+      },
+      "checkmark": false,
+      "minTier": 4,
+      "maxTier": 4,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "materialId": "smokecloth",
+          "materialQuantity": 2,
+          "bloodMoonDelta": -3
+        },
+        "failure": {
+          "hpLossPct": 10,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t4-14",
+      "kind": "discovery",
+      "label": "Vampire Duel Ground",
+      "description": "Vampire Duel Ground interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "FTH",
+        "dc": 19
+      },
+      "checkmark": false,
+      "minTier": 4,
+      "maxTier": 4,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 95,
+          "bloodMoonDelta": 5
+        },
+        "failure": {
+          "hpLossPct": 10,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t5-01",
+      "kind": "landmark",
+      "label": "Burned Chapel",
+      "description": "Burned Chapel interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "LCK",
+        "dc": 20
+      },
+      "checkmark": false,
+      "minTier": 5,
+      "maxTier": 5,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "bloodMoonDelta": -2
+        },
+        "failure": {
+          "hpLossPct": 11,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t5-02",
+      "kind": "landmark",
+      "label": "Blood Irrigation Gate",
+      "description": "Blood Irrigation Gate interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "STR",
+        "dc": 20
+      },
+      "checkmark": false,
+      "minTier": 5,
+      "maxTier": 5,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 11,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t5-03",
+      "kind": "landmark",
+      "label": "Collapsed Manor",
+      "description": "Collapsed Manor interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "DEX",
+        "dc": 20
+      },
+      "checkmark": false,
+      "minTier": 5,
+      "maxTier": 5,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 11,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t5-04",
+      "kind": "landmark",
+      "label": "Mass Grave Road",
+      "description": "Mass Grave Road interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CON",
+        "dc": 20
+      },
+      "checkmark": false,
+      "minTier": 5,
+      "maxTier": 5,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 11,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t5-05",
+      "kind": "landmark",
+      "label": "Smoke Bell Tower",
+      "description": "Smoke Bell Tower interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "INT",
+        "dc": 20
+      },
+      "checkmark": false,
+      "minTier": 5,
+      "maxTier": 5,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 11,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t5-06",
+      "kind": "landmark",
+      "label": "Abandoned Windmill",
+      "description": "Abandoned Windmill interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "FTH",
+        "dc": 20
+      },
+      "checkmark": false,
+      "minTier": 5,
+      "maxTier": 5,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 11,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t5-07",
+      "kind": "landmark",
+      "label": "War Banner Field",
+      "description": "War Banner Field interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CHA",
+        "dc": 20
+      },
+      "checkmark": false,
+      "minTier": 5,
+      "maxTier": 5,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 11,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t5-08",
+      "kind": "discovery",
+      "label": "Sanguine Font",
+      "description": "Sanguine Font interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "LCK",
+        "dc": 20
+      },
+      "checkmark": false,
+      "minTier": 5,
+      "maxTier": 5,
+      "rareEvent": true,
+      "weight": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 50,
+          "sanguineFontLifestealPct": 8,
+          "bloodMoonDelta": 6
+        },
+        "failure": {
+          "hpLossPct": 11,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t5-09",
+      "kind": "helpful-person",
+      "label": "Hidden Survivor Cellar",
+      "description": "Hidden Survivor Cellar interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "STR",
+        "dc": 20
+      },
+      "checkmark": false,
+      "minTier": 5,
+      "maxTier": 5,
+      "rareEvent": true,
+      "weight": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 70,
+          "bloodMoonDelta": -2
+        },
+        "failure": {
+          "hpLossPct": 11,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t5-10",
+      "kind": "discovery",
+      "label": "Root Vein Crossing",
+      "description": "Root Vein Crossing interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "DEX",
+        "dc": 20
+      },
+      "checkmark": false,
+      "minTier": 5,
+      "maxTier": 5,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "materialId": "root-fiber",
+          "materialQuantity": 2,
+          "bloodMoonDelta": 3
+        },
+        "failure": {
+          "hpLossPct": 11,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t5-11",
+      "kind": "discovery",
+      "label": "Shattered Bloodglass Cart",
+      "description": "Shattered Bloodglass Cart interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CON",
+        "dc": 20
+      },
+      "checkmark": false,
+      "minTier": 5,
+      "maxTier": 5,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "materialId": "bloodglass-shard",
+          "materialQuantity": 2,
+          "bloodMoonDelta": 2
+        },
+        "failure": {
+          "hpLossPct": 11,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t5-12",
+      "kind": "discovery",
+      "label": "Forgotten Armory",
+      "description": "Forgotten Armory interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "INT",
+        "dc": 20
+      },
+      "checkmark": false,
+      "minTier": 5,
+      "maxTier": 5,
+      "rareEvent": true,
+      "weight": 3,
+      "eventPayload": {
+        "success": {
+          "materialId": "dusk-iron",
+          "materialQuantity": 3,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 11,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t5-13",
+      "kind": "discovery",
+      "label": "Black Smoke Vent",
+      "description": "Black Smoke Vent interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "FTH",
+        "dc": 20
+      },
+      "checkmark": false,
+      "minTier": 5,
+      "maxTier": 5,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "materialId": "smokecloth",
+          "materialQuantity": 2,
+          "bloodMoonDelta": -3
+        },
+        "failure": {
+          "hpLossPct": 11,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t5-14",
+      "kind": "discovery",
+      "label": "Vampire Duel Ground",
+      "description": "Vampire Duel Ground interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CHA",
+        "dc": 20
+      },
+      "checkmark": false,
+      "minTier": 5,
+      "maxTier": 5,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 105,
+          "bloodMoonDelta": 5
+        },
+        "failure": {
+          "hpLossPct": 11,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t6-01",
+      "kind": "landmark",
+      "label": "Burned Chapel",
+      "description": "Burned Chapel interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "STR",
+        "dc": 21
+      },
+      "checkmark": false,
+      "minTier": 6,
+      "maxTier": 6,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 78,
+          "bloodMoonDelta": -2
+        },
+        "failure": {
+          "hpLossPct": 12,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t6-02",
+      "kind": "landmark",
+      "label": "Blood Irrigation Gate",
+      "description": "Blood Irrigation Gate interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "DEX",
+        "dc": 21
+      },
+      "checkmark": false,
+      "minTier": 6,
+      "maxTier": 6,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 78,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 12,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t6-03",
+      "kind": "landmark",
+      "label": "Collapsed Manor",
+      "description": "Collapsed Manor interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CON",
+        "dc": 21
+      },
+      "checkmark": false,
+      "minTier": 6,
+      "maxTier": 6,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 78,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 12,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t6-04",
+      "kind": "landmark",
+      "label": "Mass Grave Road",
+      "description": "Mass Grave Road interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "INT",
+        "dc": 21
+      },
+      "checkmark": false,
+      "minTier": 6,
+      "maxTier": 6,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 78,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 12,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t6-05",
+      "kind": "landmark",
+      "label": "Smoke Bell Tower",
+      "description": "Smoke Bell Tower interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "FTH",
+        "dc": 21
+      },
+      "checkmark": false,
+      "minTier": 6,
+      "maxTier": 6,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 78,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 12,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t6-06",
+      "kind": "landmark",
+      "label": "Abandoned Windmill",
+      "description": "Abandoned Windmill interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CHA",
+        "dc": 21
+      },
+      "checkmark": false,
+      "minTier": 6,
+      "maxTier": 6,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 78,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 12,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t6-07",
+      "kind": "landmark",
+      "label": "War Banner Field",
+      "description": "War Banner Field interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "LCK",
+        "dc": 21
+      },
+      "checkmark": false,
+      "minTier": 6,
+      "maxTier": 6,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 78,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 12,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t6-08",
+      "kind": "discovery",
+      "label": "Sanguine Font",
+      "description": "Sanguine Font interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "STR",
+        "dc": 21
+      },
+      "checkmark": false,
+      "minTier": 6,
+      "maxTier": 6,
+      "rareEvent": true,
+      "weight": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 56,
+          "sanguineFontLifestealPct": 8,
+          "bloodMoonDelta": 6
+        },
+        "failure": {
+          "hpLossPct": 12,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t6-09",
+      "kind": "helpful-person",
+      "label": "Hidden Survivor Cellar",
+      "description": "Hidden Survivor Cellar interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "DEX",
+        "dc": 21
+      },
+      "checkmark": false,
+      "minTier": 6,
+      "maxTier": 6,
+      "rareEvent": true,
+      "weight": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 78,
+          "bloodMoonDelta": -2
+        },
+        "failure": {
+          "hpLossPct": 12,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t6-10",
+      "kind": "discovery",
+      "label": "Root Vein Crossing",
+      "description": "Root Vein Crossing interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CON",
+        "dc": 21
+      },
+      "checkmark": false,
+      "minTier": 6,
+      "maxTier": 6,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "materialId": "root-fiber",
+          "materialQuantity": 2,
+          "bloodMoonDelta": 3
+        },
+        "failure": {
+          "hpLossPct": 12,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t6-11",
+      "kind": "discovery",
+      "label": "Shattered Bloodglass Cart",
+      "description": "Shattered Bloodglass Cart interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "INT",
+        "dc": 21
+      },
+      "checkmark": false,
+      "minTier": 6,
+      "maxTier": 6,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "materialId": "bloodglass-shard",
+          "materialQuantity": 2,
+          "bloodMoonDelta": 2
+        },
+        "failure": {
+          "hpLossPct": 12,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t6-12",
+      "kind": "discovery",
+      "label": "Forgotten Armory",
+      "description": "Forgotten Armory interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "FTH",
+        "dc": 21
+      },
+      "checkmark": false,
+      "minTier": 6,
+      "maxTier": 6,
+      "rareEvent": true,
+      "weight": 3,
+      "eventPayload": {
+        "success": {
+          "materialId": "dusk-iron",
+          "materialQuantity": 3,
+          "bloodMoonDelta": 1
+        },
+        "failure": {
+          "hpLossPct": 12,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t6-13",
+      "kind": "discovery",
+      "label": "Black Smoke Vent",
+      "description": "Black Smoke Vent interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "CHA",
+        "dc": 21
+      },
+      "checkmark": false,
+      "minTier": 6,
+      "maxTier": 6,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "materialId": "smokecloth",
+          "materialQuantity": 2,
+          "bloodMoonDelta": -3
+        },
+        "failure": {
+          "hpLossPct": 12,
+          "bloodMoonDelta": 3
+        }
+      }
+    },
+    {
+      "id": "plains-event-t6-14",
+      "kind": "discovery",
+      "label": "Vampire Duel Ground",
+      "description": "Vampire Duel Ground interrupts the route through the ruined vampiric country. Tenairah’s smoke presses low overhead.",
+      "check": {
+        "stat": "LCK",
+        "dc": 21
+      },
+      "checkmark": false,
+      "minTier": 6,
+      "maxTier": 6,
+      "rareEvent": false,
+      "weight": 8,
+      "eventPayload": {
+        "success": {
+          "onyx": 115,
+          "bloodMoonDelta": 5
+        },
+        "failure": {
+          "hpLossPct": 12,
+          "bloodMoonDelta": 3
+        }
+      }
+    }
+  ]
+}

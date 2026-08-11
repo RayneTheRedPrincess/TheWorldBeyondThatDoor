@@ -1,7 +1,7 @@
 import { shell } from './shared.js';
 
-export function renderSettings({ combatSpeed, reducedMotion = false, combatNumbers = true, screenFlash = 'standard' }) {
-  const values = [0.1,0.25,0.5,0.75,1,1.25,1.5,1.75,2];
+export function renderSettings({ combatSpeed, autoEndTurn = true, reducedMotion = false, combatNumbers = true, screenFlash = 'standard' }) {
+  const values = [0.1,0.25,0.5,0.75,1,1.25,1.5,1.75,2,3,4];
   return shell(`
     <section class="section-title"><div><div class="kicker">Preferences</div><h2>Settings</h2><div class="muted">Account-wide readability and presentation preferences. None of these options change combat rules.</div></div></section>
     <section class="panel section">
@@ -10,6 +10,10 @@ export function renderSettings({ combatSpeed, reducedMotion = false, combatNumbe
         <select data-setting="combatSpeed" aria-label="Combat speed">
           ${values.map(v => `<option value="${v}" ${Number(combatSpeed) === v ? 'selected' : ''}>${v}×</option>`).join('')}
         </select>
+      </div>
+      <div class="settings-row">
+        <div><h3>Auto End Turn</h3><div class="muted">After your one allowed combat action resolves, immediately ends that combatant’s turn. Turn-end effects and cooldowns are unchanged; turn this off to keep the manual End Turn button.</div></div>
+        <label class="toggle-control"><input type="checkbox" data-setting="autoEndTurn" ${autoEndTurn ? 'checked' : ''}/> <span>${autoEndTurn ? 'On' : 'Off'}</span></label>
       </div>
       <div class="settings-row">
         <div><h3>Reduced Motion</h3><div class="muted">Removes lunges, recoil, floating-number travel, and most impact motion while keeping combat feedback visible.</div></div>

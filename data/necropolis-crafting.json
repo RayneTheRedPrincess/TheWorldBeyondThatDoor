@@ -1,0 +1,1280 @@
+{
+  "version": "NECROPOLIS-CRAFTING-2026-08-10",
+  "designStatus": "implemented",
+  "materials": [
+    {
+      "id": "brittle-bone",
+      "name": "Brittle Bone",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal"
+    },
+    {
+      "id": "grave-dust",
+      "name": "Grave Dust",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal"
+    },
+    {
+      "id": "corpse-fiber",
+      "name": "Corpse Fiber",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal"
+    },
+    {
+      "id": "rusted-funerary-iron",
+      "name": "Rusted Funerary Iron",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal"
+    },
+    {
+      "id": "black-wax",
+      "name": "Black Wax",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal"
+    },
+    {
+      "id": "cult-sigil-thread",
+      "name": "Cult Sigil Thread",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal"
+    },
+    {
+      "id": "soul-ash",
+      "name": "Soul Ash",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal"
+    },
+    {
+      "id": "cold-ectoplasm",
+      "name": "Cold Ectoplasm",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal"
+    },
+    {
+      "id": "funerary-glass",
+      "name": "Funerary Glass",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal"
+    },
+    {
+      "id": "grave-salt",
+      "name": "Grave Salt",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal"
+    },
+    {
+      "id": "ossuary-clay",
+      "name": "Ossuary Clay",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal"
+    },
+    {
+      "id": "mirror-residue",
+      "name": "Mirror Residue",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal"
+    },
+    {
+      "id": "tomb-silk",
+      "name": "Tomb Silk",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal"
+    },
+    {
+      "id": "royal-bonefiligree",
+      "name": "Royal Bonefiligree",
+      "kind": "ordinary-enemy",
+      "rarity": "Normal"
+    },
+    {
+      "id": "tithe-knife-edge",
+      "name": "Tithe Knife Edge",
+      "kind": "boss-material",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "executioner-soulfirecore",
+      "name": "Executioner SoulfireCore",
+      "kind": "soulfire-core",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "grave-colossus-core",
+      "name": "Grave Colossus Core",
+      "kind": "boss-material",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "grave-colossus-soulfirecore",
+      "name": "Grave Colossus SoulfireCore",
+      "kind": "soulfire-core",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "ossuary-kings-crown",
+      "name": "Ossuary King’s Crown",
+      "kind": "boss-material",
+      "rarity": "SoulFire"
+    },
+    {
+      "id": "ossuary-king-soulfirecore",
+      "name": "Ossuary King SoulfireCore",
+      "kind": "soulfire-core",
+      "rarity": "SoulFire"
+    }
+  ],
+  "sets": [
+    {
+      "id": "set-necro-graveguard",
+      "name": "Graveguard Set",
+      "pieceIds": [
+        "eq-necro-graveguard-helmet",
+        "eq-necro-graveguard-chest",
+        "eq-necro-graveguard-gloves",
+        "eq-necro-graveguard-boots"
+      ],
+      "bonuses": {
+        "2": {
+          "description": "Graveguard two-piece specialization.",
+          "modifiers": {
+            "blockChancePct": 3,
+            "blockedDamageReductionPct": 4
+          }
+        },
+        "4": {
+          "description": "Graveguard four-piece specialization.",
+          "modifiers": {
+            "blockChancePct": 3,
+            "blockedDamageReductionPct": 4,
+            "finalDamagePct": 0,
+            "incomingDamagePct": -4
+          }
+        }
+      }
+    },
+    {
+      "id": "set-necro-cultbreaker",
+      "name": "Cultbreaker Set",
+      "pieceIds": [
+        "eq-necro-cultbreaker-helmet",
+        "eq-necro-cultbreaker-chest",
+        "eq-necro-cultbreaker-gloves",
+        "eq-necro-cultbreaker-boots"
+      ],
+      "bonuses": {
+        "2": {
+          "description": "Cultbreaker two-piece specialization.",
+          "modifiers": {
+            "damageCritChancePct": 4,
+            "incomingHealingPct": 4
+          }
+        },
+        "4": {
+          "description": "Cultbreaker four-piece specialization.",
+          "modifiers": {
+            "damageCritChancePct": 4,
+            "incomingHealingPct": 4,
+            "finalDamagePct": 3,
+            "incomingDamagePct": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "set-necro-soulwarden",
+      "name": "Soulwarden Set",
+      "pieceIds": [
+        "eq-necro-soulwarden-helmet",
+        "eq-necro-soulwarden-chest",
+        "eq-necro-soulwarden-gloves",
+        "eq-necro-soulwarden-boots"
+      ],
+      "bonuses": {
+        "2": {
+          "description": "Soulwarden two-piece specialization.",
+          "modifiers": {
+            "incomingDamagePct": -3,
+            "energyGainPct": 3
+          }
+        },
+        "4": {
+          "description": "Soulwarden four-piece specialization.",
+          "modifiers": {
+            "incomingDamagePct": 0,
+            "energyGainPct": 3,
+            "finalDamagePct": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "set-necro-bonecourt",
+      "name": "Bonecourt Set",
+      "pieceIds": [
+        "eq-necro-bonecourt-helmet",
+        "eq-necro-bonecourt-chest",
+        "eq-necro-bonecourt-gloves",
+        "eq-necro-bonecourt-boots"
+      ],
+      "bonuses": {
+        "2": {
+          "description": "Bonecourt two-piece specialization.",
+          "modifiers": {
+            "shieldStrengthPct": 5,
+            "blockChancePct": 2
+          }
+        },
+        "4": {
+          "description": "Bonecourt four-piece specialization.",
+          "modifiers": {
+            "shieldStrengthPct": 5,
+            "blockChancePct": 2,
+            "finalDamagePct": 0,
+            "incomingDamagePct": -4
+          }
+        }
+      }
+    }
+  ],
+  "recipes": [
+    {
+      "id": "recipe-eq-necro-graveguard-helmet",
+      "name": "Graveguard Helm",
+      "category": "Necropolis Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-graveguard-helmet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "brittle-bone",
+          "quantity": 3
+        },
+        {
+          "materialId": "cold-ectoplasm",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-graveguard-chest",
+      "name": "Graveguard Cuirass",
+      "category": "Necropolis Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-graveguard-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "rusted-funerary-iron",
+          "quantity": 3
+        },
+        {
+          "materialId": "ossuary-clay",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-graveguard-gloves",
+      "name": "Graveguard Grips",
+      "category": "Necropolis Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-graveguard-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "cult-sigil-thread",
+          "quantity": 3
+        },
+        {
+          "materialId": "royal-bonefiligree",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-graveguard-boots",
+      "name": "Graveguard Greaves",
+      "category": "Necropolis Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-graveguard-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "cold-ectoplasm",
+          "quantity": 3
+        },
+        {
+          "materialId": "grave-salt",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-cultbreaker-helmet",
+      "name": "Cultbreaker Helm",
+      "category": "Necropolis Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-cultbreaker-helmet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "rusted-funerary-iron",
+          "quantity": 3
+        },
+        {
+          "materialId": "ossuary-clay",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-cultbreaker-chest",
+      "name": "Cultbreaker Cuirass",
+      "category": "Necropolis Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-cultbreaker-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "cult-sigil-thread",
+          "quantity": 3
+        },
+        {
+          "materialId": "royal-bonefiligree",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-cultbreaker-gloves",
+      "name": "Cultbreaker Grips",
+      "category": "Necropolis Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-cultbreaker-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "cold-ectoplasm",
+          "quantity": 3
+        },
+        {
+          "materialId": "grave-salt",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-cultbreaker-boots",
+      "name": "Cultbreaker Greaves",
+      "category": "Necropolis Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-cultbreaker-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ossuary-clay",
+          "quantity": 3
+        },
+        {
+          "materialId": "tomb-silk",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-soulwarden-helmet",
+      "name": "Soulwarden Helm",
+      "category": "Necropolis Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-soulwarden-helmet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "cult-sigil-thread",
+          "quantity": 3
+        },
+        {
+          "materialId": "royal-bonefiligree",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-soulwarden-chest",
+      "name": "Soulwarden Cuirass",
+      "category": "Necropolis Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-soulwarden-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "cold-ectoplasm",
+          "quantity": 3
+        },
+        {
+          "materialId": "grave-salt",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-soulwarden-gloves",
+      "name": "Soulwarden Grips",
+      "category": "Necropolis Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-soulwarden-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ossuary-clay",
+          "quantity": 3
+        },
+        {
+          "materialId": "tomb-silk",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-soulwarden-boots",
+      "name": "Soulwarden Greaves",
+      "category": "Necropolis Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-soulwarden-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "royal-bonefiligree",
+          "quantity": 3
+        },
+        {
+          "materialId": "brittle-bone",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-bonecourt-helmet",
+      "name": "Bonecourt Helm",
+      "category": "Necropolis Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-bonecourt-helmet",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "cold-ectoplasm",
+          "quantity": 3
+        },
+        {
+          "materialId": "grave-salt",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-bonecourt-chest",
+      "name": "Bonecourt Cuirass",
+      "category": "Necropolis Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-bonecourt-chest",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ossuary-clay",
+          "quantity": 3
+        },
+        {
+          "materialId": "tomb-silk",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-bonecourt-gloves",
+      "name": "Bonecourt Grips",
+      "category": "Necropolis Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-bonecourt-gloves",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "royal-bonefiligree",
+          "quantity": 3
+        },
+        {
+          "materialId": "brittle-bone",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-bonecourt-boots",
+      "name": "Bonecourt Greaves",
+      "category": "Necropolis Armor",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-bonecourt-boots",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "grave-salt",
+          "quantity": 3
+        },
+        {
+          "materialId": "rusted-funerary-iron",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-grave-iron-blade",
+      "name": "Grave-Iron Blade",
+      "category": "Necropolis Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-grave-iron-blade",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "brittle-bone",
+          "quantity": 3
+        },
+        {
+          "materialId": "ossuary-clay",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-funeral-pike",
+      "name": "Funeral Pike",
+      "category": "Necropolis Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-funeral-pike",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "rusted-funerary-iron",
+          "quantity": 3
+        },
+        {
+          "materialId": "royal-bonefiligree",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-soulglass-wand",
+      "name": "Soulglass Wand",
+      "category": "Necropolis Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-soulglass-wand",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "cult-sigil-thread",
+          "quantity": 3
+        },
+        {
+          "materialId": "grave-salt",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-winter-ossuary-staff",
+      "name": "Winter Ossuary Staff",
+      "category": "Necropolis Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-winter-ossuary-staff",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "cold-ectoplasm",
+          "quantity": 3
+        },
+        {
+          "materialId": "tomb-silk",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-graveforce-maul",
+      "name": "Graveforce Maul",
+      "category": "Necropolis Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-graveforce-maul",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ossuary-clay",
+          "quantity": 3
+        },
+        {
+          "materialId": "brittle-bone",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-cult-ritual-dagger",
+      "name": "Cult Ritual Dagger",
+      "category": "Necropolis Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-cult-ritual-dagger",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "royal-bonefiligree",
+          "quantity": 3
+        },
+        {
+          "materialId": "rusted-funerary-iron",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-sepulcher-tome",
+      "name": "Sepulcher Tome",
+      "category": "Necropolis Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-sepulcher-tome",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "grave-salt",
+          "quantity": 3
+        },
+        {
+          "materialId": "cult-sigil-thread",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-bonewall-shield",
+      "name": "Bonewall Shield",
+      "category": "Necropolis Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-bonewall-shield",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "tomb-silk",
+          "quantity": 3
+        },
+        {
+          "materialId": "cold-ectoplasm",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-grave-salt-charm",
+      "name": "Grave-Salt Charm",
+      "category": "Necropolis Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-grave-salt-charm",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "brittle-bone",
+          "quantity": 3
+        },
+        {
+          "materialId": "ossuary-clay",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-funerary-glass-charm",
+      "name": "Funerary Glass Charm",
+      "category": "Necropolis Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-funerary-glass-charm",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "rusted-funerary-iron",
+          "quantity": 3
+        },
+        {
+          "materialId": "royal-bonefiligree",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-soul-ash-medallion",
+      "name": "Soul-Ash Medallion",
+      "category": "Necropolis Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-soul-ash-medallion",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "cult-sigil-thread",
+          "quantity": 3
+        },
+        {
+          "materialId": "grave-salt",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-tomb-silk-band",
+      "name": "Tomb-Silk Band",
+      "category": "Necropolis Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-tomb-silk-band",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "cold-ectoplasm",
+          "quantity": 3
+        },
+        {
+          "materialId": "tomb-silk",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-royal-bone-seal",
+      "name": "Royal Bone Seal",
+      "category": "Necropolis Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-royal-bone-seal",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ossuary-clay",
+          "quantity": 3
+        },
+        {
+          "materialId": "brittle-bone",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-mirror-residue-lens",
+      "name": "Mirror-Residue Lens",
+      "category": "Necropolis Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-mirror-residue-lens",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "royal-bonefiligree",
+          "quantity": 3
+        },
+        {
+          "materialId": "rusted-funerary-iron",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-black-wax-censer",
+      "name": "Black-Wax Censer",
+      "category": "Necropolis Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-black-wax-censer",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "grave-salt",
+          "quantity": 3
+        },
+        {
+          "materialId": "cult-sigil-thread",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-procession-chain",
+      "name": "Procession Chain",
+      "category": "Necropolis Equipment",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-procession-chain",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "tomb-silk",
+          "quantity": 3
+        },
+        {
+          "materialId": "cold-ectoplasm",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "necropolis",
+      "rarity": "Normal",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-tithe-executioner-blade",
+      "name": "Tithe Executioner Blade",
+      "category": "Necropolis SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-tithe-executioner-blade",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "executioner-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "tithe-knife-edge",
+          "quantity": 1
+        },
+        {
+          "materialId": "grave-salt",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "vicar-malrec-bone-tithe",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-black-edict-seal",
+      "name": "Black Edict Seal",
+      "category": "Necropolis SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-black-edict-seal",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "executioner-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "tithe-knife-edge",
+          "quantity": 1
+        },
+        {
+          "materialId": "grave-salt",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "vicar-malrec-bone-tithe",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-colossus-gravefist",
+      "name": "Colossus Gravefist",
+      "category": "Necropolis SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-colossus-gravefist",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "grave-colossus-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "grave-colossus-core",
+          "quantity": 1
+        },
+        {
+          "materialId": "grave-salt",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "grave-colossus",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-colossus-heartplate",
+      "name": "Colossus Heartplate",
+      "category": "Necropolis SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-colossus-heartplate",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "grave-colossus-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "grave-colossus-core",
+          "quantity": 1
+        },
+        {
+          "materialId": "grave-salt",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "grave-colossus",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-ossuary-crown",
+      "name": "Ossuary Crown",
+      "category": "Necropolis SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-ossuary-crown",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ossuary-king-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "ossuary-kings-crown",
+          "quantity": 1
+        },
+        {
+          "materialId": "royal-bonefiligree",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "ossuary-king",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-many-limbed-grips",
+      "name": "Many-Limbed Grips",
+      "category": "Necropolis SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-many-limbed-grips",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ossuary-king-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "ossuary-kings-crown",
+          "quantity": 1
+        },
+        {
+          "materialId": "royal-bonefiligree",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "ossuary-king",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-royal-arsenal-blade",
+      "name": "Royal Arsenal Blade",
+      "category": "Necropolis SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-royal-arsenal-blade",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ossuary-king-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "ossuary-kings-crown",
+          "quantity": 1
+        },
+        {
+          "materialId": "royal-bonefiligree",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "ossuary-king",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-winter-crown-scepter",
+      "name": "Winter Crown Scepter",
+      "category": "Necropolis SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-winter-crown-scepter",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ossuary-king-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "ossuary-kings-crown",
+          "quantity": 1
+        },
+        {
+          "materialId": "royal-bonefiligree",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "ossuary-king",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-graveforce-regalia",
+      "name": "Graveforce Regalia",
+      "category": "Necropolis SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-graveforce-regalia",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ossuary-king-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "ossuary-kings-crown",
+          "quantity": 1
+        },
+        {
+          "materialId": "royal-bonefiligree",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "ossuary-king",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    },
+    {
+      "id": "recipe-eq-necro-sepulchral-soul-lens",
+      "name": "Sepulchral Soul Lens",
+      "category": "Necropolis SoulFire",
+      "output": {
+        "type": "equipment",
+        "id": "eq-necro-sepulchral-soul-lens",
+        "quantity": 1
+      },
+      "ingredients": [
+        {
+          "materialId": "ossuary-king-soulfirecore",
+          "quantity": 1
+        },
+        {
+          "materialId": "ossuary-kings-crown",
+          "quantity": 1
+        },
+        {
+          "materialId": "royal-bonefiligree",
+          "quantity": 2
+        }
+      ],
+      "sourceId": "ossuary-king",
+      "rarity": "SoulFire",
+      "location": "Campsite"
+    }
+  ],
+  "rules": {
+    "location": "Campsite",
+    "enemyEquipmentDrops": false,
+    "normalMaterialDropByRealPartySize": {
+      "1": [
+        4,
+        6
+      ],
+      "2": [
+        6,
+        8
+      ],
+      "3": [
+        8,
+        10
+      ],
+      "4": [
+        10,
+        12
+      ]
+    },
+    "soulfireCoreDeterministic": true,
+    "lateForestAndLaterGearHorizontal": true
+  },
+  "catalogueSummary": {
+    "materials": 20,
+    "armorSets": 4,
+    "armorPieces": 16,
+    "normalRecipes": 32,
+    "soulfireRecipes": 10,
+    "recipes": 42
+  },
+  "balanceRevision": "2026-08-10-horizontal-crafting-balance"
+}

@@ -1,4 +1,5 @@
 import { ACCOUNT_KEY, SLOT_KEYS, SCHEMA_VERSION, MAX_PERSISTED_COMBAT_LOG_ENTRIES } from './constants.js';
+import { compactEncounterHistory, compactRegionSummaries, compactRegionBaselines, normalizeCraftingLedger, normalizeCampaignHistory } from './storage-efficiency.js';
 
 const CORE_STATS = ['STR','DEX','CON','INT','FTH','CHA','LCK'];
 
@@ -146,7 +147,8 @@ export function normalizeAccountSave(value) {
     },
     settings: {
       ...settings,
-      combatSpeed: Math.min(2, Math.max(0.1, combatSpeed)),
+      combatSpeed: Math.min(4, Math.max(0.1, combatSpeed)),
+      autoEndTurn: typeof settings.autoEndTurn === 'boolean' ? settings.autoEndTurn : true,
       reducedMotion: boolean(settings.reducedMotion),
       combatNumbers: typeof settings.combatNumbers === 'boolean' ? settings.combatNumbers : true,
       screenFlash
@@ -239,7 +241,7 @@ function normalizeRunState(value) {
   run.expedition = {
     ...expedition,
     cards: Array.isArray(expedition.cards) ? expedition.cards.filter(isRecord) : [],
-    history: Array.isArray(expedition.history) ? expedition.history.filter(isRecord) : [],
+    history: compactEncounterHistory(expedition.history),
     usedEventIds: stringList(expedition.usedEventIds),
     shownTrainerIds: stringList(expedition.shownTrainerIds),
     encounter: isRecord(expedition.encounter) ? expedition.encounter : null,
@@ -257,7 +259,9 @@ function normalizeRunState(value) {
     consumables: record(run.inventory?.consumables),
     materials: record(run.inventory?.materials)
   };
-  run.crafting = { ...record(run.crafting), crafted: Array.isArray(run.crafting?.crafted) ? run.crafting.crafted : [], equippedHistory: stringList(run.crafting?.equippedHistory) };
+  run.crafting = { ...normalizeCraftingLedger(run.crafting), equippedHistory: stringList(run.crafting?.equippedHistory) };
+  run.regionSummaries = compactRegionSummaries(run.regionSummaries);
+  run.regionBaselines = compactRegionBaselines(run.regionBaselines);
   run.consumptionLedger = { ...record(run.consumptionLedger), consumables: record(run.consumptionLedger?.consumables) };
   run.combat = normalizeCombatState(run.combat);
   return run;
@@ -317,9 +321,8 @@ export function normalizeSlotSave(value) {
     tavernServices: record(value.tavernServices),
     lender: { ...record(value.lender), collection: stringList(value.lender?.collection), selectedItemId: typeof value.lender?.selectedItemId === 'string' ? value.lender.selectedItemId : null },
     history: {
-      ...record(value.history),
-      returnedAliveItems: stringList(value.history?.returnedAliveItems),
-      campaigns: Array.isArray(value.history?.campaigns) ? value.history.campaigns.filter(isRecord) : []
+      ...normalizeCampaignHistory(value.history),
+      returnedAliveItems: stringList(value.history?.returnedAliveItems)
     }
   };
 }
@@ -347,7 +350,7 @@ export function createFreshAccount() {
     currencies: { onyx: 0 },
     history: { settledCampaignIds: [] },
     records: { bossesDefeated: 0, minibossesDefeated: 0, trainersEncountered: [], trainersFought: [], trainersLearnedFrom: [], notableCombat: {}, forestAccomplishments: { campaignsSettled: 0, highestDepth: 0, battlesWon: 0, successfulChecks: 0, craftedItems: 0, trainerEncounters: 0, ordinaryMaterialsCollected: 0, minibossesDefeated: 0, bossesDefeated: 0, forestsCleared: 0 } },
-    settings: { combatSpeed: 1, reducedMotion: false, combatNumbers: true, screenFlash: 'standard' },
+    settings: { combatSpeed: 1, autoEndTurn: true, reducedMotion: false, combatNumbers: true, screenFlash: 'standard' },
     tutorials: { starter: { resolved: false, resolution: null, rewardGranted: false, raceChoiceGranted: false, resolvedAt: null }, statuses: {}, tokenWallet: { keptImpression3OrLess: 0, raceChoice: 0 }, contextualSeen: [] }
   };
 }

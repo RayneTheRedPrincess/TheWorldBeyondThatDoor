@@ -1,3 +1,5 @@
+import { legacyEquipmentId, LEGACY_MODIFIER_NAME, LEGACY_STAT_MULTIPLIER } from './legacy-lender.js';
+import { appendCraftRecord } from './storage-efficiency.js';
 function clone(v){return typeof structuredClone==='function'?structuredClone(v):JSON.parse(JSON.stringify(v));}
 function n(v){const x=Number(v);return Number.isFinite(x)?x:0;}
 function recipeIndex(crafting){return new Map((crafting?.recipes||[]).map(x=>[x.id,x]));}
@@ -7,9 +9,9 @@ function consumableIndex(catalog){return new Map((catalog?.consumables||[]).map(
 export function starterGearForBaseClass(baseClass,crafting){const shared=[...(crafting?.starterGear?.shared||[])];const own=[...(crafting?.starterGear?.byBaseClass?.[baseClass]||[])];return [...new Set([...shared,...own])];}
 export function initializeCampaignCraftingInventory(baseClass,crafting,{borrowedItem=null}={}){
  const ids=starterGearForBaseClass(baseClass,crafting);const equipment={};for(const id of ids)equipment[id]={quantity:1,source:'starter'};
- const borrowedId=typeof borrowedItem==='string'?borrowedItem:borrowedItem?.id||borrowedItem?.itemId||null;if(borrowedId)equipment[borrowedId]={quantity:1,source:'lender'};
+ const borrowedBaseId=typeof borrowedItem==='string'?borrowedItem:borrowedItem?.baseItemId||borrowedItem?.id||borrowedItem?.itemId||null;const borrowedId=borrowedBaseId?legacyEquipmentId(borrowedBaseId):null;if(borrowedId)equipment[borrowedId]={quantity:1,source:'lender',modifier:LEGACY_MODIFIER_NAME,statMultiplier:LEGACY_STAT_MULTIPLIER,baseItemId:borrowedBaseId};
  const initialEquipment={};for(const id of ids){if(id.includes('starter-wayfarer-vest'))initialEquipment.chest=id;else initialEquipment.mainHand=id;}
- return {equipment,initialEquipment,equippedHistory:[...ids]};
+ return {equipment,initialEquipment,equippedHistory:[...ids],legacyLenderItemId:borrowedId};
 }
 function threadedDiscount(run,ingredient,crafting){const threaded=run?.keptImpressions?.materialThread?.threadedMaterialId;if(threaded!==ingredient.materialId)return 0;const kind=materialIndex(crafting).get(ingredient.materialId)?.kind;return (crafting?.rules?.materialThreadEligibleKinds||[]).includes(kind)?1:0;}
 export function recipeEffectiveIngredients(run,recipe,crafting){return (recipe?.ingredients||[]).map(ing=>{const discount=threadedDiscount(run,ing,crafting);return {...ing,baseQuantity:n(ing.quantity),discount,quantity:Math.max(1,n(ing.quantity)-discount)};});}
@@ -29,7 +31,7 @@ export function craftAtCampsite(slot,{recipeId,crafting,catalog}={}){
    const item=consumableIndex(catalog).get(output.id);if(!item)return {ok:false,error:'Crafted consumable definition is missing.'};const entry=run.inventory.consumables[output.id]||{quantity:0};entry.quantity=n(entry.quantity)+Math.max(1,n(output.quantity)||1);entry.source='crafted';run.inventory.consumables[output.id]=entry;
  } else return {ok:false,error:'Unsupported crafting output type.'};
  const usedThreaded=check.ingredients.some(x=>x.discount>0);if(usedThreaded&&run.keptImpressions?.materialThread)run.keptImpressions.materialThread.threadedMaterialId=null;
- run.crafting=run.crafting||{crafted:[],equippedHistory:[]};run.crafting.crafted=Array.isArray(run.crafting.crafted)?run.crafting.crafted:[];run.crafting.crafted.push({recipeId:recipe.id,output:clone(output),at:new Date().toISOString()});
+ run.crafting=appendCraftRecord(run.crafting||{crafted:[],craftedCount:0,equippedHistory:[]},{recipeId:recipe.id,output:clone(output),at:new Date().toISOString()});
  return {ok:true,slot:next,recipe:clone(recipe),ingredients:clone(check.ingredients),usedThreadedMaterial:usedThreaded};
 }
 export function listCraftingRecipes(run,crafting,catalog,{onlyCraftable=false,sortStat=null,direction='desc',query='',slot='all',itemType='all',subtype='all',weaponType='all',armorWeight='all'}={}){

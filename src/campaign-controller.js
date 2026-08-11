@@ -3,8 +3,10 @@ import { CORE_STATS, getStartingStatPool, normalizeStartingStats, totalStartingS
 import { createForestExpedition } from './expedition-controller.js';
 import { awardExpToCharacter, allocateRunStat, combinedCharacterStats, emptyStats, expToNextLevel } from './character-progression.js';
 import { initializeCampaignCraftingInventory } from './crafting-controller.js';
-import { forcedTrainerIdsForActiveQuest, settleMaraQuest, lenderCandidatesFromRun, summarizeRunAccomplishments, awardRecruitments, recordForestAccomplishments, recordBogAccomplishments, awardRegionalRaceUnlocks, clearMaraQuestAfterCampaign } from './tavern-services-controller.js';
+import { forcedTrainerIdsForActiveQuest, settleMaraQuest, lenderCandidatesFromRun, summarizeRunAccomplishments, awardRecruitments, recordForestAccomplishments, recordBogAccomplishments, recordTowerAccomplishments, recordPlainsAccomplishments, recordHellAccomplishments, recordDragonAccomplishments, recordNecropolisAccomplishments, recordFinalRegionAccomplishments, awardRegionalRaceUnlocks, clearMaraQuestAfterCampaign } from './tavern-services-controller.js';
 import { setProgressionFeature, PROGRESSION_FEATURES } from './progression-features.js';
+import { hasCompleteRacialConfiguration, validateRacialConfiguration } from './racial-configuration.js';
+import { appendCampaignHistory } from './storage-efficiency.js';
 
 const NORMAL_CHRONICLE_PROGRESS_PER_RANK = 100;
 const NORMAL_CHRONICLE_MAX_RANK = 30;
@@ -42,6 +44,7 @@ export function canStartCampaign(slot) {
   if (!slot?.character) return { ok: false, reason: 'A bound Vessel is required.' };
   if (slot?.campaign?.settlement) return { ok: false, reason: 'Finish the campaign results first.' };
   if (slot?.campaign?.active) return { ok: false, reason: 'This Vessel already has an active campaign.' };
+  if(!hasCompleteRacialConfiguration(slot.character.race,slot.character.racialConfiguration)) return { ok:false, reason:'Choose this Vessel’s racial configuration in the Tavern before opening the Door.' };
   const storedPool = Number(slot.character.startingStatPool || 0);
   const pool = Number.isInteger(storedPool) && storedPool > 0 ? storedPool : getStartingStatPool(slot.character.race);
   const total = totalStartingStats(slot.character.startingStats || {});
@@ -49,9 +52,10 @@ export function canStartCampaign(slot) {
   return { ok: true, reason: '' };
 }
 
-export function startCampaign(slot, { account = null, chronicleTrees = null, regionsData = null, forestEvents = null, forestTrainers = null, tavernAdventurers = null, progression = null, equipmentConsumablesStatus = null, forestCrafting = null, expeditionRng = Math.random, now = nowIso() } = {}) {
+export function startCampaign(slot, { account = null, chronicleTrees = null, regionsData = null, forestEvents = null, forestTrainers = null, tavernAdventurers = null, progression = null, equipmentConsumablesStatus = null, forestCrafting = null, racialConfigurations = null, expeditionRng = Math.random, now = nowIso() } = {}) {
   const readiness = canStartCampaign(slot);
   if (!readiness.ok) return { ok: false, error: readiness.reason };
+  const fullRacialValidation=validateRacialConfiguration(slot.character.race,slot.character.racialConfiguration,racialConfigurations);if(racialConfigurations&&!fullRacialValidation.ok)return {ok:false,error:fullRacialValidation.errors[0]};
   const next = clone(slot);
   const classless = isClasslessEquipped(next);
   const baseClass = next.character.baseClass;
@@ -81,6 +85,7 @@ export function startCampaign(slot, { account = null, chronicleTrees = null, reg
     },
     configuration: {
       race: next.character.race,
+      racialConfiguration: clone(fullRacialValidation.value ?? next.character.racialConfiguration ?? null),
       portraitId: next.character.appearance?.portraitId||null,
       portraitAsset: next.character.appearance?.portraitAsset||null,
       portraitSystemId: next.character.appearance?.portraitSystemId||null,
@@ -107,7 +112,7 @@ export function startCampaign(slot, { account = null, chronicleTrees = null, reg
       rng: expeditionRng
     }),
     inventory: { equipment: clone(starter.equipment || {}), consumables: clone(next.inventory?.consumables || {}), materials: {} },
-    crafting: { crafted: [], equippedHistory: clone(starter.equippedHistory || []), campaignOnlyEquipment: true },
+    crafting: { crafted: [], craftedCount: 0, equippedHistory: clone(starter.equippedHistory || []), campaignOnlyEquipment: true },
     consumptionLedger: { consumables: {} },
     consumableRules: { baseEquipCapacity: Number(equipmentConsumablesStatus?.rules?.baseConsumableEquipCapacity || 1), usesPerBattle: Number(equipmentConsumablesStatus?.rules?.usesPerBattle || 1), equipLocation: 'campsite-only' },
     party: [playerMetric, ...selectedAdventurers.map(entry => createPartyMetricEntry({ id: entry.id, name: entry.name, kind: 'tavern-adventurer', real: true }))],
@@ -339,17 +344,29 @@ export function applyCampaignSettlement(slot, account, { tavernServices = null }
     nextAccount.currencies.onyx += settlement.onyx.banked;
     applyProjectedChronicle(nextAccount, settlement);
     nextAccount.history.settledCampaignIds.push(settlement.id);
-    const accomplishments=settlement.accomplishments||{};const forestAccomplishments=accomplishments.regions?.forest||accomplishments;const bogAccomplishments=accomplishments.regions?.['bog-of-lost-souls']||null;
+    const accomplishments=settlement.accomplishments||{};const forestAccomplishments=accomplishments.regions?.forest||accomplishments;const bogAccomplishments=accomplishments.regions?.['bog-of-lost-souls']||null;const towerAccomplishments=accomplishments.regions?.['heavenly-tower']||null;const plainsAccomplishments=accomplishments.regions?.['ruined-vampiric-plains']||null;const hellAccomplishments=accomplishments.regions?.['caverns-to-hell']||null;const dragonAccomplishments=accomplishments.regions?.['that-dragons-dungeon']||null;const necropolisAccomplishments=accomplishments.regions?.necropolis||null;const finalRegionAccomplishments=accomplishments.regions?.['shadow-infused-dark-woods']||null;
     nextAccount=recordForestAccomplishments(nextAccount,forestAccomplishments);
     if(bogAccomplishments)nextAccount=recordBogAccomplishments(nextAccount,bogAccomplishments);
+    if(towerAccomplishments)nextAccount=recordTowerAccomplishments(nextAccount,towerAccomplishments);
+    if(plainsAccomplishments)nextAccount=recordPlainsAccomplishments(nextAccount,plainsAccomplishments);
+    if(hellAccomplishments)nextAccount=recordHellAccomplishments(nextAccount,hellAccomplishments);
+    if(dragonAccomplishments)nextAccount=recordDragonAccomplishments(nextAccount,dragonAccomplishments);
+    if(necropolisAccomplishments)nextAccount=recordNecropolisAccomplishments(nextAccount,necropolisAccomplishments);
+    if(finalRegionAccomplishments)nextAccount=recordFinalRegionAccomplishments(nextAccount,finalRegionAccomplishments);
     nextAccount.history.forestCleared = Boolean(nextAccount.history.forestCleared || forestAccomplishments.forestCleared);
     if (forestAccomplishments.forestCleared && !nextAccount.history.firstForestClearAt) nextAccount.history.firstForestClearAt = settlement.endedAt;
     if(bogAccomplishments?.bogCleared){nextAccount.history.bogCleared=true;if(!nextAccount.history.firstBogClearAt)nextAccount.history.firstBogClearAt=settlement.endedAt;}
+    if(towerAccomplishments?.towerCleared){nextAccount.history.towerCleared=true;if(!nextAccount.history.firstTowerClearAt)nextAccount.history.firstTowerClearAt=settlement.endedAt;}
+    if(plainsAccomplishments?.plainsCleared){nextAccount.history.plainsCleared=true;if(!nextAccount.history.firstPlainsClearAt)nextAccount.history.firstPlainsClearAt=settlement.endedAt;}
+    if(hellAccomplishments?.hellCleared){nextAccount.history.hellCleared=true;if(!nextAccount.history.firstHellClearAt)nextAccount.history.firstHellClearAt=settlement.endedAt;}
+    if(dragonAccomplishments?.dragonCleared){nextAccount.history.dragonCleared=true;if(!nextAccount.history.firstDragonClearAt)nextAccount.history.firstDragonClearAt=settlement.endedAt;}
+    if(necropolisAccomplishments?.necropolisCleared){nextAccount.history.necropolisCleared=true;if(!nextAccount.history.firstNecropolisClearAt)nextAccount.history.firstNecropolisClearAt=settlement.endedAt;}
+    if(finalRegionAccomplishments?.finalRegionCleared){nextAccount.history.finalRegionCleared=true;nextAccount.history.campaignVictory=true;if(!nextAccount.history.firstFinalRegionClearAt)nextAccount.history.firstFinalRegionClearAt=settlement.endedAt;}
     nextAccount.records=nextAccount.records||{};
-    nextAccount.records.bossesDefeated=Number(nextAccount.records.bossesDefeated||0)+(forestAccomplishments.bossDefeated?1:0)+(bogAccomplishments?.bossDefeated?1:0);
-    nextAccount.records.minibossesDefeated=Number(nextAccount.records.minibossesDefeated||0)+(forestAccomplishments.minibossDefeated?1:0)+(bogAccomplishments?.minibossDefeated?1:0);
-    nextAccount.records.trainersEncountered=[...new Set([...(nextAccount.records.trainersEncountered||[]),...(forestAccomplishments.shownTrainerIds||[]),...(bogAccomplishments?.shownTrainerIds||[])])];
-    const decisions={...(forestAccomplishments.trainerDecisions||{}),...(bogAccomplishments?.trainerDecisions||{})}; nextAccount.records.trainersFought=[...new Set([...(nextAccount.records.trainersFought||[]),...Object.keys(decisions).filter(id=>decisions[id]==='fight')])];
+    nextAccount.records.bossesDefeated=Number(nextAccount.records.bossesDefeated||0)+(forestAccomplishments.bossDefeated?1:0)+(bogAccomplishments?.bossDefeated?1:0)+(towerAccomplishments?.bossDefeated?1:0)+(plainsAccomplishments?.bossDefeated?1:0)+(hellAccomplishments?.bossDefeated?1:0)+(dragonAccomplishments?.bossDefeated?1:0)+(necropolisAccomplishments?.bossDefeated?1:0)+(finalRegionAccomplishments?.bossDefeated?1:0);
+    nextAccount.records.minibossesDefeated=Number(nextAccount.records.minibossesDefeated||0)+(forestAccomplishments.minibossDefeated?1:0)+(bogAccomplishments?.minibossDefeated?1:0)+(towerAccomplishments?.minibossDefeated?1:0)+Number(plainsAccomplishments?.minibossesDefeated ?? (plainsAccomplishments?.minibossDefeated?1:0))+(hellAccomplishments?.minibossDefeated?1:0)+((dragonAccomplishments?.hoardSentinelDefeated?1:0)+(dragonAccomplishments?.leviathanDefeated?1:0))+((necropolisAccomplishments?.executionerDefeated?1:0)+(necropolisAccomplishments?.graveColossusDefeated?1:0))+(finalRegionAccomplishments?.minibossDefeated?1:0);
+    nextAccount.records.trainersEncountered=[...new Set([...(nextAccount.records.trainersEncountered||[]),...(forestAccomplishments.shownTrainerIds||[]),...(bogAccomplishments?.shownTrainerIds||[]),...(towerAccomplishments?.shownTrainerIds||[]),...(plainsAccomplishments?.shownTrainerIds||[])])];
+    const decisions={...(forestAccomplishments.trainerDecisions||{}),...(bogAccomplishments?.trainerDecisions||{}),...(towerAccomplishments?.trainerDecisions||{}),...(plainsAccomplishments?.trainerDecisions||{})}; nextAccount.records.trainersFought=[...new Set([...(nextAccount.records.trainersFought||[]),...Object.keys(decisions).filter(id=>decisions[id]==='fight')])];
     nextAccount.records.trainersLearnedFrom=[...new Set([...(nextAccount.records.trainersLearnedFrom||[]),...Object.keys(decisions).filter(id=>decisions[id]==='learn')])];
     const perf=settlement.performance||{}; nextAccount.records.notableCombat=nextAccount.records.notableCombat||{};
     for(const [key,val] of Object.entries(perf)){const old=nextAccount.records.notableCombat[key];if(!old||Number(val?.value||0)>Number(old?.value||0))nextAccount.records.notableCombat[key]=clone(val);}
@@ -382,7 +399,7 @@ export function applyCampaignSettlement(slot, account, { tavernServices = null }
   nextSlot.history.returnedAliveItems=[...nextSlot.lender.collection];
   nextSlot.history.campaigns = Array.isArray(nextSlot.history.campaigns) ? nextSlot.history.campaigns : [];
   if (!nextSlot.history.campaigns.some(entry => entry.id === settlement.id)) {
-    nextSlot.history.campaigns.push({
+    nextSlot.history = appendCampaignHistory(nextSlot.history, {
       id: settlement.id,
       outcome: settlement.outcome,
       startedAt: settlement.startedAt,

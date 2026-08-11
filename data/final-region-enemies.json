@@ -1,0 +1,1132 @@
+{
+  "version": "SHADOW-INFUSED-DARK-WOODS-FOUNDATION-2026-08-10",
+  "rules": {
+    "regionId": "shadow-infused-dark-woods",
+    "depthCount": 3,
+    "depth1": "full-heal-campsite",
+    "cultLeaderDepth": 2,
+    "finalBossDepth": 3,
+    "noRegularEnemies": true,
+    "noRegionalMeter": true,
+    "shadowClonesCopy": [
+      "race",
+      "baseClass",
+      "subclass",
+      "stats"
+    ],
+    "shadowCloneExclusions": [
+      "equipment",
+      "keptImpressions"
+    ],
+    "mirrorFormOrder": [
+      "heartwood-sovereign",
+      "crazed-witch-mira",
+      "bandit-king-jack",
+      "divine-lich",
+      "tenairah",
+      "serevakh-greed",
+      "quentaliaus-devanpierus",
+      "ossuary-king"
+    ],
+    "mirrorFormsHaveOriginalPhases": false,
+    "serevakhMirrorForm": "Greed",
+    "bossMinibossPartyScaling": {
+      "1": {
+        "maxHpMultiplier": 1,
+        "damageMultiplier": 1
+      },
+      "2": {
+        "maxHpMultiplier": 1.55,
+        "damageMultiplier": 1.15
+      },
+      "3": {
+        "maxHpMultiplier": 2.1,
+        "damageMultiplier": 1.3
+      },
+      "4": {
+        "maxHpMultiplier": 2.65,
+        "damageMultiplier": 1.45
+      }
+    }
+  },
+  "cultLeader": {
+    "fixedDepth": 2,
+    "name": "Arch-Hierophant Vaelor Keth",
+    "actors": [
+      {
+        "id": "arch-hierophant-vaelor-keth",
+        "name": "Arch-Hierophant Vaelor Keth",
+        "role": "Final Region · Cult Leader",
+        "baseMaxHp": 820,
+        "maxEnergy": 8,
+        "level": 44,
+        "stats": {
+          "STR": 46,
+          "DEX": 45,
+          "CON": 50,
+          "INT": 64,
+          "FTH": 42,
+          "CHA": 68,
+          "LCK": 29
+        },
+        "basicAttack": {
+          "name": "Mirror-Silver Knife",
+          "base": 26,
+          "damageType": "Physical",
+          "scaling": {
+            "DEX": 0.006,
+            "CHA": 0.003
+          }
+        },
+        "abilities": [
+          {
+            "id": "vaelor-reflected-command",
+            "name": "Reflected Command",
+            "energyCost": 3,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 34,
+                "damageType": "Psychic",
+                "scaling": {
+                  "INT": 0.006,
+                  "CHA": 0.005
+                }
+              }
+            ],
+            "targetEffect": {
+              "id": "vaelor-reflected-command",
+              "negative": true,
+              "durationTurns": 2,
+              "modifiers": {
+                "finalDamagePct": -10,
+                "dodgeChancePct": -10
+              }
+            }
+          },
+          {
+            "id": "vaelor-shadow-procession",
+            "name": "Shadow Procession",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 29,
+                "damageType": "Dark",
+                "scaling": {
+                  "INT": 0.007,
+                  "CHA": 0.004
+                }
+              }
+            ]
+          },
+          {
+            "id": "vaelor-godward-step",
+            "name": "Godward Step",
+            "energyCost": 5,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 72,
+                "scaling": {
+                  "CHA": 0.006,
+                  "INT": 0.003
+                }
+              }
+            ],
+            "selfEffect": {
+              "id": "vaelor-godward-step",
+              "negative": false,
+              "durationTurns": 2,
+              "modifiers": {
+                "finalDamagePct": 12
+              }
+            }
+          },
+          {
+            "id": "vaelor-unfinished-ascension",
+            "name": "Unfinished Ascension",
+            "energyCost": 8,
+            "cooldown": 6,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 43,
+                "damageType": "Force",
+                "scaling": {
+                  "INT": 0.006,
+                  "CHA": 0.006
+                }
+              }
+            ],
+            "targetEffect": {
+              "id": "vaelor-unfinished-ascension",
+              "negative": true,
+              "durationTurns": 2,
+              "modifiers": {
+                "incomingHealingPct": -20
+              }
+            }
+          }
+        ],
+        "ai": {
+          "style": "final-cult-leader",
+          "affinities": [
+            "Physical",
+            "Psychic",
+            "Dark",
+            "Force"
+          ],
+          "chargeBelowEnergy": 8,
+          "chargeTowardHeavyChancePct": 50,
+          "maxEnergySignatureAbilityId": "vaelor-unfinished-ascension"
+        },
+        "materials": [],
+        "expReward": 4200,
+        "onyxReward": 8500,
+        "resistances": {
+          "Psychic": 15,
+          "Dark": 15,
+          "Force": 10
+        },
+        "portrait": null
+      }
+    ]
+  },
+  "boss": {
+    "fixedDepth": 3,
+    "name": "The Broken Mirror",
+    "baseActor": {
+      "id": "broken-mirror",
+      "name": "The Broken Mirror — Shadow Heartwood Sovereign",
+      "role": "Final Boss · Broken Reflection",
+      "baseMaxHp": 900,
+      "maxEnergy": 8,
+      "level": 45,
+      "stats": {
+        "STR": 52,
+        "DEX": 28,
+        "CON": 55,
+        "INT": 34,
+        "FTH": 36,
+        "CHA": 30,
+        "LCK": 18
+      },
+      "basicAttack": {
+        "name": "Shadow Sovereign Bough",
+        "base": 25,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.008,
+          "CON": 0.003
+        }
+      },
+      "abilities": [
+        {
+          "id": "mirror-heartwood-root-judgment",
+          "name": "Reflected Root Judgment",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 33,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.008,
+                "CON": 0.003
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "mirror-root-judged",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "dodgeChancePct": -12
+            }
+          }
+        },
+        {
+          "id": "mirror-heartwood-green-crown",
+          "name": "Reflected Green Crown",
+          "energyCost": 4,
+          "cooldown": 4,
+          "targetMode": "self",
+          "components": [
+            {
+              "type": "shield",
+              "base": 62,
+              "scaling": {
+                "CON": 0.008,
+                "FTH": 0.003
+              }
+            }
+          ]
+        },
+        {
+          "id": "mirror-heartwood-falls",
+          "name": "Reflected Forest Falls",
+          "energyCost": 6,
+          "cooldown": 5,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 29,
+              "damageType": "Force",
+              "scaling": {
+                "STR": 0.005,
+                "INT": 0.005,
+                "FTH": 0.002
+              }
+            }
+          ]
+        }
+      ],
+      "ai": {
+        "style": "broken-mirror",
+        "affinities": [
+          "Physical",
+          "Force"
+        ],
+        "chargeBelowEnergy": 7,
+        "chargeTowardHeavyChancePct": 35
+      },
+      "resistances": {
+        "Physical": 12,
+        "Dark": 10
+      },
+      "materials": [],
+      "expReward": 10000,
+      "onyxReward": 14000,
+      "portrait": null
+    },
+    "forms": [
+      {
+        "id": "heartwood-sovereign",
+        "name": "Shadow Heartwood Sovereign",
+        "maxHpPct": 100,
+        "stats": {
+          "STR": 52,
+          "DEX": 28,
+          "CON": 55,
+          "INT": 34,
+          "FTH": 36,
+          "CHA": 30,
+          "LCK": 18
+        },
+        "resistances": {
+          "Physical": 12,
+          "Dark": 10
+        },
+        "basicAttack": {
+          "name": "Shadow Sovereign Bough",
+          "base": 25,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.008,
+            "CON": 0.003
+          }
+        },
+        "abilities": [
+          {
+            "id": "mirror-heartwood-root-judgment",
+            "name": "Reflected Root Judgment",
+            "energyCost": 3,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 33,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.008,
+                  "CON": 0.003
+                }
+              }
+            ],
+            "targetEffect": {
+              "id": "mirror-root-judged",
+              "negative": true,
+              "durationTurns": 2,
+              "modifiers": {
+                "dodgeChancePct": -12
+              }
+            }
+          },
+          {
+            "id": "mirror-heartwood-green-crown",
+            "name": "Reflected Green Crown",
+            "energyCost": 4,
+            "cooldown": 4,
+            "targetMode": "self",
+            "components": [
+              {
+                "type": "shield",
+                "base": 62,
+                "scaling": {
+                  "CON": 0.008,
+                  "FTH": 0.003
+                }
+              }
+            ]
+          },
+          {
+            "id": "mirror-heartwood-falls",
+            "name": "Reflected Forest Falls",
+            "energyCost": 6,
+            "cooldown": 5,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 29,
+                "damageType": "Force",
+                "scaling": {
+                  "STR": 0.005,
+                  "INT": 0.005,
+                  "FTH": 0.002
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "crazed-witch-mira",
+        "name": "Shadow Crazed Witch Mira",
+        "maxHpPct": 92,
+        "stats": {
+          "STR": 24,
+          "DEX": 42,
+          "CON": 38,
+          "INT": 58,
+          "FTH": 37,
+          "CHA": 44,
+          "LCK": 30
+        },
+        "resistances": {
+          "Poison": 20,
+          "Psychic": 12
+        },
+        "basicAttack": {
+          "name": "Shadow Hex Needle",
+          "base": 23,
+          "damageType": "Poison",
+          "scaling": {
+            "INT": 0.008,
+            "DEX": 0.003
+          }
+        },
+        "abilities": [
+          {
+            "id": "mirror-mira-witchrot",
+            "name": "Reflected Witchrot",
+            "energyCost": 3,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 31,
+                "damageType": "Poison",
+                "scaling": {
+                  "INT": 0.009,
+                  "DEX": 0.002
+                }
+              }
+            ],
+            "targetEffect": {
+              "id": "mirror-witchrot",
+              "negative": true,
+              "durationTurns": 3,
+              "memory": {
+                "statusKind": "Poison",
+                "tickPctMaxHp": 4,
+                "damageType": "Poison",
+                "canCrit": true
+              }
+            }
+          },
+          {
+            "id": "mirror-mira-mad-cackle",
+            "name": "Reflected Mad Cackle",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 27,
+                "damageType": "Psychic",
+                "scaling": {
+                  "INT": 0.008,
+                  "CHA": 0.003
+                }
+              }
+            ],
+            "targetEffect": {
+              "id": "mirror-cackle",
+              "negative": true,
+              "durationTurns": 2,
+              "modifiers": {
+                "finalDamagePct": -10
+              }
+            }
+          },
+          {
+            "id": "mirror-mira-black-bloom",
+            "name": "Reflected Black Bloom",
+            "energyCost": 6,
+            "cooldown": 5,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 35,
+                "damageType": "Dark",
+                "scaling": {
+                  "INT": 0.009,
+                  "FTH": 0.003
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "bandit-king-jack",
+        "name": "Shadow Bandit King Jack",
+        "maxHpPct": 94,
+        "stats": {
+          "STR": 58,
+          "DEX": 51,
+          "CON": 46,
+          "INT": 18,
+          "FTH": 8,
+          "CHA": 45,
+          "LCK": 32
+        },
+        "resistances": {
+          "Physical": 15,
+          "Force": 8
+        },
+        "basicAttack": {
+          "name": "Shadow King’s Cleaver",
+          "base": 26,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.008,
+            "DEX": 0.003
+          }
+        },
+        "abilities": [
+          {
+            "id": "mirror-jack-red-king",
+            "name": "Reflected Red King",
+            "energyCost": 3,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 36,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.009,
+                  "DEX": 0.003
+                }
+              }
+            ],
+            "critChanceBonus": 18
+          },
+          {
+            "id": "mirror-jack-gangbreaker",
+            "name": "Reflected Gangbreaker",
+            "energyCost": 5,
+            "cooldown": 4,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 30,
+                "damageType": "Force",
+                "scaling": {
+                  "STR": 0.008,
+                  "CHA": 0.003
+                }
+              }
+            ]
+          },
+          {
+            "id": "mirror-jack-last-order",
+            "name": "Reflected Last Order",
+            "energyCost": 7,
+            "cooldown": 5,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 52,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.01,
+                  "DEX": 0.003
+                }
+              }
+            ],
+            "critChanceBonus": 20
+          }
+        ]
+      },
+      {
+        "id": "divine-lich",
+        "name": "Shadow Divine Lich",
+        "maxHpPct": 88,
+        "stats": {
+          "STR": 20,
+          "DEX": 32,
+          "CON": 42,
+          "INT": 64,
+          "FTH": 62,
+          "CHA": 48,
+          "LCK": 26
+        },
+        "resistances": {
+          "Holy": 18,
+          "Fire": 10,
+          "Cold": 10,
+          "Psychic": 10
+        },
+        "basicAttack": {
+          "name": "Shadow Sacred Ruin",
+          "base": 24,
+          "damageType": "Holy",
+          "scaling": {
+            "INT": 0.006,
+            "FTH": 0.006
+          }
+        },
+        "abilities": [
+          {
+            "id": "mirror-lich-holy",
+            "name": "Reflected Divine Edict",
+            "energyCost": 3,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 33,
+                "damageType": "Holy",
+                "scaling": {
+                  "INT": 0.006,
+                  "FTH": 0.007
+                }
+              }
+            ]
+          },
+          {
+            "id": "mirror-lich-fire",
+            "name": "Reflected Revelation of Flame",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 28,
+                "damageType": "Fire",
+                "scaling": {
+                  "INT": 0.008,
+                  "FTH": 0.003
+                }
+              }
+            ]
+          },
+          {
+            "id": "mirror-lich-frost",
+            "name": "Reflected Revelation of Frost",
+            "energyCost": 5,
+            "cooldown": 4,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 30,
+                "damageType": "Cold",
+                "scaling": {
+                  "INT": 0.008,
+                  "FTH": 0.003
+                }
+              }
+            ]
+          },
+          {
+            "id": "mirror-lich-mind",
+            "name": "Reflected Revelation of Mind",
+            "energyCost": 6,
+            "cooldown": 4,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 43,
+                "damageType": "Psychic",
+                "scaling": {
+                  "INT": 0.009,
+                  "CHA": 0.003
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "tenairah",
+        "name": "Shadow Tenairah",
+        "maxHpPct": 90,
+        "stats": {
+          "STR": 47,
+          "DEX": 61,
+          "CON": 45,
+          "INT": 56,
+          "FTH": 20,
+          "CHA": 60,
+          "LCK": 31
+        },
+        "resistances": {
+          "Physical": 10,
+          "Force": 12,
+          "Psychic": 12
+        },
+        "basicAttack": {
+          "name": "Shadow Blood Talon",
+          "base": 25,
+          "damageType": "Physical",
+          "scaling": {
+            "DEX": 0.006,
+            "STR": 0.004
+          }
+        },
+        "abilities": [
+          {
+            "id": "mirror-tenairah-bloodline",
+            "name": "Reflected Bloodline Rend",
+            "energyCost": 3,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 34,
+                "damageType": "Physical",
+                "scaling": {
+                  "DEX": 0.006,
+                  "STR": 0.004
+                }
+              }
+            ],
+            "lifestealPct": 15
+          },
+          {
+            "id": "mirror-tenairah-crush",
+            "name": "Reflected Blood Pressure",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 29,
+                "damageType": "Force",
+                "scaling": {
+                  "INT": 0.006,
+                  "CHA": 0.004
+                }
+              }
+            ]
+          },
+          {
+            "id": "mirror-tenairah-command",
+            "name": "Reflected Sovereign Command",
+            "energyCost": 5,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 40,
+                "damageType": "Psychic",
+                "scaling": {
+                  "INT": 0.007,
+                  "CHA": 0.005
+                }
+              }
+            ],
+            "targetEffect": {
+              "id": "mirror-tenairah-command",
+              "negative": true,
+              "durationTurns": 2,
+              "modifiers": {
+                "dodgeChancePct": -12,
+                "finalDamagePct": -8
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "serevakh-greed",
+        "name": "Shadow Serevakh — Greed",
+        "maxHpPct": 96,
+        "stats": {
+          "STR": 48,
+          "DEX": 44,
+          "CON": 50,
+          "INT": 58,
+          "FTH": 24,
+          "CHA": 65,
+          "LCK": 40
+        },
+        "resistances": {
+          "Force": 15,
+          "Psychic": 15
+        },
+        "basicAttack": {
+          "name": "Shadow Gilded Claw",
+          "base": 25,
+          "damageType": "Force",
+          "scaling": {
+            "STR": 0.004,
+            "CHA": 0.006
+          }
+        },
+        "abilities": [
+          {
+            "id": "mirror-greed-tithe",
+            "name": "Reflected Greed Tithe",
+            "energyCost": 3,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 34,
+                "damageType": "Force",
+                "scaling": {
+                  "CHA": 0.007,
+                  "STR": 0.003
+                }
+              }
+            ],
+            "energySteal": 2
+          },
+          {
+            "id": "mirror-greed-claim",
+            "name": "Reflected Golden Claim",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 37,
+                "damageType": "Psychic",
+                "scaling": {
+                  "INT": 0.006,
+                  "CHA": 0.005
+                }
+              }
+            ],
+            "shieldStealPct": 50
+          },
+          {
+            "id": "mirror-greed-everything",
+            "name": "Reflected Everything Is Mine",
+            "energyCost": 6,
+            "cooldown": 5,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 32,
+                "damageType": "Force",
+                "scaling": {
+                  "CHA": 0.007,
+                  "INT": 0.003
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "quentaliaus-devanpierus",
+        "name": "Shadow Quentaliaus Devanpierus",
+        "maxHpPct": 104,
+        "stats": {
+          "STR": 61,
+          "DEX": 42,
+          "CON": 62,
+          "INT": 68,
+          "FTH": 48,
+          "CHA": 52,
+          "LCK": 28
+        },
+        "resistances": {
+          "Fire": 12,
+          "Cold": 12,
+          "Lightning": 12,
+          "Holy": 12,
+          "Psychic": 12,
+          "Force": 12
+        },
+        "basicAttack": {
+          "name": "Shadow Prismatic Fang",
+          "base": 28,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.008,
+            "CON": 0.002
+          }
+        },
+        "abilities": [
+          {
+            "id": "mirror-q-fire",
+            "name": "Reflected Dragonflame: Fire",
+            "energyCost": 3,
+            "cooldown": 2,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 29,
+                "damageType": "Fire",
+                "scaling": {
+                  "INT": 0.006,
+                  "STR": 0.003
+                }
+              }
+            ]
+          },
+          {
+            "id": "mirror-q-cold",
+            "name": "Reflected Dragonflame: Cold",
+            "energyCost": 3,
+            "cooldown": 2,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 29,
+                "damageType": "Cold",
+                "scaling": {
+                  "INT": 0.006,
+                  "CON": 0.003
+                }
+              }
+            ]
+          },
+          {
+            "id": "mirror-q-lightning",
+            "name": "Reflected Dragonflame: Lightning",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 39,
+                "damageType": "Lightning",
+                "scaling": {
+                  "INT": 0.007,
+                  "DEX": 0.003
+                }
+              }
+            ]
+          },
+          {
+            "id": "mirror-q-holy",
+            "name": "Reflected Dragonflame: Holy",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 31,
+                "damageType": "Holy",
+                "scaling": {
+                  "INT": 0.005,
+                  "FTH": 0.005
+                }
+              }
+            ]
+          },
+          {
+            "id": "mirror-q-psychic",
+            "name": "Reflected Dragonflame: Psychic",
+            "energyCost": 5,
+            "cooldown": 4,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 44,
+                "damageType": "Psychic",
+                "scaling": {
+                  "INT": 0.008,
+                  "CHA": 0.003
+                }
+              }
+            ]
+          },
+          {
+            "id": "mirror-q-force",
+            "name": "Reflected Dragonflame: Force",
+            "energyCost": 6,
+            "cooldown": 4,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 35,
+                "damageType": "Force",
+                "scaling": {
+                  "INT": 0.006,
+                  "STR": 0.004
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ossuary-king",
+        "name": "Shadow Ossuary King",
+        "maxHpPct": 108,
+        "stats": {
+          "STR": 66,
+          "DEX": 24,
+          "CON": 68,
+          "INT": 55,
+          "FTH": 10,
+          "CHA": 50,
+          "LCK": 18
+        },
+        "resistances": {
+          "Physical": 15,
+          "Cold": 15,
+          "Force": 15,
+          "Psychic": 15
+        },
+        "basicAttack": {
+          "name": "Shadow Royal Boneblade",
+          "base": 29,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.008,
+            "CON": 0.003
+          }
+        },
+        "abilities": [
+          {
+            "id": "mirror-ossuary-crown-maul",
+            "name": "Reflected Crown Maul",
+            "energyCost": 3,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 38,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.009,
+                  "CON": 0.002
+                }
+              }
+            ]
+          },
+          {
+            "id": "mirror-ossuary-grave-cold",
+            "name": "Reflected Grave Cold",
+            "energyCost": 4,
+            "cooldown": 3,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 31,
+                "damageType": "Cold",
+                "scaling": {
+                  "INT": 0.006,
+                  "CON": 0.003
+                }
+              }
+            ]
+          },
+          {
+            "id": "mirror-ossuary-king-force",
+            "name": "Reflected King’s Weight",
+            "energyCost": 5,
+            "cooldown": 3,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 46,
+                "damageType": "Force",
+                "scaling": {
+                  "STR": 0.007,
+                  "CHA": 0.004
+                }
+              }
+            ]
+          },
+          {
+            "id": "mirror-ossuary-soul",
+            "name": "Reflected King-Soul",
+            "energyCost": 6,
+            "cooldown": 4,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 36,
+                "damageType": "Psychic",
+                "scaling": {
+                  "INT": 0.007,
+                  "CHA": 0.004
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "shadowCloneRules": {
+      "mirrorProtectedUntilAllClonesDefeated": true,
+      "copyRace": true,
+      "copyBaseClass": true,
+      "copySubclass": true,
+      "copyFinalCoreStats": true,
+      "copyEquipment": false,
+      "copyKeptImpressions": false,
+      "copyEquipmentPassives": false,
+      "copyKeptPassives": false
+    }
+  },
+  "balanceRevision": "2026-08-10-enemy-difficulty-balance"
+}

@@ -11,7 +11,7 @@ export function renderCampaignPreparation({ summary, keptEntries }) {
       <h2>Campaign Preparation</h2>
       <p class="muted">${escapeHtml(summary.vesselName)} can approach the world beyond now. A Mantle and the Chronicle of Paths are not required to begin a campaign.</p>
       <div class="identity-grid section">
-        <div><span>Race</span><strong>${escapeHtml(summary.race)}</strong></div>
+        <div><span>Race</span><strong>${escapeHtml(summary.race)}</strong><small>${escapeHtml(summary.racialConfigurationSummary||'Fixed racial features')}</small></div>
         <div><span>Path</span><strong>${summary.classless ? 'Classless' : escapeHtml(summary.effectiveBaseClass || 'None')}</strong></div>
         <div><span>Subclass</span><strong>${summary.classless ? 'Suppressed by Classless' : escapeHtml(summary.effectiveSubclass || 'None')}</strong></div>
         <div><span>Kept Capacity</span><strong>${used} / ${KEPT_IMPRESSION_CAPACITY}</strong></div>

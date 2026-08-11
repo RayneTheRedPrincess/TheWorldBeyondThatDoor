@@ -1,4 +1,5 @@
 import { getStartingStatPool, normalizeStartingStats, validateStartingStats } from './starting-stats.js';
+import { validateRacialConfiguration } from './racial-configuration.js';
 
 const NAME_MAX = 24;
 
@@ -6,7 +7,7 @@ export function normalizeVesselName(value) {
   return String(value ?? '').trim().replace(/\s+/g, ' ');
 }
 
-export function validateVesselDraft(draft, { unlockedRaces, baseClasses }) {
+export function validateVesselDraft(draft, { unlockedRaces, baseClasses, racialConfigurations = null }) {
   const name = normalizeVesselName(draft.name);
   const race = String(draft.race || '');
   const baseClass = String(draft.baseClass || '');
@@ -20,11 +21,13 @@ export function validateVesselDraft(draft, { unlockedRaces, baseClasses }) {
   const startingStatPool = getStartingStatPool(race);
   const statValidation = validateStartingStats(draft.startingStats || {}, startingStatPool);
   errors.push(...statValidation.errors);
+  const racialValidation = validateRacialConfiguration(race, draft.racialConfiguration, racialConfigurations);
+  errors.push(...racialValidation.errors);
 
-  return { ok: errors.length === 0, errors, value: { name, race, baseClass, startingStatPool, startingStats: statValidation.stats } };
+  return { ok: errors.length === 0, errors, value: { name, race, baseClass, startingStatPool, startingStats: statValidation.stats, racialConfiguration: racialValidation.value } };
 }
 
-export function createVesselSlotState({ name, race, baseClass, startingStatPool = getStartingStatPool(race), startingStats = {} }, now = new Date().toISOString()) {
+export function createVesselSlotState({ name, race, baseClass, startingStatPool = getStartingStatPool(race), startingStats = {}, racialConfiguration = null }, now = new Date().toISOString()) {
   return {
     createdAt: now,
     character: {
@@ -35,7 +38,8 @@ export function createVesselSlotState({ name, race, baseClass, startingStatPool 
       createdAt: now,
       appearance: {},
       startingStatPool,
-      startingStats: normalizeStartingStats(startingStats)
+      startingStats: normalizeStartingStats(startingStats),
+      racialConfiguration: racialConfiguration ? JSON.parse(JSON.stringify(racialConfiguration)) : null
     },
     loadout: {
       keptImpressions: [],
@@ -58,7 +62,8 @@ export function createVesselSlotState({ name, race, baseClass, startingStatPool 
     lender: { collection: [], selectedItemId: null },
     history: {
       returnedAliveItems: [],
-      campaigns: []
+      campaigns: [],
+      campaignStats: { total: 0, victories: 0, defeats: 0 }
     }
   };
 }

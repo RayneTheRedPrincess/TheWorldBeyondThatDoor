@@ -1,0 +1,311 @@
+{
+  "schemaVersion": "1.0.0",
+  "rules": {
+    "configurationLocation": "Tavern only",
+    "lockedDuringActiveCampaign": true,
+    "snapshotAtCampaignStart": true,
+    "newVesselRequiresExplicitChoice": true,
+    "legacyConfigurableVesselRequiresChoiceBeforeCampaign": true,
+    "dragonbloodedChoiceIsSeparate": true
+  },
+  "damageTypeOptions": [
+    "Physical",
+    "Fire",
+    "Cold",
+    "Lightning",
+    "Poison",
+    "Force",
+    "Dark",
+    "Holy",
+    "Psychic"
+  ],
+  "races": {
+    "Rhazekai": {
+      "type": "single",
+      "key": "organ",
+      "label": "Draconic Organ",
+      "help": "Choose exactly one Draconic Organ. It grants its resistance and racial combat action for the next campaign.",
+      "options": [
+        {
+          "id": "furnace-lung",
+          "label": "Furnace Lung",
+          "element": "Fire",
+          "summary": "+10% Fire Resistance · Furnace Breath: 11 Base Fire damage to one enemy; 1 Burn for 2 turns."
+        },
+        {
+          "id": "rime",
+          "label": "Rime",
+          "element": "Cold",
+          "summary": "+10% Cold Resistance · Rime Exhalation: 8 Base Cold damage to all living enemies; damaged targets are Slowed 1 turn."
+        },
+        {
+          "id": "storm",
+          "label": "Storm",
+          "element": "Lightning",
+          "summary": "+10% Lightning Resistance · Forked Storm: 8 Base Lightning damage to up to two different enemies."
+        },
+        {
+          "id": "venom",
+          "label": "Venom",
+          "element": "Poison",
+          "summary": "+10% Poison Resistance · Venom Jet: 7 Base Poison damage; 2 Poison stacks for 3 turns."
+        },
+        {
+          "id": "resonance",
+          "label": "Resonance",
+          "element": "Force",
+          "summary": "+10% Force Resistance · Resonant Burst: 11 Base Force damage; cannot be Blocked."
+        },
+        {
+          "id": "radiant-crucible",
+          "label": "Radiant Crucible",
+          "element": "Holy",
+          "summary": "+5% Holy Resistance and Crucible Ray at 50% normal racial damage by default. If KI-267 Dragonblooded is equipped and bound to Holy, Radiant Crucible awakens to +10% racial Holy Resistance and full 9 Base Holy Crucible Ray damage before Dragonblooded’s own bonuses; the Ray heals the lowest-HP real ally for 40% of actual HP removed."
+        }
+      ]
+    },
+    "Veyssryn": {
+      "type": "core-triad",
+      "label": "SoulFire Cores",
+      "help": "Choose one Main Core at 1.5× benefit and exactly two different Auxiliary Cores at 0.5× benefit. All three Core types must be different.",
+      "coreOptions": [
+        {
+          "id": "iron",
+          "label": "Iron",
+          "summary": "+5 pp Block Chance; +5 pp Blocked Damage Reduction."
+        },
+        {
+          "id": "quick",
+          "label": "Quick",
+          "summary": "+2 Initiative; +3 pp Dodge Chance."
+        },
+        {
+          "id": "ember",
+          "label": "Ember",
+          "summary": "+4 pp Damage Crit Chance; +8 pp Critical Damage."
+        },
+        {
+          "id": "mender",
+          "label": "Mender",
+          "summary": "+10% Incoming Healing; +10% campsite HP recovery."
+        },
+        {
+          "id": "arc",
+          "label": "Arc",
+          "summary": "+8% Energy Gain; first Energy Gain calculation each combat gets +12 additional percentage points."
+        },
+        {
+          "id": "ward",
+          "label": "Ward",
+          "requiresDamageType": true,
+          "summary": "Choose a damage type; +12% Resistance to it."
+        },
+        {
+          "id": "pulse",
+          "label": "Pulse",
+          "summary": "+8% Outgoing Healing; +8% Shield strength generated."
+        },
+        {
+          "id": "anchor",
+          "label": "Anchor",
+          "summary": "+8% Maximum HP; +6% Physical Resistance."
+        },
+        {
+          "id": "prism",
+          "label": "Prism",
+          "requiresDamageType": true,
+          "summary": "Choose a damage type; +8% damage and +4 pp Damage Crit Chance with that type."
+        },
+        {
+          "id": "echo",
+          "label": "Echo",
+          "summary": "A cooldown ability used again after its cooldown fully expires gains +10% final damage, healing, or Shield strength."
+        }
+      ]
+    },
+    "Faervani": {
+      "type": "single",
+      "key": "instinct",
+      "label": "Instinct",
+      "help": "Choose exactly one Faervani Instinct for the next campaign.",
+      "options": [
+        {
+          "id": "hunter",
+          "label": "Hunter",
+          "summary": "+12 pp Crit Chance vs enemies below 50% HP; +15% Physical damage against your most recently damaged enemy."
+        },
+        {
+          "id": "flight",
+          "label": "Flight",
+          "summary": "+12 pp Dodge Chance; below 40% HP gain +6 Initiative until healed above 40%."
+        },
+        {
+          "id": "pack",
+          "label": "Pack",
+          "summary": "Direct healing/Shields to another real ally +12%; ally hits can grant +10% final damage against that target."
+        },
+        {
+          "id": "territorial",
+          "label": "Territorial",
+          "summary": "While position has not changed since the previous turn: +15 pp Block Chance and +15 pp Blocked Damage Reduction."
+        },
+        {
+          "id": "endurance",
+          "label": "Endurance",
+          "summary": "+21% Maximum HP; numerical Exhaustion penalties are 25% weaker."
+        }
+      ]
+    },
+    "Kyravari": {
+      "type": "single",
+      "key": "crest",
+      "label": "Crest Pattern",
+      "help": "Choose exactly one Crest Pattern for the next campaign.",
+      "options": [
+        {
+          "id": "spear",
+          "label": "Spear",
+          "summary": "Against an enemy that has not acted: +15% Physical damage and +12 pp Crit Chance."
+        },
+        {
+          "id": "fan",
+          "label": "Fan",
+          "summary": "+12 pp Dodge Chance; successful Dodge gives +3 Initiative on your next turn."
+        },
+        {
+          "id": "hook",
+          "label": "Hook",
+          "summary": "Against enemies below 50% HP: +15 pp Crit Chance and +24 pp Critical Damage."
+        },
+        {
+          "id": "split",
+          "label": "Split",
+          "summary": "+15 pp Dodge Chance against the first direct enemy attack each round."
+        },
+        {
+          "id": "crown",
+          "label": "Crown",
+          "summary": "After a Crit, +18% Physical damage until the end of your next turn."
+        },
+        {
+          "id": "flock",
+          "label": "Flock",
+          "summary": "If another real ally damaged the target this round: +18% Physical damage and +9 pp Crit Chance."
+        }
+      ]
+    },
+    "Rifthari": {
+      "type": "single",
+      "key": "manifestation",
+      "label": "Manifestation",
+      "help": "Choose exactly one Manifestation for the next campaign.",
+      "options": [
+        {
+          "id": "ember",
+          "label": "Ember",
+          "element": "Fire",
+          "summary": "+15% Fire Resistance; +12% Fire damage; first Fire hit can strengthen Burn."
+        },
+        {
+          "id": "rime",
+          "label": "Rime",
+          "element": "Cold",
+          "summary": "+15% Cold Resistance; +12% Cold damage; +10 pp Crit Chance vs Slowed enemies."
+        },
+        {
+          "id": "storm",
+          "label": "Storm",
+          "element": "Lightning",
+          "summary": "+15% Lightning Resistance; +12% Lightning damage; first Energy spend grants +1 Initiative."
+        },
+        {
+          "id": "stone",
+          "label": "Stone",
+          "element": "Physical",
+          "summary": "+12% Physical Resistance; +10% Maximum HP; reduced displacement."
+        },
+        {
+          "id": "venom",
+          "label": "Venom",
+          "element": "Poison",
+          "summary": "+15% Poison Resistance; +15% Poison damage; once per enemy/combat Poison lasts +1 turn."
+        },
+        {
+          "id": "distortion",
+          "label": "Distortion",
+          "element": "Force",
+          "summary": "+15% Force Resistance; +12% Force damage; once/combat after being hit gain +12 pp Dodge until next turn end."
+        }
+      ]
+    },
+    "Demon": {
+      "type": "paired",
+      "label": "Origin + Vice",
+      "help": "Choose exactly one Origin and one Vice. The pair is locked for the active campaign.",
+      "groups": [
+        {
+          "key": "origin",
+          "label": "Origin",
+          "options": [
+            {
+              "id": "obsession",
+              "label": "Obsession",
+              "summary": "Consecutive turns against the same target gain +8% damage per turn, up to +24%; switching resets."
+            },
+            {
+              "id": "acquisition",
+              "label": "Acquisition",
+              "summary": "First eligible enemy buff each combat is copied at 50% numerical strength for the same remaining duration."
+            },
+            {
+              "id": "stagnation",
+              "label": "Stagnation",
+              "summary": "Once/combat reduce one negative numerical effect by 50% and its duration by 1; below 50% HP gain +10 pp Blocked Damage Reduction."
+            }
+          ]
+        },
+        {
+          "key": "vice",
+          "label": "Vice",
+          "options": [
+            {
+              "id": "pride",
+              "label": "Pride",
+              "summary": "Above 75% HP: +15 pp Crit Chance and +15 pp Critical Damage; after receiving a Crit, +20% damage vs that attacker until next turn end."
+            },
+            {
+              "id": "greed",
+              "label": "Greed",
+              "summary": "Resource-focused Vice interactions; never creates bonus Onyx."
+            },
+            {
+              "id": "lust",
+              "label": "Lust",
+              "summary": "Nonsexual fixation: Fixate one target for 2 turns; +12 pp Dodge vs it and +12% damage to it."
+            },
+            {
+              "id": "envy",
+              "label": "Envy",
+              "summary": "Once/combat copy 75% of one eligible numerical buff for 2 turns."
+            },
+            {
+              "id": "gluttony",
+              "label": "Gluttony",
+              "summary": "50% of overhealing becomes Shield; +15% Lifesteal effectiveness."
+            },
+            {
+              "id": "wrath",
+              "label": "Wrath",
+              "summary": "For each 20% Maximum HP missing, +9% damage, up to +36%."
+            },
+            {
+              "id": "sloth",
+              "label": "Sloth",
+              "summary": "A no-damage turn builds Inertia (max 3): each stack +8 pp Block/+8 pp Blocked Damage Reduction; next damage consumes stacks for +15% damage each."
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

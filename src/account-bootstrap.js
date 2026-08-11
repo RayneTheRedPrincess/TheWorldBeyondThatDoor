@@ -15,7 +15,7 @@ export function applyAccountBootstrap(account, policy) {
   const tokenWallet = tutorials.tokenWallet && typeof tutorials.tokenWallet === 'object' ? { ...tutorials.tokenWallet } : {};
 
   // Bootstrap v5 retroactively grants the new one-time account Race Choice token to
-  // accounts that had already resolved the starter onboarding under Phase 10.
+  // accounts that had already resolved the starter onboarding in an earlier build.
   if (targetBootstrapVersion >= 5 && priorBootstrapVersion < 5 && starter.resolved && starter.rewardGranted) {
     tokenWallet.raceChoice = 1;
     starter.raceChoiceGranted = true;

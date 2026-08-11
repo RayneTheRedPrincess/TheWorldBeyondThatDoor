@@ -1,0 +1,2906 @@
+{
+  "version": "NECROPOLIS-EVENTS-2026-08-10",
+  "designStatus": "implemented",
+  "events": [
+    {
+      "id": "necro-intro-001",
+      "kind": "cult-sign",
+      "label": "Fresh Footprints Among the Dead",
+      "description": "Living bootprints cut through a procession of skeleton tracks. The cult is only a little ahead.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "DEX",
+        "dc": 20
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 260,
+          "necropolisCultTrail": 1
+        },
+        "failure": {
+          "hpLossPct": 3
+        }
+      }
+    },
+    {
+      "id": "necro-intro-002",
+      "kind": "mirror-glimpse",
+      "label": "A Reflection at the Far Gate",
+      "description": "For one instant the cult leader lifts the Mirror in a distant archway. The reflection shows a crown that is not yet on his head.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "INT",
+        "dc": 20
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 300,
+          "necropolisMirrorGlimpse": 1
+        },
+        "failure": {
+          "hpLossPct": 4,
+          "necropolisMirrorGlimpse": 1
+        }
+      }
+    },
+    {
+      "id": "necro-intro-003",
+      "kind": "combat",
+      "label": "The First Dead Procession",
+      "description": "Weak skeletons and zombies stumble across the road while living robed figures disappear deeper into the city.",
+      "combat": true,
+      "combatProfile": "fodder",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1
+    },
+    {
+      "id": "necro-t1-01",
+      "kind": "discovery",
+      "label": "Cracked Gate Procession",
+      "description": "Cracked Gate Procession interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "CON",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 376
+        },
+        "failure": {
+          "hpLossPct": 3
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t1-02",
+      "kind": "tomb",
+      "label": "Rusted Bell Crypt",
+      "description": "Rusted Bell Crypt interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "INT",
+        "dc": 23
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 382
+        },
+        "failure": {
+          "hpLossPct": 3
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t1-03",
+      "kind": "combat",
+      "label": "Three Empty Coffins",
+      "description": "Three Empty Coffins interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "fodder"
+    },
+    {
+      "id": "necro-t1-04",
+      "kind": "discovery",
+      "label": "Black Wax Trail",
+      "description": "Black Wax Trail interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "CHA",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 394
+        },
+        "failure": {
+          "hpLossPct": 3
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t1-05",
+      "kind": "tomb",
+      "label": "Collapsed Family Tomb",
+      "description": "Collapsed Family Tomb interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "LCK",
+        "dc": 23
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 400
+        },
+        "failure": {
+          "hpLossPct": 3
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t1-06",
+      "kind": "discovery",
+      "label": "Bone Cart Crossing",
+      "description": "Bone Cart Crossing interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "STR",
+        "dc": 21
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 406,
+          "materialId": "brittle-bone",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 3
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t1-07",
+      "kind": "combat",
+      "label": "Shroud Alley",
+      "description": "Shroud Alley interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "fodder"
+    },
+    {
+      "id": "necro-t1-08",
+      "kind": "cult-sign",
+      "label": "Fresh Cult Chalk",
+      "description": "Fresh Cult Chalk interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "CON",
+        "dc": 23
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 418,
+          "necropolisCultTrail": 1
+        },
+        "failure": {
+          "hpLossPct": 3
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t1-09",
+      "kind": "discovery",
+      "label": "Unlit Funeral Lamps",
+      "description": "Unlit Funeral Lamps interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "INT",
+        "dc": 21
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 424
+        },
+        "failure": {
+          "hpLossPct": 3
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t1-10",
+      "kind": "discovery",
+      "label": "Grave Dust Courtyard",
+      "description": "Grave Dust Courtyard interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "FTH",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 430
+        },
+        "failure": {
+          "hpLossPct": 3
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t1-11",
+      "kind": "combat",
+      "label": "Skeleton Choir Without a Conductor",
+      "description": "Skeleton Choir Without a Conductor interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "fodder"
+    },
+    {
+      "id": "necro-t1-12",
+      "kind": "discovery",
+      "label": "Zombie Procession",
+      "description": "Zombie Procession interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "LCK",
+        "dc": 21
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 442,
+          "materialId": "brittle-bone",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 3
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t1-13",
+      "kind": "discovery",
+      "label": "Sealed Mourning Room",
+      "description": "Sealed Mourning Room interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "STR",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 448
+        },
+        "failure": {
+          "hpLossPct": 3
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t1-14",
+      "kind": "discovery",
+      "label": "Broken Gravebow Nest",
+      "description": "Broken Gravebow Nest interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "DEX",
+        "dc": 23
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 454
+        },
+        "failure": {
+          "hpLossPct": 3
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t1-15",
+      "kind": "combat",
+      "label": "Cold Stone Well",
+      "description": "Cold Stone Well interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "fodder"
+    },
+    {
+      "id": "necro-t1-16",
+      "kind": "cult-sign",
+      "label": "Cult Footprints",
+      "description": "Cult Footprints interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "INT",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 466,
+          "necropolisCultTrail": 1
+        },
+        "failure": {
+          "hpLossPct": 3
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t1-17",
+      "kind": "discovery",
+      "label": "Funerary Glass Window",
+      "description": "Funerary Glass Window interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "FTH",
+        "dc": 23
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 472
+        },
+        "failure": {
+          "hpLossPct": 3
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t1-18",
+      "kind": "cult-sign",
+      "label": "Abandoned Bone Tithe",
+      "description": "Abandoned Bone Tithe interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "CHA",
+        "dc": 21
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 478,
+          "necropolisCultTrail": 1,
+          "materialId": "brittle-bone",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 3
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t1-19",
+      "kind": "mirror-glimpse",
+      "label": "Distant Mirror Flash",
+      "description": "Distant Mirror Flash interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "check": {
+        "stat": "LCK",
+        "dc": 22
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 484,
+          "necropolisMirrorGlimpse": 1
+        },
+        "failure": {
+          "hpLossPct": 3,
+          "necropolisMirrorGlimpse": 1
+        },
+        "criticalSuccess": {
+          "onyx": 180
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t1-20",
+      "kind": "combat",
+      "label": "Outer Necropolis Patrol",
+      "description": "Outer Necropolis Patrol interrupts the pursuit through the Necropolis.",
+      "minTier": 1,
+      "maxTier": 1,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "fodder"
+    },
+    {
+      "id": "necro-t2-01",
+      "kind": "discovery",
+      "label": "Processional Stair",
+      "description": "Processional Stair interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "check": {
+        "stat": "INT",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 466
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 220
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t2-02",
+      "kind": "discovery",
+      "label": "Bone Porter Yard",
+      "description": "Bone Porter Yard interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "check": {
+        "stat": "FTH",
+        "dc": 25
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 472
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 220
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t2-03",
+      "kind": "combat",
+      "label": "Rotted Banner Street",
+      "description": "Rotted Banner Street interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "fodder"
+    },
+    {
+      "id": "necro-t2-04",
+      "kind": "mirror-glimpse",
+      "label": "Mirror Acolyte Trace",
+      "description": "Mirror Acolyte Trace interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "check": {
+        "stat": "LCK",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 484,
+          "necropolisMirrorGlimpse": 1
+        },
+        "failure": {
+          "hpLossPct": 4,
+          "necropolisMirrorGlimpse": 1
+        },
+        "criticalSuccess": {
+          "onyx": 220
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t2-05",
+      "kind": "discovery",
+      "label": "Black-Censer Smoke",
+      "description": "Black-Censer Smoke interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "check": {
+        "stat": "STR",
+        "dc": 25
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 490
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 220
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t2-06",
+      "kind": "discovery",
+      "label": "Grave Cantor’s Mark",
+      "description": "Grave Cantor’s Mark interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "check": {
+        "stat": "DEX",
+        "dc": 23
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 496,
+          "materialId": "cult-sigil-thread",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 220
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t2-07",
+      "kind": "combat",
+      "label": "Skeleton Tax Line",
+      "description": "Skeleton Tax Line interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "fodder"
+    },
+    {
+      "id": "necro-t2-08",
+      "kind": "discovery",
+      "label": "Corpse Labor Court",
+      "description": "Corpse Labor Court interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "check": {
+        "stat": "INT",
+        "dc": 25
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 508
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 220
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t2-09",
+      "kind": "tomb",
+      "label": "Rusted Ossuary Lift",
+      "description": "Rusted Ossuary Lift interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "check": {
+        "stat": "FTH",
+        "dc": 23
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 514
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 220
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t2-10",
+      "kind": "discovery",
+      "label": "Shroud Market",
+      "description": "Shroud Market interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "check": {
+        "stat": "CHA",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 520
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 220
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t2-11",
+      "kind": "combat",
+      "label": "Tomb-Silk Cache",
+      "description": "Tomb-Silk Cache interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "fodder"
+    },
+    {
+      "id": "necro-t2-12",
+      "kind": "cult-sign",
+      "label": "Cult Knife Scratch",
+      "description": "Cult Knife Scratch interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "check": {
+        "stat": "STR",
+        "dc": 23
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 532,
+          "necropolisCultTrail": 1,
+          "materialId": "cult-sigil-thread",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 220
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t2-13",
+      "kind": "discovery",
+      "label": "Funeral Pike Rack",
+      "description": "Funeral Pike Rack interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "check": {
+        "stat": "DEX",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 538
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 220
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t2-14",
+      "kind": "discovery",
+      "label": "Cold Ectoplasm Niche",
+      "description": "Cold Ectoplasm Niche interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "check": {
+        "stat": "CON",
+        "dc": 25
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 544
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 220
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t2-15",
+      "kind": "combat",
+      "label": "Royal Bonefiligree Fragment",
+      "description": "Royal Bonefiligree Fragment interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "fodder"
+    },
+    {
+      "id": "necro-t2-16",
+      "kind": "discovery",
+      "label": "Broken Reliquary Door",
+      "description": "Broken Reliquary Door interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "check": {
+        "stat": "FTH",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 556
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 220
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t2-17",
+      "kind": "discovery",
+      "label": "Living Voices Ahead",
+      "description": "Living Voices Ahead interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "check": {
+        "stat": "CHA",
+        "dc": 25
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 562
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 220
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t2-18",
+      "kind": "mirror-glimpse",
+      "label": "Mirror Light Behind Stone",
+      "description": "Mirror Light Behind Stone interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "check": {
+        "stat": "LCK",
+        "dc": 23
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 568,
+          "necropolisMirrorGlimpse": 1,
+          "materialId": "cult-sigil-thread",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 4,
+          "necropolisMirrorGlimpse": 1
+        },
+        "criticalSuccess": {
+          "onyx": 220
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t2-19",
+      "kind": "cult-sign",
+      "label": "Cult Rearguard",
+      "description": "Cult Rearguard interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "check": {
+        "stat": "STR",
+        "dc": 24
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 574,
+          "necropolisCultTrail": 1
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 220
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t2-20",
+      "kind": "combat",
+      "label": "Last Tombway Before the Tithe",
+      "description": "Last Tombway Before the Tithe interrupts the pursuit through the Necropolis.",
+      "minTier": 2,
+      "maxTier": 2,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "fodder"
+    },
+    {
+      "id": "necro-t3-01",
+      "kind": "cult-sign",
+      "label": "First Sacrifice Circle",
+      "description": "First Sacrifice Circle interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "check": {
+        "stat": "FTH",
+        "dc": 26
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 556,
+          "necropolisCultTrail": 1
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 260
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t3-02",
+      "kind": "cult-sign",
+      "label": "Tithe Street Ambush",
+      "description": "Tithe Street Ambush interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "check": {
+        "stat": "CHA",
+        "dc": 27
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 562,
+          "necropolisCultTrail": 1
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 260
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t3-03",
+      "kind": "combat",
+      "label": "Bone Tithe Altar",
+      "description": "Bone Tithe Altar interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "sacrifice"
+    },
+    {
+      "id": "necro-t3-04",
+      "kind": "discovery",
+      "label": "Procession of Offerings",
+      "description": "Procession of Offerings interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "check": {
+        "stat": "STR",
+        "dc": 26
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 574
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 260
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t3-05",
+      "kind": "cult-sign",
+      "label": "Cultist Counting Skeletons",
+      "description": "Cultist Counting Skeletons interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "check": {
+        "stat": "DEX",
+        "dc": 27
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 580,
+          "necropolisCultTrail": 1
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 260
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t3-06",
+      "kind": "discovery",
+      "label": "Black Wax Execution Mark",
+      "description": "Black Wax Execution Mark interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "check": {
+        "stat": "CON",
+        "dc": 25
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 586,
+          "materialId": "grave-salt",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 260
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t3-07",
+      "kind": "combat",
+      "label": "Grave Cantor Platform",
+      "description": "Grave Cantor Platform interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "sacrifice"
+    },
+    {
+      "id": "necro-t3-08",
+      "kind": "discovery",
+      "label": "Sacrificial Chute",
+      "description": "Sacrificial Chute interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "check": {
+        "stat": "FTH",
+        "dc": 27
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 598
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 260
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t3-09",
+      "kind": "mirror-glimpse",
+      "label": "Mirror-Bearing Procession",
+      "description": "Mirror-Bearing Procession interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "check": {
+        "stat": "CHA",
+        "dc": 25
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 604,
+          "necropolisMirrorGlimpse": 1
+        },
+        "failure": {
+          "hpLossPct": 4,
+          "necropolisMirrorGlimpse": 1
+        },
+        "criticalSuccess": {
+          "onyx": 260
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t3-10",
+      "kind": "discovery",
+      "label": "Corpse Stockpile",
+      "description": "Corpse Stockpile interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "check": {
+        "stat": "LCK",
+        "dc": 26
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 610
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 260
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t3-11",
+      "kind": "combat",
+      "label": "Skeleton Pen",
+      "description": "Skeleton Pen interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "sacrifice"
+    },
+    {
+      "id": "necro-t3-12",
+      "kind": "cult-sign",
+      "label": "Ritual Knife Rack",
+      "description": "Ritual Knife Rack interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "check": {
+        "stat": "DEX",
+        "dc": 25
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 622,
+          "necropolisCultTrail": 1,
+          "materialId": "grave-salt",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 260
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t3-13",
+      "kind": "discovery",
+      "label": "Force-Scribed Floor",
+      "description": "Force-Scribed Floor interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "check": {
+        "stat": "CON",
+        "dc": 26
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 628
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 260
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t3-14",
+      "kind": "discovery",
+      "label": "Psychic Funeral Bell",
+      "description": "Psychic Funeral Bell interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "check": {
+        "stat": "INT",
+        "dc": 27
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 634
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 260
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t3-15",
+      "kind": "combat",
+      "label": "Cult Runner",
+      "description": "Cult Runner interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "sacrifice"
+    },
+    {
+      "id": "necro-t3-16",
+      "kind": "cult-sign",
+      "label": "Abandoned Sacrifice",
+      "description": "Abandoned Sacrifice interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "check": {
+        "stat": "CHA",
+        "dc": 26
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 646,
+          "necropolisCultTrail": 1
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 260
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t3-17",
+      "kind": "discovery",
+      "label": "Censer Hall",
+      "description": "Censer Hall interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "check": {
+        "stat": "LCK",
+        "dc": 27
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 652
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 260
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t3-18",
+      "kind": "cult-sign",
+      "label": "Tithe Ledger",
+      "description": "Tithe Ledger interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "check": {
+        "stat": "STR",
+        "dc": 25
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 658,
+          "necropolisCultTrail": 1,
+          "materialId": "grave-salt",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 260
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t3-19",
+      "kind": "cult-sign",
+      "label": "Heavy Ritual Warning",
+      "description": "Heavy Ritual Warning interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "check": {
+        "stat": "DEX",
+        "dc": 26
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 664,
+          "necropolisCultTrail": 1
+        },
+        "failure": {
+          "hpLossPct": 4
+        },
+        "criticalSuccess": {
+          "onyx": 260
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t3-20",
+      "kind": "combat",
+      "label": "Black Liturgy Patrol",
+      "description": "Black Liturgy Patrol interrupts the pursuit through the Necropolis.",
+      "minTier": 3,
+      "maxTier": 3,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "sacrifice"
+    },
+    {
+      "id": "necro-t4-01",
+      "kind": "cult-sign",
+      "label": "Grand Sacrifice Avenue",
+      "description": "Grand Sacrifice Avenue interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "check": {
+        "stat": "CHA",
+        "dc": 28
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 646,
+          "necropolisCultTrail": 1
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 300
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t4-02",
+      "kind": "discovery",
+      "label": "Two Hundred Empty Niches",
+      "description": "Two Hundred Empty Niches interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "check": {
+        "stat": "LCK",
+        "dc": 29
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 652
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 300
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t4-03",
+      "kind": "combat",
+      "label": "Cult Harrower Circle",
+      "description": "Cult Harrower Circle interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "sacrifice"
+    },
+    {
+      "id": "necro-t4-04",
+      "kind": "discovery",
+      "label": "Reliquary Warden Post",
+      "description": "Reliquary Warden Post interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "check": {
+        "stat": "DEX",
+        "dc": 28
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 664
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 300
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t4-05",
+      "kind": "mirror-glimpse",
+      "label": "Living Choir of the Mirror",
+      "description": "Living Choir of the Mirror interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "check": {
+        "stat": "CON",
+        "dc": 29
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 670,
+          "necropolisMirrorGlimpse": 1
+        },
+        "failure": {
+          "hpLossPct": 5,
+          "necropolisMirrorGlimpse": 1
+        },
+        "criticalSuccess": {
+          "onyx": 300
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t4-06",
+      "kind": "discovery",
+      "label": "Bone Pyre Without Flame",
+      "description": "Bone Pyre Without Flame interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "check": {
+        "stat": "INT",
+        "dc": 27
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 676,
+          "materialId": "soul-ash",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 300
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t4-07",
+      "kind": "combat",
+      "label": "Ritual Barrage Court",
+      "description": "Ritual Barrage Court interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "sacrifice"
+    },
+    {
+      "id": "necro-t4-08",
+      "kind": "discovery",
+      "label": "Skeleton Ammunition Line",
+      "description": "Skeleton Ammunition Line interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "check": {
+        "stat": "CHA",
+        "dc": 29
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 688
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 300
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t4-09",
+      "kind": "cult-sign",
+      "label": "Zombie Tithe Train",
+      "description": "Zombie Tithe Train interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "check": {
+        "stat": "LCK",
+        "dc": 27
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 694,
+          "necropolisCultTrail": 1
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 300
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t4-10",
+      "kind": "tomb",
+      "label": "Sepulcher Hex Hall",
+      "description": "Sepulcher Hex Hall interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "check": {
+        "stat": "STR",
+        "dc": 28
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 700
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 300
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t4-11",
+      "kind": "combat",
+      "label": "Black-Censer Gallery",
+      "description": "Black-Censer Gallery interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "sacrifice"
+    },
+    {
+      "id": "necro-t4-12",
+      "kind": "mirror-glimpse",
+      "label": "Cult Leader’s Distant Voice",
+      "description": "Cult Leader’s Distant Voice interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "check": {
+        "stat": "CON",
+        "dc": 27
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 712,
+          "necropolisMirrorGlimpse": 1,
+          "materialId": "soul-ash",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 5,
+          "necropolisMirrorGlimpse": 1
+        },
+        "criticalSuccess": {
+          "onyx": 300
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t4-13",
+      "kind": "mirror-glimpse",
+      "label": "Mirror Flash Through Rain",
+      "description": "Mirror Flash Through Rain interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "check": {
+        "stat": "INT",
+        "dc": 28
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 718,
+          "necropolisMirrorGlimpse": 1
+        },
+        "failure": {
+          "hpLossPct": 5,
+          "necropolisMirrorGlimpse": 1
+        },
+        "criticalSuccess": {
+          "onyx": 300
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t4-14",
+      "kind": "tomb",
+      "label": "Royal Tomb Seal",
+      "description": "Royal Tomb Seal interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "check": {
+        "stat": "FTH",
+        "dc": 29
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 724
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 300
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t4-15",
+      "kind": "combat",
+      "label": "Funerary Glass Maze",
+      "description": "Funerary Glass Maze interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "sacrifice"
+    },
+    {
+      "id": "necro-t4-16",
+      "kind": "discovery",
+      "label": "Soul-Ash Basin",
+      "description": "Soul-Ash Basin interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "check": {
+        "stat": "LCK",
+        "dc": 28
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 736
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 300
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t4-17",
+      "kind": "discovery",
+      "label": "Grave-Salt Crossing",
+      "description": "Grave-Salt Crossing interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "check": {
+        "stat": "STR",
+        "dc": 29
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 742
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 300
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t4-18",
+      "kind": "cult-sign",
+      "label": "Failed Cult Rite",
+      "description": "Failed Cult Rite interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "check": {
+        "stat": "DEX",
+        "dc": 27
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 748,
+          "necropolisCultTrail": 1,
+          "materialId": "soul-ash",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 300
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t4-19",
+      "kind": "cult-sign",
+      "label": "Sacrifice Bell",
+      "description": "Sacrifice Bell interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "check": {
+        "stat": "CON",
+        "dc": 28
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 754,
+          "necropolisCultTrail": 1
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 300
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t4-20",
+      "kind": "combat",
+      "label": "Last Black Liturgy",
+      "description": "Last Black Liturgy interrupts the pursuit through the Necropolis.",
+      "minTier": 4,
+      "maxTier": 4,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "sacrifice"
+    },
+    {
+      "id": "necro-t5-01",
+      "kind": "discovery",
+      "label": "Royal Catacomb Gate",
+      "description": "Royal Catacomb Gate interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "check": {
+        "stat": "LCK",
+        "dc": 30
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 736
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 340
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t5-02",
+      "kind": "discovery",
+      "label": "Grave Knight Vestibule",
+      "description": "Grave Knight Vestibule interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "check": {
+        "stat": "STR",
+        "dc": 31
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 742
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 340
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t5-03",
+      "kind": "combat",
+      "label": "Mourning Wraith Hall",
+      "description": "Mourning Wraith Hall interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "late"
+    },
+    {
+      "id": "necro-t5-04",
+      "kind": "discovery",
+      "label": "Bone Gargoyle Perch",
+      "description": "Bone Gargoyle Perch interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "check": {
+        "stat": "CON",
+        "dc": 30
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 754
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 340
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t5-05",
+      "kind": "tomb",
+      "label": "Tomb Sentinel Court",
+      "description": "Tomb Sentinel Court interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "check": {
+        "stat": "INT",
+        "dc": 31
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 760
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 340
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t5-06",
+      "kind": "cult-sign",
+      "label": "Cultists Breaking Royal Seals",
+      "description": "Cultists Breaking Royal Seals interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "check": {
+        "stat": "FTH",
+        "dc": 29
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 766,
+          "necropolisCultTrail": 1,
+          "materialId": "royal-bonefiligree",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 340
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t5-07",
+      "kind": "combat",
+      "label": "Mirror at the End of the Hall",
+      "description": "Mirror at the End of the Hall interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "late"
+    },
+    {
+      "id": "necro-t5-08",
+      "kind": "discovery",
+      "label": "Ancient King’s Procession",
+      "description": "Ancient King’s Procession interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "check": {
+        "stat": "LCK",
+        "dc": 31
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 778
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 340
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t5-09",
+      "kind": "discovery",
+      "label": "Royal Bonefiligree Vault",
+      "description": "Royal Bonefiligree Vault interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "check": {
+        "stat": "STR",
+        "dc": 29
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 784
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 340
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t5-10",
+      "kind": "tomb",
+      "label": "Unopened Crown Tomb",
+      "description": "Unopened Crown Tomb interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "check": {
+        "stat": "DEX",
+        "dc": 30
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 790
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 340
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t5-11",
+      "kind": "combat",
+      "label": "Cult Rearguard Mass",
+      "description": "Cult Rearguard Mass interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "late"
+    },
+    {
+      "id": "necro-t5-12",
+      "kind": "tomb",
+      "label": "Cold Mausoleum",
+      "description": "Cold Mausoleum interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "check": {
+        "stat": "INT",
+        "dc": 29
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 802,
+          "materialId": "royal-bonefiligree",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 340
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t5-13",
+      "kind": "tomb",
+      "label": "Force-Locked Sepulcher",
+      "description": "Force-Locked Sepulcher interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "check": {
+        "stat": "FTH",
+        "dc": 30
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 808
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 340
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t5-14",
+      "kind": "discovery",
+      "label": "Soul Archive",
+      "description": "Soul Archive interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "check": {
+        "stat": "CHA",
+        "dc": 31
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 814
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 340
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t5-15",
+      "kind": "combat",
+      "label": "Royal Ossuary Map",
+      "description": "Royal Ossuary Map interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "late"
+    },
+    {
+      "id": "necro-t5-16",
+      "kind": "cult-sign",
+      "label": "Hundred-Skeleton Sacrifice",
+      "description": "Hundred-Skeleton Sacrifice interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "check": {
+        "stat": "STR",
+        "dc": 30
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 826,
+          "necropolisCultTrail": 1
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 340
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t5-17",
+      "kind": "discovery",
+      "label": "Collapsed Throne Road",
+      "description": "Collapsed Throne Road interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "check": {
+        "stat": "DEX",
+        "dc": 31
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 832
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 340
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t5-18",
+      "kind": "mirror-glimpse",
+      "label": "Cult Leader Seen Again",
+      "description": "Cult Leader Seen Again interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "check": {
+        "stat": "CON",
+        "dc": 29
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 838,
+          "necropolisMirrorGlimpse": 1,
+          "materialId": "royal-bonefiligree",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 5,
+          "necropolisMirrorGlimpse": 1
+        },
+        "criticalSuccess": {
+          "onyx": 340
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t5-19",
+      "kind": "discovery",
+      "label": "Forbidden Crown Inscription",
+      "description": "Forbidden Crown Inscription interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "check": {
+        "stat": "INT",
+        "dc": 30
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 844
+        },
+        "failure": {
+          "hpLossPct": 5
+        },
+        "criticalSuccess": {
+          "onyx": 340
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t5-20",
+      "kind": "combat",
+      "label": "Royal Catacomb Patrol",
+      "description": "Royal Catacomb Patrol interrupts the pursuit through the Necropolis.",
+      "minTier": 5,
+      "maxTier": 5,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "late"
+    },
+    {
+      "id": "necro-t6-01",
+      "kind": "tomb",
+      "label": "Crown Ossuary Approach",
+      "description": "Crown Ossuary Approach interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "check": {
+        "stat": "STR",
+        "dc": 32
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 826
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 380
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t6-02",
+      "kind": "discovery",
+      "label": "The King’s Bone Road",
+      "description": "The King’s Bone Road interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "check": {
+        "stat": "DEX",
+        "dc": 33
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 832
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 380
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t6-03",
+      "kind": "combat",
+      "label": "Three Royal Ossuary Symbols",
+      "description": "Three Royal Ossuary Symbols interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "late"
+    },
+    {
+      "id": "necro-t6-04",
+      "kind": "cult-sign",
+      "label": "Cult’s Final Sacrifice Plan",
+      "description": "Cult’s Final Sacrifice Plan interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "check": {
+        "stat": "INT",
+        "dc": 32
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 844,
+          "necropolisCultTrail": 1
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 380
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t6-05",
+      "kind": "mirror-glimpse",
+      "label": "Mirror Crown Reflection",
+      "description": "Mirror Crown Reflection interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "check": {
+        "stat": "FTH",
+        "dc": 33
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 850,
+          "necropolisMirrorGlimpse": 1
+        },
+        "failure": {
+          "hpLossPct": 6,
+          "necropolisMirrorGlimpse": 1
+        },
+        "criticalSuccess": {
+          "onyx": 380
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t6-06",
+      "kind": "discovery",
+      "label": "Grave Colossus Tracks",
+      "description": "Grave Colossus Tracks interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "check": {
+        "stat": "CHA",
+        "dc": 31
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 856,
+          "materialId": "mirror-residue",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 380
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t6-07",
+      "kind": "combat",
+      "label": "Royal Arsenal Vault",
+      "description": "Royal Arsenal Vault interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "late"
+    },
+    {
+      "id": "necro-t6-08",
+      "kind": "discovery",
+      "label": "Many-Limbed Relief",
+      "description": "Many-Limbed Relief interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "check": {
+        "stat": "STR",
+        "dc": 33
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 868
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 380
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t6-09",
+      "kind": "discovery",
+      "label": "Bone Armor Chapel",
+      "description": "Bone Armor Chapel interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "check": {
+        "stat": "DEX",
+        "dc": 31
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 874
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 380
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t6-10",
+      "kind": "mirror-glimpse",
+      "label": "Cult Leader Running",
+      "description": "Cult Leader Running interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "check": {
+        "stat": "CON",
+        "dc": 32
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 880,
+          "necropolisMirrorGlimpse": 1
+        },
+        "failure": {
+          "hpLossPct": 6,
+          "necropolisMirrorGlimpse": 1
+        },
+        "criticalSuccess": {
+          "onyx": 380
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t6-11",
+      "kind": "combat",
+      "label": "Mirror Opening a Distant Threshold",
+      "description": "Mirror Opening a Distant Threshold interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "late"
+    },
+    {
+      "id": "necro-t6-12",
+      "kind": "discovery",
+      "label": "Skeleton Sea",
+      "description": "Skeleton Sea interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "check": {
+        "stat": "FTH",
+        "dc": 31
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 892,
+          "materialId": "mirror-residue",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 380
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t6-13",
+      "kind": "discovery",
+      "label": "Zombie Stair",
+      "description": "Zombie Stair interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "check": {
+        "stat": "CHA",
+        "dc": 32
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 898
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 380
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t6-14",
+      "kind": "tomb",
+      "label": "Ossuary King’s Name",
+      "description": "Ossuary King’s Name interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "check": {
+        "stat": "LCK",
+        "dc": 33
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 904
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 380
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t6-15",
+      "kind": "combat",
+      "label": "Royal Funeral Weapon Rack",
+      "description": "Royal Funeral Weapon Rack interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "late"
+    },
+    {
+      "id": "necro-t6-16",
+      "kind": "discovery",
+      "label": "Crown-Soul Echo",
+      "description": "Crown-Soul Echo interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "check": {
+        "stat": "DEX",
+        "dc": 32
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 916
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 380
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t6-17",
+      "kind": "cult-sign",
+      "label": "Last Cult Rearguard",
+      "description": "Last Cult Rearguard interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "check": {
+        "stat": "CON",
+        "dc": 33
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 922,
+          "necropolisCultTrail": 1
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 380
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t6-18",
+      "kind": "discovery",
+      "label": "Abandoned Ascension Notes",
+      "description": "Abandoned Ascension Notes interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "check": {
+        "stat": "INT",
+        "dc": 31
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 928,
+          "materialId": "mirror-residue",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 380
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t6-19",
+      "kind": "tomb",
+      "label": "The Final Tomb Door",
+      "description": "The Final Tomb Door interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "check": {
+        "stat": "FTH",
+        "dc": 32
+      },
+      "eventPayload": {
+        "success": {
+          "onyx": 934
+        },
+        "failure": {
+          "hpLossPct": 6
+        },
+        "criticalSuccess": {
+          "onyx": 380
+        },
+        "criticalFailure": {
+          "hpLossPct": 2
+        }
+      }
+    },
+    {
+      "id": "necro-t6-20",
+      "kind": "combat",
+      "label": "Crown Ossuary Patrol",
+      "description": "Crown Ossuary Patrol interrupts the pursuit through the Necropolis.",
+      "minTier": 6,
+      "maxTier": 6,
+      "weight": 1,
+      "combat": true,
+      "combatProfile": "late"
+    }
+  ],
+  "rules": {
+    "noRepeatsWithinCampaign": true,
+    "cardsPerStep": 3,
+    "trainers": false,
+    "regionalMeter": false,
+    "mirrorRemainsWithCultLeader": true,
+    "ordinaryUndeadNeverEmpoweredByMirror": true
+  }
+}

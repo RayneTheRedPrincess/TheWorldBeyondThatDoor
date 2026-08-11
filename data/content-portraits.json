@@ -1,6 +1,6 @@
 {
-  "version": "PHASE9-2026-08-10",
-  "designStatus": "Phase 9 full art integration complete: 14 Forest enemy portraits, 143 Forest event illustrations, and 22 Forest trainer portraits now resolve from canonical PNG masters with AVIF primary and WebP fallback. Tavern Adventurer portraits also use adaptive delivery while saves continue to store canonical PNG identities where applicable.",
+  "version": "2026-08-10",
+  "designStatus": "Forest and Tavern content portrait integration complete with canonical PNG masters, AVIF primary delivery, and WebP fallback.",
   "rules": {
     "canonicalIdentityFormat": "PNG",
     "runtimePrimaryFormat": "AVIF",
@@ -44,10 +44,7 @@
     "totalNewContentTargets": 179,
     "adaptiveReadyEnemies": 14,
     "readyForestEvents": 143,
-    "readyTrainerCards": 22,
-    "phase3Targets": 53,
-    "phase4Targets": 56,
-    "phase5Targets": 56
+    "readyTrainerCards": 22
   },
   "enemies": [
     {

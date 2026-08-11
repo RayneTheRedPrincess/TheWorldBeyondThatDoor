@@ -1,7 +1,8 @@
 const num = value => Number(value || 0);
 const pct = (value, max) => max > 0 ? Math.max(0, Math.min(100, (num(value) / num(max)) * 100)) : 0;
 
-export function combatPresentationDelayMsForSpeed(value=1){const parsed=Number(value);const speed=Math.max(.1,Math.min(2,Number.isFinite(parsed)?parsed:1));return Math.round(900/speed);}
+export function combatPresentationDelayMsForSpeed(value=1){const parsed=Number(value);const speed=Math.max(.1,Math.min(4,Number.isFinite(parsed)?parsed:1));return Math.round(900/speed);}
+export function combatCompletionDelayMsForSpeed(value=1){const parsed=Number(value);const speed=Math.max(.1,Math.min(4,Number.isFinite(parsed)?parsed:1));return Math.max(120,Math.round(650/speed));}
 
 export function forestBattleScene(run = {}) {
   const depth = Number(run?.expedition?.depth || 1);
@@ -30,7 +31,85 @@ export function bogBattleScene(run = {}) {
   return 'bog-drowned-verge';
 }
 
+
+export function towerBattleScene(run = {}) {
+  const depth = Number(run?.expedition?.depth || 1);
+  const encounter = run?.expedition?.encounter || {};
+  if (encounter.boss || depth >= 30) return 'tower-ascension-chamber';
+  if (encounter.miniboss || depth === 15) return 'tower-aureofrost-vault';
+  if (depth >= 25) return 'tower-cognition-sanctum';
+  if (depth >= 19) return 'tower-synthesis-height';
+  if (depth >= 13) return 'tower-crucible';
+  if (depth >= 7) return 'tower-preservation-gallery';
+  return 'tower-divine-foundry';
+}
+
+export function plainsBattleScene(run = {}) {
+  const depth = Number(run?.expedition?.depth || 1);
+  const encounter = run?.expedition?.encounter || {};
+  if (encounter.boss || depth >= 30) return 'plains-tenairah-bloodcourt';
+  if (encounter.miniboss && depth === 20) return 'plains-veiled-estate';
+  if (encounter.miniboss && depth === 10) return 'plains-red-cavalry-field';
+  if (depth >= 26) return 'plains-sovereign-heartland';
+  if (depth >= 21) return 'plains-veiled-estates';
+  if (depth >= 15) return 'plains-noble-hunting-ground';
+  if (depth >= 11) return 'plains-red-warfield';
+  if (depth >= 6) return 'plains-broken-homestead';
+  return 'plains-ashen-border';
+}
+
+export function hellBattleScene(run = {}) {
+  const depth = Number(run?.expedition?.depth || 1);
+  const encounter = run?.expedition?.encounter || {};
+  if (encounter.boss || depth >= 30) return 'hell-sevenfold-court';
+  if (encounter.miniboss || depth === 10) return 'hell-gatebound-threshold';
+  if (depth >= 26) return 'hell-sevenfold-approach';
+  if (depth >= 21) return 'hell-sinbound-marches';
+  if (depth >= 16) return 'hell-infernal-dominions';
+  if (depth >= 11) return 'hell-outer-plane';
+  if (depth >= 6) return 'hell-gateward-caverns';
+  return 'hell-blackstone-descent';
+}
+
+export function dragonBattleScene(run = {}) {
+  const depth=Number(run?.expedition?.depth||1),encounter=run?.expedition?.encounter||{};
+  if(encounter.boss||depth>=30)return 'dragon-prismatic-throne';
+  if(encounter.miniboss&&depth===20)return 'dragon-leviathan-vault';
+  if(encounter.miniboss&&depth===10)return 'dragon-hoard-sentinel-hall';
+  if(depth>=26)return 'dragon-prismatic-crownways';
+  if(depth>=21)return 'dragon-elder-hoard-sanctum';
+  if(depth>=16)return 'dragon-wyvern-menagerie';
+  if(depth>=11)return 'dragon-wingvault-gallery';
+  if(depth>=6)return 'dragon-drake-warrens';
+  return 'dragon-outer-hoardways';
+}
+
+export function necropolisBattleScene(run = {}) {
+  const depth=Number(run?.expedition?.depth||1),encounter=run?.expedition?.encounter||{};
+  if(encounter.boss||depth>=30)return 'necro-ossuary-throne';
+  if(encounter.miniboss&&depth===20)return 'necro-grave-colossus-vault';
+  if(encounter.miniboss&&depth===10)return 'necro-execution-yard';
+  if(depth>=26)return 'necro-crown-ossuary';
+  if(depth>=21)return 'necro-royal-catacombs';
+  if(depth>=16)return 'necro-black-liturgies';
+  if(depth>=11)return 'necro-tithe-streets';
+  if(depth>=6)return 'necro-broken-tombways';
+  return 'necro-outer-procession';
+}
+
+export function shadowInfusedDarkWoodsBattleScene(run = {}) {
+  const depth=Number(run?.expedition?.depth||1),encounter=run?.expedition?.encounter||{};
+  if(encounter.boss||depth>=3)return 'shadow-woods-broken-mirror';
+  return 'shadow-woods-cult-altar';
+}
+
 export function regionalBattleScene(run = {}) {
+  if(run?.expedition?.regionId === 'shadow-infused-dark-woods') return shadowInfusedDarkWoodsBattleScene(run);
+  if(run?.expedition?.regionId === 'necropolis') return necropolisBattleScene(run);
+  if(run?.expedition?.regionId === 'that-dragons-dungeon') return dragonBattleScene(run);
+  if(run?.expedition?.regionId === 'caverns-to-hell') return hellBattleScene(run);
+  if(run?.expedition?.regionId === 'ruined-vampiric-plains') return plainsBattleScene(run);
+  if(run?.expedition?.regionId === 'heavenly-tower') return towerBattleScene(run);
   return run?.expedition?.regionId === 'bog-of-lost-souls' ? bogBattleScene(run) : forestBattleScene(run);
 }
 

@@ -1,5 +1,5 @@
 {
-  "version": "I14-2026-08-08",
+  "version": "THAT-DRAGONS-DUNGEON-FOUNDATION-2026-08-10",
   "rules": {
     "equipmentSlots": [
       "mainHand",
@@ -75,7 +75,10 @@
     "spellBooksGrantCombatSpells": true,
     "spellSlotCharmsGrantCombatSpells": true,
     "vialsHaveLiveCombatStartEffects": true,
-    "abilityItemsGrantCombatAbilities": true
+    "abilityItemsGrantCombatAbilities": true,
+    "lateForestGearEndgameViable": true,
+    "horizontalProgressionFromLateForest": true,
+    "regionNumberDoesNotRaiseEndgameStatBudget": true
   },
   "equipment": [
     {
@@ -706,11 +709,12 @@
       "setId": "set-needlefang-lynx",
       "sourceId": "needlefang-lynx",
       "listedStats": {
-        "DEX": 3,
-        "LCK": 2,
+        "DEX": 6,
+        "LCK": 3,
         "damageCritChancePct": 7
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-pursuit-jack",
@@ -722,12 +726,13 @@
       "setId": "set-needlefang-lynx",
       "sourceId": "needlefang-lynx",
       "listedStats": {
-        "DEX": 3,
-        "LCK": 2,
+        "DEX": 6,
+        "LCK": 3,
         "incomingHealingPct": 6,
         "damageCritChancePct": 3
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-sinewgrip-gloves",
@@ -739,12 +744,13 @@
       "setId": "set-needlefang-lynx",
       "sourceId": "needlefang-lynx",
       "listedStats": {
-        "DEX": 3,
-        "LCK": 2,
+        "DEX": 6,
+        "LCK": 3,
         "criticalDamagePct": 8,
         "damageCritChancePct": 3
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-stalkstep-boots",
@@ -756,12 +762,13 @@
       "setId": "set-needlefang-lynx",
       "sourceId": "needlefang-lynx",
       "listedStats": {
-        "DEX": 3,
-        "LCK": 2,
+        "DEX": 6,
+        "LCK": 3,
         "dodgeChancePct": 4,
         "damageCritChancePct": 3
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-needlefang-dirk",
@@ -772,15 +779,16 @@
       "rarity": "Normal",
       "sourceId": "needlefang-lynx",
       "listedStats": {
-        "DEX": 4,
-        "LCK": 2,
+        "DEX": 9,
+        "LCK": 4,
         "damageCritChancePct": 5,
         "criticalDamagePct": 10
       },
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "one-handed",
-      "offHandCompatible": true
+      "offHandCompatible": true,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-sinewbound-claws",
@@ -791,15 +799,16 @@
       "rarity": "Normal",
       "sourceId": "needlefang-lynx",
       "listedStats": {
-        "DEX": 4,
-        "LCK": 2,
+        "DEX": 9,
+        "LCK": 4,
         "damageCritChancePct": 3,
         "criticalDamagePct": 6
       },
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "one-handed",
-      "offHandCompatible": true
+      "offHandCompatible": true,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-chimeleaf-circlet",
@@ -811,12 +820,13 @@
       "setId": "set-chimeleaf-wisp",
       "sourceId": "chimeleaf-wisp",
       "listedStats": {
-        "CHA": 3,
-        "FTH": 2,
+        "CHA": 6,
+        "FTH": 3,
         "damageCritChancePct": 4,
         "energyGainPct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-resonant-vestment",
@@ -828,12 +838,13 @@
       "setId": "set-chimeleaf-wisp",
       "sourceId": "chimeleaf-wisp",
       "listedStats": {
-        "CHA": 3,
-        "FTH": 2,
+        "CHA": 6,
+        "FTH": 3,
         "incomingHealingPct": 6,
         "energyGainPct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-bellfrond-gloves",
@@ -845,12 +856,13 @@
       "setId": "set-chimeleaf-wisp",
       "sourceId": "chimeleaf-wisp",
       "listedStats": {
-        "CHA": 3,
-        "FTH": 2,
+        "CHA": 6,
+        "FTH": 3,
         "criticalDamagePct": 8,
         "energyGainPct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-hushstep-boots",
@@ -862,12 +874,13 @@
       "setId": "set-chimeleaf-wisp",
       "sourceId": "chimeleaf-wisp",
       "listedStats": {
-        "CHA": 3,
-        "FTH": 2,
+        "CHA": 6,
+        "FTH": 3,
         "dodgeChancePct": 4,
         "energyGainPct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-chimeleaf-lute",
@@ -878,8 +891,8 @@
       "rarity": "Normal",
       "sourceId": "chimeleaf-wisp",
       "listedStats": {
-        "CHA": 4,
-        "FTH": 2,
+        "CHA": 9,
+        "FTH": 4,
         "damageCritChancePct": 5,
         "criticalDamagePct": 10,
         "energyGainPct": 7
@@ -887,7 +900,8 @@
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "two-handed",
-      "offHandCompatible": false
+      "offHandCompatible": false,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-resonance-wand",
@@ -898,8 +912,8 @@
       "rarity": "Normal",
       "sourceId": "chimeleaf-wisp",
       "listedStats": {
-        "CHA": 4,
-        "FTH": 2,
+        "CHA": 9,
+        "FTH": 4,
         "damageCritChancePct": 3,
         "criticalDamagePct": 6,
         "energyGainPct": 7
@@ -907,7 +921,8 @@
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "one-handed",
-      "offHandCompatible": true
+      "offHandCompatible": true,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-ironbark-greathelm",
@@ -919,12 +934,13 @@
       "setId": "set-ironbark-ram",
       "sourceId": "ironbark-ram",
       "listedStats": {
-        "CON": 3,
-        "STR": 2,
+        "CON": 6,
+        "STR": 3,
         "damageCritChancePct": 4,
         "blockedDamageReductionPct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-bulwark-cuirass",
@@ -936,12 +952,13 @@
       "setId": "set-ironbark-ram",
       "sourceId": "ironbark-ram",
       "listedStats": {
-        "CON": 3,
-        "STR": 2,
+        "CON": 6,
+        "STR": 3,
         "incomingHealingPct": 6,
         "blockedDamageReductionPct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-ramplate-gauntlets",
@@ -953,12 +970,13 @@
       "setId": "set-ironbark-ram",
       "sourceId": "ironbark-ram",
       "listedStats": {
-        "CON": 3,
-        "STR": 2,
+        "CON": 6,
+        "STR": 3,
         "criticalDamagePct": 8,
         "blockedDamageReductionPct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-rootlock-sabatons",
@@ -970,12 +988,13 @@
       "setId": "set-ironbark-ram",
       "sourceId": "ironbark-ram",
       "listedStats": {
-        "CON": 3,
-        "STR": 2,
+        "CON": 6,
+        "STR": 3,
         "dodgeChancePct": 4,
         "blockedDamageReductionPct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-ironbark-maul",
@@ -986,15 +1005,16 @@
       "rarity": "Normal",
       "sourceId": "ironbark-ram",
       "listedStats": {
-        "CON": 4,
-        "STR": 2,
+        "CON": 9,
+        "STR": 4,
         "damageCritChancePct": 5,
         "criticalDamagePct": 10
       },
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "two-handed",
-      "offHandCompatible": false
+      "offHandCompatible": false,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-ramcore-gauntlets",
@@ -1005,15 +1025,16 @@
       "rarity": "Normal",
       "sourceId": "ironbark-ram",
       "listedStats": {
-        "CON": 4,
-        "STR": 2,
+        "CON": 9,
+        "STR": 4,
         "damageCritChancePct": 3,
         "criticalDamagePct": 6
       },
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "one-handed",
-      "offHandCompatible": true
+      "offHandCompatible": true,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-hexroot-crown",
@@ -1025,12 +1046,13 @@
       "setId": "set-rootcoil-hexer",
       "sourceId": "rootcoil-hexer",
       "listedStats": {
-        "INT": 3,
-        "FTH": 2,
+        "INT": 6,
+        "FTH": 3,
         "damageCritChancePct": 4,
         "energyGainPct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-black-sap-mantle",
@@ -1042,12 +1064,13 @@
       "setId": "set-rootcoil-hexer",
       "sourceId": "rootcoil-hexer",
       "listedStats": {
-        "INT": 3,
-        "FTH": 2,
+        "INT": 6,
+        "FTH": 3,
         "incomingHealingPct": 6,
         "energyGainPct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-knotweaver-gloves",
@@ -1059,12 +1082,13 @@
       "setId": "set-rootcoil-hexer",
       "sourceId": "rootcoil-hexer",
       "listedStats": {
-        "INT": 3,
-        "FTH": 2,
+        "INT": 6,
+        "FTH": 3,
         "criticalDamagePct": 8,
         "energyGainPct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-coilstep-boots",
@@ -1076,12 +1100,13 @@
       "setId": "set-rootcoil-hexer",
       "sourceId": "rootcoil-hexer",
       "listedStats": {
-        "INT": 3,
-        "FTH": 2,
+        "INT": 6,
+        "FTH": 3,
         "dodgeChancePct": 4,
         "energyGainPct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-hexroot-staff",
@@ -1092,8 +1117,8 @@
       "rarity": "Normal",
       "sourceId": "rootcoil-hexer",
       "listedStats": {
-        "INT": 4,
-        "FTH": 2,
+        "INT": 9,
+        "FTH": 4,
         "damageCritChancePct": 5,
         "criticalDamagePct": 10,
         "energyGainPct": 7
@@ -1101,7 +1126,8 @@
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "two-handed",
-      "offHandCompatible": false
+      "offHandCompatible": false,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-black-sap-bell",
@@ -1112,8 +1138,8 @@
       "rarity": "Normal",
       "sourceId": "rootcoil-hexer",
       "listedStats": {
-        "INT": 4,
-        "FTH": 2,
+        "INT": 9,
+        "FTH": 4,
         "damageCritChancePct": 3,
         "criticalDamagePct": 6,
         "energyGainPct": 7
@@ -1121,7 +1147,8 @@
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "one-handed",
-      "offHandCompatible": false
+      "offHandCompatible": false,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-glasswing-visor",
@@ -1133,11 +1160,12 @@
       "setId": "set-glasswing-needler",
       "sourceId": "glasswing-needler",
       "listedStats": {
-        "DEX": 3,
-        "LCK": 2,
+        "DEX": 6,
+        "LCK": 3,
         "dodgeChancePct": 6
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-shardweave-coat",
@@ -1149,12 +1177,13 @@
       "setId": "set-glasswing-needler",
       "sourceId": "glasswing-needler",
       "listedStats": {
-        "DEX": 3,
-        "LCK": 2,
+        "DEX": 6,
+        "LCK": 3,
         "dodgeChancePct": 4,
         "incomingHealingPct": 5
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-needler-gloves",
@@ -1166,11 +1195,12 @@
       "setId": "set-glasswing-needler",
       "sourceId": "glasswing-needler",
       "listedStats": {
-        "DEX": 3,
-        "LCK": 2,
+        "DEX": 6,
+        "LCK": 3,
         "criticalDamagePct": 13
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-skitterglass-boots",
@@ -1182,11 +1212,12 @@
       "setId": "set-glasswing-needler",
       "sourceId": "glasswing-needler",
       "listedStats": {
-        "DEX": 3,
-        "LCK": 2,
+        "DEX": 6,
+        "LCK": 3,
         "dodgeChancePct": 7
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-glasswing-bow",
@@ -1197,15 +1228,16 @@
       "rarity": "Normal",
       "sourceId": "glasswing-needler",
       "listedStats": {
-        "DEX": 4,
-        "LCK": 2,
+        "DEX": 9,
+        "LCK": 4,
         "damageCritChancePct": 4,
         "criticalDamagePct": 12
       },
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "two-handed",
-      "offHandCompatible": false
+      "offHandCompatible": false,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-shardlight-wand",
@@ -1216,8 +1248,8 @@
       "rarity": "Normal",
       "sourceId": "glasswing-needler",
       "listedStats": {
-        "DEX": 4,
-        "LCK": 2,
+        "DEX": 9,
+        "LCK": 4,
         "damageCritChancePct": 3,
         "criticalDamagePct": 6,
         "energyGainPct": 7
@@ -1225,7 +1257,8 @@
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "one-handed",
-      "offHandCompatible": true
+      "offHandCompatible": true,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-vinebound-helm",
@@ -1237,12 +1270,13 @@
       "setId": "set-vinebound-reaver",
       "sourceId": "vinebound-reaver",
       "listedStats": {
-        "CON": 3,
-        "STR": 2,
+        "CON": 6,
+        "STR": 3,
         "damageCritChancePct": 4,
         "incomingHealingPct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-red-sap-harness",
@@ -1254,11 +1288,12 @@
       "setId": "set-vinebound-reaver",
       "sourceId": "vinebound-reaver",
       "listedStats": {
-        "CON": 3,
-        "STR": 2,
+        "CON": 6,
+        "STR": 3,
         "incomingHealingPct": 10
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-chainvine-gloves",
@@ -1270,12 +1305,13 @@
       "setId": "set-vinebound-reaver",
       "sourceId": "vinebound-reaver",
       "listedStats": {
-        "CON": 3,
-        "STR": 2,
+        "CON": 6,
+        "STR": 3,
         "criticalDamagePct": 8,
         "incomingHealingPct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-reaver-treads",
@@ -1287,12 +1323,13 @@
       "setId": "set-vinebound-reaver",
       "sourceId": "vinebound-reaver",
       "listedStats": {
-        "CON": 3,
-        "STR": 2,
+        "CON": 6,
+        "STR": 3,
         "dodgeChancePct": 4,
         "incomingHealingPct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-vinechain-axe",
@@ -1303,15 +1340,16 @@
       "rarity": "Normal",
       "sourceId": "vinebound-reaver",
       "listedStats": {
-        "CON": 3,
-        "STR": 3,
+        "CON": 6,
+        "STR": 7,
         "damageCritChancePct": 4,
         "criticalDamagePct": 11
       },
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "one-handed",
-      "offHandCompatible": true
+      "offHandCompatible": true,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-red-sap-knuckles",
@@ -1322,15 +1360,16 @@
       "rarity": "Normal",
       "sourceId": "vinebound-reaver",
       "listedStats": {
-        "CON": 3,
-        "STR": 3,
+        "CON": 6,
+        "STR": 7,
         "damageCritChancePct": 4,
         "criticalDamagePct": 7
       },
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "one-handed",
-      "offHandCompatible": true
+      "offHandCompatible": true,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-gloomcap-hood",
@@ -1342,12 +1381,13 @@
       "setId": "set-gloomcap-binder",
       "sourceId": "gloomcap-binder",
       "listedStats": {
-        "INT": 3,
-        "LCK": 2,
+        "INT": 6,
+        "LCK": 3,
         "damageCritChancePct": 4,
         "criticalDamagePct": 6
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-hollowspore-shroud",
@@ -1359,12 +1399,13 @@
       "setId": "set-gloomcap-binder",
       "sourceId": "gloomcap-binder",
       "listedStats": {
-        "INT": 3,
-        "LCK": 2,
+        "INT": 6,
+        "LCK": 3,
         "incomingHealingPct": 6,
         "criticalDamagePct": 6
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-binder-gloves",
@@ -1376,11 +1417,12 @@
       "setId": "set-gloomcap-binder",
       "sourceId": "gloomcap-binder",
       "listedStats": {
-        "INT": 3,
-        "LCK": 2,
+        "INT": 6,
+        "LCK": 3,
         "criticalDamagePct": 14
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-umberstep-boots",
@@ -1392,12 +1434,13 @@
       "setId": "set-gloomcap-binder",
       "sourceId": "gloomcap-binder",
       "listedStats": {
-        "INT": 3,
-        "LCK": 2,
+        "INT": 6,
+        "LCK": 3,
         "dodgeChancePct": 4,
         "criticalDamagePct": 6
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-gloomspore-rod",
@@ -1408,8 +1451,8 @@
       "rarity": "Normal",
       "sourceId": "gloomcap-binder",
       "listedStats": {
-        "INT": 4,
-        "LCK": 2,
+        "INT": 9,
+        "LCK": 4,
         "damageCritChancePct": 5,
         "criticalDamagePct": 10,
         "energyGainPct": 7
@@ -1417,7 +1460,8 @@
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "one-handed",
-      "offHandCompatible": true
+      "offHandCompatible": true,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-hollowcap-harp",
@@ -1428,8 +1472,8 @@
       "rarity": "Normal",
       "sourceId": "gloomcap-binder",
       "listedStats": {
-        "INT": 4,
-        "LCK": 2,
+        "INT": 9,
+        "LCK": 4,
         "damageCritChancePct": 3,
         "criticalDamagePct": 6,
         "energyGainPct": 7
@@ -1437,7 +1481,8 @@
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "two-handed",
-      "offHandCompatible": false
+      "offHandCompatible": false,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-sunscar-crown",
@@ -1449,12 +1494,13 @@
       "setId": "set-sunscar-hart",
       "sourceId": "sunscar-hart",
       "listedStats": {
-        "INT": 3,
-        "DEX": 2,
+        "INT": 6,
+        "DEX": 3,
         "damageCritChancePct": 4,
         "finalDamagePct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-white-resin-coat",
@@ -1466,12 +1512,13 @@
       "setId": "set-sunscar-hart",
       "sourceId": "sunscar-hart",
       "listedStats": {
-        "INT": 3,
-        "DEX": 2,
+        "INT": 6,
+        "DEX": 3,
         "incomingHealingPct": 6,
         "finalDamagePct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-antlerguard-gloves",
@@ -1483,12 +1530,13 @@
       "setId": "set-sunscar-hart",
       "sourceId": "sunscar-hart",
       "listedStats": {
-        "INT": 3,
-        "DEX": 2,
+        "INT": 6,
+        "DEX": 3,
         "criticalDamagePct": 8,
         "finalDamagePct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-brightstep-boots",
@@ -1500,12 +1548,13 @@
       "setId": "set-sunscar-hart",
       "sourceId": "sunscar-hart",
       "listedStats": {
-        "INT": 3,
-        "DEX": 2,
+        "INT": 6,
+        "DEX": 3,
         "dodgeChancePct": 4,
         "finalDamagePct": 4
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-sunscar-scepter",
@@ -1516,8 +1565,8 @@
       "rarity": "Normal",
       "sourceId": "sunscar-hart",
       "listedStats": {
-        "INT": 4,
-        "DEX": 2,
+        "INT": 9,
+        "DEX": 4,
         "damageCritChancePct": 5,
         "criticalDamagePct": 10,
         "energyGainPct": 7
@@ -1525,7 +1574,8 @@
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "one-handed",
-      "offHandCompatible": true
+      "offHandCompatible": true,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-antler-pike",
@@ -1536,15 +1586,16 @@
       "rarity": "Normal",
       "sourceId": "sunscar-hart",
       "listedStats": {
-        "INT": 4,
-        "DEX": 2,
+        "INT": 9,
+        "DEX": 4,
         "damageCritChancePct": 3,
         "criticalDamagePct": 6
       },
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "two-handed",
-      "offHandCompatible": false
+      "offHandCompatible": false,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-barkveil-hood",
@@ -1556,12 +1607,13 @@
       "setId": "set-barkveil-sapper",
       "sourceId": "barkveil-sapper",
       "listedStats": {
-        "DEX": 3,
-        "INT": 2,
+        "DEX": 6,
+        "INT": 3,
         "damageCritChancePct": 4,
         "dodgeChancePct": 3
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-sapper-jacket",
@@ -1573,12 +1625,13 @@
       "setId": "set-barkveil-sapper",
       "sourceId": "barkveil-sapper",
       "listedStats": {
-        "DEX": 3,
-        "INT": 2,
+        "DEX": 6,
+        "INT": 3,
         "incomingHealingPct": 6,
         "dodgeChancePct": 3
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-resinwork-gloves",
@@ -1590,12 +1643,13 @@
       "setId": "set-barkveil-sapper",
       "sourceId": "barkveil-sapper",
       "listedStats": {
-        "DEX": 3,
-        "INT": 2,
+        "DEX": 6,
+        "INT": 3,
         "criticalDamagePct": 8,
         "dodgeChancePct": 3
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-fusepath-boots",
@@ -1607,11 +1661,12 @@
       "setId": "set-barkveil-sapper",
       "sourceId": "barkveil-sapper",
       "listedStats": {
-        "DEX": 3,
-        "INT": 2,
+        "DEX": 6,
+        "INT": 3,
         "dodgeChancePct": 7
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-resin-fang",
@@ -1622,15 +1677,16 @@
       "rarity": "Normal",
       "sourceId": "barkveil-sapper",
       "listedStats": {
-        "DEX": 4,
-        "INT": 2,
+        "DEX": 9,
+        "INT": 4,
         "damageCritChancePct": 5,
         "criticalDamagePct": 10
       },
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "one-handed",
-      "offHandCompatible": true
+      "offHandCompatible": true,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-fuseglass-focus",
@@ -1641,8 +1697,8 @@
       "rarity": "Normal",
       "sourceId": "barkveil-sapper",
       "listedStats": {
-        "DEX": 4,
-        "INT": 2,
+        "DEX": 9,
+        "INT": 4,
         "damageCritChancePct": 3,
         "criticalDamagePct": 6,
         "energyGainPct": 7
@@ -1650,7 +1706,8 @@
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "one-handed",
-      "offHandCompatible": true
+      "offHandCompatible": true,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-thorn-crown-greathelm",
@@ -1662,12 +1719,13 @@
       "setId": "set-crown-of-thorns-warden",
       "sourceId": "crown-of-thorns-warden",
       "listedStats": {
-        "CON": 4,
-        "STR": 3,
+        "CON": 6,
+        "STR": 4,
         "damageCritChancePct": 5,
         "blockChancePct": 5
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-warden-briarplate",
@@ -1679,12 +1737,13 @@
       "setId": "set-crown-of-thorns-warden",
       "sourceId": "crown-of-thorns-warden",
       "listedStats": {
-        "CON": 4,
-        "STR": 3,
+        "CON": 6,
+        "STR": 4,
         "incomingHealingPct": 8,
         "blockChancePct": 5
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-crownwood-gauntlets",
@@ -1696,12 +1755,13 @@
       "setId": "set-crown-of-thorns-warden",
       "sourceId": "crown-of-thorns-warden",
       "listedStats": {
-        "CON": 4,
-        "STR": 3,
+        "CON": 6,
+        "STR": 4,
         "criticalDamagePct": 10,
         "blockChancePct": 5
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-thornroot-sabatons",
@@ -1713,12 +1773,13 @@
       "setId": "set-crown-of-thorns-warden",
       "sourceId": "crown-of-thorns-warden",
       "listedStats": {
-        "CON": 4,
-        "STR": 3,
+        "CON": 6,
+        "STR": 4,
         "dodgeChancePct": 5,
         "blockChancePct": 5
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-crownwood-greatblade",
@@ -1729,15 +1790,16 @@
       "rarity": "SoulFire",
       "sourceId": "crown-of-thorns-warden",
       "listedStats": {
-        "CON": 5,
-        "STR": 3,
+        "CON": 10,
+        "STR": 6,
         "damageCritChancePct": 6,
         "criticalDamagePct": 12
       },
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "two-handed",
-      "offHandCompatible": false
+      "offHandCompatible": false,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-thornwarden-gauntlets",
@@ -1748,15 +1810,16 @@
       "rarity": "SoulFire",
       "sourceId": "crown-of-thorns-warden",
       "listedStats": {
-        "CON": 5,
-        "STR": 3,
+        "CON": 10,
+        "STR": 6,
         "damageCritChancePct": 3,
         "criticalDamagePct": 8
       },
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "one-handed",
-      "offHandCompatible": true
+      "offHandCompatible": true,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-heartwood-diadem",
@@ -1768,12 +1831,13 @@
       "setId": "set-heartwood-sovereign",
       "sourceId": "heartwood-sovereign",
       "listedStats": {
-        "FTH": 4,
-        "CON": 3,
+        "FTH": 6,
+        "CON": 4,
         "damageCritChancePct": 5,
         "shieldStrengthPct": 6
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-sovereign-mantle",
@@ -1785,12 +1849,13 @@
       "setId": "set-heartwood-sovereign",
       "sourceId": "heartwood-sovereign",
       "listedStats": {
-        "FTH": 4,
-        "CON": 3,
+        "FTH": 6,
+        "CON": 4,
         "incomingHealingPct": 8,
         "shieldStrengthPct": 6
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-doorroot-grips",
@@ -1802,12 +1867,13 @@
       "setId": "set-heartwood-sovereign",
       "sourceId": "heartwood-sovereign",
       "listedStats": {
-        "FTH": 4,
-        "CON": 3,
+        "FTH": 6,
+        "CON": 4,
         "criticalDamagePct": 10,
         "shieldStrengthPct": 6
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-heartstep-greaves",
@@ -1819,12 +1885,13 @@
       "setId": "set-heartwood-sovereign",
       "sourceId": "heartwood-sovereign",
       "listedStats": {
-        "FTH": 4,
-        "CON": 3,
+        "FTH": 6,
+        "CON": 4,
         "dodgeChancePct": 5,
         "shieldStrengthPct": 6
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-heartwood-scepter",
@@ -1835,8 +1902,8 @@
       "rarity": "SoulFire",
       "sourceId": "heartwood-sovereign",
       "listedStats": {
-        "FTH": 5,
-        "CON": 3,
+        "FTH": 10,
+        "CON": 6,
         "damageCritChancePct": 6,
         "criticalDamagePct": 12,
         "energyGainPct": 8
@@ -1844,7 +1911,8 @@
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "one-handed",
-      "offHandCompatible": true
+      "offHandCompatible": true,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-doorroot-harp",
@@ -1855,8 +1923,8 @@
       "rarity": "SoulFire",
       "sourceId": "heartwood-sovereign",
       "listedStats": {
-        "FTH": 5,
-        "CON": 3,
+        "FTH": 10,
+        "CON": 6,
         "damageCritChancePct": 3,
         "criticalDamagePct": 8,
         "energyGainPct": 8
@@ -1864,7 +1932,8 @@
       "acquisition": "craft-only",
       "weaponBaseDamage": false,
       "handedness": "two-handed",
-      "offHandCompatible": false
+      "offHandCompatible": false,
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-starter-rustleaf-sword",
@@ -2113,11 +2182,12 @@
       "rarity": "Normal",
       "sourceId": "ironbark-ram",
       "listedStats": {
-        "CON": 4,
+        "CON": 9,
         "blockChancePct": 10,
         "blockedDamageReductionPct": 10
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-vinechain-buckler",
@@ -2127,11 +2197,12 @@
       "rarity": "Normal",
       "sourceId": "vinebound-reaver",
       "listedStats": {
-        "STR": 2,
-        "CON": 3,
+        "STR": 3,
+        "CON": 6,
         "blockChancePct": 8
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-sunscar-mirror",
@@ -2141,12 +2212,13 @@
       "rarity": "Normal",
       "sourceId": "sunscar-hart",
       "listedStats": {
-        "INT": 3,
-        "CON": 2,
+        "INT": 6,
+        "CON": 3,
         "blockChancePct": 7,
         "energyGainPct": 6
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-thorn-soulfire-aegis",
@@ -2156,12 +2228,13 @@
       "rarity": "SoulFire",
       "sourceId": "crown-of-thorns-warden",
       "listedStats": {
-        "CON": 5,
-        "STR": 3,
+        "CON": 8,
+        "STR": 4,
         "blockChancePct": 12,
         "blockedDamageReductionPct": 12
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-heartwood-soulfire-ward",
@@ -2171,12 +2244,13 @@
       "rarity": "SoulFire",
       "sourceId": "heartwood-sovereign",
       "listedStats": {
-        "FTH": 5,
-        "CON": 3,
+        "FTH": 8,
+        "CON": 4,
         "blockChancePct": 10,
         "incomingHealingPct": 10
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-briarloop-torque",
@@ -2270,11 +2344,12 @@
       "rarity": "SoulFire",
       "sourceId": "crown-of-thorns-warden",
       "listedStats": {
-        "CON": 4,
-        "FTH": 3,
+        "CON": 7,
+        "FTH": 5,
         "blockedDamageReductionPct": 10
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-heartfire-reliquary",
@@ -2284,11 +2359,12 @@
       "rarity": "SoulFire",
       "sourceId": "heartwood-sovereign",
       "listedStats": {
-        "FTH": 4,
-        "CHA": 3,
+        "FTH": 7,
+        "CHA": 5,
         "outgoingHealingPct": 12
       },
-      "acquisition": "craft-only"
+      "acquisition": "craft-only",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-briar-dew-vial",
@@ -3095,8 +3171,8 @@
       "rarity": "SoulFire",
       "sourceId": "crown-of-thorns-warden",
       "listedStats": {
-        "CON": 4,
-        "STR": 3,
+        "CON": 7,
+        "STR": 5,
         "blockChancePct": 10
       },
       "acquisition": "craft-only",
@@ -3117,7 +3193,8 @@
           "source": "equipment"
         }
       ],
-      "mechanicText": "Grants the combat technique “Thorn SoulFire Seal — Restore Pattern”."
+      "mechanicText": "Grants the combat technique “Thorn SoulFire Seal — Restore Pattern”.",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-heartwood-soulfire-seal",
@@ -3127,8 +3204,8 @@
       "rarity": "SoulFire",
       "sourceId": "heartwood-sovereign",
       "listedStats": {
-        "FTH": 4,
-        "INT": 3,
+        "FTH": 7,
+        "INT": 5,
         "shieldStrengthPct": 12
       },
       "acquisition": "craft-only",
@@ -3149,7 +3226,8 @@
           "source": "equipment"
         }
       ],
-      "mechanicText": "Grants the combat technique “Heartwood SoulFire Seal — Guard Pattern”."
+      "mechanicText": "Grants the combat technique “Heartwood SoulFire Seal — Guard Pattern”.",
+      "endgameViableFromLateForest": true
     },
     {
       "id": "eq-trainer-torren-ashsplitter-ashsplitter-training-cleaver",
@@ -6181,6 +6259,4013 @@
       "bogExpansion": true,
       "trainerSubclass": "Verdictbearer",
       "accessoryType": "Trainer Relic"
+    },
+    {
+      "id": "eq-tower-halo-helm",
+      "name": "Halo-Forged Helm",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorCategory": "Heavy",
+      "setId": "set-tower-halo-forged",
+      "listedStats": {
+        "STR": 3,
+        "FTH": 2,
+        "incomingHealingPct": 5
+      },
+      "resistances": {
+        "Holy": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-halo-chest",
+      "name": "Halo-Forged Chest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Heavy",
+      "setId": "set-tower-halo-forged",
+      "listedStats": {
+        "FTH": 3,
+        "STR": 2,
+        "incomingHealingPct": 5
+      },
+      "resistances": {
+        "Holy": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-halo-gloves",
+      "name": "Halo-Forged Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorCategory": "Heavy",
+      "setId": "set-tower-halo-forged",
+      "listedStats": {
+        "STR": 3,
+        "FTH": 2,
+        "incomingHealingPct": 5
+      },
+      "resistances": {
+        "Holy": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-halo-boots",
+      "name": "Halo-Forged Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorCategory": "Heavy",
+      "setId": "set-tower-halo-forged",
+      "listedStats": {
+        "FTH": 3,
+        "STR": 2,
+        "incomingHealingPct": 5
+      },
+      "resistances": {
+        "Holy": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-rime-helm",
+      "name": "Rimeglass Helm",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "setId": "set-tower-rimeglass",
+      "listedStats": {
+        "CON": 3,
+        "INT": 2,
+        "blockedDamageReductionPct": 5
+      },
+      "resistances": {
+        "Cold": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-rime-chest",
+      "name": "Rimeglass Chest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "setId": "set-tower-rimeglass",
+      "listedStats": {
+        "INT": 3,
+        "CON": 2,
+        "blockedDamageReductionPct": 5
+      },
+      "resistances": {
+        "Cold": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-rime-gloves",
+      "name": "Rimeglass Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "setId": "set-tower-rimeglass",
+      "listedStats": {
+        "CON": 3,
+        "INT": 2,
+        "blockedDamageReductionPct": 5
+      },
+      "resistances": {
+        "Cold": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-rime-boots",
+      "name": "Rimeglass Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "setId": "set-tower-rimeglass",
+      "listedStats": {
+        "INT": 3,
+        "CON": 2,
+        "blockedDamageReductionPct": 5
+      },
+      "resistances": {
+        "Cold": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-fire-helm",
+      "name": "Whitefire Helm",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "setId": "set-tower-whitefire",
+      "listedStats": {
+        "STR": 3,
+        "INT": 2,
+        "criticalDamagePct": 8
+      },
+      "resistances": {
+        "Fire": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-fire-chest",
+      "name": "Whitefire Chest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "setId": "set-tower-whitefire",
+      "listedStats": {
+        "INT": 3,
+        "STR": 2,
+        "criticalDamagePct": 8
+      },
+      "resistances": {
+        "Fire": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-fire-gloves",
+      "name": "Whitefire Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "setId": "set-tower-whitefire",
+      "listedStats": {
+        "STR": 3,
+        "INT": 2,
+        "criticalDamagePct": 8
+      },
+      "resistances": {
+        "Fire": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-fire-boots",
+      "name": "Whitefire Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorCategory": "Medium",
+      "setId": "set-tower-whitefire",
+      "listedStats": {
+        "INT": 3,
+        "STR": 2,
+        "criticalDamagePct": 8
+      },
+      "resistances": {
+        "Fire": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-psi-helm",
+      "name": "Thoughtglass Helm",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "setId": "set-tower-thoughtglass",
+      "listedStats": {
+        "INT": 3,
+        "LCK": 2,
+        "dodgeChancePct": 4
+      },
+      "resistances": {
+        "Psychic": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-psi-chest",
+      "name": "Thoughtglass Chest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "setId": "set-tower-thoughtglass",
+      "listedStats": {
+        "LCK": 3,
+        "INT": 2,
+        "dodgeChancePct": 4
+      },
+      "resistances": {
+        "Psychic": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-psi-gloves",
+      "name": "Thoughtglass Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "setId": "set-tower-thoughtglass",
+      "listedStats": {
+        "INT": 3,
+        "LCK": 2,
+        "dodgeChancePct": 4
+      },
+      "resistances": {
+        "Psychic": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-psi-boots",
+      "name": "Thoughtglass Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorCategory": "Light",
+      "setId": "set-tower-thoughtglass",
+      "listedStats": {
+        "LCK": 3,
+        "INT": 2,
+        "dodgeChancePct": 4
+      },
+      "resistances": {
+        "Psychic": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-chorus-sword",
+      "name": "Chorus-Edge",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "listedStats": {
+        "STR": 4,
+        "FTH": 3,
+        "damageCritChancePct": 4
+      },
+      "resistances": {
+        "Holy": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-halo-scepter",
+      "name": "Halo Scepter",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "listedStats": {
+        "FTH": 5,
+        "CHA": 2,
+        "outgoingHealingPct": 6
+      },
+      "resistances": {
+        "Holy": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-sanctified-gauntlets",
+      "name": "Sanctified Gauntlets",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Gauntlet",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "listedStats": {
+        "STR": 4,
+        "CON": 3,
+        "criticalDamagePct": 8
+      },
+      "resistances": {
+        "Holy": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-rime-pike",
+      "name": "Rimeglass Pike",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "listedStats": {
+        "STR": 3,
+        "CON": 4,
+        "blockChancePct": 5
+      },
+      "resistances": {
+        "Cold": 8
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-preserver-rod",
+      "name": "Preserver Rod",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "listedStats": {
+        "INT": 4,
+        "CON": 3,
+        "energyGainPct": 6
+      },
+      "resistances": {
+        "Cold": 8
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-cryo-gauntlets",
+      "name": "Cryo Gauntlets",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Gauntlet",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "listedStats": {
+        "STR": 3,
+        "CON": 4,
+        "blockedDamageReductionPct": 6
+      },
+      "resistances": {
+        "Cold": 8
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-whitefire-blade",
+      "name": "Whitefire Blade",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "listedStats": {
+        "STR": 4,
+        "DEX": 3,
+        "criticalDamagePct": 10
+      },
+      "resistances": {
+        "Fire": 8
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-crucible-staff",
+      "name": "Crucible Staff",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "listedStats": {
+        "INT": 5,
+        "LCK": 2,
+        "damageCritChancePct": 5
+      },
+      "resistances": {
+        "Fire": 8
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-furnace-gauntlets",
+      "name": "Furnace Gauntlets",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Gauntlet",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "listedStats": {
+        "STR": 4,
+        "INT": 3,
+        "criticalDamagePct": 9
+      },
+      "resistances": {
+        "Fire": 8
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-thought-needle",
+      "name": "Thought Needle",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "listedStats": {
+        "DEX": 4,
+        "LCK": 3,
+        "damageCritChancePct": 5
+      },
+      "resistances": {
+        "Psychic": 9
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-cognition-wand",
+      "name": "Cognition Wand",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Magic",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "listedStats": {
+        "INT": 5,
+        "LCK": 3,
+        "energyGainPct": 7
+      },
+      "resistances": {
+        "Psychic": 9
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-mind-gauntlets",
+      "name": "Mindframe Gauntlets",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "weaponType": "Gauntlet",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "listedStats": {
+        "INT": 4,
+        "CON": 3,
+        "dodgeChancePct": 4
+      },
+      "resistances": {
+        "Psychic": 9
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-halo-vial",
+      "name": "Halo Vial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "FTH": 3,
+        "incomingHealingPct": 6
+      },
+      "resistances": {
+        "Holy": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true,
+      "charmType": "Vial",
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 8
+        }
+      ],
+      "mechanicText": "At combat start, this Vial forms a ward equal to 8% of Maximum HP as Shield."
+    },
+    {
+      "id": "eq-tower-choir-band",
+      "name": "Choir Band",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "CHA": 3,
+        "FTH": 3,
+        "outgoingHealingPct": 6
+      },
+      "resistances": {
+        "Holy": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-rime-vial",
+      "name": "Rime Vial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "CON": 3,
+        "blockChancePct": 5
+      },
+      "resistances": {
+        "Cold": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true,
+      "charmType": "Vial",
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 9
+        }
+      ],
+      "mechanicText": "At combat start, this Vial forms a ward equal to 9% of Maximum HP as Shield."
+    },
+    {
+      "id": "eq-tower-preservation-band",
+      "name": "Preservation Band",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "CON": 3,
+        "INT": 3,
+        "blockedDamageReductionPct": 6
+      },
+      "resistances": {
+        "Cold": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-cinder-vial",
+      "name": "Whitefire Vial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "INT": 3,
+        "criticalDamagePct": 10
+      },
+      "resistances": {
+        "Fire": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true,
+      "charmType": "Vial",
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 8
+        }
+      ],
+      "mechanicText": "At combat start, this Vial forms a ward equal to 8% of Maximum HP as Shield."
+    },
+    {
+      "id": "eq-tower-crucible-band",
+      "name": "Crucible Band",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "STR": 3,
+        "INT": 3,
+        "damageCritChancePct": 5
+      },
+      "resistances": {
+        "Fire": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-thought-scroll",
+      "name": "Thoughtglass Spell Slot",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "INT": 3,
+        "energyGainPct": 7
+      },
+      "resistances": {
+        "Psychic": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true,
+      "charmType": "Spell Slot",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-tower-thought-scroll",
+          "name": "Thoughtglass Spell Slot — Mind Script",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 9,
+              "scaling": {
+                "INT": 0.004
+              },
+              "damageType": "Psychic"
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants the combat spell “Thoughtglass Spell Slot — Mind Script”."
+    },
+    {
+      "id": "eq-tower-memory-band",
+      "name": "Memory Band",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "LCK": 3,
+        "INT": 3,
+        "dodgeChancePct": 5
+      },
+      "resistances": {
+        "Psychic": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-aureofrost-heartplate",
+      "name": "Aureofrost Heartplate",
+      "slot": "chest",
+      "itemType": "Armor",
+      "listedStats": {
+        "CON": 6,
+        "FTH": 4,
+        "INT": 4,
+        "blockChancePct": 7
+      },
+      "resistances": {
+        "Holy": 12,
+        "Cold": 12
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "towerExpansion": true,
+      "armorCategory": "Heavy"
+    },
+    {
+      "id": "eq-tower-aureofrost-command-arm",
+      "name": "Aureofrost Command Arm",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 5,
+        "CON": 5,
+        "FTH": 3,
+        "criticalDamagePct": 12
+      },
+      "resistances": {
+        "Holy": 10,
+        "Cold": 10
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "towerExpansion": true,
+      "weaponType": "Gauntlet",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-tower-aureofrost-aegis",
+      "name": "Aureofrost Aegis",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "CON": 5,
+        "INT": 4,
+        "energyGainPct": 8,
+        "blockedDamageReductionPct": 8
+      },
+      "resistances": {
+        "Holy": 8,
+        "Cold": 12
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "towerExpansion": true
+    },
+    {
+      "id": "eq-tower-hierophant-ascension-staff",
+      "name": "Hierophant Ascension Staff",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "INT": 7,
+        "FTH": 7,
+        "LCK": 3,
+        "energyGainPct": 10,
+        "damageCritChancePct": 6
+      },
+      "resistances": {
+        "Holy": 8,
+        "Fire": 8,
+        "Cold": 8,
+        "Psychic": 8
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "towerExpansion": true,
+      "weaponType": "Magic",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-tower-fourfold-halo",
+      "name": "Fourfold Halo",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "FTH": 5,
+        "INT": 5,
+        "LCK": 4,
+        "criticalDamagePct": 12
+      },
+      "resistances": {
+        "Holy": 10,
+        "Fire": 10,
+        "Cold": 10,
+        "Psychic": 10
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "towerExpansion": true,
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-tower-anchorless-vestment",
+      "name": "Anchorless Vestment",
+      "slot": "chest",
+      "itemType": "Armor",
+      "listedStats": {
+        "CON": 6,
+        "INT": 6,
+        "FTH": 5,
+        "dodgeChancePct": 6,
+        "incomingHealingPct": 7
+      },
+      "resistances": {
+        "Holy": 10,
+        "Psychic": 12
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "towerExpansion": true,
+      "armorCategory": "Light"
+    },
+    {
+      "id": "eq-plains-red-cavalier-helmet",
+      "name": "Red Helmet",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "listedStats": {
+        "CON": 3,
+        "STR": 2
+      },
+      "resistances": {
+        "Physical": 12
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Medium",
+      "setId": "set-plains-red-cavalier"
+    },
+    {
+      "id": "eq-plains-red-cavalier-chest",
+      "name": "Red Chest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "listedStats": {
+        "CON": 4,
+        "STR": 2
+      },
+      "resistances": {
+        "Physical": 12
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Medium",
+      "setId": "set-plains-red-cavalier"
+    },
+    {
+      "id": "eq-plains-red-cavalier-gloves",
+      "name": "Red Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "listedStats": {
+        "STR": 5
+      },
+      "resistances": {
+        "Physical": 12
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Medium",
+      "setId": "set-plains-red-cavalier"
+    },
+    {
+      "id": "eq-plains-red-cavalier-boots",
+      "name": "Red Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "listedStats": {
+        "DEX": 3,
+        "STR": 2
+      },
+      "resistances": {
+        "Physical": 12
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Medium",
+      "setId": "set-plains-red-cavalier"
+    },
+    {
+      "id": "eq-plains-veinforged-helmet",
+      "name": "Veinforged Helmet",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "listedStats": {
+        "CON": 5
+      },
+      "resistances": {
+        "Force": 12
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Heavy",
+      "setId": "set-plains-veinforged"
+    },
+    {
+      "id": "eq-plains-veinforged-chest",
+      "name": "Veinforged Chest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "listedStats": {
+        "CON": 6
+      },
+      "resistances": {
+        "Force": 12
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Heavy",
+      "setId": "set-plains-veinforged"
+    },
+    {
+      "id": "eq-plains-veinforged-gloves",
+      "name": "Veinforged Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "listedStats": {
+        "STR": 3,
+        "CON": 2
+      },
+      "resistances": {
+        "Force": 12
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Heavy",
+      "setId": "set-plains-veinforged"
+    },
+    {
+      "id": "eq-plains-veinforged-boots",
+      "name": "Veinforged Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "listedStats": {
+        "DEX": 3,
+        "CON": 2
+      },
+      "resistances": {
+        "Force": 12
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Heavy",
+      "setId": "set-plains-veinforged"
+    },
+    {
+      "id": "eq-plains-gloamveil-helmet",
+      "name": "Gloamveil Helmet",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "listedStats": {
+        "CON": 3,
+        "INT": 2
+      },
+      "resistances": {
+        "Psychic": 12
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Light",
+      "setId": "set-plains-gloamveil"
+    },
+    {
+      "id": "eq-plains-gloamveil-chest",
+      "name": "Gloamveil Chest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "listedStats": {
+        "CON": 4,
+        "INT": 2
+      },
+      "resistances": {
+        "Psychic": 12
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Light",
+      "setId": "set-plains-gloamveil"
+    },
+    {
+      "id": "eq-plains-gloamveil-gloves",
+      "name": "Gloamveil Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "listedStats": {
+        "STR": 3,
+        "INT": 2
+      },
+      "resistances": {
+        "Psychic": 12
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Light",
+      "setId": "set-plains-gloamveil"
+    },
+    {
+      "id": "eq-plains-gloamveil-boots",
+      "name": "Gloamveil Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "listedStats": {
+        "DEX": 3,
+        "INT": 2
+      },
+      "resistances": {
+        "Psychic": 12
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Light",
+      "setId": "set-plains-gloamveil"
+    },
+    {
+      "id": "eq-plains-bloodmoon-helmet",
+      "name": "Bloodmoon Helmet",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "listedStats": {
+        "CON": 3,
+        "CHA": 2
+      },
+      "resistances": {
+        "Physical": 7,
+        "Psychic": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Medium",
+      "setId": "set-plains-bloodmoon"
+    },
+    {
+      "id": "eq-plains-bloodmoon-chest",
+      "name": "Bloodmoon Chest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "listedStats": {
+        "CON": 4,
+        "CHA": 2
+      },
+      "resistances": {
+        "Physical": 7,
+        "Psychic": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Medium",
+      "setId": "set-plains-bloodmoon"
+    },
+    {
+      "id": "eq-plains-bloodmoon-gloves",
+      "name": "Bloodmoon Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "listedStats": {
+        "STR": 3,
+        "CHA": 2
+      },
+      "resistances": {
+        "Physical": 7,
+        "Psychic": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Medium",
+      "setId": "set-plains-bloodmoon"
+    },
+    {
+      "id": "eq-plains-bloodmoon-boots",
+      "name": "Bloodmoon Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "listedStats": {
+        "DEX": 3,
+        "CHA": 2
+      },
+      "resistances": {
+        "Physical": 7,
+        "Psychic": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Medium",
+      "setId": "set-plains-bloodmoon"
+    },
+    {
+      "id": "eq-plains-bloodglass-charm",
+      "name": "Bloodglass Charm",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "CON": 3,
+        "lifestealPct": 8
+      },
+      "resistances": {
+        "Physical": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "charmType": "Trinket",
+      "mechanicText": "Gain 8% Lifesteal from actual HP removed by direct damage."
+    },
+    {
+      "id": "eq-plains-sanguine-sabre",
+      "name": "Sanguine Sabre",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 5,
+        "damageCritChancePct": 4,
+        "lifestealPct": 6
+      },
+      "resistances": {},
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-plains-redcourt-rapier",
+      "name": "Redcourt Rapier",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "DEX": 5,
+        "criticalDamagePct": 10,
+        "lifestealPct": 4
+      },
+      "resistances": {},
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-plains-veinbreaker-maul",
+      "name": "Veinbreaker Maul",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 6,
+        "CON": 3,
+        "finalDamagePct": 5
+      },
+      "resistances": {
+        "Force": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "weaponType": "Physical",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-plains-hemomancer-focus",
+      "name": "Hemomancer Focus",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "INT": 5,
+        "CHA": 4,
+        "lifestealPct": 5
+      },
+      "resistances": {
+        "Force": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "weaponType": "Magic",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-plains-gloam-knife",
+      "name": "Gloam Knife",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "DEX": 4,
+        "LCK": 4,
+        "lifestealPct": 5
+      },
+      "resistances": {
+        "Psychic": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-plains-mindblood-staff",
+      "name": "Mindblood Staff",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "INT": 6,
+        "LCK": 3,
+        "damageCritChancePct": 5
+      },
+      "resistances": {
+        "Psychic": 8
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "weaponType": "Magic",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-plains-bloodroot-shield",
+      "name": "Bloodroot Shield",
+      "slot": "offHand",
+      "itemType": "Shield",
+      "listedStats": {
+        "CON": 5,
+        "blockChancePct": 7,
+        "blockedDamageReductionPct": 5
+      },
+      "resistances": {
+        "Force": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true
+    },
+    {
+      "id": "eq-plains-smokeveil-cloak",
+      "name": "Smokeveil Cloak",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "DEX": 4,
+        "dodgeChancePct": 5
+      },
+      "resistances": {
+        "Psychic": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true
+    },
+    {
+      "id": "eq-plains-scarlet-signetring",
+      "name": "Scarlet Signet Ring",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "CHA": 4,
+        "incomingHealingPct": 6,
+        "lifestealPct": 3
+      },
+      "resistances": {},
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true
+    },
+    {
+      "id": "eq-plains-warfield-medallion",
+      "name": "Warfield Medallion",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "STR": 3,
+        "CON": 3,
+        "criticalDamagePct": 8
+      },
+      "resistances": {
+        "Physical": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true
+    },
+    {
+      "id": "eq-plains-veil-mirror",
+      "name": "Veil Mirror",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "INT": 4,
+        "LCK": 3,
+        "dodgeChancePct": 4
+      },
+      "resistances": {
+        "Psychic": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-plains-red-marrow-vial",
+      "name": "Red Marrow Blood Phial",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "CON": 4,
+        "incomingHealingPct": 6
+      },
+      "resistances": {},
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "charmType": "Blood Phial",
+      "mechanics": [
+        {
+          "type": "start-shield-pct-max-hp",
+          "value": 8
+        }
+      ],
+      "mechanicText": "At combat start, forms a ward equal to 8% Maximum HP."
+    },
+    {
+      "id": "eq-plains-blood-script-slot",
+      "name": "Blood Script Charm",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "INT": 4,
+        "energyGainPct": 6
+      },
+      "resistances": {
+        "Force": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "charmType": "Blood Script",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-plains-blood-script-slot",
+          "name": "Blood Script — Vein Lance",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 10,
+              "scaling": {
+                "INT": 0.005,
+                "CHA": 0.003
+              },
+              "damageType": "Force"
+            }
+          ],
+          "source": "equipment",
+          "lifestealPct": 8
+        }
+      ],
+      "mechanicText": "Grants Blood Script."
+    },
+    {
+      "id": "eq-plains-gloam-script-slot",
+      "name": "Gloam Script Charm",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "INT": 4,
+        "damageCritChancePct": 4
+      },
+      "resistances": {
+        "Psychic": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "charmType": "Gloam Script",
+      "grantedAbilities": [
+        {
+          "id": "spellslot-eq-plains-gloam-script-slot",
+          "name": "Gloam Script — Mindshade",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 10,
+              "scaling": {
+                "INT": 0.005,
+                "LCK": 0.003
+              },
+              "damageType": "Psychic"
+            }
+          ],
+          "source": "equipment"
+        }
+      ],
+      "mechanicText": "Grants Gloam Script."
+    },
+    {
+      "id": "eq-plains-nightfang-gauntlets",
+      "name": "Nightfang Gauntlets",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 5,
+        "DEX": 3,
+        "lifestealPct": 5
+      },
+      "resistances": {},
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "weaponType": "Gauntlet",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-plains-smoke-thread-band",
+      "name": "Smoke-Thread Band",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "DEX": 3,
+        "CHA": 3,
+        "energyGainPct": 5
+      },
+      "resistances": {
+        "Psychic": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "plainsExpansion": true
+    },
+    {
+      "id": "eq-plains-varrek-bloodlance",
+      "name": "Varrek’s Bloodlance",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 7,
+        "DEX": 4,
+        "criticalDamagePct": 14,
+        "lifestealPct": 7
+      },
+      "resistances": {
+        "Physical": 10,
+        "Force": 8
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "weaponType": "Physical",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-plains-nightblood-barding",
+      "name": "Nightblood Barding",
+      "slot": "chest",
+      "itemType": "Armor",
+      "listedStats": {
+        "CON": 7,
+        "STR": 4,
+        "incomingHealingPct": 8
+      },
+      "resistances": {
+        "Physical": 10
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Heavy"
+    },
+    {
+      "id": "eq-plains-red-cavalier-spur",
+      "name": "Red Cavalier Spur",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "DEX": 5,
+        "STR": 4,
+        "energyGainPct": 8,
+        "lifestealPct": 5
+      },
+      "resistances": {},
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "plainsExpansion": true
+    },
+    {
+      "id": "eq-plains-seer-mirrorstaff",
+      "name": "Veiled Mirrorstaff",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "INT": 8,
+        "LCK": 5,
+        "damageCritChancePct": 7
+      },
+      "resistances": {
+        "Psychic": 14
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "weaponType": "Magic",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-plains-mirrorblood-veil",
+      "name": "Mirrorblood Veil",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "listedStats": {
+        "INT": 6,
+        "DEX": 5,
+        "dodgeChancePct": 7
+      },
+      "resistances": {
+        "Psychic": 12
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Heavy"
+    },
+    {
+      "id": "eq-plains-thought-drinker",
+      "name": "Thought Drinker",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "INT": 5,
+        "CHA": 5,
+        "lifestealPct": 6,
+        "energyGainPct": 7
+      },
+      "resistances": {
+        "Psychic": 10
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-plains-tenairah-crownblade",
+      "name": "Tenairah’s Crownblade",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 7,
+        "DEX": 6,
+        "CHA": 5,
+        "lifestealPct": 10,
+        "criticalDamagePct": 15
+      },
+      "resistances": {
+        "Physical": 10,
+        "Force": 10,
+        "Psychic": 10
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-plains-sovereign-smoke-mantle",
+      "name": "Sovereign Smoke Mantle",
+      "slot": "chest",
+      "itemType": "Armor",
+      "listedStats": {
+        "CON": 7,
+        "DEX": 6,
+        "CHA": 5,
+        "dodgeChancePct": 8,
+        "lifestealPct": 6
+      },
+      "resistances": {
+        "Psychic": 12,
+        "Force": 10
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "armorCategory": "Medium"
+    },
+    {
+      "id": "eq-plains-bloodroot-heart",
+      "name": "Bloodroot Heart",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "CON": 6,
+        "CHA": 6,
+        "incomingHealingPct": 10,
+        "lifestealPct": 10
+      },
+      "resistances": {
+        "Physical": 8,
+        "Force": 8
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "plainsExpansion": true,
+      "charmType": "Trinket"
+    },
+    {
+      "id": "eq-hell-gatebound-helmet",
+      "name": "Gatebound Helmet",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "listedStats": {
+        "STR": 4,
+        "CON": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Physical": 4,
+        "Force": 4
+      }
+    },
+    {
+      "id": "eq-hell-gatebound-chest",
+      "name": "Gatebound Chest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "listedStats": {
+        "STR": 5,
+        "CON": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Physical": 4,
+        "Force": 4
+      }
+    },
+    {
+      "id": "eq-hell-gatebound-gloves",
+      "name": "Gatebound Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "listedStats": {
+        "STR": 5,
+        "CON": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Physical": 4,
+        "Force": 4
+      }
+    },
+    {
+      "id": "eq-hell-gatebound-boots",
+      "name": "Gatebound Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "listedStats": {
+        "STR": 4,
+        "CON": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Physical": 4,
+        "Force": 4
+      }
+    },
+    {
+      "id": "eq-hell-cinderwrought-helmet",
+      "name": "Cinderwrought Helmet",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "listedStats": {
+        "STR": 4,
+        "INT": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Fire": 5
+      }
+    },
+    {
+      "id": "eq-hell-cinderwrought-chest",
+      "name": "Cinderwrought Chest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "listedStats": {
+        "STR": 5,
+        "INT": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Fire": 5
+      }
+    },
+    {
+      "id": "eq-hell-cinderwrought-gloves",
+      "name": "Cinderwrought Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "listedStats": {
+        "STR": 5,
+        "INT": 5,
+        "damageCritChancePct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Fire": 5
+      }
+    },
+    {
+      "id": "eq-hell-cinderwrought-boots",
+      "name": "Cinderwrought Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "listedStats": {
+        "STR": 4,
+        "INT": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Fire": 5
+      }
+    },
+    {
+      "id": "eq-hell-whisperveil-helmet",
+      "name": "Whisperveil Helmet",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "listedStats": {
+        "INT": 4,
+        "CHA": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Psychic": 5
+      }
+    },
+    {
+      "id": "eq-hell-whisperveil-chest",
+      "name": "Whisperveil Chest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "listedStats": {
+        "INT": 5,
+        "CHA": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Psychic": 5
+      }
+    },
+    {
+      "id": "eq-hell-whisperveil-gloves",
+      "name": "Whisperveil Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "listedStats": {
+        "INT": 5,
+        "CHA": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Psychic": 5
+      }
+    },
+    {
+      "id": "eq-hell-whisperveil-boots",
+      "name": "Whisperveil Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "listedStats": {
+        "INT": 4,
+        "CHA": 4,
+        "dodgeChancePct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Psychic": 5
+      }
+    },
+    {
+      "id": "eq-hell-sevenfold-pilgrim-helmet",
+      "name": "Sevenfold Helmet",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "listedStats": {
+        "DEX": 4,
+        "LCK": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Physical": 4,
+        "Force": 4,
+        "Fire": 4,
+        "Psychic": 4
+      }
+    },
+    {
+      "id": "eq-hell-sevenfold-pilgrim-chest",
+      "name": "Sevenfold Chest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "listedStats": {
+        "DEX": 5,
+        "LCK": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Physical": 4,
+        "Force": 4,
+        "Fire": 4,
+        "Psychic": 4
+      }
+    },
+    {
+      "id": "eq-hell-sevenfold-pilgrim-gloves",
+      "name": "Sevenfold Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "listedStats": {
+        "DEX": 5,
+        "LCK": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Physical": 4,
+        "Force": 4,
+        "Fire": 4,
+        "Psychic": 4
+      }
+    },
+    {
+      "id": "eq-hell-sevenfold-pilgrim-boots",
+      "name": "Sevenfold Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "listedStats": {
+        "DEX": 4,
+        "LCK": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Physical": 4,
+        "Force": 4,
+        "Fire": 4,
+        "Psychic": 4
+      }
+    },
+    {
+      "id": "eq-hell-blackstone-maul",
+      "name": "Blackstone Maul",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 8,
+        "CON": 6,
+        "blockChancePct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "resistances": {
+        "Force": 8
+      }
+    },
+    {
+      "id": "eq-hell-gatechain-blade",
+      "name": "Gatechain Blade",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 7,
+        "DEX": 5,
+        "CON": 2,
+        "criticalDamagePct": 10
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "resistances": {
+        "Physical": 8,
+        "Force": 8
+      }
+    },
+    {
+      "id": "eq-hell-cinder-scepter",
+      "name": "Cinder Scepter",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "INT": 8,
+        "FTH": 4,
+        "LCK": 2,
+        "damageCritChancePct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "weaponType": "Magic",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "resistances": {
+        "Fire": 10
+      }
+    },
+    {
+      "id": "eq-hell-soulglass-wand",
+      "name": "Soulglass Wand",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "INT": 7,
+        "CHA": 6,
+        "LCK": 1,
+        "energyGainPct": 8
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "weaponType": "Magic",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "resistances": {
+        "Psychic": 10
+      }
+    },
+    {
+      "id": "eq-hell-hellfang-sabre",
+      "name": "Hellfang Sabre",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 6,
+        "DEX": 7,
+        "CHA": 1,
+        "lifestealPct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "resistances": {
+        "Physical": 8
+      }
+    },
+    {
+      "id": "eq-hell-sinbound-glaive",
+      "name": "Sinbound Glaive",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 7,
+        "DEX": 4,
+        "CHA": 3,
+        "finalDamagePct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "resistances": {
+        "Force": 8
+      }
+    },
+    {
+      "id": "eq-hell-venomstone-dirk",
+      "name": "Venomstone Dirk",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "DEX": 8,
+        "LCK": 5,
+        "CON": 1,
+        "damageCritChancePct": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "resistances": {
+        "Poison": 12
+      }
+    },
+    {
+      "id": "eq-hell-infernal-censer",
+      "name": "Infernal Censer",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "FTH": 6,
+        "CHA": 6,
+        "CON": 2,
+        "outgoingHealingPct": 8
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "weaponType": "Magic",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "resistances": {
+        "Fire": 6,
+        "Psychic": 6
+      }
+    },
+    {
+      "id": "eq-hell-writhing-gauntlets",
+      "name": "Writhing Gauntlets",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 7,
+        "CON": 5,
+        "DEX": 2,
+        "lifestealPct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "weaponType": "Gauntlet",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "resistances": {
+        "Physical": 8
+      }
+    },
+    {
+      "id": "eq-hell-lament-string",
+      "name": "Lament String",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "CHA": 8,
+        "DEX": 3,
+        "FTH": 3,
+        "energyGainPct": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "weaponType": "Instrument",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "resistances": {
+        "Psychic": 8
+      }
+    },
+    {
+      "id": "eq-hell-blackstone-charm",
+      "name": "Blackstone Charm",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "CON": 5,
+        "STR": 4,
+        "blockChancePct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true
+    },
+    {
+      "id": "eq-hell-ember-loop",
+      "name": "Ember Loop",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "INT": 5,
+        "LCK": 4,
+        "damageCritChancePct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true
+    },
+    {
+      "id": "eq-hell-soulglass-eye",
+      "name": "Soulglass Eye",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "INT": 5,
+        "CHA": 4,
+        "energyGainPct": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true
+    },
+    {
+      "id": "eq-hell-chain-oath-ring",
+      "name": "Chain-Oath Ring",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "STR": 4,
+        "CON": 5,
+        "blockedDamageReductionPct": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true
+    },
+    {
+      "id": "eq-hell-hellhound-tooth",
+      "name": "Hellhound Tooth",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "STR": 5,
+        "DEX": 4,
+        "lifestealPct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true
+    },
+    {
+      "id": "eq-hell-sevenfold-token",
+      "name": "Sevenfold Token",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "LCK": 5,
+        "CHA": 4,
+        "criticalDamagePct": 9
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "hellExpansion": true
+    },
+    {
+      "id": "eq-hell-kharvax-gatebreaker",
+      "name": "Kharvax Gatebreaker",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 8,
+        "CON": 8,
+        "finalDamagePct": 6
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "resistances": {
+        "Force": 14
+      },
+      "passiveDescription": "Heavy Force attacks reward breaking through Shield."
+    },
+    {
+      "id": "eq-hell-kharvax-chain-heart",
+      "name": "Kharvax Chain-Heart",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "STR": 5,
+        "CON": 6,
+        "CHA": 5,
+        "blockChancePct": 8,
+        "incomingDamagePct": -6
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Physical": 10,
+        "Force": 10
+      },
+      "passiveDescription": "A compact endgame defensive sidegrade built from the gate guardian."
+    },
+    {
+      "id": "eq-hell-pride-mirror",
+      "name": "Mirror of Pride",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "CHA": 6,
+        "CON": 5,
+        "LCK": 5,
+        "blockChancePct": 8,
+        "dodgeChancePct": 8
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "passiveDescription": "Rewards remaining composed under pressure."
+    },
+    {
+      "id": "eq-hell-greed-hand",
+      "name": "Hand of Greed",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "CHA": 6,
+        "INT": 5,
+        "LCK": 5,
+        "energyGainPct": 10,
+        "shieldStrengthPct": 10
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "passiveDescription": "Converts resource efficiency into durable advantage."
+    },
+    {
+      "id": "eq-hell-lust-veil",
+      "name": "Veil of Longing",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "CHA": 7,
+        "INT": 6,
+        "DEX": 3,
+        "damageCritChancePct": 7
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Psychic": 12
+      },
+      "passiveDescription": "Psychic pressure and target manipulation sidegrade."
+    },
+    {
+      "id": "eq-hell-envy-glass",
+      "name": "Covetous Glass",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "LCK": 6,
+        "DEX": 5,
+        "INT": 5,
+        "criticalDamagePct": 14
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "passiveDescription": "Excels at opportunistic crit builds."
+    },
+    {
+      "id": "eq-hell-gluttony-maw",
+      "name": "Pendant of the Endless Maw",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "CON": 7,
+        "STR": 5,
+        "CHA": 4,
+        "lifestealPct": 10,
+        "incomingHealingPct": 12
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "passiveDescription": "Strong Lifesteal sustain without higher raw stat budget."
+    },
+    {
+      "id": "eq-hell-wrath-ember",
+      "name": "Wrathblood Emberblade",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 9,
+        "DEX": 5,
+        "LCK": 2,
+        "finalDamagePct": 9,
+        "damageCritChancePct": 8
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true,
+      "resistances": {
+        "Physical": 10,
+        "Force": 10
+      },
+      "passiveDescription": "Pure offense at the cost of defensive specialization."
+    },
+    {
+      "id": "eq-hell-sloth-hour",
+      "name": "Stillborn Hourglass",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "CON": 7,
+        "INT": 5,
+        "LCK": 4,
+        "incomingDamagePct": -8,
+        "energyGainPct": 6
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "passiveDescription": "Defense and patient resource play."
+    },
+    {
+      "id": "eq-hell-sevenfold-regalia",
+      "name": "Sevenfold Regent Sigil",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "STR": 3,
+        "DEX": 3,
+        "CON": 3,
+        "INT": 3,
+        "CHA": 3,
+        "LCK": 2,
+        "finalDamagePct": 5,
+        "energyGainPct": 5
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "hellExpansion": true,
+      "resistances": {
+        "Physical": 6,
+        "Force": 6,
+        "Fire": 6,
+        "Psychic": 6
+      },
+      "passiveDescription": "Universal sevenfold sidegrade with broad rather than peak specialization."
+    },
+    {
+      "id": "eq-hell-broker-red-contract",
+      "name": "Red Contract",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "STR": 1,
+        "finalDamagePct": 22
+      },
+      "rarity": "Normal",
+      "acquisition": "hell-merchant",
+      "hellExpansion": true,
+      "passiveDescription": "Your damaging abilities deal substantially more final damage.",
+      "infernalBrokerItem": true
+    },
+    {
+      "id": "eq-hell-broker-stolen-second",
+      "name": "Stolen Second",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "DEX": 1,
+        "energyGainPct": 30,
+        "dodgeChancePct": 10
+      },
+      "rarity": "Normal",
+      "acquisition": "hell-merchant",
+      "hellExpansion": true,
+      "passiveDescription": "Your Energy economy and evasiveness surge.",
+      "infernalBrokerItem": true
+    },
+    {
+      "id": "eq-hell-broker-black-mercy",
+      "name": "Black Mercy",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "FTH": 1,
+        "lifestealPct": 14,
+        "incomingHealingPct": 18
+      },
+      "rarity": "Normal",
+      "acquisition": "hell-merchant",
+      "hellExpansion": true,
+      "passiveDescription": "Damage dealt can sustain even builds that normally lack Lifesteal.",
+      "infernalBrokerItem": true
+    },
+    {
+      "id": "eq-hell-broker-unearned-crown",
+      "name": "Unearned Crown",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "CHA": 1,
+        "damageCritChancePct": 14,
+        "criticalDamagePct": 28
+      },
+      "rarity": "Normal",
+      "acquisition": "hell-merchant",
+      "hellExpansion": true,
+      "passiveDescription": "Critical offense becomes dramatically more reliable.",
+      "infernalBrokerItem": true
+    },
+    {
+      "id": "eq-hell-broker-quiet-fortress",
+      "name": "Quiet Fortress",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "CON": 1,
+        "incomingDamagePct": -14,
+        "blockChancePct": 12,
+        "shieldStrengthPct": 18
+      },
+      "rarity": "Normal",
+      "acquisition": "hell-merchant",
+      "hellExpansion": true,
+      "passiveDescription": "Exceptional passive protection in exchange for almost no raw stats.",
+      "infernalBrokerItem": true
+    },
+    {
+      "id": "eq-dragon-drakescale-vanguard-helmet",
+      "name": "Drakescale Vanguard Helmet",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorWeight": "Heavy",
+      "listedStats": {
+        "STR": 5,
+        "CON": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "setId": "set-dragon-drakescale-vanguard",
+      "resistances": {
+        "Physical": 10,
+        "Fire": 8
+      },
+      "passiveDescription": "Drakescale Vanguard is an endgame sidegrade built around its set identity rather than higher raw stats."
+    },
+    {
+      "id": "eq-dragon-drakescale-vanguard-chest",
+      "name": "Drakescale Vanguard Chest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorWeight": "Heavy",
+      "listedStats": {
+        "STR": 5,
+        "CON": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "setId": "set-dragon-drakescale-vanguard",
+      "resistances": {
+        "Physical": 10,
+        "Fire": 8
+      },
+      "passiveDescription": "Drakescale Vanguard is an endgame sidegrade built around its set identity rather than higher raw stats."
+    },
+    {
+      "id": "eq-dragon-drakescale-vanguard-gloves",
+      "name": "Drakescale Vanguard Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorWeight": "Heavy",
+      "listedStats": {
+        "STR": 4,
+        "CON": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "setId": "set-dragon-drakescale-vanguard",
+      "resistances": {
+        "Physical": 10,
+        "Fire": 8
+      },
+      "passiveDescription": "Drakescale Vanguard is an endgame sidegrade built around its set identity rather than higher raw stats."
+    },
+    {
+      "id": "eq-dragon-drakescale-vanguard-boots",
+      "name": "Drakescale Vanguard Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorWeight": "Heavy",
+      "listedStats": {
+        "STR": 4,
+        "CON": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "setId": "set-dragon-drakescale-vanguard",
+      "resistances": {
+        "Physical": 10,
+        "Fire": 8
+      },
+      "passiveDescription": "Drakescale Vanguard is an endgame sidegrade built around its set identity rather than higher raw stats."
+    },
+    {
+      "id": "eq-dragon-wyvernwind-raiment-helmet",
+      "name": "Wyvernwind Raiment Helmet",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorWeight": "Light",
+      "listedStats": {
+        "DEX": 5,
+        "LCK": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "setId": "set-dragon-wyvernwind-raiment",
+      "resistances": {
+        "Lightning": 10,
+        "Poison": 8
+      },
+      "passiveDescription": "Wyvernwind Raiment is an endgame sidegrade built around its set identity rather than higher raw stats."
+    },
+    {
+      "id": "eq-dragon-wyvernwind-raiment-chest",
+      "name": "Wyvernwind Raiment Chest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorWeight": "Light",
+      "listedStats": {
+        "DEX": 5,
+        "LCK": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "setId": "set-dragon-wyvernwind-raiment",
+      "resistances": {
+        "Lightning": 10,
+        "Poison": 8
+      },
+      "passiveDescription": "Wyvernwind Raiment is an endgame sidegrade built around its set identity rather than higher raw stats."
+    },
+    {
+      "id": "eq-dragon-wyvernwind-raiment-gloves",
+      "name": "Wyvernwind Raiment Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorWeight": "Light",
+      "listedStats": {
+        "DEX": 5,
+        "LCK": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "setId": "set-dragon-wyvernwind-raiment",
+      "resistances": {
+        "Lightning": 10,
+        "Poison": 8
+      },
+      "passiveDescription": "Wyvernwind Raiment is an endgame sidegrade built around its set identity rather than higher raw stats."
+    },
+    {
+      "id": "eq-dragon-wyvernwind-raiment-boots",
+      "name": "Wyvernwind Raiment Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorWeight": "Light",
+      "listedStats": {
+        "DEX": 5,
+        "LCK": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "setId": "set-dragon-wyvernwind-raiment",
+      "resistances": {
+        "Lightning": 10,
+        "Poison": 8
+      },
+      "passiveDescription": "Wyvernwind Raiment is an endgame sidegrade built around its set identity rather than higher raw stats."
+    },
+    {
+      "id": "eq-dragon-arcane-hoardweave-helmet",
+      "name": "Arcane Hoardweave Helmet",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorWeight": "Medium",
+      "listedStats": {
+        "INT": 5,
+        "CHA": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "setId": "set-dragon-arcane-hoardweave",
+      "resistances": {
+        "Psychic": 10,
+        "Force": 8
+      },
+      "passiveDescription": "Arcane Hoardweave is an endgame sidegrade built around its set identity rather than higher raw stats."
+    },
+    {
+      "id": "eq-dragon-arcane-hoardweave-chest",
+      "name": "Arcane Hoardweave Chest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorWeight": "Medium",
+      "listedStats": {
+        "INT": 5,
+        "CHA": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "setId": "set-dragon-arcane-hoardweave",
+      "resistances": {
+        "Psychic": 10,
+        "Force": 8
+      },
+      "passiveDescription": "Arcane Hoardweave is an endgame sidegrade built around its set identity rather than higher raw stats."
+    },
+    {
+      "id": "eq-dragon-arcane-hoardweave-gloves",
+      "name": "Arcane Hoardweave Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorWeight": "Medium",
+      "listedStats": {
+        "INT": 5,
+        "CHA": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "setId": "set-dragon-arcane-hoardweave",
+      "resistances": {
+        "Psychic": 10,
+        "Force": 8
+      },
+      "passiveDescription": "Arcane Hoardweave is an endgame sidegrade built around its set identity rather than higher raw stats."
+    },
+    {
+      "id": "eq-dragon-arcane-hoardweave-boots",
+      "name": "Arcane Hoardweave Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorWeight": "Medium",
+      "listedStats": {
+        "INT": 5,
+        "CHA": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "setId": "set-dragon-arcane-hoardweave",
+      "resistances": {
+        "Psychic": 10,
+        "Force": 8
+      },
+      "passiveDescription": "Arcane Hoardweave is an endgame sidegrade built around its set identity rather than higher raw stats."
+    },
+    {
+      "id": "eq-dragon-prismward-regalia-helmet",
+      "name": "Prismward Regalia Helmet",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorWeight": "Medium",
+      "listedStats": {
+        "FTH": 4,
+        "CON": 3,
+        "LCK": 2
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "setId": "set-dragon-prismward-regalia",
+      "resistances": {
+        "Holy": 10,
+        "Cold": 8
+      },
+      "passiveDescription": "Prismward Regalia is an endgame sidegrade built around its set identity rather than higher raw stats."
+    },
+    {
+      "id": "eq-dragon-prismward-regalia-chest",
+      "name": "Prismward Regalia Chest",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorWeight": "Medium",
+      "listedStats": {
+        "FTH": 4,
+        "CON": 3,
+        "LCK": 2
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "setId": "set-dragon-prismward-regalia",
+      "resistances": {
+        "Holy": 10,
+        "Cold": 8
+      },
+      "passiveDescription": "Prismward Regalia is an endgame sidegrade built around its set identity rather than higher raw stats."
+    },
+    {
+      "id": "eq-dragon-prismward-regalia-gloves",
+      "name": "Prismward Regalia Gloves",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorWeight": "Medium",
+      "listedStats": {
+        "FTH": 4,
+        "CON": 3,
+        "LCK": 2
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "setId": "set-dragon-prismward-regalia",
+      "resistances": {
+        "Holy": 10,
+        "Cold": 8
+      },
+      "passiveDescription": "Prismward Regalia is an endgame sidegrade built around its set identity rather than higher raw stats."
+    },
+    {
+      "id": "eq-dragon-prismward-regalia-boots",
+      "name": "Prismward Regalia Boots",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorWeight": "Medium",
+      "listedStats": {
+        "FTH": 4,
+        "CON": 3,
+        "LCK": 2
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "setId": "set-dragon-prismward-regalia",
+      "resistances": {
+        "Holy": 10,
+        "Cold": 8
+      },
+      "passiveDescription": "Prismward Regalia is an endgame sidegrade built around its set identity rather than higher raw stats."
+    },
+    {
+      "id": "eq-dragon-drakefang-sabre",
+      "name": "Drakefang Sabre",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 7,
+        "DEX": 6,
+        "finalDamagePct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "Endgame-equivalent dragon-dungeon sidegrade.",
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-dragon-rimecoil-spear",
+      "name": "Rimecoil Spear",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 6,
+        "DEX": 7,
+        "damageCritChancePct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "Endgame-equivalent dragon-dungeon sidegrade.",
+      "weaponType": "Cold",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-dragon-stormtalon-bow",
+      "name": "Stormtalon Bow",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "DEX": 9,
+        "LCK": 4,
+        "criticalDamagePct": 10
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "Endgame-equivalent dragon-dungeon sidegrade.",
+      "weaponType": "Lightning",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-dragon-mindgem-rod",
+      "name": "Mindgem Rod",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "INT": 9,
+        "CHA": 4,
+        "energyGainPct": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "Endgame-equivalent dragon-dungeon sidegrade.",
+      "weaponType": "Psychic",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-dragon-halo-claw-scepter",
+      "name": "Halo-Claw Scepter",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "FTH": 8,
+        "INT": 5,
+        "outgoingHealingPct": 8
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "Endgame-equivalent dragon-dungeon sidegrade.",
+      "weaponType": "Holy",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-dragon-riftmaul",
+      "name": "Riftmaul",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 8,
+        "CON": 5,
+        "blockChancePct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "Endgame-equivalent dragon-dungeon sidegrade.",
+      "weaponType": "Force",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-dragon-goldglass-dirk",
+      "name": "Goldglass Dirk",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "DEX": 7,
+        "LCK": 6,
+        "damageCritChancePct": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "Endgame-equivalent dragon-dungeon sidegrade.",
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-dragon-prismcoil-staff",
+      "name": "Prismcoil Staff",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "INT": 8,
+        "FTH": 3,
+        "CHA": 2,
+        "finalDamagePct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "Endgame-equivalent dragon-dungeon sidegrade.",
+      "weaponType": "Arcane",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-dragon-wingguard-buckler",
+      "name": "Wingguard Buckler",
+      "slot": "offHand",
+      "itemType": "Shield",
+      "listedStats": {
+        "CON": 6,
+        "DEX": 4,
+        "blockChancePct": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "Endgame-equivalent dragon-dungeon sidegrade.",
+      "armorWeight": "Medium"
+    },
+    {
+      "id": "eq-dragon-arcane-scale-tome",
+      "name": "Arcane Scale Tome",
+      "slot": "offHand",
+      "itemType": "Spellbook",
+      "listedStats": {
+        "INT": 7,
+        "CHA": 3,
+        "energyGainPct": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "Endgame-equivalent dragon-dungeon sidegrade."
+    },
+    {
+      "id": "eq-dragon-hoardglass-charm",
+      "name": "Hoardglass Charm",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "LCK": 6,
+        "CHA": 4,
+        "damageCritChancePct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "Endgame-equivalent dragon-dungeon sidegrade."
+    },
+    {
+      "id": "eq-dragon-dragonheart-charm",
+      "name": "Dragonheart Charm",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "STR": 5,
+        "CON": 5,
+        "incomingDamagePct": -5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "Endgame-equivalent dragon-dungeon sidegrade."
+    },
+    {
+      "id": "eq-dragon-wyvern-eye",
+      "name": "Wyvern Eye",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "DEX": 6,
+        "INT": 4,
+        "dodgeChancePct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "Endgame-equivalent dragon-dungeon sidegrade."
+    },
+    {
+      "id": "eq-dragon-prismatic-lens",
+      "name": "Prismatic Lens",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "INT": 5,
+        "FTH": 3,
+        "LCK": 2,
+        "criticalDamagePct": 10
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "Endgame-equivalent dragon-dungeon sidegrade."
+    },
+    {
+      "id": "eq-dragon-hoardward-chain",
+      "name": "Hoardward Chain",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "CON": 6,
+        "CHA": 4,
+        "shieldStrengthPct": 8
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "Endgame-equivalent dragon-dungeon sidegrade."
+    },
+    {
+      "id": "eq-dragon-sixfold-scale",
+      "name": "Sixfold Scale",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "STR": 2,
+        "DEX": 2,
+        "INT": 2,
+        "FTH": 2,
+        "CHA": 2,
+        "LCK": 2,
+        "finalDamagePct": 3
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "Endgame-equivalent dragon-dungeon sidegrade."
+    },
+    {
+      "id": "eq-dragon-hoard-crown",
+      "name": "Hoard Sentinel Crown",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "listedStats": {
+        "CON": 7,
+        "LCK": 5,
+        "CHA": 4,
+        "shieldStrengthPct": 12
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade with concentrated draconic identity.",
+      "armorWeight": "Medium"
+    },
+    {
+      "id": "eq-dragon-living-treasury",
+      "name": "Living Treasury",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "LCK": 7,
+        "CHA": 5,
+        "CON": 4,
+        "damageCritChancePct": 7
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade with concentrated draconic identity."
+    },
+    {
+      "id": "eq-dragon-leviathan-maw",
+      "name": "Leviathan Mawblade",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 9,
+        "CON": 4,
+        "DEX": 3,
+        "finalDamagePct": 7
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade with concentrated draconic identity.",
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-dragon-infinity-coil",
+      "name": "Infinity Coil",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "INT": 6,
+        "CHA": 5,
+        "LCK": 5,
+        "energyGainPct": 8
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade with concentrated draconic identity."
+    },
+    {
+      "id": "eq-dragon-fivefold-ward",
+      "name": "Fivefold Ward",
+      "slot": "offHand",
+      "itemType": "Shield",
+      "listedStats": {
+        "CON": 7,
+        "FTH": 5,
+        "LCK": 4,
+        "blockChancePct": 7
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade with concentrated draconic identity."
+    },
+    {
+      "id": "eq-dragon-devanpierus-prismfang",
+      "name": "Devanpierus Prismfang",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 5,
+        "DEX": 4,
+        "INT": 4,
+        "LCK": 3,
+        "finalDamagePct": 6
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade with concentrated draconic identity.",
+      "weaponType": "Arcane",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-dragon-devanpierus-crownscale",
+      "name": "Devanpierus Crownscale",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "listedStats": {
+        "CON": 5,
+        "FTH": 4,
+        "CHA": 4,
+        "LCK": 3,
+        "incomingDamagePct": -6
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade with concentrated draconic identity.",
+      "armorWeight": "Heavy"
+    },
+    {
+      "id": "eq-dragon-arcane-breath-lens",
+      "name": "Arcane Breath Lens",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "INT": 7,
+        "CHA": 5,
+        "LCK": 4,
+        "criticalDamagePct": 14
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade with concentrated draconic identity."
+    },
+    {
+      "id": "eq-dragon-sixflame-heart",
+      "name": "Sixflame Heart",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "STR": 3,
+        "DEX": 3,
+        "INT": 3,
+        "FTH": 3,
+        "CHA": 3,
+        "LCK": 2,
+        "energyGainPct": 6
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade with concentrated draconic identity."
+    },
+    {
+      "id": "eq-dragon-prismatic-aegis",
+      "name": "Prismatic Aegis",
+      "slot": "offHand",
+      "itemType": "Shield",
+      "listedStats": {
+        "CON": 6,
+        "FTH": 5,
+        "INT": 5,
+        "shieldStrengthPct": 12
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "dragonDungeonExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade with concentrated draconic identity."
+    },
+    {
+      "id": "eq-necro-graveguard-helmet",
+      "name": "Graveguard Helm",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorWeight": "Heavy",
+      "listedStats": {
+        "CON": 5,
+        "STR": 3,
+        "CHA": 2,
+        "blockChancePct": 3,
+        "blockedDamageReductionPct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-graveguard-chest",
+      "name": "Graveguard Cuirass",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorWeight": "Heavy",
+      "listedStats": {
+        "CON": 5,
+        "STR": 3,
+        "CHA": 2,
+        "blockChancePct": 3,
+        "blockedDamageReductionPct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-graveguard-gloves",
+      "name": "Graveguard Grips",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorWeight": "Heavy",
+      "listedStats": {
+        "CON": 5,
+        "STR": 3,
+        "CHA": 2,
+        "blockChancePct": 3,
+        "blockedDamageReductionPct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-graveguard-boots",
+      "name": "Graveguard Greaves",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorWeight": "Heavy",
+      "listedStats": {
+        "CON": 5,
+        "STR": 3,
+        "CHA": 2,
+        "blockChancePct": 3,
+        "blockedDamageReductionPct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-cultbreaker-helmet",
+      "name": "Cultbreaker Helm",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorWeight": "Medium",
+      "listedStats": {
+        "DEX": 4,
+        "LCK": 3,
+        "CON": 2,
+        "damageCritChancePct": 4,
+        "incomingHealingPct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-cultbreaker-chest",
+      "name": "Cultbreaker Cuirass",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorWeight": "Medium",
+      "listedStats": {
+        "DEX": 4,
+        "LCK": 3,
+        "CON": 2,
+        "damageCritChancePct": 4,
+        "incomingHealingPct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-cultbreaker-gloves",
+      "name": "Cultbreaker Grips",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorWeight": "Medium",
+      "listedStats": {
+        "DEX": 4,
+        "LCK": 3,
+        "CON": 2,
+        "damageCritChancePct": 4,
+        "incomingHealingPct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-cultbreaker-boots",
+      "name": "Cultbreaker Greaves",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorWeight": "Medium",
+      "listedStats": {
+        "DEX": 4,
+        "LCK": 3,
+        "CON": 2,
+        "damageCritChancePct": 4,
+        "incomingHealingPct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-soulwarden-helmet",
+      "name": "Soulwarden Helm",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorWeight": "Light",
+      "listedStats": {
+        "INT": 4,
+        "FTH": 3,
+        "CHA": 2,
+        "incomingDamagePct": -3,
+        "energyGainPct": 3
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-soulwarden-chest",
+      "name": "Soulwarden Cuirass",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorWeight": "Light",
+      "listedStats": {
+        "INT": 4,
+        "FTH": 3,
+        "CHA": 2,
+        "incomingDamagePct": -3,
+        "energyGainPct": 3
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-soulwarden-gloves",
+      "name": "Soulwarden Grips",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorWeight": "Light",
+      "listedStats": {
+        "INT": 4,
+        "FTH": 3,
+        "CHA": 2,
+        "incomingDamagePct": -3,
+        "energyGainPct": 3
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-soulwarden-boots",
+      "name": "Soulwarden Greaves",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorWeight": "Light",
+      "listedStats": {
+        "INT": 4,
+        "FTH": 3,
+        "CHA": 2,
+        "incomingDamagePct": -3,
+        "energyGainPct": 3
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-bonecourt-helmet",
+      "name": "Bonecourt Helm",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "armorWeight": "Heavy",
+      "listedStats": {
+        "CON": 4,
+        "FTH": 3,
+        "STR": 2,
+        "shieldStrengthPct": 5,
+        "blockChancePct": 2
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-bonecourt-chest",
+      "name": "Bonecourt Cuirass",
+      "slot": "chest",
+      "itemType": "Armor",
+      "armorWeight": "Heavy",
+      "listedStats": {
+        "CON": 4,
+        "FTH": 3,
+        "STR": 2,
+        "shieldStrengthPct": 5,
+        "blockChancePct": 2
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-bonecourt-gloves",
+      "name": "Bonecourt Grips",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "armorWeight": "Heavy",
+      "listedStats": {
+        "CON": 4,
+        "FTH": 3,
+        "STR": 2,
+        "shieldStrengthPct": 5,
+        "blockChancePct": 2
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-bonecourt-boots",
+      "name": "Bonecourt Greaves",
+      "slot": "boots",
+      "itemType": "Armor",
+      "armorWeight": "Heavy",
+      "listedStats": {
+        "CON": 4,
+        "FTH": 3,
+        "STR": 2,
+        "shieldStrengthPct": 5,
+        "blockChancePct": 2
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-grave-iron-blade",
+      "name": "Grave-Iron Blade",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 8,
+        "CON": 5,
+        "blockChancePct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade.",
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-necro-funeral-pike",
+      "name": "Funeral Pike",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 7,
+        "DEX": 6,
+        "finalDamagePct": 4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade.",
+      "weaponType": "Physical",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-necro-soulglass-wand",
+      "name": "Soulglass Wand",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "INT": 8,
+        "CHA": 5,
+        "damageCritChancePct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade.",
+      "weaponType": "Psychic",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-necro-winter-ossuary-staff",
+      "name": "Winter Ossuary Staff",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "INT": 7,
+        "FTH": 6,
+        "outgoingHealingPct": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade.",
+      "weaponType": "Cold",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-necro-graveforce-maul",
+      "name": "Graveforce Maul",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 8,
+        "CON": 5,
+        "blockedDamageReductionPct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade.",
+      "weaponType": "Force",
+      "handedness": "two-handed",
+      "offHandCompatible": false
+    },
+    {
+      "id": "eq-necro-cult-ritual-dagger",
+      "name": "Cult Ritual Dagger",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "DEX": 8,
+        "LCK": 5,
+        "damageCritChancePct": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade.",
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-necro-sepulcher-tome",
+      "name": "Sepulcher Tome",
+      "slot": "offHand",
+      "itemType": "Spellbook",
+      "listedStats": {
+        "INT": 7,
+        "CHA": 3,
+        "energyGainPct": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-bonewall-shield",
+      "name": "Bonewall Shield",
+      "slot": "offHand",
+      "itemType": "Shield",
+      "listedStats": {
+        "CON": 7,
+        "STR": 3,
+        "blockChancePct": 7
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade.",
+      "armorWeight": "Heavy"
+    },
+    {
+      "id": "eq-necro-grave-salt-charm",
+      "name": "Grave-Salt Charm",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "FTH": 5,
+        "CON": 5,
+        "incomingHealingPct": 6
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-funerary-glass-charm",
+      "name": "Funerary Glass Charm",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "LCK": 6,
+        "INT": 4,
+        "damageCritChancePct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-soul-ash-medallion",
+      "name": "Soul-Ash Medallion",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "CHA": 6,
+        "INT": 4,
+        "criticalDamagePct": 10
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-tomb-silk-band",
+      "name": "Tomb-Silk Band",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "DEX": 6,
+        "LCK": 4,
+        "dodgeChancePct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-royal-bone-seal",
+      "name": "Royal Bone Seal",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "CON": 6,
+        "FTH": 4,
+        "shieldStrengthPct": 8
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-mirror-residue-lens",
+      "name": "Mirror-Residue Lens",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "INT": 5,
+        "CHA": 3,
+        "LCK": 2,
+        "energyGainPct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-black-wax-censer",
+      "name": "Black-Wax Censer",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "CHA": 5,
+        "FTH": 3,
+        "CON": 2,
+        "outgoingHealingPct": 5
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-procession-chain",
+      "name": "Procession Chain",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "STR": 4,
+        "DEX": 3,
+        "CON": 3,
+        "incomingDamagePct": -4
+      },
+      "rarity": "Normal",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "Endgame-equivalent Necropolis sidegrade."
+    },
+    {
+      "id": "eq-necro-tithe-executioner-blade",
+      "name": "Tithe Executioner Blade",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 8,
+        "DEX": 5,
+        "CHA": 3,
+        "finalDamagePct": 6
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade rooted in Necropolis combat identity.",
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-necro-black-edict-seal",
+      "name": "Black Edict Seal",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "CHA": 7,
+        "LCK": 5,
+        "CON": 4,
+        "damageCritChancePct": 7
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade rooted in Necropolis combat identity."
+    },
+    {
+      "id": "eq-necro-colossus-gravefist",
+      "name": "Colossus Gravefist",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 9,
+        "CON": 7,
+        "blockedDamageReductionPct": 6
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade rooted in Necropolis combat identity.",
+      "weaponType": "Force",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-necro-colossus-heartplate",
+      "name": "Colossus Heartplate",
+      "slot": "chest",
+      "itemType": "Armor",
+      "listedStats": {
+        "CON": 9,
+        "STR": 4,
+        "CHA": 3,
+        "incomingDamagePct": -6
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade rooted in Necropolis combat identity.",
+      "armorWeight": "Heavy"
+    },
+    {
+      "id": "eq-necro-ossuary-crown",
+      "name": "Ossuary Crown",
+      "slot": "helmet",
+      "itemType": "Armor",
+      "listedStats": {
+        "CON": 6,
+        "CHA": 5,
+        "INT": 5,
+        "shieldStrengthPct": 10
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade rooted in Necropolis combat identity.",
+      "armorWeight": "Heavy"
+    },
+    {
+      "id": "eq-necro-many-limbed-grips",
+      "name": "Many-Limbed Grips",
+      "slot": "gloves",
+      "itemType": "Armor",
+      "listedStats": {
+        "STR": 6,
+        "DEX": 5,
+        "CON": 5,
+        "finalDamagePct": 5
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade rooted in Necropolis combat identity.",
+      "armorWeight": "Heavy"
+    },
+    {
+      "id": "eq-necro-royal-arsenal-blade",
+      "name": "Royal Arsenal Blade",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "STR": 8,
+        "INT": 4,
+        "CHA": 4,
+        "criticalDamagePct": 12
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade rooted in Necropolis combat identity.",
+      "weaponType": "Physical",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-necro-winter-crown-scepter",
+      "name": "Winter Crown Scepter",
+      "slot": "mainHand",
+      "itemType": "Weapon",
+      "listedStats": {
+        "INT": 7,
+        "FTH": 5,
+        "CHA": 4,
+        "energyGainPct": 6
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade rooted in Necropolis combat identity.",
+      "weaponType": "Cold",
+      "handedness": "one-handed",
+      "offHandCompatible": true
+    },
+    {
+      "id": "eq-necro-graveforce-regalia",
+      "name": "Graveforce Regalia",
+      "slot": "charm",
+      "itemType": "Charm",
+      "listedStats": {
+        "CON": 5,
+        "CHA": 5,
+        "LCK": 5,
+        "blockChancePct": 6
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade rooted in Necropolis combat identity."
+    },
+    {
+      "id": "eq-necro-sepulchral-soul-lens",
+      "name": "Sepulchral Soul Lens",
+      "slot": "accessory",
+      "itemType": "Accessory",
+      "listedStats": {
+        "INT": 6,
+        "CHA": 6,
+        "LCK": 4,
+        "damageCritChancePct": 7
+      },
+      "rarity": "SoulFire",
+      "acquisition": "craft-only",
+      "necropolisExpansion": true,
+      "passiveDescription": "A boss-forged endgame sidegrade rooted in Necropolis combat identity."
     }
   ],
   "consumables": [
@@ -6589,7 +10674,7 @@
       "periodic": false
     }
   ],
-  "designStatus": "Phase 10 current Forest equipment/consumable catalogue with 66 Trainer SoulFire craftables; I12 fixture entries retained but are not player acquisition content.",
+  "designStatus": "Current Forest equipment/consumable catalogue with 66 Trainer SoulFire craftables; legacy fixture entries are not player acquisition content.",
   "sets": [
     {
       "id": "set-bramblekin-scrapper",
@@ -7235,6 +11320,510 @@
       ],
       "definingThreshold": 3,
       "bogExpansion": true
+    },
+    {
+      "id": "set-tower-halo-forged",
+      "name": "Halo-Forged Panoply",
+      "sourceId": "holy",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-tower-halo-helm",
+        "eq-tower-halo-chest",
+        "eq-tower-halo-gloves",
+        "eq-tower-halo-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "STR": 3,
+            "FTH": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "blockChancePct": 8
+          },
+          "resistances": {
+            "Holy": 15
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "CHA": 4
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "towerExpansion": true
+    },
+    {
+      "id": "set-tower-rimeglass",
+      "name": "Rimeglass Preservation",
+      "sourceId": "cold",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-tower-rime-helm",
+        "eq-tower-rime-chest",
+        "eq-tower-rime-gloves",
+        "eq-tower-rime-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "CON": 3,
+            "INT": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "blockedDamageReductionPct": 10
+          },
+          "resistances": {
+            "Cold": 15
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "DEX": 4
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "towerExpansion": true
+    },
+    {
+      "id": "set-tower-whitefire",
+      "name": "Whitefire Crucible",
+      "sourceId": "fire",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-tower-fire-helm",
+        "eq-tower-fire-chest",
+        "eq-tower-fire-gloves",
+        "eq-tower-fire-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "STR": 3,
+            "INT": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "criticalDamagePct": 12
+          },
+          "resistances": {
+            "Fire": 15
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "LCK": 4
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "towerExpansion": true
+    },
+    {
+      "id": "set-tower-thoughtglass",
+      "name": "Thoughtglass Cognition",
+      "sourceId": "psychic",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-tower-psi-helm",
+        "eq-tower-psi-chest",
+        "eq-tower-psi-gloves",
+        "eq-tower-psi-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "INT": 3,
+            "LCK": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "dodgeChancePct": 8,
+            "energyGainPct": 8
+          },
+          "resistances": {
+            "Psychic": 15
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "FTH": 4
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "towerExpansion": true
+    },
+    {
+      "id": "set-plains-red-cavalier",
+      "name": "Red Cavalier Warplate",
+      "sourceId": "physical",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-plains-red-cavalier-helmet",
+        "eq-plains-red-cavalier-chest",
+        "eq-plains-red-cavalier-gloves",
+        "eq-plains-red-cavalier-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "STR": 4,
+            "DEX": 2
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "damageCritChancePct": 6
+          },
+          "resistances": {
+            "Physical": 12
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "CON": 4
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "plainsExpansion": true
+    },
+    {
+      "id": "set-plains-veinforged",
+      "name": "Veinforged Harness",
+      "sourceId": "force",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-plains-veinforged-helmet",
+        "eq-plains-veinforged-chest",
+        "eq-plains-veinforged-gloves",
+        "eq-plains-veinforged-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "STR": 3,
+            "CON": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "blockedDamageReductionPct": 8
+          },
+          "resistances": {
+            "Force": 12
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "FTH": 4
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "plainsExpansion": true
+    },
+    {
+      "id": "set-plains-gloamveil",
+      "name": "Gloamveil Raiment",
+      "sourceId": "psychic",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-plains-gloamveil-helmet",
+        "eq-plains-gloamveil-chest",
+        "eq-plains-gloamveil-gloves",
+        "eq-plains-gloamveil-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "INT": 3,
+            "LCK": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "dodgeChancePct": 7
+          },
+          "resistances": {
+            "Psychic": 12
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "DEX": 4
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "plainsExpansion": true
+    },
+    {
+      "id": "set-plains-bloodmoon",
+      "name": "Bloodmoon Vesture",
+      "sourceId": "blood",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-plains-bloodmoon-helmet",
+        "eq-plains-bloodmoon-chest",
+        "eq-plains-bloodmoon-gloves",
+        "eq-plains-bloodmoon-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "CON": 3,
+            "CHA": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "lifestealPct": 4
+          },
+          "resistances": {
+            "Physical": 7,
+            "Psychic": 7
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "STR": 4
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "plainsExpansion": true
+    },
+    {
+      "id": "set-hell-gatebound",
+      "name": "Gatebound Warplate",
+      "sourceId": "physical/force",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-hell-gatebound-helmet",
+        "eq-hell-gatebound-chest",
+        "eq-hell-gatebound-gloves",
+        "eq-hell-gatebound-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "STR": 3,
+            "CON": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "blockChancePct": 7
+          },
+          "resistances": {
+            "Physical": 12,
+            "Force": 12
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "STR": 2,
+            "CON": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "hellExpansion": true
+    },
+    {
+      "id": "set-hell-cinderwrought",
+      "name": "Cinderwrought Harness",
+      "sourceId": "fire",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-hell-cinderwrought-helmet",
+        "eq-hell-cinderwrought-chest",
+        "eq-hell-cinderwrought-gloves",
+        "eq-hell-cinderwrought-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "STR": 3,
+            "INT": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "finalDamagePct": 8
+          },
+          "resistances": {
+            "Fire": 16
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "STR": 2,
+            "INT": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "hellExpansion": true
+    },
+    {
+      "id": "set-hell-whisperveil",
+      "name": "Whisperveil Vestments",
+      "sourceId": "psychic",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-hell-whisperveil-helmet",
+        "eq-hell-whisperveil-chest",
+        "eq-hell-whisperveil-gloves",
+        "eq-hell-whisperveil-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "INT": 3,
+            "CHA": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "dodgeChancePct": 7,
+            "energyGainPct": 8
+          },
+          "resistances": {
+            "Psychic": 16
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "INT": 2,
+            "CHA": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "hellExpansion": true
+    },
+    {
+      "id": "set-hell-sevenfold-pilgrim",
+      "name": "Sevenfold Pilgrim Regalia",
+      "sourceId": "flexible",
+      "rarity": "Normal",
+      "pieceIds": [
+        "eq-hell-sevenfold-pilgrim-helmet",
+        "eq-hell-sevenfold-pilgrim-chest",
+        "eq-hell-sevenfold-pilgrim-gloves",
+        "eq-hell-sevenfold-pilgrim-boots"
+      ],
+      "bonuses": [
+        {
+          "pieces": 2,
+          "coreStats": {
+            "DEX": 3,
+            "LCK": 3
+          },
+          "modifiers": {}
+        },
+        {
+          "pieces": 3,
+          "coreStats": {},
+          "modifiers": {
+            "damageCritChancePct": 7,
+            "criticalDamagePct": 10
+          },
+          "resistances": {
+            "Physical": 6,
+            "Force": 6,
+            "Fire": 6,
+            "Psychic": 6
+          }
+        },
+        {
+          "pieces": 4,
+          "coreStats": {
+            "DEX": 2,
+            "LCK": 2
+          },
+          "modifiers": {}
+        }
+      ],
+      "definingThreshold": 3,
+      "hellExpansion": true
     }
   ]
 }

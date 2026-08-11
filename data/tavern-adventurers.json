@@ -1,6 +1,6 @@
 {
-  "version": "Phase10-PreBog-2026-08-10",
-  "status": "Phase 10 compatibility profiles with approved Tavern portrait-card race identity exposed for display; race remains identity-only and does not add Vessel racial mechanics.",
+  "version": "2026-08-10",
+  "status": "Compatibility profiles with approved Tavern portrait-card race identity exposed for display; race remains identity-only and does not add Vessel racial mechanics.",
   "rules": {
     "startCampaignLevel": 1,
     "gainFullExpIfLiving": true,

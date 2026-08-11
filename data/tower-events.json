@@ -1,0 +1,2436 @@
+{
+  "version": "HEAVENLY-TOWER-FOUNDATION-2026-08-10",
+  "rules": {
+    "noDefinitionRepeatsWithinCampaign": true,
+    "cardsPerDepth": 3,
+    "trainers": false,
+    "fallDepthLoss": 3,
+    "fallPartyMaxHpLossPct": 35,
+    "fallIsNonlethal": true
+  },
+  "events": [
+    {
+      "id": "tower-intro-001",
+      "kind": "discovery",
+      "label": "The Door Opens Beneath Heaven",
+      "description": "The Tavern door opens onto a white-metal platform inside a tower so tall its upper structure disappears into radiant haze. Ancient machines repeat an Ascension protocol whose candidate never left.",
+      "check": {
+        "stat": "INT",
+        "dc": 13
+      },
+      "checkmark": false,
+      "eventPayload": {
+        "success": {
+          "onyx": 28
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "tower-intro-002",
+      "kind": "landmark",
+      "label": "First Consecrated Lift",
+      "description": "A motionless lift bears four old sigils: sanctification, preservation, crucible, and cognition. Only the sanctification circuit still answers immediately.",
+      "check": {
+        "stat": "FTH",
+        "dc": 13
+      },
+      "checkmark": false,
+      "eventPayload": {
+        "success": {
+          "materialId": "consecrated-alloy",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "tower-intro-003",
+      "kind": "combat",
+      "label": "First Halo Patrol",
+      "description": "Holy guardian machines pivot toward the unregistered expedition and invoke the protocol to protect the final Ascension candidate.",
+      "combat": true,
+      "combatProfile": "holy"
+    },
+    {
+      "id": "tower-combat-t1-01",
+      "kind": "combat",
+      "label": "Consecrated Patrol 1-1",
+      "description": "Ascension machines from Tower band 1 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "holy",
+      "minTier": 1,
+      "maxTier": 1
+    },
+    {
+      "id": "tower-combat-t1-02",
+      "kind": "combat",
+      "label": "Preservation Patrol 1-2",
+      "description": "Ascension machines from Tower band 1 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "cold",
+      "minTier": 1,
+      "maxTier": 1
+    },
+    {
+      "id": "tower-combat-t1-03",
+      "kind": "combat",
+      "label": "Crucible Patrol 1-3",
+      "description": "Ascension machines from Tower band 1 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "fire",
+      "minTier": 1,
+      "maxTier": 1
+    },
+    {
+      "id": "tower-combat-t1-04",
+      "kind": "combat",
+      "label": "Cognition Patrol 1-4",
+      "description": "Ascension machines from Tower band 1 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "psychic",
+      "minTier": 1,
+      "maxTier": 1
+    },
+    {
+      "id": "tower-combat-t1-05",
+      "kind": "combat",
+      "label": "Ascension Patrol 1-5",
+      "description": "Ascension machines from Tower band 1 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "mixed",
+      "minTier": 1,
+      "maxTier": 1
+    },
+    {
+      "id": "tower-combat-t1-06",
+      "kind": "combat",
+      "label": "Mixed Foundry Patrol 1-6",
+      "description": "Ascension machines from Tower band 1 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "mixed",
+      "minTier": 1,
+      "maxTier": 1
+    },
+    {
+      "id": "tower-combat-t2-01",
+      "kind": "combat",
+      "label": "Consecrated Patrol 2-1",
+      "description": "Ascension machines from Tower band 2 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "holy",
+      "minTier": 2,
+      "maxTier": 2
+    },
+    {
+      "id": "tower-combat-t2-02",
+      "kind": "combat",
+      "label": "Preservation Patrol 2-2",
+      "description": "Ascension machines from Tower band 2 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "cold",
+      "minTier": 2,
+      "maxTier": 2
+    },
+    {
+      "id": "tower-combat-t2-03",
+      "kind": "combat",
+      "label": "Crucible Patrol 2-3",
+      "description": "Ascension machines from Tower band 2 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "fire",
+      "minTier": 2,
+      "maxTier": 2
+    },
+    {
+      "id": "tower-combat-t2-04",
+      "kind": "combat",
+      "label": "Cognition Patrol 2-4",
+      "description": "Ascension machines from Tower band 2 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "psychic",
+      "minTier": 2,
+      "maxTier": 2
+    },
+    {
+      "id": "tower-combat-t2-05",
+      "kind": "combat",
+      "label": "Ascension Patrol 2-5",
+      "description": "Ascension machines from Tower band 2 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "mixed",
+      "minTier": 2,
+      "maxTier": 2
+    },
+    {
+      "id": "tower-combat-t2-06",
+      "kind": "combat",
+      "label": "Mixed Foundry Patrol 2-6",
+      "description": "Ascension machines from Tower band 2 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "mixed",
+      "minTier": 2,
+      "maxTier": 2
+    },
+    {
+      "id": "tower-combat-t3-01",
+      "kind": "combat",
+      "label": "Consecrated Patrol 3-1",
+      "description": "Ascension machines from Tower band 3 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "holy",
+      "minTier": 3,
+      "maxTier": 3
+    },
+    {
+      "id": "tower-combat-t3-02",
+      "kind": "combat",
+      "label": "Preservation Patrol 3-2",
+      "description": "Ascension machines from Tower band 3 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "cold",
+      "minTier": 3,
+      "maxTier": 3
+    },
+    {
+      "id": "tower-combat-t3-03",
+      "kind": "combat",
+      "label": "Crucible Patrol 3-3",
+      "description": "Ascension machines from Tower band 3 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "fire",
+      "minTier": 3,
+      "maxTier": 3
+    },
+    {
+      "id": "tower-combat-t3-04",
+      "kind": "combat",
+      "label": "Cognition Patrol 3-4",
+      "description": "Ascension machines from Tower band 3 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "psychic",
+      "minTier": 3,
+      "maxTier": 3
+    },
+    {
+      "id": "tower-combat-t3-05",
+      "kind": "combat",
+      "label": "Ascension Patrol 3-5",
+      "description": "Ascension machines from Tower band 3 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "mixed",
+      "minTier": 3,
+      "maxTier": 3
+    },
+    {
+      "id": "tower-combat-t3-06",
+      "kind": "combat",
+      "label": "Mixed Foundry Patrol 3-6",
+      "description": "Ascension machines from Tower band 3 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "mixed",
+      "minTier": 3,
+      "maxTier": 3
+    },
+    {
+      "id": "tower-combat-t4-01",
+      "kind": "combat",
+      "label": "Consecrated Patrol 4-1",
+      "description": "Ascension machines from Tower band 4 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "holy",
+      "minTier": 4,
+      "maxTier": 4
+    },
+    {
+      "id": "tower-combat-t4-02",
+      "kind": "combat",
+      "label": "Preservation Patrol 4-2",
+      "description": "Ascension machines from Tower band 4 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "cold",
+      "minTier": 4,
+      "maxTier": 4
+    },
+    {
+      "id": "tower-combat-t4-03",
+      "kind": "combat",
+      "label": "Crucible Patrol 4-3",
+      "description": "Ascension machines from Tower band 4 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "fire",
+      "minTier": 4,
+      "maxTier": 4
+    },
+    {
+      "id": "tower-combat-t4-04",
+      "kind": "combat",
+      "label": "Cognition Patrol 4-4",
+      "description": "Ascension machines from Tower band 4 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "psychic",
+      "minTier": 4,
+      "maxTier": 4
+    },
+    {
+      "id": "tower-combat-t4-05",
+      "kind": "combat",
+      "label": "Ascension Patrol 4-5",
+      "description": "Ascension machines from Tower band 4 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "mixed",
+      "minTier": 4,
+      "maxTier": 4
+    },
+    {
+      "id": "tower-combat-t4-06",
+      "kind": "combat",
+      "label": "Synthesis Patrol 4-6",
+      "description": "Ascension machines from Tower band 4 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "hybrid",
+      "minTier": 4,
+      "maxTier": 4
+    },
+    {
+      "id": "tower-combat-t5-01",
+      "kind": "combat",
+      "label": "Consecrated Patrol 5-1",
+      "description": "Ascension machines from Tower band 5 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "holy",
+      "minTier": 5,
+      "maxTier": 5
+    },
+    {
+      "id": "tower-combat-t5-02",
+      "kind": "combat",
+      "label": "Preservation Patrol 5-2",
+      "description": "Ascension machines from Tower band 5 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "cold",
+      "minTier": 5,
+      "maxTier": 5
+    },
+    {
+      "id": "tower-combat-t5-03",
+      "kind": "combat",
+      "label": "Crucible Patrol 5-3",
+      "description": "Ascension machines from Tower band 5 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "fire",
+      "minTier": 5,
+      "maxTier": 5
+    },
+    {
+      "id": "tower-combat-t5-04",
+      "kind": "combat",
+      "label": "Cognition Patrol 5-4",
+      "description": "Ascension machines from Tower band 5 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "psychic",
+      "minTier": 5,
+      "maxTier": 5
+    },
+    {
+      "id": "tower-combat-t5-05",
+      "kind": "combat",
+      "label": "Ascension Patrol 5-5",
+      "description": "Ascension machines from Tower band 5 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "mixed",
+      "minTier": 5,
+      "maxTier": 5
+    },
+    {
+      "id": "tower-combat-t5-06",
+      "kind": "combat",
+      "label": "Synthesis Patrol 5-6",
+      "description": "Ascension machines from Tower band 5 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "hybrid",
+      "minTier": 5,
+      "maxTier": 5
+    },
+    {
+      "id": "tower-combat-t6-01",
+      "kind": "combat",
+      "label": "Consecrated Patrol 6-1",
+      "description": "Ascension machines from Tower band 6 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "holy",
+      "minTier": 6,
+      "maxTier": 6
+    },
+    {
+      "id": "tower-combat-t6-02",
+      "kind": "combat",
+      "label": "Preservation Patrol 6-2",
+      "description": "Ascension machines from Tower band 6 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "cold",
+      "minTier": 6,
+      "maxTier": 6
+    },
+    {
+      "id": "tower-combat-t6-03",
+      "kind": "combat",
+      "label": "Crucible Patrol 6-3",
+      "description": "Ascension machines from Tower band 6 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "fire",
+      "minTier": 6,
+      "maxTier": 6
+    },
+    {
+      "id": "tower-combat-t6-04",
+      "kind": "combat",
+      "label": "Cognition Patrol 6-4",
+      "description": "Ascension machines from Tower band 6 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "psychic",
+      "minTier": 6,
+      "maxTier": 6
+    },
+    {
+      "id": "tower-combat-t6-05",
+      "kind": "combat",
+      "label": "Ascension Patrol 6-5",
+      "description": "Ascension machines from Tower band 6 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "mixed",
+      "minTier": 6,
+      "maxTier": 6
+    },
+    {
+      "id": "tower-combat-t6-06",
+      "kind": "combat",
+      "label": "Synthesis Patrol 6-6",
+      "description": "Ascension machines from Tower band 6 close ranks around this route.",
+      "combat": true,
+      "combatProfile": "hybrid",
+      "minTier": 6,
+      "maxTier": 6
+    },
+    {
+      "id": "tower-event-t1-01",
+      "kind": "discovery",
+      "label": "Foundry Gantry Cache 1",
+      "description": "A dormant cold-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "DEX",
+        "dc": 13
+      },
+      "checkmark": true,
+      "combatProfile": "cold",
+      "minTier": 1,
+      "maxTier": 1,
+      "eventPayload": {
+        "success": {
+          "onyx": 27,
+          "materialId": "preservation-coil",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "tower-event-t1-02",
+      "kind": "landmark",
+      "label": "Foundry Gantry Cache 2",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CON",
+        "dc": 13
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 1,
+      "maxTier": 1,
+      "eventPayload": {
+        "success": {
+          "onyx": 27,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "tower-event-t1-03",
+      "kind": "discovery",
+      "label": "Foundry Gantry Cache 3",
+      "description": "A dormant psychic-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "INT",
+        "dc": 13
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 1,
+      "maxTier": 1,
+      "eventPayload": {
+        "success": {
+          "onyx": 27,
+          "materialId": "cognition-core",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "tower-event-t1-04",
+      "kind": "other-noncombat",
+      "label": "Fractured Foundry Gantry 4",
+      "description": "The route breaks across open air. Failing the crossing drops the expedition through emergency shafts before ancient retrieval systems catch it several levels below.",
+      "check": {
+        "stat": "FTH",
+        "dc": 13
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 1,
+      "maxTier": 1,
+      "eventPayload": {
+        "success": {
+          "onyx": 43
+        },
+        "failure": {
+          "fallDepths": 3,
+          "fallPartyHpLossPct": 35,
+          "flag": "tower-fall"
+        }
+      }
+    },
+    {
+      "id": "tower-event-t1-05",
+      "kind": "discovery",
+      "label": "Foundry Gantry Cache 5",
+      "description": "A dormant cold-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CHA",
+        "dc": 13
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 1,
+      "maxTier": 1,
+      "eventPayload": {
+        "success": {
+          "onyx": 27,
+          "materialId": "preservation-coil",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "tower-event-t1-06",
+      "kind": "landmark",
+      "label": "Foundry Gantry Cache 6",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "LCK",
+        "dc": 13
+      },
+      "checkmark": true,
+      "combatProfile": "fire",
+      "minTier": 1,
+      "maxTier": 1,
+      "eventPayload": {
+        "success": {
+          "onyx": 27,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "tower-event-t1-07",
+      "kind": "discovery",
+      "label": "Foundry Gantry Cache 7",
+      "description": "A dormant psychic-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "STR",
+        "dc": 13
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 1,
+      "maxTier": 1,
+      "eventPayload": {
+        "success": {
+          "onyx": 27,
+          "materialId": "cognition-core",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "tower-event-t1-08",
+      "kind": "landmark",
+      "label": "Foundry Gantry Cache 8",
+      "description": "A dormant holy-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "DEX",
+        "dc": 13
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 1,
+      "maxTier": 1,
+      "eventPayload": {
+        "success": {
+          "onyx": 27,
+          "materialId": "consecrated-alloy",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "tower-event-t1-09",
+      "kind": "discovery",
+      "label": "Foundry Gantry Cache 9",
+      "description": "A dormant cold-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CON",
+        "dc": 13
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 1,
+      "maxTier": 1,
+      "eventPayload": {
+        "success": {
+          "onyx": 27,
+          "materialId": "preservation-coil",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "tower-event-t1-10",
+      "kind": "landmark",
+      "label": "Foundry Gantry Cache 10",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "INT",
+        "dc": 13
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 1,
+      "maxTier": 1,
+      "eventPayload": {
+        "success": {
+          "onyx": 27,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "tower-event-t1-11",
+      "kind": "other-noncombat",
+      "label": "Fractured Foundry Gantry 11",
+      "description": "The route breaks across open air. Failing the crossing drops the expedition through emergency shafts before ancient retrieval systems catch it several levels below.",
+      "check": {
+        "stat": "FTH",
+        "dc": 13
+      },
+      "checkmark": false,
+      "combatProfile": "psychic",
+      "minTier": 1,
+      "maxTier": 1,
+      "eventPayload": {
+        "success": {
+          "onyx": 43
+        },
+        "failure": {
+          "fallDepths": 3,
+          "fallPartyHpLossPct": 35,
+          "flag": "tower-fall"
+        }
+      }
+    },
+    {
+      "id": "tower-event-t1-12",
+      "kind": "landmark",
+      "label": "Foundry Gantry Cache 12",
+      "description": "A dormant holy-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CHA",
+        "dc": 13
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 1,
+      "maxTier": 1,
+      "eventPayload": {
+        "success": {
+          "onyx": 27,
+          "materialId": "consecrated-alloy",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "tower-event-t1-13",
+      "kind": "discovery",
+      "label": "Foundry Gantry Cache 13",
+      "description": "A dormant cold-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "LCK",
+        "dc": 13
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 1,
+      "maxTier": 1,
+      "eventPayload": {
+        "success": {
+          "onyx": 27,
+          "materialId": "preservation-coil",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "tower-event-t1-14",
+      "kind": "landmark",
+      "label": "Foundry Gantry Cache 14",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "STR",
+        "dc": 13
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 1,
+      "maxTier": 1,
+      "eventPayload": {
+        "success": {
+          "onyx": 27,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 7
+        }
+      }
+    },
+    {
+      "id": "tower-event-t2-01",
+      "kind": "discovery",
+      "label": "Preservation Gallery Cache 1",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CON",
+        "dc": 14
+      },
+      "checkmark": true,
+      "combatProfile": "fire",
+      "minTier": 2,
+      "maxTier": 2,
+      "eventPayload": {
+        "success": {
+          "onyx": 34,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "tower-event-t2-02",
+      "kind": "landmark",
+      "label": "Preservation Gallery Cache 2",
+      "description": "A dormant psychic-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "INT",
+        "dc": 14
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 2,
+      "maxTier": 2,
+      "eventPayload": {
+        "success": {
+          "onyx": 34,
+          "materialId": "cognition-core",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "tower-event-t2-03",
+      "kind": "discovery",
+      "label": "Preservation Gallery Cache 3",
+      "description": "A dormant holy-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "FTH",
+        "dc": 14
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 2,
+      "maxTier": 2,
+      "eventPayload": {
+        "success": {
+          "onyx": 34,
+          "materialId": "consecrated-alloy",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "tower-event-t2-04",
+      "kind": "other-noncombat",
+      "label": "Fractured Preservation Gallery 4",
+      "description": "The route breaks across open air. Failing the crossing drops the expedition through emergency shafts before ancient retrieval systems catch it several levels below.",
+      "check": {
+        "stat": "CHA",
+        "dc": 14
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 2,
+      "maxTier": 2,
+      "eventPayload": {
+        "success": {
+          "onyx": 51
+        },
+        "failure": {
+          "fallDepths": 3,
+          "fallPartyHpLossPct": 35,
+          "flag": "tower-fall"
+        }
+      }
+    },
+    {
+      "id": "tower-event-t2-05",
+      "kind": "discovery",
+      "label": "Preservation Gallery Cache 5",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "LCK",
+        "dc": 14
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 2,
+      "maxTier": 2,
+      "eventPayload": {
+        "success": {
+          "onyx": 34,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "tower-event-t2-06",
+      "kind": "landmark",
+      "label": "Preservation Gallery Cache 6",
+      "description": "A dormant psychic-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "STR",
+        "dc": 14
+      },
+      "checkmark": true,
+      "combatProfile": "psychic",
+      "minTier": 2,
+      "maxTier": 2,
+      "eventPayload": {
+        "success": {
+          "onyx": 34,
+          "materialId": "cognition-core",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "tower-event-t2-07",
+      "kind": "discovery",
+      "label": "Preservation Gallery Cache 7",
+      "description": "A dormant holy-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "DEX",
+        "dc": 14
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 2,
+      "maxTier": 2,
+      "eventPayload": {
+        "success": {
+          "onyx": 34,
+          "materialId": "consecrated-alloy",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "tower-event-t2-08",
+      "kind": "landmark",
+      "label": "Preservation Gallery Cache 8",
+      "description": "A dormant cold-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CON",
+        "dc": 14
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 2,
+      "maxTier": 2,
+      "eventPayload": {
+        "success": {
+          "onyx": 34,
+          "materialId": "preservation-coil",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "tower-event-t2-09",
+      "kind": "discovery",
+      "label": "Preservation Gallery Cache 9",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "INT",
+        "dc": 14
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 2,
+      "maxTier": 2,
+      "eventPayload": {
+        "success": {
+          "onyx": 34,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "tower-event-t2-10",
+      "kind": "landmark",
+      "label": "Preservation Gallery Cache 10",
+      "description": "A dormant psychic-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "FTH",
+        "dc": 14
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 2,
+      "maxTier": 2,
+      "eventPayload": {
+        "success": {
+          "onyx": 34,
+          "materialId": "cognition-core",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "tower-event-t2-11",
+      "kind": "other-noncombat",
+      "label": "Fractured Preservation Gallery 11",
+      "description": "The route breaks across open air. Failing the crossing drops the expedition through emergency shafts before ancient retrieval systems catch it several levels below.",
+      "check": {
+        "stat": "CHA",
+        "dc": 14
+      },
+      "checkmark": false,
+      "combatProfile": "holy",
+      "minTier": 2,
+      "maxTier": 2,
+      "eventPayload": {
+        "success": {
+          "onyx": 51
+        },
+        "failure": {
+          "fallDepths": 3,
+          "fallPartyHpLossPct": 35,
+          "flag": "tower-fall"
+        }
+      }
+    },
+    {
+      "id": "tower-event-t2-12",
+      "kind": "landmark",
+      "label": "Preservation Gallery Cache 12",
+      "description": "A dormant cold-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "LCK",
+        "dc": 14
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 2,
+      "maxTier": 2,
+      "eventPayload": {
+        "success": {
+          "onyx": 34,
+          "materialId": "preservation-coil",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "tower-event-t2-13",
+      "kind": "discovery",
+      "label": "Preservation Gallery Cache 13",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "STR",
+        "dc": 14
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 2,
+      "maxTier": 2,
+      "eventPayload": {
+        "success": {
+          "onyx": 34,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "tower-event-t2-14",
+      "kind": "landmark",
+      "label": "Preservation Gallery Cache 14",
+      "description": "A dormant psychic-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "DEX",
+        "dc": 14
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 2,
+      "maxTier": 2,
+      "eventPayload": {
+        "success": {
+          "onyx": 34,
+          "materialId": "cognition-core",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 8
+        }
+      }
+    },
+    {
+      "id": "tower-event-t3-01",
+      "kind": "discovery",
+      "label": "Whitefire Conduit Cache 1",
+      "description": "A dormant psychic-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "INT",
+        "dc": 15
+      },
+      "checkmark": true,
+      "combatProfile": "psychic",
+      "minTier": 3,
+      "maxTier": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 41,
+          "materialId": "cognition-core",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "tower-event-t3-02",
+      "kind": "landmark",
+      "label": "Whitefire Conduit Cache 2",
+      "description": "A dormant holy-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "FTH",
+        "dc": 15
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 3,
+      "maxTier": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 41,
+          "materialId": "consecrated-alloy",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "tower-event-t3-03",
+      "kind": "discovery",
+      "label": "Whitefire Conduit Cache 3",
+      "description": "A dormant cold-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CHA",
+        "dc": 15
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 3,
+      "maxTier": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 41,
+          "materialId": "preservation-coil",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "tower-event-t3-04",
+      "kind": "other-noncombat",
+      "label": "Fractured Whitefire Conduit 4",
+      "description": "The route breaks across open air. Failing the crossing drops the expedition through emergency shafts before ancient retrieval systems catch it several levels below.",
+      "check": {
+        "stat": "LCK",
+        "dc": 15
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 3,
+      "maxTier": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 59
+        },
+        "failure": {
+          "fallDepths": 3,
+          "fallPartyHpLossPct": 35,
+          "flag": "tower-fall"
+        }
+      }
+    },
+    {
+      "id": "tower-event-t3-05",
+      "kind": "discovery",
+      "label": "Whitefire Conduit Cache 5",
+      "description": "A dormant psychic-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "STR",
+        "dc": 15
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 3,
+      "maxTier": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 41,
+          "materialId": "cognition-core",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "tower-event-t3-06",
+      "kind": "landmark",
+      "label": "Whitefire Conduit Cache 6",
+      "description": "A dormant holy-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "DEX",
+        "dc": 15
+      },
+      "checkmark": true,
+      "combatProfile": "holy",
+      "minTier": 3,
+      "maxTier": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 41,
+          "materialId": "consecrated-alloy",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "tower-event-t3-07",
+      "kind": "discovery",
+      "label": "Whitefire Conduit Cache 7",
+      "description": "A dormant cold-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CON",
+        "dc": 15
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 3,
+      "maxTier": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 41,
+          "materialId": "preservation-coil",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "tower-event-t3-08",
+      "kind": "landmark",
+      "label": "Whitefire Conduit Cache 8",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "INT",
+        "dc": 15
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 3,
+      "maxTier": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 41,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "tower-event-t3-09",
+      "kind": "discovery",
+      "label": "Whitefire Conduit Cache 9",
+      "description": "A dormant psychic-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "FTH",
+        "dc": 15
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 3,
+      "maxTier": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 41,
+          "materialId": "cognition-core",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "tower-event-t3-10",
+      "kind": "landmark",
+      "label": "Whitefire Conduit Cache 10",
+      "description": "A dormant holy-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CHA",
+        "dc": 15
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 3,
+      "maxTier": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 41,
+          "materialId": "consecrated-alloy",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "tower-event-t3-11",
+      "kind": "other-noncombat",
+      "label": "Fractured Whitefire Conduit 11",
+      "description": "The route breaks across open air. Failing the crossing drops the expedition through emergency shafts before ancient retrieval systems catch it several levels below.",
+      "check": {
+        "stat": "LCK",
+        "dc": 15
+      },
+      "checkmark": false,
+      "combatProfile": "cold",
+      "minTier": 3,
+      "maxTier": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 59
+        },
+        "failure": {
+          "fallDepths": 3,
+          "fallPartyHpLossPct": 35,
+          "flag": "tower-fall"
+        }
+      }
+    },
+    {
+      "id": "tower-event-t3-12",
+      "kind": "landmark",
+      "label": "Whitefire Conduit Cache 12",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "STR",
+        "dc": 15
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 3,
+      "maxTier": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 41,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "tower-event-t3-13",
+      "kind": "discovery",
+      "label": "Whitefire Conduit Cache 13",
+      "description": "A dormant psychic-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "DEX",
+        "dc": 15
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 3,
+      "maxTier": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 41,
+          "materialId": "cognition-core",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "tower-event-t3-14",
+      "kind": "landmark",
+      "label": "Whitefire Conduit Cache 14",
+      "description": "A dormant holy-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CON",
+        "dc": 15
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 3,
+      "maxTier": 3,
+      "eventPayload": {
+        "success": {
+          "onyx": 41,
+          "materialId": "consecrated-alloy",
+          "materialQuantity": 1
+        },
+        "failure": {
+          "hpLossPct": 9
+        }
+      }
+    },
+    {
+      "id": "tower-event-t4-01",
+      "kind": "discovery",
+      "label": "Synthesis Bridge Cache 1",
+      "description": "A dormant holy-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "FTH",
+        "dc": 16
+      },
+      "checkmark": true,
+      "combatProfile": "holy",
+      "minTier": 4,
+      "maxTier": 4,
+      "eventPayload": {
+        "success": {
+          "onyx": 48,
+          "materialId": "consecrated-alloy",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "tower-event-t4-02",
+      "kind": "landmark",
+      "label": "Synthesis Bridge Cache 2",
+      "description": "A dormant cold-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CHA",
+        "dc": 16
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 4,
+      "maxTier": 4,
+      "eventPayload": {
+        "success": {
+          "onyx": 48,
+          "materialId": "preservation-coil",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "tower-event-t4-03",
+      "kind": "discovery",
+      "label": "Synthesis Bridge Cache 3",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "LCK",
+        "dc": 16
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 4,
+      "maxTier": 4,
+      "eventPayload": {
+        "success": {
+          "onyx": 48,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "tower-event-t4-04",
+      "kind": "other-noncombat",
+      "label": "Fractured Synthesis Bridge 4",
+      "description": "The route breaks across open air. Failing the crossing drops the expedition through emergency shafts before ancient retrieval systems catch it several levels below.",
+      "check": {
+        "stat": "STR",
+        "dc": 16
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 4,
+      "maxTier": 4,
+      "eventPayload": {
+        "success": {
+          "onyx": 67
+        },
+        "failure": {
+          "fallDepths": 3,
+          "fallPartyHpLossPct": 35,
+          "flag": "tower-fall"
+        }
+      }
+    },
+    {
+      "id": "tower-event-t4-05",
+      "kind": "discovery",
+      "label": "Synthesis Bridge Cache 5",
+      "description": "A dormant holy-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "DEX",
+        "dc": 16
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 4,
+      "maxTier": 4,
+      "eventPayload": {
+        "success": {
+          "onyx": 48,
+          "materialId": "consecrated-alloy",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "tower-event-t4-06",
+      "kind": "landmark",
+      "label": "Synthesis Bridge Cache 6",
+      "description": "A dormant cold-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CON",
+        "dc": 16
+      },
+      "checkmark": true,
+      "combatProfile": "cold",
+      "minTier": 4,
+      "maxTier": 4,
+      "eventPayload": {
+        "success": {
+          "onyx": 48,
+          "materialId": "preservation-coil",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "tower-event-t4-07",
+      "kind": "discovery",
+      "label": "Synthesis Bridge Cache 7",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "INT",
+        "dc": 16
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 4,
+      "maxTier": 4,
+      "eventPayload": {
+        "success": {
+          "onyx": 48,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "tower-event-t4-08",
+      "kind": "landmark",
+      "label": "Synthesis Bridge Cache 8",
+      "description": "A dormant psychic-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "FTH",
+        "dc": 16
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 4,
+      "maxTier": 4,
+      "eventPayload": {
+        "success": {
+          "onyx": 48,
+          "materialId": "cognition-core",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "tower-event-t4-09",
+      "kind": "discovery",
+      "label": "Synthesis Bridge Cache 9",
+      "description": "A dormant holy-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CHA",
+        "dc": 16
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 4,
+      "maxTier": 4,
+      "eventPayload": {
+        "success": {
+          "onyx": 48,
+          "materialId": "consecrated-alloy",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "tower-event-t4-10",
+      "kind": "landmark",
+      "label": "Synthesis Bridge Cache 10",
+      "description": "A dormant cold-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "LCK",
+        "dc": 16
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 4,
+      "maxTier": 4,
+      "eventPayload": {
+        "success": {
+          "onyx": 48,
+          "materialId": "preservation-coil",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "tower-event-t4-11",
+      "kind": "other-noncombat",
+      "label": "Fractured Synthesis Bridge 11",
+      "description": "The route breaks across open air. Failing the crossing drops the expedition through emergency shafts before ancient retrieval systems catch it several levels below.",
+      "check": {
+        "stat": "STR",
+        "dc": 16
+      },
+      "checkmark": false,
+      "combatProfile": "fire",
+      "minTier": 4,
+      "maxTier": 4,
+      "eventPayload": {
+        "success": {
+          "onyx": 67
+        },
+        "failure": {
+          "fallDepths": 3,
+          "fallPartyHpLossPct": 35,
+          "flag": "tower-fall"
+        }
+      }
+    },
+    {
+      "id": "tower-event-t4-12",
+      "kind": "landmark",
+      "label": "Synthesis Bridge Cache 12",
+      "description": "A dormant psychic-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "DEX",
+        "dc": 16
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 4,
+      "maxTier": 4,
+      "eventPayload": {
+        "success": {
+          "onyx": 48,
+          "materialId": "cognition-core",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "tower-event-t4-13",
+      "kind": "discovery",
+      "label": "Synthesis Bridge Cache 13",
+      "description": "A dormant holy-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CON",
+        "dc": 16
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 4,
+      "maxTier": 4,
+      "eventPayload": {
+        "success": {
+          "onyx": 48,
+          "materialId": "consecrated-alloy",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "tower-event-t4-14",
+      "kind": "landmark",
+      "label": "Synthesis Bridge Cache 14",
+      "description": "A dormant cold-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "INT",
+        "dc": 16
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 4,
+      "maxTier": 4,
+      "eventPayload": {
+        "success": {
+          "onyx": 48,
+          "materialId": "preservation-coil",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 10
+        }
+      }
+    },
+    {
+      "id": "tower-event-t5-01",
+      "kind": "discovery",
+      "label": "Cognition Archive Cache 1",
+      "description": "A dormant cold-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CHA",
+        "dc": 17
+      },
+      "checkmark": true,
+      "combatProfile": "cold",
+      "minTier": 5,
+      "maxTier": 5,
+      "eventPayload": {
+        "success": {
+          "onyx": 55,
+          "materialId": "preservation-coil",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "tower-event-t5-02",
+      "kind": "landmark",
+      "label": "Cognition Archive Cache 2",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "LCK",
+        "dc": 17
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 5,
+      "maxTier": 5,
+      "eventPayload": {
+        "success": {
+          "onyx": 55,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "tower-event-t5-03",
+      "kind": "discovery",
+      "label": "Cognition Archive Cache 3",
+      "description": "A dormant psychic-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "STR",
+        "dc": 17
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 5,
+      "maxTier": 5,
+      "eventPayload": {
+        "success": {
+          "onyx": 55,
+          "materialId": "cognition-core",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "tower-event-t5-04",
+      "kind": "other-noncombat",
+      "label": "Fractured Cognition Archive 4",
+      "description": "The route breaks across open air. Failing the crossing drops the expedition through emergency shafts before ancient retrieval systems catch it several levels below.",
+      "check": {
+        "stat": "DEX",
+        "dc": 17
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 5,
+      "maxTier": 5,
+      "eventPayload": {
+        "success": {
+          "onyx": 75
+        },
+        "failure": {
+          "fallDepths": 3,
+          "fallPartyHpLossPct": 35,
+          "flag": "tower-fall"
+        }
+      }
+    },
+    {
+      "id": "tower-event-t5-05",
+      "kind": "discovery",
+      "label": "Cognition Archive Cache 5",
+      "description": "A dormant cold-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CON",
+        "dc": 17
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 5,
+      "maxTier": 5,
+      "eventPayload": {
+        "success": {
+          "onyx": 55,
+          "materialId": "preservation-coil",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "tower-event-t5-06",
+      "kind": "landmark",
+      "label": "Cognition Archive Cache 6",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "INT",
+        "dc": 17
+      },
+      "checkmark": true,
+      "combatProfile": "fire",
+      "minTier": 5,
+      "maxTier": 5,
+      "eventPayload": {
+        "success": {
+          "onyx": 55,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "tower-event-t5-07",
+      "kind": "discovery",
+      "label": "Cognition Archive Cache 7",
+      "description": "A dormant psychic-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "FTH",
+        "dc": 17
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 5,
+      "maxTier": 5,
+      "eventPayload": {
+        "success": {
+          "onyx": 55,
+          "materialId": "cognition-core",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "tower-event-t5-08",
+      "kind": "landmark",
+      "label": "Cognition Archive Cache 8",
+      "description": "A dormant holy-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CHA",
+        "dc": 17
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 5,
+      "maxTier": 5,
+      "eventPayload": {
+        "success": {
+          "onyx": 55,
+          "materialId": "consecrated-alloy",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "tower-event-t5-09",
+      "kind": "discovery",
+      "label": "Cognition Archive Cache 9",
+      "description": "A dormant cold-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "LCK",
+        "dc": 17
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 5,
+      "maxTier": 5,
+      "eventPayload": {
+        "success": {
+          "onyx": 55,
+          "materialId": "preservation-coil",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "tower-event-t5-10",
+      "kind": "landmark",
+      "label": "Cognition Archive Cache 10",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "STR",
+        "dc": 17
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 5,
+      "maxTier": 5,
+      "eventPayload": {
+        "success": {
+          "onyx": 55,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "tower-event-t5-11",
+      "kind": "other-noncombat",
+      "label": "Fractured Cognition Archive 11",
+      "description": "The route breaks across open air. Failing the crossing drops the expedition through emergency shafts before ancient retrieval systems catch it several levels below.",
+      "check": {
+        "stat": "DEX",
+        "dc": 17
+      },
+      "checkmark": false,
+      "combatProfile": "psychic",
+      "minTier": 5,
+      "maxTier": 5,
+      "eventPayload": {
+        "success": {
+          "onyx": 75
+        },
+        "failure": {
+          "fallDepths": 3,
+          "fallPartyHpLossPct": 35,
+          "flag": "tower-fall"
+        }
+      }
+    },
+    {
+      "id": "tower-event-t5-12",
+      "kind": "landmark",
+      "label": "Cognition Archive Cache 12",
+      "description": "A dormant holy-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CON",
+        "dc": 17
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 5,
+      "maxTier": 5,
+      "eventPayload": {
+        "success": {
+          "onyx": 55,
+          "materialId": "consecrated-alloy",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "tower-event-t5-13",
+      "kind": "discovery",
+      "label": "Cognition Archive Cache 13",
+      "description": "A dormant cold-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "INT",
+        "dc": 17
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 5,
+      "maxTier": 5,
+      "eventPayload": {
+        "success": {
+          "onyx": 55,
+          "materialId": "preservation-coil",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "tower-event-t5-14",
+      "kind": "landmark",
+      "label": "Cognition Archive Cache 14",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "FTH",
+        "dc": 17
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 5,
+      "maxTier": 5,
+      "eventPayload": {
+        "success": {
+          "onyx": 55,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 11
+        }
+      }
+    },
+    {
+      "id": "tower-event-t6-01",
+      "kind": "discovery",
+      "label": "Broken Ascension Walk Cache 1",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "LCK",
+        "dc": 18
+      },
+      "checkmark": true,
+      "combatProfile": "fire",
+      "minTier": 6,
+      "maxTier": 6,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 12
+        }
+      }
+    },
+    {
+      "id": "tower-event-t6-02",
+      "kind": "landmark",
+      "label": "Broken Ascension Walk Cache 2",
+      "description": "A dormant psychic-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "STR",
+        "dc": 18
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 6,
+      "maxTier": 6,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "materialId": "cognition-core",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 12
+        }
+      }
+    },
+    {
+      "id": "tower-event-t6-03",
+      "kind": "discovery",
+      "label": "Broken Ascension Walk Cache 3",
+      "description": "A dormant holy-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "DEX",
+        "dc": 18
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 6,
+      "maxTier": 6,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "materialId": "consecrated-alloy",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 12
+        }
+      }
+    },
+    {
+      "id": "tower-event-t6-04",
+      "kind": "other-noncombat",
+      "label": "Fractured Broken Ascension Walk 4",
+      "description": "The route breaks across open air. Failing the crossing drops the expedition through emergency shafts before ancient retrieval systems catch it several levels below.",
+      "check": {
+        "stat": "CON",
+        "dc": 18
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 6,
+      "maxTier": 6,
+      "eventPayload": {
+        "success": {
+          "onyx": 83
+        },
+        "failure": {
+          "fallDepths": 3,
+          "fallPartyHpLossPct": 35,
+          "flag": "tower-fall"
+        }
+      }
+    },
+    {
+      "id": "tower-event-t6-05",
+      "kind": "discovery",
+      "label": "Broken Ascension Walk Cache 5",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "INT",
+        "dc": 18
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 6,
+      "maxTier": 6,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 12
+        }
+      }
+    },
+    {
+      "id": "tower-event-t6-06",
+      "kind": "landmark",
+      "label": "Broken Ascension Walk Cache 6",
+      "description": "A dormant psychic-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "FTH",
+        "dc": 18
+      },
+      "checkmark": true,
+      "combatProfile": "psychic",
+      "minTier": 6,
+      "maxTier": 6,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "materialId": "cognition-core",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 12
+        }
+      }
+    },
+    {
+      "id": "tower-event-t6-07",
+      "kind": "discovery",
+      "label": "Broken Ascension Walk Cache 7",
+      "description": "A dormant holy-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CHA",
+        "dc": 18
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 6,
+      "maxTier": 6,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "materialId": "consecrated-alloy",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 12
+        }
+      }
+    },
+    {
+      "id": "tower-event-t6-08",
+      "kind": "landmark",
+      "label": "Broken Ascension Walk Cache 8",
+      "description": "A dormant cold-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "LCK",
+        "dc": 18
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 6,
+      "maxTier": 6,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "materialId": "preservation-coil",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 12
+        }
+      }
+    },
+    {
+      "id": "tower-event-t6-09",
+      "kind": "discovery",
+      "label": "Broken Ascension Walk Cache 9",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "STR",
+        "dc": 18
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 6,
+      "maxTier": 6,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 12
+        }
+      }
+    },
+    {
+      "id": "tower-event-t6-10",
+      "kind": "landmark",
+      "label": "Broken Ascension Walk Cache 10",
+      "description": "A dormant psychic-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "DEX",
+        "dc": 18
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 6,
+      "maxTier": 6,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "materialId": "cognition-core",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 12
+        }
+      }
+    },
+    {
+      "id": "tower-event-t6-11",
+      "kind": "other-noncombat",
+      "label": "Fractured Broken Ascension Walk 11",
+      "description": "The route breaks across open air. Failing the crossing drops the expedition through emergency shafts before ancient retrieval systems catch it several levels below.",
+      "check": {
+        "stat": "CON",
+        "dc": 18
+      },
+      "checkmark": false,
+      "combatProfile": "holy",
+      "minTier": 6,
+      "maxTier": 6,
+      "eventPayload": {
+        "success": {
+          "onyx": 83
+        },
+        "failure": {
+          "fallDepths": 3,
+          "fallPartyHpLossPct": 35,
+          "flag": "tower-fall"
+        }
+      }
+    },
+    {
+      "id": "tower-event-t6-12",
+      "kind": "landmark",
+      "label": "Broken Ascension Walk Cache 12",
+      "description": "A dormant cold-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "INT",
+        "dc": 18
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 6,
+      "maxTier": 6,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "materialId": "preservation-coil",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 12
+        }
+      }
+    },
+    {
+      "id": "tower-event-t6-13",
+      "kind": "discovery",
+      "label": "Broken Ascension Walk Cache 13",
+      "description": "A dormant fire-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "FTH",
+        "dc": 18
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 6,
+      "maxTier": 6,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "materialId": "cinder-actuator",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 12
+        }
+      }
+    },
+    {
+      "id": "tower-event-t6-14",
+      "kind": "landmark",
+      "label": "Broken Ascension Walk Cache 14",
+      "description": "A dormant psychic-aligned Tower mechanism may yield useful material or wake a defensive protocol.",
+      "check": {
+        "stat": "CHA",
+        "dc": 18
+      },
+      "checkmark": false,
+      "combatProfile": null,
+      "minTier": 6,
+      "maxTier": 6,
+      "eventPayload": {
+        "success": {
+          "onyx": 62,
+          "materialId": "cognition-core",
+          "materialQuantity": 2
+        },
+        "failure": {
+          "hpLossPct": 12
+        }
+      }
+    }
+  ]
+}

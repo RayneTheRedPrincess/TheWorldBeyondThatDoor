@@ -1,5 +1,6 @@
 import { CLASSLESS_ID, getEquippedKeptIds, isClasslessEquipped } from './kept-impression-controller.js';
 import { canStartCampaign } from './campaign-controller.js';
+import { racialConfigurationSummary } from './racial-configuration.js';
 
 // Intentionally accepts only slot state. Mantle/Chronicle account unlocks cannot gate campaign access.
 export function getCampaignDoorState(slot) {
@@ -12,13 +13,15 @@ export function getCampaignDoorState(slot) {
     : { available: false, label: 'Prepare Campaign', reason: readiness.reason };
 }
 
-export function getCampaignPreparationSummary(slot, keptEntries = []) {
+export function getCampaignPreparationSummary(slot, keptEntries = [], racialConfigurations = null) {
   const byId = new Map(keptEntries.map(entry => [entry.id, entry]));
   const keptIds = getEquippedKeptIds(slot);
   const classless = isClasslessEquipped(slot);
   return {
     vesselName: slot?.character?.name || '',
     race: slot?.character?.race || '',
+    racialConfiguration: slot?.character?.racialConfiguration || null,
+    racialConfigurationSummary: racialConfigurationSummary(slot?.character?.race,slot?.character?.racialConfiguration,racialConfigurations),
     permanentBaseClass: slot?.character?.baseClass || '',
     effectiveBaseClass: classless ? null : (slot?.character?.baseClass || null),
     effectiveSubclass: classless ? null : (slot?.character?.subclass || null),

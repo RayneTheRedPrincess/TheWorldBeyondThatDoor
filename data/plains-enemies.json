@@ -1,0 +1,2573 @@
+{
+  "version": "RUINED-VAMPIRIC-PLAINS-FOUNDATION-2026-08-10",
+  "designStatus": "implemented-image-free",
+  "depthTiers": [
+    {
+      "id": "tier-1",
+      "start": 1,
+      "end": 5,
+      "level": 18,
+      "hpMultiplier": 1.0,
+      "damageMultiplier": 1.0,
+      "statAdd": 0,
+      "expAdd": 0,
+      "onyxAdd": 0
+    },
+    {
+      "id": "tier-2",
+      "start": 6,
+      "end": 9,
+      "level": 19,
+      "hpMultiplier": 1.13,
+      "damageMultiplier": 1.08,
+      "statAdd": 1,
+      "expAdd": 18,
+      "onyxAdd": 18
+    },
+    {
+      "id": "tier-3",
+      "start": 11,
+      "end": 14,
+      "level": 20,
+      "hpMultiplier": 1.28,
+      "damageMultiplier": 1.16,
+      "statAdd": 2,
+      "expAdd": 36,
+      "onyxAdd": 36
+    },
+    {
+      "id": "tier-4",
+      "start": 15,
+      "end": 19,
+      "level": 21,
+      "hpMultiplier": 1.45,
+      "damageMultiplier": 1.25,
+      "statAdd": 3,
+      "expAdd": 55,
+      "onyxAdd": 55
+    },
+    {
+      "id": "tier-5",
+      "start": 21,
+      "end": 25,
+      "level": 22,
+      "hpMultiplier": 1.64,
+      "damageMultiplier": 1.35,
+      "statAdd": 4,
+      "expAdd": 75,
+      "onyxAdd": 75
+    },
+    {
+      "id": "tier-6",
+      "start": 26,
+      "end": 29,
+      "level": 23,
+      "hpMultiplier": 1.86,
+      "damageMultiplier": 1.46,
+      "statAdd": 5,
+      "expAdd": 96,
+      "onyxAdd": 96
+    }
+  ],
+  "regularEnemies": [
+    {
+      "id": "ashen-thrall",
+      "name": "Ashen Thrall",
+      "role": "Thrall Infantry",
+      "faction": "tenairahs-plains",
+      "minTier": 1,
+      "maxTier": 6,
+      "encounterWeight": 12,
+      "affinities": [
+        "Physical"
+      ],
+      "vampire": false,
+      "undead": true,
+      "baseMaxHp": 62,
+      "stats": {
+        "STR": 20,
+        "DEX": 8,
+        "CON": 14,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Rusty Cleaver",
+        "base": 9,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "thrall-open-vein",
+          "name": "Open Vein",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 12,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.011
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "thrall-bleed",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {},
+            "memory": {
+              "statusKind": "Bleed",
+              "tickBase": 3,
+              "tickTiming": "owner-turn-end"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "undead",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "red-marrow",
+          "name": "Red Marrow",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "ashen-thrall"
+        }
+      ],
+      "baseExpReward": 135,
+      "baseOnyxReward": 112,
+      "resistances": {
+        "Physical": 8
+      },
+      "portrait": null
+    },
+    {
+      "id": "crimson-levy",
+      "name": "Crimson Levy",
+      "role": "Vampire Levy",
+      "faction": "tenairahs-plains",
+      "minTier": 1,
+      "maxTier": 6,
+      "encounterWeight": 11,
+      "affinities": [
+        "Physical"
+      ],
+      "vampire": true,
+      "undead": false,
+      "baseMaxHp": 68,
+      "stats": {
+        "STR": 18,
+        "DEX": 14,
+        "CON": 15,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Levy Sabre",
+        "base": 9,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "levy-drink",
+          "name": "Levy the Living",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 13,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.009,
+                "DEX": 0.004
+              }
+            }
+          ],
+          "lifestealPct": 12
+        }
+      ],
+      "ai": {
+        "style": "vampire",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "bloodglass-shard",
+          "name": "Bloodglass Shard",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "crimson-levy"
+        }
+      ],
+      "baseExpReward": 139,
+      "baseOnyxReward": 117,
+      "resistances": {
+        "Physical": 8
+      },
+      "portrait": null
+    },
+    {
+      "id": "pale-pikeguard",
+      "name": "Pale Pikeguard",
+      "role": "Formation Vanguard",
+      "faction": "tenairahs-plains",
+      "minTier": 1,
+      "maxTier": 4,
+      "encounterWeight": 10,
+      "affinities": [
+        "Physical"
+      ],
+      "vampire": true,
+      "undead": false,
+      "baseMaxHp": 76,
+      "stats": {
+        "STR": 21,
+        "DEX": 0,
+        "CON": 19,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Pike Thrust",
+        "base": 10,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "pike-pin",
+          "name": "Pin to Earth",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 13,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.01
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "pike-pinned",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "dodgeChancePct": -10
+            },
+            "memory": {
+              "statusKind": "Wound"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "vampire",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "dusk-iron",
+          "name": "Dusk Iron",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "pale-pikeguard"
+        }
+      ],
+      "baseExpReward": 143,
+      "baseOnyxReward": 122,
+      "resistances": {
+        "Physical": 8
+      },
+      "portrait": null
+    },
+    {
+      "id": "blood-hound",
+      "name": "Blood Hound",
+      "role": "Predator",
+      "faction": "tenairahs-plains",
+      "minTier": 1,
+      "maxTier": 5,
+      "encounterWeight": 10,
+      "affinities": [
+        "Physical"
+      ],
+      "vampire": true,
+      "undead": false,
+      "baseMaxHp": 58,
+      "stats": {
+        "STR": 17,
+        "DEX": 20,
+        "CON": 10,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Fang Tear",
+        "base": 9,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "hound-scent",
+          "name": "Scent the Wounded",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 12,
+              "damageType": "Physical",
+              "scaling": {
+                "STR": 0.008,
+                "DEX": 0.006
+              }
+            }
+          ],
+          "lowHpBonusPct": 25,
+          "lifestealPct": 10
+        }
+      ],
+      "ai": {
+        "style": "vampire",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "nightfang",
+          "name": "Nightfang",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "blood-hound"
+        }
+      ],
+      "baseExpReward": 147,
+      "baseOnyxReward": 127,
+      "resistances": {
+        "Physical": 8
+      },
+      "portrait": null
+    },
+    {
+      "id": "duskbow-thrall",
+      "name": "Duskbow Thrall",
+      "role": "Ranged Thrall",
+      "faction": "tenairahs-plains",
+      "minTier": 1,
+      "maxTier": 4,
+      "encounterWeight": 9,
+      "affinities": [
+        "Physical"
+      ],
+      "vampire": false,
+      "undead": true,
+      "baseMaxHp": 54,
+      "stats": {
+        "STR": 8,
+        "DEX": 23,
+        "CON": 10,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Dusk Arrow",
+        "base": 9,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "duskbow-barb",
+          "name": "Barbed Duskshot",
+          "energyCost": 3,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 12,
+              "damageType": "Physical",
+              "scaling": {
+                "DEX": 0.012
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "duskbow-bleed",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {},
+            "memory": {
+              "statusKind": "Bleed",
+              "tickBase": 3,
+              "tickTiming": "owner-turn-end"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "undead",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "grave-silver",
+          "name": "Grave Silver",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "duskbow-thrall"
+        }
+      ],
+      "baseExpReward": 151,
+      "baseOnyxReward": 132,
+      "resistances": {
+        "Physical": 8
+      },
+      "portrait": null
+    },
+    {
+      "id": "coffin-knight",
+      "name": "Coffin Knight",
+      "role": "Undead Bulwark",
+      "faction": "tenairahs-plains",
+      "minTier": 2,
+      "maxTier": 6,
+      "encounterWeight": 8,
+      "affinities": [
+        "Physical",
+        "Force"
+      ],
+      "vampire": false,
+      "undead": true,
+      "baseMaxHp": 88,
+      "stats": {
+        "STR": 20,
+        "DEX": 0,
+        "CON": 24,
+        "INT": 0,
+        "FTH": 8,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Graveblade",
+        "base": 10,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "coffin-crush",
+          "name": "Coffin Crush",
+          "energyCost": 4,
+          "cooldown": 3,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 15,
+              "damageType": "Force",
+              "scaling": {
+                "STR": 0.008,
+                "CON": 0.006
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "coffin-crushed",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "blockChancePct": -10
+            },
+            "memory": {
+              "statusKind": "Wound"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "undead",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical",
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "black-ichor",
+          "name": "Black Ichor",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "coffin-knight"
+        }
+      ],
+      "baseExpReward": 155,
+      "baseOnyxReward": 137,
+      "resistances": {
+        "Physical": 6
+      },
+      "portrait": null
+    },
+    {
+      "id": "redcourt-duelist",
+      "name": "Redcourt Duelist",
+      "role": "Vampire Duelist",
+      "faction": "tenairahs-plains",
+      "minTier": 2,
+      "maxTier": 6,
+      "encounterWeight": 9,
+      "affinities": [
+        "Physical"
+      ],
+      "vampire": true,
+      "undead": false,
+      "baseMaxHp": 70,
+      "stats": {
+        "STR": 15,
+        "DEX": 25,
+        "CON": 0,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 12
+      },
+      "basicAttack": {
+        "name": "Court Rapier",
+        "base": 10,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "duelist-red-riposte",
+          "name": "Red Riposte",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 15,
+              "damageType": "Physical",
+              "scaling": {
+                "DEX": 0.01,
+                "STR": 0.004
+              }
+            }
+          ],
+          "critChanceBonus": 10,
+          "lifestealPct": 10
+        }
+      ],
+      "ai": {
+        "style": "vampire",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical"
+        ]
+      },
+      "materials": [
+        {
+          "id": "bloodglass-shard",
+          "name": "Bloodglass Shard",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "redcourt-duelist"
+        }
+      ],
+      "baseExpReward": 159,
+      "baseOnyxReward": 142,
+      "resistances": {
+        "Physical": 8
+      },
+      "portrait": null
+    },
+    {
+      "id": "hemomancer",
+      "name": "Hemomancer",
+      "role": "Blood Mage",
+      "faction": "tenairahs-plains",
+      "minTier": 2,
+      "maxTier": 6,
+      "encounterWeight": 9,
+      "affinities": [
+        "Force"
+      ],
+      "vampire": true,
+      "undead": false,
+      "baseMaxHp": 66,
+      "stats": {
+        "STR": 0,
+        "DEX": 0,
+        "CON": 12,
+        "INT": 24,
+        "FTH": 0,
+        "CHA": 18,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Blood Bolt",
+        "base": 9,
+        "damageType": "Force",
+        "scaling": {
+          "INT": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "hemo-lance",
+          "name": "Vein Lance",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 15,
+              "damageType": "Force",
+              "scaling": {
+                "INT": 0.01,
+                "CHA": 0.005
+              }
+            }
+          ],
+          "lifestealPct": 14,
+          "targetEffect": {
+            "id": "hemo-bleed",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {},
+            "memory": {
+              "statusKind": "Bleed",
+              "tickBase": 4,
+              "tickTiming": "owner-turn-end"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "vampire",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "black-ichor",
+          "name": "Black Ichor",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "hemomancer"
+        }
+      ],
+      "baseExpReward": 163,
+      "baseOnyxReward": 147,
+      "resistances": {
+        "Force": 8
+      },
+      "portrait": null
+    },
+    {
+      "id": "blood-siphoner",
+      "name": "Blood Siphoner",
+      "role": "Drain Support",
+      "faction": "tenairahs-plains",
+      "minTier": 2,
+      "maxTier": 6,
+      "encounterWeight": 8,
+      "affinities": [
+        "Force"
+      ],
+      "vampire": true,
+      "undead": false,
+      "baseMaxHp": 64,
+      "stats": {
+        "STR": 0,
+        "DEX": 0,
+        "CON": 14,
+        "INT": 20,
+        "FTH": 0,
+        "CHA": 22,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Siphon Thread",
+        "base": 8,
+        "damageType": "Force",
+        "scaling": {
+          "INT": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "siphoner-feast",
+          "name": "Shared Feast",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 13,
+              "damageType": "Force",
+              "scaling": {
+                "CHA": 0.009,
+                "INT": 0.005
+              }
+            }
+          ],
+          "lifestealPct": 22
+        }
+      ],
+      "ai": {
+        "style": "vampire",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "red-marrow",
+          "name": "Red Marrow",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "blood-siphoner"
+        }
+      ],
+      "baseExpReward": 167,
+      "baseOnyxReward": 152,
+      "resistances": {
+        "Force": 8
+      },
+      "portrait": null
+    },
+    {
+      "id": "scarlet-bulwark",
+      "name": "Scarlet Bulwark",
+      "role": "Force Tank",
+      "faction": "tenairahs-plains",
+      "minTier": 3,
+      "maxTier": 6,
+      "encounterWeight": 8,
+      "affinities": [
+        "Force"
+      ],
+      "vampire": true,
+      "undead": false,
+      "baseMaxHp": 94,
+      "stats": {
+        "STR": 18,
+        "DEX": 0,
+        "CON": 27,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 10,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Bloodwall Bash",
+        "base": 10,
+        "damageType": "Force",
+        "scaling": {
+          "INT": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "bulwark-wave",
+          "name": "Scarlet Pressure",
+          "energyCost": 4,
+          "cooldown": 3,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 11,
+              "damageType": "Force",
+              "scaling": {
+                "CON": 0.007,
+                "STR": 0.004
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "scarlet-pressure",
+            "negative": true,
+            "durationTurns": 1,
+            "modifiers": {
+              "incomingDamagePct": 7
+            },
+            "memory": {
+              "statusKind": "Wound"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "vampire",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "sanguine-resin",
+          "name": "Sanguine Resin",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "scarlet-bulwark"
+        }
+      ],
+      "baseExpReward": 171,
+      "baseOnyxReward": 157,
+      "resistances": {
+        "Force": 8
+      },
+      "portrait": null
+    },
+    {
+      "id": "veinbinder",
+      "name": "Veinbinder",
+      "role": "Controller",
+      "faction": "tenairahs-plains",
+      "minTier": 3,
+      "maxTier": 6,
+      "encounterWeight": 8,
+      "affinities": [
+        "Force"
+      ],
+      "vampire": true,
+      "undead": false,
+      "baseMaxHp": 72,
+      "stats": {
+        "STR": 0,
+        "DEX": 0,
+        "CON": 0,
+        "INT": 23,
+        "FTH": 0,
+        "CHA": 20,
+        "LCK": 10
+      },
+      "basicAttack": {
+        "name": "Vein Snap",
+        "base": 9,
+        "damageType": "Force",
+        "scaling": {
+          "INT": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "veinbinder-bind",
+          "name": "Blood Bind",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 14,
+              "damageType": "Force",
+              "scaling": {
+                "INT": 0.009,
+                "CHA": 0.006
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "blood-bound",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "dodgeChancePct": -12,
+              "energyGainPct": -10
+            },
+            "memory": {
+              "statusKind": "Wound"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "vampire",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "root-fiber",
+          "name": "Blood Root Fiber",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "veinbinder"
+        }
+      ],
+      "baseExpReward": 175,
+      "baseOnyxReward": 162,
+      "resistances": {
+        "Force": 8
+      },
+      "portrait": null
+    },
+    {
+      "id": "gorelight-elemental",
+      "name": "Gorelight Elemental",
+      "role": "Blood Construct",
+      "faction": "tenairahs-plains",
+      "minTier": 3,
+      "maxTier": 6,
+      "encounterWeight": 7,
+      "affinities": [
+        "Force"
+      ],
+      "vampire": false,
+      "undead": false,
+      "baseMaxHp": 86,
+      "stats": {
+        "STR": 0,
+        "DEX": 0,
+        "CON": 23,
+        "INT": 18,
+        "FTH": 13,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Gorelight Slam",
+        "base": 10,
+        "damageType": "Force",
+        "scaling": {
+          "INT": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "gorelight-burst",
+          "name": "Gorelight Burst",
+          "energyCost": 5,
+          "cooldown": 3,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 12,
+              "damageType": "Force",
+              "scaling": {
+                "CON": 0.006,
+                "INT": 0.006
+              }
+            }
+          ],
+          "lifestealPct": 8
+        }
+      ],
+      "ai": {
+        "style": "undead",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "black-ichor",
+          "name": "Black Ichor",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "gorelight-elemental"
+        }
+      ],
+      "baseExpReward": 179,
+      "baseOnyxReward": 167,
+      "resistances": {
+        "Force": 8
+      },
+      "portrait": null
+    },
+    {
+      "id": "mourning-seer",
+      "name": "Mourning Seer",
+      "role": "Psychic Caster",
+      "faction": "tenairahs-plains",
+      "minTier": 4,
+      "maxTier": 6,
+      "encounterWeight": 7,
+      "affinities": [
+        "Psychic"
+      ],
+      "vampire": true,
+      "undead": false,
+      "baseMaxHp": 68,
+      "stats": {
+        "STR": 0,
+        "DEX": 0,
+        "CON": 0,
+        "INT": 27,
+        "FTH": 0,
+        "CHA": 18,
+        "LCK": 17
+      },
+      "basicAttack": {
+        "name": "Mind Needle",
+        "base": 10,
+        "damageType": "Psychic",
+        "scaling": {
+          "INT": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "seer-memory-wound",
+          "name": "Memory Wound",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 15,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.011,
+                "LCK": 0.003
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "memory-wound",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "finalDamagePct": -10
+            },
+            "memory": {
+              "statusKind": "Wound"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "vampire",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Psychic"
+        ]
+      },
+      "materials": [
+        {
+          "id": "mindblood-pearl",
+          "name": "Mindblood Pearl",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "mourning-seer"
+        }
+      ],
+      "baseExpReward": 183,
+      "baseOnyxReward": 172,
+      "resistances": {
+        "Psychic": 8
+      },
+      "portrait": null
+    },
+    {
+      "id": "shade-cantor",
+      "name": "Shade Cantor",
+      "role": "Psychic Support",
+      "faction": "tenairahs-plains",
+      "minTier": 4,
+      "maxTier": 6,
+      "encounterWeight": 7,
+      "affinities": [
+        "Psychic"
+      ],
+      "vampire": true,
+      "undead": false,
+      "baseMaxHp": 70,
+      "stats": {
+        "STR": 0,
+        "DEX": 0,
+        "CON": 0,
+        "INT": 20,
+        "FTH": 0,
+        "CHA": 25,
+        "LCK": 15
+      },
+      "basicAttack": {
+        "name": "Dread Note",
+        "base": 9,
+        "damageType": "Psychic",
+        "scaling": {
+          "INT": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "cantor-dread-chorus",
+          "name": "Dread Chorus",
+          "energyCost": 5,
+          "cooldown": 3,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 11,
+              "damageType": "Psychic",
+              "scaling": {
+                "CHA": 0.01,
+                "INT": 0.003
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "dread-chorus",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "damageCritChancePct": -8,
+              "outgoingHealingPct": -10
+            },
+            "memory": {
+              "statusKind": "Fear"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "vampire",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Psychic"
+        ]
+      },
+      "materials": [
+        {
+          "id": "veil-silk",
+          "name": "Veil Silk",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "shade-cantor"
+        }
+      ],
+      "baseExpReward": 187,
+      "baseOnyxReward": 177,
+      "resistances": {
+        "Psychic": 8
+      },
+      "portrait": null
+    },
+    {
+      "id": "memory-drinker",
+      "name": "Memory Drinker",
+      "role": "Psychic Predator",
+      "faction": "tenairahs-plains",
+      "minTier": 4,
+      "maxTier": 6,
+      "encounterWeight": 6,
+      "affinities": [
+        "Psychic"
+      ],
+      "vampire": true,
+      "undead": false,
+      "baseMaxHp": 74,
+      "stats": {
+        "STR": 0,
+        "DEX": 19,
+        "CON": 0,
+        "INT": 22,
+        "FTH": 0,
+        "CHA": 18,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Thought Bite",
+        "base": 10,
+        "damageType": "Psychic",
+        "scaling": {
+          "INT": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "memory-drain",
+          "name": "Drink Memory",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 15,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.008,
+                "CHA": 0.005
+              }
+            }
+          ],
+          "lifestealPct": 16,
+          "targetEffect": {
+            "id": "memory-drained",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {
+              "energyGainPct": -15
+            },
+            "memory": {
+              "statusKind": "Wound"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "vampire",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Psychic"
+        ]
+      },
+      "materials": [
+        {
+          "id": "mindblood-pearl",
+          "name": "Mindblood Pearl",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "memory-drinker"
+        }
+      ],
+      "baseExpReward": 191,
+      "baseOnyxReward": 182,
+      "resistances": {
+        "Psychic": 8
+      },
+      "portrait": null
+    },
+    {
+      "id": "smoke-warden",
+      "name": "Smoke Warden",
+      "role": "Veil Enforcer",
+      "faction": "tenairahs-plains",
+      "minTier": 4,
+      "maxTier": 6,
+      "encounterWeight": 7,
+      "affinities": [
+        "Force",
+        "Psychic"
+      ],
+      "vampire": true,
+      "undead": false,
+      "baseMaxHp": 82,
+      "stats": {
+        "STR": 0,
+        "DEX": 20,
+        "CON": 20,
+        "INT": 20,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Smoke Palm",
+        "base": 10,
+        "damageType": "Force",
+        "scaling": {
+          "INT": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "smoke-crush",
+          "name": "Veiled Compression",
+          "energyCost": 5,
+          "cooldown": 3,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 12,
+              "damageType": "Psychic",
+              "scaling": {
+                "INT": 0.008,
+                "CON": 0.003
+              }
+            }
+          ],
+          "targetEffect": {
+            "id": "smoke-blind",
+            "negative": true,
+            "durationTurns": 1,
+            "modifiers": {
+              "dodgeChancePct": -8
+            },
+            "memory": {
+              "statusKind": "Wound"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "vampire",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Force",
+          "Psychic"
+        ]
+      },
+      "materials": [
+        {
+          "id": "smokecloth",
+          "name": "Smokecloth",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "smoke-warden"
+        }
+      ],
+      "baseExpReward": 195,
+      "baseOnyxReward": 187,
+      "resistances": {
+        "Force": 6
+      },
+      "portrait": null
+    },
+    {
+      "id": "redmist-stalker",
+      "name": "Redmist Stalker",
+      "role": "Hybrid Assassin",
+      "faction": "tenairahs-plains",
+      "minTier": 5,
+      "maxTier": 6,
+      "encounterWeight": 7,
+      "affinities": [
+        "Physical",
+        "Psychic"
+      ],
+      "vampire": true,
+      "undead": false,
+      "baseMaxHp": 72,
+      "stats": {
+        "STR": 12,
+        "DEX": 27,
+        "CON": 0,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 0,
+        "LCK": 20
+      },
+      "basicAttack": {
+        "name": "Mistknife",
+        "base": 11,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "redmist-step",
+          "name": "Redmist Sever",
+          "energyCost": 4,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 16,
+              "damageType": "Psychic",
+              "scaling": {
+                "DEX": 0.007,
+                "LCK": 0.006
+              }
+            }
+          ],
+          "critChanceBonus": 12,
+          "lifestealPct": 12
+        }
+      ],
+      "ai": {
+        "style": "vampire",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical",
+          "Psychic"
+        ]
+      },
+      "materials": [
+        {
+          "id": "gloam-ember",
+          "name": "Gloam Ember",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "redmist-stalker"
+        }
+      ],
+      "baseExpReward": 199,
+      "baseOnyxReward": 192,
+      "resistances": {
+        "Physical": 6
+      },
+      "portrait": null
+    },
+    {
+      "id": "bloodroot-knight",
+      "name": "Bloodroot Knight",
+      "role": "Hybrid Vanguard",
+      "faction": "tenairahs-plains",
+      "minTier": 5,
+      "maxTier": 6,
+      "encounterWeight": 7,
+      "affinities": [
+        "Physical",
+        "Force"
+      ],
+      "vampire": true,
+      "undead": false,
+      "baseMaxHp": 98,
+      "stats": {
+        "STR": 23,
+        "DEX": 0,
+        "CON": 27,
+        "INT": 0,
+        "FTH": 0,
+        "CHA": 12,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Rootblade",
+        "base": 11,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "root-knight-surge",
+          "name": "Rootblood Surge",
+          "energyCost": 5,
+          "cooldown": 3,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 13,
+              "damageType": "Force",
+              "scaling": {
+                "CON": 0.006,
+                "STR": 0.005
+              }
+            }
+          ],
+          "lifestealPct": 10
+        }
+      ],
+      "ai": {
+        "style": "vampire",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical",
+          "Force"
+        ]
+      },
+      "materials": [
+        {
+          "id": "root-fiber",
+          "name": "Blood Root Fiber",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "bloodroot-knight"
+        }
+      ],
+      "baseExpReward": 203,
+      "baseOnyxReward": 197,
+      "resistances": {
+        "Physical": 6
+      },
+      "portrait": null
+    },
+    {
+      "id": "gloam-surgeon",
+      "name": "Gloam Surgeon",
+      "role": "Hybrid Blood Mage",
+      "faction": "tenairahs-plains",
+      "minTier": 5,
+      "maxTier": 6,
+      "encounterWeight": 6,
+      "affinities": [
+        "Force",
+        "Psychic"
+      ],
+      "vampire": true,
+      "undead": false,
+      "baseMaxHp": 76,
+      "stats": {
+        "STR": 0,
+        "DEX": 0,
+        "CON": 0,
+        "INT": 28,
+        "FTH": 0,
+        "CHA": 21,
+        "LCK": 14
+      },
+      "basicAttack": {
+        "name": "Surgical Thread",
+        "base": 10,
+        "damageType": "Psychic",
+        "scaling": {
+          "INT": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "gloam-excision",
+          "name": "Gloam Excision",
+          "energyCost": 5,
+          "cooldown": 2,
+          "targetMode": "single-enemy",
+          "components": [
+            {
+              "type": "damage",
+              "base": 17,
+              "damageType": "Force",
+              "scaling": {
+                "INT": 0.01,
+                "CHA": 0.004
+              }
+            }
+          ],
+          "lifestealPct": 18,
+          "targetEffect": {
+            "id": "gloam-excision-bleed",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {},
+            "memory": {
+              "statusKind": "Bleed",
+              "tickBase": 4,
+              "tickTiming": "owner-turn-end"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "vampire",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Force",
+          "Psychic"
+        ]
+      },
+      "materials": [
+        {
+          "id": "veil-silk",
+          "name": "Veil Silk",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "gloam-surgeon"
+        }
+      ],
+      "baseExpReward": 207,
+      "baseOnyxReward": 202,
+      "resistances": {
+        "Force": 6
+      },
+      "portrait": null
+    },
+    {
+      "id": "tenairahs-hand",
+      "name": "Tenairah’s Hand",
+      "role": "Royal Executioner",
+      "faction": "tenairahs-plains",
+      "minTier": 6,
+      "maxTier": 6,
+      "encounterWeight": 5,
+      "affinities": [
+        "Physical",
+        "Force",
+        "Psychic"
+      ],
+      "vampire": true,
+      "undead": false,
+      "baseMaxHp": 108,
+      "stats": {
+        "STR": 25,
+        "DEX": 24,
+        "CON": 24,
+        "INT": 22,
+        "FTH": 0,
+        "CHA": 20,
+        "LCK": 0
+      },
+      "basicAttack": {
+        "name": "Sovereign Talon",
+        "base": 12,
+        "damageType": "Physical",
+        "scaling": {
+          "STR": 0.009
+        }
+      },
+      "abilities": [
+        {
+          "id": "hand-trinity",
+          "name": "Threefold Ruin",
+          "energyCost": 6,
+          "cooldown": 3,
+          "targetMode": "all-enemies",
+          "components": [
+            {
+              "type": "damage",
+              "base": 14,
+              "damageType": "Psychic",
+              "scaling": {
+                "STR": 0.004,
+                "INT": 0.006,
+                "CHA": 0.003
+              }
+            }
+          ],
+          "lifestealPct": 16,
+          "targetEffect": {
+            "id": "threefold-bleed",
+            "negative": true,
+            "durationTurns": 2,
+            "modifiers": {},
+            "memory": {
+              "statusKind": "Bleed",
+              "tickBase": 5,
+              "tickTiming": "owner-turn-end"
+            }
+          }
+        }
+      ],
+      "ai": {
+        "style": "vampire",
+        "chargeBelowEnergy": 2,
+        "affinities": [
+          "Physical",
+          "Force",
+          "Psychic"
+        ]
+      },
+      "materials": [
+        {
+          "id": "sovereign-bloodroot",
+          "name": "Sovereign Bloodroot",
+          "materialKind": "ordinary-enemy",
+          "sourceId": "tenairahs-hand"
+        }
+      ],
+      "baseExpReward": 211,
+      "baseOnyxReward": 207,
+      "resistances": {
+        "Physical": 6
+      },
+      "portrait": null
+    }
+  ],
+  "minibosses": [
+    {
+      "name": "Lord Varrek and the Nightblood Charger",
+      "fixedDepth": 10,
+      "actors": [
+        {
+          "id": "lord-varrek",
+          "name": "Lord Varrek, the Red Cavalier",
+          "role": "Miniboss · Mounted Vampire Warlord",
+          "fixedDepth": 10,
+          "baseMaxHp": 245,
+          "maxEnergy": 7,
+          "level": 20,
+          "stats": {
+            "STR": 30,
+            "DEX": 24,
+            "CON": 25,
+            "INT": 0,
+            "FTH": 0,
+            "CHA": 18,
+            "LCK": 12
+          },
+          "basicAttack": {
+            "name": "Mounted Bloodlance",
+            "base": 13,
+            "damageType": "Physical",
+            "scaling": {
+              "STR": 0.01,
+              "DEX": 0.004
+            }
+          },
+          "abilities": [
+            {
+              "id": "varrek-cavalry-lance",
+              "name": "Crimson Cavalry Lance",
+              "energyCost": 4,
+              "cooldown": 2,
+              "targetMode": "single-enemy",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 18,
+                  "damageType": "Physical",
+                  "scaling": {
+                    "STR": 0.011,
+                    "DEX": 0.003
+                  }
+                }
+              ],
+              "requiresMounted": true,
+              "lifestealPct": 12,
+              "targetEffect": {
+                "id": "varrek-lance-bleed",
+                "negative": true,
+                "durationTurns": 2,
+                "modifiers": {},
+                "memory": {
+                  "statusKind": "Bleed",
+                  "tickBase": 5,
+                  "tickTiming": "owner-turn-end"
+                }
+              }
+            },
+            {
+              "id": "varrek-red-command",
+              "name": "Red Command",
+              "energyCost": 5,
+              "cooldown": 3,
+              "targetMode": "all-enemies",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 13,
+                  "damageType": "Force",
+                  "scaling": {
+                    "STR": 0.005,
+                    "CHA": 0.007
+                  }
+                }
+              ],
+              "requiresMounted": true,
+              "targetEffect": {
+                "id": "varrek-command-fear",
+                "negative": true,
+                "durationTurns": 1,
+                "modifiers": {
+                  "finalDamagePct": -8
+                },
+                "memory": {
+                  "statusKind": "Fear"
+                }
+              }
+            },
+            {
+              "id": "varrek-ground-ripper",
+              "name": "Dismounted Ripper",
+              "energyCost": 3,
+              "cooldown": 1,
+              "targetMode": "single-enemy",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 18,
+                  "damageType": "Physical",
+                  "scaling": {
+                    "STR": 0.012
+                  }
+                }
+              ],
+              "requiresDismounted": true,
+              "lifestealPct": 20,
+              "targetEffect": {
+                "id": "varrek-ripper-bleed",
+                "negative": true,
+                "durationTurns": 2,
+                "modifiers": {},
+                "memory": {
+                  "statusKind": "Bleed",
+                  "tickBase": 6,
+                  "tickTiming": "owner-turn-end"
+                }
+              }
+            },
+            {
+              "id": "varrek-last-banner",
+              "name": "Last Banner",
+              "energyCost": 5,
+              "cooldown": 2,
+              "targetMode": "all-enemies",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 14,
+                  "damageType": "Force",
+                  "scaling": {
+                    "STR": 0.006,
+                    "CHA": 0.006
+                  }
+                }
+              ],
+              "requiresDismounted": true,
+              "lifestealPct": 12
+            }
+          ],
+          "ai": {
+            "style": "plains-varrek",
+            "affinities": [
+              "Physical",
+              "Force"
+            ],
+            "vampire": true,
+            "mountTemplateId": "nightblood-charger",
+            "chargeBelowEnergy": 5,
+            "chargeTowardHeavyChancePct": 40
+          },
+          "materials": [
+            {
+              "id": "varrek-soulfirecore",
+              "name": "Varrek SoulfireCore",
+              "materialKind": "soulfire-core",
+              "sourceId": "lord-varrek",
+              "deterministic": true
+            }
+          ],
+          "expReward": 720,
+          "onyxReward": 1000,
+          "resistances": {
+            "Physical": 14,
+            "Force": 10
+          },
+          "portrait": null
+        },
+        {
+          "id": "nightblood-charger",
+          "name": "Nightblood Charger",
+          "role": "Miniboss · Vampiric Warhorse",
+          "fixedDepth": 10,
+          "baseMaxHp": 180,
+          "maxEnergy": 7,
+          "level": 20,
+          "stats": {
+            "STR": 28,
+            "DEX": 23,
+            "CON": 24,
+            "INT": 0,
+            "FTH": 0,
+            "CHA": 8,
+            "LCK": 0
+          },
+          "basicAttack": {
+            "name": "Blood Hoof",
+            "base": 12,
+            "damageType": "Physical",
+            "scaling": {
+              "STR": 0.011
+            }
+          },
+          "abilities": [
+            {
+              "id": "nightblood-trample",
+              "name": "Nightblood Trample",
+              "energyCost": 4,
+              "cooldown": 2,
+              "targetMode": "all-enemies",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 12,
+                  "damageType": "Physical",
+                  "scaling": {
+                    "STR": 0.009,
+                    "DEX": 0.003
+                  }
+                }
+              ],
+              "lifestealPct": 8
+            }
+          ],
+          "ai": {
+            "style": "plains-warhorse",
+            "affinities": [
+              "Physical"
+            ],
+            "vampire": true,
+            "protectedAllyTemplateId": "lord-varrek"
+          },
+          "materials": [
+            {
+              "id": "nightblood-heart",
+              "name": "Nightblood Heart",
+              "materialKind": "boss-material",
+              "sourceId": "nightblood-charger",
+              "deterministic": true
+            }
+          ],
+          "expReward": 180,
+          "onyxReward": 200,
+          "resistances": {
+            "Physical": 12
+          },
+          "portrait": null
+        }
+      ]
+    },
+    {
+      "name": "The Veiled Seer",
+      "fixedDepth": 20,
+      "actors": [
+        {
+          "id": "veiled-seer",
+          "name": "The Veiled Seer",
+          "role": "Miniboss · Blood-Mirror Oracle",
+          "fixedDepth": 20,
+          "baseMaxHp": 315,
+          "maxEnergy": 8,
+          "level": 22,
+          "stats": {
+            "STR": 0,
+            "DEX": 18,
+            "CON": 22,
+            "INT": 33,
+            "FTH": 0,
+            "CHA": 28,
+            "LCK": 23
+          },
+          "basicAttack": {
+            "name": "Veiled Needle",
+            "base": 13,
+            "damageType": "Psychic",
+            "scaling": {
+              "INT": 0.011,
+              "LCK": 0.003
+            }
+          },
+          "abilities": [
+            {
+              "id": "seer-veil-crush",
+              "name": "Veil Crush",
+              "energyCost": 4,
+              "cooldown": 2,
+              "targetMode": "single-enemy",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 18,
+                  "damageType": "Force",
+                  "scaling": {
+                    "INT": 0.009,
+                    "CHA": 0.005
+                  }
+                }
+              ],
+              "targetEffect": {
+                "id": "seer-crushed",
+                "negative": true,
+                "durationTurns": 2,
+                "modifiers": {
+                  "incomingDamagePct": 10
+                },
+                "memory": {
+                  "statusKind": "Wound"
+                }
+              }
+            },
+            {
+              "id": "seer-red-thought",
+              "name": "Red Thought",
+              "energyCost": 5,
+              "cooldown": 3,
+              "targetMode": "all-enemies",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 14,
+                  "damageType": "Psychic",
+                  "scaling": {
+                    "INT": 0.01,
+                    "CHA": 0.004
+                  }
+                }
+              ],
+              "lifestealPct": 14
+            },
+            {
+              "id": "seer-scarlet-premonition",
+              "name": "Scarlet Premonition",
+              "energyCost": 3,
+              "cooldown": 2,
+              "targetMode": "single-enemy",
+              "components": [
+                {
+                  "type": "damage",
+                  "base": 16,
+                  "damageType": "Psychic",
+                  "scaling": {
+                    "INT": 0.01,
+                    "LCK": 0.004
+                  }
+                }
+              ],
+              "targetEffect": {
+                "id": "scarlet-premonition",
+                "negative": true,
+                "durationTurns": 2,
+                "modifiers": {
+                  "dodgeChancePct": -10,
+                  "damageCritChancePct": -8
+                },
+                "memory": {
+                  "statusKind": "Fear"
+                }
+              }
+            }
+          ],
+          "ai": {
+            "style": "plains-veiled-seer",
+            "affinities": [
+              "Psychic",
+              "Force"
+            ],
+            "vampire": true,
+            "mirrorCap": 2,
+            "mirrorSummonLimit": 6,
+            "chargeBelowEnergy": 5,
+            "chargeTowardHeavyChancePct": 35
+          },
+          "materials": [
+            {
+              "id": "seer-soulfirecore",
+              "name": "Veiled Seer SoulfireCore",
+              "materialKind": "soulfire-core",
+              "sourceId": "veiled-seer",
+              "deterministic": true
+            },
+            {
+              "id": "mirror-vein-lens",
+              "name": "Mirror-Vein Lens",
+              "materialKind": "boss-material",
+              "sourceId": "veiled-seer",
+              "deterministic": true
+            }
+          ],
+          "expReward": 980,
+          "onyxReward": 1300,
+          "resistances": {
+            "Psychic": 22,
+            "Force": 16
+          },
+          "portrait": null
+        }
+      ]
+    }
+  ],
+  "boss": {
+    "name": "Tenairah",
+    "fixedDepth": 30,
+    "actors": [
+      {
+        "id": "tenairah",
+        "name": "Tenairah",
+        "role": "Boss · Sovereign of the Ruined Plains",
+        "fixedDepth": 30,
+        "baseMaxHp": 440,
+        "maxEnergy": 8,
+        "level": 25,
+        "stats": {
+          "STR": 31,
+          "DEX": 31,
+          "CON": 28,
+          "INT": 30,
+          "FTH": 0,
+          "CHA": 32,
+          "LCK": 22
+        },
+        "basicAttack": {
+          "name": "Sovereign Talon",
+          "base": 14,
+          "damageType": "Physical",
+          "scaling": {
+            "STR": 0.008,
+            "DEX": 0.005
+          }
+        },
+        "abilities": [
+          {
+            "id": "tenairah-courtly-cut",
+            "name": "Courtly Cut",
+            "energyCost": 3,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 18,
+                "damageType": "Physical",
+                "scaling": {
+                  "STR": 0.008,
+                  "DEX": 0.006
+                }
+              }
+            ],
+            "maxHpPct": 100,
+            "minHpPct": 0,
+            "lifestealPct": 10,
+            "targetEffect": {
+              "id": "tenairah-bleed",
+              "negative": true,
+              "durationTurns": 2,
+              "modifiers": {},
+              "memory": {
+                "statusKind": "Bleed",
+                "tickBase": 5,
+                "tickTiming": "owner-turn-end"
+              }
+            }
+          },
+          {
+            "id": "tenairah-blood-tide",
+            "name": "Blood Tide",
+            "energyCost": 5,
+            "cooldown": 3,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 14,
+                "damageType": "Force",
+                "scaling": {
+                  "STR": 0.004,
+                  "INT": 0.005,
+                  "CHA": 0.004
+                }
+              }
+            ],
+            "maxHpPct": 70,
+            "lifestealPct": 16,
+            "targetEffect": {
+              "id": "blood-tide-bleed",
+              "negative": true,
+              "durationTurns": 2,
+              "modifiers": {},
+              "memory": {
+                "statusKind": "Bleed",
+                "tickBase": 5,
+                "tickTiming": "owner-turn-end"
+              }
+            }
+          },
+          {
+            "id": "tenairah-vein-judgment",
+            "name": "Vein Judgment",
+            "energyCost": 4,
+            "cooldown": 2,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 20,
+                "damageType": "Force",
+                "scaling": {
+                  "INT": 0.008,
+                  "CHA": 0.006
+                }
+              }
+            ],
+            "maxHpPct": 70,
+            "lifestealPct": 18,
+            "lowHpBonusPct": 20
+          },
+          {
+            "id": "tenairah-sovereign-dread",
+            "name": "Sovereign Dread",
+            "energyCost": 5,
+            "cooldown": 2,
+            "targetMode": "all-enemies",
+            "components": [
+              {
+                "type": "damage",
+                "base": 16,
+                "damageType": "Psychic",
+                "scaling": {
+                  "INT": 0.008,
+                  "CHA": 0.006,
+                  "LCK": 0.003
+                }
+              }
+            ],
+            "maxHpPct": 35,
+            "lifestealPct": 22,
+            "targetEffect": {
+              "id": "sovereign-dread",
+              "negative": true,
+              "durationTurns": 2,
+              "modifiers": {
+                "finalDamagePct": -12,
+                "outgoingHealingPct": -12
+              },
+              "memory": {
+                "statusKind": "Fear"
+              }
+            }
+          },
+          {
+            "id": "tenairah-memory-drink",
+            "name": "Drink the Last Memory",
+            "energyCost": 4,
+            "cooldown": 1,
+            "targetMode": "single-enemy",
+            "components": [
+              {
+                "type": "damage",
+                "base": 22,
+                "damageType": "Psychic",
+                "scaling": {
+                  "INT": 0.009,
+                  "CHA": 0.006
+                }
+              }
+            ],
+            "maxHpPct": 35,
+            "lifestealPct": 28,
+            "targetEffect": {
+              "id": "last-memory",
+              "negative": true,
+              "durationTurns": 2,
+              "modifiers": {
+                "energyGainPct": -15,
+                "dodgeChancePct": -8
+              },
+              "memory": {
+                "statusKind": "Wound"
+              }
+            }
+          }
+        ],
+        "ai": {
+          "style": "plains-tenairah",
+          "affinities": [
+            "Physical",
+            "Force",
+            "Psychic"
+          ],
+          "vampire": true,
+          "phaseThresholds": [
+            70,
+            35
+          ],
+          "bloodRootTemplates": [
+            "tenairah-crimson-root",
+            "tenairah-sable-root",
+            "tenairah-crown-root"
+          ],
+          "chargeBelowEnergy": 5,
+          "chargeTowardHeavyChancePct": 60
+        },
+        "materials": [
+          {
+            "id": "tenairah-soulfirecore",
+            "name": "Tenairah SoulfireCore",
+            "materialKind": "soulfire-core",
+            "sourceId": "tenairah",
+            "deterministic": true
+          }
+        ],
+        "expReward": 1650,
+        "onyxReward": 2200,
+        "resistances": {
+          "Physical": 18,
+          "Force": 22,
+          "Psychic": 22
+        },
+        "portrait": null
+      },
+      {
+        "id": "tenairah-crimson-root",
+        "name": "Crimson Blood Root",
+        "role": "Boss Support · Restoration Root",
+        "fixedDepth": 30,
+        "baseMaxHp": 135,
+        "maxEnergy": 7,
+        "level": 25,
+        "stats": {
+          "STR": 0,
+          "DEX": 0,
+          "CON": 27,
+          "INT": 24,
+          "FTH": 16,
+          "CHA": 24,
+          "LCK": 0
+        },
+        "basicAttack": {
+          "name": "Root Pulse",
+          "base": 0,
+          "damageType": "Force",
+          "scaling": {}
+        },
+        "abilities": [
+          {
+            "id": "crimson-root-feed",
+            "name": "Sovereign Refeeding",
+            "energyCost": 0,
+            "cooldown": 0,
+            "targetMode": "protected-ally",
+            "components": [
+              {
+                "type": "heal",
+                "base": 28,
+                "scaling": {
+                  "CHA": 0.01,
+                  "FTH": 0.005
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "style": "plains-tenairah-heal-root",
+          "affinities": [
+            "Force"
+          ],
+          "protectedAllyTemplateId": "tenairah",
+          "naturalEnergyGain": 0
+        },
+        "materials": [
+          {
+            "id": "sovereign-bloodroot",
+            "name": "Sovereign Bloodroot",
+            "materialKind": "boss-material",
+            "sourceId": "tenairah-crimson-root",
+            "deterministic": true
+          }
+        ],
+        "expReward": 0,
+        "onyxReward": 0,
+        "resistances": {
+          "Force": 18,
+          "Psychic": 10
+        },
+        "portrait": null
+      },
+      {
+        "id": "tenairah-sable-root",
+        "name": "Sable Blood Root",
+        "role": "Boss Support · Shield Root",
+        "fixedDepth": 30,
+        "baseMaxHp": 145,
+        "maxEnergy": 7,
+        "level": 25,
+        "stats": {
+          "STR": 0,
+          "DEX": 0,
+          "CON": 27,
+          "INT": 24,
+          "FTH": 16,
+          "CHA": 24,
+          "LCK": 0
+        },
+        "basicAttack": {
+          "name": "Root Pulse",
+          "base": 0,
+          "damageType": "Force",
+          "scaling": {}
+        },
+        "abilities": [
+          {
+            "id": "sable-root-shroud",
+            "name": "Root-Shroud Aegis",
+            "energyCost": 0,
+            "cooldown": 0,
+            "targetMode": "protected-ally",
+            "components": [
+              {
+                "type": "shield",
+                "base": 32,
+                "scaling": {
+                  "CON": 0.01,
+                  "INT": 0.004
+                }
+              }
+            ]
+          }
+        ],
+        "ai": {
+          "style": "plains-tenairah-shield-root",
+          "affinities": [
+            "Force"
+          ],
+          "protectedAllyTemplateId": "tenairah",
+          "naturalEnergyGain": 0
+        },
+        "materials": [],
+        "expReward": 0,
+        "onyxReward": 0,
+        "resistances": {
+          "Force": 18,
+          "Psychic": 10
+        },
+        "portrait": null
+      },
+      {
+        "id": "tenairah-crown-root",
+        "name": "Crown Blood Root",
+        "role": "Boss Support · Power Root",
+        "fixedDepth": 30,
+        "baseMaxHp": 130,
+        "maxEnergy": 7,
+        "level": 25,
+        "stats": {
+          "STR": 0,
+          "DEX": 0,
+          "CON": 27,
+          "INT": 24,
+          "FTH": 16,
+          "CHA": 24,
+          "LCK": 0
+        },
+        "basicAttack": {
+          "name": "Root Pulse",
+          "base": 0,
+          "damageType": "Force",
+          "scaling": {}
+        },
+        "abilities": [],
+        "ai": {
+          "style": "plains-tenairah-crown-root",
+          "affinities": [
+            "Force"
+          ],
+          "protectedAllyTemplateId": "tenairah",
+          "naturalEnergyGain": 0
+        },
+        "materials": [],
+        "expReward": 0,
+        "onyxReward": 0,
+        "resistances": {
+          "Force": 18,
+          "Psychic": 10
+        },
+        "portrait": null
+      }
+    ]
+  },
+  "rules": {
+    "damageIdentities": [
+      "Physical",
+      "Force",
+      "Psychic"
+    ],
+    "bloodMechanics": [
+      "Lifesteal",
+      "Bleed",
+      "HP sacrifice",
+      "Missing HP",
+      "Shadow"
+    ],
+    "partySizeEnemyCount": {
+      "1": [
+        1,
+        2
+      ],
+      "2": [
+        2,
+        3
+      ],
+      "3": [
+        3,
+        4
+      ],
+      "4": [
+        4,
+        5
+      ]
+    },
+    "normalMaterialDropByRealPartySize": {
+      "1": [
+        4,
+        6
+      ],
+      "2": [
+        6,
+        8
+      ],
+      "3": [
+        8,
+        10
+      ],
+      "4": [
+        10,
+        12
+      ]
+    },
+    "soulfireCoreDropByRealPartySize": {
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4
+    },
+    "bossMinibossPartyScaling": {
+      "1": {
+        "maxHpMultiplier": 1,
+        "damageMultiplier": 1
+      },
+      "2": {
+        "maxHpMultiplier": 1.55,
+        "damageMultiplier": 1.15
+      },
+      "3": {
+        "maxHpMultiplier": 2.1,
+        "damageMultiplier": 1.3
+      },
+      "4": {
+        "maxHpMultiplier": 2.65,
+        "damageMultiplier": 1.45
+      }
+    },
+    "bloodMoonRewardBonusesPct": [
+      0,
+      8,
+      16,
+      24,
+      32
+    ],
+    "enemiesUseConsumables": false,
+    "enemiesCanGuard": false,
+    "enemyHasBasicAttack": true,
+    "enemyCanCharge": true
+  },
+  "balanceRevision": "2026-08-10-enemy-difficulty-balance"
+}

@@ -1109,7 +1109,7 @@
   "miniboss": {
     "id": "crown-of-thorns-warden",
     "name": "Crown-of-Thorns Warden",
-    "role": "Miniboss \u00b7 Adaptive Defender",
+    "role": "Miniboss · Adaptive Defender",
     "fixedDepth": 15,
     "baseMaxHp": 70,
     "stats": {
@@ -1215,7 +1215,7 @@
   "boss": {
     "id": "heartwood-sovereign",
     "name": "Heartwood Sovereign",
-    "role": "Boss \u00b7 Forest Apex",
+    "role": "Boss · Forest Apex",
     "fixedDepth": 30,
     "baseMaxHp": 120,
     "stats": {
@@ -1394,7 +1394,7 @@
         "damageMultiplier": 1.3
       },
       "4": {
-        "maxHpMultiplier": 2.7,
+        "maxHpMultiplier": 2.65,
         "damageMultiplier": 1.45
       },
       "appliesTo": [

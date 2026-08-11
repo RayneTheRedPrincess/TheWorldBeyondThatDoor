@@ -5,6 +5,7 @@ import { createSubclassState, resetSubclassTurnFlags, resetSubclassBetweenTurnFl
 import { createKeptBattleState, keptStartingSubclassState, resetKeptTurnFlags, resetKeptRoundFlags, effectiveKeptStats, keptGlobalModifiers, keptResistanceBonus } from './kept-impression-state.js';
 import { initializeKeptCombat, keptBeforeTurnStart, keptAfterTurnStart, keptEndTurn, keptStartRound, keptOnStatusExpired } from './kept-impression-runtime.js';
 import { mergeCombatEffect, periodicStatusDescriptor } from './status-engine.js';
+import { resolveAllScriptedEnemyLethals, advanceSerevakhSin } from './enemy-special-mechanics.js';
 const PLAYER_ACTIONS = new Set(['charge', 'ability', 'guard', 'consumable']);
 const SIDES = new Set(['party', 'enemy']);
 const CONTROLS = new Set(['player', 'ai']);
@@ -40,9 +41,28 @@ export function appendCombatLog(combat, entry = {}, { presentation = false } = {
   return logged;
 }
 
+function pruneDefeatedTemporarySummons(combat) {
+  if (!combat || !Array.isArray(combat.actors)) return 0;
+  const removedIds = new Set(combat.actors
+    .filter(actor => actor?.real === false && !actorAlive(actor))
+    .map(actor => actor.id));
+  if (!removedIds.size) return 0;
+  combat.actors = combat.actors.filter(actor => !removedIds.has(actor.id));
+  // Queue entries can be removed safely once the matching temporary actor is gone.
+  // Preserve the current position by subtracting removed entries that were already passed.
+  if (Array.isArray(combat.queue)) {
+    const before = combat.queue.slice(0, Math.max(0, Number(combat.queueIndex || 0)));
+    const passedRemoved = before.filter(id => removedIds.has(id)).length;
+    combat.queue = combat.queue.filter(id => !removedIds.has(id));
+    combat.queueIndex = Math.max(0, Number(combat.queueIndex || 0) - passedRemoved);
+  }
+  return removedIds.size;
+}
+
 export function finalizeCombatOutcome(combat, { now = nowIso() } = {}) {
   if (!combat) return null;
   const outcome = getCombatOutcome(combat);
+  pruneDefeatedTemporarySummons(combat);
   if (!outcome) return null;
   combat.state = 'complete';
   combat.outcome = outcome;
@@ -112,6 +132,9 @@ export function createCombatActor(spec = {}, { slotIndex = 1 } = {}) {
       shieldLayers: []
     },
     race: spec.race || null,
+    racialConfiguration: clone(spec.racialConfiguration || null),
+    racialModifiers: clone(spec.racialModifiers || {}),
+    racialAbilities: Array.isArray(spec.racialAbilities) ? clone(spec.racialAbilities) : [],
     baseClass: spec.baseClass || null,
     subclass: spec.subclass || null,
     combatRole: spec.combatRole || null,
@@ -232,6 +255,7 @@ function getActor(combat, actorId) {
 }
 
 export function getCombatOutcome(combat) {
+  resolveAllScriptedEnemyLethals(combat);
   const realPartyAlive = (combat?.actors || []).some(actor => actor.real && actor.side === 'party' && actorAlive(actor));
   const realEnemyAlive = (combat?.actors || []).some(actor => actor.real && actor.side === 'enemy' && actorAlive(actor));
   if (!realPartyAlive) return 'defeat';
@@ -391,8 +415,12 @@ function beginCurrentTurn(combat, { now = nowIso(), rng = Math.random } = {}) {
       if(outcome){finalizeCombatOutcome(combat,{now});return true;}
       continue;
     }
-    actor.resources.energy = Math.min(Number(actor.resources.maxEnergy || BASE_MAX_ENERGY), Math.max(0, Number(actor.resources.energy || 0)) + 1);
-    const bonusEnergy = Math.max(0, Number(keptStart?.bonusEnergyAfterNatural || 0));
+    const naturalEnergyGain = Math.max(0, Number(actor.enemyAi?.naturalEnergyGain ?? 1));
+    const energyBeforeNatural = Number(actor.resources.energy || 0);
+    actor.resources.energy = Math.min(Number(actor.resources.maxEnergy || BASE_MAX_ENERGY), Math.max(0, energyBeforeNatural) + naturalEnergyGain);
+    const naturalEnergyGranted = Number(actor.resources.energy || 0) - energyBeforeNatural;
+    const slothEnergy=actor.enemyTemplateId==='serevakh-sevenfold-regent'&&actor.combatMemory?.currentSin==='Sloth'?2:0;
+    const bonusEnergy = Math.max(0, Number(keptStart?.bonusEnergyAfterNatural || 0)+slothEnergy);
     const beforeBonus = Number(actor.resources.energy || 0);
     actor.resources.energy = Math.min(Number(actor.resources.maxEnergy || BASE_MAX_ENERGY), beforeBonus + bonusEnergy);
     const bonusGranted = Number(actor.resources.energy || 0) - beforeBonus;
@@ -404,7 +432,7 @@ function beginCurrentTurn(combat, { now = nowIso(), rng = Math.random } = {}) {
     combat.turn = {
       actorId: actor.id,
       startedAt: now,
-      naturalEnergyGranted: 1,
+      naturalEnergyGranted,
       bonusEnergyGranted: bonusGranted,
       actionTaken: skipped,
       actionType: skipped ? 'skipped' : null,
@@ -450,7 +478,9 @@ export function getCombatView(slot) {
 
 export function summonCombatActor(combat, spec = {}, { ownerId = null } = {}) {
   if (!combat || !Array.isArray(combat.actors)) return { ok:false, error:'No active combat roster.' };
-  const sequence = 1 + combat.actors.filter(actor => actor.real === false).length;
+  const highestExistingOrder = combat.actors.reduce((max, actor) => actor?.real === false ? Math.max(max, Number(actor.summonOrder || 0)) : max, 0);
+  const sequence = Math.max(0, Number(combat.summonSequence || 0), highestExistingOrder) + 1;
+  combat.summonSequence = sequence;
   const idBase = String(spec.id || 'summon');
   const uniqueId = `${idBase}-${sequence}`;
   if (combat.actors.some(actor => actor.id === uniqueId)) return { ok:false, error:'Summon id collision.' };
@@ -533,6 +563,7 @@ export function endCombatTurn(slot, { now = nowIso(), rng = Math.random } = {}) 
     processTurnEndEffects(combat, endingActor, { rng });
     tickSubclassEndOwnTurn(endingActor);
     if (endingActor.baseClass === 'Paladin') endingActor.combatMemory.enemyDamagedAllySinceLastOwnTurn = {};
+    if (endingActor.enemyTemplateId === 'serevakh-sevenfold-regent' && actorAlive(endingActor)) advanceSerevakhSin(combat, endingActor, { rng });
   }
   const cooldownTicks = endingActor ? tickCooldownsAtEndOfTurn(endingActor) : [];
   combat.log.push({ type: 'turn-end', round: combat.round, actorId: combat.turn.actorId, cooldownTicks, at: now });

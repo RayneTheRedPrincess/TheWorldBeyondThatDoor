@@ -1,6 +1,7 @@
 import { escapeHtml, shell } from './shared.js';
 import { CORE_STATS, BASE_STARTING_STAT_POINTS } from '../starting-stats.js';
 import { raceChoiceTokenBalance } from '../tutorial-controller.js';
+import { renderRacialConfigurationPanels } from './racial-configuration.js';
 
 function statAllocator({ values = {}, prefix = 'stat_' } = {}) {
   return `<div class="stat-allocation-grid">${CORE_STATS.map(stat => `<div class="stat-allocator-row">
@@ -19,7 +20,7 @@ function raceChoicePanel(account, allRaces = []) {
   return `<section class="panel creation-wide starter-token-panel"><div class="kicker">One-time account reward</div><h3>Free Race Choice Token</h3><p>You have <strong>${balance}</strong> free Race Choice token. Choose one race to permanently unlock for the entire account. It is not tied to this Vessel slot and can be used by any compatible Vessel now or later.</p><div class="race-token-grid">${locked.map(race=>`<button type="button" class="secondary" data-action="race-token-redeem" data-race="${escapeHtml(race)}">Unlock ${escapeHtml(race)}</button>`).join('')}</div></section>`;
 }
 
-export function renderCharacterCreation({ slotNumber, unlockedRaces, allRaces = [], account = null, classDetails, errors = [], message = '' }) {
+export function renderCharacterCreation({ slotNumber, unlockedRaces, allRaces = [], account = null, classDetails, racialConfigurations = null, errors = [], message = '' }) {
   const errorBlock = errors.length
     ? `<div class="notice notice-danger" role="alert"><strong>The Vessel could not be bound.</strong><ul>${errors.map(e => `<li>${escapeHtml(e)}</li>`).join('')}</ul></div>`
     : '';
@@ -38,7 +39,7 @@ export function renderCharacterCreation({ slotNumber, unlockedRaces, allRaces = 
 
       <section class="panel">
         <label class="field-label" for="vessel-race">Race</label>
-        <select id="vessel-race" name="race" required data-starting-race>
+        <select id="vessel-race" name="race" required data-starting-race data-race-config-select>
           <option value="">Choose an unlocked race</option>
           ${unlockedRaces.map(race => `<option value="${escapeHtml(race)}">${escapeHtml(race)}</option>`).join('')}
         </select>
@@ -46,6 +47,7 @@ export function renderCharacterCreation({ slotNumber, unlockedRaces, allRaces = 
       </section>
 
       ${raceChoicePanel(account, allRaces)}
+      ${renderRacialConfigurationPanels(racialConfigurations,{prefix:'racial',selectedRace:'',legend:'Choose Racial Features'})}
 
       <section class="panel creation-wide">
         <fieldset class="class-fieldset">

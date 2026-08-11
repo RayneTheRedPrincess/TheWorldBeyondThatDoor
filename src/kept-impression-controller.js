@@ -1,6 +1,10 @@
 export const KEPT_IMPRESSION_CAPACITY = 7;
 export const CLASSLESS_ID = 'KI-182';
 
+export function isClasslessAccountUnlocked(account) {
+  return Boolean(account?.history?.campaignVictory || account?.history?.finalRegionCleared || Number(account?.records?.finalRegionAccomplishments?.finalRegionClears || 0) > 0);
+}
+
 function clone(value) {
   return typeof structuredClone === 'function' ? structuredClone(value) : JSON.parse(JSON.stringify(value));
 }
@@ -32,6 +36,7 @@ export function validateKeptLoadout(slot, account, entries = []) {
     if (!index.has(id)) errors.push(`${id} is not part of the canonical Kept Impression catalogue.`);
     if (!owned.has(id)) errors.push(`${id} is not kept by this account.`);
   }
+  if (equipped.includes(CLASSLESS_ID) && !isClasslessAccountUnlocked(account)) errors.push('Classless unlocks only after the account completes the full campaign once.');
   const used = getKeptSlotCost(equipped, entries);
   if (used > KEPT_IMPRESSION_CAPACITY) errors.push(`Kept Impression capacity exceeded: ${used}/${KEPT_IMPRESSION_CAPACITY}.`);
   return { ok: errors.length === 0, errors, used, capacity: KEPT_IMPRESSION_CAPACITY };
@@ -42,6 +47,7 @@ export function equipKeptImpression(slot, account, id, entries = []) {
   const index = buildKeptImpressionIndex(entries);
   const owned = new Set(account?.unlocks?.keptImpressions || []);
   if (!index.has(id)) return { ok: false, error: 'That Kept Impression does not exist.' };
+  if (id === CLASSLESS_ID && !isClasslessAccountUnlocked(account)) return { ok:false, error:'Classless unlocks only after defeating the Broken Mirror and completing the full campaign once.' };
   if (!owned.has(id)) return { ok: false, error: 'That Kept Impression has not been kept by this account.' };
   const equipped = getEquippedKeptIds(slot);
   if (equipped.includes(id)) return { ok: false, error: 'That Kept Impression is already equipped.' };
