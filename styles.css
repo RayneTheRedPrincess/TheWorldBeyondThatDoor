@@ -893,6 +893,13 @@ html[data-display-mode="mobile"] .portrait-choice-grid{grid-template-columns:rep
 /* Manual Desktop Mode: stay wide even when the physical device is narrow. */
 html[data-display-mode="desktop"] body{min-width:1180px;overflow-x:auto}
 html[data-display-mode="desktop"] .shell{width:min(1120px,100%);max-width:1120px;padding-left:16px;padding-right:16px}
+/* Desktop campaign workspace uses the available browser width instead of the general 1120px site cap. */
+html[data-display-mode="desktop"] .shell:has(.campaign-run-hero){
+  width:100%;
+  max-width:none;
+  padding-left:clamp(14px,1.5vw,32px);
+  padding-right:clamp(14px,1.5vw,32px);
+}
 html[data-display-mode="desktop"] .hero{min-height:48dvh}
 html[data-display-mode="desktop"] .hall-hero{grid-template-columns:1fr auto}
 html[data-display-mode="desktop"] .active-vessel{min-width:190px;border-left:1px solid var(--line);border-top:0;padding-left:18px;padding-top:0}

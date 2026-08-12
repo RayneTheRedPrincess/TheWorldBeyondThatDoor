@@ -1165,8 +1165,7 @@ class App {
   autoCraftRecommendedGear(ownerId='vessel') {
     const slotNumber=this.activeSlotNumber(),slot=this.activeSlot();if(!slotNumber||!slot?.campaign?.active)return;const rid=slot.campaign.state.expedition?.regionId,crafting=cumulativeCampsiteCrafting(this.canon,rid),plan=this.buildRecommendedCraftPlan(slot,ownerId,crafting);
     if(!plan.steps.length){this.craftingMessage='No currently craftable equipment would improve the recommended loadout for that character. Hidden recipes are ignored.';this.render(ROUTES.CAMPAIGN_RUN);return;}
-    const counts=new Map();for(const step of plan.steps)counts.set(step.name,(counts.get(step.name)||0)+1);const list=[...counts].map(([name,count])=>`${count>1?`${count}× `:''}${name}`).join('
-• '),who=plan.finalRecommendation?.ownerName||'that character';
+    const counts=new Map();for(const step of plan.steps)counts.set(step.name,(counts.get(step.name)||0)+1);const list=[...counts].map(([name,count])=>`${count>1?`${count}× `:''}${name}`).join('\n• '),who=plan.finalRecommendation?.ownerName||'that character';
     if(!window.confirm(`Auto Craft Recommended Gear for ${who}?
 
 This will consume materials to craft:
