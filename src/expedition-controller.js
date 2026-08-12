@@ -17,7 +17,7 @@ const DRAGON_ID = 'that-dragons-dungeon';
 const NECROPOLIS_ID = 'necropolis';
 const FINAL_ID = 'shadow-infused-dark-woods';
 const CHECKMARK_OUTCOMES = new Set(['success', 'failure']);
-const COMBAT_SOURCES = new Set(['event-card', 'checkmark-followup', 'boss', 'miniboss']);
+const COMBAT_SOURCES = new Set(['event-card', 'checkmark-followup', 'stat-check-followup', 'boss', 'miniboss']);
 
 function clone(value) {
   return typeof structuredClone === 'function' ? structuredClone(value) : JSON.parse(JSON.stringify(value));
@@ -240,8 +240,8 @@ function makeEncounter(run, card, { source = 'event-card', rng = Math.random, ki
     bloodMoonAtStart: Number(run.expedition?.bloodMoon || 0),
     fogOnFailure: Number(card?.fogOnFailure || 0),
     kind: encounterKind,
-    combat: encounterKind === 'combat' || source === 'checkmark-followup' || boss || miniboss,
-    noncombat: !(encounterKind === 'combat' || source === 'checkmark-followup' || boss || miniboss),
+    combat: encounterKind === 'combat' || source === 'checkmark-followup' || source === 'stat-check-followup' || boss || miniboss,
+    noncombat: !(encounterKind === 'combat' || source === 'checkmark-followup' || source === 'stat-check-followup' || boss || miniboss),
     boss: Boolean(boss),
     miniboss: Boolean(miniboss),
     state: 'pending',
@@ -279,10 +279,12 @@ export function resolveNoncombatCheckmark(slot, outcome, { rng = Math.random, de
   resolved.state = 'resolved';
   resolved.resolution = { type: 'checkmark', outcome, details: details ? clone(details) : null };
   archiveEncounter(nextRun.expedition, resolved);
-  const followup = makeEncounter(nextRun, null, { source: 'checkmark-followup', kind: 'combat', rng });
+  const followup = makeEncounter(nextRun, null, { source: 'stat-check-followup', kind: 'combat', rng });
   followup.triggeredByEncounterId = resolved.id;
   followup.triggeredByOutcome = outcome;
   followup.triggeredByDetails = details ? clone(details) : null;
+  followup.triggeredByDepth = Number(details?.depth ?? nextRun.expedition.depth ?? 1);
+  followup.advancesDepthOnVictory = true;
   nextRun.expedition.encounter = followup;
   nextRun.expedition.state = 'combat-pending';
   return { ok: true, slot: next, encounter: clone(followup) };
@@ -305,9 +307,11 @@ export function resolveNoncombatWithoutCheckmark(slot, { note = null, details = 
 
 export function continueAfterForestEventResult(slot){
   const run=activeRun(slot);if(!run)return{ok:false,error:'No active campaign.'};if(run.expedition?.state!=='event-result')return{ok:false,error:'No stat-check result is awaiting continuation.'};
-  // Backward-compatibility for saves created before stat checks stopped forcing a
-  // checkmark follow-up combat: discard that pending battle and continue normally.
-  const next=clone(slot),ex=next.campaign.state.expedition;ex.pendingPostEventCombat=null;ex.encounter=null;ex.state='awaiting-next-step';return{ok:true,slot:next,encounter:null};
+  const next=clone(slot),ex=next.campaign.state.expedition;
+  const pending=ex.pendingPostEventCombat&&typeof ex.pendingPostEventCombat==='object'?clone(ex.pendingPostEventCombat):null;
+  if(pending){ex.encounter=pending;ex.pendingPostEventCombat=null;ex.state='combat-pending';return{ok:true,slot:next,encounter:clone(pending)};}
+  // Very old result-only saves get the newly canonical follow-up battle as well.
+  const followup=makeEncounter(next.campaign.state,null,{source:'stat-check-followup',kind:'combat'});followup.advancesDepthOnVictory=true;followup.triggeredByDetails=ex.lastEventResult?clone(ex.lastEventResult):null;followup.triggeredByDepth=Number(ex.depth||1);ex.encounter=followup;ex.state='combat-pending';return{ok:true,slot:next,encounter:clone(followup)};
 }
 
 export function attachSpecialCombat(slot, { boss = false, miniboss = false, rng = Math.random } = {}) {
@@ -343,7 +347,7 @@ function removeCampsiteExhaustion(run){
   return {remove,changed};
 }
 
-export function resolveCombatVictory(slot, { now = new Date().toISOString() } = {}) {
+export function resolveCombatVictory(slot, { now = new Date().toISOString(), regionsData = null, forestEvents = null, forestTrainers = null, bogEvents = null, bogTrainers = null, towerEvents = null, plainsEvents = null, hellEvents = null, dragonEvents = null, necropolisEvents = null, rng = Math.random } = {}) {
   const run = activeRun(slot);
   if (!run) return { ok: false, error: 'No active campaign.' };
   if (run.expedition?.state !== 'combat-pending' || !run.expedition.encounter?.combat) return { ok: false, error: 'No combat encounter is awaiting victory resolution.' };
@@ -397,16 +401,37 @@ export function resolveCombatVictory(slot, { now = new Date().toISOString() } = 
   nextRun.expedition.encounter = null;
   nextRun.combat = null;
   if(nextRun.expedition?.regionId===FINAL_ID&&resolved.boss){nextRun.expedition.campsite=null;nextRun.expedition.state='campaign-complete';return{ok:true,slot:next,campsite:null,forestClearedNow,bogClearedNow,towerClearedNow,plainsClearedNow,hellClearedNow,dragonClearedNow,necropolisClearedNow,finalClearedNow,regionClearedNow,completionReward:completionReward?clone(completionReward):null};}
-  nextRun.expedition.campsite = {
+
+  const statCheckFollowup = resolved.source === 'stat-check-followup' || resolved.source === 'checkmark-followup' || resolved.advancesDepthOnVictory === true;
+  let finalSlot = next;
+  let finalRun = nextRun;
+  let preparedStateAfterCampsite = null;
+  let depthBeforeAdvance = Number(finalRun.expedition?.depth || 1);
+  let depthAfterAdvance = depthBeforeAdvance;
+  if(statCheckFollowup && regionsData){
+    const advanced=advanceDepth(finalSlot,{regionsData,forestEvents,forestTrainers,bogEvents,bogTrainers,towerEvents,plainsEvents,hellEvents,dragonEvents,necropolisEvents,rng});
+    if(!advanced.ok)return advanced;
+    finalSlot=advanced.slot;finalRun=finalSlot.campaign.state;
+    preparedStateAfterCampsite=finalRun.expedition.state;
+    depthAfterAdvance=Number(finalRun.expedition?.depth||depthBeforeAdvance);
+  }
+  finalRun.expedition.campsite = {
     required: true,
     enteredAt: now,
     sourceEncounterId: resolved.id,
     sourceBoss: Boolean(resolved.boss),
     sourceMiniboss: Boolean(resolved.miniboss),
-    defeatRecovery: clone(defeatRecovery)
+    defeatRecovery: clone(defeatRecovery),
+    ...(statCheckFollowup?{
+      statCheckFollowup:true,
+      depthAdvancedBeforeCampsite:Boolean(preparedStateAfterCampsite),
+      depthBeforeAdvance,
+      depthAfterAdvance,
+      preparedStateAfterCampsite:preparedStateAfterCampsite||null
+    }:{})
   };
-  nextRun.expedition.state = 'campsite';
-  return { ok: true, slot: next, campsite: clone(nextRun.expedition.campsite), forestClearedNow, bogClearedNow, towerClearedNow, plainsClearedNow, hellClearedNow, dragonClearedNow, necropolisClearedNow, finalClearedNow, regionClearedNow, completionReward: completionReward ? clone(completionReward) : null };
+  finalRun.expedition.state = 'campsite';
+  return { ok: true, slot: finalSlot, campsite: clone(finalRun.expedition.campsite), statCheckFollowup, depthBeforeAdvance, depthAfterAdvance, forestClearedNow, bogClearedNow, towerClearedNow, plainsClearedNow, hellClearedNow, dragonClearedNow, necropolisClearedNow, finalClearedNow, regionClearedNow, completionReward: completionReward ? clone(completionReward) : null };
 }
 
 export function continueBeyondForest(slot, { now = new Date().toISOString() } = {}) {
@@ -429,6 +454,12 @@ export function leaveCampsite(slot, { regionsData, forestEvents = null, forestTr
   const exhaustionRecovery = removeCampsiteExhaustion(nextRun);
   nextRun.expedition.campsite = { ...nextRun.expedition.campsite, required: false, leftAt: now, exhaustionRecovery };
   if(nextRun.expedition?.regionId===BOG_ID)nextRun.expedition.fogPressure=Math.max(0,Number(nextRun.expedition.fogPressure||0)-Number(nextRun.expedition.regionalMechanic?.safeCampReduction||1));
+  const preparedState=nextRun.expedition.campsite?.preparedStateAfterCampsite;
+  if(nextRun.expedition.campsite?.depthAdvancedBeforeCampsite&&preparedState){
+    nextRun.expedition.campsite=null;
+    nextRun.expedition.state=preparedState;
+    return {ok:true,slot:next,depth:Number(nextRun.expedition.depth||1),resumedPreparedDepth:true};
+  }
   return advanceDepth(next, { regionsData, forestEvents, forestTrainers, bogEvents, bogTrainers, towerEvents, plainsEvents, hellEvents, dragonEvents, necropolisEvents, rng });
 }
 

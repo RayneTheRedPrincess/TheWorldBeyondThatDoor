@@ -151,7 +151,8 @@ export function normalizeAccountSave(value) {
       autoEndTurn: typeof settings.autoEndTurn === 'boolean' ? settings.autoEndTurn : true,
       reducedMotion: boolean(settings.reducedMotion),
       combatNumbers: typeof settings.combatNumbers === 'boolean' ? settings.combatNumbers : true,
-      screenFlash
+      screenFlash,
+      hiddenCraftingRecipes: stringList(settings.hiddenCraftingRecipes)
     },
     tutorials: {
       ...tutorials,
@@ -260,6 +261,21 @@ function normalizeRunState(value) {
     materials: record(run.inventory?.materials)
   };
   run.crafting = { ...normalizeCraftingLedger(run.crafting), equippedHistory: stringList(run.crafting?.equippedHistory) };
+  const craftingUi = record(run.craftingUi);
+  run.craftingUi = {
+    onlyCraftable: boolean(craftingUi.onlyCraftable),
+    sortStat: typeof craftingUi.sortStat === 'string' ? craftingUi.sortStat : '',
+    direction: craftingUi.direction === 'asc' ? 'asc' : 'desc',
+    query: typeof craftingUi.query === 'string' ? craftingUi.query : '',
+    slot: typeof craftingUi.slot === 'string' && craftingUi.slot ? craftingUi.slot : 'all',
+    itemType: typeof craftingUi.itemType === 'string' && craftingUi.itemType ? craftingUi.itemType : 'all',
+    subtype: typeof craftingUi.subtype === 'string' && craftingUi.subtype ? craftingUi.subtype : 'all',
+    weaponType: typeof craftingUi.weaponType === 'string' && craftingUi.weaponType ? craftingUi.weaponType : 'all',
+    armorWeight: typeof craftingUi.armorWeight === 'string' && craftingUi.armorWeight ? craftingUi.armorWeight : 'all',
+    openCategories: stringList(craftingUi.openCategories),
+    hiddenRecipeIds: stringList(craftingUi.hiddenRecipeIds),
+    showHidden: boolean(craftingUi.showHidden)
+  };
   run.regionSummaries = compactRegionSummaries(run.regionSummaries);
   run.regionBaselines = compactRegionBaselines(run.regionBaselines);
   run.consumptionLedger = { ...record(run.consumptionLedger), consumables: record(run.consumptionLedger?.consumables) };
@@ -350,7 +366,7 @@ export function createFreshAccount() {
     currencies: { onyx: 0 },
     history: { settledCampaignIds: [] },
     records: { bossesDefeated: 0, minibossesDefeated: 0, trainersEncountered: [], trainersFought: [], trainersLearnedFrom: [], notableCombat: {}, forestAccomplishments: { campaignsSettled: 0, highestDepth: 0, battlesWon: 0, successfulChecks: 0, craftedItems: 0, trainerEncounters: 0, ordinaryMaterialsCollected: 0, minibossesDefeated: 0, bossesDefeated: 0, forestsCleared: 0 } },
-    settings: { combatSpeed: 1, autoEndTurn: true, reducedMotion: false, combatNumbers: true, screenFlash: 'standard' },
+    settings: { combatSpeed: 1, autoEndTurn: true, reducedMotion: false, combatNumbers: true, screenFlash: 'standard', hiddenCraftingRecipes: [] },
     tutorials: { starter: { resolved: false, resolution: null, rewardGranted: false, raceChoiceGranted: false, resolvedAt: null }, statuses: {}, tokenWallet: { keptImpression3OrLess: 0, raceChoice: 0 }, contextualSeen: [] }
   };
 }

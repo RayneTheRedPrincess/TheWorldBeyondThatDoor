@@ -359,8 +359,8 @@
     },
     {
       "id": "checks",
-      "title": "Forest Stat Checks",
-      "body": "A noncombat check uses d20 + floor(relevant stat/2) + floor(8 × relevant stat / total core stats) + explicit race, Kept Impression, or contextual bonuses against the event DC. The player chooses one living real party member. Natural 20 is Critical Success; natural 1 is a Critical Failure only if the modified total actually fails, so sufficiently specialized characters can reach true 100% success."
+      "title": "Regional Stat Checks",
+      "body": "A stat check uses d20 + floor(relevant stat/2) + floor(8 × relevant stat / total core stats) + explicit race, Kept Impression, or contextual bonuses against the event DC. The player chooses one living real party member. Natural 20 is Critical Success; natural 1 is a Critical Failure only if the modified total actually fails, so sufficiently specialized characters can reach true 100% success. The check result, rewards, penalties, and event-relevant materials are applied immediately, then a normal regional combat begins at the same Depth. Winning that follow-up battle advances the expedition by one Depth before the mandatory Campsite; leaving that Campsite continues at the already-advanced Depth rather than advancing twice."
     },
     {
       "id": "forest",

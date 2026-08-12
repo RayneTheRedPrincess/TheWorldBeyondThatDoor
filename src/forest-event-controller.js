@@ -1,7 +1,7 @@
 import { combinedCharacterStats, maxHpFor } from './character-progression.js';
 import { aggregateEquipmentEffects, applyEquipmentCoreStats } from './equipment-controller.js';
 import { applyKeptPreCombatStats, keptMaxHpMultiplier } from './kept-impression-state.js';
-import { resolveNoncombatWithoutCheckmark } from './expedition-controller.js';
+import { resolveNoncombatCheckmark, resolveNoncombatWithoutCheckmark } from './expedition-controller.js';
 
 const CORE_STATS=['STR','DEX','CON','INT','FTH','CHA','LCK'];
 function clone(v){return typeof structuredClone==='function'?structuredClone(v):JSON.parse(JSON.stringify(v));}
@@ -107,11 +107,11 @@ export function resolveForestEventCheck(slot,{participantId,rng=Math.random,equi
   const applied=[applyOutcomeEffects(next,participantId,base,{equipmentCatalog,forestCrafting,progression}),applyOutcomeEffects(next,participantId,critical,{equipmentCatalog,forestCrafting,progression})];
   const fall=applyTowerFall(next.campaign.state,base,{equipmentCatalog,progression})||applyTowerFall(next.campaign.state,critical,{equipmentCatalog,progression});if(fall)applied.push(fall);
   if(success){const material=grantEventMaterial(next.campaign.state,card,forestCrafting,{criticalSuccess});if(material)applied.push({material:{id:material.id,quantity:material.quantity},eventMaterial:true,critical:criticalSuccess});}
-  const details={eventId:eventDef,participantId,stat:calc.stat,relevantStat:calc.relevantStat,dc:calc.dc,roll,modifier:calc.modifier,total,successChancePct:calc.successChancePct,outcome:success?'success':'failure',criticalSuccess,criticalFailure,applied};
+  const details={eventId:eventDef,depth:Number(card.depth||ex.depth||1),participantId,stat:calc.stat,relevantStat:calc.relevantStat,dc:calc.dc,roll,modifier:calc.modifier,total,successChancePct:calc.successChancePct,outcome:success?'success':'failure',criticalSuccess,criticalFailure,applied};
   if(!success&&next.campaign.state.expedition?.regionId==='bog-of-lost-souls'&&Number(card.fogOnFailure||0)>0){const bog=next.campaign.state.expedition;bog.fogPressure=Math.min(3,Math.max(0,Number(bog.fogPressure||0)+Number(card.fogOnFailure||0)));details.fogPressureAfter=bog.fogPressure;}
-  // Stat-check events resolve as noncombat events. A legacy `checkmark` flag may still exist
-  // in older regional data, but it no longer forces a random battle after the roll.
-  const routed=resolveNoncombatWithoutCheckmark(next,{note:success?'success':'failure',details});
+  // Every resolved stat check immediately routes into a normal regional combat at the
+  // same Depth. Outcome rewards/penalties are already applied above before combat begins.
+  const routed=resolveNoncombatCheckmark(next,success?'success':'failure',{rng,details});
   if(!routed.ok)return routed;
   routed.result=details; return routed;
 }

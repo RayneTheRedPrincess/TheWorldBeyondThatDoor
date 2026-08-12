@@ -57,3 +57,84 @@ export function equipmentCatalogueIndex(catalog){return byId(catalog);}
 export function resolveEquipmentItem(value,catalog){return itemFor(value,byId(catalog));}
 export function isLegacyEquipment(value){const id=typeof value==='string'?value:value?.id;return isLegacyEquipmentId(id);}
 export function baseEquipmentId(value){const id=typeof value==='string'?value:value?.id;return legacyBaseItemId(id);}
+
+const RECOMMEND_CORE_STATS=['STR','DEX','CON','INT','FTH','CHA','LCK'];
+const RECOMMEND_FIXED_SLOTS=['helmet','chest','boots','gloves','accessory','abilityItem'];
+function recommendationMember(run,ownerId='vessel'){
+ if(!ownerId||ownerId==='vessel')return {id:'vessel',name:run?.party?.find(p=>p.id==='vessel')?.name||'Vessel',baseClass:run?.configuration?.effectiveBaseClass||run?.configuration?.permanentBaseClass||null,subclass:run?.configuration?.classless?null:(run?.configuration?.effectiveSubclass||null),classless:Boolean(run?.configuration?.classless),level:Math.max(1,n(run?.character?.level)||1)};
+ const a=run?.adventurers?.[ownerId];if(!a)return null;return {id:a.id,name:a.name||a.id,baseClass:a.baseClass||null,subclass:a.subclass||null,classless:false,level:Math.max(1,n(a.level)||1)};
+}
+function recommendationAbilities(member,baseAbilities,subclassAbilities){
+ if(!member)return [];
+ const base=member.classless?[]:(baseAbilities?.abilities||[]).filter(a=>a.baseClass===member.baseClass&&n(a.level||1)<=member.level);
+ const sub=member.subclass?(subclassAbilities?.abilities||[]).filter(a=>a.subclass===member.subclass&&n(a.level||1)<=member.level):[];
+ return [...base,...sub];
+}
+function recommendationWeights(member,baseAbilities,subclassAbilities){
+ const abilities=recommendationAbilities(member,baseAbilities,subclassAbilities),raw=Object.fromEntries(RECOMMEND_CORE_STATS.map(k=>[k,0]));let damage=0,heal=0,shield=0;
+ const wantedWeaponTypes=new Set();
+ for(const ability of abilities){
+   const abilityWeight=ability?.subclass?3:.5;
+   const req=ability?.requirements||{};if(req.weaponType)wantedWeaponTypes.add(req.weaponType);for(const t of req.weaponTypes||[])wantedWeaponTypes.add(t);
+   for(const component of ability?.components||[]){
+     const type=component?.type,base=Math.max(1,n(component?.base)||1),kindWeight=type==='damage'?1:(type==='heal'?0.9:(type==='shield'?0.9:0.55));
+     if(type==='damage')damage++;else if(type==='heal')heal++;else if(type==='shield')shield++;
+     for(const [stat,coef] of Object.entries(component?.scaling||{}))if(raw[stat]!==undefined)raw[stat]+=Math.abs(n(coef))*Math.sqrt(base)*kindWeight*abilityWeight;
+   }
+ }
+ const max=Math.max(.0001,...Object.values(raw));const core={};for(const stat of RECOMMEND_CORE_STATS)core[stat]=.35+3.15*(raw[stat]/max);
+ core.CON+=.45;core.DEX+=.15;
+ if(!abilities.length){
+   const defaults={Warrior:['STR','CON'],Rogue:['DEX','LCK'],Brawler:['STR','CON'],Mage:['INT','LCK'],Cleric:['FTH','INT'],Ranger:['DEX','STR'],Bard:['CHA','DEX'],Sorcerer:['INT','CHA'],Warlock:['INT','FTH'],Paladin:['STR','FTH'],Druid:['FTH','CON']};
+   for(const [i,stat] of (defaults[member?.baseClass]||['STR','DEX','CON','INT','FTH','CHA','LCK']).entries())core[stat]+=i===0?2.5:1.8;
+ }
+ const tank=['Warrior','Brawler','Paladin'].includes(member?.baseClass),evasive=['Rogue','Ranger','Bard'].includes(member?.baseClass);
+ const modifiers={damageCritChancePct:damage?1.0:.45,criticalDamagePct:damage?.48:.2,blockChancePct:tank?.85:.42,blockedDamageReductionPct:tank?.78:.38,dodgeChancePct:evasive?.88:.48,energyGainPct:.48,incomingHealingPct:tank?.36:.25,outgoingHealingPct:heal?1.0:.22,healingCritChancePct:heal?.72:.12,healingCriticalDamagePct:heal?.42:.08,finalDamagePct:damage?1.5:.65,shieldStrengthPct:shield?1.05:(tank?.65:.35),lifestealPct:damage?.95:.4,aggroPct:tank?.22:.05};
+ return {core,modifiers,damage,heal,shield,wantedWeaponTypes};
+}
+function recommendationItemScore(item,member,weights,catalog){
+ if(!item)return -Infinity;const weapon=allowedWeapon(member?.baseClass,item,{classless:member?.classless});if(!weapon.ok)return -Infinity;
+ const mult=mismatchMultiplier(member?.baseClass,item,catalog?.rules||{});let score=0;
+ for(const [key,val] of Object.entries(item.listedStats||{})){const amount=n(val)*mult;if(weights.core[key]!==undefined)score+=amount*weights.core[key];else score+=amount*n(weights.modifiers[key]||.18);}
+ for(const val of Object.values(item.resistances||{}))score+=n(val)*.13*mult;
+ for(const mech of item.mechanics||[])if(mech.type==='start-shield-pct-max-hp')score+=n(mech.value)*.28;
+ score+=(item.grantedAbilities||[]).length*4.5;
+ if(item.itemType==='Armor'&&item.slot==='chest')score+=n(catalog?.rules?.armorMitigationPct?.[item.armorCategory])*.36+n(item.armorCategory==='Heavy'?catalog?.rules?.heavyChestInitiativePenalty:0)*.3;
+ if(item.itemType==='Weapon'&&weights.wantedWeaponTypes.size){score+=weights.wantedWeaponTypes.has(item.weaponType)?5.5:-2.5;}
+ return score;
+}
+function recommendationLoadoutScore(loadout,member,weights,catalog){
+ const agg=aggregateEquipmentEffects(loadout,catalog,{baseClass:member?.baseClass,classless:member?.classless});if(!agg.ok)return -Infinity;let score=0;
+ for(const stat of RECOMMEND_CORE_STATS)score+=n(agg.coreStats?.[stat])*n(weights.core[stat]);
+ for(const [key,val] of Object.entries(agg.modifiers||{}))score+=n(val)*n(weights.modifiers[key]||.18);
+ for(const val of Object.values(agg.resistances||{}))score+=n(val)*.13;
+ score+=n(agg.armorMitigationPct)*.36+n(agg.initiativeBonus)*.3+n(agg.startingShieldPctMax)*.28+(agg.grantedAbilities||[]).length*4.5;
+ return score;
+}
+function availableRecommendationItems(run,ownerId,catalog,member,weights){
+ const index=byId(catalog),otherUse=new Map();
+ const owners=[equipmentOwner(run,'vessel'),...Object.keys(run?.adventurers||{}).map(id=>equipmentOwner(run,id))].filter(Boolean);
+ for(const owner of owners){if(owner.id===ownerId)continue;for(const id of Object.values(normalizeEquipmentLoadout(owner.equipment)))otherUse.set(id,n(otherUse.get(id))+1);}
+ const rows=[];for(const [id,entry] of Object.entries(run?.inventory?.equipment||{})){const item=index.get(id);if(!item)continue;const available=Math.max(0,Math.trunc(n(entry?.quantity))-n(otherUse.get(id)));if(available<=0)continue;const score=recommendationItemScore(item,member,weights,catalog);if(!Number.isFinite(score))continue;rows.push({id,item,available,score});}
+ return rows;
+}
+function bestFixedSlot(slot,rows){let best=null;for(const row of rows){if(row.available<1||!legalEquipmentSlots(row.item).includes(slot))continue;if(!best||row.score>best.score)best=row;}return best;}
+export function recommendEquipmentLoadout(run,{ownerId='vessel',catalog,baseAbilities=null,subclassAbilities=null}={}){
+ const member=recommendationMember(run,ownerId);if(!member)return {ok:false,error:'That selected party member is not available.'};const weights=recommendationWeights(member,baseAbilities,subclassAbilities),rows=availableRecommendationItems(run,ownerId,catalog,member,weights),loadout={};
+ for(const slot of RECOMMEND_FIXED_SLOTS){const best=bestFixedSlot(slot,rows);if(best)loadout[slot]=best.id;}
+ const charmRows=rows.filter(r=>r.available>=1&&legalEquipmentSlots(r.item).some(s=>s==='charm1'||s==='charm2')).sort((a,b)=>b.score-a.score);const charmPick=[];for(const row of charmRows){if(charmPick.some(x=>x.id===row.id))continue;charmPick.push(row);if(charmPick.length===2)break;}if(charmPick[0])loadout.charm1=charmPick[0].id;if(charmPick[1])loadout.charm2=charmPick[1].id;
+ const handRows=rows.filter(r=>legalEquipmentSlots(r.item).some(s=>s==='mainHand'||s==='offHand')).sort((a,b)=>b.score-a.score),mainRows=[null,...handRows.filter(r=>legalEquipmentSlots(r.item).includes('mainHand')).slice(0,16)],offRows=[null,...handRows.filter(r=>legalEquipmentSlots(r.item).includes('offHand')).slice(0,16)];let bestHands={score:0,main:null,off:null};
+ for(const main of mainRows)for(const off of offRows){if(!main&&!off)continue;if(main?.item?.handedness==='two-handed'&&off)continue;if(main&&off&&main.id===off.id&&main.available<2)continue;const score=n(main?.score)+n(off?.score)+(main?0.01:0)+(main&&off?0.02:0);if(score>bestHands.score){bestHands={score,main:main?.id||null,off:off?.id||null};}}
+ if(bestHands.main)loadout.mainHand=bestHands.main;if(bestHands.off)loadout.offHand=bestHands.off;
+ const score=recommendationLoadoutScore(loadout,member,weights,catalog),current=normalizeEquipmentLoadout(equipmentOwner(run,ownerId)?.equipment||{}),currentScore=recommendationLoadoutScore(current,member,weights,catalog);const topStats=[...RECOMMEND_CORE_STATS].sort((a,b)=>weights.core[b]-weights.core[a]).slice(0,3);
+ return {ok:true,ownerId:member.id,ownerName:member.name,baseClass:member.baseClass,subclass:member.subclass,loadout,score,currentScore,improvement:score-currentScore,topStats,weights};
+}
+export function autoEquipRecommendedAtCampsite(slot,{ownerId='vessel',catalog,baseAbilities=null,subclassAbilities=null}={}){
+ if(!slot?.campaign?.active||slot.campaign.state?.expedition?.state!=='campsite')return {ok:false,error:'Recommended equipment can only be applied at an active Campsite.'};const rec=recommendEquipmentLoadout(slot.campaign.state,{ownerId,catalog,baseAbilities,subclassAbilities});if(!rec.ok)return rec;const next=clone(slot),run=next.campaign.state,owner=equipmentOwner(run,ownerId);if(!owner)return {ok:false,error:'That selected party member is not available.'};const valid=validateEquipmentLoadout(rec.loadout,catalog,{baseClass:owner.baseClass,classless:owner.classless});if(!valid.ok)return {ok:false,error:valid.errors[0],errors:valid.errors};
+ for(const [id,count] of Object.entries(Object.values(rec.loadout).reduce((m,id)=>(m[id]=n(m[id])+1,m),{}))){const qty=inventoryQuantity(run,id),usedElsewhere=equipmentUseCount(run,id,{excludeOwnerId:owner.id});if(usedElsewhere+count>qty)return {ok:false,error:`Not enough carried copies of ${byId(catalog).get(id)?.name||id} are available.`};}
+ owner.setEquipment(run,clone(rec.loadout));run.crafting=run.crafting||{crafted:[],craftedCount:0,equippedHistory:[]};const hist=new Set(run.crafting.equippedHistory||[]);for(const id of Object.values(rec.loadout))hist.add(id);run.crafting.equippedHistory=[...hist];return {ok:true,slot:next,recommendation:rec,changed:JSON.stringify(normalizeEquipmentLoadout(equipmentOwner(slot.campaign.state,ownerId)?.equipment||{}))!==JSON.stringify(rec.loadout)};
+}
+
+export function scoreEquipmentItemsForRecommendation(run,{ownerId='vessel',catalog,baseAbilities=null,subclassAbilities=null,itemIds=[]}={}){
+ const member=recommendationMember(run,ownerId);if(!member)return {ok:false,error:'That selected party member is not available.'};const weights=recommendationWeights(member,baseAbilities,subclassAbilities),index=byId(catalog),scores={};for(const id of itemIds||[]){const item=index.get(id);scores[id]=item?recommendationItemScore(item,member,weights,catalog):-Infinity;}const topStats=[...RECOMMEND_CORE_STATS].sort((a,b)=>weights.core[b]-weights.core[a]).slice(0,3);return {ok:true,ownerId:member.id,ownerName:member.name,baseClass:member.baseClass,subclass:member.subclass,topStats,scores};
+}
